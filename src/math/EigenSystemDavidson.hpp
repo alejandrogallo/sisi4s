@@ -82,7 +82,22 @@ namespace cc4s {
       return leftEigenVectors;
     }
 
+    /**
+     * \brief Controls if the Davidson algorithm should make a refreshment
+     * of the basis whenever the maximal basis size has been attained.
+     * \param[in] value If value is true, it will be refreshed, otherwise not.
+     */
+    void refreshOnMaxBasisSize(const bool value) {
+      refreshOnMaxBasisSizeValue = value;
+    }
 
+    /**
+     * \brief Check wether or not the basis should be refreshed whenever
+     * the maximal basis size has been reached.
+     */
+    bool refreshOnMaxBasisSize() {
+      return refreshOnMaxBasisSizeValue;
+    }
 
 
   protected:
