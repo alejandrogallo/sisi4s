@@ -146,8 +146,13 @@ void CcsdEquationOfMotionDavidson::run() {
   H.buildIntermediates(intermediates);
 
   CcsdPreConditioner<double> P(
-    Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl, this
+    Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl
   );
+  P.preconditionerRandom = getIntegerArgument("preconditionerRandom", 0) == 1;
+  P.preconditionerRandomSigma = getRealArgument(
+    "preconditionerRandomSigma", 0.1
+  );
+
   allocatedTensorArgument(
     "SinglesHamiltonianDiagonal",
     new CTF::Tensor<>(*P.getDiagonalH().get(0))
@@ -983,14 +988,13 @@ CcsdPreConditioner<F>::CcsdPreConditioner(
   CTF::Tensor<F> &Vabcd,
   CTF::Tensor<F> &Viajb,
   CTF::Tensor<F> &Vijab,
-  CTF::Tensor<F> &Vijkl,
-  Algorithm *algorithm_
+  CTF::Tensor<F> &Vijkl
 ): diagonalH(
     std::vector<PTR(CTF::Tensor<double>)>(
       {NEW(CTF::Tensor<double>, Tai), NEW(CTF::Tensor<double>, Tabij)}
     ),
     std::vector<std::string>({"ai", "abij"})
-  ), algorithm(algorithm_)
+  )
   {
   // pointers to singles and doubles tensors of diagonal part
   auto Dai( diagonalH.get(0) );
@@ -1069,16 +1073,13 @@ public:
 
 template <typename F>
 std::vector<FockVector<F>>
-CcsdPreConditioner<F>::getInitialBasis(
-  const int eigenVectorsCount
-) {
+CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   LOG(0, "CcsdPreConditioner") << "Getting initial basis " << std::endl;
-  int random(algorithm->getIntegerArgument("preconditionerRandom", 0));
   DefaultRandomEngine randomEngine;
   std::normal_distribution<double> normalDistribution(
-    0.0, algorithm->getRealArgument("preconditionerRandomSigma", 0.1)
+    0.0, preconditionerRandomSigma
   );
-  if (random == 1) {
+  if (preconditionerRandom) {
     LOG(0, "CcsdPreConditioner") << "Randomizing initial guess" << std::endl;
   }
   // find K=eigenVectorsCount lowest diagonal elements at each processor
@@ -1133,7 +1134,7 @@ CcsdPreConditioner<F>::getInitialBasis(
       );
     }
     basisElement.write(elements);
-    if (random == 1) {
+    if (preconditionerRandom) {
       auto Rai(*basisElement.get(0));
       auto Rabij(*basisElement.get(1));
       setRandomTensor(Rai, normalDistribution, randomEngine);

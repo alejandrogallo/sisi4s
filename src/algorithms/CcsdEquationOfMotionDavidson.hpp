@@ -80,6 +80,18 @@ namespace cc4s {
         typedef FockVector<F> V;
 
         /**
+         * Wether or not to use random preconditioners.
+         */
+        bool preconditionerRandom = false;
+
+        /**
+         * The standard deviation used in the normal distribution to create
+         * random preconditioners.
+         */
+        double preconditionerRandomSigma = 1.0;
+
+
+        /**
          * \brief Constructor for the preconditioner.
          */
         CcsdPreConditioner (
@@ -90,23 +102,22 @@ namespace cc4s {
             CTF::Tensor<F> &Vabcd,
             CTF::Tensor<F> &Viajb,
             CTF::Tensor<F> &Vijab,
-            CTF::Tensor<F> &Vijkl,
-            Algorithm *algorithm
+            CTF::Tensor<F> &Vijkl
             );
 
+        /**
+         * \brief Get initial basis
+         * \param[in] eigenVectorsCount Number of eigen vectors
+         */
         std::vector<V> getInitialBasis(int eigenVectorsCount);
 
         V getCorrection(const complex eigenValue, V &residuum);
 
-    V getDiagonalH() const {
-      return diagonalH;
-    }
+        V getDiagonalH() const { return diagonalH; }
 
   protected:
     V diagonalH;
-    // Pointer to the current algorithm so that the preconditioner
-    // can access to user defined flags
-    Algorithm *algorithm;
+
   };
 
   class CcsdEquationOfMotionDavidson: public Algorithm {
