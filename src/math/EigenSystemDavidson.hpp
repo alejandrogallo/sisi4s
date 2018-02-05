@@ -118,49 +118,39 @@ namespace cc4s {
 
 
 
-          // compute rightCorrection using preconditioner
-          V rightCorrection( p.getCorrection(eigenValues[k], rightResiduum) );
+template <typename H, typename P, typename V>
+class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
+  public:
+    typedef typename V::FieldType F;
 
-          // orthonormalize and append to rightBasis
-          for (unsigned int b(0); b < rightBasis.size(); ++b) {
-            V rightScaledBase( rightBasis[b] * rightBasis[b].dot(rightCorrection) );
-            rightCorrection -= rightScaledBase;
-          }
-          F correction_norm(rightCorrection.dot(rightCorrection));
-          if (std::abs(correction_norm) < tolerance) continue;
-          rightCorrection *= F(1) / correction_norm;
-          rightBasis.push_back(rightCorrection);
-        }
-        ++iterationCount;
-        // end rightBasis extension loop
-      } while (
-        rms >= eigenVectorsCount * tolerance &&
-        rightBasis.size() <= maxBasisSize
-      );
-      // end convergence loop
-      if (rightBasis.size() > maxBasisSize) {
-        //throw EXCEPTION("Failed to reach convergence");
-      }
-    }
 
-    template <typename H, typename P>
-    void eigenSystemMonoVersion(
-      H &h,
-      const int eigenVectorsCount,
-      P &p,
-      const double tolerance,
-      const unsigned int maxBasisSize,
-      const unsigned int maxIterations,
-      const unsigned int minIterations,
-      std::vector<int> refreshIterations
-    ) {
+    EigenSystemDavidsonMono(
+      H *h_,
+      const int eigenVectorsCount_,
+      P *p_,
+      const double tolerance_,
+      const unsigned int maxBasisSize_,
+      const unsigned int maxIterations_,
+      const unsigned int minIterations_
+    ): EigenSystemDavidson<H,P,V>(
+      h_,
+      eigenVectorsCount_,
+      p_,
+      tolerance_,
+      maxBasisSize_,
+      maxIterations_,
+      minIterations_
+    ) {}
+
+    void run() {
       LOG(1,"Davidson").flags(
         std::ios::right | std::ios::scientific | std::ios::showpos
       );
       // get inital estimates for rEV = initial B matrix
-      rightEigenVectors = p.getInitialBasis(eigenVectorsCount);
+      std::cout << this->maxBasisSize << std::endl;
+      this->rightEigenVectors = this->p->getInitialBasis(this->eigenVectorsCount);
 
-      std::vector<V> rightBasis( rightEigenVectors );
+      std::vector<V> rightBasis( this->rightEigenVectors );
 
       // begin convergence loop
       double rms;
@@ -171,16 +161,19 @@ namespace cc4s {
         // Check if a refreshment should be done
         if (
           std::find(
-            refreshIterations.begin(),
-            refreshIterations.end(),
+            this->refreshIterations.begin(),
+            this->refreshIterations.end(),
             iterationCount + 1
-          ) != refreshIterations.end()
+          ) != this->refreshIterations.end()
+          ||
+          ( this->refreshOnMaxBasisSize() &&
+            rightBasis.size() >= this->maxBasisSize )
         ) {
           LOG(1,"Davidson") << "Refreshing BASIS" << std::endl;
-          rightBasis.resize(eigenVectorsCount);
-          eigenValues.resize(eigenVectorsCount);
+          rightBasis.resize(this->eigenVectorsCount);
+          this->eigenValues.resize(this->eigenVectorsCount);
           for (unsigned int i(0) ; i < rightBasis.size() ; i++) {
-            rightBasis[i] = rightEigenVectors[i];
+            rightBasis[i] = this->rightEigenVectors[i];
           }
         }
 
@@ -188,9 +181,9 @@ namespace cc4s {
         LapackMatrix<complex> reducedH(rightBasis.size(), rightBasis.size());
 
         for (unsigned int j(0); j < rightBasis.size(); ++j) {
-          V HBj( h.rightApply(rightBasis[j]) );
+          V HBj( this->h->rightApply(rightBasis[j]) );
           for (unsigned int i(0); i < rightBasis.size(); ++i) {
-            //V HBi( h.rightApply(rightBasis[i]) );
+            //V HBi( h->rightApply(rightBasis[i]) );
             //reducedH(i,j) = HBi.dot(HBj);
             reducedH(i,j) = rightBasis[i].dot(HBj);
           }
@@ -204,48 +197,50 @@ namespace cc4s {
 
         // begin rightBasis extension loop for each k
         rms = 0.0;
-        for (unsigned int k(0); k < eigenValues.size(); ++k) {
+        for (unsigned int k(0); k < this->eigenValues.size(); ++k) {
           // get estimated eigenvalue
-          eigenValues[k] = reducedEigenSystem.getEigenValues()[k];
+          this->eigenValues[k] = reducedEigenSystem.getEigenValues()[k];
 
           // compute estimated eigenvector by expansion in rightBasis
-          rightEigenVectors[k] *= F(0);
+          this->rightEigenVectors[k] *= F(0);
           for (int b(0); b < reducedH.getColumns(); ++b) {
-            rightEigenVectors[k] +=
+            this->rightEigenVectors[k] +=
               rightBasis[b] * ComplexTraits<F>::convert(
                 reducedEigenSystem.getRightEigenVectors()(b,k)
               );
           }
           double rightNorm(
-            rightEigenVectors[k].dot(rightEigenVectors[k])
+            this->rightEigenVectors[k].dot(this->rightEigenVectors[k])
           );
 
           LOG(1,"Davidson") << "Right norm [" << k << "] "
                             << rightNorm << std::endl;
           LOG(1,"Davidson") << "EV         [" << k << "] "
                             << std::setprecision(15) << std::setw(23)
-                            << eigenValues[k] << std::endl;
+                            << this->eigenValues[k] << std::endl;
 
 
 
           // compute residuum
-          V residuum( h.rightApply(rightEigenVectors[k]) );
+          V residuum( this->h->rightApply(this->rightEigenVectors[k]) );
           residuum -=
-            rightEigenVectors[k] * ComplexTraits<F>::convert(
+            this->rightEigenVectors[k] * ComplexTraits<F>::convert(
               //std::sqrt(eigenValues[k])
-              eigenValues[k]
+              this->eigenValues[k]
             );
           rms += std::real(residuum.dot(residuum)) /
-            std::real(rightEigenVectors[k].dot(rightEigenVectors[k]));
+            std::real(this->rightEigenVectors[k].dot(this->rightEigenVectors[k]));
 
           // compute correction using preconditioner
-          V correction( p.getCorrection(eigenValues[k], residuum) );
+          V correction( this->p->getCorrection(this->eigenValues[k], residuum) );
 
           // orthonormalize and append to rightBasis
           for (unsigned int b(0); b < rightBasis.size(); ++b) {
             correction -= rightBasis[b] * rightBasis[b].dot(correction);
           }
-          F correction_norm( std::sqrt(correction.dot(correction)) );
+          typename V::FieldType correction_norm(
+            std::sqrt(correction.dot(correction))
+          );
           if (std::abs(correction_norm) < 1E-6) continue;
           correction *= 1 / correction_norm;
           rightBasis.push_back(correction);
@@ -254,36 +249,25 @@ namespace cc4s {
         ++iterationCount;
         // end rightBasis extension loop
       } while (
-        iterationCount+1 <= minIterations    || (
-          rms >= eigenVectorsCount * tolerance &&
-          rightBasis.size() <= maxBasisSize    &&
-          iterationCount+1 <= maxIterations
+        iterationCount+1 <= this->minIterations    || (
+          rms >= this->eigenVectorsCount * this->tolerance &&
+          rightBasis.size() <= this->maxBasisSize    &&
+          iterationCount+1 <= this->maxIterations
         )
       );
       // end convergence loop
-      if (rightBasis.size() > maxBasisSize) {
+      if (rightBasis.size() > this->maxBasisSize) {
         //throw EXCEPTION("Failed to reach convergence");
       }
     }
 
-    const std::vector<complex> &getEigenValues() const {
-      return eigenValues;
-    }
 
-    const std::vector<V> &getRightEigenVectors() const {
-      return rightEigenVectors;
-    }
+};
 
-    const std::vector<V> &getLeftEigenVectors() const {
-      return leftEigenVectors;
-    }
 
-  protected:
-    std::vector<complex> eigenValues;
-    std::vector<V> rightEigenVectors;
-    std::vector<V> leftEigenVectors;
-  };
-}
+
+} // namespace cc4s
+
 #endif
 
 /*
