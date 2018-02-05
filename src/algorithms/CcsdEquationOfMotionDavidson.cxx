@@ -172,11 +172,31 @@ void CcsdEquationOfMotionDavidson::run() {
   std::vector<int> refreshIterations(
     RangeParser(getTextArgument("refreshIterations", "")).getRange()
   );
-  EigenSystemDavidson<FockVector<double>> eigenSystem(
-    H, eigenStates, P, ediff,
-    No*Nv + (No*(No - 1)/2 ) * (Nv * (Nv - 1)/2),
-    maxIterations, minIterations, false, refreshIterations
+  EigenSystemDavidsonMono<
+    CcsdSimilarityTransformedHamiltonian<double>,
+    CcsdPreConditioner<double>,
+    FockVector<double>
+  > eigenSystem(
+    &H,
+    eigenStates,
+    &P,
+    ediff,
+    getIntegerArgument(
+      "maxBasisSize",
+      No*Nv + (No*(No - 1)/2 ) * (Nv * (Nv - 1)/2)
+    ),
+    maxIterations,
+    minIterations
   );
+  eigenSystem.refreshOnMaxBasisSize(
+      getIntegerArgument("refreshOnMaxBasisSize", 0) == 1
+  );
+  if (eigenSystem.refreshOnMaxBasisSize()) {
+    LOG(0, "CcsdEomDavid") <<
+      "Refreshing of max basis size reaching" << std::endl;
+  }
+  eigenSystem.run();
+
 
   std::vector<complex> eigenValues(eigenSystem.getEigenValues());
   int eigenCounter(0);
