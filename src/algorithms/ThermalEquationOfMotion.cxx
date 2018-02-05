@@ -58,7 +58,13 @@ void ThermalEquationOfMotion::run() {
     new CTF::Tensor<>(*basis[8].get(1))
   );
   // Davidson solver
-  EigenSystemDavidson<FockVector<double>> eigenSystem(H, 16, P, 1E-14, 16*16);
+  EigenSystemDavidsonMono<
+    ThermalHamiltonian<double>,
+    ThermalHamiltonianPreConditioner<double>,
+    FockVector<double>
+  > eigenSystem(&H, 16, &P, 1E-14, 16*16, 1, 1000);
+  // Run Davidson solver
+  eigenSystem.run();
 
   std::vector<complex> eigenValues(eigenSystem.getEigenValues());
   for (auto &ev: eigenValues) {
