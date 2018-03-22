@@ -147,7 +147,6 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
         std::ios::right | std::ios::scientific | std::ios::showpos
       );
       // get inital estimates for rEV = initial B matrix
-      std::cout << this->maxBasisSize << std::endl;
       this->rightEigenVectors = this->p->getInitialBasis(this->eigenVectorsCount);
 
       std::vector<V> rightBasis( this->rightEigenVectors );
