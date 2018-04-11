@@ -156,6 +156,18 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
       unsigned int iterationCount(0);
       do {
         LOG(1,"Davidson") << "iteration=" << (iterationCount+1) << std::endl;
+        LOG(0,"Davidson") <<
+          "It." << " " <<
+          "St." << "      " <<
+          "R(energy)"  << "       " <<
+          "I(energy)"  << "              " <<
+          "norm"       << "              " <<
+          "#basis" << "             " <<
+          "rms"        << "              " <<
+          "Delta E"        << "    " <<
+        std::endl;
+
+        auto previousEigenvalues(this->eigenValues);
 
         // Check if a refreshment should be done
         if (
@@ -168,7 +180,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           ( this->refreshOnMaxBasisSize() &&
             rightBasis.size() >= this->maxBasisSize )
         ) {
-          LOG(1,"Davidson") << "Refreshing BASIS" << std::endl;
+          LOG(1,"Davidson") << "Refreshing current basis!" << std::endl;
           rightBasis.resize(this->eigenVectorsCount);
           this->eigenValues.resize(this->eigenVectorsCount);
           for (unsigned int i(0) ; i < rightBasis.size() ; i++) {
@@ -212,14 +224,6 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
             this->rightEigenVectors[k].dot(this->rightEigenVectors[k])
           );
 
-          LOG(1,"Davidson") << "Right norm [" << k << "] "
-                            << rightNorm << std::endl;
-          LOG(1,"Davidson") << "EV         [" << k << "] "
-                            << std::setprecision(15) << std::setw(23)
-                            << this->eigenValues[k] << std::endl;
-
-
-
           // compute residuum
           V residuum( this->h->rightApply(this->rightEigenVectors[k]) );
           residuum -=
@@ -229,6 +233,20 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
             );
           rms += std::real(residuum.dot(residuum)) /
             std::real(this->rightEigenVectors[k].dot(this->rightEigenVectors[k]));
+
+          LOG(0,"Davidson") <<
+            iterationCount + 1          << " "           <<
+            k                           << " "           <<
+            std::setprecision(15)       << std::setw(23) <<
+            this->eigenValues[k].real() << " "           <<
+            this->eigenValues[k].imag() << " "           <<
+            rightNorm                   << " "           <<
+            rightBasis.size()           << " "           <<
+            rms                         << " "           <<
+            std::abs(
+              previousEigenvalues[k] - this->eigenValues[k]
+            ) << " "           <<
+          std::endl;
 
           // compute correction using preconditioner
           V correction( this->p->getCorrection(this->eigenValues[k], residuum) );
@@ -243,21 +261,18 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           if (std::abs(correction_norm) < 1E-6) continue;
           correction *= 1 / correction_norm;
           rightBasis.push_back(correction);
-          LOG(1,"Davidson") << "Basis size " << rightBasis.size() << std::endl;
         }
         ++iterationCount;
         // end rightBasis extension loop
       } while (
-        iterationCount+1 <= this->minIterations    || (
+        iterationCount+1 <= this->minIterations    ||
+        (
           rms >= this->eigenVectorsCount * this->tolerance &&
-          rightBasis.size() <= this->maxBasisSize    &&
+          (this->refreshOnMaxBasisSize() ? true : (rightBasis.size() <= this->maxBasisSize))&&
           iterationCount+1 <= this->maxIterations
         )
       );
       // end convergence loop
-      if (rightBasis.size() > this->maxBasisSize) {
-        //throw EXCEPTION("Failed to reach convergence");
-      }
     }
 
 
