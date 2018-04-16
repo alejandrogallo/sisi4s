@@ -551,6 +551,18 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
       nullptr
   );
 
+  Tensor<complex> *Vabcd(
+    isArgumentGiven("PPPPCoulombIntegrals") ?
+      new Tensor<complex>(4, vvvv.data(), syms.data(), *Cc4s::world, "Vabcd") :
+      nullptr
+  );
+
+  Tensor<complex> *Vaibc(
+    isArgumentGiven("PHPPCoulombIntegrals") ?
+      new Tensor<complex>(4, vovv.data(), syms.data(), *Cc4s::world, "Vaibc") :
+      nullptr
+  );
+
   Univar_Function<complex> fConj(conj<complex>);
 
   Tensor<complex> conjTransposeGammaGai(false, *GammaGai);
@@ -613,6 +625,21 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
     (*Vaijk)["aijk"] = conjTransposeGammaGai["Gaj"] * (*GammaGij)["Gik"];
     allocatedTensorArgument<complex>("PHHHCoulombIntegrals", Vaijk);
   }
+
+  if (Vabcd) {
+    LOG(1, "CoulombIntegrals") << "Evaluating "
+                               << Vabcd->get_name() << std::endl;
+    (*Vabcd)["abcd"] = conjTransposeGammaGab["Gac"] * (*GammaGab)["Gbd"];
+    allocatedTensorArgument<complex>("PPPPCoulombIntegrals", Vabcd);
+  }
+
+  if (Vaibc) {
+    LOG(1, "CoulombIntegrals") << "Evaluating "
+                               << Vaibc->get_name() << std::endl;
+    (*Vaibc)["aibc"] = conjTransposeGammaGab["Gab"] * (*GammaGia)["Gic"];
+    allocatedTensorArgument<complex>("PHPPCoulombIntegrals", Vaibc);
+  }
+
 }
 
 void CoulombIntegralsFromVertex::dryCalculateComplexIntegrals() {
