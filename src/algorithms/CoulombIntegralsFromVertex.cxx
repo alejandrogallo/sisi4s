@@ -110,7 +110,7 @@ void CoulombIntegralsFromVertex::dryRun() {
   );
 
   LOG(0, "Integrals") <<
-    "Reading Coulomb integrals form vertex " << GammaGqr->get_name() 
+    "Reading Coulomb integrals form vertex " << GammaGqr->get_name()
     << std::endl;
 
   // Compute the No,Nv,NG,Np
@@ -508,6 +508,12 @@ void CoulombIntegralsFromVertex::dryCalculateRealIntegrals() {
 }
 
 void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
+  int antisymmetrize(getIntegerArgument("antisymmetrize", 0));
+  if (antisymmetrize) {
+    LOG(0, "CoulombIntegrals") << "Calculating antisymmetrized integrals"
+      << std::endl;
+  }
+
   Tensor<complex> *Vabij(
     isArgumentGiven("PPHHCoulombIntegrals") ?
       new Tensor<complex>(4, vvoo.data(), syms.data(), *Cc4s::world, "Vabij") :
@@ -515,6 +521,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
   );
 
   Tensor<complex> *Vijab(
+    // TODO: HHPP is always conj(Permute(PPHH))
     isArgumentGiven("HHPPCoulombIntegrals") ?
       new Tensor<complex>(4, oovv.data(), syms.data(), *Cc4s::world, "Vijab") :
       nullptr
@@ -561,6 +568,46 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
     isArgumentGiven("PHPPCoulombIntegrals") ?
       new Tensor<complex>(4, vovv.data(), syms.data(), *Cc4s::world, "Vaibc") :
       nullptr
+  );
+
+  // Initialization of tensors created from already existing ones
+  // In principle the integrals above do not constitute the minimal set of
+  // integrals from which one can write the rest (which would be 7)
+
+  Tensor<complex> *Vabic(
+    isArgumentGiven("PPHPCoulombIntegrals") ?
+    new Tensor<complex>(4, vvov.data(), syms.data(), *Cc4s::world, "Vabic"):
+    nullptr
+  );
+  Tensor<complex> *Vabci(
+    isArgumentGiven("PPPHCoulombIntegrals") ?
+    new Tensor<complex>(4, vvvo.data(), syms.data(), *Cc4s::world, "Vabci"):
+    nullptr
+  );
+  Tensor<complex> *Vijak(
+    isArgumentGiven("HHPHCoulombIntegrals") ?
+    new Tensor<complex>(4, oovo.data(), syms.data(), *Cc4s::world, "Vijak"):
+    nullptr
+  );
+  Tensor<complex> *Viajk(
+    isArgumentGiven("HPHHCoulombIntegrals") ?
+    new Tensor<complex>(4, ovoo.data(), syms.data(), *Cc4s::world, "Viajk"):
+    nullptr
+  );
+  Tensor<complex> *Viajb(
+    isArgumentGiven("HPHPCoulombIntegrals") ?
+    new Tensor<complex>(4, ovov.data(), syms.data(), *Cc4s::world, "Viajb"):
+    nullptr
+  );
+  Tensor<complex> *Viabj(
+    isArgumentGiven("HPPHCoulombIntegrals") ?
+    new Tensor<complex>(4, ovvo.data(), syms.data(), *Cc4s::world, "Viabj"):
+    nullptr
+  );
+  Tensor<complex> *Viabc(
+    isArgumentGiven("HPPPCoulombIntegrals") ?
+    new Tensor<complex>(4, ovvv.data(), syms.data(), *Cc4s::world, "Viabc"):
+    nullptr
   );
 
   Univar_Function<complex> fConj(conj<complex>);
@@ -638,6 +685,193 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
                                << Vaibc->get_name() << std::endl;
     (*Vaibc)["aibc"] = conjTransposeGammaGab["Gab"] * (*GammaGia)["Gic"];
     allocatedTensorArgument<complex>("PHPPCoulombIntegrals", Vaibc);
+  }
+
+  // Force integrals to be real
+  // --------------------------------------------------------
+  if (getIntegerArgument("forceReal", 0) == 1) {
+    LOG(1, "CoulombIntegrals") << "Forcing integrals to be real" << std::endl;
+
+    CTF::Transform<complex>(
+      std::function<void(complex &)>(
+        [](complex &v) { v.imag(0.0); }
+      )
+    ) (
+      (*Vabij)["abij"]
+    );
+    CTF::Transform<complex>(
+      std::function<void(complex &)>(
+        [](complex &v) { v.imag(0.0); }
+      )
+    ) (
+      (*Vijab)["ijab"]
+    );
+    CTF::Transform<complex>(
+      std::function<void(complex &)>(
+        [](complex &v) { v.imag(0.0); }
+      )
+    ) (
+      (*Vaijb)["aijb"]
+    );
+    CTF::Transform<complex>(
+      std::function<void(complex &)>(
+        [](complex &v) { v.imag(0.0); }
+      )
+    ) (
+      (*Vaibj)["aibj"]
+    );
+    CTF::Transform<complex>(
+      std::function<void(complex &)>(
+        [](complex &v) { v.imag(0.0); }
+      )
+    ) (
+      (*Vijkl)["ijkl"]
+    );
+    CTF::Transform<complex>(
+      std::function<void(complex &)>(
+        [](complex &v) { v.imag(0.0); }
+      )
+    ) (
+      (*Vijka)["ijka"]
+    );
+    CTF::Transform<complex>(
+      std::function<void(complex &)>(
+        [](complex &v) { v.imag(0.0); }
+      )
+    ) (
+      (*Vaijk)["aijk"]
+    );
+    CTF::Transform<complex>(
+      std::function<void(complex &)>(
+        [](complex &v) { v.imag(0.0); }
+      )
+    ) (
+      (*Vabcd)["abcd"]
+    );
+    CTF::Transform<complex>(
+      std::function<void(complex &)>(
+        [](complex &v) { v.imag(0.0); }
+      )
+    ) (
+      (*Vaibc)["aibc"]
+    );
+
+  }
+
+  // Create the rest of integrals from the already given ones
+  // --------------------------------------------------------
+
+  if (Vabic) {
+    // vvov = h%v * vovv
+    LOG(1, "CoulombIntegrals") << "Evaluating "
+                               << Vabic->get_name() << " using "
+                               << Vaibc->get_name() << std::endl;
+
+    Vabic->sum(1.0, *Vaibc, "ciba", 0.0, "abic", fConj);
+    if (antisymmetrize) {
+      // vvvo = h * vovv
+      Vabic->sum(-1.0, *Vaibc, "ciab", 1.0, "abic", fConj);
+    }
+    allocatedTensorArgument<complex>("PPHPCoulombIntegrals", Vabic);
+  }
+  if (Vabci) {
+    // vvvo = h * vovv
+    LOG(1, "CoulombIntegrals") << "Evaluating "
+                               << Vabci->get_name() << " using "
+                               << Vaibc->get_name() << std::endl;
+
+    Vabci->sum(1.0, *Vaibc, "ciab", 0.0, "abci", fConj);
+    if (antisymmetrize) {
+      // vvov = h%v * vovv
+      Vabci->sum(-1.0, *Vaibc, "ciba", 1.0, "abci", fConj);
+    }
+    allocatedTensorArgument<complex>("PPPHCoulombIntegrals", Vabci);
+  }
+  if (Vijak) {
+    // oovo = h * vooo
+    LOG(1, "CoulombIntegrals") << "Evaluating "
+                               << Vijak->get_name() << " using "
+                               << Vaijk->get_name() << std::endl;
+
+    Vijak->sum(1.0, *Vaijk, "akij", 0.0, "ijak", fConj);
+    if (antisymmetrize) {
+      // ooov = e * ooov
+      Vijak->sum(-1.0, *Vijka, "ijka", 1.0, "ijak");
+    }
+    allocatedTensorArgument<complex>("HHPHCoulombIntegrals", Vijak);
+  }
+  if (Viajk) {
+    // ovoo = h * ooov
+    LOG(1, "CoulombIntegrals") << "Evaluating "
+                               << Viajk->get_name() << " using "
+                               << Vijka->get_name() << std::endl;
+
+    Viajk->sum(1.0, *Vijka, "jkia", 0.0, "iajk", fConj);
+    if (antisymmetrize) {
+      // ovoo = h * ooov
+      Viajk->sum(-1.0, *Vijka, "kjia", 1.0, "iajk", fConj);
+    }
+    allocatedTensorArgument<complex>("HPHHCoulombIntegrals", Viajk);
+  }
+  if (Viajb) {
+    // ovov = v * vovo
+    LOG(1, "CoulombIntegrals") << "Evaluating "
+                               << Viajb->get_name() << " using "
+                               << Vaibj->get_name() << std::endl;
+
+    Viajb->sum(1.0, *Vaibj, "aibj", 0.0, "iajb");
+    if (antisymmetrize) {
+      // ovvo = h * voov
+      Viajb->sum(-1.0, *Vaijb, "bjia", 1.0, "iajb", fConj);
+    }
+    allocatedTensorArgument<complex>("HPHPCoulombIntegrals", Viajb);
+  }
+  if (Viabj) {
+    // ovvo = h * voov
+    LOG(1, "CoulombIntegrals") << "Evaluating "
+                               << Viabj->get_name() << " using "
+                               << Vaijb->get_name() << std::endl;
+
+    Viabj->sum(1.0, *Vaijb, "bjia", 0.0, "iabj", fConj);
+    if (antisymmetrize) {
+      // ovov = v * vovo
+      Viabj->sum(-1.0, *Vaibj, "aibj", 1.0, "iabj");
+    }
+    allocatedTensorArgument<complex>("HPPHCoulombIntegrals", Viabj);
+  }
+  if (Viabc) {
+    // ovvv = v * vovv
+    LOG(1, "CoulombIntegrals") << "Evaluating "
+                               << Viabc->get_name() << " using "
+                               << Vaibc->get_name() << std::endl;
+
+    Viabc->sum(1.0, *Vaibc, "aicb", 0.0, "iabc");
+    if (antisymmetrize) {
+      // ovvv = v * vovv
+      Viabc->sum(-1.0, *Vaibc, "aibc", 1.0, "iabc");
+    }
+    allocatedTensorArgument<complex>("HPPPCoulombIntegrals", Viabc);
+  }
+
+  if (antisymmetrize) {
+    // Antisymmetrize integrals calculated directly from Gamma
+    // IMPORTANT: This must be written after the creation of the integrals
+    //            depending on them.
+    if (Vijkl) (*Vijkl)["ijkl"] -= (*Vijkl)["ijlk"];
+    if (Vijka) (*Vijka)["ijka"] -= (*Vijka)["jika"];
+    if (Vabcd) (*Vabcd)["abcd"] -= (*Vabcd)["abdc"];
+    if (Vabij) (*Vabij)["abij"] -= (*Vabij)["abji"];
+    if (Vijab) (*Vijab)["ijab"] -= (*Vijab)["ijba"];
+    if (Vaijk) (*Vaijk)["aijk"] -= (*Vaijk)["aikj"];
+    if (Vaibc) (*Vaibc)["aibc"] -= (*Vaibc)["aicb"];
+
+    //There is an inter-dependence of Vaijb and Vaibj for antisymmetrizing
+    //so we define a temporary tensor, that is not antisymmetrized.
+    CTF::Tensor<complex> originalVaijb(*Vaijb);
+
+    if (Vaijb) (*Vaijb)["aijb"] -= (*Vaibj)["aibj"];
+    if (Vaibj) (*Vaibj)["aibj"] -= originalVaijb["aijb"];
+
   }
 
 }
