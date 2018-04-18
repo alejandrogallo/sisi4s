@@ -38,6 +38,10 @@ namespace cc4s {
       const int iteration, const PTR(const FockVector<complex>) &amplitudes
     );
 
+    template <typename F>
+    PTR(FockVector<F>) getResiduumTemplate(
+      const int iteration, const PTR(const FockVector<F>) &amplitudes
+    );
   };
 
 }

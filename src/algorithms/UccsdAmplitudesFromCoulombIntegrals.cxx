@@ -114,63 +114,94 @@ void UccsdAmplitudesFromCoulombIntegrals::createMask(){
 PTR(FockVector<complex>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
   const int iterationStep, const PTR(const FockVector<complex>) &amplitudes
 ) {
-  throw EXCEPTION("Complex version not implemented");
+  if (iterationStep == 0){
+    LOG(1, getAbbreviation()) <<
+       "WARNING: Using complex version of Uccsd" << std::endl;
+    LOG(1, getAbbreviation()) <<
+       "WARNING: Complex version is not tested." << std::endl;
+  }
+  return getResiduumTemplate<complex>(iterationStep, amplitudes);
 }
 
 PTR(FockVector<double>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
   const int iterationStep, const PTR(const FockVector<double>) &amplitudes
 ) {
+  return getResiduumTemplate<double>(iterationStep, amplitudes);
+}
 
-  // Equations from: (It assumes hartree-fock orbitals)
+template <typename F>
+PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
+  const int iterationStep, const PTR(const FockVector<F>) &amplitudes
+) {
+  // Equations from:
   // --------------
   //John F. Stanton, Jürgen Gauss, John D. Watts, Rodney J. Bartlett.
   //A direct product decomposition approach for symmetry exploitation in
   //many‐body methods. I. Energy calculations.
-  //The Journal of Chemical Physics  1991 10.1063/1.460620
+  //The Journal of Chemical Physics  1991 doi:10.1063/1.460620
 
-  auto epsi(getTensorArgument<double>("HoleEigenEnergies"));
-  auto epsa(getTensorArgument<double>("ParticleEigenEnergies"));
+  CTF::Tensor<double> *epsi(
+    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies")
+  );
+
+  CTF::Tensor<double> *epsa(
+    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
+  );
 
   // Get couloumb integrals
-  auto Vijkl(getTensorArgument<double>("HHHHCoulombIntegrals"));
-  auto Vabcd(getTensorArgument<double>("PPPPCoulombIntegrals"));
-  auto Vijka(getTensorArgument<double>("HHHPCoulombIntegrals"));
-  auto Vijab(getTensorArgument<double>("HHPPCoulombIntegrals"));
-  auto Viajk(getTensorArgument<double>("HPHHCoulombIntegrals"));
-  auto Viajb(getTensorArgument<double>("HPHPCoulombIntegrals"));
-  auto Viabc(getTensorArgument<double>("HPPPCoulombIntegrals"));
-  //auto Vabij(getTensorArgument<double>("PPHHCoulombIntegrals"));
-  //auto Vabic(getTensorArgument<double>("PPHPCoulombIntegrals"));
-  auto Viabj(getTensorArgument<double>("HPPHCoulombIntegrals"));
-  auto Vaibc(getTensorArgument<double>("PHPPCoulombIntegrals"));
-  auto Vijak(getTensorArgument<double>("HHPHCoulombIntegrals"));
-  auto Vabci(getTensorArgument<double>("PPPHCoulombIntegrals"));
+  auto Vijkl(getTensorArgument<F, CTF::Tensor<F> >("HHHHCoulombIntegrals"));
+  auto Vabcd(getTensorArgument<F, CTF::Tensor<F> >("PPPPCoulombIntegrals"));
+  auto Vijka(getTensorArgument<F, CTF::Tensor<F> >("HHHPCoulombIntegrals"));
+  auto Vijab(getTensorArgument<F, CTF::Tensor<F> >("HHPPCoulombIntegrals"));
+  auto Viajk(getTensorArgument<F, CTF::Tensor<F> >("HPHHCoulombIntegrals"));
+  auto Viajb(getTensorArgument<F, CTF::Tensor<F> >("HPHPCoulombIntegrals"));
+  auto Viabc(getTensorArgument<F, CTF::Tensor<F> >("HPPPCoulombIntegrals"));
+  //auto Vabij(getTensorArgument<F, CTF::Tensor<F> >("PPHHCoulombIntegrals"));
+  //auto Vabic(getTensorArgument<F, CTF::Tensor<F> >("PPHPCoulombIntegrals"));
+  auto Viabj(getTensorArgument<F, CTF::Tensor<F> >("HPPHCoulombIntegrals"));
+  auto Vaibc(getTensorArgument<F, CTF::Tensor<F> >("PHPPCoulombIntegrals"));
+  auto Vijak(getTensorArgument<F, CTF::Tensor<F> >("HHPHCoulombIntegrals"));
+  auto Vabci(getTensorArgument<F, CTF::Tensor<F> >("PPPHCoulombIntegrals"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int vv[] = {Nv, Nv};
   int oo[] = {No, No};
   int syms[] = {NS, NS};
-  CTF::Tensor<> *fab(
-    new CTF::Tensor<>(2, vv, syms, *Cc4s::world, "fab")
+  CTF::Tensor<F> *fab(
+    new CTF::Tensor<F>(2, vv, syms, *Cc4s::world, "fab")
   );
-  CTF::Tensor<> *fij(
-    new CTF::Tensor<>(2, oo, syms, *Cc4s::world, "fij")
+  CTF::Tensor<F> *fij(
+    new CTF::Tensor<F>(2, oo, syms, *Cc4s::world, "fij")
   );
-  CTF::Tensor<> *fia;
+  CTF::Tensor<F> *fia;
 
   if (
     isArgumentGiven("HPFockMatrix") &&
     isArgumentGiven("HHFockMatrix") &&
     isArgumentGiven("PPFockMatrix")
   ) {
+    if (iterationStep == 0){
     LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
-    fia = getTensorArgument<double, CTF::Tensor<> >("HPFockMatrix");
-    fab = getTensorArgument<double, CTF::Tensor<> >("PPFockMatrix");
-    fij = getTensorArgument<double, CTF::Tensor<> >("HHFockMatrix");
+    }
+    fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
+    fab = getTensorArgument<F, CTF::Tensor<F> >("PPFockMatrix");
+    fij = getTensorArgument<F, CTF::Tensor<F> >("HHFockMatrix");
   } else {
     fia = NULL;
-    (*fab)["aa"] = (*epsa)["a"];
-    (*fij)["ii"] = (*epsi)["i"];
+    CTF::Transform<double, F>(
+      std::function<void(double, F &)>(
+        [](double eps, F &f) { f = eps; }
+      )
+    ) (
+      (*epsi)["i"], (*fij)["ii"]
+    );
+    CTF::Transform<double, F>(
+      std::function<void(double, F &)>(
+        [](double eps, F &f) { f = eps; }
+      )
+    ) (
+      (*epsa)["a"], (*fab)["aa"]
+    );
   }
 
 
@@ -184,7 +215,7 @@ PTR(FockVector<double>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
   Tabij->set_name("Tabij");
 
 
-  auto residuum(NEW(FockVector<double>, *amplitudes));
+  auto residuum(NEW(FockVector<F>, *amplitudes));
   *residuum *= 0.0;
   // Allocate Tensors for T2 amplitudes
   auto Rai(residuum->get(0));
@@ -195,14 +226,14 @@ PTR(FockVector<double>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
 
   // Define intermediates
   auto Fae(
-    NEW(CTF::Tensor<>, 2, vv, syms, *Cc4s::world, "Fae")
+    NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Fae")
   );
   auto Fmi(
-    NEW(CTF::Tensor<>, 2, oo, syms, *Cc4s::world, "Fmi")
+    NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Fmi")
   );
   int ov[] = {No, Nv};
   auto Fme(
-    NEW(CTF::Tensor<>, 2, ov, syms, *Cc4s::world, "Fme")
+    NEW(CTF::Tensor<F>, 2, ov, syms, *Cc4s::world, "Fme")
   );
 
 
@@ -211,12 +242,12 @@ PTR(FockVector<double>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
 
   // Equation (10)
   // TODO: Use only one Tau, since TildeTau_abij is only uysed to form Fpq
-  auto Tau_abij(NEW(CTF::Tensor<>, *Tabij));
+  auto Tau_abij(NEW(CTF::Tensor<F>, *Tabij));
   (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
   (*Tau_abij)["abij"] += ( - 1.0 ) * (*Tai)["bi"] * (*Tai)["aj"];
 
   // Equation (9)
-  auto TildeTau_abij(NEW(CTF::Tensor<>, *Tabij));
+  auto TildeTau_abij(NEW(CTF::Tensor<F>, *Tabij));
   (*TildeTau_abij)["abij"] += ( 0.5 ) * (*Tai)["ai"] * (*Tai)["bj"];
   (*TildeTau_abij)["abij"] += ( - 0.5 ) * (*Tai)["bi"] * (*Tai)["aj"];
 
@@ -235,21 +266,21 @@ PTR(FockVector<double>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
   }
 
   // Equation (6)
-  auto Wijkl(NEW(CTF::Tensor<>, *Vijkl));
+  auto Wijkl(NEW(CTF::Tensor<F>, *Vijkl));
   (*Wijkl)["mnij"] += (+ 1.0) * (*Tai)["ej"] * (*Vijka)["mnie"];
   // Pij
   (*Wijkl)["mnij"] += (- 1.0) * (*Tai)["ei"] * (*Vijka)["mnje"];
   (*Wijkl)["mnij"] += (0.25) * (*Tau_abij)["efij"] * (*Vijab)["mnef"];
 
   // Equation (7)
-  auto Wabcd(NEW(CTF::Tensor<>, *Vabcd));
+  auto Wabcd(NEW(CTF::Tensor<F>, *Vabcd));
   (*Wabcd)["abef"] += (- 1.0) * (*Tai)["bm"] * (*Vaibc)["amef"];
   // Pab
   (*Wabcd)["abef"] += (+ 1.0) * (*Tai)["am"] * (*Vaibc)["bmef"];
   (*Wabcd)["abef"] += (0.25) * (*Tau_abij)["abmn"] * (*Vijab)["mnef"];
 
   // Equation (8)
-  auto Wiabj(NEW(CTF::Tensor<>, *Viabj));
+  auto Wiabj(NEW(CTF::Tensor<F>, *Viabj));
   (*Wiabj)["mbej"] += (+ 1.0) * (*Tai)["fj"] * (*Viabc)["mbef"];
   (*Wiabj)["mbej"] += (- 1.0) * (*Tai)["bn"] * (*Vijak)["mnej"];
   (*Wiabj)["mbej"] += ( - 0.5 ) * (*Tabij)["fbjn"] * (*Vijab)["mnef"];
