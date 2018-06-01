@@ -6,6 +6,7 @@
 #include <algorithms/Algorithm.hpp>
 #include <math/FockVector.hpp>
 #include <vector>
+#include <math/Complex.hpp>
 
 namespace cc4s {
 

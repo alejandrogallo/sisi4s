@@ -221,7 +221,7 @@ namespace cc4s {
      * given dual ket-FockVector ket.
      **/
     F braket(const FockVector<F> &ket) const {
-      checkDualCompatibility(ket);
+      //checkDualCompatibility(ket);
       CTF::Scalar<F> result;
       for (size_t i(0); i < componentTensors.size(); ++i) {
         const char *indices(getIndices(i).c_str());

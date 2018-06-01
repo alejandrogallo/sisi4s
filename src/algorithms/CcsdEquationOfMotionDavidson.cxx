@@ -34,56 +34,143 @@ CcsdEquationOfMotionDavidson::~CcsdEquationOfMotionDavidson() {}
 void CcsdEquationOfMotionDavidson::run() {
 
   // Get copy of couloumb integrals
-  CTF::Tensor<> *Vijkl(
-      getTensorArgument<double, CTF::Tensor<> >("HHHHCoulombIntegrals"));
-  CTF::Tensor<> *Vabcd(
-      getTensorArgument<double, CTF::Tensor<> >("PPPPCoulombIntegrals"));
-  CTF::Tensor<> *Vijka(
-      getTensorArgument<double, CTF::Tensor<> >("HHHPCoulombIntegrals"));
-  CTF::Tensor<> *Vijab(
-      getTensorArgument<double, CTF::Tensor<> >("HHPPCoulombIntegrals"));
-  CTF::Tensor<> *Viajk(
-      getTensorArgument<double, CTF::Tensor<> >("HPHHCoulombIntegrals"));
-  CTF::Tensor<> *Viajb(
-      getTensorArgument<double, CTF::Tensor<> >("HPHPCoulombIntegrals"));
-  CTF::Tensor<> *Viabc(
-      getTensorArgument<double, CTF::Tensor<> >("HPPPCoulombIntegrals"));
-  CTF::Tensor<> *Vabic(
-      getTensorArgument<double, CTF::Tensor<> >("PPHPCoulombIntegrals"));
-  CTF::Tensor<> *Vabci(
-      getTensorArgument<double, CTF::Tensor<> >("PPPHCoulombIntegrals"));
-  CTF::Tensor<> *Vaibc(
-      getTensorArgument<double, CTF::Tensor<> >("PHPPCoulombIntegrals"));
-  CTF::Tensor<> *Vaibj(
-      getTensorArgument<double, CTF::Tensor<> >("PHPHCoulombIntegrals"));
-  CTF::Tensor<> *Viabj(
-      getTensorArgument<double, CTF::Tensor<> >("HPPHCoulombIntegrals"));
-  CTF::Tensor<> *Vijak(
-      getTensorArgument<double, CTF::Tensor<> >("HHPHCoulombIntegrals"));
-  CTF::Tensor<> *Vaijb(
-      getTensorArgument<double, CTF::Tensor<> >("PHHPCoulombIntegrals"));
+  CTF::Tensor<double> *pVijkl(
+    getTensorArgument<double, CTF::Tensor<double> >("HHHHCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cVijkl(
+    pVijkl->order, pVijkl->lens, pVijkl->sym, *Cc4s::world,
+    pVijkl->get_name()
+  );
+  CTF::Tensor<complex> *Vijkl(&cVijkl);
+  CTF::Tensor<double> *pVabcd(
+    getTensorArgument<double, CTF::Tensor<double> >("PPPPCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cVabcd(
+    pVabcd->order, pVabcd->lens, pVabcd->sym, *Cc4s::world,
+    pVabcd->get_name()
+  );
+  CTF::Tensor<complex> *Vabcd(&cVabcd);
+  CTF::Tensor<double> *pVijka(
+    getTensorArgument<double, CTF::Tensor<double> >("HHHPCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cVijka(
+    pVijka->order, pVijka->lens, pVijka->sym, *Cc4s::world,
+    pVijka->get_name()
+  );
+  CTF::Tensor<complex> *Vijka(&cVijka);
+  CTF::Tensor<double> *pVijab(
+    getTensorArgument<double, CTF::Tensor<double> >("HHPPCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cVijab(
+    pVijab->order, pVijab->lens, pVijab->sym, *Cc4s::world,
+    pVijab->get_name()
+  );
+  CTF::Tensor<complex> *Vijab(&cVijab);
+  CTF::Tensor<double> *pViajk(
+    getTensorArgument<double, CTF::Tensor<double> >("HPHHCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cViajk(
+    pViajk->order, pViajk->lens, pViajk->sym, *Cc4s::world,
+    pViajk->get_name()
+  );
+  CTF::Tensor<complex> *Viajk(&cViajk);
+  CTF::Tensor<double> *pViajb(
+    getTensorArgument<double, CTF::Tensor<double> >("HPHPCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cViajb(
+    pViajb->order, pViajb->lens, pViajb->sym, *Cc4s::world,
+    pViajb->get_name()
+  );
+  CTF::Tensor<complex> *Viajb(&cViajb);
+  CTF::Tensor<double> *pViabc(
+    getTensorArgument<double, CTF::Tensor<double> >("HPPPCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cViabc(
+    pViabc->order, pViabc->lens, pViabc->sym, *Cc4s::world,
+    pViabc->get_name()
+  );
+  CTF::Tensor<complex> *Viabc(&cViabc);
+  CTF::Tensor<double> *pVabic(
+    getTensorArgument<double, CTF::Tensor<double> >("PPHPCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cVabic(
+    pVabic->order, pVabic->lens, pVabic->sym, *Cc4s::world,
+    pVabic->get_name()
+  );
+  CTF::Tensor<complex> *Vabic(&cVabic);
+  CTF::Tensor<double> *pVabci(
+    getTensorArgument<double, CTF::Tensor<double> >("PPPHCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cVabci(
+    pVabci->order, pVabci->lens, pVabci->sym, *Cc4s::world,
+    pVabci->get_name()
+  );
+  CTF::Tensor<complex> *Vabci(&cVabci);
+  CTF::Tensor<double> *pVaibc(
+    getTensorArgument<double, CTF::Tensor<double> >("PHPPCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cVaibc(
+    pVaibc->order, pVaibc->lens, pVaibc->sym, *Cc4s::world,
+    pVaibc->get_name()
+  );
+  CTF::Tensor<complex> *Vaibc(&cVaibc);
+  CTF::Tensor<double> *pVaibj(
+    getTensorArgument<double, CTF::Tensor<double> >("PHPHCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cVaibj(
+    pVaibj->order, pVaibj->lens, pVaibj->sym, *Cc4s::world,
+    pVaibj->get_name()
+  );
+  CTF::Tensor<complex> *Vaibj(&cVaibj);
+  CTF::Tensor<double> *pViabj(
+    getTensorArgument<double, CTF::Tensor<double> >("HPPHCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cViabj(
+    pViabj->order, pViabj->lens, pViabj->sym, *Cc4s::world,
+    pViabj->get_name()
+  );
+  CTF::Tensor<complex> *Viabj(&cViabj);
+  CTF::Tensor<double> *pVijak(
+    getTensorArgument<double, CTF::Tensor<double> >("HHPHCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cVijak(
+    pVijak->order, pVijak->lens, pVijak->sym, *Cc4s::world,
+    pVijak->get_name()
+  );
+  CTF::Tensor<complex> *Vijak(&cVijak);
+  CTF::Tensor<double> *pVaijb(
+    getTensorArgument<double, CTF::Tensor<double> >("PHHPCoulombIntegrals")
+  );
+  CTF::Tensor<complex> cVaijb(
+    pVaijb->order, pVaijb->lens, pVaijb->sym, *Cc4s::world,
+    pVaijb->get_name()
+  );
+  CTF::Tensor<complex> *Vaijb(&cVaijb);
 
   //CTF::Tensor<> *Vabij(
       //getTensorArgument<double, CTF::Tensor<>>("PPHHCoulombIntegrals"));
 
   // Get orbital energies
-  CTF::Tensor<> *epsi(
-      getTensorArgument<double, CTF::Tensor<> >("HoleEigenEnergies"));
-  CTF::Tensor<> *epsa(
-      getTensorArgument<double, CTF::Tensor<> >("ParticleEigenEnergies"));
+  CTF::Tensor<double> *epsi(
+      getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies"));
+  CTF::Tensor<double> *epsa(
+      getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies"));
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
 
   // HF terms
   int vv[] = {Nv, Nv};
+  int ov[] = {No, Nv};
   int oo[] = {No, No};
   int kineticSyms[] = {NS, NS};
-  CTF::Tensor<> *Fab(
-    new CTF::Tensor<>(2, vv, kineticSyms, *Cc4s::world, "Fab")
+  CTF::Tensor<complex> *Fab(
+    new CTF::Tensor<complex>(2, vv, kineticSyms, *Cc4s::world, "Fab")
   );
-  CTF::Tensor<> *Fij(
-    new CTF::Tensor<>(2, oo, kineticSyms, *Cc4s::world, "Fij")
+  CTF::Tensor<complex> *Fij(
+    new CTF::Tensor<complex>(2, oo, kineticSyms, *Cc4s::world, "Fij")
   );
-  CTF::Tensor<> *Fia;
+  CTF::Tensor<complex> *Fia(
+    new CTF::Tensor<complex>(2, ov, kineticSyms, *Cc4s::world, "Fia")
+  );
 
   if (
     isArgumentGiven("HPFockMatrix") &&
@@ -91,14 +178,38 @@ void CcsdEquationOfMotionDavidson::run() {
     isArgumentGiven("PPFockMatrix")
   ) {
     LOG(0, "CcsdEomDavid") << "Using non-canonical orbitals" << std::endl;
-    Fia = getTensorArgument<double, CTF::Tensor<> >("HPFockMatrix");
-    Fab = getTensorArgument<double, CTF::Tensor<> >("PPFockMatrix");
-    Fij = getTensorArgument<double, CTF::Tensor<> >("HHFockMatrix");
+
+    CTF::Tensor<double> *realFia(
+      getTensorArgument<double, CTF::Tensor<double> >("HPFockMatrix")
+    );
+    CTF::Tensor<double> *realFab(
+      getTensorArgument<double, CTF::Tensor<double> >("PPFockMatrix")
+    );
+    CTF::Tensor<double> *realFij(
+      getTensorArgument<double, CTF::Tensor<double> >("HHFockMatrix")
+    );
+    toComplexTensor(*realFij, *Fij);
+    toComplexTensor(*realFab, *Fab);
+    toComplexTensor(*realFia, *Fia);
   } else {
     LOG(0, "CcsdEomDavid") << "Using canonical orbitals" << std::endl;
     Fia = NULL;
-    (*Fab)["aa"] = (*epsa)["a"];
-    (*Fij)["ii"] = (*epsi)["i"];
+    //(*Fab)["aa"] = (*epsa)["a"];
+    //(*Fij)["ii"] = (*epsi)["i"];
+    CTF::Transform<double, complex>(
+      std::function<void(double, complex &)>(
+        [](double eps, complex &f) { f = eps; }
+      )
+    ) (
+      (*epsi)["i"], (*Fij)["ii"]
+    );
+    CTF::Transform<double, complex>(
+      std::function<void(double, complex &)>(
+        [](double eps, complex &f) { f = eps; }
+      )
+    ) (
+      (*epsa)["a"], (*Fab)["aa"]
+    );
   }
 
 
@@ -109,30 +220,38 @@ void CcsdEquationOfMotionDavidson::run() {
   int vvoo[] = {Nv,Nv,No,No};
   // We initialize the T amplitudes here so that it is not necessary
   // to do a ccsd calculation before to do the CISD calculation.
-  CTF::Tensor<> Tai(2, vo, syms2, *Cc4s::world, "Tai");
-  CTF::Tensor<> Tabij(4, vvoo, syms4, *Cc4s::world, "Tabij");
+  CTF::Tensor<complex> Tai(2, vo, syms2, *Cc4s::world, "Tai");
+  CTF::Tensor<complex> Tabij(4, vvoo, syms4, *Cc4s::world, "Tabij");
   if (getIntegerArgument("CISD", 0) == 1) {
     LOG(0, "CcsdEomDavid") << "Calculating CISD" << std::endl;
     Tai["ai"] = 0.0;
     Tabij["abij"] = 0.0;
   } else {
     // Get the Uccsd amplitudes from the input file
-    Tai["ai"] =
-    (*getTensorArgument<double, CTF::Tensor<> >("SinglesAmplitudes"))["ai"];
-    Tabij["abij"] =
-    (*getTensorArgument<double, CTF::Tensor<> >("DoublesAmplitudes"))["abij"];
+    toComplexTensor(
+      (*getTensorArgument<double, CTF::Tensor<double> >("SinglesAmplitudes")),
+      Tai
+    );
+    toComplexTensor(
+      (*getTensorArgument<double, CTF::Tensor<double> >("DoublesAmplitudes")),
+      Tabij
+    );
+    //Tai["ai"] =
+    //(*getTensorArgument<complex, CTF::Tensor<complex> >("SinglesAmplitudes"))["ai"];
+    //Tabij["abij"] =
+    //(*getTensorArgument<complex, CTF::Tensor<complex> >("DoublesAmplitudes"))["abij"];
   }
 
   if (getIntegerArgument("printTensors", 0) == 1) {
-    TensorIo::writeText<>(
+    TensorIo::writeText<complex>(
       "Tai.tensor", Tai, "ij", "", " "
     );
-    TensorIo::writeText<>(
+    TensorIo::writeText<complex>(
       "Tabij.tensor", Tabij, "ijkl", "", " "
     );
   }
 
-  CcsdSimilarityTransformedHamiltonian<double> H(
+  CcsdSimilarityTransformedHamiltonian<complex> H(
     &Tai, &Tabij, Fij, Fab, Fia,
     Vabcd, Viajb, Vijab, Vijkl, Vijka, Viabc, Viajk, Vabic,
     Vaibc, Vaibj, Viabj, Vijak, Vaijb, Vabci
@@ -145,7 +264,7 @@ void CcsdEquationOfMotionDavidson::run() {
   );
   H.buildIntermediates(intermediates);
 
-  CcsdPreConditioner<double> P(
+  CcsdPreConditioner<complex> P(
     Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl
   );
   P.preconditionerRandom = getIntegerArgument("preconditionerRandom", 0) == 1;
@@ -173,9 +292,9 @@ void CcsdEquationOfMotionDavidson::run() {
     RangeParser(getTextArgument("refreshIterations", "")).getRange()
   );
   EigenSystemDavidsonMono<
-    CcsdSimilarityTransformedHamiltonian<double>,
-    CcsdPreConditioner<double>,
-    FockVector<double>
+    CcsdSimilarityTransformedHamiltonian<complex>,
+    CcsdPreConditioner<complex>,
+    FockVector<complex>
   > eigenSystem(
     &H,
     eigenStates,
@@ -193,7 +312,7 @@ void CcsdEquationOfMotionDavidson::run() {
   );
   if (eigenSystem.refreshOnMaxBasisSize()) {
     LOG(0, "CcsdEomDavid") <<
-      "Refreshing of max basis size reaching" << std::endl;
+      "Refreshing on max basis size reaching" << std::endl;
   }
   eigenSystem.run();
 
@@ -350,7 +469,7 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildIntermediates(
 
   LOG(0, "CcsdEomDavid") << "Building intermediates Wpqrs and Wpq"
                          << std::endl;
-  auto Tau_abij(NEW(CTF::Tensor<>, *Tabij));
+  auto Tau_abij(NEW(CTF::Tensor<complex>, *Tabij));
   (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
   (*Tau_abij)["abij"] += ( - 1.0 ) * (*Tai)["bi"] * (*Tai)["aj"];
 
@@ -361,18 +480,18 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildIntermediates(
   int Nv(Fab->lens[0]);
   int syms[] = {NS, NS};
   int ov[] = {No, Nv};
-  CTF::Tensor<> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
+  CTF::Tensor<complex> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
 
-  Wia   = NEW(CTF::Tensor<>,  InitFia);
-  Wab   = NEW(CTF::Tensor<>, *Fab);
-  Wij   = NEW(CTF::Tensor<>, *Fij);
-  Wabcd = NEW(CTF::Tensor<>, *Vabcd);
-  Wabci = NEW(CTF::Tensor<>, *Vabci);
-  Waibc = NEW(CTF::Tensor<>, *Vaibc);
-  Wiabj = NEW(CTF::Tensor<>, *Viabj);
-  Wiajk = NEW(CTF::Tensor<>, *Viajk);
-  Wijka = NEW(CTF::Tensor<>, *Vijka);
-  Wijkl = NEW(CTF::Tensor<>, *Vijkl);
+  Wia   = NEW(CTF::Tensor<complex>,  InitFia);
+  Wab   = NEW(CTF::Tensor<complex>, *Fab);
+  Wij   = NEW(CTF::Tensor<complex>, *Fij);
+  Wabcd = NEW(CTF::Tensor<complex>, *Vabcd);
+  Wabci = NEW(CTF::Tensor<complex>, *Vabci);
+  Waibc = NEW(CTF::Tensor<complex>, *Vaibc);
+  Wiabj = NEW(CTF::Tensor<complex>, *Viabj);
+  Wiajk = NEW(CTF::Tensor<complex>, *Viajk);
+  Wijka = NEW(CTF::Tensor<complex>, *Vijka);
+  Wijkl = NEW(CTF::Tensor<complex>, *Vijkl);
   // Initialize intermediates to zero
   (*Wia)["do"] = 0.0;
   (*Wab)["do"] = 0.0;
@@ -563,7 +682,7 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyHirata(
   PTR(CTF::Tensor<F>) HRai( HR.get(0) );
   PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
 
-  checkAntisymmetry(*Rabij);
+  //checkAntisymmetry(*Rabij);
 
   // Contruct HR (one body part)
   // TODO: why "bi" not "ai"?
@@ -912,7 +1031,7 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   PTR(CTF::Tensor<F>) HRai( HR.get(0) );
   PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
 
-  checkAntisymmetry(*Rabij);
+  //checkAntisymmetry(*Rabij);
 
   (*HRai)["ai"]  = 0.0;
   (*HRai)["ai"] += (- 1.0) * (*Wij)["li"] * (*Rai)["al"];
@@ -994,9 +1113,9 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   return HR;
 }
 
-// instantiate class
-template
-class CcsdSimilarityTransformedHamiltonian<double>;
+//// instantiate class
+//template
+//class CcsdSimilarityTransformedHamiltonian<complex>;
 
 
 template <typename F>
@@ -1010,8 +1129,8 @@ CcsdPreConditioner<F>::CcsdPreConditioner(
   CTF::Tensor<F> &Vijab,
   CTF::Tensor<F> &Vijkl
 ): diagonalH(
-    std::vector<PTR(CTF::Tensor<double>)>(
-      {NEW(CTF::Tensor<double>, Tai), NEW(CTF::Tensor<double>, Tabij)}
+    std::vector<PTR(CTF::Tensor<F>)>(
+      {NEW(CTF::Tensor<F>, Tai), NEW(CTF::Tensor<F>, Tabij)}
     ),
     std::vector<std::string>({"ai", "abij"})
   )
@@ -1058,8 +1177,6 @@ CcsdPreConditioner<F>::CcsdPreConditioner(
 
 }
 
-template <typename F>
-class EomDiagonalValueComparator;
 
 /**
  * \brief Comparator that should filter out zero values of the diagonal
@@ -1067,29 +1184,48 @@ class EomDiagonalValueComparator;
  * Zero values are treated as infinite so that they get appended to the
  * end of the list.
  */
-template <>
-class EomDiagonalValueComparator<double> {
+template <typename F>
+class EomDiagonalValueComparator {
 public:
   bool operator ()(
-    const std::pair<int, double> &a,
-    const std::pair<int, double> &b
+    const std::pair<int, F> &a,
+    const std::pair<int, F> &b
   ) {
-    double A(
+    F A(
       std::abs(a.second) < 1E-13 ?
-        std::numeric_limits<double>::infinity() : a.second
+        std::numeric_limits<F>::infinity() : a.second
     );
-    double B(
+    F B(
       std::abs(b.second) < 1E-13 ?
-        std::numeric_limits<double>::infinity() : b.second
+        std::numeric_limits<F>::infinity() : b.second
     );
-    double diff(B-A);
+    double diff(computeDifference(A, B));
     // maintain magnitude finite!
     double magnitude(std::abs(a.second)+std::abs(b.second));
-    if (std::real(diff) > +1E-13*magnitude) return true;
-    if (std::real(diff) < -1E-13*magnitude) return false;
+    if (diff > +1E-13*magnitude) return true;
+    if (diff < -1E-13*magnitude) return false;
     return a.first < b.first;
   }
+
+  double computeDifference(const F &a, const F &b) { return b - a; }
+
 };
+
+//template<>
+//class EomDiagonalValueComparator<double>;
+//template<>
+//class EomDiagonalValueComparator<complex>;
+
+template<>
+double EomDiagonalValueComparator<complex>::computeDifference(
+    const complex &a,
+    const complex &b
+  ) {
+  double diff(b.imag() + b.real() - a.imag() - a.real());
+  return diff;
+}
+
+
 
 template <typename F>
 std::vector<FockVector<F>>
@@ -1106,7 +1242,7 @@ CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   std::vector<std::pair<size_t, F>> localElements( diagonalH.readLocal() );
   std::sort(
     localElements.begin(), localElements.end(),
-    EomDiagonalValueComparator<double>()
+    EomDiagonalValueComparator<F>()
   );
   int localElementsSize( localElements.size() );
 
@@ -1138,7 +1274,7 @@ CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   // find globally lowest K diagonal elements among the gathered elements
   std::sort(
     lowestElements.begin(), lowestElements.end(),
-    EomDiagonalValueComparator<double>()
+    EomDiagonalValueComparator<F>()
   );
   // at rank==0 (root) lowestElements contains K*Np entries
   // rank > 0 has an empty list
@@ -1154,6 +1290,9 @@ CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
     basisElement *= 0.0;
     std::vector<std::pair<size_t,F>> elements;
     if (communicator.getRank() == 0) {
+      if ( b >= lowestElements.size() ) {
+        throw EXCEPTION("No more elements to create initial basis");
+      }
       elements.push_back(
         std::make_pair(lowestElements[b].first, 1.0)
       );
@@ -1176,13 +1315,21 @@ CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
     (*basisElement.get(1))["aaij"]=0.0;
     (*basisElement.get(1))["aaii"]=0.0;
 
+    double preDot2(std::abs(basisElement.dot(basisElement)));
     // Antisymmetrize the new basis element
     (*basisElement.get(1))["abij"] -= (*basisElement.get(1))["abji"];
     (*basisElement.get(1))["abij"] -= (*basisElement.get(1))["baij"];
 
+    OUT() << "\tnormPreSymmetrize=" << preDot2 << std::endl;
+
+    double preDot3(std::abs(basisElement.dot(basisElement)));
+    OUT() << "\tnormAfterSymmetrize=" << preDot3 << std::endl;
+
+    OUT() << "\tbasisSize=" << basis.size() << std::endl;
+
     // Grams-schmidt it with the other elements of the basis
     for (unsigned int j(0); j < basis.size(); ++j) {
-      basisElement -= basis[j] * basisElement.dot(basis[j]);
+      basisElement -= basis[j] * basis[j].dot(basisElement);
     }
 
     // Normalize basisElement
@@ -1200,7 +1347,7 @@ CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
 
     b++;
 
-    if ( std::abs(basisElementNorm - F(1)) > 1e-10 * F(1)) continue;
+    if ( std::abs(basisElementNorm - double(1)) > 1e-10 * double(1)) continue;
 
     currentEigenVectorCount++;
 
@@ -1278,7 +1425,7 @@ CcsdPreConditioner<F>::getCorrection(
 }
 
 
-// instantiate class
-template
-class CcsdPreConditioner<double>;
+//// instantiate class
+//template
+//class CcsdPreConditioner<double>;
 
