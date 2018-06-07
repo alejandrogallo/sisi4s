@@ -42,6 +42,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pVijkl->get_name()
   );
   CTF::Tensor<complex> *Vijkl(&cVijkl);
+  toComplexTensor(*pVijkl, *Vijkl);
+
   CTF::Tensor<double> *pVabcd(
     getTensorArgument<double, CTF::Tensor<double> >("PPPPCoulombIntegrals")
   );
@@ -50,6 +52,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pVabcd->get_name()
   );
   CTF::Tensor<complex> *Vabcd(&cVabcd);
+  toComplexTensor(*pVabcd, *Vabcd);
+
   CTF::Tensor<double> *pVijka(
     getTensorArgument<double, CTF::Tensor<double> >("HHHPCoulombIntegrals")
   );
@@ -58,6 +62,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pVijka->get_name()
   );
   CTF::Tensor<complex> *Vijka(&cVijka);
+  toComplexTensor(*pVijka, *Vijka);
+
   CTF::Tensor<double> *pVijab(
     getTensorArgument<double, CTF::Tensor<double> >("HHPPCoulombIntegrals")
   );
@@ -66,6 +72,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pVijab->get_name()
   );
   CTF::Tensor<complex> *Vijab(&cVijab);
+  toComplexTensor(*pVijab, *Vijab);
+
   CTF::Tensor<double> *pViajk(
     getTensorArgument<double, CTF::Tensor<double> >("HPHHCoulombIntegrals")
   );
@@ -74,6 +82,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pViajk->get_name()
   );
   CTF::Tensor<complex> *Viajk(&cViajk);
+  toComplexTensor(*pViajk, *Viajk);
+
   CTF::Tensor<double> *pViajb(
     getTensorArgument<double, CTF::Tensor<double> >("HPHPCoulombIntegrals")
   );
@@ -82,6 +92,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pViajb->get_name()
   );
   CTF::Tensor<complex> *Viajb(&cViajb);
+  toComplexTensor(*pViajb, *Viajb);
+
   CTF::Tensor<double> *pViabc(
     getTensorArgument<double, CTF::Tensor<double> >("HPPPCoulombIntegrals")
   );
@@ -90,6 +102,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pViabc->get_name()
   );
   CTF::Tensor<complex> *Viabc(&cViabc);
+  toComplexTensor(*pViabc, *Viabc);
+
   CTF::Tensor<double> *pVabic(
     getTensorArgument<double, CTF::Tensor<double> >("PPHPCoulombIntegrals")
   );
@@ -98,6 +112,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pVabic->get_name()
   );
   CTF::Tensor<complex> *Vabic(&cVabic);
+  toComplexTensor(*pVabic, *Vabic);
+
   CTF::Tensor<double> *pVabci(
     getTensorArgument<double, CTF::Tensor<double> >("PPPHCoulombIntegrals")
   );
@@ -106,6 +122,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pVabci->get_name()
   );
   CTF::Tensor<complex> *Vabci(&cVabci);
+  toComplexTensor(*pVabci, *Vabci);
+
   CTF::Tensor<double> *pVaibc(
     getTensorArgument<double, CTF::Tensor<double> >("PHPPCoulombIntegrals")
   );
@@ -114,6 +132,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pVaibc->get_name()
   );
   CTF::Tensor<complex> *Vaibc(&cVaibc);
+  toComplexTensor(*pVaibc, *Vaibc);
+
   CTF::Tensor<double> *pVaibj(
     getTensorArgument<double, CTF::Tensor<double> >("PHPHCoulombIntegrals")
   );
@@ -122,6 +142,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pVaibj->get_name()
   );
   CTF::Tensor<complex> *Vaibj(&cVaibj);
+  toComplexTensor(*pVaibj, *Vaibj);
+
   CTF::Tensor<double> *pViabj(
     getTensorArgument<double, CTF::Tensor<double> >("HPPHCoulombIntegrals")
   );
@@ -130,6 +152,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pViabj->get_name()
   );
   CTF::Tensor<complex> *Viabj(&cViabj);
+  toComplexTensor(*pViabj, *Viabj);
+
   CTF::Tensor<double> *pVijak(
     getTensorArgument<double, CTF::Tensor<double> >("HHPHCoulombIntegrals")
   );
@@ -138,6 +162,8 @@ void CcsdEquationOfMotionDavidson::run() {
     pVijak->get_name()
   );
   CTF::Tensor<complex> *Vijak(&cVijak);
+  toComplexTensor(*pVijak, *Vijak);
+
   CTF::Tensor<double> *pVaijb(
     getTensorArgument<double, CTF::Tensor<double> >("PHHPCoulombIntegrals")
   );
@@ -146,6 +172,7 @@ void CcsdEquationOfMotionDavidson::run() {
     pVaijb->get_name()
   );
   CTF::Tensor<complex> *Vaijb(&cVaijb);
+  toComplexTensor(*pVaijb, *Vaijb);
 
   //CTF::Tensor<> *Vabij(
       //getTensorArgument<double, CTF::Tensor<>>("PPHHCoulombIntegrals"));
