@@ -152,6 +152,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
       LOG(1,"Davidson") << "Initial basis retrieved" << std::endl;
       std::vector<V> rightBasis( this->rightEigenVectors );
       std::vector<V> leftEigenVectors( this->rightEigenVectors );
+      std::vector<complex> previousReducedMatrixElements;
 
       // begin convergence loop
       double rms;
@@ -215,6 +216,9 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
             rightBasis[i] *= 1/refreshedVectorNorm;
           }
 
+          // handling the caching of the reduced matrix
+          previousReducedMatrixElements.resize(0);
+
 #ifdef DEBUGG
           LOG(1,"Davidson") << "Writing out overlap matrix" << std::endl;
           std::string refreshOverlapFile("refreshed-overlap-matrix-");
@@ -230,12 +234,45 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
 
         }
 
+        unsigned int previousBasisSize(
+          std::sqrt(previousReducedMatrixElements.size())
+        );
         // compute reduced H by projection onto subspace spanned by rightBasis
         LapackMatrix<complex> reducedH(rightBasis.size(), rightBasis.size());
+
+        for (unsigned int j(0); j < previousBasisSize; ++j) {
+          for (unsigned int i(0); i < previousBasisSize; ++i) {
+            reducedH(i,j) = previousReducedMatrixElements[i + previousBasisSize * j];
+          }
+        }
+
+        auto previousReducedMatrixElementsCopy(previousReducedMatrixElements);
+        previousReducedMatrixElements.resize(rightBasis.size() * rightBasis.size());
+
+        for (unsigned int j(0); j < previousReducedMatrixElements.size(); ++j) {
+          previousReducedMatrixElements[j] = complex(0);
+        }
+
+        for (unsigned int j(0); j < previousBasisSize; ++j) {
+          for (unsigned int i(0); i < previousBasisSize; ++i) {
+            previousReducedMatrixElements[i + rightBasis.size() * j]
+              = previousReducedMatrixElementsCopy[i + previousBasisSize * j];
+          }
+        }
+
         for (unsigned int j(0); j < rightBasis.size(); ++j) {
+          V HBj( this->h->rightApply(rightBasis[j]) );
+          for (unsigned int i(previousBasisSize); i < rightBasis.size(); ++i) {
+            reducedH(i,j) = rightBasis[i].dot(HBj);
+            previousReducedMatrixElements[i + rightBasis.size() * j] = reducedH(i,j);
+          }
+        }
+
+        for (unsigned int j(previousBasisSize); j < rightBasis.size(); ++j) {
           V HBj( this->h->rightApply(rightBasis[j]) );
           for (unsigned int i(0); i < rightBasis.size(); ++i) {
             reducedH(i,j) = rightBasis[i].dot(HBj);
+            previousReducedMatrixElements[i + rightBasis.size() * j] = reducedH(i,j);
           }
         }
 
