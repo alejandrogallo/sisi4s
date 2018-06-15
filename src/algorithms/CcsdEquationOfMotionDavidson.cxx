@@ -1122,10 +1122,10 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
 
   //THREE_BODY_FOUR ==========================================================
   (*HRabij)["abij"] +=
-    ( +0.5) * (*Rabij)["feim"] * (*Vijab)["nmfe"] * (*Tabij)["abjn"];
+    ( +0.5) * (*Tabij)["abjn"] * (*Vijab)["nmfe"] * (*Rabij)["feim"];
   // P(ij)
   (*HRabij)["abij"] +=
-    ( -0.5) * (*Rabij)["fejm"] * (*Vijab)["nmfe"] * (*Tabij)["abin"];
+    ( -0.5) * (*Tabij)["abin"] * (*Vijab)["nmfe"] * (*Rabij)["fejm"];
 
   // WIAJK ===================================================================
   (*HRabij)["abij"] += (- 1.0 ) * (*Wiajk)["lbij"] * (*Rai)["al"];
