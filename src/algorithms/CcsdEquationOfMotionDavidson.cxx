@@ -1101,10 +1101,10 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
 
   //THREE_BODY_ONE ===========================================================
   (*HRabij)["abij"] +=
-              (*Rai)["em"] * (*Waibc)["bmfe"] * (*Tabij)["afij"];
+               (*Tabij)["afij"] * (*Rai)["em"] * (*Waibc)["bmfe"];
   // P(ab)
   (*HRabij)["abij"] +=
-    ( -1.0) * (*Rai)["em"] * (*Waibc)["amfe"] * (*Tabij)["bfij"];
+    ( -1.0) * (*Tabij)["bfij"] * (*Rai)["em"] * (*Waibc)["amfe"];
 
   //THREE_BODY_TWO ===========================================================
   (*HRabij)["abij"] +=
@@ -1115,10 +1115,10 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
 
   //THREE_BODY_THREE =========================================================
   (*HRabij)["abij"] +=
-    ( -1.0) * (*Rai)["em"] * (*Wijka)["nmje"] * (*Tabij)["abin"];
+    ( -1.0) * (*Tabij)["abin"] * (*Rai)["em"] * (*Wijka)["nmje"];
   // P(ij)
   (*HRabij)["abij"] +=
-    ( +1.0) * (*Rai)["em"] * (*Wijka)["nmie"] * (*Tabij)["abjn"];
+    ( +1.0) * (*Tabij)["abjn"] * (*Rai)["em"] * (*Wijka)["nmie"];
 
   //THREE_BODY_FOUR ==========================================================
   (*HRabij)["abij"] +=
