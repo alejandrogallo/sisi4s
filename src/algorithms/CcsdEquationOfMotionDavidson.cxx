@@ -343,6 +343,79 @@ void CcsdEquationOfMotionDavidson::run() {
   }
   eigenSystem.run();
 
+  std::vector<int> oneBodyRdmIndices(
+    RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange()
+  );
+
+  if (oneBodyRdmIndices.size() > 0) {
+    LOG(0, "CcsdEomDavid") << "Calculating 1-RDM with left states "
+                           << " approximated by right" << std::endl;
+    for (auto &index: oneBodyRdmIndices) {
+      LOG(0, "CcsdEomDavid") << "Calculating 1-RDM for state " << index << std::endl;
+
+      int syms[] = {NS, NS};
+      CTF::Tensor<complex> Rhoia(2, ov, syms, *Cc4s::world, "Rhoia");
+      CTF::Tensor<complex> Rhoai(2, vo, syms, *Cc4s::world, "Rhoai");
+      CTF::Tensor<complex> Rhoij(2, oo, syms, *Cc4s::world, "Rhoij");
+      CTF::Tensor<complex> Rhoab(2, vv, syms, *Cc4s::world, "Rhoab");
+
+      const FockVector<complex> *R(&eigenSystem.getRightEigenVectors()[index-1]);
+      const FockVector<complex> LApprox(R->conjugateTranspose());
+      const FockVector<complex> *L(&LApprox);
+
+      Rhoia["ia"]  = 0;
+      // this is 0 because r0 is 0
+      //Rhoia["ia"] += (*L->get(0))["ia"];
+      Rhoia["ia"] += (*L->get(1))["oifa"] * (*R->get(0))["fo"];
+      // this is 0 because r0 is 0
+      //Rhoia["ia"] += (*L->get(1))["oifa"] * Tai["fo"];
+      //Rhoia.print(stdout);
+
+      TensorIo::writeText<complex>(
+        "Rhoia-" + std::to_string(index) + ".tensor", Rhoia, "ij", "", " "
+      );
+
+      Rhoai["ai"]  = 0;
+      Rhoai["ai"] += (*L->get(0))["ke"] * (*R->get(1))["eaki"];
+
+      Rhoai["ai"] += (*L->get(0))["ke"] * (*R->get(0))["ak"] * Tai["ei"];
+      Rhoai["ai"] += (*L->get(0))["ke"] * (*R->get(0))["ei"] * Tai["ak"];
+
+      Rhoai["ai"] += (-0.5) * (*L->get(1))["kled"] * (*R->get(0))["di"] * Tabij["eakl"];
+      Rhoai["ai"] += (-0.5) * (*L->get(1))["kled"] * (*R->get(0))["al"] * Tabij["edki"];
+
+      Rhoai["ai"] += (-0.5) * (*L->get(1))["kled"] * Tai["di"] * (*R->get(1))["eakl"];
+      Rhoai["ai"] += (-0.5) * (*L->get(1))["kled"] * Tai["al"] * (*R->get(1))["edki"];
+
+      TensorIo::writeText<complex>(
+        "Rhoai-" + std::to_string(index) + ".tensor", Rhoai, "ij", "", " "
+      );
+
+      Rhoij["ij"]  = 0;
+      Rhoij["ij"] += (*L->get(0))["je"] * (*R->get(0))["ei"];
+      Rhoij["ij"] += 0.5 * (*L->get(1))["kjed"] * (*R->get(1))["edki"];
+      Rhoij["ij"] += (*L->get(1))["kjed"] * (*R->get(0))["ek"] * Tai["di"];
+      // This is not in the paper
+      Rhoij["ij"] += (*L->get(1))["kjed"] * (*R->get(0))["di"] * Tai["ek"];
+
+      TensorIo::writeText<complex>(
+        "Rhoij-" + std::to_string(index) + ".tensor", Rhoij, "ij", "", " "
+      );
+
+      Rhoab["ab"]  = 0;
+      Rhoab["ab"] += (-1.0) * (*L->get(0))["ka"] * (*R->get(0))["bk"];
+      Rhoab["ab"] += (-0.5) * (*L->get(1))["klea"] * (*R->get(1))["ebkl"];
+      Rhoab["ab"] += (-1.0) * (*L->get(1))["klea"] * (*R->get(0))["ek"] * Tai["bl"];
+      // This is not in the paper
+      Rhoab["ab"] += (-1.0) * (*L->get(1))["klea"] * (*R->get(0))["bl"] * Tai["ek"];
+
+      TensorIo::writeText<complex>(
+        "Rhoab-" + std::to_string(index) + ".tensor", Rhoab, "ij", "", " "
+      );
+
+    }
+  }
+
 
   std::vector<complex> eigenValues(eigenSystem.getEigenValues());
   int eigenCounter(0);
@@ -359,6 +432,7 @@ void CcsdEquationOfMotionDavidson::run() {
       eigenState.get(2)->print(stdout, -1e100);
     }
   }
+
 }
 
 
