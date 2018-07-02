@@ -31,147 +31,161 @@ CcsdEquationOfMotionDavidson::CcsdEquationOfMotionDavidson(
 }
 CcsdEquationOfMotionDavidson::~CcsdEquationOfMotionDavidson() {}
 
+
+void CcsdEquationOfMotionDavidson::run() {
+
+  if (getIntegerArgument("complexVersion", 1) == 1) {
+    LOG(0, "CcsdEomDavid") << "Using complex code" << std::endl;
+    CcsdEquationOfMotionDavidson::run<complex>();
+  } else {
+    LOG(0, "CcsdEomDavid") << "Using real code" << std::endl;
+    CcsdEquationOfMotionDavidson::run<double>();
+  }
+
+}
+
+template <typename F>
 void CcsdEquationOfMotionDavidson::run() {
 
   // Get copy of couloumb integrals
   CTF::Tensor<double> *pVijkl(
     getTensorArgument<double, CTF::Tensor<double> >("HHHHCoulombIntegrals")
   );
-  CTF::Tensor<complex> cVijkl(
+  CTF::Tensor<F> cVijkl(
     pVijkl->order, pVijkl->lens, pVijkl->sym, *Cc4s::world,
     pVijkl->get_name()
   );
-  CTF::Tensor<complex> *Vijkl(&cVijkl);
+  CTF::Tensor<F> *Vijkl(&cVijkl);
   toComplexTensor(*pVijkl, *Vijkl);
 
   CTF::Tensor<double> *pVabcd(
     getTensorArgument<double, CTF::Tensor<double> >("PPPPCoulombIntegrals")
   );
-  CTF::Tensor<complex> cVabcd(
+  CTF::Tensor<F> cVabcd(
     pVabcd->order, pVabcd->lens, pVabcd->sym, *Cc4s::world,
     pVabcd->get_name()
   );
-  CTF::Tensor<complex> *Vabcd(&cVabcd);
+  CTF::Tensor<F> *Vabcd(&cVabcd);
   toComplexTensor(*pVabcd, *Vabcd);
 
   CTF::Tensor<double> *pVijka(
     getTensorArgument<double, CTF::Tensor<double> >("HHHPCoulombIntegrals")
   );
-  CTF::Tensor<complex> cVijka(
+  CTF::Tensor<F> cVijka(
     pVijka->order, pVijka->lens, pVijka->sym, *Cc4s::world,
     pVijka->get_name()
   );
-  CTF::Tensor<complex> *Vijka(&cVijka);
+  CTF::Tensor<F> *Vijka(&cVijka);
   toComplexTensor(*pVijka, *Vijka);
 
   CTF::Tensor<double> *pVijab(
     getTensorArgument<double, CTF::Tensor<double> >("HHPPCoulombIntegrals")
   );
-  CTF::Tensor<complex> cVijab(
+  CTF::Tensor<F> cVijab(
     pVijab->order, pVijab->lens, pVijab->sym, *Cc4s::world,
     pVijab->get_name()
   );
-  CTF::Tensor<complex> *Vijab(&cVijab);
+  CTF::Tensor<F> *Vijab(&cVijab);
   toComplexTensor(*pVijab, *Vijab);
 
   CTF::Tensor<double> *pViajk(
     getTensorArgument<double, CTF::Tensor<double> >("HPHHCoulombIntegrals")
   );
-  CTF::Tensor<complex> cViajk(
+  CTF::Tensor<F> cViajk(
     pViajk->order, pViajk->lens, pViajk->sym, *Cc4s::world,
     pViajk->get_name()
   );
-  CTF::Tensor<complex> *Viajk(&cViajk);
+  CTF::Tensor<F> *Viajk(&cViajk);
   toComplexTensor(*pViajk, *Viajk);
 
   CTF::Tensor<double> *pViajb(
     getTensorArgument<double, CTF::Tensor<double> >("HPHPCoulombIntegrals")
   );
-  CTF::Tensor<complex> cViajb(
+  CTF::Tensor<F> cViajb(
     pViajb->order, pViajb->lens, pViajb->sym, *Cc4s::world,
     pViajb->get_name()
   );
-  CTF::Tensor<complex> *Viajb(&cViajb);
+  CTF::Tensor<F> *Viajb(&cViajb);
   toComplexTensor(*pViajb, *Viajb);
 
   CTF::Tensor<double> *pViabc(
     getTensorArgument<double, CTF::Tensor<double> >("HPPPCoulombIntegrals")
   );
-  CTF::Tensor<complex> cViabc(
+  CTF::Tensor<F> cViabc(
     pViabc->order, pViabc->lens, pViabc->sym, *Cc4s::world,
     pViabc->get_name()
   );
-  CTF::Tensor<complex> *Viabc(&cViabc);
+  CTF::Tensor<F> *Viabc(&cViabc);
   toComplexTensor(*pViabc, *Viabc);
 
   CTF::Tensor<double> *pVabic(
     getTensorArgument<double, CTF::Tensor<double> >("PPHPCoulombIntegrals")
   );
-  CTF::Tensor<complex> cVabic(
+  CTF::Tensor<F> cVabic(
     pVabic->order, pVabic->lens, pVabic->sym, *Cc4s::world,
     pVabic->get_name()
   );
-  CTF::Tensor<complex> *Vabic(&cVabic);
+  CTF::Tensor<F> *Vabic(&cVabic);
   toComplexTensor(*pVabic, *Vabic);
 
   CTF::Tensor<double> *pVabci(
     getTensorArgument<double, CTF::Tensor<double> >("PPPHCoulombIntegrals")
   );
-  CTF::Tensor<complex> cVabci(
+  CTF::Tensor<F> cVabci(
     pVabci->order, pVabci->lens, pVabci->sym, *Cc4s::world,
     pVabci->get_name()
   );
-  CTF::Tensor<complex> *Vabci(&cVabci);
+  CTF::Tensor<F> *Vabci(&cVabci);
   toComplexTensor(*pVabci, *Vabci);
 
   CTF::Tensor<double> *pVaibc(
     getTensorArgument<double, CTF::Tensor<double> >("PHPPCoulombIntegrals")
   );
-  CTF::Tensor<complex> cVaibc(
+  CTF::Tensor<F> cVaibc(
     pVaibc->order, pVaibc->lens, pVaibc->sym, *Cc4s::world,
     pVaibc->get_name()
   );
-  CTF::Tensor<complex> *Vaibc(&cVaibc);
+  CTF::Tensor<F> *Vaibc(&cVaibc);
   toComplexTensor(*pVaibc, *Vaibc);
 
   CTF::Tensor<double> *pVaibj(
     getTensorArgument<double, CTF::Tensor<double> >("PHPHCoulombIntegrals")
   );
-  CTF::Tensor<complex> cVaibj(
+  CTF::Tensor<F> cVaibj(
     pVaibj->order, pVaibj->lens, pVaibj->sym, *Cc4s::world,
     pVaibj->get_name()
   );
-  CTF::Tensor<complex> *Vaibj(&cVaibj);
+  CTF::Tensor<F> *Vaibj(&cVaibj);
   toComplexTensor(*pVaibj, *Vaibj);
 
   CTF::Tensor<double> *pViabj(
     getTensorArgument<double, CTF::Tensor<double> >("HPPHCoulombIntegrals")
   );
-  CTF::Tensor<complex> cViabj(
+  CTF::Tensor<F> cViabj(
     pViabj->order, pViabj->lens, pViabj->sym, *Cc4s::world,
     pViabj->get_name()
   );
-  CTF::Tensor<complex> *Viabj(&cViabj);
+  CTF::Tensor<F> *Viabj(&cViabj);
   toComplexTensor(*pViabj, *Viabj);
 
   CTF::Tensor<double> *pVijak(
     getTensorArgument<double, CTF::Tensor<double> >("HHPHCoulombIntegrals")
   );
-  CTF::Tensor<complex> cVijak(
+  CTF::Tensor<F> cVijak(
     pVijak->order, pVijak->lens, pVijak->sym, *Cc4s::world,
     pVijak->get_name()
   );
-  CTF::Tensor<complex> *Vijak(&cVijak);
+  CTF::Tensor<F> *Vijak(&cVijak);
   toComplexTensor(*pVijak, *Vijak);
 
   CTF::Tensor<double> *pVaijb(
     getTensorArgument<double, CTF::Tensor<double> >("PHHPCoulombIntegrals")
   );
-  CTF::Tensor<complex> cVaijb(
+  CTF::Tensor<F> cVaijb(
     pVaijb->order, pVaijb->lens, pVaijb->sym, *Cc4s::world,
     pVaijb->get_name()
   );
-  CTF::Tensor<complex> *Vaijb(&cVaijb);
+  CTF::Tensor<F> *Vaijb(&cVaijb);
   toComplexTensor(*pVaijb, *Vaijb);
 
   //CTF::Tensor<> *Vabij(
@@ -189,14 +203,14 @@ void CcsdEquationOfMotionDavidson::run() {
   int ov[] = {No, Nv};
   int oo[] = {No, No};
   int kineticSyms[] = {NS, NS};
-  CTF::Tensor<complex> *Fab(
-    new CTF::Tensor<complex>(2, vv, kineticSyms, *Cc4s::world, "Fab")
+  CTF::Tensor<F> *Fab(
+    new CTF::Tensor<F>(2, vv, kineticSyms, *Cc4s::world, "Fab")
   );
-  CTF::Tensor<complex> *Fij(
-    new CTF::Tensor<complex>(2, oo, kineticSyms, *Cc4s::world, "Fij")
+  CTF::Tensor<F> *Fij(
+    new CTF::Tensor<F>(2, oo, kineticSyms, *Cc4s::world, "Fij")
   );
-  CTF::Tensor<complex> *Fia(
-    new CTF::Tensor<complex>(2, ov, kineticSyms, *Cc4s::world, "Fia")
+  CTF::Tensor<F> *Fia(
+    new CTF::Tensor<F>(2, ov, kineticSyms, *Cc4s::world, "Fia")
   );
 
   if (
@@ -223,16 +237,16 @@ void CcsdEquationOfMotionDavidson::run() {
     Fia = NULL;
     //(*Fab)["aa"] = (*epsa)["a"];
     //(*Fij)["ii"] = (*epsi)["i"];
-    CTF::Transform<double, complex>(
-      std::function<void(double, complex &)>(
-        [](double eps, complex &f) { f = eps; }
+    CTF::Transform<double, F>(
+      std::function<void(double, F &)>(
+        [](double eps, F &f) { f = eps; }
       )
     ) (
       (*epsi)["i"], (*Fij)["ii"]
     );
-    CTF::Transform<double, complex>(
-      std::function<void(double, complex &)>(
-        [](double eps, complex &f) { f = eps; }
+    CTF::Transform<double, F>(
+      std::function<void(double, F &)>(
+        [](double eps, F &f) { f = eps; }
       )
     ) (
       (*epsa)["a"], (*Fab)["aa"]
@@ -247,8 +261,8 @@ void CcsdEquationOfMotionDavidson::run() {
   int vvoo[] = {Nv,Nv,No,No};
   // We initialize the T amplitudes here so that it is not necessary
   // to do a ccsd calculation before to do the CISD calculation.
-  CTF::Tensor<complex> Tai(2, vo, syms2, *Cc4s::world, "Tai");
-  CTF::Tensor<complex> Tabij(4, vvoo, syms4, *Cc4s::world, "Tabij");
+  CTF::Tensor<F> Tai(2, vo, syms2, *Cc4s::world, "Tai");
+  CTF::Tensor<F> Tabij(4, vvoo, syms4, *Cc4s::world, "Tabij");
   if (getIntegerArgument("CISD", 0) == 1) {
     LOG(0, "CcsdEomDavid") << "Calculating CISD" << std::endl;
     Tai["ai"] = 0.0;
@@ -264,21 +278,21 @@ void CcsdEquationOfMotionDavidson::run() {
       Tabij
     );
     //Tai["ai"] =
-    //(*getTensorArgument<complex, CTF::Tensor<complex> >("SinglesAmplitudes"))["ai"];
+    //(*getTensorArgument<F, CTF::Tensor<F> >("SinglesAmplitudes"))["ai"];
     //Tabij["abij"] =
-    //(*getTensorArgument<complex, CTF::Tensor<complex> >("DoublesAmplitudes"))["abij"];
+    //(*getTensorArgument<F, CTF::Tensor<F> >("DoublesAmplitudes"))["abij"];
   }
 
   if (getIntegerArgument("printTensors", 0) == 1) {
-    TensorIo::writeText<complex>(
+    TensorIo::writeText<F>(
       "Tai.tensor", Tai, "ij", "", " "
     );
-    TensorIo::writeText<complex>(
+    TensorIo::writeText<F>(
       "Tabij.tensor", Tabij, "ijkl", "", " "
     );
   }
 
-  CcsdSimilarityTransformedHamiltonian<complex> H(
+  CcsdSimilarityTransformedHamiltonian<F> H(
     &Tai, &Tabij, Fij, Fab, Fia,
     Vabcd, Viajb, Vijab, Vijkl, Vijka, Viabc, Viajk, Vabic,
     Vaibc, Vaibj, Viabj, Vijak, Vaijb, Vabci
@@ -291,7 +305,7 @@ void CcsdEquationOfMotionDavidson::run() {
   );
   H.buildIntermediates(intermediates);
 
-  CcsdPreConditioner<complex> P(
+  CcsdPreConditioner<F> P(
     Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl
   );
   P.preconditionerRandom = getIntegerArgument("preconditionerRandom", 0) == 1;
@@ -319,9 +333,9 @@ void CcsdEquationOfMotionDavidson::run() {
     RangeParser(getTextArgument("refreshIterations", "")).getRange()
   );
   EigenSystemDavidsonMono<
-    CcsdSimilarityTransformedHamiltonian<complex>,
-    CcsdPreConditioner<complex>,
-    FockVector<complex>
+    CcsdSimilarityTransformedHamiltonian<F>,
+    CcsdPreConditioner<F>,
+    FockVector<F>
   > eigenSystem(
     &H,
     eigenStates,
@@ -354,14 +368,14 @@ void CcsdEquationOfMotionDavidson::run() {
       LOG(0, "CcsdEomDavid") << "Calculating 1-RDM for state " << index << std::endl;
 
       int syms[] = {NS, NS};
-      CTF::Tensor<complex> Rhoia(2, ov, syms, *Cc4s::world, "Rhoia");
-      CTF::Tensor<complex> Rhoai(2, vo, syms, *Cc4s::world, "Rhoai");
-      CTF::Tensor<complex> Rhoij(2, oo, syms, *Cc4s::world, "Rhoij");
-      CTF::Tensor<complex> Rhoab(2, vv, syms, *Cc4s::world, "Rhoab");
+      CTF::Tensor<F> Rhoia(2, ov, syms, *Cc4s::world, "Rhoia");
+      CTF::Tensor<F> Rhoai(2, vo, syms, *Cc4s::world, "Rhoai");
+      CTF::Tensor<F> Rhoij(2, oo, syms, *Cc4s::world, "Rhoij");
+      CTF::Tensor<F> Rhoab(2, vv, syms, *Cc4s::world, "Rhoab");
 
-      const FockVector<complex> *R(&eigenSystem.getRightEigenVectors()[index-1]);
-      const FockVector<complex> LApprox(R->conjugateTranspose());
-      const FockVector<complex> *L(&LApprox);
+      const FockVector<F> *R(&eigenSystem.getRightEigenVectors()[index-1]);
+      const FockVector<F> LApprox(R->conjugateTranspose());
+      const FockVector<F> *L(&LApprox);
 
       Rhoia["ia"]  = 0;
       // this is 0 because r0 is 0
@@ -371,7 +385,7 @@ void CcsdEquationOfMotionDavidson::run() {
       //Rhoia["ia"] += (*L->get(1))["oifa"] * Tai["fo"];
       //Rhoia.print(stdout);
 
-      TensorIo::writeText<complex>(
+      TensorIo::writeText<F>(
         "Rhoia-" + std::to_string(index) + ".tensor", Rhoia, "ij", "", " "
       );
 
@@ -387,7 +401,7 @@ void CcsdEquationOfMotionDavidson::run() {
       Rhoai["ai"] += (-0.5) * (*L->get(1))["kled"] * Tai["di"] * (*R->get(1))["eakl"];
       Rhoai["ai"] += (-0.5) * (*L->get(1))["kled"] * Tai["al"] * (*R->get(1))["edki"];
 
-      TensorIo::writeText<complex>(
+      TensorIo::writeText<F>(
         "Rhoai-" + std::to_string(index) + ".tensor", Rhoai, "ij", "", " "
       );
 
@@ -398,7 +412,7 @@ void CcsdEquationOfMotionDavidson::run() {
       // This is not in the paper
       Rhoij["ij"] += (*L->get(1))["kjed"] * (*R->get(0))["di"] * Tai["ek"];
 
-      TensorIo::writeText<complex>(
+      TensorIo::writeText<F>(
         "Rhoij-" + std::to_string(index) + ".tensor", Rhoij, "ij", "", " "
       );
 
@@ -409,7 +423,7 @@ void CcsdEquationOfMotionDavidson::run() {
       // This is not in the paper
       Rhoab["ab"] += (-1.0) * (*L->get(1))["klea"] * (*R->get(0))["bl"] * Tai["ek"];
 
-      TensorIo::writeText<complex>(
+      TensorIo::writeText<F>(
         "Rhoab-" + std::to_string(index) + ".tensor", Rhoab, "ij", "", " "
       );
 
@@ -570,7 +584,7 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildIntermediates(
 
   LOG(0, "CcsdEomDavid") << "Building intermediates Wpqrs and Wpq"
                          << std::endl;
-  auto Tau_abij(NEW(CTF::Tensor<complex>, *Tabij));
+  auto Tau_abij(NEW(CTF::Tensor<F>, *Tabij));
   (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
   (*Tau_abij)["abij"] += ( - 1.0 ) * (*Tai)["bi"] * (*Tai)["aj"];
 
@@ -581,18 +595,18 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildIntermediates(
   int Nv(Fab->lens[0]);
   int syms[] = {NS, NS};
   int ov[] = {No, Nv};
-  CTF::Tensor<complex> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
+  CTF::Tensor<F> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
 
-  Wia   = NEW(CTF::Tensor<complex>,  InitFia);
-  Wab   = NEW(CTF::Tensor<complex>, *Fab);
-  Wij   = NEW(CTF::Tensor<complex>, *Fij);
-  Wabcd = NEW(CTF::Tensor<complex>, *Vabcd);
-  Wabci = NEW(CTF::Tensor<complex>, *Vabci);
-  Waibc = NEW(CTF::Tensor<complex>, *Vaibc);
-  Wiabj = NEW(CTF::Tensor<complex>, *Viabj);
-  Wiajk = NEW(CTF::Tensor<complex>, *Viajk);
-  Wijka = NEW(CTF::Tensor<complex>, *Vijka);
-  Wijkl = NEW(CTF::Tensor<complex>, *Vijkl);
+  Wia   = NEW(CTF::Tensor<F>,  InitFia);
+  Wab   = NEW(CTF::Tensor<F>, *Fab);
+  Wij   = NEW(CTF::Tensor<F>, *Fij);
+  Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
+  Wabci = NEW(CTF::Tensor<F>, *Vabci);
+  Waibc = NEW(CTF::Tensor<F>, *Vaibc);
+  Wiabj = NEW(CTF::Tensor<F>, *Viabj);
+  Wiajk = NEW(CTF::Tensor<F>, *Viajk);
+  Wijka = NEW(CTF::Tensor<F>, *Vijka);
+  Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
   // Initialize intermediates to zero
   (*Wia)["do"] = 0.0;
   (*Wab)["do"] = 0.0;

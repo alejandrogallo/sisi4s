@@ -131,6 +131,9 @@ namespace cc4s {
 
     virtual void run();
 
+    template<typename F>
+    void run();
+
   protected:
     static constexpr int DEFAULT_MAX_ITERATIONS = 16;
 
