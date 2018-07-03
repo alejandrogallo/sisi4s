@@ -241,7 +241,6 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   // Initialize intermediates
 
   // Equation (10)
-  // TODO: Use only one Tau, since TildeTau_abij is only uysed to form Fpq
   auto Tau_abij(NEW(CTF::Tensor<F>, *Tabij));
   (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
   (*Tau_abij)["abij"] += ( - 1.0 ) * (*Tai)["bi"] * (*Tai)["aj"];
@@ -252,11 +251,21 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*TildeTau_abij)["abij"] += ( - 0.5 ) * (*Tai)["bi"] * (*Tai)["aj"];
 
   // Equation (3)
-  (*Fae)["ae"]  = (*Tai)["fm"] * (*Viabc)["mafe"];
+  (*Fae)["ae"]  = (*fab)["ae"];
+  (*Fae)["aa"] += (-1.0) * (*fab)["aa"];
+  if (fia) {
+    (*Fae)["aa"] += (-0.5) * (*fia)["me"] * (*Tai)["am"];
+  }
+  (*Fae)["ae"] += (*Tai)["fm"] * (*Viabc)["mafe"];
   (*Fae)["ae"] += ( - 0.5 ) * (*TildeTau_abij)["afmn"] * (*Vijab)["mnef"];
 
   // Equation (4)
-  (*Fmi)["mi"]  = (*Tai)["en"] * (*Vijka)["mnie"];
+  (*Fmi)["mi"]  = (*fij)["mi"];
+  (*Fmi)["ii"] += (-1.0) * (*fij)["ii"];
+  if (fia) {
+    (*Fmi)["mi"] += (+0.5) * (*fia)["me"] * (*Tai)["ei"];
+  }
+  (*Fmi)["mi"] += (*Tai)["en"] * (*Vijka)["mnie"];
   (*Fmi)["mi"] += (0.5) * (*TildeTau_abij)["efin"] * (*Vijab)["mnef"];
 
   // Equation (5) Stanton et al.
