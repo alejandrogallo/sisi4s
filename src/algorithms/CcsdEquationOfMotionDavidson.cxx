@@ -1259,16 +1259,16 @@ CcsdPreConditioner<F>::CcsdPreConditioner(
   // calculate diagonal elements of H
   (*Dai)["bi"] =  ( - 1.0 ) * Fij["ii"];
   (*Dai)["bi"] += ( + 1.0 ) * Fab["bb"];
-  (*Dai)["bi"] += ( - 1.0 ) * Viajb["ibib"];
+/*  (*Dai)["bi"] += ( - 1.0 ) * Viajb["ibib"];
   (*Dai)["bi"] += ( + 1.0 ) * Tabij["cbli"] * Vijab["licb"];
   (*Dai)["bi"] += ( - 0.5 ) * Tabij["cdmi"] * Vijab["micd"];
   (*Dai)["bi"] += ( - 0.5 ) * Tabij["cblm"] * Vijab["lmcb"];
-
+*/
   (*Dabij)["cdij"] =  ( - 1.0 ) * Fij["ii"];
-  (*Dabij)["cdii"] += ( + 1.0 ) * Fij["ii"];
-  (*Dabij)["ccij"] += ( - 1.0 ) * Fab["cc"];
+  (*Dabij)["cdij"] += ( - 1.0 ) * Fij["jj"];
   (*Dabij)["cdij"] += ( + 1.0 ) * Fab["cc"];
-
+  (*Dabij)["cdij"] += ( + 1.0 ) * Fab["dd"];
+/*
   (*Dabij)["cdij"] += ( + 0.5 ) * Vijkl["ijij"];
   (*Dabij)["ccij"] += ( + 1.0 ) * Viajb["icic"];
   (*Dabij)["cdij"] += ( - 1.0 ) * Viajb["icic"];
@@ -1289,7 +1289,7 @@ CcsdPreConditioner<F>::CcsdPreConditioner(
   (*Dabij)["cdij"] += ( + 0.25) * Tabij["cdmn"] * Vijab["mncd"];
   (*Dabij)["ccij"] += ( + 0.5 ) * Tabij["ecno"] * Vijab["noec"];
   (*Dabij)["cdij"] += ( - 0.5 ) * Tabij["ecno"] * Vijab["noec"];
-
+*/
 }
 
 
