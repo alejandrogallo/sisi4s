@@ -1457,7 +1457,7 @@ CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
       continue;
     }
 
-    basisElement = 1 / std::sqrt(basisElement.dot(basisElement))*basisElement;
+    basisElement = 1.0 / std::sqrt(basisElement.dot(basisElement))*basisElement;
     basisElementNorm = std::sqrt(basisElement.dot(basisElement));
 
     b++;

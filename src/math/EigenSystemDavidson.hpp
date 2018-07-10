@@ -213,7 +213,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
               std::sqrt(rightBasis[i].dot(rightBasis[i]))
             );
             // TODO: Check if refreshedVectorNorm is 0
-            rightBasis[i] *= 1/refreshedVectorNorm;
+            rightBasis[i] *= 1.0/refreshedVectorNorm;
           }
 
           // handling the caching of the reduced matrix
@@ -418,7 +418,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
 #endif
 
           if (std::abs(correction_norm) < 1E-6) continue;
-          correction *= 1 / correction_norm;
+          correction *= 1.0 / correction_norm;
           rightBasis.push_back(correction);
         }
         ++iterationCount;
