@@ -694,8 +694,8 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildIntermediates(
     (*Wabci)["abci"] += ( +1.0) * (*Vaibc)["amce"] * (*Tabij)["ebmi"];
     (*Wabci)["abci"] += ( -1.0) * (*Vaibc)["bmce"] * (*Tabij)["eami"];
     //--9
-    (*Wabci)["abci"] += ( -1.0) * (*Vijab)["mnce"] * (*Tai)["am"] * (*Tabij)["ebni"];
-    (*Wabci)["abci"] += ( +1.0) * (*Vijab)["mnce"] * (*Tai)["bm"] * (*Tabij)["eani"];
+    (*Wabci)["abci"] += ( -1.0) * (*Tabij)["ebni"] * (*Vijab)["mnce"] * (*Tai)["am"];
+    (*Wabci)["abci"] += ( +1.0) * (*Tabij)["eani"] * (*Vijab)["mnce"] * (*Tai)["bm"];
     //--8
     (*Wabci)["abci"] += ( -1.0) * (*Wia)["mc"] * (*Tabij)["abmi"];
     //--2-4-10-11
@@ -1196,10 +1196,10 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
 
   //THREE_BODY_TWO ===========================================================
   (*HRabij)["abij"] +=
-    ( -0.5) * (*Rabij)["eamn"] * (*Vijab)["nmfe"] * (*Tabij)["fbij"];
+    ( -0.5) * (*Tabij)["fbij"] * (*Rabij)["eamn"] * (*Vijab)["nmfe"];
   // P(ab)
   (*HRabij)["abij"] +=
-    ( +0.5) * (*Rabij)["ebmn"] * (*Vijab)["nmfe"] * (*Tabij)["faij"];
+    ( +0.5) * (*Tabij)["faij"] * (*Rabij)["ebmn"] * (*Vijab)["nmfe"];
 
   //THREE_BODY_THREE =========================================================
   (*HRabij)["abij"] +=
