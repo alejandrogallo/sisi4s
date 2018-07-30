@@ -1,19 +1,15 @@
-# Configuration for intel without optimization for debugging
-# and faster compile times.
-
 set(CMAKE_CXX_COMPILER mpiicc)
 
 set(
   OPTIMIZATION_FLAGS
-  -DDEBUG
-  -O0
-  -g
+  -xAVX
+  -O3
+  -ipo
 )
 
 set(
   ADDITIONAL_FLAGS
   -DINTEL_COMPILER
-  -Qoption,cpp,--extended_float_types
   -mkl
   -openmp
 )
