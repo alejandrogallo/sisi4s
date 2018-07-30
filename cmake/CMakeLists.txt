@@ -8,7 +8,6 @@ endif()
 
 include(${CONFIG}.cmake)
 include(ctf.cmake)
-include(Cc4sUtils.cmake)
 
 # Check for openmp and add the openmp flag also to the linker
 find_package(OpenMP REQUIRED)
