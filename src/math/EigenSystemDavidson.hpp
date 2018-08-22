@@ -392,7 +392,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
             std::sqrt(correction.dot(correction))
           );
 
-          LOG(0,"Davidson") <<
+          LOG(0,"DavidsonIt") <<
             iterationCount + 1          << " "           <<
             k + 1                       << " "           <<
             rightBasis.size()           << " "           <<
