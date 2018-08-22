@@ -124,6 +124,15 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     e = dire + exce;
   }
 
+  if (isArgumentGiven("HPFockMatrix")) {
+    CTF::Tensor<F> *fia;
+    fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
+    energy[""] = spins * (*Tai)["ai"] * (*fia)["ia"];
+    F noncanonical(energy.get_val());
+    LOG(0, getCapitalizedAbbreviation()) << "noncanonical=" << noncanonical << std::endl;
+    e += noncanonical;
+  }
+
   LOG(0, getCapitalizedAbbreviation()) << "e=" << e << std::endl;
 
   return e;
