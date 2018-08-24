@@ -283,15 +283,6 @@ void CcsdEquationOfMotionDavidson::run() {
     //(*getTensorArgument<F, CTF::Tensor<F> >("DoublesAmplitudes"))["abij"];
   }
 
-  if (getIntegerArgument("printTensors", 0) == 1) {
-    TensorIo::writeText<F>(
-      "Tai.tensor", Tai, "ij", "", " "
-    );
-    TensorIo::writeText<F>(
-      "Tabij.tensor", Tabij, "ijkl", "", " "
-    );
-  }
-
   CcsdSimilarityTransformedHamiltonian<F> H(
     &Tai, &Tabij, Fij, Fab, Fia,
     Vabcd, Viajb, Vijab, Vijkl, Vijka, Viabc, Viajk, Vabic,
@@ -430,22 +421,32 @@ void CcsdEquationOfMotionDavidson::run() {
     }
   }
 
+  std::vector<int> eigenvectorsIndices(
+    RangeParser(getTextArgument("printEigenvectorsRange", "")).getRange()
+  );
+  if (eigenvectorsIndices.size() > 0) {
+    for (auto &index: eigenvectorsIndices) {
+      LOG(1, "CcsdEomDavid") << "Writing out eigenvector " << index << std::endl;
+      auto eigenState(eigenSystem.getRightEigenVectors()[index-1]);
+      TensorIo::writeText<F>(
+        "Rai-" + std::to_string(index) + ".tensor", *eigenState.get(0), "ij", "", " "
+      );
+      TensorIo::writeText<F>(
+        "Rabij-" + std::to_string(index) + ".tensor", *eigenState.get(1), "ijkl", "", " "
+      );
+    }
+  }
 
   std::vector<complex> eigenValues(eigenSystem.getEigenValues());
   int eigenCounter(0);
+  NEW_FILE("EomEnergies.dat") << "";
   for (auto &ev: eigenValues) {
     eigenCounter++;
     LOG(0, "CcsdEomDavid") << eigenCounter << ". Eigenvalue=" << ev << std::endl;
+    FILE("EomEnergiesEnergies.dat") << eigenCounter <<
+      " " << ev.real() << " " << ev.imag() << std::endl;
   }
-  if (getIntegerArgument("printTensors", 0) == 1) {
-    eigenCounter = 0;
-    for (auto &eigenState: eigenSystem.getRightEigenVectors()) {
-      eigenCounter++;
-      LOG(0, "CcsdEomDavid") << eigenCounter << ". Eigenstate=" << std::endl;
-      eigenState.get(1)->print(stdout, -1e100);
-      eigenState.get(2)->print(stdout, -1e100);
-    }
-  }
+
 
 }
 
