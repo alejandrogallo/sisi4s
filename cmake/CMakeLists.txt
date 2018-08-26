@@ -8,6 +8,7 @@ endif()
 
 include(${CONFIG}.cmake)
 include(ctf.cmake)
+include(libint.cmake)
 
 # Check for openmp and add the openmp flag also to the linker
 find_package(OpenMP REQUIRED)
@@ -27,7 +28,6 @@ execute_process(
 
 message("CONFIG             = ${CONFIG}")
 message("CTF_DIR            = ${CTF_DIR}")
-message("SCALAPACK_DIR      = ${SCALAPACK_DIR}")
 message("CC4S_DATE          = ${CC4S_DATE}")
 message("VERSION            = ${VERSION}")
 message("CXX                = ${CMAKE_CXX_COMPILER}")
@@ -52,7 +52,8 @@ file(
 
 # directories to look for libraries
 link_directories(
-  ${SCALAPACK_DIR} ${CTF_DIR}/lib /usr/lib
+  ${CC4S_LINK_DIRECTORIES}
+  ${CTF_DIR}/lib /usr/lib
 )
 
 # declare an executable called Cc4s

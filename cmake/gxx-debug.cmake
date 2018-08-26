@@ -1,5 +1,8 @@
 set(CMAKE_CXX_COMPILER mpicxx)
 
+include(lapack.cmake)
+include(scalapack.cmake)
+
 set(
   OPTIMIZATION_FLAGS
   -g
@@ -13,15 +16,13 @@ set(
 
 set(
   LIBS
-  ctf scalapack reflapack refblas gfortran
+  ctf scalapack lapack blas gfortran
 )
 
-# Find lapack libraries
-find_path (
-  SCALAPACK_DIR libscalapack.a
-  HINTS ENV SCALAPACK_DIR
-  PATHS "/usr/lib/scalapack" "/usr/local/lib/scalapack"
-  DOC "ScaLapack Directory"
+set(
+  CC4S_LINK_DIRECTORIES
+  ${SCALAPACK_LIB_DIR}
+  ${LAPACK_LIB_DIR}
 )
 
 set(
