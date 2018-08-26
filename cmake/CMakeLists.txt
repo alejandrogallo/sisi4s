@@ -8,7 +8,6 @@ endif()
 
 include(${CONFIG}.cmake)
 include(ctf.cmake)
-include(libint.cmake)
 
 # Check for openmp and add the openmp flag also to the linker
 find_package(OpenMP REQUIRED)
@@ -26,15 +25,17 @@ execute_process(
   OUTPUT_VARIABLE VERSION
 )
 
-message("CONFIG             = ${CONFIG}")
-message("CTF_DIR            = ${CTF_DIR}")
-message("CC4S_DATE          = ${CC4S_DATE}")
-message("VERSION            = ${VERSION}")
-message("CXX                = ${CMAKE_CXX_COMPILER}")
-message("COMPILER_VERSION   = ${COMPILER_VERSION}")
-message("OpenMP_CXX_FLAGS   = ${OpenMP_CXX_FLAGS}")
-message("OPTIMIZATION_FLAGS = ${OPTIMIZATION_FLAGS}")
-message("ADDITIONAL_FLAGS   = ${ADDITIONAL_FLAGS}")
+message("CONFIG                   = ${CONFIG}")
+message("CTF_DIR                  = ${CTF_DIR}")
+message("CC4S_DATE                = ${CC4S_DATE}")
+message("VERSION                  = ${VERSION}")
+message("CXX                      = ${CMAKE_CXX_COMPILER}")
+message("COMPILER_VERSION         = ${COMPILER_VERSION}")
+message("OpenMP_CXX_FLAGS         = ${OpenMP_CXX_FLAGS}")
+message("OPTIMIZATION_FLAGS       = ${OPTIMIZATION_FLAGS}")
+message("ADDITIONAL_FLAGS         = ${ADDITIONAL_FLAGS}")
+message("CC4S_LINK_DIRECTORIES    = ${CC4S_LINK_DIRECTORIES}")
+message("CC4S_INCLUDE_DIRECTORIES = ${CC4S_INCLUDE_DIRECTORIES}")
 
 # DEFINE THE SOURCES FOR THE CC4S BINARY
 file(
@@ -62,6 +63,7 @@ add_executable(Cc4s ${Cc4s_sources})
 target_include_directories(
   Cc4s
   PUBLIC
+  ${CC4S_INCLUDE_DIRECTORIES}
   ${PROJECT_SOURCE_DIR}/src
   ${CTF_DIR}/include
 )
