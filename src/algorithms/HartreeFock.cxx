@@ -18,7 +18,7 @@ HartreeFock::~HartreeFock() {}
 
 
 double
-compute_nuclear_repulsion_energy(std::vector<libint2::Atom>& structure)
+getNuclearRepulsionEnergy(std::vector<libint2::Atom>& structure)
 {
   int i, j;
   double enuc(0.0), r2(0.0);
@@ -38,7 +38,7 @@ compute_nuclear_repulsion_energy(std::vector<libint2::Atom>& structure)
 
 
 Eigen::MatrixXd
-compute_1body_ints(
+getOneBodyIntegrals(
   const libint2::BasisSet shells,
   libint2::Operator obtype,
   const std::vector<libint2::Atom>& atoms
@@ -101,7 +101,7 @@ compute_1body_ints(
 
 
 Eigen::MatrixXd
-compute_2body_fock_simple(
+getTwoBodyFock(
   const libint2::BasisSet shells,
   const Eigen::MatrixXd& D
   ) {
@@ -206,29 +206,19 @@ void HartreeFock::run() {
   LOG(0, "HartreeFock") << "Calculating hartree fock" << std::endl;
   LOG(1, "HartreeFock") << "We'll see how this works" << std::endl;
 
-  const std::string xyzStructureFile(
-    getTextArgument("xyzStructureFile", "")
-  );
-  const std::string basis_set(
-    getTextArgument("basisSet", "sto-3g")
-  );
-  int electronic_iterations(
-    getIntegerArgument("maxIterations", 16)
-  );
-  double electronic_convergence(
-    getRealArgument("energyDifference", 1e-4)
-  );
-  int number_of_electrons(
-    getIntegerArgument("numberOfElectrons", 0)
-  );
+  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
+  const std::string basisSet(getTextArgument("basisSet", "sto-3g"));
+  int maxIterations(getIntegerArgument("maxIterations", 16));
+  double electronicConvergence(getRealArgument("energyDifference", 1e-4));
+  int numberOfElectrons(getIntegerArgument("numberOfElectrons", 0));
   int i;
-  int n_basis_functions;
+  int nBasisFunctions;
   int No;
   double enuc;
 
-  LOG(1, "HartreeFock") << "Electronic iterations  = " << electronic_iterations  << std::endl;
-  LOG(1, "HartreeFock") << "Electronic convergence = " << electronic_convergence << std::endl;
-  LOG(1, "HartreeFock") << "Basis set              = " << basis_set              << std::endl;
+  LOG(1, "HartreeFock") << "Electronic iterations  = " << maxIterations  << std::endl;
+  LOG(1, "HartreeFock") << "Electronic convergence = " << electronicConvergence << std::endl;
+  LOG(1, "HartreeFock") << "Basis set              = " << basisSet              << std::endl;
 
   LOG(2, "HartreeFock") << "Initialising libint2" << std::endl;
   libint2::initialize();  // safe to use libint now
@@ -240,23 +230,23 @@ void HartreeFock::run() {
 
   LOG(1, "HartreeFock") << "Computing number of electrons" << std::endl;
   for (i = 0; i < atoms.size(); ++i) {
-    number_of_electrons += atoms[i].atomic_number;
+    numberOfElectrons += atoms[i].atomic_number;
   }
   LOG(1, "HartreeFock") << "Number of atoms = " << atoms.size() << std::endl;
-  LOG(1, "HartreeFock") << "Number of electrons = " << number_of_electrons << std::endl;
+  LOG(1, "HartreeFock") << "Number of electrons = " << numberOfElectrons << std::endl;
 
   // restricted hartree fock
-  No = number_of_electrons/2;
+  No = numberOfElectrons/2;
 
-  enuc = compute_nuclear_repulsion_energy(atoms);
+  enuc = getNuclearRepulsionEnergy(atoms);
   LOG(1, "HartreeFock") << "Nuclear repulsion energy " << enuc << std::endl;
 
   LOG(1, "HartreeFock") << "Initializing basis set" << std::endl;
-  libint2::BasisSet shells(basis_set, atoms);
+  libint2::BasisSet shells(basisSet, atoms);
 
-  n_basis_functions = shells.nbf();
+  nBasisFunctions = shells.nbf();
 
-  LOG(1, "HartreeFock") << "Number of basis functions = " << n_basis_functions
+  LOG(1, "HartreeFock") << "Number of basis functions = " << nBasisFunctions
     << std::endl;
   LOG(1, "HartreeFock")
     << "Maximum number of primitives in shells = "
@@ -268,19 +258,19 @@ void HartreeFock::run() {
     << std::endl;
 
   LOG(1, "HartreeFock") << "Calculating overlaps" << std::endl;
-  Eigen::MatrixXd S = compute_1body_ints(
+  Eigen::MatrixXd S = getOneBodyIntegrals(
     shells, libint2::Operator::overlap, atoms
   );
   OUT() << S << std::endl;
 
   LOG(1, "HartreeFock") << "Calculating kinteic integrals" << std::endl;
-  Eigen::MatrixXd T = compute_1body_ints(
+  Eigen::MatrixXd T = getOneBodyIntegrals(
     shells, libint2::Operator::kinetic, atoms
   );
   OUT() << T << std::endl;
 
   LOG(1, "HartreeFock") << "Compute nuclear repulsion integrals" << std::endl;
-  Eigen::MatrixXd V = compute_1body_ints(
+  Eigen::MatrixXd V = getOneBodyIntegrals(
     shells, libint2::Operator::nuclear, atoms
   );
   OUT() << V << std::endl;
@@ -293,13 +283,13 @@ void HartreeFock::run() {
   T.resize(0,0);
   V.resize(0,0);
 
-  Eigen::MatrixXd D(n_basis_functions, n_basis_functions);
-  Eigen::MatrixXd F(n_basis_functions, n_basis_functions);
+  Eigen::MatrixXd D(nBasisFunctions, nBasisFunctions);
+  Eigen::MatrixXd F(nBasisFunctions, nBasisFunctions);
   Eigen::MatrixXd D_last = D;
 
   D *= 0.0;
 
-  for ( i=0 ; i < n_basis_functions ; i++) {
+  for ( i=0 ; i < nBasisFunctions ; i++) {
     for (unsigned j=i ; j < i+1 ; j++) {
       D(i,j) = 1;
     }
@@ -311,19 +301,19 @@ void HartreeFock::run() {
 
   int iter(0);
   double rmsd(0);
-  double energy_diff(0);
+  double energyDifference(0);
   double ehf(0);
-  double ehf_last(0);
+  double ehfLast(0);
 
   do {
 
     ++iter;
 
-    ehf_last = ehf;
+    ehfLast = ehf;
     D_last = D;
 
     F = H;
-    F += compute_2body_fock_simple(shells, D);
+    F += getTwoBodyFock(shells, D);
 
     // solve F C = e S C
     Eigen::GeneralizedSelfAdjointEigenSolver<Eigen::MatrixXd> gen_eig_solver(F, S);
@@ -336,13 +326,13 @@ void HartreeFock::run() {
     D = C_occ * C_occ.transpose();
 
     ehf = 0.0;
-    for (unsigned i=0 ; i < n_basis_functions; i++) {
-      for (unsigned j=0 ; j < n_basis_functions ; j++) {
+    for (unsigned i=0 ; i < nBasisFunctions; i++) {
+      for (unsigned j=0 ; j < nBasisFunctions ; j++) {
         ehf += D(i,j) * (H(i,j) + F(i,j));
       }
     }
 
-    energy_diff = ehf - ehf_last;
+    energyDifference = ehf - ehfLast;
     rmsd = (D - D_last).norm();
 
     if (iter == 1)
@@ -358,14 +348,14 @@ void HartreeFock::run() {
         iter << "      " <<
         ehf  << "   " <<
         ehf + enuc << "    " <<
-        energy_diff << "    " <<
+        energyDifference << "    " <<
         rmsd << "    " <<
         std::endl;
 
   } while (
-      ((fabs(energy_diff) > electronic_convergence) ||
-       (fabs(rmsd) > electronic_convergence))        &&
-      (iter < electronic_iterations)
+      ((fabs(energyDifference) > electronicConvergence) ||
+       (fabs(rmsd) > electronicConvergence))        &&
+      (iter < maxIterations)
       );
 
   LOG(0, "HartreeFock") << "energy=" << ehf + enuc << std::endl;
