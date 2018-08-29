@@ -439,11 +439,11 @@ void CcsdEquationOfMotionDavidson::run() {
 
   std::vector<complex> eigenValues(eigenSystem.getEigenValues());
   int eigenCounter(0);
-  NEW_FILE("EomEnergies.dat") << "";
+  NEW_FILE("EomCcsdEnergies.dat") << "";
   for (auto &ev: eigenValues) {
     eigenCounter++;
     LOG(0, "CcsdEomDavid") << eigenCounter << ". Eigenvalue=" << ev << std::endl;
-    FILE("EomEnergiesEnergies.dat") << eigenCounter <<
+    FILE("EomCcsdEnergies.dat") << eigenCounter <<
       " " << ev.real() << " " << ev.imag() << std::endl;
   }
 
