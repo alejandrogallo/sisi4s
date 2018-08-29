@@ -260,19 +260,19 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           }
         }
 
-        LOG(1,"Davidson") << "Computing <basis|H|new>" << std::endl;
+        //LOG(1,"Davidson") << "Computing <basis|H|new>" << std::endl;
         for (unsigned int j(0); j < rightBasis.size(); ++j) {
           LOG(1,"Davidson") << "Computing " << j << std::endl;
           V HBj( this->h->rightApply(rightBasis[j]) );
           for (unsigned int i(previousBasisSize); i < rightBasis.size(); ++i) {
-            LOG(1,"Davidson") << i << "," << j << std::endl;
+            //LOG(1,"Davidson") << i << "," << j << std::endl;
             reducedH(i,j) = rightBasis[i].dot(HBj);
             previousReducedMatrixElements[i + rightBasis.size() * j] = reducedH(i,j);
           }
         }
 
         if (previousBasisSize > 0) {
-          LOG(1,"Davidson") << "Computing <new|H|basis>" << std::endl;
+          //LOG(1,"Davidson") << "Computing <new|H|basis>" << std::endl;
           for (unsigned int j(previousBasisSize); j < rightBasis.size(); ++j) {
             V HBj( this->h->rightApply(rightBasis[j]) );
             for (unsigned int i(0); i < rightBasis.size(); ++i) {
