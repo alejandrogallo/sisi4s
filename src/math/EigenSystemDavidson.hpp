@@ -263,7 +263,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
 
         //LOG(1,"Davidson") << "Computing <basis|H|new>" << std::endl;
         for (unsigned int j(0); j < rightBasis.size(); ++j) {
-          LOG(1,"Davidson") << "Computing " << j << std::endl;
+          //LOG(1,"Davidson") << "Computing " << j << std::endl;
           V HBj( this->h->rightApply(rightBasis[j]) );
           for (unsigned int i(previousBasisSize); i < rightBasis.size(); ++i) {
             //LOG(1,"Davidson") << i << "," << j << std::endl;
