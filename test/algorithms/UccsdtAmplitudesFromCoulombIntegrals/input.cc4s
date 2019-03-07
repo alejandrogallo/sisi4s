@@ -29,7 +29,7 @@ CoulombIntegralsFromVertex [
   PPPPCoulombIntegrals
 ].
 
-UccsdtAmplitudesFromCoulombIntegrals [
+UccsdAmplitudesFromCoulombIntegrals [
 
   HHHHCoulombIntegrals
   HHHPCoulombIntegrals
@@ -48,15 +48,51 @@ UccsdtAmplitudesFromCoulombIntegrals [
   PPPPCoulombIntegrals
 
   HoleEigenEnergies ParticleEigenEnergies
-  (maxIterations 30)
+  (maxIterations 15)
   (unrestricted 1)
-  %(mixer "LinearMixer")
-  (mixingRatio 1.0)
+  (antisymmetrize 1)
+  (mixer "DiisMixer")
 
 ] [
-  (UccsdtEnergy UccsdEnergy)
-  (UccsdtSinglesAmplitudes UccsdSinglesAmplitudes)
-  (UccsdtDoublesAmplitudes UccsdDoublesAmplitudes)
+  (UccsdEnergy UccsdEnergy)
+  (UccsdSinglesAmplitudes UccsdSinglesAmplitudes)
+  (UccsdDoublesAmplitudes UccsdDoublesAmplitudes)
+].
+
+TensorWriter [(Data UccsdEnergy)] [].
+
+UccsdtAmplitudesFromCoulombIntegrals [
+
+  HHHHCoulombIntegrals
+  HHHPCoulombIntegrals
+  HHPHCoulombIntegrals
+  HHPPCoulombIntegrals
+  HPHHCoulombIntegrals
+  HPHPCoulombIntegrals
+  HPPHCoulombIntegrals
+  HPPPCoulombIntegrals
+  PHPHCoulombIntegrals
+  PHPPCoulombIntegrals
+  PPHHCoulombIntegrals
+  PPHPCoulombIntegrals
+  PPPHCoulombIntegrals
+  PPPHCoulombIntegrals
+  PPPPCoulombIntegrals
+
+  (intialDoublesAmplitudes UccsdDoublesAmplitudes)
+  (intialSinglesAmplitudes UccsdSinglesAmplitudes)
+
+  HoleEigenEnergies ParticleEigenEnergies
+  (maxIterations 30)
+  (unrestricted 1)
+  (antisymmetrize 1)
+  (mixer "DiisMixer")
+
+] [
+  (UccsdtEnergy UccsdtEnergy)
+  (UccsdtSinglesAmplitudes UccsdtSinglesAmplitudes)
+  (UccsdtDoublesAmplitudes UccsdtDoublesAmplitudes)
+  (UccsdtTriplesAmplitudes UccsdtTriplesAmplitudes)
 ].
 
 TensorWriter [(Data UccsdtEnergy)] [].
