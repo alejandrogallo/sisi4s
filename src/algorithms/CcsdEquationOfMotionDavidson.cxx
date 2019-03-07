@@ -423,16 +423,27 @@ void CcsdEquationOfMotionDavidson::run() {
   std::vector<int> eigenvectorsIndices(
     RangeParser(getTextArgument("printEigenvectorsRange", "")).getRange()
   );
+  bool printEigenvectorsDoubles(getIntegerArgument("printEigenvectorsDoubles", 1) == 1);
   if (eigenvectorsIndices.size() > 0) {
+
+    if (! printEigenvectorsDoubles)
+      LOG(0, "CcsdEomDavid") << "Not writing out Rabij" << std::endl;
+
     for (auto &index: eigenvectorsIndices) {
       LOG(1, "CcsdEomDavid") << "Writing out eigenvector " << index << std::endl;
       auto eigenState(eigenSystem.getRightEigenVectors()[index-1]);
       TensorIo::writeText<F>(
-        "Rai-" + std::to_string(index) + ".tensor", *eigenState.get(0), "ij", "", " "
+        "Rai-" + std::to_string(index) + ".tensor",
+        *eigenState.get(0),
+        "ij", "", " "
       );
-      TensorIo::writeText<F>(
-        "Rabij-" + std::to_string(index) + ".tensor", *eigenState.get(1), "ijkl", "", " "
-      );
+      if (printEigenvectorsDoubles) {
+        TensorIo::writeText<F>(
+          "Rabij-" + std::to_string(index) + ".tensor",
+          *eigenState.get(1),
+          "ijkl", "", " "
+        );
+      }
     }
   }
 
