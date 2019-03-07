@@ -4,6 +4,7 @@
 #include <util/LapackMatrix.hpp>
 #include <util/LapackGeneralEigenSystem.hpp>
 #include <math/MathFunctions.hpp>
+#include <math/Complex.hpp>
 
 #include <vector>
 #include <iomanip>
@@ -335,7 +336,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
             //);
             //this->rightEigenVectors[k] += c * rightBasis[b];
             this->rightEigenVectors[k] +=
-              rightBasis[b] * ComplexTraits<F>::convert(
+              rightBasis[b] * Conversion<F, complex>::from(
                 reducedEigenSystem.getRightEigenVectors()(b,k)
               );
           }
@@ -343,7 +344,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           leftEigenVectors[k] *= F(0);
           for (int b(0); b < reducedH.getColumns(); ++b) {
             leftEigenVectors[k] +=
-              rightBasis[b] * ComplexTraits<F>::convert(
+              rightBasis[b] * Conversion<F, complex>::from(
                 reducedEigenSystem.getLeftEigenVectors()(b,k)
               );
           }
@@ -373,7 +374,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           // compute residuum
           V residuum( this->h->rightApply(this->rightEigenVectors[k]) );
           residuum -=
-            this->rightEigenVectors[k] * ComplexTraits<F>::convert(
+            this->rightEigenVectors[k] * Conversion<F, complex>::from(
               //std::sqrt(eigenValues[k])
               this->eigenValues[k]
             );
