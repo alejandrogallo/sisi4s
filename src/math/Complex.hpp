@@ -1,59 +1,62 @@
 #ifndef COMPLEX_DEFINED
 #define COMPLEX_DEFINED
 
+#include <math/Float.hpp>
 #include <complex>
 
-/*
-#ifdef INTEL_COMPILER
 namespace cc4s {
-  class complex: public std::complex<double> {
-  public:
-    void real(double value) {
-      this->real(value);
-    }
-    void imag(double value) {
-      this->imag(value);
-    }
-  };
-}
-namespace std {
-  double real(cc4s::complex c) {
-    return std::real(std::complex<double>(c));
-  }
-  double imag(cc4s::complex c) {
-    return std::imag(std::complex<double>(c));
-  }
-}
-#else
-#endif
-*/
-namespace cc4s {
-  typedef std::complex<double> complex;
+  // use standard library complex number support
+  template <typename Real>
+  using Complex = std::complex<Real>;
 
-  inline double absSqr(const double x) {
+  // define explicit size complex types
+  typedef Complex<Float32> Complex32;
+  typedef Complex<Float64> Complex64;
+  typedef Complex<Float128> Complex128;
+
+  // define complex field over machine supported reals as default complex type
+  typedef Complex<real> complex;
+
+
+  template <typename Real>
+  inline Real absSqr(const Real x) {
     return x*x;
   }
 
-  inline double absSqr(const complex z) {
+  template <typename Real>
+  inline Real absSqr(const Complex<Real> z) {
     return absSqr(z.real()) + absSqr(z.imag());
   }
 
-  // base template
-  template <typename F>
-  class ComplexTraits {
+  // numeric conversions
+  template <typename Target, typename Source>
+  class Conversion;
+
+  template <typename Target, typename Real>
+  class Conversion<Target, Complex<Real>> {
   public:
-    static F convert(const complex x) {
-      return F(x);
+    static Target from(const Complex<Real> x) {
+      return Target(x);
     }
   };
 
-  template <>
-  class ComplexTraits<double> {
+  template <typename Real>
+  class Conversion<Real, Complex<Real>> {
   public:
-    static double convert(const complex x) {
+    static Real from(const Complex<Real> x) {
       return std::real(x);
     }
   };
+
+#ifdef INTEL_COMPILER
+    // TODO: implement for intel
+#else
+  inline std::ostream &operator <<(
+    std::ostream &stream, const Complex128 z
+  ) {
+    return stream << '(' << std::real(z) << ',' << std::imag(z) << ')';
+  }
+#endif
 }
 
 #endif

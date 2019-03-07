@@ -49,7 +49,7 @@ F ClusterSinglesDoublesAlgorithm::run() {
 
   // create a mixer, by default use the linear one
   std::string mixerName(getTextArgument("mixer", "LinearMixer"));
-  Mixer<F> *mixer( MixerFactory<F>::create(mixerName, this));
+  PTR(Mixer<F>) mixer( MixerFactory<F>::create(mixerName, this));
   if (!mixer) {
     std::stringstream stringStream;
     stringStream << "Mixer not implemented: " << mixerName;
@@ -376,8 +376,8 @@ Tensor<double> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
   return Vxycd;
 }
 
-Tensor<complex> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
-  const PTR(const FockVector<complex>) &amplitudes,
+Tensor<cc4s::complex> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
+  const PTR(const FockVector<cc4s::complex>) &amplitudes,
   int a, int b, int integralsSliceSize
 ) {
   // Read the amplitudes Tai
@@ -385,7 +385,7 @@ Tensor<complex> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
   Tai->set_name("Tai");
 
   // Read the Coulomb vertex GammaGqr
-  auto GammaGqr( getTensorArgument<complex>("CoulombVertex"));
+  auto GammaGqr( getTensorArgument<cc4s::complex>("CoulombVertex"));
   GammaGqr->set_name("GammaGqr");
 
   // Compute No,Nv,NG,Np
@@ -613,7 +613,7 @@ Tensor<double> *
   return Fabij;
 }
 
-Tensor<complex> *
+Tensor<cc4s::complex> *
   ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors
 (
   const PTR(const FockVector<complex>) &amplitudes,

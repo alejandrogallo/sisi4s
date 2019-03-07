@@ -1,8 +1,9 @@
-/*Copyright (c) 2017, Andreas Grueneis and Felix Hummel, all rights reserved.*/
+/*Copyright (c) 2018, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef THERMAL_CLUSTER_DOUBLES_ALGORITHM_DEFINED 
 #define THERMAL_CLUSTER_DOUBLES_ALGORITHM_DEFINED
 
 #include <algorithms/Algorithm.hpp>
+#include <util/SharedPointer.hpp>
 #include <string>
 #include <ctf.hpp>
 #include <tcc/DryTensor.hpp>
@@ -33,290 +34,338 @@ namespace cc4s {
      */
     virtual std::string getAbbreviation() = 0;
 
-    /**
-     * \brief Defines the default recursion length.
-     */
-    static int constexpr DEFAULT_RECURSION_LENGTH = 2;
-    /**
-     * \brief Defines the default minimum number of iterations
-     */
-    static int constexpr DEFAULT_MIN_ITERATIONS = 8;
-    /**
-     * \brief Defines the default maximum number of iterations
-     */
-    static int constexpr DEFAULT_MAX_ITERATIONS = 1024;
+    static constexpr int DEFAULT_MAX_ITERATIONS = 12;
+    static constexpr int DEFAULT_SINGLES_ENERGY = 0;
+    static constexpr int DEFAULT_SINGLES = 0;
 
   protected:
-    /**
-     * \brief The free energies of all preceeding time scales.
-     **/
-    std::vector<CTF::Scalar<> *>energies;
+    std::vector<real> taus;
+
+    CTF::Tensor<real> *lambdaF;
 
     /**
-     * \brief The thermal doubles amplitudes of all preceeding time scales.
-     */
-    std::vector<CTF::Tensor<> *>amplitudes;
+     * \brief lambdaF + lambdaG for doubles propagation
+     **/
+    PTR(CTF::Tensor<real>) lambdaFG;
 
     /**
-     * \brief The eigenenergy difference of between the state a and i.
-     * This is used to propagate all states in imaginary time.
+     * \brief direct & exchange Vabij in left/right singles-mode basis F/G
      **/
-    CTF::Tensor<> *Dai;
+    PTR(CTF::Tensor<real>) VdFG, VxFG;
+
+    /**
+     * \brief sqrt(occupancies)
+     **/
+    PTR(CTF::Tensor<real>) gi, ga;
 
     /**
      * \brief Inverse temperature \f$\beta=1/k_{\rm B}T\f$, where
      * \f$k_{\rm B}T\f$ is given in the same unit as the eigenenergies
      * \f$\varepsilon_p\f$.
      **/
-    double beta;
+    real beta;
 
     /**
-     * \brief The number of imaginary frequency intervals retained.
+     * \brief eigenvectors of singles part of the Hamiltonian
      **/
-    int recursionLength;
+    PTR(CTF::Tensor<real>) UaiF;
 
     /**
-     * \brief The scaling factor of two successive imaginary time scales.
-     **/
-    double recursionScaling;
-
-    /**
-     * \brief Calculates properties at the next larger imaginary time scale
-     * from the properties of the preceding smaller imaginary time scales
-     * \param[in] n The decreasing level of energy. At 0 the calcuation is done.
      */
-    virtual void iterate(int n) = 0;
-
-    /**
-     * \brief Performs a dry run of an iterate according to the concrete
-     * algorithm.
-     * The base class does not perform accounting and writes a warning about
-     * that.
-     */
-    virtual void dryIterate();
-
-    void initializeRecursion(const int N);
-    double recurse(const int n);
+    virtual void applyHamiltonian(
+      CTF::Tensor<real> &T0FG,
+      CTF::Tensor<real> &T1FG,
+      const real DTau,
+      CTF::Tensor<real> &S1FG
+    ) = 0;
 
     std::string getCapitalizedAbbreviation();
-    double getRecursionScaling(const int M);
-    double getEnergyScale();
-    std::string getAmplitudeIndices(CTF::Tensor<> &T);
-    void fetchDelta(CTF::Tensor<> &Delta);
-    void thermalContraction(CTF::Tensor<> &T);
-  };
+    std::string getAmplitudeIndices(CTF::Tensor<real> &T);
+    cc4s::real getTammDancoffEnergy();
+    cc4s::real getZeroTDrccd();
+    void setupImaginaryTimeGrid();
+    void iterateAmplitudeSamples();
+    void computeEnergyContribution(
+      CTF::Tensor<real> &SFG, const real DTau,
+      real &direct, real &exchange
+    );
+    void computeSqrtOccupancies();
+    void diagonalizeSinglesHamiltonian();
+    void propagateAmplitudes(
+      CTF::Tensor<real> &SFG,
+      const std::function<void(real, real &)> &propagator
+    );
+    void diagonalizeDoublesAmplitudes(
+      CTF::Tensor<real> &TFG
+    );
 
+    class ImaginaryTimeTransform {
+    protected:
+      ImaginaryTimeTransform(
+        real DTau_
+      ): DTau(DTau_) {
+      }
+      real DTau;
+    };
 
-  class ImaginaryTimeTransform {
-  protected:
-    ImaginaryTimeTransform(
-      double DTau_
-    ): DTau(DTau_) {
-    }
-    double DTau;
-  };
+    class SecondOrderIntegral: public ImaginaryTimeTransform {
+    public:
+      SecondOrderIntegral(
+        real DTau_
+      ): ImaginaryTimeTransform(DTau_) {
+      }
+      void operator ()(const real lambda, real &hh) const {
+        const real x(lambda * DTau);
+        if (std::abs(x) > 0.25) {
+          hh *= DTau * (std::exp(-x) - 1.0 + x) / (x*x);
+        } else {
+          hh *= DTau/2*(
+            1 - x/3*(
+              1 - x/4*(
+                1 - x/5*(
+                  1 - x/6*(
+                    1 - x/7*(
+                      1 - x/8*(
+                        1 - x/9*(
+                          1 - x/10*(
+                            1 - x/11*(
+                              1 - x/12
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          );
+        }
+      }
+    };
 
-  /**
-   * \brief Offers a transform method for the propagation of
-   * one particle hole pair without interaction
-   * within the imgainary time interval of length DTau.
-   **/
-  class FreePHImaginaryTimeTransform: public ImaginaryTimeTransform {
-  public:
-    FreePHImaginaryTimeTransform(
-      double DTau_
-    ): ImaginaryTimeTransform(DTau_) {
-    }
-    /**
-     * \brief Transforms the amplitude P given the energy differences
-     * of the particle hole pair.
-     * \param[in] Dai The energy difference of the pair propagating.
-     * \param[inout] P The amplitude to transform according to the propagation.
-     **/
-    void operator ()(double Dai, double &P) const {
-      P *= std::exp(-Dai*DTau);
-    }
-  };
+    class ImaginaryTimePropagation: public ImaginaryTimeTransform {
+    public:
+      ImaginaryTimePropagation(
+        real DTau_
+      ): ImaginaryTimeTransform(DTau_) {
+      }
+      void operator ()(const real lambdaFG, real &T) const {
+        T *= std::exp(-lambdaFG*DTau);
+      }
+    };
 
-  class FreeImaginaryTimePropagation: public ImaginaryTimeTransform {
-  public:
-    FreeImaginaryTimePropagation(
-      double DTau_
-    ): ImaginaryTimeTransform(DTau_) {
-    }
-    /**
-     * \brief Returns propagator given the energy sum of the states
-     * propagating.
-     * \param[in] Delta The propagating energies. Particles count positive.
-     **/
-    double operator ()(const double Delta) const {
-      return std::exp(-Delta*DTau);
-    }
-  };
+    // constant V^J=C contribution to T'^J(tau_m),
+    // independent of the amplitudes T^I(tau)
+    // = int_0^Tau dtau exp(-lambdaFG*(Tau-tau))
+    class ConvolutionC: public ImaginaryTimeTransform {
+    public:
+      static constexpr real SMALL = 0.25;
+      ConvolutionC(
+        real DTau_
+      ): ImaginaryTimeTransform(DTau_) {
+      }
+      // \brief Requires T = f^J
+      void operator ()(const real lambdaFG, real &T) const {
+        const real x(DTau*lambdaFG);
+        if (std::abs(x) < SMALL) {
+          T *= DTau * (
+            1 - x/2*(
+              1 - x/3*(
+                1 - x/4*(
+                  1 - x/5*(
+                    1 - x/6*(
+                      1 - x/7*(
+                        1 - x/8*(
+                          1 - x/9*(
+                            1 - x/10*(
+                              1 - x/11*(
+                                1 - x/12
+                              )
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          );
+        } else {
+          T *= (1-std::exp(-x)) / lambdaFG;
+        }
+      }
+    };
 
-  /**
-   * \brief Offers a transform method for the propagation of
-   * two particle hole pairs without interaction
-   * within the imgainary time interval of length DTau.
-   **/
-  class FreePPHHImaginaryTimeTransform: public ImaginaryTimeTransform {
-  public:
-    FreePPHHImaginaryTimeTransform(
-      double DTau_
-    ): ImaginaryTimeTransform(DTau_) {
-    }
-    /**
-     * \brief Transforms the amplitude P given the energy differences
-     * of the particle hole pairs.
-     * \param[in] Dai The energy difference of the first pair propagating.
-     * \param[in] Dbj The energy difference of the second pair propagating.
-     * \param[inout] P The amplitude to transform according to the propagation.
-     **/
-    void operator ()(double Dai, double Dbj, double &P) {
-      P *= std::exp(-(Dai+Dbj)*DTau);
-    }
-  };
+    // linear T^I(tau_m-1)=T0 contribution to T'^J(tau_m)
+    // = int_0^Tau dtau (Tau-tau)/Tau * exp(-lambdaFG*(Tau-tau))
+    class Convolution0: public ImaginaryTimeTransform {
+    public:
+      static constexpr real SMALL = 1e-1;
+      Convolution0(
+        real DTau_
+      ): ImaginaryTimeTransform(DTau_) {
+      }
+      // \brief Requires T = f^(J\I)
+      void operator ()(const real lambdaFG, real &T) {
+        const real x(DTau*lambdaFG);
+        if (std::abs(x) < SMALL) {
+          T *= DTau * (
+            1./2 - x*(
+              1./3 - x*(
+                1./8 - x*(
+                  1./30 - x*(1./144 - x*(1./840 - x*(1./5760 - x/45360)))
+                )
+              )
+            )
+          );
+        } else {
+          T *= (1-(x+1)*std::exp(-x)) / (x*lambdaFG);
+        }
+      }
+    };
 
-  /**
-   * \brief Offers a transform method for the propagation of
-   * two particle hole pairs from or to the Coulomb interaction
-   * at tau within the imgainary time interval of length DTau.
-   **/
-  class PPHHImaginaryTimeTransform: public ImaginaryTimeTransform {
-  public:
-    PPHHImaginaryTimeTransform(
-      double DTau_
-    ): ImaginaryTimeTransform(DTau_) {
-    }
-    /**
-     * \brief Transforms the amplitude P given the energy differences
-     * of two particle hole pairs, which are either both incoming or both
-     * outgoing.
-     * \param[in] Dai The energy difference of the first pair propagating.
-     * \param[in] Dbj The energy difference of the second propagating.
-     * \param[inout] P The amplitude to transform according to the propagation.
-     **/
-    void operator ()(double Dai, double Dbj, double &P) const {
-      const double Delta(Dai+Dbj);
-      const double DeltaDTau(Delta*DTau);
-      // use the first order approximation around Delta=zero if applicable
-      // to avoid division by small numbers
-      P *= (DeltaDTau*DeltaDTau * DTau > 6e-15) ?
-        (1 - std::exp(-DeltaDTau)) / Delta :
-        DTau * (1 - 0.5*DeltaDTau*DTau);
-    }
-  };
+    // linear T^I(tau_m)=T1 contribution to T'^J(tau_m)
+    // = int_0^Tau dtau tau/Tau * exp(-lambdaFG*(Tau-tau))
+    class Convolution1: public ImaginaryTimeTransform {
+    public:
+      static constexpr real SMALL = 1e-1;
+      Convolution1(
+        real DTau_
+      ): ImaginaryTimeTransform(DTau_) {
+      }
+      // \brief Requires T = f^(J\I)
+      void operator ()(const real lambdaFG, real &T) {
+        const real x(DTau*lambdaFG);
+        if (std::abs(x) < SMALL) {
+          T *= DTau * (
+            1./2 - x*(
+              1./6 - x*(
+                1./24 - x*(
+                  1./120 - x*(1./720 - x*(1./5040 - x*(1./40320 - x/362880)))
+                )
+              )
+            )
+          );
+        } else {
+          T *= (std::exp(-x)+x-1) / (x*lambdaFG);
+        }
+      }
+    };
 
-  class SameSideConnectedImaginaryTimePropagation:
-    public ImaginaryTimeTransform
-  {
-  public:
-    SameSideConnectedImaginaryTimePropagation(
-      double DTau_
-    ): ImaginaryTimeTransform(DTau_) {
-    }
-    /**
-     * \brief Returns the propgator for states connected to the interaction
-     * given the energy sum of the states propagating. The states must be
-     * connected either all from below or all to above.
-     * Particles count positive, holes count negative.
-     * \param[in] Delta The energy sum of the states propagating.
-     **/
-    double operator ()(const double Delta) const {
-      const double DeltaDTau(Delta*DTau);
-      // use the first order approximation around Delta=zero if applicable
-      // to avoid division by small numbers
-      return (DeltaDTau*DeltaDTau * DTau > 6e-15) ?
-        (1 - std::exp(-DeltaDTau)) / Delta :
-        DTau * (1 - 0.5*DeltaDTau);
-    }
-  };
+    // TODO: improve low x behaviour
+    // quadratic T^I1(tau_m-1)*T^I2(tau_m-1)=T0*T0 contribution to T'^J(tau_m)
+    // = int_0^Tau dtau (Tau-tau)/Tau * (Tau-tau)/Tau * exp(-lambdaFG*(Tau-tau))
+    class Convolution00: public ImaginaryTimeTransform {
+    public:
+      static constexpr real SMALL = 1e-2;
+      Convolution00(
+        real DTau_
+      ): ImaginaryTimeTransform(DTau_) {
+      }
+      // \brief Requires T = f^(J\I)
+      void operator ()(const real lambdaFG, real &T) {
+        const real x(DTau*lambdaFG);
+        if (std::abs(x) < SMALL) {
+          T *= DTau * (
+            1./3 - x*(
+              1./4 - x*(
+                1./10 - x*(
+                  1./36 - x*(
+                    1./168 - x*(
+                      1./960 - x*(
+                        1./6480 - x*(
+                          1./50400 - x*(
+                            1./443520
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          );
+        } else {
+          T *= (2-((2+2*x+x*x)*std::exp(-x))) / (x*x*lambdaFG);
+        }
+      }
+    };
 
-  /**
-   * \brief Offers a transform method for the propagation of
-   * one particle hole pair to and one pair from the Coulomb interaction
-   * at tau within the imgainary time interval of length DTau.
-   **/
-  class HPPHImaginaryTimeTransform: public ImaginaryTimeTransform {
-  public:
-    HPPHImaginaryTimeTransform(
-      double DTau_
-    ): ImaginaryTimeTransform(DTau_) {
-    }
-    /**
-     * \brief Transforms the amplitude P given the energy differences
-     * of the in- and outgoing particle hole pairs.
-     * \param[in] Dai The energy difference of the pair propagating to the
-     *                interaction.
-     * \param[in] Dbj The energy difference of the pair propagating from the
-     *                interaction.
-     * \param[inout] P The amplitude to transform according to the propagation.
-     **/
-    void operator ()(double Dai, double Dbj, double &P) const {
-      const double meanD((Dbj+Dai)*0.5);
-      const double Delta((Dbj-Dai)*0.5);
-      const double meanP(std::exp(-meanD*DTau));
-      const double DeltaDTau(Delta*DTau);
-      const double DeltaDTauSquared(DeltaDTau*DeltaDTau);
-      // use the second order approximation around Delta=zero if applicable
-      // to avoid division by small numbers
-      P *= meanP * (
-        (DeltaDTauSquared*DeltaDTauSquared * DTau > 1.20e-13) ?
-          std::sinh(DeltaDTau) / Delta :
-          DTau * (1 + DeltaDTauSquared*DTau/6)
-      );
-    }
-  };
+    // quadratic T^I1(tau_m-1)*T^I2(tau_m)=T0*T1 contribution to T'^J(tau_m)
+    // = int_0^Tau dtau (Tau-tau)/Tau * tau/Tau * exp(-lambdaFG*(Tau-tau))
+    class Convolution01: public ImaginaryTimeTransform {
+    public:
+      static constexpr real SMALL = 1e-2;
+      Convolution01(
+        real DTau_
+      ): ImaginaryTimeTransform(DTau_) {
+      }
+      void operator ()(const real lambdaFG, real &T) {
+        const real x(DTau*lambdaFG);
+        if (std::abs(x) < SMALL) {
+          T *= DTau * (
+            1./6 - x*(
+              1./12 - x*(
+                1./40 - x*(
+                  1./180 - x*(
+                    1./1008 - x*(
+                      1./6720 - x*(
+                        1./51840 - x*(
+                          1./453600 - x*(
+                            1./4435200
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          );
+        } else {
+          T *= ((x-2)+((x+2)*std::exp(-x))) / (x*x*lambdaFG);
+        }
+      }
+    };
 
-  class UpDownConnectedImaginaryTimePropagation:
-    public ImaginaryTimeTransform
-  {
-  public:
-    UpDownConnectedImaginaryTimePropagation(
-      double DTau_
-    ): ImaginaryTimeTransform(DTau_) {
-    }
-    /**
-     * \brief Returns the propagator given the energy sums of the
-     * states connected from below as well as the energy sums of the states
-     * connected to above.
-     * Particles count positive, holes count negative.
-     * \param[in] D0 The energy sums of the states connected from below.
-     * \param[in] D1 The energy sums of the states connected to above.
-     * Note that the propagation is symmetric under exchange of D0 and D1.
-     **/
-    double operator ()(const double D0, const double D1) const {
-      const double meanD((D1+D0)*0.5);
-      const double Delta((D1-D0)*0.5);
-      const double meanP(std::exp(-meanD*DTau));
-      const double DeltaDTau(Delta*DTau);
-      const double DeltaDTauSquared(DeltaDTau*DeltaDTau);
-      // use the second order approximation around Delta=zero if applicable
-      // to avoid division by small numbers
-      return meanP * (
-        (DeltaDTauSquared*DeltaDTauSquared * DTau > 1.20e-13) ?
-          std::sinh(DeltaDTau) / Delta :
-          DTau * (1 + DeltaDTauSquared*DTau/6)
-      );
-    }
-  };
-
-  class Mp2ImaginaryTimePropagation: public ImaginaryTimeTransform {
-  public:
-    Mp2ImaginaryTimePropagation(
-      const double DTau_
-    ): ImaginaryTimeTransform(DTau_) {
-    }
-    double operator ()(const double Delta) const {
-      // use the first order approximation around Delta=zero if applicable
-      // to avoid division by small numbers
-      const double DeltaDTau( Delta*DTau );
-      const double DTauDTau( DTau*DTau );
-      const double DeltaDelta( Delta*Delta );
-      return DeltaDTau*DeltaDTau*DTauDTau > 2.4e-14 ?
-        (std::exp(-DeltaDTau) - 1.0 + DeltaDTau) / DeltaDelta :
-        DTau*(0.5*DTau + DeltaDTau*DTau/6);
-    }
+    // quadratic T^I1(tau_m)*T^I2(tau_m)=T1*T1 contribution to T'^J(tau_m)
+    // = int_0^Tau dtau tau/Tau * tau/Tau * exp(-lambdaFG*(Tau-tau))
+    class Convolution11: public ImaginaryTimeTransform {
+    public:
+      static constexpr real SMALL = 1e-2;
+      Convolution11(
+        real DTau_
+      ): ImaginaryTimeTransform(DTau_) {
+      }
+      void operator ()(const real lambdaFG, real &T) {
+        const real x(DTau*lambdaFG);
+        if (std::abs(x) < SMALL) {
+          T *= DTau * (
+            1./3 - x*(
+              1./12 - x*(
+                1./60 - x*(
+                  1./360 - x*(
+                    1./2520 - x*(
+                      1./20160 - x*(
+                        1./181440 - x*(
+                          1./1814400 - x*(
+                            1./19958400
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          );
+        } else {
+          T *= ((2-2*x+x*x)-(2*std::exp(-x)))/ (x*x*lambdaFG);
+        }
+      }
+    };
   };
 }
 

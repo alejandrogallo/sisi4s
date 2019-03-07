@@ -15,15 +15,15 @@ namespace cc4s {
     void run();
     void dryRun();
 
+    static bool isDebugged();
+
     // static properties, accessible from everywhere
     static CTF::World *world;
     static Options *options;
 
   protected:
     void printBanner();
-    void printStatistics(
-      int64_t rootFlops, int64_t totalFlops, Time const &totalTime
-    );
+    void printStatistics();
   };
 }
 

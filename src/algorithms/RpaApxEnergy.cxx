@@ -6,8 +6,10 @@
 #include <tcc/Tcc.hpp>
 #include <util/CtfMachineTensor.hpp>
 #include <util/SlicedCtfTensor.hpp>
-#include <util/ScaLapackMatrix.hpp>
-#include <util/ScaLapackHermitianEigenSystemDc.hpp>
+#include <util/LapackMatrix.hpp>
+#include <util/LapackInverse.hpp>
+#include <util/LapackGeneralEigenSystem.hpp>
+#include <util/MpiCommunicator.hpp>
 #include <tcc/DryTensor.hpp>
 #include <util/Log.hpp>
 #include <util/SharedPointer.hpp>
@@ -89,7 +91,7 @@ void RpaApxEnergy::run() {
   CTF::Transform<double, complex>(
     std::function<void(double, complex &)>(
       // particle/hole propagator for positive and negative nu
-      [](double nu, complex &d) { d = 1.0 / (d- complex(0,1)*nu); }
+      [](double nu, complex &d) { d = 1.0 / (d - complex(0,nu)); }
     )
   ) (
     (*realNun)["n"], ctfPain["ain"]
@@ -102,30 +104,43 @@ void RpaApxEnergy::run() {
 
   auto mp2Direct(tcc->createTensor(std::vector<int>(), "mp2Direct"));
   auto mp2Exchange(tcc->createTensor(std::vector<int>(), "mp2Exchange"));
-  chiVFGn = tcc->createTensor(std::vector<int>({NF,NF,Nn}), "chiV");
-  PxVFGn = tcc->createTensor(std::vector<int>({NF,NF,Nn}), "PxV");
-  double spins(2.0);
+  chi0VFGn = tcc->createTensor(std::vector<int>({NF,NF,Nn}), "chi0V");
+  chi1VFGn = tcc->createTensor(std::vector<int>({NF,NF,Nn}), "chi1V");
+  double spins(getIntegerArgument("unrestricted", 0) ? 1.0 : 2.0);
+  LOG(1, "RPA") << "spins=" << spins << std::endl;
+  int computeExchange(getIntegerArgument("exchange", 1));
   tcc->compile(
     (
       // bubble with half V on both ends:
+      // sign: 1xhole, 1xinteraction, 1xloop: (-1)^3
       // particle/hole bubble propagating forwards
-      (*chiVFGn)["FGn"] <<= spins *
+      (*chi0VFGn)["FGn"] <<= -spins *
         (*GammaFai)["Fai"] * (*conjGammaFai)["Gai"] * (*Pain)["ain"],
       // particle/hole bubble propagating backwards, positive nu
-      (*chiVFGn)["FGn"] += spins *
+      (*chi0VFGn)["FGn"] += -spins *
         (*GammaFia)["Fia"] * (*conjGammaFia)["Gia"] * (*conjPain)["ain"],
 
-      // adjacent pairs exchanged
-      (*PxVFGn)["FGn"] <<= spins *
-        (*GammaFai)["Fai"] * (*conjGammaFai)["Haj"] * (*Pain)["ain"] *
-        (*GammaFia)["Hib"] * (*conjGammaFia)["Gjb"] * (*conjPain)["bjn"],
-
       // compute Mp2 energy for benchmark of frequency grid
-      // 2 fold rotational and 2 fold mirror symmetry, 1/Pi from +nu and -nu
-      (*mp2Direct)[""] <<= -0.25 / Pi() *
-        (*Wn)["n"] * (*chiVFGn)["FGn"] * (*chiVFGn)["GFn"],
-      // 2 fold mirror symmetry only, 1/Pi from +nu and -nu
-      (*mp2Exchange)[""] <<= +0.5 / Pi() * (*Wn)["n"] * (*PxVFGn)["FFn"]
+      // 2 fold rotational and 2 fold mirror symmetry, 2 from +nu and -nu
+      // sign: 1xdiagram: (-1)
+      (*mp2Direct)[""] <<= -0.25 * 2 *
+        (*Wn)["n"] * (*chi0VFGn)["FGn"] * (*chi0VFGn)["GFn"],
+
+      // adjacent pairs exchanged
+      // 2 fold mirror symmetry only, 2 from +nu and -nu
+      // sign: 2xholes, 2xinteraction, 1xloop: (-1)^5
+      computeExchange ? (
+        // time reversal version: 1/2 up + 1/2 down Chi_1
+        (*chi1VFGn)["FGn"] <<= -0.5*spins *
+          (*GammaFai)["Fai"] * (*conjGammaFai)["Haj"] * (*Pain)["ain"] *
+          (*GammaFia)["Hib"] * (*conjGammaFia)["Gjb"] * (*conjPain)["bjn"],
+        (*chi1VFGn)["FGn"] += -0.5*spins *
+          (*GammaFia)["Fia"] * (*conjGammaFia)["Hja"] * (*conjPain)["ain"] *
+          (*GammaFai)["Hbi"] * (*conjGammaFai)["Gbj"] * (*Pain)["bjn"],
+        (*mp2Exchange)[""] <<= -0.5 * 2 * (*Wn)["n"] * (*chi1VFGn)["FFn"]
+      ) : (
+        tcc->emptySequence()
+      )
     )
   )->execute();
 
@@ -148,83 +163,105 @@ void RpaApxEnergy::diagonalizeChiV() {
   std::vector<double> weights(wn->lens[0]);
   wn->read_all(weights.data(), true);
 
-  // slice CTF tensor of chiV and PxV along n (=3rd) dimension
-  SlicedCtfTensor<complex> slicedChiVFGn(
-    chiVFGn->getMachineTensor<MT>()->tensor, {2}
-  );
-  SlicedCtfTensor<complex> slicedPxVFGn(
-    PxVFGn->getMachineTensor<MT>()->tensor, {2}
-  );
-  BlacsWorld world(Cc4s::world->rank, Cc4s::world->np);
-  complex rpa(0), apx(0);
-  for (int n(0); n < slicedChiVFGn.slicedLens[0]; ++n) {
-    auto chiVFG( &slicedChiVFGn({n}) );
-    auto PxVFG( &slicedPxVFGn({n}) );
-    int scaLens[2] = { chiVFG->lens[0], chiVFG->lens[1] };
-    auto scaChiVFG( NEW(ScaLapackMatrix<complex>, *chiVFG, scaLens, &world) );
-    auto scaU( NEW( ScaLapackMatrix<complex>, *scaChiVFG) );
-    ScaLapackHermitianEigenSystemDc<complex> eigenSystem(scaChiVFG, scaU);
-    std::vector<double> lambdas(chiVFG->lens[0]);
-
-    eigenSystem.solve(lambdas.data());
-
-    // write diagonalizaing transformation to scliced ChiVFL
-    scaU->write(*chiVFG);
-    auto conjChiVFG(*chiVFG);
-    conjugate(conjChiVFG);
-
-    // write eigenvalues to CTF vector
-    CTF::Vector<double> lambdaL(lambdas.size());
-    int localNF(lambdaL.wrld->rank == 0 ? lambdas.size() : 0);
-    std::vector<int64_t> lambdaIndices(localNF);
-    for (int64_t i(0); i < localNF; ++i) { lambdaIndices[i] = i; }
-    lambdaL.write(localNF, lambdaIndices.data(), lambdas.data());
-
-    // compute matrix functions of chiV on their eigenvalues
-    // Log(1-XV)+XV for RPA total energy
-    CTF::Vector<complex> LogChiVL(lambdas.size());
-    CTF::Transform<double, complex>(
-      std::function<void(double, complex &)>(
-        [](double chiV, complex &logChiV) {
-          logChiV = chiV < 1 ? std::log(1-chiV) + chiV : -chiV*chiV/2;
-        }
-      )
-    ) (
-      lambdaL["L"], LogChiVL["L"]
+  LOG(1, "RPA") << "slicing along imaginary frequencies..." << std::endl;
+  MpiCommunicator communicator(*wn->wrld);
+  // slice CTF tensor of chi0V and chi1V along n (=3rd) dimension
+  auto ctfChi0VFGn( &chi0VFGn->getMachineTensor<MT>()->tensor );
+  auto ctfChi1VFGn( &chi1VFGn->getMachineTensor<MT>()->tensor );
+  size_t sliceElementCount(ctfChi0VFGn->lens[0] * ctfChi0VFGn->lens[1]);
+  std::map<int, std::vector<complex>> localChi0VFGn;
+  std::map<int, std::vector<complex>> localChi1VFGn;
+  for (
+    int pass(0);
+    pass < (ctfChi0VFGn->lens[2]-1) / communicator.getProcesses() + 1;
+    ++pass
+  ) {
+    // get local slice number
+    int n( pass * communicator.getProcesses() + communicator.getRank() );
+    std::vector<int64_t> indices;
+    if (n < ctfChi0VFGn->lens[2]) {
+      indices.resize(sliceElementCount);
+      localChi0VFGn[n].resize(sliceElementCount);
+      localChi1VFGn[n].resize(sliceElementCount);
+    }
+    for (size_t i(0); i < indices.size(); ++i) {
+      indices[i] = n*sliceElementCount + i;
+    }
+    ctfChi0VFGn->read(indices.size(), indices.data(), localChi0VFGn[n].data());
+    ctfChi1VFGn->read(indices.size(), indices.data(), localChi1VFGn[n].data());
+  }
+  // we need non-hermitian diagonlization routines, which are not parallel,
+  // so rather distribute over frequencies
+  complex localRpa(0), localApx(0);
+  for (
+    int n(communicator.getRank());
+    n < ctfChi0VFGn->lens[2];
+    n += communicator.getProcesses()
+  ) {
+    LOG(1,"RPA") << "evaluating imaginary frequency "
+      << n << "/" << ctfChi0VFGn->lens[2] << std::endl;
+    LapackMatrix<complex> laChi0VFG(
+      ctfChi0VFGn->lens[0], ctfChi0VFGn->lens[1], localChi0VFGn[n]
+    );
+    LapackMatrix<complex> laChi1VFG(
+      ctfChi1VFGn->lens[0], ctfChi1VFGn->lens[1], localChi1VFGn[n]
     );
 
-    // 1/(1-XV) for APX total energy
-    CTF::Vector<complex> InvChiVL(lambdas.size());
-    CTF::Transform<double, complex>(
-      std::function<void(double, complex &)>(
-        [](double chiV, complex &invChiV) {
-          invChiV = chiV < 1 ? 1 / (1-chiV) : 1;
-        }
-      )
-    ) (
-      lambdaL["L"], InvChiVL["L"]
-    );
+    // NOTE: chi0V is not hermitian in the complex case
+    LapackGeneralEigenSystem<complex> chi0VEigenSystem(laChi0VFG);
 
-    for (int L(0); L < chiVFG->lens[0]; ++L) {
-      // TODO: what is to be done with chiV eigenvalues >= 1?
-      if (lambdas[L] > 1) {
-        LOG(0,"RPA") << "WARNING: chiV(n=" << n <<
-          ") > 1, taking MP2 value instead." << std::endl;
-      }
+    auto RFL( chi0VEigenSystem.getRightEigenVectors() );
+    // compute inverse for eigen decomposition
+    LapackInverse<complex> invRFL(RFL);
+
+    // compute matrix functions of chi0V on their eigenvalues
+    // Tr{-(Log(1-X0V)+X0V)} for RPA total energy
+    auto chi0VL( &chi0VEigenSystem.getEigenValues() );
+    complex trLogChi0V(0);
+    for (size_t l(0); l < chi0VL->size(); ++l) {
+      trLogChi0V -= std::log(1.0 - (*chi0VL)[l]) + (*chi0VL)[l];
     }
 
-    CTF::Scalar<complex> e;
-    // Tr{Log(1-XV)+XV}
-    e[""] = LogChiVL["L"];
-    rpa += weights[n] * e.get_val();
-    // Tr{Px(1-XV)^-1}
-    e[""] = (*PxVFG)["FG"] * (*chiVFG)["GL"] * InvChiVL["L"] * conjChiVFG["FL"];
-    apx += weights[n] * e.get_val();
+    // multiply RFL with 1/(1-XV) for each eigenvalue
+    for (size_t l(0); l < chi0VL->size(); ++l) {
+      for (int f(0); f < RFL.getRows(); ++f) {
+        RFL(f,l) /= 1.0 - (*chi0VL)[l];
+      }
+    }
+    // multiply with invRFL to get V^-1.W = (1-chi0V)^-1
+    auto invVWFG( RFL * invRFL.get() );
+
+    // setup chi1W for APX total energy
+    auto chi1WFG( laChi1VFG * invVWFG );
+
+    // diagonalize chi1W, now we only need the eigenvalues
+    // NOTE: chi1W is not hermitian in the complex case
+    LapackGeneralEigenSystem<complex> chi1WEigenSystem(chi1WFG, false);
+
+    // compute matrix functions of chi1W on their eigenvalues
+    // Tr{-Log(1-X1W)} for APX total energy
+    auto chi1WL( &chi1WEigenSystem.getEigenValues() );
+    complex trLogChi1W(0);
+    for (size_t l(0); l < chi0VL->size(); ++l) {
+      trLogChi1W -= std::log(1.0 - (*chi1WL)[l]);
+    }
+
+    localRpa += weights[n] * trLogChi0V;
+    localApx += weights[n] * trLogChi1W;
   }
 
-  // 2 fold mirror symmetry, 1/Pi from +nu and -nu
-  rpa *= 0.5 / Pi();
-  apx *= 0.5 / Pi();
+  // wait for all processes to finish their frequencies
+  communicator.barrier();
+
+  // reduce from all nodes
+  complex rpa, apx;
+  communicator.allReduce(localRpa, rpa);
+  communicator.allReduce(localApx, apx);
+
+  // 2 fold mirror symmetry, 2 from +nu and -nu
+  // sign: 1xdiagram: (-1)
+  rpa *= -0.5 * 2;
+  apx *= -0.5 * 2;
   LOG(1, "RPA") << "rpa=" << rpa << std::endl;
   LOG(1, "RPA") << "apx=" << apx << std::endl;
   setRealArgument("RpaApxEnergy", std::real(rpa+apx));

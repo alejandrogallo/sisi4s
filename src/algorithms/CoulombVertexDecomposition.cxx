@@ -101,20 +101,13 @@ void CoulombVertexDecomposition::run() {
   std::string ansatz(
     getTextArgument("ansatz", HERMITIAN)
   );
-  if (ansatz == HERMITIAN) {
-    LOG(1, "RALS") << "Using " << HERMITIAN
-      << " ansatz for decomposition" << std::endl;
-  } else if (ansatz == SYMMETRIC) {
-    LOG(1, "RALS") << "Using " << SYMMETRIC
-      << " ansatz for decomposition" << std::endl;
-  } else if (ansatz == PSEUDO_INVERSE) {
-    LOG(1, "RALS") << "Using " << PSEUDO_INVERSE
-      << " ansatz for decomposition" << std::endl;
-  } else {
+  if (ansatz != HERMITIAN && ansatz != SYMMETRIC && ansatz != PSEUDO_INVERSE) {
     std::stringstream stringStream;
     stringStream << "Unknown decomposition ansatz \"" << ansatz << "\"";
     throw new EXCEPTION(stringStream.str());
   }
+  LOG(1, "RALS") << "Using " << ansatz
+    << " ansatz for decomposition" << std::endl;
   computeOutgoingPi();
 
   allocatedTensorArgument<complex>("FactorOrbitals", PirR);
@@ -316,7 +309,7 @@ void CoulombVertexDecomposition::realizePi(
 void CoulombVertexDecomposition::iterateQuadraticFactor(int i) {
   // create a mixer
   std::string mixerName(getTextArgument("mixer", "LinearMixer"));
-  Mixer<complex> *mixer(MixerFactory<complex>::create(mixerName, this));
+  PTR(Mixer<complex>) mixer(MixerFactory<complex>::create(mixerName, this));
   if (!mixer) {
     std::stringstream stringStream;
     stringStream << "Mixer not implemented: " << mixerName;
@@ -372,7 +365,6 @@ void CoulombVertexDecomposition::iterateQuadraticFactor(int i) {
     }
     ++j;
   }
-  delete mixer;
 }
 
 void CoulombVertexDecomposition::computeOutgoingPi() {

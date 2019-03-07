@@ -12,14 +12,14 @@ using namespace CTF;
 
 template <typename F>
 PseudoInverseSvd<F>::PseudoInverseSvd(
-  Matrix<F> &A, double epsilon
+  Tensor<F> &A, double epsilon
 ):
-  inverse(A)
+  inverse(A.lens[0], A.lens[1])
 {
   // convert CTF matrices into ScaLapack matrices
   BlacsWorld blacsWorld(A.wrld->rank, A.wrld->np);
   // TODO: only works for quadratic matrices
-  ScaLapackMatrix<F> ScaA(A, &blacsWorld);
+  ScaLapackMatrix<F> ScaA(A, A.lens, &blacsWorld);
   ScaLapackMatrix<F> ScaU(ScaA);
   ScaLapackMatrix<F> ScaVT(ScaA);
 
@@ -43,11 +43,10 @@ PseudoInverseSvd<F>::PseudoInverseSvd(
   S.write(localSigmaCount, sigmaIndices, sigmaValues);
 
   // convert ScaLapack result matrices to CTF
-  Matrix<F> U(A);
+  Matrix<F> U(A.lens[0], A.lens[1]);
   ScaU.write(U);
-  Matrix<F> VT(A);
+  Matrix<F> VT(A.lens[0], A.lens[1]);
   ScaVT.write(VT);
-  // dump local storage
   delete[] sigmaIndices; delete[] sigmaValues;
   delete[] sigma;
 
@@ -64,25 +63,25 @@ Matrix<F> &PseudoInverseSvd<F>::get() {
 
 // instantiate
 template
-PseudoInverseSvd<double>::PseudoInverseSvd(
-  Matrix<double> &matrix, double epsilon
+PseudoInverseSvd<cc4s::Float64>::PseudoInverseSvd(
+  Tensor<cc4s::Float64> &matrix, double epsilon
 );
 template
-Matrix<double> &PseudoInverseSvd<double>::get();
+Matrix<cc4s::Float64> &PseudoInverseSvd<cc4s::Float64>::get();
 
 template
-PseudoInverseSvd<complex>::PseudoInverseSvd(
-  Matrix<complex> &matrix, double epsilon
+PseudoInverseSvd<cc4s::Complex64>::PseudoInverseSvd(
+  Tensor<cc4s::Complex64> &matrix, double epsilon
 );
 template
-Matrix<complex> &PseudoInverseSvd<complex>::get();
+Matrix<cc4s::Complex64> &PseudoInverseSvd<cc4s::Complex64>::get();
 
 
 template <typename F>
 DryPseudoInverseSvd<F>::DryPseudoInverseSvd(
-  DryMatrix<F> const &matrix_
+  DryTensor<F> const &matrix_
 ):
-  inverse(matrix_)
+  inverse(matrix_.lens[0], matrix_.lens[1], NS)
 {
 }
 
@@ -93,16 +92,15 @@ DryMatrix<F> &DryPseudoInverseSvd<F>::get() {
 
 // instantiate
 template
-DryPseudoInverseSvd<double>::DryPseudoInverseSvd(
-  DryMatrix<double> const &matrix
+DryPseudoInverseSvd<cc4s::Float64>::DryPseudoInverseSvd(
+  DryTensor<cc4s::Float64> const &matrix
 );
 template
-DryMatrix<double> &DryPseudoInverseSvd<double>::get();
+DryMatrix<cc4s::Float64> &DryPseudoInverseSvd<cc4s::Float64>::get();
 
 template
-DryPseudoInverseSvd<complex>::DryPseudoInverseSvd(
-  DryMatrix<complex> const &matrix
+DryPseudoInverseSvd<cc4s::Complex64>::DryPseudoInverseSvd(
+  DryTensor<cc4s::Complex64> const &matrix
 );
 template
-DryMatrix<complex> &DryPseudoInverseSvd<complex>::get();
-
+DryMatrix<cc4s::Complex64> &DryPseudoInverseSvd<cc4s::Complex64>::get();

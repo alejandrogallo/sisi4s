@@ -24,9 +24,16 @@ ThermalHolesAndParticles::~ThermalHolesAndParticles() {
 
 void ThermalHolesAndParticles::run() {
   orderStates();
-  determineChemicalPotential();
+  if (getArgumentData("ChemicalPotential")->getStage() != Data::Stage::MENTIONED) {
+    determineNumberOfElectrons();
+  } else {
+    determineChemicalPotential();
+  }
   defineThermalHolesAndParticles();
   determineThermalOccupancies();
+  if (isArgumentGiven("ThermalParticleHoleOverlap")) {
+    computeParticleHoleOverlap();
+  }
 
   delete epsp;
 //  return 1.0 / (1.0 + std::exp(-(eps-mu)/kT));
@@ -88,16 +95,17 @@ void ThermalHolesAndParticles::orderStates() {
 }
 
 void ThermalHolesAndParticles::determineChemicalPotential() {
-  Tensor<> *epsi(getTensorArgument<>("HoleEigenEnergies"));
-  int No(epsi->lens[0]);
   int Np(epsp->lens[0]);
 
   // get lower and upper bounds for the chemical potential
-  double muLower(eigenStates[0].first);
-  double muUpper(eigenStates[No].first);
+  double muLower(2*eigenStates[0].first-eigenStates[Np-1].first);
+  double muUpper(2*eigenStates[Np-1].first-eigenStates[0].first);
   // actual number of electrons (states for spin restricted) in the system
-  double NElectrons(0.5 * getRealArgument("Electrons"));
+  double spins(getIntegerArgument("unrestricted", 0) ? 1.0 : 2.0);
+  double NElectrons(getRealArgument("Electrons") / spins);
   kT = getRealArgument("Temperature");
+  LOG(1,"FT")
+    << "searching for mu in [" << muLower << "," << muUpper << "]" << std::endl;
   // current estimate for the chemical potential
   mu = 0.0;
   // expectation value of the number operator for current mu
@@ -119,10 +127,26 @@ void ThermalHolesAndParticles::determineChemicalPotential() {
       break;
     }
   }
+  LOG(1, "ThermalHolesAndParticles") << "Chemical potential=" << mu << std::endl;
   if (iterations == maxIterations)
     throw new EXCEPTION("Failed to determine chemical potential.");
-  LOG(1, "ThermalHolesAndParticles") << "Chemical potential=" << mu << std::endl;
   setRealArgument("ChemicalPotential", mu);
+}
+
+void ThermalHolesAndParticles::determineNumberOfElectrons() {
+  int Np(epsp->lens[0]);
+  mu = getRealArgument("ChemicalPotential");
+  // actual number of electrons (states for spin restricted) in the system
+  double spins(getIntegerArgument("unrestricted", 0) ? 1.0 : 2.0);
+  kT = getRealArgument("Temperature");
+  // expectation value of the number operator for current mu
+  double N(0.0);
+  for (int p(0); p < Np; ++p) {
+    N += 1.0 / (1.0 + std::exp(+(eigenStates[p].first-mu)/kT));
+  }
+  N *= spins;
+  LOG(1, "ThermalHolesAndParticles") << "Number of electrons according to reference=" << N << std::endl;
+  setRealArgument("Electrons", N);
 }
 
 void ThermalHolesAndParticles::defineThermalHolesAndParticles() {
@@ -131,17 +155,30 @@ void ThermalHolesAndParticles::defineThermalHolesAndParticles() {
   int Np(epsp->lens[0]);
 
   // determine the thermal hole and particle index set
-  double maxDelta(eigenStates[Np-1].first - eigenStates[0].first);
+  double maxDelta(
+    getRealArgument(
+      "maxDenominator", eigenStates[Np-1].first - eigenStates[0].first
+    )
+  );
   double overlap(std::sqrt(32*maxDelta*kT));
-  LOG(1, "ThermalHolesAndParticles") << "overlap of thermal particle and hole states=" << overlap << std::endl;
+  double minOccupancy( getRealArgument("minOccupancy", 1e-5) );
   int holeEnd(No), particleStart(-1);
+  LOG(1, "ThermalHolesAndParticles") <<
+    "max overlap of thermal particle and hole states=" << overlap << std::endl;
   for (int p(0); p < Np; ++p) {
-    if (eigenStates[p].first <= mu + overlap) holeEnd = p;
-    if (eigenStates[p].first < mu - overlap) particleStart = p;
+    if (
+      (eigenStates[p].first <= mu + overlap) &&
+      (1.0 / (1.0 + std::exp(+(eigenStates[p].first-mu)/kT)) >= minOccupancy)
+    ) holeEnd = p;
+    if (
+      (eigenStates[p].first < mu - overlap) ||
+      (1.0 / (1.0 + std::exp(-(eigenStates[p].first-mu)/kT)) < minOccupancy)
+    ) particleStart = p;
     LOG(4, "ThermalHolesAndParticles") << "eigenEnergies[" <<
       p << "<-" << eigenStates[p].second << "]=" <<
       eigenStates[p].first <<std::endl;
   }
+
   // holeEnd points to the last acceptable hole energy, we need to include it
   ++holeEnd;
   // particleStart points to the last unacceptable particle energy,
@@ -171,28 +208,60 @@ void ThermalHolesAndParticles::defineThermalHolesAndParticles() {
 
 void ThermalHolesAndParticles::determineThermalOccupancies() {
   // use positive temperatures for particles, negative ones for holes
+  double minOccupancy( getRealArgument("minOccupancy", 1e-5) );
   class occupancy {
   public:
-    occupancy(double kT_): kT(kT_) { }
+    occupancy(double kT_, double minf_): kT(kT_), minf(minf_) { }
     void operator()(double &eps) {
-      eps = 1.0 / (1.0 + std::exp(-eps/kT));
+      double f(1.0 / (1.0 + std::exp(-eps/kT)));
+      double invf(1.0 / (1.0 + std::exp(+eps/kT)));
+      if (f < minf) {
+        eps = 0.0;
+      } else if (invf < minf) {
+        eps = 1.0;
+      } else {
+        eps = f;
+      }
     }
   protected:
-    double kT;
+    double kT, minf;
   };
 
   Tensor<> *ftEpsi(getTensorArgument("ThermalHoleEigenEnergies"));
   Tensor<> *ftNi(new Tensor<>(*ftEpsi));
-  CTF::Transform<>( std::function<void(double &)>(occupancy(-kT)) ) (
+  CTF::Transform<>(std::function<void(double &)>(occupancy(-kT,minOccupancy))) (
     (*ftNi)["i"]
   );
   allocatedTensorArgument("ThermalHoleOccupancies", ftNi);
 
   Tensor<> *ftEpsa(getTensorArgument("ThermalParticleEigenEnergies"));
   Tensor<> *ftNa(new Tensor<>(*ftEpsa));
-  CTF::Transform<>( std::function<void(double &)>(occupancy(+kT)) ) (
+  CTF::Transform<>(std::function<void(double &)>(occupancy(+kT,minOccupancy))) (
     (*ftNa)["a"]
   );
   allocatedTensorArgument("ThermalParticleOccupancies", ftNa);
+}
+
+void ThermalHolesAndParticles::computeParticleHoleOverlap() {
+  auto epsi( getTensorArgument<>("ThermalHoleEigenEnergies") );
+  int No(epsi->lens[0]);
+  auto epsa( getTensorArgument<>("ThermalParticleEigenEnergies") );
+  int Nv(epsa->lens[0]);
+  Tensor<real> *deltaai(new Tensor<real>(2, std::vector<int>({Nv,No}).data()));
+  auto GammaFqr( getTensorArgument<complex>("CoulombVertex") );
+  int Np(GammaFqr->lens[1]);
+  // there as many entries in delta^a_i as there is overlap between No and Nv
+  size_t elementsCount(epsi->wrld->rank == 0 ? No+Nv-Np : 0);
+  std::vector<real> elements(elementsCount);
+  std::vector<int64_t> indices(elementsCount);
+  for (size_t a(0); a < elementsCount; ++a) {
+    elements[a] = 1.0;
+    // delta^a_i = 1.0 iff a and i refer to the same index q
+    int i = No - elementsCount + a;
+    // assign the appropriate position
+    indices[a] = a + Nv*i;
+  }
+  deltaai->write(elementsCount, indices.data(), elements.data());
+  allocatedTensorArgument("ThermalParticleHoleOverlap", deltaai);
 }
 
