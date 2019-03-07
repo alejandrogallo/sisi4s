@@ -1,0 +1,62 @@
+CoulombVertexReader [
+  %(file "../../resources/h2_ftodumps/FTODDUMP.kpt1.ecut300.bands19.ecgw150.POSCAR.0.7")
+  (file "../../resources/h2_ftodumps/FTODDUMP.kpt1.ecut300.bands19.ecgw150.POSCAR.0.7")
+  %(file "/home/gallo/simulations/he_atom/EOM/FTODDUMP")
+  (unrestricted 1)
+] [
+  (CoulombVertex CoulombVertex)
+  HoleEigenEnergies ParticleEigenEnergies
+].
+
+CoulombIntegralsFromVertex [
+  CoulombVertex HoleEigenEnergies ParticleEigenEnergies
+  (antisymmetrize 1)
+] [
+  HHHHCoulombIntegrals
+  HHHPCoulombIntegrals
+  HHPHCoulombIntegrals
+  HHPPCoulombIntegrals
+  HPHHCoulombIntegrals
+  HPHPCoulombIntegrals
+  HPPHCoulombIntegrals
+  HPPPCoulombIntegrals
+  PHPHCoulombIntegrals
+  PHPPCoulombIntegrals
+  PPHHCoulombIntegrals
+  PPHPCoulombIntegrals
+  PPPHCoulombIntegrals
+  PPPHCoulombIntegrals
+  PPPPCoulombIntegrals
+].
+
+UccsdtAmplitudesFromCoulombIntegrals [
+
+  HHHHCoulombIntegrals
+  HHHPCoulombIntegrals
+  HHPHCoulombIntegrals
+  HHPPCoulombIntegrals
+  HPHHCoulombIntegrals
+  HPHPCoulombIntegrals
+  HPPHCoulombIntegrals
+  HPPPCoulombIntegrals
+  PHPHCoulombIntegrals
+  PHPPCoulombIntegrals
+  PPHHCoulombIntegrals
+  PPHPCoulombIntegrals
+  PPPHCoulombIntegrals
+  PPPHCoulombIntegrals
+  PPPPCoulombIntegrals
+
+  HoleEigenEnergies ParticleEigenEnergies
+  (maxIterations 30)
+  (unrestricted 1)
+  %(mixer "LinearMixer")
+  (mixingRatio 1.0)
+
+] [
+  (UccsdtEnergy UccsdEnergy)
+  (UccsdtSinglesAmplitudes UccsdSinglesAmplitudes)
+  (UccsdtDoublesAmplitudes UccsdDoublesAmplitudes)
+].
+
+TensorWriter [(Data UccsdtEnergy)] [].
