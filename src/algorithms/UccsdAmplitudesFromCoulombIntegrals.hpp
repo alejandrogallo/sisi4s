@@ -29,6 +29,8 @@ namespace cc4s {
       const int iteration, const PTR(const FockVector<double>) &amplitudes
     );
 
+    bool usingIntermediates;
+
     virtual PTR(FockVector<complex>) getResiduum(
       const int iteration, const PTR(const FockVector<complex>) &amplitudes
     );
