@@ -129,19 +129,17 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
 
 
   // Create T and R and intermediates
-  // Read the amplitudes Tai and Tabij
-  // amplitudes->get(0)
+  //
+  // Read the amplitudes Tai, Tabij and Tabcijk
   auto Tai(amplitudes->get(0));
   Tai->set_name("Tai");
   auto Tabij(amplitudes->get(1));
   Tabij->set_name("Tabij");
   auto Tabcijk(amplitudes->get(2));
-  Tabij->set_name("Tabcijk");
-
+  Tabcijk->set_name("Tabcijk");
 
   auto residuum(NEW(FockVector<F>, *amplitudes));
   *residuum *= 0.0;
-  // Allocate Tensors for T2 amplitudes
   auto Rai(residuum->get(0));
   Rai->set_name("Rai");
   auto Rabij(residuum->get(1));
