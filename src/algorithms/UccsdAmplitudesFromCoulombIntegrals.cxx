@@ -18,98 +18,16 @@ ALGORITHM_REGISTRAR_DEFINITION(UccsdAmplitudesFromCoulombIntegrals);
 
 UccsdAmplitudesFromCoulombIntegrals::UccsdAmplitudesFromCoulombIntegrals(
   std::vector<Argument> const &argumentList
-): ClusterSinglesDoublesAlgorithm(argumentList) {
-}
+): ClusterSinglesDoublesAlgorithm(argumentList) {}
 
 
 UccsdAmplitudesFromCoulombIntegrals::~UccsdAmplitudesFromCoulombIntegrals() {
 }
 
-bool UccsdAmplitudesFromCoulombIntegrals::maskIsGiven() {
-  return isArgumentGiven("MaskVirtualRange") &&
-          isArgumentGiven("MaskParticleRange");
-}
-
 void UccsdAmplitudesFromCoulombIntegrals::run() {
-  if (maskIsGiven()) {
-    LOG(0, getAbbreviation()) << "Mask selected" << std::endl;
-    createMask();
-  }
   ClusterSinglesDoublesAlgorithm::run();
 }
 
-void UccsdAmplitudesFromCoulombIntegrals::createMask(){
-  LOG(1, getAbbreviation()) << "Creating mask" << std::endl;
-
-  auto epsi(getTensorArgument<double>("HoleEigenEnergies"));
-  auto epsa(getTensorArgument<double>("ParticleEigenEnergies"));
-  int Nv(epsa->lens[0]), No(epsi->lens[0]);
-  int vo[] = {Nv, No}, vvoo[] = {Nv,Nv,No,No};
-  int syms[] = {NS, NS};
-  int syms_4[] = {NS, NS, NS, NS};
-
-  RangeParser virtualRange(getTextArgument("MaskVirtualRange"));
-  RangeParser particleRange(getTextArgument("MaskParticleRange"));
-  LOG(0, getAbbreviation()) << "Nv, No: " << Nv << ", " << No << std::endl;
-  LOG(0, getAbbreviation()) << "Virt. Range: " << virtualRange;
-  LOG(0, getAbbreviation()) << "Part. Range: " << particleRange;
-
-  if (
-    virtualRange.get_max()  >= Nv ||
-    particleRange.get_max() >= No
-  ) {
-    LOG(0, getAbbreviation()) << "Mask range out of bounds" << std::endl;
-    throw new EXCEPTION("Mask range out of bounds");
-  }
-
-  Mai = NEW(CTF::Tensor<double>, 2, vo, syms, *Cc4s::world, "Mai");
-  Mabij = NEW(CTF::Tensor<double>, 4, vvoo, syms_4, *Cc4s::world, "Mabij");
-  (*Mai)["ai"] = 1.0;
-  LOG(0, getAbbreviation()) << "Mai done" << std::endl;
-  (*Mabij)["abij"] = 1.0;
-  LOG(0, getAbbreviation()) << "Mabij done" << std::endl;
-
-  int64_t *MaiIndex, *MabijIndex;
-  double *MaiValue, *MabijValue;
-  int64_t MaiCount, MabijCount;
-
-  LOG(1, getAbbreviation()) << "Writing Mai and Mabij" << std::endl;
-  for (auto a : virtualRange.getRange()) {
-  for (auto i : particleRange.getRange()) {
-    if (Mai->wrld->rank == 0) {
-      MaiCount = 1;
-      MaiIndex = (int64_t*) malloc(MaiCount);
-      MaiValue = (double*) malloc(MaiCount);
-      MaiIndex[0] = 0.0;
-      MaiIndex[0] = a + i*Nv;
-    } else {
-      MaiCount = 0;
-      MaiIndex = (int64_t*) malloc(MaiCount);
-      MaiValue = (double*) malloc(MaiCount);
-    }
-    Mai->write(MaiCount, MaiIndex, MaiValue);
-  for (auto b : virtualRange.getRange()) {
-  for (auto j : particleRange.getRange()) {
-    if (Mabij->wrld->rank == 0) {
-      MabijCount = 1;
-      MabijIndex = (int64_t*) malloc(MabijCount);
-      MabijValue = (double*) malloc(MabijCount);
-      MabijIndex[0] = 0.0;
-      MabijIndex[0] = a + b*Nv + i*Nv*Nv + j*Nv*Nv*No;
-    } else {
-      MabijCount = 0;
-      MabijIndex = (int64_t*) malloc(MabijCount);
-      MabijValue = (double*) malloc(MabijCount);
-    }
-    Mabij->write(MabijCount, MabijIndex, MabijValue);
-  }
-  }
-  }
-  }
-
-  //Mai->print();
-  //Mabij->print();
-}
 
 PTR(FockVector<cc4s::complex>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
   const int iterationStep, const PTR(const FockVector<complex>) &amplitudes
@@ -366,12 +284,6 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     // + Pab
     (*Rabij)["abij"] += (+ 1.0) * (*Tai)["bm"] * (*Viajk)["maij"];
 
-  }
-
-  if (Mai && Mabij) {
-    LOG(1, getAbbreviation()) << "Masking out range" << std::endl;
-    (*Rai)["ai"] = (*Rai)["ai"] * (*Mai)["ai"];
-    (*Rabij)["abij"] = (*Rabij)["abij"] * (*Mabij)["abij"];
   }
 
   return residuum;
