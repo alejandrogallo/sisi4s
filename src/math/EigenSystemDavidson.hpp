@@ -288,7 +288,9 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
         LapackMatrix<complex> reducedEigenVectors(
           rightBasis.size(), rightBasis.size()
         );
-        LapackGeneralEigenSystem<complex> reducedEigenSystem(reducedH);
+        LapackGeneralEigenSystem<complex> reducedEigenSystem(
+          reducedH, true, true
+        );
 
 #ifdef DEBUGG
         LOG(1,"Davidson") << "Writing out reduced overlap matrix" << std::endl;
