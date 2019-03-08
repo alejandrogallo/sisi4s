@@ -15,9 +15,9 @@ using namespace cc4s;
 using namespace tcc;
 
 #ifdef DEBUG
-#define DEBUG(msg) LOG(1, getAbbreviation()) << __LINE__ << ":" << msg << std::endl;
+#define LDEBUG(msg) LOG(1, getAbbreviation()) << __LINE__ << ":" << msg << std::endl;
 #else
-#define DEBUG(msg)
+#define LDEBUG(msg)
 #endif
 
 ALGORITHM_REGISTRAR_DEFINITION(UccsdtAmplitudesFromCoulombIntegrals);
@@ -77,10 +77,10 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   auto Viabc(getTensorArgument<F, CTF::Tensor<F> >("HPPPCoulombIntegrals"));
   auto Vabij(getTensorArgument<F, CTF::Tensor<F> >("PPHHCoulombIntegrals"));
   auto Vabic(getTensorArgument<F, CTF::Tensor<F> >("PPHPCoulombIntegrals"));
-  auto Viabj(getTensorArgument<F, CTF::Tensor<F> >("HPPHCoulombIntegrals"));
-  auto Vaibc(getTensorArgument<F, CTF::Tensor<F> >("PHPPCoulombIntegrals"));
-  auto Vijak(getTensorArgument<F, CTF::Tensor<F> >("HHPHCoulombIntegrals"));
-  auto Vabci(getTensorArgument<F, CTF::Tensor<F> >("PPPHCoulombIntegrals"));
+  //auto Viabj(getTensorArgument<F, CTF::Tensor<F> >("HPPHCoulombIntegrals"));
+  //auto Vaibc(getTensorArgument<F, CTF::Tensor<F> >("PHPPCoulombIntegrals"));
+  //auto Vijak(getTensorArgument<F, CTF::Tensor<F> >("HHPHCoulombIntegrals"));
+  //auto Vabci(getTensorArgument<F, CTF::Tensor<F> >("PPPHCoulombIntegrals"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int vv[] = {Nv, Nv};
@@ -178,12 +178,12 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabij)["cdij"]  = 0.0;
 
   if (Fia) {
-    DEBUG("Fia * T2 * T1")
+    LDEBUG("Fia * T2 * T1")
     (*Rabij)["cdij"] += ( - 1.0  ) * (*Fia)["mf"] * (*Tabij)["cdmj"] * (*Tai)["fi"];
     (*Rabij)["cdij"] += ( + 1.0  ) * (*Fia)["mf"] * (*Tabij)["cdmi"] * (*Tai)["fj"];
     (*Rabij)["cdij"] += ( + 1.0  ) * (*Fia)["mf"] * (*Tabij)["fcij"] * (*Tai)["dm"];
     (*Rabij)["cdij"] += ( - 1.0  ) * (*Fia)["mf"] * (*Tabij)["fdij"] * (*Tai)["cm"];
-    DEBUG("Fia * T3")
+    LDEBUG("Fia * T3")
     (*Rabij)["cdij"] += ( + 1.0  ) * (*Fia)["mf"] * (*Tabcijk)["fcdmij"];
   }
 
@@ -263,14 +263,14 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] = 0.0;
 
   if (Fia) {
-    DEBUG("Fia * T3 * T1")
+    LDEBUG("Fia * T3 * T1")
     (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabcijk)["defojk"] * (*Fia)["oh"] * (*Tai)["hi"];
     (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabcijk)["defoki"] * (*Fia)["oh"] * (*Tai)["hj"];
     (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabcijk)["defoij"] * (*Fia)["oh"] * (*Tai)["hk"];
     (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabcijk)["hdeijk"] * (*Fia)["oh"] * (*Tai)["fo"];
     (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabcijk)["hdfijk"] * (*Fia)["oh"] * (*Tai)["eo"];
     (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabcijk)["hfeijk"] * (*Fia)["oh"] * (*Tai)["do"];
-    DEBUG("Fia * T2 * T2")
+    LDEBUG("Fia * T2 * T2")
     (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["gfij"] * (*Tabij)["depk"] * (*Fia)["pg"];
     (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["geij"] * (*Tabij)["dfpk"] * (*Fia)["pg"];
     (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["gdij"] * (*Tabij)["fepk"] * (*Fia)["pg"];
@@ -282,7 +282,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["gfkj"] * (*Tabij)["depi"] * (*Fia)["pg"];
   }
 
-  DEBUG("T2 * V")
+  LDEBUG("T2 * V")
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["deok"] * (*Viajk)["ofij"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["dfok"] * (*Viajk)["oeij"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["feok"] * (*Viajk)["odij"];
@@ -302,7 +302,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["geij"] * (*Vabic)["dfkg"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["gfij"] * (*Vabic)["edkg"];
 
-  DEBUG("Fij * T3")
+  LDEBUG("Fij * T3")
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Fij)["oi"] * (*Tabcijk)["defojk"];
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Fij)["oj"] * (*Tabcijk)["defoik"];
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Fij)["ok"] * (*Tabcijk)["defoji"];
@@ -310,7 +310,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Fab)["eg"] * (*Tabcijk)["gdfijk"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Fab)["dg"] * (*Tabcijk)["gfeijk"];
 
-  DEBUG("T3 * V")
+  LDEBUG("T3 * V")
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabcijk)["defopk"] * (*Vijkl)["opij"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabcijk)["defopj"] * (*Vijkl)["opik"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabcijk)["defopi"] * (*Vijkl)["opkj"];
@@ -327,7 +327,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabcijk)["gheijk"] * (*Vabcd)["dfgh"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabcijk)["ghfijk"] * (*Vabcd)["edgh"];
 
-  DEBUG("T2 * T1 * V")
+  LDEBUG("T2 * T1 * V")
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["deok"] * (*Tai)["fp"] * (*Vijkl)["opij"];
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["dfok"] * (*Tai)["ep"] * (*Vijkl)["opij"];
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["feok"] * (*Tai)["dp"] * (*Vijkl)["opij"];
@@ -383,7 +383,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["geij"] * (*Tai)["hk"] * (*Vabcd)["dfgh"];
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["gfij"] * (*Tai)["hk"] * (*Vabcd)["edgh"];
 
-  DEBUG("T3 * T1 * V")
+  LDEBUG("T3 * T1 * V")
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabcijk)["defopk"] * (*Tai)["Aj"] * (*Vijka)["opiA"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabcijk)["defopj"] * (*Tai)["Ak"] * (*Vijka)["opiA"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabcijk)["defopk"] * (*Tai)["Ai"] * (*Vijka)["opjA"];
@@ -424,7 +424,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabcijk)["gdfijk"] * (*Tai)["hI"] * (*Viabc)["Iegh"];
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabcijk)["gfeijk"] * (*Tai)["hI"] * (*Viabc)["Idgh"];
 
-  DEBUG("T2 * T2 * V")
+  LDEBUG("T2 * T2 * V")
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabij)["gfjk"] * (*Tabij)["depI"] * (*Vijka)["pIig"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["gejk"] * (*Tabij)["dfpI"] * (*Vijka)["pIig"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["gdjk"] * (*Tabij)["fepI"] * (*Vijka)["pIig"];
@@ -482,7 +482,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["deoi"] * (*Tabij)["hAkj"] * (*Viabc)["ofhA"];
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabij)["dfoi"] * (*Tabij)["hAkj"] * (*Viabc)["oehA"];
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabij)["feoi"] * (*Tabij)["hAkj"] * (*Viabc)["odhA"];
-  DEBUG("T3 * T2 * V (1)")
+  LDEBUG("T3 * T2 * V (1)")
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabij)["Bfij"] * (*Vijab)["pIgB"] * (*Tabcijk)["gdepIk"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["Beij"] * (*Vijab)["pIgB"] * (*Tabcijk)["gdfpIk"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["Bdij"] * (*Vijab)["pIgB"] * (*Tabcijk)["gfepIk"];
@@ -492,11 +492,11 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["Bfkj"] * (*Vijab)["pIgB"] * (*Tabcijk)["gdepIi"];
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabij)["Bekj"] * (*Vijab)["pIgB"] * (*Tabcijk)["gdfpIi"];
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabij)["Bdkj"] * (*Vijab)["pIgB"] * (*Tabcijk)["gfepIi"];
-  DEBUG("T3 * T2 * V (2)")
+  LDEBUG("T3 * T2 * V (2)")
   (*Rabcijk)["edfijk"] += ( + 0.25  ) * (*Tabcijk)["defopk"] * (*Tabij)["ABij"] * (*Vijab)["opAB"];
   (*Rabcijk)["edfijk"] += ( - 0.25  ) * (*Tabcijk)["defopj"] * (*Tabij)["ABik"] * (*Vijab)["opAB"];
   (*Rabcijk)["edfijk"] += ( - 0.25  ) * (*Tabcijk)["defopi"] * (*Tabij)["ABkj"] * (*Vijab)["opAB"];
-  DEBUG("T3 * T2 * V (3)")
+  LDEBUG("T3 * T2 * V (3)")
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabij)["efJi"] * (*Vijab)["IJgh"] * (*Tabcijk)["ghdIjk"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["dfJi"] * (*Vijab)["IJgh"] * (*Tabcijk)["gheIjk"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["edJi"] * (*Vijab)["IJgh"] * (*Tabcijk)["ghfIjk"];
@@ -506,7 +506,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabij)["efJk"] * (*Vijab)["IJgh"] * (*Tabcijk)["ghdIij"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["dfJk"] * (*Vijab)["IJgh"] * (*Tabcijk)["gheIij"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["edJk"] * (*Vijab)["IJgh"] * (*Tabcijk)["ghfIij"];
-  DEBUG("T3 * T2 * V (4)")
+  LDEBUG("T3 * T2 * V (4)")
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabcijk)["gdepjk"] * (*Tabij)["AfJi"] * (*Vijab)["pJgA"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabcijk)["gdfpjk"] * (*Tabij)["AeJi"] * (*Vijab)["pJgA"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabcijk)["gfepjk"] * (*Tabij)["AdJi"] * (*Vijab)["pJgA"];
@@ -516,19 +516,19 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabcijk)["gdepij"] * (*Tabij)["AfJk"] * (*Vijab)["pJgA"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabcijk)["gdfpij"] * (*Tabij)["AeJk"] * (*Vijab)["pJgA"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabcijk)["gfepij"] * (*Tabij)["AdJk"] * (*Vijab)["pJgA"];
-  DEBUG("T3 * T2 * V (5)")
+  LDEBUG("T3 * T2 * V (5)")
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabcijk)["defojk"] * (*Tabij)["hAJi"] * (*Vijab)["oJhA"];
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabcijk)["defoki"] * (*Tabij)["hAJj"] * (*Vijab)["oJhA"];
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabcijk)["defoij"] * (*Tabij)["hAJk"] * (*Vijab)["oJhA"];
-  DEBUG("T3 * T2 * V (6)")
+  LDEBUG("T3 * T2 * V (6)")
   (*Rabcijk)["edfijk"] += ( + 0.25  ) * (*Tabcijk)["ghdijk"] * (*Tabij)["efIJ"] * (*Vijab)["IJgh"];
   (*Rabcijk)["edfijk"] += ( - 0.25  ) * (*Tabcijk)["gheijk"] * (*Tabij)["dfIJ"] * (*Vijab)["IJgh"];
   (*Rabcijk)["edfijk"] += ( - 0.25  ) * (*Tabcijk)["ghfijk"] * (*Tabij)["edIJ"] * (*Vijab)["IJgh"];
-  DEBUG("T3 * T2 * V (7)")
+  LDEBUG("T3 * T2 * V (7)")
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabcijk)["gdeijk"] * (*Tabij)["hfIJ"] * (*Vijab)["IJgh"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabcijk)["gdfijk"] * (*Tabij)["heIJ"] * (*Vijab)["IJgh"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabcijk)["gfeijk"] * (*Tabij)["hdIJ"] * (*Vijab)["IJgh"];
-  DEBUG("T1 * T1 * T2 * Vhhhp")
+  LDEBUG("T1 * T1 * T2 * Vhhhp")
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["deIk"] * (*Vijka)["pIig"] * (*Tai)["gj"] * (*Tai)["fp"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["dfIk"] * (*Vijka)["pIig"] * (*Tai)["gj"] * (*Tai)["ep"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["feIk"] * (*Vijka)["pIig"] * (*Tai)["gj"] * (*Tai)["dp"];
@@ -556,7 +556,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["Adij"] * (*Vijka)["opkA"] * (*Tai)["eo"] * (*Tai)["fp"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["Aeij"] * (*Vijka)["opkA"] * (*Tai)["do"] * (*Tai)["fp"];
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["Afij"] * (*Vijka)["opkA"] * (*Tai)["do"] * (*Tai)["ep"];
-  DEBUG("T1 * T1 * T2 * Vhppp")
+  LDEBUG("T1 * T1 * T2 * Vhppp")
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["deIk"] * (*Viabc)["Ifgh"] * (*Tai)["gi"] * (*Tai)["hj"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["dfIk"] * (*Viabc)["Iegh"] * (*Tai)["gi"] * (*Tai)["hj"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["feIk"] * (*Viabc)["Idgh"] * (*Tai)["gi"] * (*Tai)["hj"];
@@ -584,7 +584,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["Aeji"] * (*Viabc)["pdgA"] * (*Tai)["gk"] * (*Tai)["fp"];
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["Afji"] * (*Viabc)["pegA"] * (*Tai)["gk"] * (*Tai)["dp"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["Afji"] * (*Viabc)["pdgA"] * (*Tai)["gk"] * (*Tai)["ep"];
-  DEBUG("T1 * T1 * T3 * V")
+  LDEBUG("T1 * T1 * T3 * V")
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabcijk)["defIJk"] * (*Tai)["gi"] * (*Vijab)["IJgh"] * (*Tai)["hj"];
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabcijk)["defIJj"] * (*Tai)["gi"] * (*Vijab)["IJgh"] * (*Tai)["hk"];
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabcijk)["defIJi"] * (*Tai)["gj"] * (*Vijab)["IJgh"] * (*Tai)["hk"];
@@ -606,7 +606,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabcijk)["Bdeijk"] * (*Tai)["fo"] * (*Vijab)["oIhB"] * (*Tai)["hI"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabcijk)["Bdfijk"] * (*Tai)["eo"] * (*Vijab)["oIhB"] * (*Tai)["hI"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabcijk)["Bfeijk"] * (*Tai)["do"] * (*Vijab)["oIhB"] * (*Tai)["hI"];
-  DEBUG("T2 * T2 * T1 * V")
+  LDEBUG("T2 * T2 * T1 * V")
   (*Rabcijk)["edfijk"] += ( - 0.5  ) * (*Tabij)["gfjk"] * (*Tabij)["depI"] * (*Tai)["Bi"] * (*Vijab)["pIgB"];
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabij)["gejk"] * (*Tabij)["dfpI"] * (*Tai)["Bi"] * (*Vijab)["pIgB"];
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabij)["gdjk"] * (*Tabij)["fepI"] * (*Tai)["Bi"] * (*Vijab)["pIgB"];
@@ -673,7 +673,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["gekj"] * (*Tabij)["dfpi"] * (*Tai)["AJ"] * (*Vijab)["pJgA"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["gfkj"] * (*Tabij)["depi"] * (*Tai)["AJ"] * (*Vijab)["pJgA"];
 
-  DEBUG("T1 * T1 * T1 * V")
+  LDEBUG("T1 * T1 * T1 * V")
   (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Tabij)["deJk"] * (*Tai)["hj"] * (*Tai)["fI"] * (*Vijab)["IJgh"] * (*Tai)["gi"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["dfJk"] * (*Tai)["hj"] * (*Tai)["eI"] * (*Vijab)["IJgh"] * (*Tai)["gi"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["feJk"] * (*Tai)["hj"] * (*Tai)["dI"] * (*Vijab)["IJgh"] * (*Tai)["gi"];
