@@ -4,6 +4,7 @@
 #include <util/LapackMatrix.hpp>
 #include <util/LapackGeneralEigenSystem.hpp>
 #include <math/MathFunctions.hpp>
+#include <math/Complex.hpp>
 
 #include <vector>
 #include <iomanip>
@@ -260,19 +261,19 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           }
         }
 
-        LOG(1,"Davidson") << "Computing <basis|H|new>" << std::endl;
+        //LOG(1,"Davidson") << "Computing <basis|H|new>" << std::endl;
         for (unsigned int j(0); j < rightBasis.size(); ++j) {
-          LOG(1,"Davidson") << "Computing " << j << std::endl;
+          //LOG(1,"Davidson") << "Computing " << j << std::endl;
           V HBj( this->h->rightApply(rightBasis[j]) );
           for (unsigned int i(previousBasisSize); i < rightBasis.size(); ++i) {
-            LOG(1,"Davidson") << i << "," << j << std::endl;
+            //LOG(1,"Davidson") << i << "," << j << std::endl;
             reducedH(i,j) = rightBasis[i].dot(HBj);
             previousReducedMatrixElements[i + rightBasis.size() * j] = reducedH(i,j);
           }
         }
 
         if (previousBasisSize > 0) {
-          LOG(1,"Davidson") << "Computing <new|H|basis>" << std::endl;
+          //LOG(1,"Davidson") << "Computing <new|H|basis>" << std::endl;
           for (unsigned int j(previousBasisSize); j < rightBasis.size(); ++j) {
             V HBj( this->h->rightApply(rightBasis[j]) );
             for (unsigned int i(0); i < rightBasis.size(); ++i) {
@@ -287,7 +288,9 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
         LapackMatrix<complex> reducedEigenVectors(
           rightBasis.size(), rightBasis.size()
         );
-        LapackGeneralEigenSystem<complex> reducedEigenSystem(reducedH);
+        LapackGeneralEigenSystem<complex> reducedEigenSystem(
+          reducedH, true, true
+        );
 
 #ifdef DEBUGG
         LOG(1,"Davidson") << "Writing out reduced overlap matrix" << std::endl;
@@ -335,7 +338,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
             //);
             //this->rightEigenVectors[k] += c * rightBasis[b];
             this->rightEigenVectors[k] +=
-              rightBasis[b] * ComplexTraits<F>::convert(
+              rightBasis[b] * Conversion<F, complex>::from(
                 reducedEigenSystem.getRightEigenVectors()(b,k)
               );
           }
@@ -343,7 +346,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           leftEigenVectors[k] *= F(0);
           for (int b(0); b < reducedH.getColumns(); ++b) {
             leftEigenVectors[k] +=
-              rightBasis[b] * ComplexTraits<F>::convert(
+              rightBasis[b] * Conversion<F, complex>::from(
                 reducedEigenSystem.getLeftEigenVectors()(b,k)
               );
           }
@@ -373,7 +376,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           // compute residuum
           V residuum( this->h->rightApply(this->rightEigenVectors[k]) );
           residuum -=
-            this->rightEigenVectors[k] * ComplexTraits<F>::convert(
+            this->rightEigenVectors[k] * Conversion<F, complex>::from(
               //std::sqrt(eigenValues[k])
               this->eigenValues[k]
             );
