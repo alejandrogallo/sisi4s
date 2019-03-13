@@ -260,6 +260,9 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
       (+ 0.5) * (*Tabij)["abjm"] * (*Tai)["ei"] * (*Fme)["me"];
 
     (*Rabij)["abij"] += (0.5) * (*Tau_abij)["abmn"] * (*Wijkl)["mnij"];
+
+    //dda7881e81095a6a21011833e88cc972ff890456  -
+    //102d94b283918c672a8c9ce73ef689f2f8740661  -
     (*Rabij)["abij"] += (0.5) * (*Tau_abij)["efij"] * (*Wabcd)["abef"];
 
     //ec0d590a53887b24c495ca90df46ee5782c62515  -
@@ -347,10 +350,8 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     (*Rabij)["cdij"] += ( + 1.0  ) * (*fab)["ce"] * (*Tabij)["edij"];
 
     (*Rabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmn"] * (*Vijkl)["mnij"];
-    (*Rabij)["cdij"] += ( + 0.5  ) * (*Tabij)["efij"] * (*Vabcd)["cdef"];
 
     (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["cm"] * (*Tai)["dn"] * (*Vijkl)["mnij"];
-    (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Vabcd)["cdef"];
 
     (*Rabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmn"] * (*Tai)["gj"] * (*Vijka)["mnig"];
     (*Rabij)["cdij"] += ( - 0.5  ) * (*Tabij)["cdmn"] * (*Tai)["gi"] * (*Vijka)["mnjg"];
@@ -390,6 +391,11 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     (*Rabij)["cdij"] += ( + 1.0  ) * (*Tabij)["hdij"] * (*Tai)["cm"] * (*Tai)["fo"] * (*Vijab)["mofh"];
 
     (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Tai)["co"] * (*Tai)["dp"] * (*Vijab)["opef"];
+
+    //dda7881e81095a6a21011833e88cc972ff890456  -
+    (*Rabij)["cdij"] += ( + 0.5  ) * (*Tabij)["efij"] * (*Vabcd)["cdef"];
+    //102d94b283918c672a8c9ce73ef689f2f8740661  -
+    (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Vabcd)["cdef"];
 
     //ec0d590a53887b24c495ca90df46ee5782c62515  -
     (*Rabij)["cdij"] += ( - 1.0  ) * (*Tabij)["ecni"] * (*Viajb)["ndje"];
