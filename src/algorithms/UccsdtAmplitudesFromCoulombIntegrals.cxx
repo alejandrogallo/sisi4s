@@ -157,8 +157,10 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     (*Rai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Fia)["lc"];
   }
 
-  (*Rai)["bi"] += ( - 1.0  ) * (*Fij)["ki"] * (*Tai)["bk"];
-  (*Rai)["bi"] += ( + 1.0  ) * (*Fab)["bc"] * (*Tai)["ci"];
+  //Residum equations
+  //(*Rai)["bi"] += ( - 1.0  ) * (*Fij)["ki"] * (*Tai)["bk"];
+  //(*Rai)["bi"] += ( + 1.0  ) * (*Fab)["bc"] * (*Tai)["ci"];
+
   (*Rai)["bi"] += ( - 1.0  ) * (*Tai)["cl"] * (*Viajb)["lbic"];
   (*Rai)["bi"] += ( + 0.5  ) * (*Tabij)["cblm"] * (*Vijka)["lmic"];
   (*Rai)["bi"] += ( + 0.5  ) * (*Tabij)["cdmi"] * (*Viabc)["mbcd"];
@@ -187,15 +189,17 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     (*Rabij)["cdij"] += ( + 1.0  ) * (*Fia)["mf"] * (*Tabcijk)["fcdmij"];
   }
 
+  //Residum equations
+  //(*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
+  //(*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
+  //(*Rabij)["cdij"] += ( - 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
+  //(*Rabij)["cdij"] += ( + 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
+
   (*Rabij)["cdij"] += ( + 1.0  ) * (*Vabij)["cdij"];
   (*Rabij)["cdij"] += ( - 1.0  ) * (*Tai)["cm"] * (*Viajk)["mdij"];
   (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["dm"] * (*Viajk)["mcij"];
   (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["ej"] * (*Vabic)["cdie"];
   (*Rabij)["cdij"] += ( - 1.0  ) * (*Tai)["ei"] * (*Vabic)["cdje"];
-  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
-  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
-  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
-  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
   (*Rabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmn"] * (*Vijkl)["mnij"];
   (*Rabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ecnj"] * (*Viajb)["ndie"];
   (*Rabij)["cdij"] += ( - 1.0  ) * (*Tabij)["ednj"] * (*Viajb)["ncie"];
@@ -302,13 +306,13 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["geij"] * (*Vabic)["dfkg"];
   (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Tabij)["gfij"] * (*Vabic)["edkg"];
 
-  LDEBUG("Fij * T3")
-  (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Fij)["oi"] * (*Tabcijk)["defojk"];
-  (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Fij)["oj"] * (*Tabcijk)["defoik"];
-  (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Fij)["ok"] * (*Tabcijk)["defoji"];
-  (*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Fab)["fg"] * (*Tabcijk)["gdeijk"];
-  (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Fab)["eg"] * (*Tabcijk)["gdfijk"];
-  (*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Fab)["dg"] * (*Tabcijk)["gfeijk"];
+  //Residum equations
+  //(*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Fij)["oi"] * (*Tabcijk)["defojk"];
+  //(*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Fij)["oj"] * (*Tabcijk)["defoik"];
+  //(*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Fij)["ok"] * (*Tabcijk)["defoji"];
+  //(*Rabcijk)["edfijk"] += ( + 1.0  ) * (*Fab)["fg"] * (*Tabcijk)["gdeijk"];
+  //(*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Fab)["eg"] * (*Tabcijk)["gdfijk"];
+  //(*Rabcijk)["edfijk"] += ( - 1.0  ) * (*Fab)["dg"] * (*Tabcijk)["gfeijk"];
 
   LDEBUG("T3 * V")
   (*Rabcijk)["edfijk"] += ( + 0.5  ) * (*Tabcijk)["defopk"] * (*Vijkl)["opij"];
