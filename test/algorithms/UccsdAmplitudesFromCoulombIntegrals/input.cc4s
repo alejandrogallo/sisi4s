@@ -3,27 +3,10 @@ CoulombVertexReader [
   %(file "/home/gallo/simulations/he_atom/EOM/FTODDUMP")
   (unrestricted 1)
 ] [
-  (CoulombVertex FullCoulombVertex)
+  (CoulombVertex CoulombVertex)
   HoleEigenEnergies ParticleEigenEnergies
 ].
 
-CoulombVertexSingularVectors [
-  FullCoulombVertex
-  (fieldVariables 100)
-  (reduction 0.5)
-] [
-  CoulombVertexSingularVectors
-  CoulombVertexSingularValues
-].
-
-TensorWriter [(Data CoulombVertexSingularValues)] [].
-
-ApproximateCoulombVertex [
-  FullCoulombVertex
-  CoulombVertexSingularVectors
-] [
-  CoulombVertex
-].
 
 CoulombIntegralsFromVertex [
   CoulombVertex HoleEigenEnergies ParticleEigenEnergies
@@ -67,14 +50,43 @@ UccsdAmplitudesFromCoulombIntegrals [
   HoleEigenEnergies ParticleEigenEnergies
   (maxIterations 30)
   (antisymmetrize 1)
+  (intermediates 1)
   %(mixer "LinearMixer")
-  (MaskParticleRange "1")
-  (MaskVirtualRange "0-35")
   (mixingRatio 1.0)
 ] [
   (UccsdEnergy UccsdEnergy)
   (UccsdSinglesAmplitudes UccsdSinglesAmplitudes)
   (UccsdDoublesAmplitudes UccsdDoublesAmplitudes)
 ].
+TensorWriter [(Data UccsdEnergy)] [].
 
+UccsdAmplitudesFromCoulombIntegrals [
+
+  HHHHCoulombIntegrals
+  HHHPCoulombIntegrals
+  HHPHCoulombIntegrals
+  HHPPCoulombIntegrals
+  HPHHCoulombIntegrals
+  HPHPCoulombIntegrals
+  HPPHCoulombIntegrals
+  HPPPCoulombIntegrals
+  PHPHCoulombIntegrals
+  PHPPCoulombIntegrals
+  PPHHCoulombIntegrals
+  PPHPCoulombIntegrals
+  PPPHCoulombIntegrals
+  PPPHCoulombIntegrals
+  PPPPCoulombIntegrals
+
+  HoleEigenEnergies ParticleEigenEnergies
+  (maxIterations 30)
+  (antisymmetrize 1)
+  %(mixer "LinearMixer")
+  (intermediates 0)
+  (mixingRatio 1.0)
+] [
+  (UccsdEnergy UccsdEnergy)
+  (UccsdSinglesAmplitudes UccsdSinglesAmplitudes)
+  (UccsdDoublesAmplitudes UccsdDoublesAmplitudes)
+].
 TensorWriter [(Data UccsdEnergy)] [].
