@@ -45,8 +45,8 @@ F ClusterSinglesDoublesTriplesQuadruplesAlgorithm::run() {
   PTR(const FockVector<F>) amplitudes(
     createAmplitudes<F>(
       {"Singles", "Doubles", "Triples", "Quadruples"},
-      {{Nv,No}, {Nv,Nv,No,No}, {Nv,Nv,Nv,No,No,No}},
-      {"ai", "abij", "abcijk"}
+      {{Nv,No}, {Nv,Nv,No,No}, {Nv,Nv,Nv,No,No,No},{Nv,Nv,Nv,Nv,No,No,No,No}},
+      {"ai", "abij", "abcijk", "abcdijkl"}
     )
   );
 
