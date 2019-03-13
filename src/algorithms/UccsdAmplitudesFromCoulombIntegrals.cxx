@@ -382,8 +382,8 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
 
     (*Rabij)["cdij"] += ( + 0.5  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Tabij)["cdop"] * (*Vijab)["opef"];
 
-    (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fo"] * (*Tabij)["cdpj"] * (*Vijab)["opef"];
-    (*Rabij)["cdij"] += ( - 1.0  ) * (*Tai)["ej"] * (*Tai)["fo"] * (*Tabij)["cdpi"] * (*Vijab)["opef"];
+    (*Rabij)["cdij"] += ( + 1.0  ) * (*Tabij)["cdpj"] * (*Tai)["ei"] * (*Tai)["fo"] * (*Vijab)["opef"];
+    (*Rabij)["cdij"] += ( - 1.0  ) * (*Tabij)["cdpi"] * (*Tai)["ej"] * (*Tai)["fo"] * (*Vijab)["opef"];
 
     (*Rabij)["cdij"] += ( + 0.5  ) * (*Tai)["cm"] * (*Tai)["dn"] * (*Tabij)["ghij"] * (*Vijab)["mngh"];
 
