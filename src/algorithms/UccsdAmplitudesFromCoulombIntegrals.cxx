@@ -320,8 +320,10 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
       (*Rai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*fia)["lc"];
     }
 
-    (*Rai)["bi"] += ( + 1.0  ) * (*fab)["bc"] * (*Tai)["ci"];
-    (*Rai)["bi"] += ( - 1.0  ) * (*fij)["ki"] * (*Tai)["bk"];
+    //These are the residum equations
+    //(*Rai)["bi"] += ( + 1.0  ) * (*fab)["bc"] * (*Tai)["ci"];
+    //(*Rai)["bi"] += ( - 1.0  ) * (*fij)["ki"] * (*Tai)["bk"];
+
     (*Rai)["bi"] += ( - 1.0  ) * (*Tai)["cl"] * (*Viajb)["lbic"];
     (*Rai)["bi"] += ( + 0.5  ) * (*Tabij)["cblm"] * (*Vijka)["lmic"];
     (*Rai)["bi"] += ( + 0.5  ) * (*Tabij)["cdmi"] * (*Viabc)["mbcd"];
@@ -343,11 +345,11 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
       (*Rabij)["cdij"] += ( - 1.0  ) * (*Tabij)["fdij"] * (*fia)["mf"] * (*Tai)["cm"];
     }
 
-
-    (*Rabij)["cdij"] += ( - 1.0  ) * (*fij)["mi"] * (*Tabij)["cdmj"];
-    (*Rabij)["cdij"] += ( + 1.0  ) * (*fij)["mj"] * (*Tabij)["cdmi"];
-    (*Rabij)["cdij"] += ( - 1.0  ) * (*fab)["de"] * (*Tabij)["ecij"];
-    (*Rabij)["cdij"] += ( + 1.0  ) * (*fab)["ce"] * (*Tabij)["edij"];
+    //These are the residum equations
+    //(*Rabij)["cdij"] += ( - 1.0  ) * (*fij)["mi"] * (*Tabij)["cdmj"];
+    //(*Rabij)["cdij"] += ( + 1.0  ) * (*fij)["mj"] * (*Tabij)["cdmi"];
+    //(*Rabij)["cdij"] += ( - 1.0  ) * (*fab)["de"] * (*Tabij)["ecij"];
+    //(*Rabij)["cdij"] += ( + 1.0  ) * (*fab)["ce"] * (*Tabij)["edij"];
 
     (*Rabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmn"] * (*Vijkl)["mnij"];
 
@@ -355,7 +357,6 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
 
     (*Rabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmn"] * (*Tai)["gj"] * (*Vijka)["mnig"];
     (*Rabij)["cdij"] += ( - 0.5  ) * (*Tabij)["cdmn"] * (*Tai)["gi"] * (*Vijka)["mnjg"];
-
 
     (*Rabij)["cdij"] += ( - 1.0  ) * (*Tabij)["cdmj"] * (*Tai)["fo"] * (*Vijka)["moif"];
     (*Rabij)["cdij"] += ( + 1.0  ) * (*Tabij)["cdmi"] * (*Tai)["fo"] * (*Vijka)["mojf"];
@@ -372,7 +373,6 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
 
     (*Rabij)["cdij"] += ( - 0.5  ) * (*Tabij)["cdmi"] * (*Tabij)["fgpj"] * (*Vijab)["mpfg"];
     (*Rabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmj"] * (*Tabij)["fgpi"] * (*Vijab)["mpfg"];
-
 
     (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["ej"] * (*Tai)["cn"] * (*Tai)["do"] * (*Vijka)["noie"];
     (*Rabij)["cdij"] += ( - 1.0  ) * (*Tai)["ei"] * (*Tai)["cn"] * (*Tai)["do"] * (*Vijka)["noje"];
@@ -434,7 +434,6 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     //b7a00eb9acb88bcf1e3fc73992e621beb09b39f2  -
     (*Rabij)["cdij"] += ( - 1.0  ) * (*Tai)["cm"] * (*Viajk)["mdij"];
     (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["dm"] * (*Viajk)["mcij"];
-
 
   }
 
