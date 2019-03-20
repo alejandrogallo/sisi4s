@@ -41,7 +41,7 @@ namespace cc4s {
     FockVector<F> leftApply(FockVector<F> &v);
 
     // One body
-    CTF::Tensor<F>* getWij();
+    PTR(CTF::Tensor<F>) getWij();
     CTF::Tensor<F>* getWab();
     CTF::Tensor<F>* getWia();
     CTF::Tensor<F>* getWai();
@@ -66,9 +66,12 @@ namespace cc4s {
                          Wiabj, Wiajk, Wijka, Wijkl;
 
     CTF::Tensor<F> *Tai, *Tabij;
+    PTR(CTF::Tensor<F>)  Tau_abij;
     CTF::Tensor<F> *Fij, *Fab, *Fia;
     CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci;
+
+    int No, Nv;
 
     bool withIntermediates;
 

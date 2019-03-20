@@ -63,10 +63,15 @@ CcsdSimilarityTransformedHamiltonian<F>::CcsdSimilarityTransformedHamiltonian(
   Vaijb(Vaijb_),
   Vabci(Vabci_)
 {
-}
 
-//PTR(CTF::Tensor<F>) CcsdSimilarityTransformedHamiltonian::getWij() {
-//}
+  No = Fij->lens[0];
+  Nv = Fab->lens[0];
+
+  Tau_abij = NEW(CTF::Tensor<F>, *Tabij);
+  (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
+  (*Tau_abij)["abij"] += ( - 1.0 ) * (*Tai)["bi"] * (*Tai)["aj"];
+
+}
 
 template <typename F>
 void CcsdSimilarityTransformedHamiltonian<F>::run() {
@@ -522,6 +527,24 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
 }
 
 template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWij() {
+  if (Wij) return Wij;
+  LOG(0, "CcsdEomDavid") << "Building Wij" << std::endl;
+
+  Wij = NEW(CTF::Tensor<F>, *Fij);
+
+  (*Wij)["ij"]  = (*Fij)["ij"];
+  (*Wij)["ij"] += (*Vijka)["imje"] * (*Tai)["em"];
+  if (Fia) {
+    (*Wij)["ij"] += (*Fia)["ie"] * (*Tai)["ej"];
+  }
+  (*Wij)["ij"] += (  0.5) * (*Vijab)["imef"] * (*Tau_abij)["efjm"];
+
+  return Wij;
+}
+
+template <typename F>
 void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
     bool intermediates
   ) {
@@ -549,22 +572,16 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
 
   LOG(0, "CcsdEomDavid") << "Building intermediates Wpqrs and Wpq"
                          << std::endl;
-  auto Tau_abij(NEW(CTF::Tensor<F>, *Tabij));
-  (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
-  (*Tau_abij)["abij"] += ( - 1.0 ) * (*Tai)["bi"] * (*Tai)["aj"];
-
   //This approach defines intermediates:
   //Wab Wia Wabcd Wabci Waibc Wiabj Wiajk Wij Wijka Wijkl
 
-  int No(Fij->lens[0]);
-  int Nv(Fab->lens[0]);
   int syms[] = {NS, NS};
   int ov[] = {No, Nv};
   CTF::Tensor<F> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
 
   Wia   = NEW(CTF::Tensor<F>,  InitFia);
   Wab   = NEW(CTF::Tensor<F>, *Fab);
-  Wij   = NEW(CTF::Tensor<F>, *Fij);
+  Wij   = getWij();
   Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
   Wabci = NEW(CTF::Tensor<F>, *Vabci);
   Waibc = NEW(CTF::Tensor<F>, *Vaibc);
@@ -575,7 +592,6 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
   // Initialize intermediates to zero
   (*Wia)["do"] = 0.0;
   (*Wab)["do"] = 0.0;
-  (*Wij)["do"] = 0.0;
   (*Wabcd)["blah"] = 0.0;
   (*Wabci)["blah"] = 0.0;
   (*Waibc)["blah"] = 0.0;
@@ -599,14 +615,6 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
     (*Wab)["ab"] += ( -1.0) * (*Fia)["mb"] * (*Tai)["am"];
   }
   (*Wab)["ab"] += (- 0.5) * (*Vijab)["mnbe"] * (*Tau_abij)["aemn"];
-
-  LOG(0, "CcsdEomDavid") << "Building Wij" << std::endl;
-  (*Wij)["ij"]  = (*Fij)["ij"];
-  (*Wij)["ij"] += (*Vijka)["imje"] * (*Tai)["em"];
-  if (Fia) {
-    (*Wij)["ij"] += (*Fia)["ie"] * (*Tai)["ej"];
-  }
-  (*Wij)["ij"] += (  0.5) * (*Vijab)["imef"] * (*Tau_abij)["efjm"];
 
   LOG(0, "CcsdEomDavid") << "Building Wijkl" << std::endl;
   //Taken directly from [2]
