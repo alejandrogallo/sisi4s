@@ -628,8 +628,12 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWaibc() {
   if (Waibc) return Waibc;
+  LOG(0, "CcsdEomDavid") << "Building Waibc" << std::endl;
 
   Waibc = NEW(CTF::Tensor<F>, *Vaibc);
+
+  (*Waibc)["aibc"]  = (*Vaibc)["aibc"];
+  (*Waibc)["aibc"] += ( -1.0) * (*Vijab)["mibc"] * (*Tai)["am"];
 
   return Waibc;
 }
@@ -655,8 +659,13 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWijka() {
   if (Wijka) return Wijka;
+  LOG(0, "CcsdEomDavid") << "Building Wijka" << std::endl;
 
   Wijka = NEW(CTF::Tensor<F>, *Vijka);
+
+  //Taken directly from[2]
+  (*Wijka)["jkia"]  = (*Vijka)["jkia"];
+  (*Wijka)["jkia"] += (*Tai)["ei"] * (*Vijab)["jkea"];
 
   return Wijka;
 }
@@ -720,24 +729,9 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
   Wijkl = getWijkl();
 
   // Initialize intermediates to zero
-  (*Wia)["do"] = 0.0;
-  (*Wabcd)["blah"] = 0.0;
   (*Wabci)["blah"] = 0.0;
-  (*Waibc)["blah"] = 0.0;
   (*Wiabj)["blah"] = 0.0;
   (*Wiajk)["blah"] = 0.0;
-  (*Wijka)["blah"] = 0.0;
-  (*Wijkl)["blah"] = 0.0;
-
-
-  LOG(0, "CcsdEomDavid") << "Building Waibc" << std::endl;
-  (*Waibc)["aibc"]  = (*Vaibc)["aibc"];
-  (*Waibc)["aibc"] += ( -1.0) * (*Vijab)["mibc"] * (*Tai)["am"];
-
-  LOG(0, "CcsdEomDavid") << "Building Wijka" << std::endl;
-  //Taken directly from[2]
-  (*Wijka)["jkia"]  = (*Vijka)["jkia"];
-  (*Wijka)["jkia"] += (*Tai)["ei"] * (*Vijab)["jkea"];
 
   LOG(0, "CcsdEomDavid") << "Building Wiabj from Waijb" << std::endl;
   //[1] diagram (10.73)
