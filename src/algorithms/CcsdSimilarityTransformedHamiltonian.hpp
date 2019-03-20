@@ -11,6 +11,18 @@ namespace cc4s {
   template <typename F=complex>
   class CcsdSimilarityTransformedHamiltonian {
   public:
+
+    /*! \enum Dressing
+     *
+     *  The kind of dressing of the Similarity transformed hamiltonian,
+     *  i.e., the nature of T, if T is the coupled cluster excitation
+     *  operator, then some matrices elements of H will be identically 0.
+     */
+    enum Dressing {
+      CCSD,
+      GENERAL,
+    };
+
     CcsdSimilarityTransformedHamiltonian(
       CTF::Tensor<F> *Tai_,
       CTF::Tensor<F> *Tabij_,
@@ -31,7 +43,8 @@ namespace cc4s {
       CTF::Tensor<F> *Vijak_,
       CTF::Tensor<F> *Vaijb_,
       CTF::Tensor<F> *Vabci_,
-      bool withIntermediates = true
+      bool withIntermediates_ = true,
+      Dressing dressing_ = Dressing(CCSD)
     );
     virtual ~CcsdSimilarityTransformedHamiltonian();
     virtual void run();
@@ -68,6 +81,7 @@ namespace cc4s {
     CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci;
 
+    Dressing dressing;
     int No, Nv;
 
     bool withIntermediates;

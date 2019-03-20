@@ -55,7 +55,8 @@ CcsdSimilarityTransformedHamiltonian<F>::CcsdSimilarityTransformedHamiltonian(
   CTF::Tensor<F> *Vijak_,
   CTF::Tensor<F> *Vaijb_,
   CTF::Tensor<F> *Vabci_,
-  bool withIntermediates
+  bool withIntermediates_,
+  CcsdSimilarityTransformedHamiltonian::Dressing dressing_
 ):
   Tai(Tai_),
   Tabij(Tabij_),
@@ -76,8 +77,17 @@ CcsdSimilarityTransformedHamiltonian<F>::CcsdSimilarityTransformedHamiltonian(
   Vijak(Vijak_),
   Vaijb(Vaijb_),
   Vabci(Vabci_),
-  withIntermediates(withIntermediates)
+  withIntermediates(withIntermediates_),
+  dressing(dressing_)
 {
+
+  if (dressing == Dressing(CCSD)) {
+    LOG(0, "CcsdSimilarityTransformedH") <<
+      "Dressing is supposed to come from CCSD" << std::endl;
+  } else if (dressing == Dressing(GENERAL)) {
+    LOG(0, "CcsdSimilarityTransformedH") <<
+      "Dressing is general Wai and Wabij are not 0" << std::endl;
+  }
 
   No = Fij->lens[0];
   Nv = Fab->lens[0];
