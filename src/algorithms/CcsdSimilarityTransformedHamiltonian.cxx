@@ -600,6 +600,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWia() {
 
   return Wia;
 }
+
 template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWabij() {
@@ -607,6 +608,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWabij() {
 
   return Wabij;
 }
+
 template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWijab() {
@@ -614,6 +616,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWijab() {
 
   return Wijab;
 }
+
 template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWabcd() {
@@ -632,6 +635,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWabcd() {
 
   return Wabcd;
 }
+
 template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWabci() {
@@ -697,6 +701,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWabci() {
 
   return Wabci;
 }
+
 template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWaibc() {
@@ -710,6 +715,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWaibc() {
 
   return Waibc;
 }
+
 template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWiabj() {
@@ -733,6 +739,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWiabj() {
 
   return Wiabj;
 }
+
 template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWiajk() {
@@ -783,6 +790,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWiajk() {
 
   return Wiajk;
 }
+
 template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWijka() {
@@ -797,6 +805,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWijka() {
 
   return Wijka;
 }
+
 template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWijkl() {
@@ -816,12 +825,11 @@ CcsdSimilarityTransformedHamiltonian<F>::getWijkl() {
   return Wijkl;
 }
 
-
 template <typename F>
 void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates() {
-  Wia   = getWia();
-  Wij   = getWij();
-  Wab   = getWab();
+  Wia = getWia();
+  Wij = getWij();
+  Wab = getWab();
   Wabcd = getWabcd();
   Wabci = getWabci();
   Waibc = getWaibc();
@@ -829,7 +837,6 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates() {
   Wiajk = getWiajk();
   Wijka = getWijka();
   Wijkl = getWijkl();
-
 }
 
 template <typename F>
@@ -855,10 +862,10 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::leftApply(
   (*LHia)["ja"] += ( + 0.5  ) * (*Tabij)["cdmn"] * (*Vijab)["mnda"] * (*Lia)["jc"];
   (*LHia)["ja"] += ( - 0.5  ) * (*Tabij)["cdmn"] * (*Vijka)["njoa"] * (*Lijab)["omdc"];
   (*LHia)["ja"] += ( - 1.0  ) * (*Tabij)["cdmn"] * (*Vijka)["njod"] * (*Lijab)["omca"];
-  (*LHia)["ja"] += ( - 0.25  ) * (*Tabij)["cdmn"] * (*Vijka)["mnoa"] * (*Lijab)["ojdc"];
+  (*LHia)["ja"] += ( - 0.25 ) * (*Tabij)["cdmn"] * (*Vijka)["mnoa"] * (*Lijab)["ojdc"];
   (*LHia)["ja"] += ( - 0.5  ) * (*Tabij)["cdmn"] * (*Vijka)["mnod"] * (*Lijab)["ojca"];
   (*LHia)["ja"] += ( - 0.5  ) * (*Tabij)["cdmn"] * (*Viabc)["jgda"] * (*Lijab)["nmgc"];
-  (*LHia)["ja"] += ( - 0.25  ) * (*Tabij)["cdmn"] * (*Viabc)["jgcd"] * (*Lijab)["nmga"];
+  (*LHia)["ja"] += ( - 0.25 ) * (*Tabij)["cdmn"] * (*Viabc)["jgcd"] * (*Lijab)["nmga"];
   (*LHia)["ja"] += ( - 1.0  ) * (*Tabij)["cdmn"] * (*Viabc)["ngda"] * (*Lijab)["mjgc"];
   (*LHia)["ja"] += ( - 0.5  ) * (*Tabij)["cdmn"] * (*Viabc)["ngcd"] * (*Lijab)["mjga"];
 
@@ -880,7 +887,7 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::leftApply(
   (*LHijab)["klab"] += ( - 0.5  ) * (*Vabcd)["efab"] * (*Lijab)["klfe"];
   (*LHijab)["klab"] += ( + 0.5  ) * (*Tabij)["efop"] * (*Vijab)["klfb"] * (*Lijab)["poea"];
   (*LHijab)["klab"] += ( - 0.5  ) * (*Tabij)["efop"] * (*Vijab)["klfa"] * (*Lijab)["poeb"];
-  (*LHijab)["klab"] += ( - 0.25  ) * (*Tabij)["efop"] * (*Vijab)["klef"] * (*Lijab)["poab"];
+  (*LHijab)["klab"] += ( - 0.25 ) * (*Tabij)["efop"] * (*Vijab)["klef"] * (*Lijab)["poab"];
   (*LHijab)["klab"] += ( - 0.5  ) * (*Tabij)["efop"] * (*Vijab)["pkab"] * (*Lijab)["olfe"];
   (*LHijab)["klab"] += ( + 0.5  ) * (*Tabij)["efop"] * (*Vijab)["plab"] * (*Lijab)["okfe"];
   (*LHijab)["klab"] += ( - 1.0  ) * (*Tabij)["efop"] * (*Vijab)["pkfb"] * (*Lijab)["olea"];
@@ -889,7 +896,7 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::leftApply(
   (*LHijab)["klab"] += ( - 1.0  ) * (*Tabij)["efop"] * (*Vijab)["plfa"] * (*Lijab)["okeb"];
   (*LHijab)["klab"] += ( + 0.5  ) * (*Tabij)["efop"] * (*Vijab)["pkef"] * (*Lijab)["olab"];
   (*LHijab)["klab"] += ( - 0.5  ) * (*Tabij)["efop"] * (*Vijab)["plef"] * (*Lijab)["okab"];
-  (*LHijab)["klab"] += ( - 0.25  ) * (*Tabij)["efop"] * (*Vijab)["opab"] * (*Lijab)["klfe"];
+  (*LHijab)["klab"] += ( - 0.25 ) * (*Tabij)["efop"] * (*Vijab)["opab"] * (*Lijab)["klfe"];
   (*LHijab)["klab"] += ( - 0.5  ) * (*Tabij)["efop"] * (*Vijab)["opfb"] * (*Lijab)["klea"];
   (*LHijab)["klab"] += ( + 0.5  ) * (*Tabij)["efop"] * (*Vijab)["opfa"] * (*Lijab)["kleb"];
 
@@ -900,6 +907,5 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::leftApply(
 // instantiate
 template
 class CcsdSimilarityTransformedHamiltonian<complex>;
-
 template
 class CcsdSimilarityTransformedHamiltonian<double>;
