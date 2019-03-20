@@ -623,10 +623,10 @@ CcsdSimilarityTransformedHamiltonian<F>::getIA() {
   Wia = NEW(CTF::Tensor<F>,  InitFia);
 
   //we need this one to construct the 2-body-amplitudes, not directly
+  (*Wia)["ia"] = (*Vijab)["imae"] * (*Tai)["em"];
   if (Fia) {
     (*Wia)["ia"] += (*Fia)["ia"];
   }
-  (*Wia)["ia"] = (*Vijab)["imae"] * (*Tai)["em"];
 
   return Wia;
 }
