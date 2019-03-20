@@ -44,6 +44,7 @@ namespace cc4s {
       CTF::Tensor<F> *Vaijb_,
       CTF::Tensor<F> *Vabci_,
       bool withIntermediates_ = true,
+      CTF::Tensor<F> *Vabij_ = NULL,
       Dressing dressing_ = Dressing(CCSD)
     );
     virtual ~CcsdSimilarityTransformedHamiltonian();
@@ -61,7 +62,7 @@ namespace cc4s {
     PTR(CTF::Tensor<F>) getIA();
 
     // Two body
-    // Remember: Wabij is 0
+    PTR(CTF::Tensor<F>) getABIJ();
     PTR(CTF::Tensor<F>) getIJAB();
     PTR(CTF::Tensor<F>) getABCD();
     PTR(CTF::Tensor<F>) getABCI();
@@ -72,14 +73,15 @@ namespace cc4s {
     PTR(CTF::Tensor<F>) getIJKL();
 
   private: PTR(CTF::Tensor<F>)  Wij, Wab, Wia, Wai;
-    PTR(CTF::Tensor<F>)  Wijab, Wabcd, Wabci, Waibc,
+    PTR(CTF::Tensor<F>)  Wabij, Wijab, Wabcd, Wabci, Waibc,
                          Wiabj, Wiajk, Wijka, Wijkl;
 
     CTF::Tensor<F> *Tai, *Tabij;
     PTR(CTF::Tensor<F>)  Tau_abij;
     CTF::Tensor<F> *Fij, *Fab, *Fia;
     CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
-                   *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci;
+                   *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
+                   *Vabij;
 
     Dressing dressing;
     int No, Nv;
