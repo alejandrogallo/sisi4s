@@ -30,7 +30,8 @@ namespace cc4s {
       CTF::Tensor<F> *Viabj_,
       CTF::Tensor<F> *Vijak_,
       CTF::Tensor<F> *Vaijb_,
-      CTF::Tensor<F> *Vabci_
+      CTF::Tensor<F> *Vabci_,
+      bool withIntermediates = true
     );
     virtual ~CcsdSimilarityTransformedHamiltonian();
     virtual void run();
@@ -43,8 +44,8 @@ namespace cc4s {
     // One body
     PTR(CTF::Tensor<F>) getWij();
     PTR(CTF::Tensor<F>) getWab();
-    PTR(CTF::Tensor<F>) getWia();
     PTR(CTF::Tensor<F>) getWai();
+    PTR(CTF::Tensor<F>) getWia();
 
     // Two body
     PTR(CTF::Tensor<F>) getWabij();
@@ -57,8 +58,7 @@ namespace cc4s {
     PTR(CTF::Tensor<F>) getWijka();
     PTR(CTF::Tensor<F>) getWijkl();
 
-    void
-    buildAllIntermediates(bool intermediates);
+    void buildAllIntermediates();
 
   private:
     PTR(CTF::Tensor<F>)  Wij, Wab, Wia, Wai;

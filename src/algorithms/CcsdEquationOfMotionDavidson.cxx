@@ -282,16 +282,16 @@ void CcsdEquationOfMotionDavidson::run() {
     //(*getTensorArgument<F, CTF::Tensor<F> >("DoublesAmplitudes"))["abij"];
   }
 
+  bool intermediates(getIntegerArgument("intermediates", 1));
   CcsdSimilarityTransformedHamiltonian<F> H(
     &Tai, &Tabij, Fij, Fab, Fia,
     Vabcd, Viajb, Vijab, Vijkl, Vijka, Viabc, Viajk, Vabic,
-    Vaibc, Vaibj, Viabj, Vijak, Vaijb, Vabci
+    Vaibc, Vaibj, Viabj, Vijak, Vaijb, Vabci,
+    intermediates
   );
 
   unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
   unsigned int minIterations(getIntegerArgument("minIterations", 1));
-  bool intermediates(getIntegerArgument("intermediates", 1));
-  H.buildAllIntermediates(intermediates);
 
   CcsdPreConditioner<F> P(
     Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl

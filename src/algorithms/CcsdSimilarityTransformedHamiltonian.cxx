@@ -1,3 +1,16 @@
+/*
+The equations in this file are taken from the following sources
+
+[1] Isaiah Shavitt, Rodney J. Bartlett. Many-Body Methods in Chemistry and
+    Physics: MBPT and Coupled-Cluster Theory. 2009
+    PAGE: 439
+
+[2] John F. Stanton, Rodney J. Bartlett. The equation of motion coupled‐cluster
+    method. A systematic biorthogonal approach to molecular excitation
+    energies, transition probabilities, and excited state properties. The
+    Journal of Chemical Physics 7029--7039  1993
+    TABLE 1
+*/
 #include <algorithms/CcsdSimilarityTransformedHamiltonian.hpp>
 #include <math/MathFunctions.hpp>
 #include <math/ComplexTensor.hpp>
@@ -41,7 +54,8 @@ CcsdSimilarityTransformedHamiltonian<F>::CcsdSimilarityTransformedHamiltonian(
   CTF::Tensor<F> *Viabj_,
   CTF::Tensor<F> *Vijak_,
   CTF::Tensor<F> *Vaijb_,
-  CTF::Tensor<F> *Vabci_
+  CTF::Tensor<F> *Vabci_,
+  bool withIntermediates
 ):
   Tai(Tai_),
   Tabij(Tabij_),
@@ -61,7 +75,8 @@ CcsdSimilarityTransformedHamiltonian<F>::CcsdSimilarityTransformedHamiltonian(
   Viabj(Viabj_),
   Vijak(Vijak_),
   Vaijb(Vaijb_),
-  Vabci(Vabci_)
+  Vabci(Vabci_),
+  withIntermediates(withIntermediates)
 {
 
   No = Fij->lens[0];
@@ -444,6 +459,8 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   PTR(CTF::Tensor<F>) HRai( HR.get(0) );
   PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
 
+  buildAllIntermediates();
+
   //checkAntisymmetry(*Rabij);
 
   (*HRai)["ai"]  = 0.0;
@@ -530,7 +547,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWij() {
   if (Wij) return Wij;
-  LOG(0, "CcsdEomDavid") << "Building Wij" << std::endl;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wij" << std::endl;
 
   Wij = NEW(CTF::Tensor<F>, *Fij);
 
@@ -548,7 +565,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWab() {
   if (Wab) return Wab;
-  LOG(0, "CcsdEomDavid") << "Building Wab" << std::endl;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wab" << std::endl;
 
   Wab   = NEW(CTF::Tensor<F>, *Fab);
 
@@ -567,7 +584,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWia() {
   if (Wia) return Wia;
-  LOG(0, "CcsdEomDavid") << "Building Wia" << std::endl;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wia" << std::endl;
 
   int syms[] = {NS, NS};
   int ov[] = {No, Nv};
@@ -601,7 +618,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWabcd() {
   if (Wabcd) return Wabcd;
-  LOG(0, "CcsdEomDavid") << "Building Wabcd" << std::endl;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wabcd" << std::endl;
 
   Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
 
@@ -626,7 +643,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWabci() {
 
   bool wabciIntermediates(true);
   if (wabciIntermediates) {
-    LOG(0, "CcsdEomDavid") << "Building Wabci from Wabcd and Wia" << std::endl;
+    LOG(0, "CcsdSimilarityTransformedH") << "Building Wabci from Wabcd and Wia" << std::endl;
     //--1
     (*Wabci)["abci"]  = (*Vabci)["abci"];
     //--3
@@ -645,7 +662,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWabci() {
     //--7-5
     (*Wabci)["abci"] += (  0.5 ) * (*Vijak)["nmci"] * (*Tau_abij)["abnm"];
   } else {
-    LOG(0, "CcsdEomDavid") << "Building Wabci" << std::endl;
+    LOG(0, "CcsdSimilarityTransformedH") << "Building Wabci" << std::endl;
     //--1
     (*Wabci)["abci"]  = (*Vabci)["abci"];
     //--2
@@ -684,7 +701,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWaibc() {
   if (Waibc) return Waibc;
-  LOG(0, "CcsdEomDavid") << "Building Waibc" << std::endl;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Waibc" << std::endl;
 
   Waibc = NEW(CTF::Tensor<F>, *Vaibc);
 
@@ -697,99 +714,12 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWiabj() {
   if (Wiabj) return Wiabj;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wiabj" << std::endl;
 
   Wiabj = NEW(CTF::Tensor<F>, *Viabj);
 
-  return Wiabj;
-}
-template <typename F>
-PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWiajk() {
-  if (Wiajk) return Wiajk;
-
-  Wiajk = NEW(CTF::Tensor<F>, *Viajk);
-
-  return Wiajk;
-}
-template <typename F>
-PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWijka() {
-  if (Wijka) return Wijka;
-  LOG(0, "CcsdEomDavid") << "Building Wijka" << std::endl;
-
-  Wijka = NEW(CTF::Tensor<F>, *Vijka);
-
-  //Taken directly from[2]
-  (*Wijka)["jkia"]  = (*Vijka)["jkia"];
-  (*Wijka)["jkia"] += (*Tai)["ei"] * (*Vijab)["jkea"];
-
-  return Wijka;
-}
-template <typename F>
-PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWijkl() {
-  if (Wijkl) return Wijkl;
-  LOG(0, "CcsdEomDavid") << "Building Wijkl" << std::endl;
-
-  Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
-
-  //Taken directly from [2]
-  (*Wijkl)["klij"]  = (*Vijkl)["klij"];
-  //------------------------------------------------------------
-  (*Wijkl)["klij"] +=           (*Tai)["ej"] * (*Vijka)["klie"];
-  (*Wijkl)["klij"] += ( -1.0) * (*Tai)["ei"] * (*Vijka)["klje"];
-  //------------------------------------------------------------
-  (*Wijkl)["klij"] += ( 0.5 ) * (*Tau_abij)["efij"] * (*Vijab)["klef"];
-
-  return Wijkl;
-}
-
-
-template <typename F>
-void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
-    bool intermediates
-  ) {
-
-  withIntermediates = intermediates;
-
-  if (! intermediates) {
-    LOG(0, "CcsdEomDavid") << "Not building intermediates" << std::endl;
-    return;
-  }
-
-  /*
-  [1]
-  Isaiah Shavitt, Rodney J. Bartlett. Many-Body Methods in Chemistry and
-  Physics: MBPT and Coupled-Cluster Theory. 2009
-  PAGE: 439
-
-  [2]
-  John F. Stanton, Rodney J. Bartlett. The equation of motion coupled‐cluster
-  method. A systematic biorthogonal approach to molecular excitation
-  energies, transition probabilities, and excited state properties. The
-  Journal of Chemical Physics 7029--7039  1993
-   TABLE 1
-  */
-
-  LOG(0, "CcsdEomDavid") << "Building intermediates Wpqrs and Wpq"
-                         << std::endl;
-  Wia   = getWia();
-  Wij   = getWij();
-  Wab   = getWab();
-  Wabcd = getWabcd();
-  Wabci = getWabci();
-  Waibc = getWaibc();
-  Wiabj = getWiabj();
-  Wiajk = getWiajk();
-  Wijka = getWijka();
-  Wijkl = getWijkl();
-
-  // Initialize intermediates to zero
-  (*Wabci)["blah"] = 0.0;
-  (*Wiabj)["blah"] = 0.0;
-  (*Wiajk)["blah"] = 0.0;
-
-  LOG(0, "CcsdEomDavid") << "Building Wiabj from Waijb" << std::endl;
+  //LOG(0, "CcsdSimilarityTransformedH") << "Building Wiabj from Waijb" << std::endl;
+  // TODO: Check this, why from Waijb?
   //[1] diagram (10.73)
   //This is not listed in the source book, however we can write it in terms
   //of Waijb since it should also have the simmetry of the Tabij amplitudes
@@ -801,8 +731,18 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
   (*Wiabj)["jabi"] += ( -1.0) * (*Vijab)["mjeb"] * (*Tai)["ei"] * (*Tai)["am"];
   (*Wiabj)["jabi"] += ( -1.0) * (*Vijab)["mjeb"] * (*Tabij)["eaim"];
 
+  return Wiabj;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWiajk() {
+  if (Wiajk) return Wiajk;
 
-  LOG(0, "CcsdEomDavid") << "Building Wiajk from Wia and Wijkl" << std::endl;
+  Wiajk = NEW(CTF::Tensor<F>, *Viajk);
+  Wia = getWia();
+  Wijkl = getWijkl();
+
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wiajk from Wia and Wijkl" << std::endl;
   //This is built upon the already existing amplitudes
   //[1] diagram (10.79)
   //Takend directly from [2]
@@ -833,16 +773,65 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
   //     (*Wiajk)["iajk"] += ( -1.0 ) * (*Tai)["ej"] * (*Viabj)["iaek"];
   //     (*Wiajk)["iajk"] += ( +1.0 ) * (*Tai)["ei"] * (*Viabj)["jaek"];
   //--9
-  (*Wiajk)["iajk"] +=
-    ( -1.0 ) * (*Tai)["ej"] * (*Tabij)["afmk"] * (*Vijab)["imef"];
-  (*Wiajk)["iajk"] +=
-    ( +1.0 ) * (*Tai)["ek"] * (*Tabij)["afmj"] * (*Vijab)["imef"];
+  (*Wiajk)["iajk"] += ( -1.0 ) * (*Tai)["ej"] * (*Tabij)["afmk"] * (*Vijab)["imef"];
+  (*Wiajk)["iajk"] += ( +1.0 ) * (*Tai)["ek"] * (*Tabij)["afmj"] * (*Vijab)["imef"];
   //     original: Again it does not make any sense to do Pij, and the minus
   //     (*Wiajk)["iajk"] +=
   //       ( +1.0 ) * (*Tai)["ej"] * (*Tabij)["afmk"] * (*Vijab)["imef"];
   //     (*Wiajk)["iajk"] +=
   //       ( -1.0 ) * (*Tai)["ei"] * (*Tabij)["afmk"] * (*Vijab)["jmef"];
+
+  return Wiajk;
 }
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWijka() {
+  if (Wijka) return Wijka;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wijka" << std::endl;
+
+  Wijka = NEW(CTF::Tensor<F>, *Vijka);
+
+  //Taken directly from[2]
+  (*Wijka)["jkia"]  = (*Vijka)["jkia"];
+  (*Wijka)["jkia"] += (*Tai)["ei"] * (*Vijab)["jkea"];
+
+  return Wijka;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWijkl() {
+  if (Wijkl) return Wijkl;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wijkl" << std::endl;
+
+  Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
+
+  //Taken directly from [2]
+  (*Wijkl)["klij"]  = (*Vijkl)["klij"];
+  //------------------------------------------------------------
+  (*Wijkl)["klij"] +=           (*Tai)["ej"] * (*Vijka)["klie"];
+  (*Wijkl)["klij"] += ( -1.0) * (*Tai)["ei"] * (*Vijka)["klje"];
+  //------------------------------------------------------------
+  (*Wijkl)["klij"] += ( 0.5 ) * (*Tau_abij)["efij"] * (*Vijab)["klef"];
+
+  return Wijkl;
+}
+
+
+template <typename F>
+void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates() {
+  Wia   = getWia();
+  Wij   = getWij();
+  Wab   = getWab();
+  Wabcd = getWabcd();
+  Wabci = getWabci();
+  Waibc = getWaibc();
+  Wiabj = getWiabj();
+  Wiajk = getWiajk();
+  Wijka = getWijka();
+  Wijkl = getWijkl();
+
+}
+
 template <typename F>
 FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::leftApply(
   FockVector<F> &L
