@@ -644,6 +644,8 @@ CcsdSimilarityTransformedHamiltonian<F>::getAI() {
     (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["kd"] * (*Tabij)["dbki"];
     (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Fia)["lc"];
   }
+  (*Wai)["bi"] += ( + 1.0  ) * (*Fab)["bc"] * (*Tai)["ci"];
+  (*Wai)["bi"] += ( - 1.0  ) * (*Fij)["ki"] * (*Tai)["bk"];
   (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["cl"] * (*Viajb)["lbic"];
   (*Wai)["bi"] += ( + 0.5  ) * (*Tabij)["cblm"] * (*Vijka)["lmic"];
   (*Wai)["bi"] += ( + 0.5  ) * (*Tabij)["cdmi"] * (*Viabc)["mbcd"];
