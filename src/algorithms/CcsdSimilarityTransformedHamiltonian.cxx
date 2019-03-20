@@ -556,16 +556,27 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getIJ() {
   if (Wij) return Wij;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wij" << std::endl;
 
   Wij = NEW(CTF::Tensor<F>, *Fij);
 
-  (*Wij)["ij"]  = (*Fij)["ij"];
-  (*Wij)["ij"] += (*Vijka)["imje"] * (*Tai)["em"];
-  if (Fia) {
-    (*Wij)["ij"] += (*Fia)["ie"] * (*Tai)["ej"];
+  if (true) {
+    // This is the second row in diagram 10.55 in [1]
+    LOG(0, "CcsdSimilarityTransformedH") << "Building Wij from Wia" << std::endl;
+    Wia = getIA();
+    (*Wij)["ij"]  = (*Fij)["ij"];
+    (*Wij)["ij"] += (*Vijka)["imje"] * (*Tai)["em"];
+    (*Wij)["ij"] += (*Wia)["ie"] * (*Tai)["ej"];
+    (*Wij)["ij"] += (  0.5) * (*Vijab)["imef"] * (*Tabij)["efjm"];
+  } else {
+    // This is the first row in diagram 10.55 in [1]
+    LOG(0, "CcsdSimilarityTransformedH") << "Building Wij" << std::endl;
+    (*Wij)["ij"]  = (*Fij)["ij"];
+    (*Wij)["ij"] += (*Vijka)["imje"] * (*Tai)["em"];
+    if (Fia) {
+      (*Wij)["ij"] += (*Fia)["ie"] * (*Tai)["ej"];
+    }
+    (*Wij)["ij"] += (  0.5) * (*Vijab)["imef"] * (*Tau_abij)["efjm"];
   }
-  (*Wij)["ij"] += (  0.5) * (*Vijab)["imef"] * (*Tau_abij)["efjm"];
 
   return Wij;
 }
