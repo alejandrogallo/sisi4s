@@ -574,6 +574,13 @@ CcsdSimilarityTransformedHamiltonian<F>::getWia() {
 
   Wia = NEW(CTF::Tensor<F>,  InitFia);
 
+  LOG(0, "CcsdEomDavid") << "Building Wia" << std::endl;
+  //we need this one to construct the 2-body-amplitudes, not directly
+  if (Fia) {
+    (*Wia)["ia"] += (*Fia)["ia"];
+  }
+  (*Wia)["ia"] = (*Vijab)["imae"] * (*Tai)["em"];
+
   return Wia;
 }
 template <typename F>
@@ -703,13 +710,6 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
   (*Wiajk)["blah"] = 0.0;
   (*Wijka)["blah"] = 0.0;
   (*Wijkl)["blah"] = 0.0;
-
-  LOG(0, "CcsdEomDavid") << "Building Wia" << std::endl;
-  //we need this one to construct the 2-body-amplitudes, not directly
-  if (Fia) {
-    (*Wia)["ia"] += (*Fia)["ia"];
-  }
-  (*Wia)["ia"] = (*Vijab)["imae"] * (*Tai)["em"];
 
   LOG(0, "CcsdEomDavid") << "Building Wijkl" << std::endl;
   //Taken directly from [2]
