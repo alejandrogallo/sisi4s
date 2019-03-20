@@ -658,6 +658,15 @@ CcsdSimilarityTransformedHamiltonian<F>::getWijkl() {
 
   Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
 
+  LOG(0, "CcsdEomDavid") << "Building Wijkl" << std::endl;
+  //Taken directly from [2]
+  (*Wijkl)["klij"]  = (*Vijkl)["klij"];
+  //------------------------------------------------------------
+  (*Wijkl)["klij"] +=           (*Tai)["ej"] * (*Vijka)["klie"];
+  (*Wijkl)["klij"] += ( -1.0) * (*Tai)["ei"] * (*Vijka)["klje"];
+  //------------------------------------------------------------
+  (*Wijkl)["klij"] += ( 0.5 ) * (*Tau_abij)["efij"] * (*Vijab)["klef"];
+
   return Wijkl;
 }
 
@@ -710,15 +719,6 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
   (*Wiajk)["blah"] = 0.0;
   (*Wijka)["blah"] = 0.0;
   (*Wijkl)["blah"] = 0.0;
-
-  LOG(0, "CcsdEomDavid") << "Building Wijkl" << std::endl;
-  //Taken directly from [2]
-  (*Wijkl)["klij"]  = (*Vijkl)["klij"];
-  //------------------------------------------------------------
-  (*Wijkl)["klij"] +=           (*Tai)["ej"] * (*Vijka)["klie"];
-  (*Wijkl)["klij"] += ( -1.0) * (*Tai)["ei"] * (*Vijka)["klje"];
-  //------------------------------------------------------------
-  (*Wijkl)["klij"] += ( 0.5 ) * (*Tau_abij)["efij"] * (*Vijab)["klef"];
 
   LOG(0, "CcsdEomDavid") << "Building Wabcd" << std::endl;
   (*Wabcd)["abcd"]  = (*Vabcd)["abcd"];
