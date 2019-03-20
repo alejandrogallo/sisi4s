@@ -668,12 +668,13 @@ CcsdSimilarityTransformedHamiltonian<F>::getABCI() {
   if (Wabci) return Wabci;
 
   Wabci = NEW(CTF::Tensor<F>, *Vabci);
-  Wabcd = getABCD();
-  Wia = getIA();
 
-  bool wabciIntermediates(true);
+  bool wabciIntermediates(false);
   if (wabciIntermediates) {
-    LOG(0, "CcsdSimilarityTransformedH") << "Building Wabci from Wabcd and Wia" << std::endl;
+    LOG(0, "CcsdSimilarityTransformedH") << "Building Wabci from Wabcd and Wia"
+                                         << std::endl;
+    Wabcd = getABCD();
+    Wia = getIA();
     //--1
     (*Wabci)["abci"]  = (*Vabci)["abci"];
     //--3
@@ -693,6 +694,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getABCI() {
     (*Wabci)["abci"] += (  0.5 ) * (*Vijak)["nmci"] * (*Tau_abij)["abnm"];
   } else {
     LOG(0, "CcsdSimilarityTransformedH") << "Building Wabci" << std::endl;
+    // from [1] first line of diagram 10.76, page 333
     //--1
     (*Wabci)["abci"]  = (*Vabci)["abci"];
     //--2
