@@ -42,20 +42,20 @@ namespace cc4s {
 
     // One body
     PTR(CTF::Tensor<F>) getWij();
-    CTF::Tensor<F>* getWab();
-    CTF::Tensor<F>* getWia();
-    CTF::Tensor<F>* getWai();
+    PTR(CTF::Tensor<F>) getWab();
+    PTR(CTF::Tensor<F>) getWia();
+    PTR(CTF::Tensor<F>) getWai();
 
     // Two body
-    CTF::Tensor<F>* getWabij();
-    CTF::Tensor<F>* getWijab();
-    CTF::Tensor<F>* getWabcd();
-    CTF::Tensor<F>* getWabci();
-    CTF::Tensor<F>* getWaibc();
-    CTF::Tensor<F>* getWiabj();
-    CTF::Tensor<F>* getWiajk();
-    CTF::Tensor<F>* getWijka();
-    CTF::Tensor<F>* getWijkl();
+    PTR(CTF::Tensor<F>) getWabij();
+    PTR(CTF::Tensor<F>) getWijab();
+    PTR(CTF::Tensor<F>) getWabcd();
+    PTR(CTF::Tensor<F>) getWabci();
+    PTR(CTF::Tensor<F>) getWaibc();
+    PTR(CTF::Tensor<F>) getWiabj();
+    PTR(CTF::Tensor<F>) getWiajk();
+    PTR(CTF::Tensor<F>) getWijka();
+    PTR(CTF::Tensor<F>) getWijkl();
 
     void
     buildAllIntermediates(bool intermediates);
