@@ -42,26 +42,23 @@ namespace cc4s {
     FockVector<F> leftApply(FockVector<F> &v);
 
     // One body
-    PTR(CTF::Tensor<F>) getWij();
-    PTR(CTF::Tensor<F>) getWab();
-    PTR(CTF::Tensor<F>) getWai();
-    PTR(CTF::Tensor<F>) getWia();
+    PTR(CTF::Tensor<F>) getIJ();
+    PTR(CTF::Tensor<F>) getAB();
+    PTR(CTF::Tensor<F>) getAI();
+    PTR(CTF::Tensor<F>) getIA();
 
     // Two body
-    PTR(CTF::Tensor<F>) getWabij();
-    PTR(CTF::Tensor<F>) getWijab();
-    PTR(CTF::Tensor<F>) getWabcd();
-    PTR(CTF::Tensor<F>) getWabci();
-    PTR(CTF::Tensor<F>) getWaibc();
-    PTR(CTF::Tensor<F>) getWiabj();
-    PTR(CTF::Tensor<F>) getWiajk();
-    PTR(CTF::Tensor<F>) getWijka();
-    PTR(CTF::Tensor<F>) getWijkl();
+    PTR(CTF::Tensor<F>) getABIJ();
+    PTR(CTF::Tensor<F>) getIJAB();
+    PTR(CTF::Tensor<F>) getABCD();
+    PTR(CTF::Tensor<F>) getABCI();
+    PTR(CTF::Tensor<F>) getAIBC();
+    PTR(CTF::Tensor<F>) getIABJ();
+    PTR(CTF::Tensor<F>) getIAJK();
+    PTR(CTF::Tensor<F>) getIJKA();
+    PTR(CTF::Tensor<F>) getIJKL();
 
-    void buildAllIntermediates();
-
-  private:
-    PTR(CTF::Tensor<F>)  Wij, Wab, Wia, Wai;
+  private: PTR(CTF::Tensor<F>)  Wij, Wab, Wia, Wai;
     PTR(CTF::Tensor<F>)  Wabij, Wijab, Wabcd, Wabci, Waibc,
                          Wiabj, Wiajk, Wijka, Wijkl;
 

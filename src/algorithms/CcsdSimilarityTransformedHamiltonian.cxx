@@ -459,7 +459,16 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   PTR(CTF::Tensor<F>) HRai( HR.get(0) );
   PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
 
-  buildAllIntermediates();
+  Wia = getIA();
+  Wij = getIJ();
+  Wab = getAB();
+  Wabcd = getABCD();
+  Wabci = getABCI();
+  Waibc = getAIBC();
+  Wiabj = getIABJ();
+  Wiajk = getIAJK();
+  Wijka = getIJKA();
+  Wijkl = getIJKL();
 
   //checkAntisymmetry(*Rabij);
 
@@ -545,7 +554,7 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWij() {
+CcsdSimilarityTransformedHamiltonian<F>::getIJ() {
   if (Wij) return Wij;
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wij" << std::endl;
 
@@ -563,7 +572,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWij() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWab() {
+CcsdSimilarityTransformedHamiltonian<F>::getAB() {
   if (Wab) return Wab;
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wab" << std::endl;
 
@@ -582,7 +591,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWab() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWia() {
+CcsdSimilarityTransformedHamiltonian<F>::getIA() {
   if (Wia) return Wia;
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wia" << std::endl;
 
@@ -603,7 +612,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWia() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWabij() {
+CcsdSimilarityTransformedHamiltonian<F>::getABIJ() {
   if (Wabij) return Wabij;
 
   return Wabij;
@@ -611,7 +620,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWabij() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWijab() {
+CcsdSimilarityTransformedHamiltonian<F>::getIJAB() {
   if (Wijab) return Wijab;
 
   return Wijab;
@@ -619,7 +628,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWijab() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWabcd() {
+CcsdSimilarityTransformedHamiltonian<F>::getABCD() {
   if (Wabcd) return Wabcd;
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wabcd" << std::endl;
 
@@ -638,12 +647,12 @@ CcsdSimilarityTransformedHamiltonian<F>::getWabcd() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWabci() {
+CcsdSimilarityTransformedHamiltonian<F>::getABCI() {
   if (Wabci) return Wabci;
 
   Wabci = NEW(CTF::Tensor<F>, *Vabci);
-  Wabcd = getWabcd();
-  Wia = getWia();
+  Wabcd = getABCD();
+  Wia = getIA();
 
   bool wabciIntermediates(true);
   if (wabciIntermediates) {
@@ -704,7 +713,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWabci() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWaibc() {
+CcsdSimilarityTransformedHamiltonian<F>::getAIBC() {
   if (Waibc) return Waibc;
   LOG(0, "CcsdSimilarityTransformedH") << "Building Waibc" << std::endl;
 
@@ -718,7 +727,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWaibc() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWiabj() {
+CcsdSimilarityTransformedHamiltonian<F>::getIABJ() {
   if (Wiabj) return Wiabj;
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wiabj" << std::endl;
 
@@ -742,12 +751,12 @@ CcsdSimilarityTransformedHamiltonian<F>::getWiabj() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWiajk() {
+CcsdSimilarityTransformedHamiltonian<F>::getIAJK() {
   if (Wiajk) return Wiajk;
 
   Wiajk = NEW(CTF::Tensor<F>, *Viajk);
-  Wia = getWia();
-  Wijkl = getWijkl();
+  Wia = getIA();
+  Wijkl = getIJKL();
 
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wiajk from Wia and Wijkl" << std::endl;
   //This is built upon the already existing amplitudes
@@ -793,7 +802,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWiajk() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWijka() {
+CcsdSimilarityTransformedHamiltonian<F>::getIJKA() {
   if (Wijka) return Wijka;
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wijka" << std::endl;
 
@@ -808,7 +817,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getWijka() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getWijkl() {
+CcsdSimilarityTransformedHamiltonian<F>::getIJKL() {
   if (Wijkl) return Wijkl;
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wijkl" << std::endl;
 
@@ -823,20 +832,6 @@ CcsdSimilarityTransformedHamiltonian<F>::getWijkl() {
   (*Wijkl)["klij"] += ( 0.5 ) * (*Tau_abij)["efij"] * (*Vijab)["klef"];
 
   return Wijkl;
-}
-
-template <typename F>
-void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates() {
-  Wia = getWia();
-  Wij = getWij();
-  Wab = getWab();
-  Wabcd = getWabcd();
-  Wabci = getWabci();
-  Waibc = getWaibc();
-  Wiabj = getWiabj();
-  Wiajk = getWiajk();
-  Wijka = getWijka();
-  Wijkl = getWijkl();
 }
 
 template <typename F>
