@@ -567,6 +567,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWia() {
   if (Wia) return Wia;
+  LOG(0, "CcsdEomDavid") << "Building Wia" << std::endl;
 
   int syms[] = {NS, NS};
   int ov[] = {No, Nv};
@@ -574,7 +575,6 @@ CcsdSimilarityTransformedHamiltonian<F>::getWia() {
 
   Wia = NEW(CTF::Tensor<F>,  InitFia);
 
-  LOG(0, "CcsdEomDavid") << "Building Wia" << std::endl;
   //we need this one to construct the 2-body-amplitudes, not directly
   if (Fia) {
     (*Wia)["ia"] += (*Fia)["ia"];
@@ -601,8 +601,17 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWabcd() {
   if (Wabcd) return Wabcd;
+  LOG(0, "CcsdEomDavid") << "Building Wabcd" << std::endl;
 
   Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
+
+  (*Wabcd)["abcd"]  = (*Vabcd)["abcd"];
+  //-----------------------------------------------------------
+  (*Wabcd)["abcd"] += (-1.0) * (*Vaibc)["amcd"] * (*Tai)["bm"];
+  // P(ab)
+  (*Wabcd)["abcd"] += ( 1.0) * (*Vaibc)["bmcd"] * (*Tai)["am"];
+  //-----------------------------------------------------------
+  (*Wabcd)["abcd"] += ( 0.5) * (*Vijab)["mncd"] * (*Tau_abij)["abmn"];
 
   return Wabcd;
 }
@@ -655,10 +664,10 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getWijkl() {
   if (Wijkl) return Wijkl;
+  LOG(0, "CcsdEomDavid") << "Building Wijkl" << std::endl;
 
   Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
 
-  LOG(0, "CcsdEomDavid") << "Building Wijkl" << std::endl;
   //Taken directly from [2]
   (*Wijkl)["klij"]  = (*Vijkl)["klij"];
   //------------------------------------------------------------
@@ -720,14 +729,6 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
   (*Wijka)["blah"] = 0.0;
   (*Wijkl)["blah"] = 0.0;
 
-  LOG(0, "CcsdEomDavid") << "Building Wabcd" << std::endl;
-  (*Wabcd)["abcd"]  = (*Vabcd)["abcd"];
-  //-----------------------------------------------------------
-  (*Wabcd)["abcd"] += (-1.0) * (*Vaibc)["amcd"] * (*Tai)["bm"];
-  // P(ab)
-  (*Wabcd)["abcd"] += ( 1.0) * (*Vaibc)["bmcd"] * (*Tai)["am"];
-  //-----------------------------------------------------------
-  (*Wabcd)["abcd"] += ( 0.5) * (*Vijab)["mncd"] * (*Tau_abij)["abmn"];
 
   LOG(0, "CcsdEomDavid") << "Building Waibc" << std::endl;
   (*Waibc)["aibc"]  = (*Vaibc)["aibc"];
