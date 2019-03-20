@@ -585,17 +585,27 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getAB() {
   if (Wab) return Wab;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wab" << std::endl;
 
   Wab   = NEW(CTF::Tensor<F>, *Fab);
 
-  //diagram (10.54)
-  (*Wab)["ab"]  = (*Fab)["ab"];
-  (*Wab)["ab"] += (*Viabc)["mafb"] * (*Tai)["fm"];
-  if (Fia) {
-    (*Wab)["ab"] += ( -1.0) * (*Fia)["mb"] * (*Tai)["am"];
+  if (true) {
+    //diagram (10.54) second line in [1]
+    LOG(0, "CcsdSimilarityTransformedH") << "Building Wab from Wia" << std::endl;
+    Wia = getIA();
+    (*Wab)["ab"]  = (*Fab)["ab"];
+    (*Wab)["ab"] += (*Viabc)["mafb"] * (*Tai)["fm"];
+    (*Wab)["ab"] += ( -1.0) * (*Wia)["mb"] * (*Tai)["am"];
+    (*Wab)["ab"] += (- 0.5) * (*Vijab)["mnbe"] * (*Tabij)["aemn"];
+  } else {
+    //diagram (10.54) first line in [1]
+    LOG(0, "CcsdSimilarityTransformedH") << "Building Wab" << std::endl;
+    (*Wab)["ab"]  = (*Fab)["ab"];
+    (*Wab)["ab"] += (*Viabc)["mafb"] * (*Tai)["fm"];
+    if (Fia) {
+      (*Wab)["ab"] += ( -1.0) * (*Fia)["mb"] * (*Tai)["am"];
+    }
+    (*Wab)["ab"] += (- 0.5) * (*Vijab)["mnbe"] * (*Tau_abij)["aemn"];
   }
-  (*Wab)["ab"] += (- 0.5) * (*Vijab)["mnbe"] * (*Tau_abij)["aemn"];
 
   return Wab;
 }
