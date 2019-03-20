@@ -622,6 +622,44 @@ CcsdSimilarityTransformedHamiltonian<F>::getAB() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getAI() {
+  if (Wai) return Wai;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wai" << std::endl;
+
+  int syms[] = {NS, NS};
+  int ov[] = {Nv, No};
+  CTF::Tensor<F> InitFai(2, ov, syms, *Cc4s::world, "InitFai");
+
+  Wai = NEW(CTF::Tensor<F>, InitFai);
+
+  (*Wai)["bi"] = 0.0;
+  if (dressing == Dressing(CCSD)) {
+    LOG(1, "CcsdSimilarityTransformedH") << "Wai = 0 since CCSD" << std::endl;
+    return Wai;
+  }
+
+  // Equations from Hirata
+  if (Fia) {
+    (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["ib"];
+    (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["kd"] * (*Tabij)["dbki"];
+    (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Fia)["lc"];
+  }
+  (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["cl"] * (*Viajb)["lbic"];
+  (*Wai)["bi"] += ( + 0.5  ) * (*Tabij)["cblm"] * (*Vijka)["lmic"];
+  (*Wai)["bi"] += ( + 0.5  ) * (*Tabij)["cdmi"] * (*Viabc)["mbcd"];
+  (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["bk"] * (*Tai)["dm"] * (*Vijka)["kmid"];
+  (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["dm"] * (*Viabc)["mbcd"];
+  (*Wai)["bi"] += ( - 0.5  ) * (*Tai)["fi"] * (*Tabij)["cblm"] * (*Vijab)["lmcf"];
+  (*Wai)["bi"] += ( - 0.5  ) * (*Tai)["bn"] * (*Tabij)["cdmi"] * (*Vijab)["mncd"];
+  (*Wai)["bi"] += ( + 1.0  ) * (*Tabij)["cbli"] * (*Tai)["en"] * (*Vijab)["lnce"];
+  (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Tai)["en"] * (*Vijab)["lnce"];
+
+
+  return Wai;
+}
+
+template <typename F>
+PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getIA() {
   if (Wia) return Wia;
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wia" << std::endl;
