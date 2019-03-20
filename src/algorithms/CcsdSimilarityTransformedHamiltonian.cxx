@@ -621,6 +621,62 @@ CcsdSimilarityTransformedHamiltonian<F>::getWabci() {
   if (Wabci) return Wabci;
 
   Wabci = NEW(CTF::Tensor<F>, *Vabci);
+  Wabcd = getWabcd();
+  Wia = getWia();
+
+  bool wabciIntermediates(true);
+  if (wabciIntermediates) {
+    LOG(0, "CcsdEomDavid") << "Building Wabci from Wabcd and Wia" << std::endl;
+    //--1
+    (*Wabci)["abci"]  = (*Vabci)["abci"];
+    //--3
+    (*Wabci)["abci"] += ( -1.0) * (*Vaibj)["amci"] * (*Tai)["bm"];
+    (*Wabci)["abci"] += ( +1.0) * (*Vaibj)["bmci"] * (*Tai)["am"];
+    //--6
+    (*Wabci)["abci"] += ( +1.0) * (*Vaibc)["amce"] * (*Tabij)["ebmi"];
+    (*Wabci)["abci"] += ( -1.0) * (*Vaibc)["bmce"] * (*Tabij)["eami"];
+    //--9
+    (*Wabci)["abci"] += ( -1.0) * (*Vijab)["mnce"] * (*Tai)["am"] * (*Tabij)["ebni"];
+    (*Wabci)["abci"] += ( +1.0) * (*Vijab)["mnce"] * (*Tai)["bm"] * (*Tabij)["eani"];
+    //--8
+    (*Wabci)["abci"] += ( -1.0) * (*Wia)["mc"] * (*Tabij)["abmi"];
+    //--2-4-10-11
+    (*Wabci)["abci"] += ( +1.0) * (*Tai)["ei"] * (*Wabcd)["abce"];
+    //--7-5
+    (*Wabci)["abci"] += (  0.5 ) * (*Vijak)["nmci"] * (*Tau_abij)["abnm"];
+  } else {
+    LOG(0, "CcsdEomDavid") << "Building Wabci" << std::endl;
+    //--1
+    (*Wabci)["abci"]  = (*Vabci)["abci"];
+    //--2
+    (*Wabci)["abci"] += (*Vabcd)["abce"] * (*Tai)["ei"];
+    //--3
+    (*Wabci)["abci"] += ( -1.0) * (*Vaibj)["amci"] * (*Tai)["bm"];
+    (*Wabci)["abci"] += ( +1.0) * (*Vaibj)["bmci"] * (*Tai)["am"];
+    //--4
+    (*Wabci)["abci"] += ( -1.0) * (*Vaibc)["amce"] * (*Tai)["bm"] * (*Tai)["ei"];
+    (*Wabci)["abci"] += ( +1.0) * (*Vaibc)["bmce"] * (*Tai)["am"] * (*Tai)["ei"];
+    //--5
+    (*Wabci)["abci"] += ( +1.0) * (*Vijak)["mnci"] * (*Tai)["am"] * (*Tai)["bn"];
+    //--5.1 (non canonical)
+    if (Fia) {
+      (*Wabci)["abci"] += ( -1.0) * (*Fia)["mc"] * (*Tabij)["abmi"];
+    }
+    //--6
+    (*Wabci)["abci"] +=          (*Vaibc)["amce"] * (*Tabij)["ebmi"];
+    (*Wabci)["abci"] += (-1.0) * (*Vaibc)["bmce"] * (*Tabij)["eami"];
+    //--7
+    (*Wabci)["abci"] += (  0.5) * (*Vijak)["mnci"] * (*Tabij)["abmn"];
+    //--8
+    (*Wabci)["abci"] += ( -1.0) * (*Vijab)["mnec"] * (*Tai)["em"] * (*Tabij)["abni"];
+    //--9
+    (*Wabci)["abci"] += ( -1.0) * (*Vijab)["mnce"] * (*Tai)["am"] * (*Tabij)["ebni"];
+    (*Wabci)["abci"] += ( +1.0) * (*Vijab)["mnce"] * (*Tai)["bm"] * (*Tabij)["eani"];
+    //--10
+    (*Wabci)["abci"] += (  0.5) * (*Vijab)["mnce"] * (*Tai)["ei"] * (*Tabij)["abmn"];
+    //--11
+    (*Wabci)["abci"] +=           (*Vijab)["mnce"] * (*Tai)["am"] * (*Tai)["bn"] * (*Tai)["ei"];
+  }
 
   return Wabci;
 }
@@ -745,59 +801,6 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
   (*Wiabj)["jabi"] += ( -1.0) * (*Vijab)["mjeb"] * (*Tai)["ei"] * (*Tai)["am"];
   (*Wiabj)["jabi"] += ( -1.0) * (*Vijab)["mjeb"] * (*Tabij)["eaim"];
 
-  bool wabciIntermediates(true);
-  if (wabciIntermediates) {
-    LOG(0, "CcsdEomDavid") << "Building Wabci from Wabcd and Wia" << std::endl;
-    //--1
-    (*Wabci)["abci"]  = (*Vabci)["abci"];
-    //--3
-    (*Wabci)["abci"] += ( -1.0) * (*Vaibj)["amci"] * (*Tai)["bm"];
-    (*Wabci)["abci"] += ( +1.0) * (*Vaibj)["bmci"] * (*Tai)["am"];
-    //--6
-    (*Wabci)["abci"] += ( +1.0) * (*Vaibc)["amce"] * (*Tabij)["ebmi"];
-    (*Wabci)["abci"] += ( -1.0) * (*Vaibc)["bmce"] * (*Tabij)["eami"];
-    //--9
-    (*Wabci)["abci"] += ( -1.0) * (*Vijab)["mnce"] * (*Tai)["am"] * (*Tabij)["ebni"];
-    (*Wabci)["abci"] += ( +1.0) * (*Vijab)["mnce"] * (*Tai)["bm"] * (*Tabij)["eani"];
-    //--8
-    (*Wabci)["abci"] += ( -1.0) * (*Wia)["mc"] * (*Tabij)["abmi"];
-    //--2-4-10-11
-    (*Wabci)["abci"] += ( +1.0) * (*Tai)["ei"] * (*Wabcd)["abce"];
-    //--7-5
-    (*Wabci)["abci"] += (  0.5 ) * (*Vijak)["nmci"] * (*Tau_abij)["abnm"];
-  } else {
-    LOG(0, "CcsdEomDavid") << "Building Wabci" << std::endl;
-    //--1
-    (*Wabci)["abci"]  = (*Vabci)["abci"];
-    //--2
-    (*Wabci)["abci"] += (*Vabcd)["abce"] * (*Tai)["ei"];
-    //--3
-    (*Wabci)["abci"] += ( -1.0) * (*Vaibj)["amci"] * (*Tai)["bm"];
-    (*Wabci)["abci"] += ( +1.0) * (*Vaibj)["bmci"] * (*Tai)["am"];
-    //--4
-    (*Wabci)["abci"] += ( -1.0) * (*Vaibc)["amce"] * (*Tai)["bm"] * (*Tai)["ei"];
-    (*Wabci)["abci"] += ( +1.0) * (*Vaibc)["bmce"] * (*Tai)["am"] * (*Tai)["ei"];
-    //--5
-    (*Wabci)["abci"] += ( +1.0) * (*Vijak)["mnci"] * (*Tai)["am"] * (*Tai)["bn"];
-    //--5.1 (non canonical)
-    if (Fia) {
-      (*Wabci)["abci"] += ( -1.0) * (*Fia)["mc"] * (*Tabij)["abmi"];
-    }
-    //--6
-    (*Wabci)["abci"] +=          (*Vaibc)["amce"] * (*Tabij)["ebmi"];
-    (*Wabci)["abci"] += (-1.0) * (*Vaibc)["bmce"] * (*Tabij)["eami"];
-    //--7
-    (*Wabci)["abci"] += (  0.5) * (*Vijak)["mnci"] * (*Tabij)["abmn"];
-    //--8
-    (*Wabci)["abci"] += ( -1.0) * (*Vijab)["mnec"] * (*Tai)["em"] * (*Tabij)["abni"];
-    //--9
-    (*Wabci)["abci"] += ( -1.0) * (*Vijab)["mnce"] * (*Tai)["am"] * (*Tabij)["ebni"];
-    (*Wabci)["abci"] += ( +1.0) * (*Vijab)["mnce"] * (*Tai)["bm"] * (*Tabij)["eani"];
-    //--10
-    (*Wabci)["abci"] += (  0.5) * (*Vijab)["mnce"] * (*Tai)["ei"] * (*Tabij)["abmn"];
-    //--11
-    (*Wabci)["abci"] +=           (*Vijab)["mnce"] * (*Tai)["am"] * (*Tai)["bn"] * (*Tai)["ei"];
-  }
 
   LOG(0, "CcsdEomDavid") << "Building Wiajk from Wia and Wijkl" << std::endl;
   //This is built upon the already existing amplitudes
