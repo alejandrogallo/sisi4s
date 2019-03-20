@@ -649,6 +649,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getABCD() {
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wabcd" << std::endl;
 
   Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
+  // diagram 10.69 in [1]
 
   (*Wabcd)["abcd"]  = (*Vabcd)["abcd"];
   //-----------------------------------------------------------
@@ -745,12 +746,10 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getIABJ() {
   if (Wiabj) return Wiabj;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wiabj" << std::endl;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wiabj = Waijb" << std::endl;
 
   Wiabj = NEW(CTF::Tensor<F>, *Viabj);
 
-  //LOG(0, "CcsdSimilarityTransformedH") << "Building Wiabj from Waijb" << std::endl;
-  // TODO: Check this, why from Waijb?
   //[1] diagram (10.73)
   //This is not listed in the source book, however we can write it in terms
   //of Waijb since it should also have the simmetry of the Tabij amplitudes
@@ -759,7 +758,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getIABJ() {
   (*Wiabj)["jabi"]  = (*Vaijb)["ajib"];
   (*Wiabj)["jabi"] += (*Vaibc)["ajeb"] * (*Tai)["ei"];
   (*Wiabj)["jabi"] += ( -1.0) * (*Vijka)["mjib"] * (*Tai)["am"];
-  (*Wiabj)["jabi"] += ( -1.0) * (*Vijab)["mjeb"] * (*Tai)["ei"] * (*Tai)["am"];
+  (*Wiabj)["jabi"] += ( -1.0) * (*Tai)["ei"] * (*Vijab)["mjeb"] * (*Tai)["am"];
   (*Wiabj)["jabi"] += ( -1.0) * (*Vijab)["mjeb"] * (*Tabij)["eaim"];
 
   return Wiabj;
@@ -839,6 +838,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getIJKL() {
 
   Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
 
+  // diagram 10.70 in [1]
   //Taken directly from [2]
   (*Wijkl)["klij"]  = (*Vijkl)["klij"];
   //------------------------------------------------------------
