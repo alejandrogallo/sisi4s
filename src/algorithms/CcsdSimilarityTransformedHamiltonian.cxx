@@ -564,6 +564,98 @@ CcsdSimilarityTransformedHamiltonian<F>::getWab() {
 }
 
 template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWia() {
+  if (Wia) return Wia;
+
+  int syms[] = {NS, NS};
+  int ov[] = {No, Nv};
+  CTF::Tensor<F> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
+
+  Wia = NEW(CTF::Tensor<F>,  InitFia);
+
+  return Wia;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWabij() {
+  if (Wabij) return Wabij;
+
+  return Wabij;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWijab() {
+  if (Wijab) return Wijab;
+
+  return Wijab;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWabcd() {
+  if (Wabcd) return Wabcd;
+
+  Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
+
+  return Wabcd;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWabci() {
+  if (Wabci) return Wabci;
+
+  Wabci = NEW(CTF::Tensor<F>, *Vabci);
+
+  return Wabci;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWaibc() {
+  if (Waibc) return Waibc;
+
+  Waibc = NEW(CTF::Tensor<F>, *Vaibc);
+
+  return Waibc;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWiabj() {
+  if (Wiabj) return Wiabj;
+
+  Wiabj = NEW(CTF::Tensor<F>, *Viabj);
+
+  return Wiabj;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWiajk() {
+  if (Wiajk) return Wiajk;
+
+  Wiajk = NEW(CTF::Tensor<F>, *Viajk);
+
+  return Wiajk;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWijka() {
+  if (Wijka) return Wijka;
+
+  Wijka = NEW(CTF::Tensor<F>, *Vijka);
+
+  return Wijka;
+}
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getWijkl() {
+  if (Wijkl) return Wijkl;
+
+  Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
+
+  return Wijkl;
+}
+
+
+template <typename F>
 void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
     bool intermediates
   ) {
@@ -591,23 +683,17 @@ void CcsdSimilarityTransformedHamiltonian<F>::buildAllIntermediates(
 
   LOG(0, "CcsdEomDavid") << "Building intermediates Wpqrs and Wpq"
                          << std::endl;
-  //This approach defines intermediates:
-  //Wab Wia Wabcd Wabci Waibc Wiabj Wiajk Wij Wijka Wijkl
-
-  int syms[] = {NS, NS};
-  int ov[] = {No, Nv};
-  CTF::Tensor<F> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
-
-  Wia   = NEW(CTF::Tensor<F>,  InitFia);
+  Wia   = getWia();
   Wij   = getWij();
   Wab   = getWab();
-  Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
-  Wabci = NEW(CTF::Tensor<F>, *Vabci);
-  Waibc = NEW(CTF::Tensor<F>, *Vaibc);
-  Wiabj = NEW(CTF::Tensor<F>, *Viabj);
-  Wiajk = NEW(CTF::Tensor<F>, *Viajk);
-  Wijka = NEW(CTF::Tensor<F>, *Vijka);
-  Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
+  Wabcd = getWabcd();
+  Wabci = getWabci();
+  Waibc = getWaibc();
+  Wiabj = getWiabj();
+  Wiajk = getWiajk();
+  Wijka = getWijka();
+  Wijkl = getWijkl();
+
   // Initialize intermediates to zero
   (*Wia)["do"] = 0.0;
   (*Wabcd)["blah"] = 0.0;
