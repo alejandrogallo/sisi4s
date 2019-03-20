@@ -48,7 +48,7 @@ namespace cc4s {
     PTR(CTF::Tensor<F>) getIA();
 
     // Two body
-    PTR(CTF::Tensor<F>) getABIJ();
+    // Remember: Wabij is 0
     PTR(CTF::Tensor<F>) getIJAB();
     PTR(CTF::Tensor<F>) getABCD();
     PTR(CTF::Tensor<F>) getABCI();
@@ -59,7 +59,7 @@ namespace cc4s {
     PTR(CTF::Tensor<F>) getIJKL();
 
   private: PTR(CTF::Tensor<F>)  Wij, Wab, Wia, Wai;
-    PTR(CTF::Tensor<F>)  Wabij, Wijab, Wabcd, Wabci, Waibc,
+    PTR(CTF::Tensor<F>)  Wijab, Wabcd, Wabci, Waibc,
                          Wiabj, Wiajk, Wijka, Wijkl;
 
     CTF::Tensor<F> *Tai, *Tabij;

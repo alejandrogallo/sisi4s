@@ -633,14 +633,6 @@ CcsdSimilarityTransformedHamiltonian<F>::getIA() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
-CcsdSimilarityTransformedHamiltonian<F>::getABIJ() {
-  if (Wabij) return Wabij;
-
-  return Wabij;
-}
-
-template <typename F>
-PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getIJAB() {
   if (Wijab) return Wijab;
 
