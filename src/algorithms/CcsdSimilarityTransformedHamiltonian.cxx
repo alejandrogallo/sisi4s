@@ -636,6 +636,9 @@ PTR(CTF::Tensor<F>)
 CcsdSimilarityTransformedHamiltonian<F>::getIJAB() {
   if (Wijab) return Wijab;
 
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wijab = Vijab" << std::endl;
+  Wijab = NEW(CTF::Tensor<F>, *Vijab);
+
   return Wijab;
 }
 
