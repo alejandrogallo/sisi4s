@@ -424,8 +424,9 @@ void CcsdEquationOfMotionDavidson::run() {
   bool printEigenvectorsDoubles(getIntegerArgument("printEigenvectorsDoubles", 1) == 1);
   if (eigenvectorsIndices.size() > 0) {
 
-    if (! printEigenvectorsDoubles)
+    if (!printEigenvectorsDoubles) {
       LOG(0, "CcsdEomDavid") << "Not writing out Rabij" << std::endl;
+    }
 
     for (auto &index: eigenvectorsIndices) {
       LOG(1, "CcsdEomDavid") << "Writing out eigenvector " << index << std::endl;
@@ -592,7 +593,7 @@ CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   std::vector<size_t> localLowestElementIndices(trialEigenVectorsCount);
   std::vector<F> localLowestElementValues(trialEigenVectorsCount);
   for (
-    size_t i(0);
+    int i(0);
     i < std::min(localElementsSize, trialEigenVectorsCount);
     ++i
   ) {
@@ -606,7 +607,7 @@ CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   communicator.gather(localLowestElementValues, lowestElementValues);
   //   convert back into (index,value) pairs for sorting
   std::vector<std::pair<size_t, F>> lowestElements(lowestElementValues.size());
-  for (int i(0); i < lowestElementValues.size(); ++i) {
+  for (unsigned int i(0); i < lowestElementValues.size(); ++i) {
     lowestElements[i].first = lowestElementIndices[i];
     lowestElements[i].second = lowestElementValues[i];
   }
@@ -623,7 +624,7 @@ CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   std::vector<V> basis;
 
   int currentEigenVectorCount(0);
-  int b(0);
+  unsigned int b(0);
   int zeroVectorCount(0);
   while (currentEigenVectorCount < eigenVectorsCount) {
     V basisElement(diagonalH);
