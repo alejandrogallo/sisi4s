@@ -772,7 +772,32 @@ CcsdSimilarityTransformedHamiltonian<F>::getABIJ() {
   (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["cm"] * (*Viajk)["mdij"];
   (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["dm"] * (*Viajk)["mcij"];
 
+  return Wabij;
 
+}
+
+template <typename F>
+PTR(CTF::Tensor<F>)
+CcsdSimilarityTransformedHamiltonian<F>::getABCIJK() {
+  if (Wabcijk) return Wabcijk;
+  LOG(0, "CcsdSimilarityTransformedH") << "Building Wabcijk from Wabci"
+                                       << std::endl;
+  int syms[] = {NS, NS, NS, NS};
+  int vvvooo[] = {Nv,Nv,Nv,No,No,No};
+
+  CTF::Tensor<F> Rabcijk(4, vvvooo, syms, *Cc4s::world, "Wabcijk");
+
+  Wabcijk = NEW(CTF::Tensor<F>,  Rabcijk);
+  Wabci = getABCI();
+
+  (*Wabcijk)["abcijk"] = (+ 1.0) * (*Tabij)["aeij"] * (*Wabci)["bcek"];
+  // we have to antisymmetrize a-b a-c and i-k j-k
+  // a-b
+  (*Wabcijk)["abcijk"] = (- 1.0) * (*Tabij)["beij"] * (*Wabci)["acek"];
+  // a-c
+  (*Wabcijk)["abcijk"] = (- 1.0) * (*Tabij)["ceij"] * (*Wabci)["baek"];
+
+  return Wabcijk;
 }
 
 template <typename F>
@@ -784,6 +809,8 @@ CcsdSimilarityTransformedHamiltonian<F>::getIA() {
   int syms[] = {NS, NS};
   int ov[] = {No, Nv};
   CTF::Tensor<F> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
+
+  getABCIJK();
 
   Wia = NEW(CTF::Tensor<F>,  InitFia);
 
