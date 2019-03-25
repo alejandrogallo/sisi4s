@@ -6,6 +6,7 @@
 #include <util/SharedPointer.hpp>
 #include <util/Exception.hpp>
 #include <math/MathFunctions.hpp>
+#include <Cc4s.hpp>
 
 #include <vector>
 #include <string>
@@ -555,6 +556,54 @@ namespace cc4s {
     }
     return stream << " )";
   }
+
+  template <typename F, int N>
+  class FockVectorNd : public FockVector<F> {
+  };
+
+  template <typename F, int N, int StartDimension=0>
+  class FockVectorNdCanonical: public FockVectorNd<F, N> {
+    /**
+     * \brief Build a canonical vector from No and Nv.
+     */
+    FockVectorNdCanonical(const unsigned int No, const unsigned int Nv) {
+      if (N > 6) {
+        throw new EXCEPTION("FockVectorNdCanonical implemented only up to 6");
+      }
+      const std::string pindices("abcdefg");
+      const std::string hindices("ijklomn");
+      for (unsigned int i(StartDimension); i <= N/2; i++) {
+
+        std::vector<unsigned int> syms(i, NS);
+        std::vector<unsigned int> dimso(i, No);
+        std::vector<unsigned int> dimsv(i, Nv);
+        std::vector<unsigned int> dims(dimsv);
+        dims.insert(dims.end(), dimso.begin(), dimso.end());
+
+        this->componentIndices.push_back(
+          pindices.substr(0, i) + hindices.substr(0, i)
+        );
+        this->componentTensors.push_back(
+          NEW(CTF::Tensor<F>, i, dims.data(), syms.data(), *Cc4s::world)
+        );
+      }
+      this->buildIndexTranslation();
+    }
+  };
+
+  template <typename F>
+  class CisdFockVector : public FockVectorNdCanonical<F,3,0> {};
+  // Instantiate
+  template class CisdFockVector<double>;
+  template class CisdFockVector<complex>;
+
+  template <typename F>
+  class CcsdFockVector : public FockVectorNdCanonical<F,2,1> {};
+  // Instantiate
+  template class CcsdFockVector<double>;
+  template class CcsdFockVector<complex>;
+
+
 }
 
 #endif
