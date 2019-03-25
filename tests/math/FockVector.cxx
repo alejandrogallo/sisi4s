@@ -1,4 +1,4 @@
-#include <test/Test.hpp>
+#include <tests/Test.hpp>
 #include <string>
 #include <ctf.hpp>
 #include <Cc4s.hpp>

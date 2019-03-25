@@ -1,8 +1,9 @@
-#include <test/Test.hpp>
+#include <tests/Test.hpp>
 
 #include <algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp>
 
 #include <util/Log.hpp>
+#include <util/RangeParser.hpp>
 
 using namespace cc4s;
 

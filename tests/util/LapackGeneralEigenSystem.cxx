@@ -1,4 +1,4 @@
-#include <test/Test.hpp>
+#include <tests/Test.hpp>
 
 #include <util/LapackMatrix.hpp>
 #include <util/LapackGeneralEigenSystem.hpp>

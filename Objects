@@ -79,22 +79,22 @@ build/${CONFIG}/obj/algorithms/CcsdEquationOfMotionDavidson.o \
 build/${CONFIG}/obj/algorithms/CcdEquationOfMotion.o \
 build/${CONFIG}/obj/algorithms/UccsdAmplitudesFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/UccsdtAmplitudesFromCoulombIntegrals.o \
-build/${CONFIG}/obj/algorithms/UccsdtqAmplitudesFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/Mp2ImaginaryFrequencyGrid.o \
 build/${CONFIG}/obj/algorithms/RpaApxEnergy.o \
 build/${CONFIG}/obj/algorithms/LaplaceTransform.o \
 build/${CONFIG}/obj/algorithms/BasisSetExtrapolation.o \
 build/${CONFIG}/obj/algorithms/RandomOrbitals.o \
 
+#build/${CONFIG}/obj/algorithms/UccsdtqAmplitudesFromCoulombIntegrals.o \
 #build/${CONFIG}/obj/algorithms/ThermalEquationOfMotion.o \
 
 TESTS_OBJECTS = \
-build/${CONFIG}/obj/test/math/Antisymmetrize.o \
-build/${CONFIG}/obj/test/math/Symmetrize.o \
-build/${CONFIG}/obj/test/math/PermutationSign.o \
-build/${CONFIG}/obj/test/math/FockVector.o \
-build/${CONFIG}/obj/test/util/LapackGeneralEigenSystem.o \
-build/${CONFIG}/obj/test/Test.o  \
-build/${CONFIG}/obj/test/algorithms/UccsdAmplitudesFromCoulombIntegrals.o  \
+build/${CONFIG}/obj/../tests/math/Antisymmetrize.o \
+build/${CONFIG}/obj/../tests/math/Symmetrize.o \
+build/${CONFIG}/obj/../tests/math/PermutationSign.o \
+build/${CONFIG}/obj/../tests/math/FockVector.o \
+build/${CONFIG}/obj/../tests/Test.o  \
+build/${CONFIG}/obj/../tests/algorithms/UccsdAmplitudesFromCoulombIntegrals.o  \
 
+#build/${CONFIG}/obj/../tests/util/LapackGeneralEigenSystem.o \
 # build/${CONFIG}/obj/test/math/EigenSystemDavidson.o \
