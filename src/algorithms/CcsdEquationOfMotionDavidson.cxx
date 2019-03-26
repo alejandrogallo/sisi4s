@@ -323,7 +323,7 @@ void CcsdEquationOfMotionDavidson::run() {
   EigenSystemDavidsonMono<
     CcsdSimilarityTransformedHamiltonian<F>,
     CcsdPreConditioner<F>,
-    FockVector<F>
+    CcsdFockVector<F>
   > eigenSystem(
     &H,
     eigenStates,
@@ -361,9 +361,9 @@ void CcsdEquationOfMotionDavidson::run() {
       CTF::Tensor<F> Rhoij(2, oo, syms, *Cc4s::world, "Rhoij");
       CTF::Tensor<F> Rhoab(2, vv, syms, *Cc4s::world, "Rhoab");
 
-      const FockVector<F> *R(&eigenSystem.getRightEigenVectors()[index-1]);
-      const FockVector<F> LApprox(R->conjugateTranspose());
-      const FockVector<F> *L(&LApprox);
+      const CcsdFockVector<F> *R(&eigenSystem.getRightEigenVectors()[index-1]);
+      const CcsdFockVector<F> LApprox(R->conjugateTranspose());
+      const CcsdFockVector<F> *L(&LApprox);
 
       Rhoia["ia"]  = 0;
       // this is 0 because r0 is 0
@@ -569,7 +569,7 @@ double EomDiagonalValueComparator<complex>::computeDifference(
 
 
 template <typename F>
-std::vector<FockVector<F>>
+std::vector<CcsdFockVector<F>>
 CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   LOG(0, "CcsdPreConditioner") << "Getting initial basis " << std::endl;
   DefaultRandomEngine randomEngine;
@@ -721,11 +721,11 @@ CcsdPreConditioner<F>::getInitialBasis(const int eigenVectorsCount) {
 }
 
 template <typename F>
-FockVector<F>
+CcsdFockVector<F>
 CcsdPreConditioner<F>::getCorrection(
-  const complex lambda, FockVector<F> &residuum
+  const complex lambda, CcsdFockVector<F> &residuum
 ) {
-  FockVector<F> w(diagonalH);
+  CcsdFockVector<F> w(diagonalH);
 
   // Define a singleton helping class for the diagonal correction
   class DiagonalCorrection {
@@ -740,7 +740,7 @@ CcsdPreConditioner<F>::getCorrection(
       double lambda;
   } diagonalCorrection(std::real(lambda));
 
-  FockVector<F> correction(diagonalH);
+  CcsdFockVector<F> correction(diagonalH);
   // compute ((lambda * id - Diag(diagonal))^-1) . residuum
   for (unsigned int c(0); c < w.getComponentsCount(); ++c) {
     const char *indices( correction.componentIndices[c].c_str() );

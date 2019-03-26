@@ -43,17 +43,17 @@ namespace cc4s {
       CTF::Tensor<F> *Vijak_,
       CTF::Tensor<F> *Vaijb_,
       CTF::Tensor<F> *Vabci_,
-      bool withIntermediates_ = true,
       CTF::Tensor<F> *Vabij_ = NULL,
+      bool withIntermediates_ = true,
       Dressing dressing_ = Dressing(CCSD)
     );
     virtual ~CcsdSimilarityTransformedHamiltonian();
     virtual void run();
 
-    FockVector<F> rightApplyIntermediates(FockVector<F> &v);
-    FockVector<F> rightApplyHirata(FockVector<F> &v);
-    FockVector<F> rightApply(FockVector<F> &v);
-    FockVector<F> leftApply(FockVector<F> &v);
+    CcsdFockVector<F> rightApplyIntermediates(CcsdFockVector<F> &v);
+    CcsdFockVector<F> rightApplyHirata(CcsdFockVector<F> &v);
+    CcsdFockVector<F> rightApply(CcsdFockVector<F> &v);
+    CcsdFockVector<F> leftApply(CcsdFockVector<F> &v);
 
     // One body
     PTR(CTF::Tensor<F>) getIJ();
@@ -76,6 +76,7 @@ namespace cc4s {
     PTR(CTF::Tensor<F>) getABCIJK();
 
   private:
+
     // one body
     PTR(CTF::Tensor<F>)  Wij, Wab, Wia, Wai;
     // two body

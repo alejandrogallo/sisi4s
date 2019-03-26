@@ -18,7 +18,7 @@ namespace cc4s {
   template <typename F = complex>
     class CcsdPreConditioner {
       public:
-        typedef FockVector<F> V;
+        typedef CcsdFockVector<F> V;
 
         /**
          * Wether or not to use random preconditioners.

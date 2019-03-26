@@ -105,17 +105,17 @@ void CcsdSimilarityTransformedHamiltonian<F>::run() {
 }
 
 template <typename F>
-FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApply(
-  FockVector<F> &R
+CcsdFockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApply(
+  CcsdFockVector<F> &R
 ) {
   return withIntermediates ? rightApplyIntermediates(R) : rightApplyHirata(R);
 }
 
 template <typename F>
-FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyHirata(
-  FockVector<F> &R
+CcsdFockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyHirata(
+  CcsdFockVector<F> &R
 ) {
-  FockVector<F> HR(R);
+  CcsdFockVector<F> HR(R);
   // get pointers to the component tensors
   PTR(CTF::Tensor<F>) Rai( R.get(0) );
   PTR(CTF::Tensor<F>) Rabij( R.get(1) );
@@ -461,10 +461,10 @@ FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyHirata(
 }
 
 template <typename F>
-FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
-  FockVector<F> &R
+CcsdFockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
+  CcsdFockVector<F> &R
 ) {
-  FockVector<F> HR(R);
+  CcsdFockVector<F> HR(R);
   // get pointers to the component tensors
   PTR(CTF::Tensor<F>) Rai( R.get(0) );
   PTR(CTF::Tensor<F>) Rabij( R.get(1) );
@@ -1045,10 +1045,10 @@ CcsdSimilarityTransformedHamiltonian<F>::getIJKL() {
 }
 
 template <typename F>
-FockVector<F> CcsdSimilarityTransformedHamiltonian<F>::leftApply(
-  FockVector<F> &L
+CcsdFockVector<F> CcsdSimilarityTransformedHamiltonian<F>::leftApply(
+  CcsdFockVector<F> &L
 ) {
-  FockVector<F> LH(L);
+  CcsdFockVector<F> LH(L);
   // get pointers to the component tensors
   PTR(CTF::Tensor<F>) Lia( L.get(0) );
   PTR(CTF::Tensor<F>) Lijab( L.get(1) );
