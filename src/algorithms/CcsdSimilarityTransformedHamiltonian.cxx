@@ -55,8 +55,8 @@ CcsdSimilarityTransformedHamiltonian<F>::CcsdSimilarityTransformedHamiltonian(
   CTF::Tensor<F> *Vijak_,
   CTF::Tensor<F> *Vaijb_,
   CTF::Tensor<F> *Vabci_,
-  bool withIntermediates_,
   CTF::Tensor<F> *Vabij_,
+  bool withIntermediates_,
   CcsdSimilarityTransformedHamiltonian::Dressing dressing_
 ):
   Tai(Tai_),
@@ -78,8 +78,8 @@ CcsdSimilarityTransformedHamiltonian<F>::CcsdSimilarityTransformedHamiltonian(
   Vijak(Vijak_),
   Vaijb(Vaijb_),
   Vabci(Vabci_),
-  withIntermediates(withIntermediates_),
   Vabij(Vabij_),
+  withIntermediates(withIntermediates_),
   dressing(dressing_)
 {
 

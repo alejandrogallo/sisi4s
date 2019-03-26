@@ -91,10 +91,11 @@ namespace cc4s {
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
                    *Vabij;
 
-    Dressing dressing;
-    int No, Nv;
-
     bool withIntermediates;
+
+    Dressing dressing;
+
+    int No, Nv;
 
   };
 

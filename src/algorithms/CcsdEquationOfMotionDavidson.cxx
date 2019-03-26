@@ -286,7 +286,7 @@ void CcsdEquationOfMotionDavidson::run() {
   CcsdSimilarityTransformedHamiltonian<F> H(
     &Tai, &Tabij, Fij, Fab, Fia,
     Vabcd, Viajb, Vijab, Vijkl, Vijka, Viabc, Viajk, Vabic,
-    Vaibc, Vaibj, Viabj, Vijak, Vaijb, Vabci,
+    Vaibc, Vaibj, Viabj, Vijak, Vaijb, Vabci, NULL,
     intermediates
   );
 
