@@ -557,12 +557,13 @@ namespace cc4s {
     return stream << " )";
   }
 
-  template <typename F, int N>
-  class FockVectorNd : public FockVector<F> {
-  };
-
   template <typename F, int N, int StartDimension=0>
-  class FockVectorNdCanonical: public FockVectorNd<F, N> {
+  class FockVectorNdCanonical: public FockVector<F> {
+
+    using FockVector<F>::FockVector;
+
+  public:
+
     /**
      * \brief Build a canonical vector from No and Nv.
      */
@@ -589,20 +590,46 @@ namespace cc4s {
       }
       this->buildIndexTranslation();
     }
+
+    /**
+     * \brief Empty constructor
+     */
+    FockVectorNdCanonical() {}
+
+    /**
+     * \brief Move constructor taking possession of the tensors owned by a.
+     **/
+    FockVectorNdCanonical(FockVector<F> &&a) {
+      this->componentTensors = a.componentTensors;
+      this->componentIndices = a.componentIndices;
+      this->indexEnds.resize(a.componentTensors.size());
+
+      this->buildIndexTranslation();
+    }
+
+    /**
+     * \brief Copy constructor copying the tensors owned by a.
+     **/
+    FockVectorNdCanonical(const FockVector<F> &a) {
+      this->componentTensors.resize(a.componentTensors.size());
+      this->componentIndices = a.componentIndices;
+      this->indexEnds.resize(a.componentTensors.size());
+      this->copyComponents(a.componentTensors);
+
+      this->buildIndexTranslation();
+    }
+
   };
 
   template <typename F>
-  class CisdFockVector : public FockVectorNdCanonical<F,3,0> {};
-  // Instantiate
-  template class CisdFockVector<double>;
-  template class CisdFockVector<complex>;
+  class CisdFockVector: public FockVectorNdCanonical<F,3,0> {
+    using FockVectorNdCanonical<F,3,0>::FockVectorNdCanonical;
+  };
 
   template <typename F>
-  class CcsdFockVector : public FockVectorNdCanonical<F,2,1> {};
-  // Instantiate
-  template class CcsdFockVector<double>;
-  template class CcsdFockVector<complex>;
-
+  class CcsdFockVector: public FockVectorNdCanonical<F,2,1> {
+    using FockVectorNdCanonical<F,2,1>::FockVectorNdCanonical;
+  };
 
 }
 
