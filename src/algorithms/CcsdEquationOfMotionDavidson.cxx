@@ -44,6 +44,28 @@ void CcsdEquationOfMotionDavidson::run() {
 template <typename F>
 void CcsdEquationOfMotionDavidson::run() {
 
+  // Arguments
+  int eigenStates(getIntegerArgument("eigenstates", 1));
+  double ediff(getRealArgument("ediff", 1e-4));
+  bool intermediates(getIntegerArgument("intermediates", 1));
+  unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
+  unsigned int minIterations(getIntegerArgument("minIterations", 1));
+  std::vector<int> eigenvectorsIndices(
+    RangeParser(getTextArgument("printEigenvectorsRange", "")).getRange()
+  );
+  bool printEigenvectorsDoubles(
+    getIntegerArgument("printEigenvectorsDoubles", 1) == 1
+  );
+
+  // Logging arguments
+  LOG(0, "CcsdEomDavid") << "Max iterations " << maxIterations << std::endl;
+  LOG(0, "CcsdEomDavid") << "ediff " << ediff << std::endl;
+  LOG(0, "CcsdEomDavid") << eigenStates << " eigen states" << std::endl;
+  std::vector<int> refreshIterations(
+    RangeParser(getTextArgument("refreshIterations", "")).getRange()
+  );
+
+
   // Get copy of couloumb integrals
   CTF::Tensor<double> *pVijkl(
     getTensorArgument<double, CTF::Tensor<double> >("HHHHCoulombIntegrals")
@@ -263,7 +285,6 @@ void CcsdEquationOfMotionDavidson::run() {
     Tabij
   );
 
-  bool intermediates(getIntegerArgument("intermediates", 1));
   CcsdSimilarityTransformedHamiltonian<F> H(
     Fij, Fab, Fia,
     Vabcd, Viajb, Vijab, Vijkl, Vijka, Viabc, Viajk, Vabic,
@@ -273,8 +294,6 @@ void CcsdEquationOfMotionDavidson::run() {
   H.setTai(&Tai);
   H.setTabij(&Tabij);
 
-  unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
-  unsigned int minIterations(getIntegerArgument("minIterations", 1));
 
   CcsdPreconditioner<F> P(
     Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl
@@ -293,16 +312,6 @@ void CcsdEquationOfMotionDavidson::run() {
     new CTF::Tensor<>(*P.getDiagonalH().get(1))
   );
 
-  // Davidson solver
-  int eigenStates(getIntegerArgument("eigenstates", 1));
-  LOG(0, "CcsdEomDavid") << "Max iterations " << maxIterations << std::endl;
-  double ediff(getRealArgument("ediff", 1e-4));
-  LOG(0, "CcsdEomDavid") << "ediff " << ediff << std::endl;
-  LOG(0, "CcsdEomDavid") << "Computing " << eigenStates << " eigen states"
-                              << std::endl;
-  std::vector<int> refreshIterations(
-    RangeParser(getTextArgument("refreshIterations", "")).getRange()
-  );
   EigenSystemDavidsonMono<
     CcsdSimilarityTransformedHamiltonian<F>,
     CcsdPreconditioner<F>,
@@ -401,10 +410,6 @@ void CcsdEquationOfMotionDavidson::run() {
     }
   }
 
-  std::vector<int> eigenvectorsIndices(
-    RangeParser(getTextArgument("printEigenvectorsRange", "")).getRange()
-  );
-  bool printEigenvectorsDoubles(getIntegerArgument("printEigenvectorsDoubles", 1) == 1);
   if (eigenvectorsIndices.size() > 0) {
 
     if (!printEigenvectorsDoubles) {
