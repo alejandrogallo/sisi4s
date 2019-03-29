@@ -20,6 +20,7 @@ namespace cc4s {
      */
     enum Dressing {
       CCSD,
+      CCSDT,
       GENERAL,
     };
 
@@ -50,11 +51,15 @@ namespace cc4s {
     virtual ~CcsdSimilarityTransformedHamiltonian();
     virtual void run();
 
+    // ccsd fok vectors
     CcsdFockVector<F> rightApplyIntermediates(CcsdFockVector<F> &v);
     CcsdFockVector<F> rightApplyHirata(CcsdFockVector<F> &v);
     CcsdFockVector<F> rightApply(CcsdFockVector<F> &v);
-
     CcsdFockVector<F> leftApplyHirata(CcsdFockVector<F> &v);
+
+    // ccsdt fok vectors
+    CcsdtFockVector<F> rightApplyHirata(CcsdtFockVector<F> &v);
+    CcsdtFockVector<F> rightApply(CcsdtFockVector<F> &v);
 
     // One body
     PTR(CTF::Tensor<F>) getIJ();

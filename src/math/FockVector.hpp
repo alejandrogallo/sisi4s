@@ -630,6 +630,10 @@ namespace cc4s {
   class CcsdFockVector: public FockVectorNdCanonical<F,2,1> {
     using FockVectorNdCanonical<F,2,1>::FockVectorNdCanonical;
   };
+  template <typename F>
+  class CcsdtFockVector: public FockVectorNdCanonical<F,3,1> {
+    using FockVectorNdCanonical<F,3,1>::FockVectorNdCanonical;
+  };
 
 }
 

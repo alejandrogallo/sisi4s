@@ -1108,6 +1108,1126 @@ CcsdFockVector<F> CcsdSimilarityTransformedHamiltonian<F>::leftApplyHirata(
   return LH;
 }
 
+template <typename F>
+CcsdtFockVector<F> CcsdtSimilarityTransformedHamiltonian<F>::rightApply(
+  CcsdtFockVector<F> &R
+) {
+  return rightApplyHirata(R);
+}
+
+template <typename F>
+CcsdtFockVector<F> CcsdtSimilarityTransformedHamiltonian<F>::rightApplyHirata(
+  CcsdtFockVector<F> &R
+) {
+
+  //: BEGIN SINGLES
+  ( + 0.25  ) * Vijab["klef"] * Rabcijk["feblki"];
+
+  //: BEGIN DOUBLES
+  ( + 1.0  ) * Fia["mf"] * Rabcijk["fcdmij"];
+  ( + 1.0  ) * Fab["fg"] * Rabcijk["gdeijk"];
+  ( - 1.0  ) * Fab["eg"] * Rabcijk["gdfijk"];
+  ( - 1.0  ) * Fab["dg"] * Rabcijk["gfeijk"];
+  ( - 1.0  ) * Fij["oi"] * Rabcijk["defojk"];
+  ( + 1.0  ) * Fij["oj"] * Rabcijk["defoik"];
+  ( + 1.0  ) * Fij["ok"] * Rabcijk["defoji"];
+
+  ( - 0.5  ) * Vijka["mnig"] * Rabcijk["gcdnmj"];
+  ( + 0.5  ) * Vijka["mnjg"] * Rabcijk["gcdnmi"];
+
+  ( + 0.5  ) * Viabc["mdfg"] * Rabcijk["gfcmij"];
+  ( - 0.5  ) * Viabc["mcfg"] * Rabcijk["gfdmij"];
+
+  ( + 0.5  ) * Tai["ei"] * Vijab["nohe"] * Rabcijk["hcdonj"];
+  ( - 0.5  ) * Tai["ej"] * Vijab["nohe"] * Rabcijk["hcdoni"];
+
+  ( - 0.5  ) * Tai["dm"] * Vijab["nmgh"] * Rabcijk["hgcnij"];
+  ( + 0.5  ) * Tai["cm"] * Vijab["nmgh"] * Rabcijk["hgdnij"];
+
+  ( + 1.0  ) * Tai["en"] * Vijab["onhe"] * Rabcijk["hcdoij"];
+
+  ( + 1.0  ) * Tabcijk["ecdnij"] * Vijab["onhe"] * Rai["ho"];
+
+  ( + 0.5  ) * Tabcijk["efdoij"] * Vijab["poef"] * Rai["cp"];
+  ( - 0.5  ) * Tabcijk["efcoij"] * Vijab["poef"] * Rai["dp"];
+
+  ( - 0.5  ) * Tabcijk["ecdnoi"] * Vijab["nohe"] * Rai["hj"];
+  ( + 0.5  ) * Tabcijk["ecdnoj"] * Vijab["nohe"] * Rai["hi"];
+
+  //: BEGIN TRIPLES
+  ( - 1.0  ) * Fia["oh"] * Tabcijk["hefijk"] * Rai["do"];
+  ( - 1.0  ) * Fia["oh"] * Tabcijk["hfdijk"] * Rai["eo"];
+  ( - 1.0  ) * Fia["oh"] * Tabcijk["hdeijk"] * Rai["fo"];
+
+  ( - 1.0  ) * Fia["oh"] * Tabcijk["defoij"] * Rai["hk"];
+  ( + 1.0  ) * Fia["oh"] * Tabcijk["defoik"] * Rai["hj"];
+  ( + 1.0  ) * Fia["oh"] * Tabcijk["defokj"] * Rai["hi"];
+
+  ( - 1.0  ) * Fia["oh"] * Tai["hi"] * Rabcijk["defojk"];
+  ( + 1.0  ) * Fia["oh"] * Tai["hj"] * Rabcijk["defoik"];
+  ( + 1.0  ) * Fia["oh"] * Tai["hk"] * Rabcijk["defoji"];
+
+  ( - 1.0  ) * Fia["oh"] * Tai["fo"] * Rabcijk["hdeijk"];
+  ( + 1.0  ) * Fia["oh"] * Tai["eo"] * Rabcijk["hdfijk"];
+  ( + 1.0  ) * Fia["oh"] * Tai["do"] * Rabcijk["hfeijk"];
+
+  ( + 1.0  ) * Fia["oh"] * Tabij["hfij"] * Rabij["deok"];
+  ( - 1.0  ) * Fia["oh"] * Tabij["heij"] * Rabij["dfok"];
+  ( - 1.0  ) * Fia["oh"] * Tabij["hdij"] * Rabij["feok"];
+  ( - 1.0  ) * Fia["oh"] * Tabij["hfik"] * Rabij["deoj"];
+  ( + 1.0  ) * Fia["oh"] * Tabij["heik"] * Rabij["dfoj"];
+  ( + 1.0  ) * Fia["oh"] * Tabij["hdik"] * Rabij["feoj"];
+  ( - 1.0  ) * Fia["oh"] * Tabij["hfkj"] * Rabij["deoi"];
+  ( + 1.0  ) * Fia["oh"] * Tabij["hekj"] * Rabij["dfoi"];
+  ( + 1.0  ) * Fia["oh"] * Tabij["hdkj"] * Rabij["feoi"];
+
+  ( + 1.0  ) * Fia["oh"] * Tabij["efoi"] * Rabij["hdjk"];
+  ( + 1.0  ) * Fia["oh"] * Tabij["fdoi"] * Rabij["hejk"];
+  ( + 1.0  ) * Fia["oh"] * Tabij["deoi"] * Rabij["hfjk"];
+  ( - 1.0  ) * Fia["oh"] * Tabij["efoj"] * Rabij["hdik"];
+  ( - 1.0  ) * Fia["oh"] * Tabij["fdoj"] * Rabij["heik"];
+  ( - 1.0  ) * Fia["oh"] * Tabij["deoj"] * Rabij["hfik"];
+  ( - 1.0  ) * Fia["oh"] * Tabij["efok"] * Rabij["hdji"];
+  ( - 1.0  ) * Fia["oh"] * Tabij["fdok"] * Rabij["heji"];
+  ( - 1.0  ) * Fia["oh"] * Tabij["deok"] * Rabij["hfji"];
+
+  ( + 1.0  ) * Viajk["ofij"] * Rabij["deok"];
+  ( - 1.0  ) * Viajk["oeij"] * Rabij["dfok"];
+  ( - 1.0  ) * Viajk["odij"] * Rabij["feok"];
+  ( - 1.0  ) * Viajk["ofik"] * Rabij["deoj"];
+  ( + 1.0  ) * Viajk["oeik"] * Rabij["dfoj"];
+  ( + 1.0  ) * Viajk["odik"] * Rabij["feoj"];
+  ( - 1.0  ) * Viajk["ofkj"] * Rabij["deoi"];
+  ( + 1.0  ) * Viajk["oekj"] * Rabij["dfoi"];
+  ( + 1.0  ) * Viajk["odkj"] * Rabij["feoi"];
+
+  ( + 1.0  ) * Vabic["efig"] * Rabij["gdjk"];
+  ( + 1.0  ) * Vabic["fdig"] * Rabij["gejk"];
+  ( + 1.0  ) * Vabic["deig"] * Rabij["gfjk"];
+  ( - 1.0  ) * Vabic["efjg"] * Rabij["gdik"];
+  ( - 1.0  ) * Vabic["fdjg"] * Rabij["geik"];
+  ( - 1.0  ) * Vabic["dejg"] * Rabij["gfik"];
+  ( - 1.0  ) * Vabic["efkg"] * Rabij["gdji"];
+  ( - 1.0  ) * Vabic["fdkg"] * Rabij["geji"];
+  ( - 1.0  ) * Vabic["dekg"] * Rabij["gfji"];
+
+  ( - 0.5  ) * Vijkl["opij"] * Rabcijk["defpok"];
+  ( + 0.5  ) * Vijkl["opik"] * Rabcijk["defpoj"];
+  ( + 0.5  ) * Vijkl["opkj"] * Rabcijk["defpoi"];
+
+  ( - 1.0  ) * Viajb["ofih"] * Rabcijk["hdeojk"];
+  ( + 1.0  ) * Viajb["oeih"] * Rabcijk["hdfojk"];
+  ( + 1.0  ) * Viajb["odih"] * Rabcijk["hfeojk"];
+  ( + 1.0  ) * Viajb["ofjh"] * Rabcijk["hdeoik"];
+  ( - 1.0  ) * Viajb["oejh"] * Rabcijk["hdfoik"];
+  ( - 1.0  ) * Viajb["odjh"] * Rabcijk["hfeoik"];
+  ( + 1.0  ) * Viajb["ofkh"] * Rabcijk["hdeoji"];
+  ( - 1.0  ) * Viajb["oekh"] * Rabcijk["hdfoji"];
+  ( - 1.0  ) * Viajb["odkh"] * Rabcijk["hfeoji"];
+
+  ( - 0.5  ) * Vabcd["efgh"] * Rabcijk["hgdijk"];
+  ( - 0.5  ) * Vabcd["fdgh"] * Rabcijk["hgeijk"];
+  ( - 0.5  ) * Vabcd["degh"] * Rabcijk["hgfijk"];
+
+  ( - 1.0  ) * Tai["fo"] * Vijkl["poij"] * Rabij["depk"];
+  ( + 1.0  ) * Tai["eo"] * Vijkl["poij"] * Rabij["dfpk"];
+  ( + 1.0  ) * Tai["do"] * Vijkl["poij"] * Rabij["fepk"];
+  ( + 1.0  ) * Tai["fo"] * Vijkl["poik"] * Rabij["depj"];
+  ( - 1.0  ) * Tai["eo"] * Vijkl["poik"] * Rabij["dfpj"];
+  ( - 1.0  ) * Tai["do"] * Vijkl["poik"] * Rabij["fepj"];
+  ( + 1.0  ) * Tai["fo"] * Vijkl["pokj"] * Rabij["depi"];
+  ( - 1.0  ) * Tai["eo"] * Vijkl["pokj"] * Rabij["dfpi"];
+  ( - 1.0  ) * Tai["do"] * Vijkl["pokj"] * Rabij["fepi"];
+
+  ( + 1.0  ) * Tai["gj"] * Viajb["pfig"] * Rabij["depk"];
+  ( - 1.0  ) * Tai["gj"] * Viajb["peig"] * Rabij["dfpk"];
+  ( - 1.0  ) * Tai["gj"] * Viajb["pdig"] * Rabij["fepk"];
+  ( - 1.0  ) * Tai["gk"] * Viajb["pfig"] * Rabij["depj"];
+  ( + 1.0  ) * Tai["gk"] * Viajb["peig"] * Rabij["dfpj"];
+  ( + 1.0  ) * Tai["gk"] * Viajb["pdig"] * Rabij["fepj"];
+  ( - 1.0  ) * Tai["gi"] * Viajb["pfjg"] * Rabij["depk"];
+  ( + 1.0  ) * Tai["gi"] * Viajb["pejg"] * Rabij["dfpk"];
+  ( + 1.0  ) * Tai["gi"] * Viajb["pdjg"] * Rabij["fepk"];
+  ( + 1.0  ) * Tai["gi"] * Viajb["pfkg"] * Rabij["depj"];
+  ( - 1.0  ) * Tai["gi"] * Viajb["pekg"] * Rabij["dfpj"];
+  ( - 1.0  ) * Tai["gi"] * Viajb["pdkg"] * Rabij["fepj"];
+  ( + 1.0  ) * Tai["gk"] * Viajb["pfjg"] * Rabij["depi"];
+  ( - 1.0  ) * Tai["gk"] * Viajb["pejg"] * Rabij["dfpi"];
+  ( - 1.0  ) * Tai["gk"] * Viajb["pdjg"] * Rabij["fepi"];
+  ( - 1.0  ) * Tai["gj"] * Viajb["pfkg"] * Rabij["depi"];
+  ( + 1.0  ) * Tai["gj"] * Viajb["pekg"] * Rabij["dfpi"];
+  ( + 1.0  ) * Tai["gj"] * Viajb["pdkg"] * Rabij["fepi"];
+
+  ( - 1.0  ) * Tai["eo"] * Viajb["ofih"] * Rabij["hdjk"];
+  ( + 1.0  ) * Tai["do"] * Viajb["ofih"] * Rabij["hejk"];
+  ( + 1.0  ) * Tai["fo"] * Viajb["oeih"] * Rabij["hdjk"];
+  ( - 1.0  ) * Tai["fo"] * Viajb["odih"] * Rabij["hejk"];
+  ( - 1.0  ) * Tai["do"] * Viajb["oeih"] * Rabij["hfjk"];
+  ( + 1.0  ) * Tai["eo"] * Viajb["odih"] * Rabij["hfjk"];
+  ( + 1.0  ) * Tai["eo"] * Viajb["ofjh"] * Rabij["hdik"];
+  ( - 1.0  ) * Tai["do"] * Viajb["ofjh"] * Rabij["heik"];
+  ( - 1.0  ) * Tai["fo"] * Viajb["oejh"] * Rabij["hdik"];
+  ( + 1.0  ) * Tai["fo"] * Viajb["odjh"] * Rabij["heik"];
+  ( + 1.0  ) * Tai["do"] * Viajb["oejh"] * Rabij["hfik"];
+  ( - 1.0  ) * Tai["eo"] * Viajb["odjh"] * Rabij["hfik"];
+  ( + 1.0  ) * Tai["eo"] * Viajb["ofkh"] * Rabij["hdji"];
+  ( - 1.0  ) * Tai["do"] * Viajb["ofkh"] * Rabij["heji"];
+  ( - 1.0  ) * Tai["fo"] * Viajb["oekh"] * Rabij["hdji"];
+  ( + 1.0  ) * Tai["fo"] * Viajb["odkh"] * Rabij["heji"];
+  ( + 1.0  ) * Tai["do"] * Viajb["oekh"] * Rabij["hfji"];
+  ( - 1.0  ) * Tai["eo"] * Viajb["odkh"] * Rabij["hfji"];
+
+  ( - 1.0  ) * Tai["gi"] * Vabcd["efhg"] * Rabij["hdjk"];
+  ( - 1.0  ) * Tai["gi"] * Vabcd["fdhg"] * Rabij["hejk"];
+  ( - 1.0  ) * Tai["gi"] * Vabcd["dehg"] * Rabij["hfjk"];
+  ( + 1.0  ) * Tai["gj"] * Vabcd["efhg"] * Rabij["hdik"];
+  ( + 1.0  ) * Tai["gj"] * Vabcd["fdhg"] * Rabij["heik"];
+  ( + 1.0  ) * Tai["gj"] * Vabcd["dehg"] * Rabij["hfik"];
+  ( + 1.0  ) * Tai["gk"] * Vabcd["efhg"] * Rabij["hdji"];
+  ( + 1.0  ) * Tai["gk"] * Vabcd["fdhg"] * Rabij["heji"];
+  ( + 1.0  ) * Tai["gk"] * Vabcd["dehg"] * Rabij["hfji"];
+
+  ( - 0.5  ) * Tai["gj"] * Vijka["pIig"] * Rabcijk["defIpk"];
+  ( + 0.5  ) * Tai["gk"] * Vijka["pIig"] * Rabcijk["defIpj"];
+  ( + 0.5  ) * Tai["gi"] * Vijka["pIjg"] * Rabcijk["defIpk"];
+  ( - 0.5  ) * Tai["gi"] * Vijka["pIkg"] * Rabcijk["defIpj"];
+  ( - 0.5  ) * Tai["gk"] * Vijka["pIjg"] * Rabcijk["defIpi"];
+  ( + 0.5  ) * Tai["gj"] * Vijka["pIkg"] * Rabcijk["defIpi"];
+
+  ( + 1.0  ) * Tai["fo"] * Vijka["poiA"] * Rabcijk["Adepjk"];
+  ( - 1.0  ) * Tai["eo"] * Vijka["poiA"] * Rabcijk["Adfpjk"];
+  ( - 1.0  ) * Tai["do"] * Vijka["poiA"] * Rabcijk["Afepjk"];
+  ( - 1.0  ) * Tai["fo"] * Vijka["pojA"] * Rabcijk["Adepik"];
+  ( + 1.0  ) * Tai["eo"] * Vijka["pojA"] * Rabcijk["Adfpik"];
+  ( + 1.0  ) * Tai["do"] * Vijka["pojA"] * Rabcijk["Afepik"];
+  ( - 1.0  ) * Tai["fo"] * Vijka["pokA"] * Rabcijk["Adepji"];
+  ( + 1.0  ) * Tai["eo"] * Vijka["pokA"] * Rabcijk["Adfpji"];
+  ( + 1.0  ) * Tai["do"] * Vijka["pokA"] * Rabcijk["Afepji"];
+
+  ( - 1.0  ) * Tai["gp"] * Vijka["Ipig"] * Rabcijk["defIjk"];
+  ( + 1.0  ) * Tai["gp"] * Vijka["Ipjg"] * Rabcijk["defIik"];
+  ( + 1.0  ) * Tai["gp"] * Vijka["Ipkg"] * Rabcijk["defIji"];
+
+  ( + 1.0  ) * Tai["gi"] * Viabc["pfAg"] * Rabcijk["Adepjk"];
+  ( - 1.0  ) * Tai["gi"] * Viabc["peAg"] * Rabcijk["Adfpjk"];
+  ( - 1.0  ) * Tai["gi"] * Viabc["pdAg"] * Rabcijk["Afepjk"];
+  ( - 1.0  ) * Tai["gj"] * Viabc["pfAg"] * Rabcijk["Adepik"];
+  ( + 1.0  ) * Tai["gj"] * Viabc["peAg"] * Rabcijk["Adfpik"];
+  ( + 1.0  ) * Tai["gj"] * Viabc["pdAg"] * Rabcijk["Afepik"];
+  ( - 1.0  ) * Tai["gk"] * Viabc["pfAg"] * Rabcijk["Adepji"];
+  ( + 1.0  ) * Tai["gk"] * Viabc["peAg"] * Rabcijk["Adfpji"];
+  ( + 1.0  ) * Tai["gk"] * Viabc["pdAg"] * Rabcijk["Afepji"];
+
+  ( + 0.5  ) * Tai["eo"] * Viabc["ofhA"] * Rabcijk["Ahdijk"];
+  ( - 0.5  ) * Tai["do"] * Viabc["ofhA"] * Rabcijk["Aheijk"];
+  ( - 0.5  ) * Tai["fo"] * Viabc["oehA"] * Rabcijk["Ahdijk"];
+  ( + 0.5  ) * Tai["fo"] * Viabc["odhA"] * Rabcijk["Aheijk"];
+  ( + 0.5  ) * Tai["do"] * Viabc["oehA"] * Rabcijk["Ahfijk"];
+  ( - 0.5  ) * Tai["eo"] * Viabc["odhA"] * Rabcijk["Ahfijk"];
+
+  ( - 1.0  ) * Tai["gp"] * Viabc["pfAg"] * Rabcijk["Adeijk"];
+  ( + 1.0  ) * Tai["gp"] * Viabc["peAg"] * Rabcijk["Adfijk"];
+  ( + 1.0  ) * Tai["gp"] * Viabc["pdAg"] * Rabcijk["Afeijk"];
+
+  ( + 1.0  ) * Tabij["efok"] * Vijkl["poij"] * Rai["dp"];
+  ( + 1.0  ) * Tabij["fdok"] * Vijkl["poij"] * Rai["ep"];
+  ( + 1.0  ) * Tabij["deok"] * Vijkl["poij"] * Rai["fp"];
+  ( - 1.0  ) * Tabij["efoj"] * Vijkl["poik"] * Rai["dp"];
+  ( - 1.0  ) * Tabij["fdoj"] * Vijkl["poik"] * Rai["ep"];
+  ( - 1.0  ) * Tabij["deoj"] * Vijkl["poik"] * Rai["fp"];
+  ( - 1.0  ) * Tabij["efoi"] * Vijkl["pokj"] * Rai["dp"];
+  ( - 1.0  ) * Tabij["fdoi"] * Vijkl["pokj"] * Rai["ep"];
+  ( - 1.0  ) * Tabij["deoi"] * Vijkl["pokj"] * Rai["fp"];
+
+  ( + 1.0  ) * Tabij["gejk"] * Viajb["pfig"] * Rai["dp"];
+  ( - 1.0  ) * Tabij["gdjk"] * Viajb["pfig"] * Rai["ep"];
+  ( - 1.0  ) * Tabij["gfjk"] * Viajb["peig"] * Rai["dp"];
+  ( + 1.0  ) * Tabij["gfjk"] * Viajb["pdig"] * Rai["ep"];
+  ( + 1.0  ) * Tabij["gdjk"] * Viajb["peig"] * Rai["fp"];
+  ( - 1.0  ) * Tabij["gejk"] * Viajb["pdig"] * Rai["fp"];
+  ( + 1.0  ) * Tabij["geki"] * Viajb["pfjg"] * Rai["dp"];
+  ( - 1.0  ) * Tabij["gdki"] * Viajb["pfjg"] * Rai["ep"];
+  ( - 1.0  ) * Tabij["gfki"] * Viajb["pejg"] * Rai["dp"];
+  ( + 1.0  ) * Tabij["gfki"] * Viajb["pdjg"] * Rai["ep"];
+  ( + 1.0  ) * Tabij["gdki"] * Viajb["pejg"] * Rai["fp"];
+  ( - 1.0  ) * Tabij["geki"] * Viajb["pdjg"] * Rai["fp"];
+  ( + 1.0  ) * Tabij["geij"] * Viajb["pfkg"] * Rai["dp"];
+  ( - 1.0  ) * Tabij["gdij"] * Viajb["pfkg"] * Rai["ep"];
+  ( - 1.0  ) * Tabij["gfij"] * Viajb["pekg"] * Rai["dp"];
+  ( + 1.0  ) * Tabij["gfij"] * Viajb["pdkg"] * Rai["ep"];
+  ( + 1.0  ) * Tabij["gdij"] * Viajb["pekg"] * Rai["fp"];
+  ( - 1.0  ) * Tabij["geij"] * Viajb["pdkg"] * Rai["fp"];
+
+  ( - 1.0  ) * Tabij["deoj"] * Viajb["ofih"] * Rai["hk"];
+  ( + 1.0  ) * Tabij["dfoj"] * Viajb["oeih"] * Rai["hk"];
+  ( + 1.0  ) * Tabij["feoj"] * Viajb["odih"] * Rai["hk"];
+  ( + 1.0  ) * Tabij["deok"] * Viajb["ofih"] * Rai["hj"];
+  ( - 1.0  ) * Tabij["dfok"] * Viajb["oeih"] * Rai["hj"];
+  ( - 1.0  ) * Tabij["feok"] * Viajb["odih"] * Rai["hj"];
+  ( + 1.0  ) * Tabij["deoi"] * Viajb["ofjh"] * Rai["hk"];
+  ( - 1.0  ) * Tabij["dfoi"] * Viajb["oejh"] * Rai["hk"];
+  ( - 1.0  ) * Tabij["feoi"] * Viajb["odjh"] * Rai["hk"];
+  ( - 1.0  ) * Tabij["deoi"] * Viajb["ofkh"] * Rai["hj"];
+  ( + 1.0  ) * Tabij["dfoi"] * Viajb["oekh"] * Rai["hj"];
+  ( + 1.0  ) * Tabij["feoi"] * Viajb["odkh"] * Rai["hj"];
+  ( - 1.0  ) * Tabij["deok"] * Viajb["ofjh"] * Rai["hi"];
+  ( + 1.0  ) * Tabij["dfok"] * Viajb["oejh"] * Rai["hi"];
+  ( + 1.0  ) * Tabij["feok"] * Viajb["odjh"] * Rai["hi"];
+  ( + 1.0  ) * Tabij["deoj"] * Viajb["ofkh"] * Rai["hi"];
+  ( - 1.0  ) * Tabij["dfoj"] * Viajb["oekh"] * Rai["hi"];
+  ( - 1.0  ) * Tabij["feoj"] * Viajb["odkh"] * Rai["hi"];
+
+  ( + 1.0  ) * Tabij["gdij"] * Vabcd["efhg"] * Rai["hk"];
+  ( - 1.0  ) * Tabij["geij"] * Vabcd["dfhg"] * Rai["hk"];
+  ( - 1.0  ) * Tabij["gfij"] * Vabcd["edhg"] * Rai["hk"];
+  ( - 1.0  ) * Tabij["gdik"] * Vabcd["efhg"] * Rai["hj"];
+  ( + 1.0  ) * Tabij["geik"] * Vabcd["dfhg"] * Rai["hj"];
+  ( + 1.0  ) * Tabij["gfik"] * Vabcd["edhg"] * Rai["hj"];
+  ( - 1.0  ) * Tabij["gdkj"] * Vabcd["efhg"] * Rai["hi"];
+  ( + 1.0  ) * Tabij["gekj"] * Vabcd["dfhg"] * Rai["hi"];
+  ( + 1.0  ) * Tabij["gfkj"] * Vabcd["edhg"] * Rai["hi"];
+
+  ( - 0.5  ) * Tabij["gfjk"] * Vijka["pIig"] * Rabij["deIp"];
+  ( + 0.5  ) * Tabij["gejk"] * Vijka["pIig"] * Rabij["dfIp"];
+  ( + 0.5  ) * Tabij["gdjk"] * Vijka["pIig"] * Rabij["feIp"];
+  ( - 0.5  ) * Tabij["gfki"] * Vijka["pIjg"] * Rabij["deIp"];
+  ( + 0.5  ) * Tabij["geki"] * Vijka["pIjg"] * Rabij["dfIp"];
+  ( + 0.5  ) * Tabij["gdki"] * Vijka["pIjg"] * Rabij["feIp"];
+  ( - 0.5  ) * Tabij["gfij"] * Vijka["pIkg"] * Rabij["deIp"];
+  ( + 0.5  ) * Tabij["geij"] * Vijka["pIkg"] * Rabij["dfIp"];
+  ( + 0.5  ) * Tabij["gdij"] * Vijka["pIkg"] * Rabij["feIp"];
+
+  ( + 1.0  ) * Tabij["efoj"] * Vijka["poiA"] * Rabij["Adpk"];
+  ( + 1.0  ) * Tabij["fdoj"] * Vijka["poiA"] * Rabij["Aepk"];
+  ( + 1.0  ) * Tabij["deoj"] * Vijka["poiA"] * Rabij["Afpk"];
+  ( - 1.0  ) * Tabij["efok"] * Vijka["poiA"] * Rabij["Adpj"];
+  ( - 1.0  ) * Tabij["fdok"] * Vijka["poiA"] * Rabij["Aepj"];
+  ( - 1.0  ) * Tabij["deok"] * Vijka["poiA"] * Rabij["Afpj"];
+  ( - 1.0  ) * Tabij["efoi"] * Vijka["pojA"] * Rabij["Adpk"];
+  ( - 1.0  ) * Tabij["fdoi"] * Vijka["pojA"] * Rabij["Aepk"];
+  ( - 1.0  ) * Tabij["deoi"] * Vijka["pojA"] * Rabij["Afpk"];
+  ( + 1.0  ) * Tabij["efoi"] * Vijka["pokA"] * Rabij["Adpj"];
+  ( + 1.0  ) * Tabij["fdoi"] * Vijka["pokA"] * Rabij["Aepj"];
+  ( + 1.0  ) * Tabij["deoi"] * Vijka["pokA"] * Rabij["Afpj"];
+  ( + 1.0  ) * Tabij["efok"] * Vijka["pojA"] * Rabij["Adpi"];
+  ( + 1.0  ) * Tabij["fdok"] * Vijka["pojA"] * Rabij["Aepi"];
+  ( + 1.0  ) * Tabij["deok"] * Vijka["pojA"] * Rabij["Afpi"];
+  ( - 1.0  ) * Tabij["efoj"] * Vijka["pokA"] * Rabij["Adpi"];
+  ( - 1.0  ) * Tabij["fdoj"] * Vijka["pokA"] * Rabij["Aepi"];
+  ( - 1.0  ) * Tabij["deoj"] * Vijka["pokA"] * Rabij["Afpi"];
+
+  ( + 1.0  ) * Tabij["gfpj"] * Vijka["Ipig"] * Rabij["deIk"];
+  ( - 1.0  ) * Tabij["gepj"] * Vijka["Ipig"] * Rabij["dfIk"];
+  ( - 1.0  ) * Tabij["gdpj"] * Vijka["Ipig"] * Rabij["feIk"];
+  ( - 1.0  ) * Tabij["gfpk"] * Vijka["Ipig"] * Rabij["deIj"];
+  ( + 1.0  ) * Tabij["gepk"] * Vijka["Ipig"] * Rabij["dfIj"];
+  ( + 1.0  ) * Tabij["gdpk"] * Vijka["Ipig"] * Rabij["feIj"];
+  ( - 1.0  ) * Tabij["gfpi"] * Vijka["Ipjg"] * Rabij["deIk"];
+  ( + 1.0  ) * Tabij["gepi"] * Vijka["Ipjg"] * Rabij["dfIk"];
+  ( + 1.0  ) * Tabij["gdpi"] * Vijka["Ipjg"] * Rabij["feIk"];
+  ( + 1.0  ) * Tabij["gfpi"] * Vijka["Ipkg"] * Rabij["deIj"];
+  ( - 1.0  ) * Tabij["gepi"] * Vijka["Ipkg"] * Rabij["dfIj"];
+  ( - 1.0  ) * Tabij["gdpi"] * Vijka["Ipkg"] * Rabij["feIj"];
+  ( + 1.0  ) * Tabij["gfpk"] * Vijka["Ipjg"] * Rabij["deIi"];
+  ( - 1.0  ) * Tabij["gepk"] * Vijka["Ipjg"] * Rabij["dfIi"];
+  ( - 1.0  ) * Tabij["gdpk"] * Vijka["Ipjg"] * Rabij["feIi"];
+  ( - 1.0  ) * Tabij["gfpj"] * Vijka["Ipkg"] * Rabij["deIi"];
+  ( + 1.0  ) * Tabij["gepj"] * Vijka["Ipkg"] * Rabij["dfIi"];
+  ( + 1.0  ) * Tabij["gdpj"] * Vijka["Ipkg"] * Rabij["feIi"];
+
+  ( + 0.5  ) * Tabij["efop"] * Vijka["opiA"] * Rabij["Adjk"];
+  ( + 0.5  ) * Tabij["fdop"] * Vijka["opiA"] * Rabij["Aejk"];
+  ( + 0.5  ) * Tabij["deop"] * Vijka["opiA"] * Rabij["Afjk"];
+  ( - 0.5  ) * Tabij["efop"] * Vijka["opjA"] * Rabij["Adik"];
+  ( - 0.5  ) * Tabij["fdop"] * Vijka["opjA"] * Rabij["Aeik"];
+  ( - 0.5  ) * Tabij["deop"] * Vijka["opjA"] * Rabij["Afik"];
+  ( - 0.5  ) * Tabij["efop"] * Vijka["opkA"] * Rabij["Adji"];
+  ( - 0.5  ) * Tabij["fdop"] * Vijka["opkA"] * Rabij["Aeji"];
+  ( - 0.5  ) * Tabij["deop"] * Vijka["opkA"] * Rabij["Afji"];
+
+  ( - 1.0  ) * Tabij["geij"] * Viabc["pfAg"] * Rabij["Adpk"];
+  ( + 1.0  ) * Tabij["gdij"] * Viabc["pfAg"] * Rabij["Aepk"];
+  ( + 1.0  ) * Tabij["gfij"] * Viabc["peAg"] * Rabij["Adpk"];
+  ( - 1.0  ) * Tabij["gfij"] * Viabc["pdAg"] * Rabij["Aepk"];
+  ( - 1.0  ) * Tabij["gdij"] * Viabc["peAg"] * Rabij["Afpk"];
+  ( + 1.0  ) * Tabij["geij"] * Viabc["pdAg"] * Rabij["Afpk"];
+  ( + 1.0  ) * Tabij["geik"] * Viabc["pfAg"] * Rabij["Adpj"];
+  ( - 1.0  ) * Tabij["gdik"] * Viabc["pfAg"] * Rabij["Aepj"];
+  ( - 1.0  ) * Tabij["gfik"] * Viabc["peAg"] * Rabij["Adpj"];
+  ( + 1.0  ) * Tabij["gfik"] * Viabc["pdAg"] * Rabij["Aepj"];
+  ( + 1.0  ) * Tabij["gdik"] * Viabc["peAg"] * Rabij["Afpj"];
+  ( - 1.0  ) * Tabij["geik"] * Viabc["pdAg"] * Rabij["Afpj"];
+  ( + 1.0  ) * Tabij["gekj"] * Viabc["pfAg"] * Rabij["Adpi"];
+  ( - 1.0  ) * Tabij["gdkj"] * Viabc["pfAg"] * Rabij["Aepi"];
+  ( - 1.0  ) * Tabij["gfkj"] * Viabc["peAg"] * Rabij["Adpi"];
+  ( + 1.0  ) * Tabij["gfkj"] * Viabc["pdAg"] * Rabij["Aepi"];
+  ( + 1.0  ) * Tabij["gdkj"] * Viabc["peAg"] * Rabij["Afpi"];
+  ( - 1.0  ) * Tabij["gekj"] * Viabc["pdAg"] * Rabij["Afpi"];
+
+  ( + 0.5  ) * Tabij["ghij"] * Viabc["Ifgh"] * Rabij["deIk"];
+  ( - 0.5  ) * Tabij["ghij"] * Viabc["Iegh"] * Rabij["dfIk"];
+  ( - 0.5  ) * Tabij["ghij"] * Viabc["Idgh"] * Rabij["feIk"];
+  ( - 0.5  ) * Tabij["ghik"] * Viabc["Ifgh"] * Rabij["deIj"];
+  ( + 0.5  ) * Tabij["ghik"] * Viabc["Iegh"] * Rabij["dfIj"];
+  ( + 0.5  ) * Tabij["ghik"] * Viabc["Idgh"] * Rabij["feIj"];
+  ( - 0.5  ) * Tabij["ghkj"] * Viabc["Ifgh"] * Rabij["deIi"];
+  ( + 0.5  ) * Tabij["ghkj"] * Viabc["Iegh"] * Rabij["dfIi"];
+  ( + 0.5  ) * Tabij["ghkj"] * Viabc["Idgh"] * Rabij["feIi"];
+
+  ( - 0.5  ) * Tabij["deoi"] * Viabc["ofhA"] * Rabij["Ahjk"];
+  ( + 0.5  ) * Tabij["dfoi"] * Viabc["oehA"] * Rabij["Ahjk"];
+  ( + 0.5  ) * Tabij["feoi"] * Viabc["odhA"] * Rabij["Ahjk"];
+  ( + 0.5  ) * Tabij["deoj"] * Viabc["ofhA"] * Rabij["Ahik"];
+  ( - 0.5  ) * Tabij["dfoj"] * Viabc["oehA"] * Rabij["Ahik"];
+  ( - 0.5  ) * Tabij["feoj"] * Viabc["odhA"] * Rabij["Ahik"];
+  ( + 0.5  ) * Tabij["deok"] * Viabc["ofhA"] * Rabij["Ahji"];
+  ( - 0.5  ) * Tabij["dfok"] * Viabc["oehA"] * Rabij["Ahji"];
+  ( - 0.5  ) * Tabij["feok"] * Viabc["odhA"] * Rabij["Ahji"];
+
+  ( - 1.0  ) * Tabij["gepi"] * Viabc["pfAg"] * Rabij["Adjk"];
+  ( + 1.0  ) * Tabij["gdpi"] * Viabc["pfAg"] * Rabij["Aejk"];
+  ( + 1.0  ) * Tabij["gfpi"] * Viabc["peAg"] * Rabij["Adjk"];
+  ( - 1.0  ) * Tabij["gfpi"] * Viabc["pdAg"] * Rabij["Aejk"];
+  ( - 1.0  ) * Tabij["gdpi"] * Viabc["peAg"] * Rabij["Afjk"];
+  ( + 1.0  ) * Tabij["gepi"] * Viabc["pdAg"] * Rabij["Afjk"];
+  ( + 1.0  ) * Tabij["gepj"] * Viabc["pfAg"] * Rabij["Adik"];
+  ( - 1.0  ) * Tabij["gdpj"] * Viabc["pfAg"] * Rabij["Aeik"];
+  ( - 1.0  ) * Tabij["gfpj"] * Viabc["peAg"] * Rabij["Adik"];
+  ( + 1.0  ) * Tabij["gfpj"] * Viabc["pdAg"] * Rabij["Aeik"];
+  ( + 1.0  ) * Tabij["gdpj"] * Viabc["peAg"] * Rabij["Afik"];
+  ( - 1.0  ) * Tabij["gepj"] * Viabc["pdAg"] * Rabij["Afik"];
+  ( + 1.0  ) * Tabij["gepk"] * Viabc["pfAg"] * Rabij["Adji"];
+  ( - 1.0  ) * Tabij["gdpk"] * Viabc["pfAg"] * Rabij["Aeji"];
+  ( - 1.0  ) * Tabij["gfpk"] * Viabc["peAg"] * Rabij["Adji"];
+  ( + 1.0  ) * Tabij["gfpk"] * Viabc["pdAg"] * Rabij["Aeji"];
+  ( + 1.0  ) * Tabij["gdpk"] * Viabc["peAg"] * Rabij["Afji"];
+  ( - 1.0  ) * Tabij["gepk"] * Viabc["pdAg"] * Rabij["Afji"];
+
+  ( - 0.5  ) * Tabij["gfij"] * Vijab["pIBg"] * Rabcijk["BdeIpk"];
+  ( + 0.5  ) * Tabij["geij"] * Vijab["pIBg"] * Rabcijk["BdfIpk"];
+  ( + 0.5  ) * Tabij["gdij"] * Vijab["pIBg"] * Rabcijk["BfeIpk"];
+  ( + 0.5  ) * Tabij["gfik"] * Vijab["pIBg"] * Rabcijk["BdeIpj"];
+  ( - 0.5  ) * Tabij["geik"] * Vijab["pIBg"] * Rabcijk["BdfIpj"];
+  ( - 0.5  ) * Tabij["gdik"] * Vijab["pIBg"] * Rabcijk["BfeIpj"];
+  ( + 0.5  ) * Tabij["gfkj"] * Vijab["pIBg"] * Rabcijk["BdeIpi"];
+  ( - 0.5  ) * Tabij["gekj"] * Vijab["pIBg"] * Rabcijk["BdfIpi"];
+  ( - 0.5  ) * Tabij["gdkj"] * Vijab["pIBg"] * Rabcijk["BfeIpi"];
+
+  ( - 0.25  ) * Tabij["ghij"] * Vijab["IJgh"] * Rabcijk["defJIk"];
+  ( + 0.25  ) * Tabij["ghik"] * Vijab["IJgh"] * Rabcijk["defJIj"];
+  ( + 0.25  ) * Tabij["ghkj"] * Vijab["IJgh"] * Rabcijk["defJIi"];
+
+  ( - 0.5  ) * Tabij["efoi"] * Vijab["poAB"] * Rabcijk["BAdpjk"];
+  ( - 0.5  ) * Tabij["fdoi"] * Vijab["poAB"] * Rabcijk["BAepjk"];
+  ( - 0.5  ) * Tabij["deoi"] * Vijab["poAB"] * Rabcijk["BAfpjk"];
+  ( + 0.5  ) * Tabij["efoj"] * Vijab["poAB"] * Rabcijk["BAdpik"];
+  ( + 0.5  ) * Tabij["fdoj"] * Vijab["poAB"] * Rabcijk["BAepik"];
+  ( + 0.5  ) * Tabij["deoj"] * Vijab["poAB"] * Rabcijk["BAfpik"];
+  ( + 0.5  ) * Tabij["efok"] * Vijab["poAB"] * Rabcijk["BAdpji"];
+  ( + 0.5  ) * Tabij["fdok"] * Vijab["poAB"] * Rabcijk["BAepji"];
+  ( + 0.5  ) * Tabij["deok"] * Vijab["poAB"] * Rabcijk["BAfpji"];
+
+  ( + 1.0  ) * Tabij["gfpi"] * Vijab["IpBg"] * Rabcijk["BdeIjk"];
+  ( - 1.0  ) * Tabij["gepi"] * Vijab["IpBg"] * Rabcijk["BdfIjk"];
+  ( - 1.0  ) * Tabij["gdpi"] * Vijab["IpBg"] * Rabcijk["BfeIjk"];
+  ( - 1.0  ) * Tabij["gfpj"] * Vijab["IpBg"] * Rabcijk["BdeIik"];
+  ( + 1.0  ) * Tabij["gepj"] * Vijab["IpBg"] * Rabcijk["BdfIik"];
+  ( + 1.0  ) * Tabij["gdpj"] * Vijab["IpBg"] * Rabcijk["BfeIik"];
+  ( - 1.0  ) * Tabij["gfpk"] * Vijab["IpBg"] * Rabcijk["BdeIji"];
+  ( + 1.0  ) * Tabij["gepk"] * Vijab["IpBg"] * Rabcijk["BdfIji"];
+  ( + 1.0  ) * Tabij["gdpk"] * Vijab["IpBg"] * Rabcijk["BfeIji"];
+
+  ( + 0.5  ) * Tabij["ghIi"] * Vijab["JIgh"] * Rabcijk["defJjk"];
+  ( - 0.5  ) * Tabij["ghIj"] * Vijab["JIgh"] * Rabcijk["defJik"];
+  ( - 0.5  ) * Tabij["ghIk"] * Vijab["JIgh"] * Rabcijk["defJji"];
+
+  ( - 0.25  ) * Tabij["efop"] * Vijab["opAB"] * Rabcijk["BAdijk"];
+  ( - 0.25  ) * Tabij["fdop"] * Vijab["opAB"] * Rabcijk["BAeijk"];
+  ( - 0.25  ) * Tabij["deop"] * Vijab["opAB"] * Rabcijk["BAfijk"];
+
+  ( + 0.5  ) * Tabij["gfpI"] * Vijab["pIBg"] * Rabcijk["Bdeijk"];
+  ( - 0.5  ) * Tabij["gepI"] * Vijab["pIBg"] * Rabcijk["Bdfijk"];
+  ( - 0.5  ) * Tabij["gdpI"] * Vijab["pIBg"] * Rabcijk["Bfeijk"];
+
+  ( + 1.0  ) * Tabcijk["defojk"] * Vijka["poiA"] * Rai["Ap"];
+  ( + 1.0  ) * Tabcijk["defoki"] * Vijka["pojA"] * Rai["Ap"];
+  ( + 1.0  ) * Tabcijk["defoij"] * Vijka["pokA"] * Rai["Ap"];
+
+  ( - 1.0  ) * Tabcijk["gefpjk"] * Vijka["Ipig"] * Rai["dI"];
+  ( - 1.0  ) * Tabcijk["gfdpjk"] * Vijka["Ipig"] * Rai["eI"];
+  ( - 1.0  ) * Tabcijk["gdepjk"] * Vijka["Ipig"] * Rai["fI"];
+  ( - 1.0  ) * Tabcijk["gefpki"] * Vijka["Ipjg"] * Rai["dI"];
+  ( - 1.0  ) * Tabcijk["gfdpki"] * Vijka["Ipjg"] * Rai["eI"];
+  ( - 1.0  ) * Tabcijk["gdepki"] * Vijka["Ipjg"] * Rai["fI"];
+  ( - 1.0  ) * Tabcijk["gefpij"] * Vijka["Ipkg"] * Rai["dI"];
+  ( - 1.0  ) * Tabcijk["gfdpij"] * Vijka["Ipkg"] * Rai["eI"];
+  ( - 1.0  ) * Tabcijk["gdepij"] * Vijka["Ipkg"] * Rai["fI"];
+
+  ( - 0.5  ) * Tabcijk["defopj"] * Vijka["opiA"] * Rai["Ak"];
+  ( + 0.5  ) * Tabcijk["defopk"] * Vijka["opiA"] * Rai["Aj"];
+  ( + 0.5  ) * Tabcijk["defopi"] * Vijka["opjA"] * Rai["Ak"];
+  ( - 0.5  ) * Tabcijk["defopi"] * Vijka["opkA"] * Rai["Aj"];
+  ( - 0.5  ) * Tabcijk["defopk"] * Vijka["opjA"] * Rai["Ai"];
+  ( + 0.5  ) * Tabcijk["defopj"] * Vijka["opkA"] * Rai["Ai"];
+
+  ( + 1.0  ) * Tabcijk["gdeijk"] * Viabc["pfAg"] * Rai["Ap"];
+  ( - 1.0  ) * Tabcijk["gdfijk"] * Viabc["peAg"] * Rai["Ap"];
+  ( - 1.0  ) * Tabcijk["gfeijk"] * Viabc["pdAg"] * Rai["Ap"];
+
+  ( + 0.5  ) * Tabcijk["gheijk"] * Viabc["Ifgh"] * Rai["dI"];
+  ( - 0.5  ) * Tabcijk["ghdijk"] * Viabc["Ifgh"] * Rai["eI"];
+  ( - 0.5  ) * Tabcijk["ghfijk"] * Viabc["Iegh"] * Rai["dI"];
+  ( + 0.5  ) * Tabcijk["ghfijk"] * Viabc["Idgh"] * Rai["eI"];
+  ( + 0.5  ) * Tabcijk["ghdijk"] * Viabc["Iegh"] * Rai["fI"];
+  ( - 0.5  ) * Tabcijk["gheijk"] * Viabc["Idgh"] * Rai["fI"];
+
+  ( - 1.0  ) * Tabcijk["gdepij"] * Viabc["pfAg"] * Rai["Ak"];
+  ( + 1.0  ) * Tabcijk["gdfpij"] * Viabc["peAg"] * Rai["Ak"];
+  ( + 1.0  ) * Tabcijk["gfepij"] * Viabc["pdAg"] * Rai["Ak"];
+  ( + 1.0  ) * Tabcijk["gdepik"] * Viabc["pfAg"] * Rai["Aj"];
+  ( - 1.0  ) * Tabcijk["gdfpik"] * Viabc["peAg"] * Rai["Aj"];
+  ( - 1.0  ) * Tabcijk["gfepik"] * Viabc["pdAg"] * Rai["Aj"];
+  ( + 1.0  ) * Tabcijk["gdepkj"] * Viabc["pfAg"] * Rai["Ai"];
+  ( - 1.0  ) * Tabcijk["gdfpkj"] * Viabc["peAg"] * Rai["Ai"];
+  ( - 1.0  ) * Tabcijk["gfepkj"] * Viabc["pdAg"] * Rai["Ai"];
+
+  ( + 0.5  ) * Tabcijk["gefijk"] * Vijab["pIBg"] * Rabij["BdIp"];
+  ( + 0.5  ) * Tabcijk["gfdijk"] * Vijab["pIBg"] * Rabij["BeIp"];
+  ( + 0.5  ) * Tabcijk["gdeijk"] * Vijab["pIBg"] * Rabij["BfIp"];
+
+  ( - 0.25  ) * Tabcijk["ghfijk"] * Vijab["IJgh"] * Rabij["deJI"];
+  ( + 0.25  ) * Tabcijk["gheijk"] * Vijab["IJgh"] * Rabij["dfJI"];
+  ( + 0.25  ) * Tabcijk["ghdijk"] * Vijab["IJgh"] * Rabij["feJI"];
+
+  ( + 0.5  ) * Tabcijk["defoij"] * Vijab["poAB"] * Rabij["BApk"];
+  ( - 0.5  ) * Tabcijk["defoik"] * Vijab["poAB"] * Rabij["BApj"];
+  ( - 0.5  ) * Tabcijk["defokj"] * Vijab["poAB"] * Rabij["BApi"];
+
+  ( + 1.0  ) * Tabcijk["gefpij"] * Vijab["IpBg"] * Rabij["BdIk"];
+  ( + 1.0  ) * Tabcijk["gfdpij"] * Vijab["IpBg"] * Rabij["BeIk"];
+  ( + 1.0  ) * Tabcijk["gdepij"] * Vijab["IpBg"] * Rabij["BfIk"];
+  ( - 1.0  ) * Tabcijk["gefpik"] * Vijab["IpBg"] * Rabij["BdIj"];
+  ( - 1.0  ) * Tabcijk["gfdpik"] * Vijab["IpBg"] * Rabij["BeIj"];
+  ( - 1.0  ) * Tabcijk["gdepik"] * Vijab["IpBg"] * Rabij["BfIj"];
+  ( - 1.0  ) * Tabcijk["gefpkj"] * Vijab["IpBg"] * Rabij["BdIi"];
+  ( - 1.0  ) * Tabcijk["gfdpkj"] * Vijab["IpBg"] * Rabij["BeIi"];
+  ( - 1.0  ) * Tabcijk["gdepkj"] * Vijab["IpBg"] * Rabij["BfIi"];
+
+  ( - 0.5  ) * Tabcijk["ghfIij"] * Vijab["JIgh"] * Rabij["deJk"];
+  ( + 0.5  ) * Tabcijk["gheIij"] * Vijab["JIgh"] * Rabij["dfJk"];
+  ( + 0.5  ) * Tabcijk["ghdIij"] * Vijab["JIgh"] * Rabij["feJk"];
+  ( + 0.5  ) * Tabcijk["ghfIik"] * Vijab["JIgh"] * Rabij["deJj"];
+  ( - 0.5  ) * Tabcijk["gheIik"] * Vijab["JIgh"] * Rabij["dfJj"];
+  ( - 0.5  ) * Tabcijk["ghdIik"] * Vijab["JIgh"] * Rabij["feJj"];
+  ( + 0.5  ) * Tabcijk["ghfIkj"] * Vijab["JIgh"] * Rabij["deJi"];
+  ( - 0.5  ) * Tabcijk["gheIkj"] * Vijab["JIgh"] * Rabij["dfJi"];
+  ( - 0.5  ) * Tabcijk["ghdIkj"] * Vijab["JIgh"] * Rabij["feJi"];
+
+  ( - 0.25  ) * Tabcijk["defopi"] * Vijab["opAB"] * Rabij["BAjk"];
+  ( + 0.25  ) * Tabcijk["defopj"] * Vijab["opAB"] * Rabij["BAik"];
+  ( + 0.25  ) * Tabcijk["defopk"] * Vijab["opAB"] * Rabij["BAji"];
+
+  ( - 0.5  ) * Tabcijk["gefpIi"] * Vijab["pIBg"] * Rabij["Bdjk"];
+  ( - 0.5  ) * Tabcijk["gfdpIi"] * Vijab["pIBg"] * Rabij["Bejk"];
+  ( - 0.5  ) * Tabcijk["gdepIi"] * Vijab["pIBg"] * Rabij["Bfjk"];
+  ( + 0.5  ) * Tabcijk["gefpIj"] * Vijab["pIBg"] * Rabij["Bdik"];
+  ( + 0.5  ) * Tabcijk["gfdpIj"] * Vijab["pIBg"] * Rabij["Beik"];
+  ( + 0.5  ) * Tabcijk["gdepIj"] * Vijab["pIBg"] * Rabij["Bfik"];
+  ( + 0.5  ) * Tabcijk["gefpIk"] * Vijab["pIBg"] * Rabij["Bdji"];
+  ( + 0.5  ) * Tabcijk["gfdpIk"] * Vijab["pIBg"] * Rabij["Beji"];
+  ( + 0.5  ) * Tabcijk["gdepIk"] * Vijab["pIBg"] * Rabij["Bfji"];
+
+  ( - 1.0  ) * Tai["fo"] * Tai["hj"] * Vijka["Ioih"] * Rabij["deIk"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hj"] * Vijka["Ioih"] * Rabij["dfIk"];
+  ( + 1.0  ) * Tai["do"] * Tai["hj"] * Vijka["Ioih"] * Rabij["feIk"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hk"] * Vijka["Ioih"] * Rabij["deIj"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hk"] * Vijka["Ioih"] * Rabij["dfIj"];
+  ( - 1.0  ) * Tai["do"] * Tai["hk"] * Vijka["Ioih"] * Rabij["feIj"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hi"] * Vijka["Iojh"] * Rabij["deIk"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hi"] * Vijka["Iojh"] * Rabij["dfIk"];
+  ( - 1.0  ) * Tai["do"] * Tai["hi"] * Vijka["Iojh"] * Rabij["feIk"];
+  ( - 1.0  ) * Tai["fo"] * Tai["hi"] * Vijka["Iokh"] * Rabij["deIj"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hi"] * Vijka["Iokh"] * Rabij["dfIj"];
+  ( + 1.0  ) * Tai["do"] * Tai["hi"] * Vijka["Iokh"] * Rabij["feIj"];
+  ( - 1.0  ) * Tai["fo"] * Tai["hk"] * Vijka["Iojh"] * Rabij["deIi"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hk"] * Vijka["Iojh"] * Rabij["dfIi"];
+  ( + 1.0  ) * Tai["do"] * Tai["hk"] * Vijka["Iojh"] * Rabij["feIi"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hj"] * Vijka["Iokh"] * Rabij["deIi"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hj"] * Vijka["Iokh"] * Rabij["dfIi"];
+  ( - 1.0  ) * Tai["do"] * Tai["hj"] * Vijka["Iokh"] * Rabij["feIi"];
+
+  ( + 0.5  ) * Tai["fo"] * Tai["ep"] * Vijka["poiA"] * Rabij["Adjk"];
+  ( - 0.5  ) * Tai["eo"] * Tai["fp"] * Vijka["poiA"] * Rabij["Adjk"];
+  ( - 0.5  ) * Tai["fo"] * Tai["dp"] * Vijka["poiA"] * Rabij["Aejk"];
+  ( + 0.5  ) * Tai["do"] * Tai["fp"] * Vijka["poiA"] * Rabij["Aejk"];
+  ( + 0.5  ) * Tai["eo"] * Tai["dp"] * Vijka["poiA"] * Rabij["Afjk"];
+  ( - 0.5  ) * Tai["do"] * Tai["ep"] * Vijka["poiA"] * Rabij["Afjk"];
+  ( - 0.5  ) * Tai["fo"] * Tai["ep"] * Vijka["pojA"] * Rabij["Adik"];
+  ( + 0.5  ) * Tai["eo"] * Tai["fp"] * Vijka["pojA"] * Rabij["Adik"];
+  ( + 0.5  ) * Tai["fo"] * Tai["dp"] * Vijka["pojA"] * Rabij["Aeik"];
+  ( - 0.5  ) * Tai["do"] * Tai["fp"] * Vijka["pojA"] * Rabij["Aeik"];
+  ( - 0.5  ) * Tai["eo"] * Tai["dp"] * Vijka["pojA"] * Rabij["Afik"];
+  ( + 0.5  ) * Tai["do"] * Tai["ep"] * Vijka["pojA"] * Rabij["Afik"];
+  ( - 0.5  ) * Tai["fo"] * Tai["ep"] * Vijka["pokA"] * Rabij["Adji"];
+  ( + 0.5  ) * Tai["eo"] * Tai["fp"] * Vijka["pokA"] * Rabij["Adji"];
+  ( + 0.5  ) * Tai["fo"] * Tai["dp"] * Vijka["pokA"] * Rabij["Aeji"];
+  ( - 0.5  ) * Tai["do"] * Tai["fp"] * Vijka["pokA"] * Rabij["Aeji"];
+  ( - 0.5  ) * Tai["eo"] * Tai["dp"] * Vijka["pokA"] * Rabij["Afji"];
+  ( + 0.5  ) * Tai["do"] * Tai["ep"] * Vijka["pokA"] * Rabij["Afji"];
+
+  ( - 0.5  ) * Tai["gi"] * Tai["hj"] * Viabc["Ifhg"] * Rabij["deIk"];
+  ( + 0.5  ) * Tai["gj"] * Tai["hi"] * Viabc["Ifhg"] * Rabij["deIk"];
+  ( + 0.5  ) * Tai["gi"] * Tai["hj"] * Viabc["Iehg"] * Rabij["dfIk"];
+  ( - 0.5  ) * Tai["gj"] * Tai["hi"] * Viabc["Iehg"] * Rabij["dfIk"];
+  ( + 0.5  ) * Tai["gi"] * Tai["hj"] * Viabc["Idhg"] * Rabij["feIk"];
+  ( - 0.5  ) * Tai["gj"] * Tai["hi"] * Viabc["Idhg"] * Rabij["feIk"];
+  ( + 0.5  ) * Tai["gi"] * Tai["hk"] * Viabc["Ifhg"] * Rabij["deIj"];
+  ( - 0.5  ) * Tai["gk"] * Tai["hi"] * Viabc["Ifhg"] * Rabij["deIj"];
+  ( - 0.5  ) * Tai["gi"] * Tai["hk"] * Viabc["Iehg"] * Rabij["dfIj"];
+  ( + 0.5  ) * Tai["gk"] * Tai["hi"] * Viabc["Iehg"] * Rabij["dfIj"];
+  ( - 0.5  ) * Tai["gi"] * Tai["hk"] * Viabc["Idhg"] * Rabij["feIj"];
+  ( + 0.5  ) * Tai["gk"] * Tai["hi"] * Viabc["Idhg"] * Rabij["feIj"];
+  ( - 0.5  ) * Tai["gj"] * Tai["hk"] * Viabc["Ifhg"] * Rabij["deIi"];
+  ( + 0.5  ) * Tai["gk"] * Tai["hj"] * Viabc["Ifhg"] * Rabij["deIi"];
+  ( + 0.5  ) * Tai["gj"] * Tai["hk"] * Viabc["Iehg"] * Rabij["dfIi"];
+  ( - 0.5  ) * Tai["gk"] * Tai["hj"] * Viabc["Iehg"] * Rabij["dfIi"];
+  ( + 0.5  ) * Tai["gj"] * Tai["hk"] * Viabc["Idhg"] * Rabij["feIi"];
+  ( - 0.5  ) * Tai["gk"] * Tai["hj"] * Viabc["Idhg"] * Rabij["feIi"];
+
+  ( + 1.0  ) * Tai["eo"] * Tai["hi"] * Viabc["ofAh"] * Rabij["Adjk"];
+  ( - 1.0  ) * Tai["do"] * Tai["hi"] * Viabc["ofAh"] * Rabij["Aejk"];
+  ( - 1.0  ) * Tai["fo"] * Tai["hi"] * Viabc["oeAh"] * Rabij["Adjk"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hi"] * Viabc["odAh"] * Rabij["Aejk"];
+  ( + 1.0  ) * Tai["do"] * Tai["hi"] * Viabc["oeAh"] * Rabij["Afjk"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hi"] * Viabc["odAh"] * Rabij["Afjk"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hj"] * Viabc["ofAh"] * Rabij["Adik"];
+  ( + 1.0  ) * Tai["do"] * Tai["hj"] * Viabc["ofAh"] * Rabij["Aeik"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hj"] * Viabc["oeAh"] * Rabij["Adik"];
+  ( - 1.0  ) * Tai["fo"] * Tai["hj"] * Viabc["odAh"] * Rabij["Aeik"];
+  ( - 1.0  ) * Tai["do"] * Tai["hj"] * Viabc["oeAh"] * Rabij["Afik"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hj"] * Viabc["odAh"] * Rabij["Afik"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hk"] * Viabc["ofAh"] * Rabij["Adji"];
+  ( + 1.0  ) * Tai["do"] * Tai["hk"] * Viabc["ofAh"] * Rabij["Aeji"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hk"] * Viabc["oeAh"] * Rabij["Adji"];
+  ( - 1.0  ) * Tai["fo"] * Tai["hk"] * Viabc["odAh"] * Rabij["Aeji"];
+  ( - 1.0  ) * Tai["do"] * Tai["hk"] * Viabc["oeAh"] * Rabij["Afji"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hk"] * Viabc["odAh"] * Rabij["Afji"];
+
+  ( + 0.25  ) * Tai["gi"] * Tai["hj"] * Vijab["IJhg"] * Rabcijk["defJIk"];
+  ( - 0.25  ) * Tai["gj"] * Tai["hi"] * Vijab["IJhg"] * Rabcijk["defJIk"];
+  ( - 0.25  ) * Tai["gi"] * Tai["hk"] * Vijab["IJhg"] * Rabcijk["defJIj"];
+  ( + 0.25  ) * Tai["gk"] * Tai["hi"] * Vijab["IJhg"] * Rabcijk["defJIj"];
+  ( + 0.25  ) * Tai["gj"] * Tai["hk"] * Vijab["IJhg"] * Rabcijk["defJIi"];
+  ( - 0.25  ) * Tai["gk"] * Tai["hj"] * Vijab["IJhg"] * Rabcijk["defJIi"];
+
+  ( - 1.0  ) * Tai["fo"] * Tai["hi"] * Vijab["IoBh"] * Rabcijk["BdeIjk"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hi"] * Vijab["IoBh"] * Rabcijk["BdfIjk"];
+  ( + 1.0  ) * Tai["do"] * Tai["hi"] * Vijab["IoBh"] * Rabcijk["BfeIjk"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hj"] * Vijab["IoBh"] * Rabcijk["BdeIik"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hj"] * Vijab["IoBh"] * Rabcijk["BdfIik"];
+  ( - 1.0  ) * Tai["do"] * Tai["hj"] * Vijab["IoBh"] * Rabcijk["BfeIik"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hk"] * Vijab["IoBh"] * Rabcijk["BdeIji"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hk"] * Vijab["IoBh"] * Rabcijk["BdfIji"];
+  ( - 1.0  ) * Tai["do"] * Tai["hk"] * Vijab["IoBh"] * Rabcijk["BfeIji"];
+
+  ( + 1.0  ) * Tai["gi"] * Tai["hI"] * Vijab["JIhg"] * Rabcijk["defJjk"];
+  ( - 1.0  ) * Tai["gj"] * Tai["hI"] * Vijab["JIhg"] * Rabcijk["defJik"];
+  ( - 1.0  ) * Tai["gk"] * Tai["hI"] * Vijab["JIhg"] * Rabcijk["defJji"];
+
+  ( - 0.25  ) * Tai["fo"] * Tai["ep"] * Vijab["poAB"] * Rabcijk["BAdijk"];
+  ( + 0.25  ) * Tai["eo"] * Tai["fp"] * Vijab["poAB"] * Rabcijk["BAdijk"];
+  ( + 0.25  ) * Tai["fo"] * Tai["dp"] * Vijab["poAB"] * Rabcijk["BAeijk"];
+  ( - 0.25  ) * Tai["do"] * Tai["fp"] * Vijab["poAB"] * Rabcijk["BAeijk"];
+  ( - 0.25  ) * Tai["eo"] * Tai["dp"] * Vijab["poAB"] * Rabcijk["BAfijk"];
+  ( + 0.25  ) * Tai["do"] * Tai["ep"] * Vijab["poAB"] * Rabcijk["BAfijk"];
+
+  ( + 1.0  ) * Tai["fo"] * Tai["hI"] * Vijab["IoBh"] * Rabcijk["Bdeijk"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hI"] * Vijab["IoBh"] * Rabcijk["Bdfijk"];
+  ( - 1.0  ) * Tai["do"] * Tai["hI"] * Vijab["IoBh"] * Rabcijk["Bfeijk"];
+
+  ( + 1.0  ) * Tabij["efok"] * Tai["hj"] * Vijka["Ioih"] * Rai["dI"];
+  ( + 1.0  ) * Tabij["fdok"] * Tai["hj"] * Vijka["Ioih"] * Rai["eI"];
+  ( + 1.0  ) * Tabij["deok"] * Tai["hj"] * Vijka["Ioih"] * Rai["fI"];
+  ( - 1.0  ) * Tabij["efoj"] * Tai["hk"] * Vijka["Ioih"] * Rai["dI"];
+  ( - 1.0  ) * Tabij["fdoj"] * Tai["hk"] * Vijka["Ioih"] * Rai["eI"];
+  ( - 1.0  ) * Tabij["deoj"] * Tai["hk"] * Vijka["Ioih"] * Rai["fI"];
+  ( - 1.0  ) * Tabij["efok"] * Tai["hi"] * Vijka["Iojh"] * Rai["dI"];
+  ( - 1.0  ) * Tabij["fdok"] * Tai["hi"] * Vijka["Iojh"] * Rai["eI"];
+  ( - 1.0  ) * Tabij["deok"] * Tai["hi"] * Vijka["Iojh"] * Rai["fI"];
+  ( + 1.0  ) * Tabij["efoj"] * Tai["hi"] * Vijka["Iokh"] * Rai["dI"];
+  ( + 1.0  ) * Tabij["fdoj"] * Tai["hi"] * Vijka["Iokh"] * Rai["eI"];
+  ( + 1.0  ) * Tabij["deoj"] * Tai["hi"] * Vijka["Iokh"] * Rai["fI"];
+  ( + 1.0  ) * Tabij["efoi"] * Tai["hk"] * Vijka["Iojh"] * Rai["dI"];
+  ( + 1.0  ) * Tabij["fdoi"] * Tai["hk"] * Vijka["Iojh"] * Rai["eI"];
+  ( + 1.0  ) * Tabij["deoi"] * Tai["hk"] * Vijka["Iojh"] * Rai["fI"];
+  ( - 1.0  ) * Tabij["efoi"] * Tai["hj"] * Vijka["Iokh"] * Rai["dI"];
+  ( - 1.0  ) * Tabij["fdoi"] * Tai["hj"] * Vijka["Iokh"] * Rai["eI"];
+  ( - 1.0  ) * Tabij["deoi"] * Tai["hj"] * Vijka["Iokh"] * Rai["fI"];
+
+  ( - 1.0  ) * Tabij["gejk"] * Tai["fp"] * Vijka["Ipig"] * Rai["dI"];
+  ( + 1.0  ) * Tabij["gdjk"] * Tai["fp"] * Vijka["Ipig"] * Rai["eI"];
+  ( + 1.0  ) * Tabij["gfjk"] * Tai["ep"] * Vijka["Ipig"] * Rai["dI"];
+  ( - 1.0  ) * Tabij["gfjk"] * Tai["dp"] * Vijka["Ipig"] * Rai["eI"];
+  ( - 1.0  ) * Tabij["gdjk"] * Tai["ep"] * Vijka["Ipig"] * Rai["fI"];
+  ( + 1.0  ) * Tabij["gejk"] * Tai["dp"] * Vijka["Ipig"] * Rai["fI"];
+  ( - 1.0  ) * Tabij["geki"] * Tai["fp"] * Vijka["Ipjg"] * Rai["dI"];
+  ( + 1.0  ) * Tabij["gdki"] * Tai["fp"] * Vijka["Ipjg"] * Rai["eI"];
+  ( + 1.0  ) * Tabij["gfki"] * Tai["ep"] * Vijka["Ipjg"] * Rai["dI"];
+  ( - 1.0  ) * Tabij["gfki"] * Tai["dp"] * Vijka["Ipjg"] * Rai["eI"];
+  ( - 1.0  ) * Tabij["gdki"] * Tai["ep"] * Vijka["Ipjg"] * Rai["fI"];
+  ( + 1.0  ) * Tabij["geki"] * Tai["dp"] * Vijka["Ipjg"] * Rai["fI"];
+  ( - 1.0  ) * Tabij["geij"] * Tai["fp"] * Vijka["Ipkg"] * Rai["dI"];
+  ( + 1.0  ) * Tabij["gdij"] * Tai["fp"] * Vijka["Ipkg"] * Rai["eI"];
+  ( + 1.0  ) * Tabij["gfij"] * Tai["ep"] * Vijka["Ipkg"] * Rai["dI"];
+  ( - 1.0  ) * Tabij["gfij"] * Tai["dp"] * Vijka["Ipkg"] * Rai["eI"];
+  ( - 1.0  ) * Tabij["gdij"] * Tai["ep"] * Vijka["Ipkg"] * Rai["fI"];
+  ( + 1.0  ) * Tabij["geij"] * Tai["dp"] * Vijka["Ipkg"] * Rai["fI"];
+
+  ( - 1.0  ) * Tabij["deoj"] * Tai["fp"] * Vijka["poiA"] * Rai["Ak"];
+  ( + 1.0  ) * Tabij["dfoj"] * Tai["ep"] * Vijka["poiA"] * Rai["Ak"];
+  ( + 1.0  ) * Tabij["feoj"] * Tai["dp"] * Vijka["poiA"] * Rai["Ak"];
+  ( + 1.0  ) * Tabij["deok"] * Tai["fp"] * Vijka["poiA"] * Rai["Aj"];
+  ( - 1.0  ) * Tabij["dfok"] * Tai["ep"] * Vijka["poiA"] * Rai["Aj"];
+  ( - 1.0  ) * Tabij["feok"] * Tai["dp"] * Vijka["poiA"] * Rai["Aj"];
+  ( + 1.0  ) * Tabij["deoi"] * Tai["fp"] * Vijka["pojA"] * Rai["Ak"];
+  ( - 1.0  ) * Tabij["dfoi"] * Tai["ep"] * Vijka["pojA"] * Rai["Ak"];
+  ( - 1.0  ) * Tabij["feoi"] * Tai["dp"] * Vijka["pojA"] * Rai["Ak"];
+  ( - 1.0  ) * Tabij["deoi"] * Tai["fp"] * Vijka["pokA"] * Rai["Aj"];
+  ( + 1.0  ) * Tabij["dfoi"] * Tai["ep"] * Vijka["pokA"] * Rai["Aj"];
+  ( + 1.0  ) * Tabij["feoi"] * Tai["dp"] * Vijka["pokA"] * Rai["Aj"];
+  ( - 1.0  ) * Tabij["deok"] * Tai["fp"] * Vijka["pojA"] * Rai["Ai"];
+  ( + 1.0  ) * Tabij["dfok"] * Tai["ep"] * Vijka["pojA"] * Rai["Ai"];
+  ( + 1.0  ) * Tabij["feok"] * Tai["dp"] * Vijka["pojA"] * Rai["Ai"];
+  ( + 1.0  ) * Tabij["deoj"] * Tai["fp"] * Vijka["pokA"] * Rai["Ai"];
+  ( - 1.0  ) * Tabij["dfoj"] * Tai["ep"] * Vijka["pokA"] * Rai["Ai"];
+  ( - 1.0  ) * Tabij["feoj"] * Tai["dp"] * Vijka["pokA"] * Rai["Ai"];
+
+  ( + 1.0  ) * Tabij["gejk"] * Tai["hi"] * Viabc["Ifhg"] * Rai["dI"];
+  ( - 1.0  ) * Tabij["gdjk"] * Tai["hi"] * Viabc["Ifhg"] * Rai["eI"];
+  ( - 1.0  ) * Tabij["gfjk"] * Tai["hi"] * Viabc["Iehg"] * Rai["dI"];
+  ( + 1.0  ) * Tabij["gfjk"] * Tai["hi"] * Viabc["Idhg"] * Rai["eI"];
+  ( + 1.0  ) * Tabij["gdjk"] * Tai["hi"] * Viabc["Iehg"] * Rai["fI"];
+  ( - 1.0  ) * Tabij["gejk"] * Tai["hi"] * Viabc["Idhg"] * Rai["fI"];
+  ( + 1.0  ) * Tabij["geki"] * Tai["hj"] * Viabc["Ifhg"] * Rai["dI"];
+  ( - 1.0  ) * Tabij["gdki"] * Tai["hj"] * Viabc["Ifhg"] * Rai["eI"];
+  ( - 1.0  ) * Tabij["gfki"] * Tai["hj"] * Viabc["Iehg"] * Rai["dI"];
+  ( + 1.0  ) * Tabij["gfki"] * Tai["hj"] * Viabc["Idhg"] * Rai["eI"];
+  ( + 1.0  ) * Tabij["gdki"] * Tai["hj"] * Viabc["Iehg"] * Rai["fI"];
+  ( - 1.0  ) * Tabij["geki"] * Tai["hj"] * Viabc["Idhg"] * Rai["fI"];
+  ( + 1.0  ) * Tabij["geij"] * Tai["hk"] * Viabc["Ifhg"] * Rai["dI"];
+  ( - 1.0  ) * Tabij["gdij"] * Tai["hk"] * Viabc["Ifhg"] * Rai["eI"];
+  ( - 1.0  ) * Tabij["gfij"] * Tai["hk"] * Viabc["Iehg"] * Rai["dI"];
+  ( + 1.0  ) * Tabij["gfij"] * Tai["hk"] * Viabc["Idhg"] * Rai["eI"];
+  ( + 1.0  ) * Tabij["gdij"] * Tai["hk"] * Viabc["Iehg"] * Rai["fI"];
+  ( - 1.0  ) * Tabij["geij"] * Tai["hk"] * Viabc["Idhg"] * Rai["fI"];
+
+  ( + 1.0  ) * Tabij["deoj"] * Tai["hi"] * Viabc["ofAh"] * Rai["Ak"];
+  ( - 1.0  ) * Tabij["dfoj"] * Tai["hi"] * Viabc["oeAh"] * Rai["Ak"];
+  ( - 1.0  ) * Tabij["feoj"] * Tai["hi"] * Viabc["odAh"] * Rai["Ak"];
+  ( - 1.0  ) * Tabij["deok"] * Tai["hi"] * Viabc["ofAh"] * Rai["Aj"];
+  ( + 1.0  ) * Tabij["dfok"] * Tai["hi"] * Viabc["oeAh"] * Rai["Aj"];
+  ( + 1.0  ) * Tabij["feok"] * Tai["hi"] * Viabc["odAh"] * Rai["Aj"];
+  ( - 1.0  ) * Tabij["deoi"] * Tai["hj"] * Viabc["ofAh"] * Rai["Ak"];
+  ( + 1.0  ) * Tabij["dfoi"] * Tai["hj"] * Viabc["oeAh"] * Rai["Ak"];
+  ( + 1.0  ) * Tabij["feoi"] * Tai["hj"] * Viabc["odAh"] * Rai["Ak"];
+  ( + 1.0  ) * Tabij["deoi"] * Tai["hk"] * Viabc["ofAh"] * Rai["Aj"];
+  ( - 1.0  ) * Tabij["dfoi"] * Tai["hk"] * Viabc["oeAh"] * Rai["Aj"];
+  ( - 1.0  ) * Tabij["feoi"] * Tai["hk"] * Viabc["odAh"] * Rai["Aj"];
+  ( + 1.0  ) * Tabij["deok"] * Tai["hj"] * Viabc["ofAh"] * Rai["Ai"];
+  ( - 1.0  ) * Tabij["dfok"] * Tai["hj"] * Viabc["oeAh"] * Rai["Ai"];
+  ( - 1.0  ) * Tabij["feok"] * Tai["hj"] * Viabc["odAh"] * Rai["Ai"];
+  ( - 1.0  ) * Tabij["deoj"] * Tai["hk"] * Viabc["ofAh"] * Rai["Ai"];
+  ( + 1.0  ) * Tabij["dfoj"] * Tai["hk"] * Viabc["oeAh"] * Rai["Ai"];
+  ( + 1.0  ) * Tabij["feoj"] * Tai["hk"] * Viabc["odAh"] * Rai["Ai"];
+
+  ( - 1.0  ) * Tabij["gdij"] * Tai["ep"] * Viabc["pfAg"] * Rai["Ak"];
+  ( + 1.0  ) * Tabij["geij"] * Tai["dp"] * Viabc["pfAg"] * Rai["Ak"];
+  ( + 1.0  ) * Tabij["gdij"] * Tai["fp"] * Viabc["peAg"] * Rai["Ak"];
+  ( - 1.0  ) * Tabij["geij"] * Tai["fp"] * Viabc["pdAg"] * Rai["Ak"];
+  ( - 1.0  ) * Tabij["gfij"] * Tai["dp"] * Viabc["peAg"] * Rai["Ak"];
+  ( + 1.0  ) * Tabij["gfij"] * Tai["ep"] * Viabc["pdAg"] * Rai["Ak"];
+  ( + 1.0  ) * Tabij["gdik"] * Tai["ep"] * Viabc["pfAg"] * Rai["Aj"];
+  ( - 1.0  ) * Tabij["geik"] * Tai["dp"] * Viabc["pfAg"] * Rai["Aj"];
+  ( - 1.0  ) * Tabij["gdik"] * Tai["fp"] * Viabc["peAg"] * Rai["Aj"];
+  ( + 1.0  ) * Tabij["geik"] * Tai["fp"] * Viabc["pdAg"] * Rai["Aj"];
+  ( + 1.0  ) * Tabij["gfik"] * Tai["dp"] * Viabc["peAg"] * Rai["Aj"];
+  ( - 1.0  ) * Tabij["gfik"] * Tai["ep"] * Viabc["pdAg"] * Rai["Aj"];
+  ( + 1.0  ) * Tabij["gdkj"] * Tai["ep"] * Viabc["pfAg"] * Rai["Ai"];
+  ( - 1.0  ) * Tabij["gekj"] * Tai["dp"] * Viabc["pfAg"] * Rai["Ai"];
+  ( - 1.0  ) * Tabij["gdkj"] * Tai["fp"] * Viabc["peAg"] * Rai["Ai"];
+  ( + 1.0  ) * Tabij["gekj"] * Tai["fp"] * Viabc["pdAg"] * Rai["Ai"];
+  ( + 1.0  ) * Tabij["gfkj"] * Tai["dp"] * Viabc["peAg"] * Rai["Ai"];
+  ( - 1.0  ) * Tabij["gfkj"] * Tai["ep"] * Viabc["pdAg"] * Rai["Ai"];
+
+  ( - 0.5  ) * Tabij["gfjk"] * Tai["hi"] * Vijab["IJhg"] * Rabij["deJI"];
+  ( + 0.5  ) * Tabij["gejk"] * Tai["hi"] * Vijab["IJhg"] * Rabij["dfJI"];
+  ( + 0.5  ) * Tabij["gdjk"] * Tai["hi"] * Vijab["IJhg"] * Rabij["feJI"];
+  ( - 0.5  ) * Tabij["gfki"] * Tai["hj"] * Vijab["IJhg"] * Rabij["deJI"];
+  ( + 0.5  ) * Tabij["geki"] * Tai["hj"] * Vijab["IJhg"] * Rabij["dfJI"];
+  ( + 0.5  ) * Tabij["gdki"] * Tai["hj"] * Vijab["IJhg"] * Rabij["feJI"];
+  ( - 0.5  ) * Tabij["gfij"] * Tai["hk"] * Vijab["IJhg"] * Rabij["deJI"];
+  ( + 0.5  ) * Tabij["geij"] * Tai["hk"] * Vijab["IJhg"] * Rabij["dfJI"];
+  ( + 0.5  ) * Tabij["gdij"] * Tai["hk"] * Vijab["IJhg"] * Rabij["feJI"];
+
+  ( - 1.0  ) * Tabij["efoj"] * Tai["hi"] * Vijab["IoBh"] * Rabij["BdIk"];
+  ( - 1.0  ) * Tabij["fdoj"] * Tai["hi"] * Vijab["IoBh"] * Rabij["BeIk"];
+  ( - 1.0  ) * Tabij["deoj"] * Tai["hi"] * Vijab["IoBh"] * Rabij["BfIk"];
+  ( + 1.0  ) * Tabij["efok"] * Tai["hi"] * Vijab["IoBh"] * Rabij["BdIj"];
+  ( + 1.0  ) * Tabij["fdok"] * Tai["hi"] * Vijab["IoBh"] * Rabij["BeIj"];
+  ( + 1.0  ) * Tabij["deok"] * Tai["hi"] * Vijab["IoBh"] * Rabij["BfIj"];
+  ( + 1.0  ) * Tabij["efoi"] * Tai["hj"] * Vijab["IoBh"] * Rabij["BdIk"];
+  ( + 1.0  ) * Tabij["fdoi"] * Tai["hj"] * Vijab["IoBh"] * Rabij["BeIk"];
+  ( + 1.0  ) * Tabij["deoi"] * Tai["hj"] * Vijab["IoBh"] * Rabij["BfIk"];
+  ( - 1.0  ) * Tabij["efoi"] * Tai["hk"] * Vijab["IoBh"] * Rabij["BdIj"];
+  ( - 1.0  ) * Tabij["fdoi"] * Tai["hk"] * Vijab["IoBh"] * Rabij["BeIj"];
+  ( - 1.0  ) * Tabij["deoi"] * Tai["hk"] * Vijab["IoBh"] * Rabij["BfIj"];
+  ( - 1.0  ) * Tabij["efok"] * Tai["hj"] * Vijab["IoBh"] * Rabij["BdIi"];
+  ( - 1.0  ) * Tabij["fdok"] * Tai["hj"] * Vijab["IoBh"] * Rabij["BeIi"];
+  ( - 1.0  ) * Tabij["deok"] * Tai["hj"] * Vijab["IoBh"] * Rabij["BfIi"];
+  ( + 1.0  ) * Tabij["efoj"] * Tai["hk"] * Vijab["IoBh"] * Rabij["BdIi"];
+  ( + 1.0  ) * Tabij["fdoj"] * Tai["hk"] * Vijab["IoBh"] * Rabij["BeIi"];
+  ( + 1.0  ) * Tabij["deoj"] * Tai["hk"] * Vijab["IoBh"] * Rabij["BfIi"];
+
+  ( + 1.0  ) * Tabij["gfpj"] * Tai["Ai"] * Vijab["JpAg"] * Rabij["deJk"];
+  ( - 1.0  ) * Tabij["gepj"] * Tai["Ai"] * Vijab["JpAg"] * Rabij["dfJk"];
+  ( - 1.0  ) * Tabij["gdpj"] * Tai["Ai"] * Vijab["JpAg"] * Rabij["feJk"];
+  ( - 1.0  ) * Tabij["gfpk"] * Tai["Ai"] * Vijab["JpAg"] * Rabij["deJj"];
+  ( + 1.0  ) * Tabij["gepk"] * Tai["Ai"] * Vijab["JpAg"] * Rabij["dfJj"];
+  ( + 1.0  ) * Tabij["gdpk"] * Tai["Ai"] * Vijab["JpAg"] * Rabij["feJj"];
+  ( - 1.0  ) * Tabij["gfpi"] * Tai["Aj"] * Vijab["JpAg"] * Rabij["deJk"];
+  ( + 1.0  ) * Tabij["gepi"] * Tai["Aj"] * Vijab["JpAg"] * Rabij["dfJk"];
+  ( + 1.0  ) * Tabij["gdpi"] * Tai["Aj"] * Vijab["JpAg"] * Rabij["feJk"];
+  ( + 1.0  ) * Tabij["gfpi"] * Tai["Ak"] * Vijab["JpAg"] * Rabij["deJj"];
+  ( - 1.0  ) * Tabij["gepi"] * Tai["Ak"] * Vijab["JpAg"] * Rabij["dfJj"];
+  ( - 1.0  ) * Tabij["gdpi"] * Tai["Ak"] * Vijab["JpAg"] * Rabij["feJj"];
+  ( + 1.0  ) * Tabij["gfpk"] * Tai["Aj"] * Vijab["JpAg"] * Rabij["deJi"];
+  ( - 1.0  ) * Tabij["gepk"] * Tai["Aj"] * Vijab["JpAg"] * Rabij["dfJi"];
+  ( - 1.0  ) * Tabij["gdpk"] * Tai["Aj"] * Vijab["JpAg"] * Rabij["feJi"];
+  ( - 1.0  ) * Tabij["gfpj"] * Tai["Ak"] * Vijab["JpAg"] * Rabij["deJi"];
+  ( + 1.0  ) * Tabij["gepj"] * Tai["Ak"] * Vijab["JpAg"] * Rabij["dfJi"];
+  ( + 1.0  ) * Tabij["gdpj"] * Tai["Ak"] * Vijab["JpAg"] * Rabij["feJi"];
+
+  ( - 0.5  ) * Tabij["efop"] * Tai["Ai"] * Vijab["opBA"] * Rabij["Bdjk"];
+  ( - 0.5  ) * Tabij["fdop"] * Tai["Ai"] * Vijab["opBA"] * Rabij["Bejk"];
+  ( - 0.5  ) * Tabij["deop"] * Tai["Ai"] * Vijab["opBA"] * Rabij["Bfjk"];
+  ( + 0.5  ) * Tabij["efop"] * Tai["Aj"] * Vijab["opBA"] * Rabij["Bdik"];
+  ( + 0.5  ) * Tabij["fdop"] * Tai["Aj"] * Vijab["opBA"] * Rabij["Beik"];
+  ( + 0.5  ) * Tabij["deop"] * Tai["Aj"] * Vijab["opBA"] * Rabij["Bfik"];
+  ( + 0.5  ) * Tabij["efop"] * Tai["Ak"] * Vijab["opBA"] * Rabij["Bdji"];
+  ( + 0.5  ) * Tabij["fdop"] * Tai["Ak"] * Vijab["opBA"] * Rabij["Beji"];
+  ( + 0.5  ) * Tabij["deop"] * Tai["Ak"] * Vijab["opBA"] * Rabij["Bfji"];
+
+  ( + 1.0  ) * Tabij["geij"] * Tai["fp"] * Vijab["IpBg"] * Rabij["BdIk"];
+  ( - 1.0  ) * Tabij["gdij"] * Tai["fp"] * Vijab["IpBg"] * Rabij["BeIk"];
+  ( - 1.0  ) * Tabij["gfij"] * Tai["ep"] * Vijab["IpBg"] * Rabij["BdIk"];
+  ( + 1.0  ) * Tabij["gfij"] * Tai["dp"] * Vijab["IpBg"] * Rabij["BeIk"];
+  ( + 1.0  ) * Tabij["gdij"] * Tai["ep"] * Vijab["IpBg"] * Rabij["BfIk"];
+  ( - 1.0  ) * Tabij["geij"] * Tai["dp"] * Vijab["IpBg"] * Rabij["BfIk"];
+  ( - 1.0  ) * Tabij["geik"] * Tai["fp"] * Vijab["IpBg"] * Rabij["BdIj"];
+  ( + 1.0  ) * Tabij["gdik"] * Tai["fp"] * Vijab["IpBg"] * Rabij["BeIj"];
+  ( + 1.0  ) * Tabij["gfik"] * Tai["ep"] * Vijab["IpBg"] * Rabij["BdIj"];
+  ( - 1.0  ) * Tabij["gfik"] * Tai["dp"] * Vijab["IpBg"] * Rabij["BeIj"];
+  ( - 1.0  ) * Tabij["gdik"] * Tai["ep"] * Vijab["IpBg"] * Rabij["BfIj"];
+  ( + 1.0  ) * Tabij["geik"] * Tai["dp"] * Vijab["IpBg"] * Rabij["BfIj"];
+  ( - 1.0  ) * Tabij["gekj"] * Tai["fp"] * Vijab["IpBg"] * Rabij["BdIi"];
+  ( + 1.0  ) * Tabij["gdkj"] * Tai["fp"] * Vijab["IpBg"] * Rabij["BeIi"];
+  ( + 1.0  ) * Tabij["gfkj"] * Tai["ep"] * Vijab["IpBg"] * Rabij["BdIi"];
+  ( - 1.0  ) * Tabij["gfkj"] * Tai["dp"] * Vijab["IpBg"] * Rabij["BeIi"];
+  ( - 1.0  ) * Tabij["gdkj"] * Tai["ep"] * Vijab["IpBg"] * Rabij["BfIi"];
+  ( + 1.0  ) * Tabij["gekj"] * Tai["dp"] * Vijab["IpBg"] * Rabij["BfIi"];
+
+  ( - 0.5  ) * Tabij["ghij"] * Tai["fI"] * Vijab["JIgh"] * Rabij["deJk"];
+  ( + 0.5  ) * Tabij["ghij"] * Tai["eI"] * Vijab["JIgh"] * Rabij["dfJk"];
+  ( + 0.5  ) * Tabij["ghij"] * Tai["dI"] * Vijab["JIgh"] * Rabij["feJk"];
+  ( + 0.5  ) * Tabij["ghik"] * Tai["fI"] * Vijab["JIgh"] * Rabij["deJj"];
+  ( - 0.5  ) * Tabij["ghik"] * Tai["eI"] * Vijab["JIgh"] * Rabij["dfJj"];
+  ( - 0.5  ) * Tabij["ghik"] * Tai["dI"] * Vijab["JIgh"] * Rabij["feJj"];
+  ( + 0.5  ) * Tabij["ghkj"] * Tai["fI"] * Vijab["JIgh"] * Rabij["deJi"];
+  ( - 0.5  ) * Tabij["ghkj"] * Tai["eI"] * Vijab["JIgh"] * Rabij["dfJi"];
+  ( - 0.5  ) * Tabij["ghkj"] * Tai["dI"] * Vijab["JIgh"] * Rabij["feJi"];
+
+  ( - 1.0  ) * Tabij["gfij"] * Tai["hI"] * Vijab["JIhg"] * Rabij["deJk"];
+  ( + 1.0  ) * Tabij["geij"] * Tai["hI"] * Vijab["JIhg"] * Rabij["dfJk"];
+  ( + 1.0  ) * Tabij["gdij"] * Tai["hI"] * Vijab["JIhg"] * Rabij["feJk"];
+  ( + 1.0  ) * Tabij["gfik"] * Tai["hI"] * Vijab["JIhg"] * Rabij["deJj"];
+  ( - 1.0  ) * Tabij["geik"] * Tai["hI"] * Vijab["JIhg"] * Rabij["dfJj"];
+  ( - 1.0  ) * Tabij["gdik"] * Tai["hI"] * Vijab["JIhg"] * Rabij["feJj"];
+  ( + 1.0  ) * Tabij["gfkj"] * Tai["hI"] * Vijab["JIhg"] * Rabij["deJi"];
+  ( - 1.0  ) * Tabij["gekj"] * Tai["hI"] * Vijab["JIhg"] * Rabij["dfJi"];
+  ( - 1.0  ) * Tabij["gdkj"] * Tai["hI"] * Vijab["JIhg"] * Rabij["feJi"];
+
+  ( - 0.5  ) * Tabij["deoi"] * Tai["fp"] * Vijab["poAB"] * Rabij["BAjk"];
+  ( + 0.5  ) * Tabij["dfoi"] * Tai["ep"] * Vijab["poAB"] * Rabij["BAjk"];
+  ( + 0.5  ) * Tabij["feoi"] * Tai["dp"] * Vijab["poAB"] * Rabij["BAjk"];
+  ( + 0.5  ) * Tabij["deoj"] * Tai["fp"] * Vijab["poAB"] * Rabij["BAik"];
+  ( - 0.5  ) * Tabij["dfoj"] * Tai["ep"] * Vijab["poAB"] * Rabij["BAik"];
+  ( - 0.5  ) * Tabij["feoj"] * Tai["dp"] * Vijab["poAB"] * Rabij["BAik"];
+  ( + 0.5  ) * Tabij["deok"] * Tai["fp"] * Vijab["poAB"] * Rabij["BAji"];
+  ( - 0.5  ) * Tabij["dfok"] * Tai["ep"] * Vijab["poAB"] * Rabij["BAji"];
+  ( - 0.5  ) * Tabij["feok"] * Tai["dp"] * Vijab["poAB"] * Rabij["BAji"];
+
+  ( - 1.0  ) * Tabij["gepi"] * Tai["fI"] * Vijab["IpBg"] * Rabij["Bdjk"];
+  ( + 1.0  ) * Tabij["gdpi"] * Tai["fI"] * Vijab["IpBg"] * Rabij["Bejk"];
+  ( + 1.0  ) * Tabij["gfpi"] * Tai["eI"] * Vijab["IpBg"] * Rabij["Bdjk"];
+  ( - 1.0  ) * Tabij["gfpi"] * Tai["dI"] * Vijab["IpBg"] * Rabij["Bejk"];
+  ( - 1.0  ) * Tabij["gdpi"] * Tai["eI"] * Vijab["IpBg"] * Rabij["Bfjk"];
+  ( + 1.0  ) * Tabij["gepi"] * Tai["dI"] * Vijab["IpBg"] * Rabij["Bfjk"];
+  ( + 1.0  ) * Tabij["gepj"] * Tai["fI"] * Vijab["IpBg"] * Rabij["Bdik"];
+  ( - 1.0  ) * Tabij["gdpj"] * Tai["fI"] * Vijab["IpBg"] * Rabij["Beik"];
+  ( - 1.0  ) * Tabij["gfpj"] * Tai["eI"] * Vijab["IpBg"] * Rabij["Bdik"];
+  ( + 1.0  ) * Tabij["gfpj"] * Tai["dI"] * Vijab["IpBg"] * Rabij["Beik"];
+  ( + 1.0  ) * Tabij["gdpj"] * Tai["eI"] * Vijab["IpBg"] * Rabij["Bfik"];
+  ( - 1.0  ) * Tabij["gepj"] * Tai["dI"] * Vijab["IpBg"] * Rabij["Bfik"];
+  ( + 1.0  ) * Tabij["gepk"] * Tai["fI"] * Vijab["IpBg"] * Rabij["Bdji"];
+  ( - 1.0  ) * Tabij["gdpk"] * Tai["fI"] * Vijab["IpBg"] * Rabij["Beji"];
+  ( - 1.0  ) * Tabij["gfpk"] * Tai["eI"] * Vijab["IpBg"] * Rabij["Bdji"];
+  ( + 1.0  ) * Tabij["gfpk"] * Tai["dI"] * Vijab["IpBg"] * Rabij["Beji"];
+  ( + 1.0  ) * Tabij["gdpk"] * Tai["eI"] * Vijab["IpBg"] * Rabij["Bfji"];
+  ( - 1.0  ) * Tabij["gepk"] * Tai["dI"] * Vijab["IpBg"] * Rabij["Bfji"];
+
+  ( - 1.0  ) * Tabij["efoi"] * Tai["hI"] * Vijab["IoBh"] * Rabij["Bdjk"];
+  ( - 1.0  ) * Tabij["fdoi"] * Tai["hI"] * Vijab["IoBh"] * Rabij["Bejk"];
+  ( - 1.0  ) * Tabij["deoi"] * Tai["hI"] * Vijab["IoBh"] * Rabij["Bfjk"];
+  ( + 1.0  ) * Tabij["efoj"] * Tai["hI"] * Vijab["IoBh"] * Rabij["Bdik"];
+  ( + 1.0  ) * Tabij["fdoj"] * Tai["hI"] * Vijab["IoBh"] * Rabij["Beik"];
+  ( + 1.0  ) * Tabij["deoj"] * Tai["hI"] * Vijab["IoBh"] * Rabij["Bfik"];
+  ( + 1.0  ) * Tabij["efok"] * Tai["hI"] * Vijab["IoBh"] * Rabij["Bdji"];
+  ( + 1.0  ) * Tabij["fdok"] * Tai["hI"] * Vijab["IoBh"] * Rabij["Beji"];
+  ( + 1.0  ) * Tabij["deok"] * Tai["hI"] * Vijab["IoBh"] * Rabij["Bfji"];
+
+  ( - 1.0  ) * Tabcijk["defojk"] * Tai["hi"] * Vijab["IoBh"] * Rai["BI"];
+  ( - 1.0  ) * Tabcijk["defoki"] * Tai["hj"] * Vijab["IoBh"] * Rai["BI"];
+  ( - 1.0  ) * Tabcijk["defoij"] * Tai["hk"] * Vijab["IoBh"] * Rai["BI"];
+
+  ( - 1.0  ) * Tabcijk["gefpjk"] * Tai["Ai"] * Vijab["JpAg"] * Rai["dJ"];
+  ( - 1.0  ) * Tabcijk["gfdpjk"] * Tai["Ai"] * Vijab["JpAg"] * Rai["eJ"];
+  ( - 1.0  ) * Tabcijk["gdepjk"] * Tai["Ai"] * Vijab["JpAg"] * Rai["fJ"];
+  ( - 1.0  ) * Tabcijk["gefpki"] * Tai["Aj"] * Vijab["JpAg"] * Rai["dJ"];
+  ( - 1.0  ) * Tabcijk["gfdpki"] * Tai["Aj"] * Vijab["JpAg"] * Rai["eJ"];
+  ( - 1.0  ) * Tabcijk["gdepki"] * Tai["Aj"] * Vijab["JpAg"] * Rai["fJ"];
+  ( - 1.0  ) * Tabcijk["gefpij"] * Tai["Ak"] * Vijab["JpAg"] * Rai["dJ"];
+  ( - 1.0  ) * Tabcijk["gfdpij"] * Tai["Ak"] * Vijab["JpAg"] * Rai["eJ"];
+  ( - 1.0  ) * Tabcijk["gdepij"] * Tai["Ak"] * Vijab["JpAg"] * Rai["fJ"];
+
+  ( + 0.5  ) * Tabcijk["defopj"] * Tai["Ai"] * Vijab["opBA"] * Rai["Bk"];
+  ( - 0.5  ) * Tabcijk["defopk"] * Tai["Ai"] * Vijab["opBA"] * Rai["Bj"];
+  ( - 0.5  ) * Tabcijk["defopi"] * Tai["Aj"] * Vijab["opBA"] * Rai["Bk"];
+  ( + 0.5  ) * Tabcijk["defopi"] * Tai["Ak"] * Vijab["opBA"] * Rai["Bj"];
+  ( + 0.5  ) * Tabcijk["defopk"] * Tai["Aj"] * Vijab["opBA"] * Rai["Bi"];
+  ( - 0.5  ) * Tabcijk["defopj"] * Tai["Ak"] * Vijab["opBA"] * Rai["Bi"];
+
+  ( - 1.0  ) * Tabcijk["gdeijk"] * Tai["fp"] * Vijab["IpBg"] * Rai["BI"];
+  ( + 1.0  ) * Tabcijk["gdfijk"] * Tai["ep"] * Vijab["IpBg"] * Rai["BI"];
+  ( + 1.0  ) * Tabcijk["gfeijk"] * Tai["dp"] * Vijab["IpBg"] * Rai["BI"];
+
+  ( - 0.5  ) * Tabcijk["gheijk"] * Tai["fI"] * Vijab["JIgh"] * Rai["dJ"];
+  ( + 0.5  ) * Tabcijk["ghdijk"] * Tai["fI"] * Vijab["JIgh"] * Rai["eJ"];
+  ( + 0.5  ) * Tabcijk["ghfijk"] * Tai["eI"] * Vijab["JIgh"] * Rai["dJ"];
+  ( - 0.5  ) * Tabcijk["ghfijk"] * Tai["dI"] * Vijab["JIgh"] * Rai["eJ"];
+  ( - 0.5  ) * Tabcijk["ghdijk"] * Tai["eI"] * Vijab["JIgh"] * Rai["fJ"];
+  ( + 0.5  ) * Tabcijk["gheijk"] * Tai["dI"] * Vijab["JIgh"] * Rai["fJ"];
+
+  ( + 1.0  ) * Tabcijk["gefijk"] * Tai["hI"] * Vijab["JIhg"] * Rai["dJ"];
+  ( + 1.0  ) * Tabcijk["gfdijk"] * Tai["hI"] * Vijab["JIhg"] * Rai["eJ"];
+  ( + 1.0  ) * Tabcijk["gdeijk"] * Tai["hI"] * Vijab["JIhg"] * Rai["fJ"];
+
+  ( - 1.0  ) * Tabcijk["gdepij"] * Tai["fI"] * Vijab["IpBg"] * Rai["Bk"];
+  ( + 1.0  ) * Tabcijk["gdfpij"] * Tai["eI"] * Vijab["IpBg"] * Rai["Bk"];
+  ( + 1.0  ) * Tabcijk["gfepij"] * Tai["dI"] * Vijab["IpBg"] * Rai["Bk"];
+  ( + 1.0  ) * Tabcijk["gdepik"] * Tai["fI"] * Vijab["IpBg"] * Rai["Bj"];
+  ( - 1.0  ) * Tabcijk["gdfpik"] * Tai["eI"] * Vijab["IpBg"] * Rai["Bj"];
+  ( - 1.0  ) * Tabcijk["gfepik"] * Tai["dI"] * Vijab["IpBg"] * Rai["Bj"];
+  ( + 1.0  ) * Tabcijk["gdepkj"] * Tai["fI"] * Vijab["IpBg"] * Rai["Bi"];
+  ( - 1.0  ) * Tabcijk["gdfpkj"] * Tai["eI"] * Vijab["IpBg"] * Rai["Bi"];
+  ( - 1.0  ) * Tabcijk["gfepkj"] * Tai["dI"] * Vijab["IpBg"] * Rai["Bi"];
+
+  ( + 1.0  ) * Tabcijk["defoij"] * Tai["hI"] * Vijab["IoBh"] * Rai["Bk"];
+  ( - 1.0  ) * Tabcijk["defoik"] * Tai["hI"] * Vijab["IoBh"] * Rai["Bj"];
+  ( - 1.0  ) * Tabcijk["defokj"] * Tai["hI"] * Vijab["IoBh"] * Rai["Bi"];
+
+  ( + 1.0  ) * Tabij["deok"] * Tabij["hfij"] * Vijab["IoBh"] * Rai["BI"];
+  ( - 1.0  ) * Tabij["dfok"] * Tabij["heij"] * Vijab["IoBh"] * Rai["BI"];
+  ( - 1.0  ) * Tabij["feok"] * Tabij["hdij"] * Vijab["IoBh"] * Rai["BI"];
+  ( - 1.0  ) * Tabij["deoj"] * Tabij["hfik"] * Vijab["IoBh"] * Rai["BI"];
+  ( + 1.0  ) * Tabij["dfoj"] * Tabij["heik"] * Vijab["IoBh"] * Rai["BI"];
+  ( + 1.0  ) * Tabij["feoj"] * Tabij["hdik"] * Vijab["IoBh"] * Rai["BI"];
+  ( + 1.0  ) * Tabij["feoi"] * Tabij["hdkj"] * Vijab["IoBh"] * Rai["BI"];
+  ( + 1.0  ) * Tabij["dfoi"] * Tabij["hekj"] * Vijab["IoBh"] * Rai["BI"];
+  ( - 1.0  ) * Tabij["deoi"] * Tabij["hfkj"] * Vijab["IoBh"] * Rai["BI"];
+
+  ( - 1.0  ) * Tabij["gfij"] * Tabij["heIk"] * Vijab["JIhg"] * Rai["dJ"];
+  ( + 1.0  ) * Tabij["gfij"] * Tabij["hdIk"] * Vijab["JIhg"] * Rai["eJ"];
+  ( + 1.0  ) * Tabij["geij"] * Tabij["hfIk"] * Vijab["JIhg"] * Rai["dJ"];
+  ( - 1.0  ) * Tabij["gdij"] * Tabij["hfIk"] * Vijab["JIhg"] * Rai["eJ"];
+  ( - 1.0  ) * Tabij["geij"] * Tabij["hdIk"] * Vijab["JIhg"] * Rai["fJ"];
+  ( + 1.0  ) * Tabij["gdij"] * Tabij["heIk"] * Vijab["JIhg"] * Rai["fJ"];
+  ( + 1.0  ) * Tabij["gfik"] * Tabij["heIj"] * Vijab["JIhg"] * Rai["dJ"];
+  ( - 1.0  ) * Tabij["gfik"] * Tabij["hdIj"] * Vijab["JIhg"] * Rai["eJ"];
+  ( - 1.0  ) * Tabij["geik"] * Tabij["hfIj"] * Vijab["JIhg"] * Rai["dJ"];
+  ( + 1.0  ) * Tabij["gdik"] * Tabij["hfIj"] * Vijab["JIhg"] * Rai["eJ"];
+  ( + 1.0  ) * Tabij["geik"] * Tabij["hdIj"] * Vijab["JIhg"] * Rai["fJ"];
+  ( - 1.0  ) * Tabij["gdik"] * Tabij["heIj"] * Vijab["JIhg"] * Rai["fJ"];
+  ( - 1.0  ) * Tabij["gekj"] * Tabij["hfIi"] * Vijab["JIhg"] * Rai["dJ"];
+  ( + 1.0  ) * Tabij["gdkj"] * Tabij["hfIi"] * Vijab["JIhg"] * Rai["eJ"];
+  ( + 1.0  ) * Tabij["gfkj"] * Tabij["heIi"] * Vijab["JIhg"] * Rai["dJ"];
+  ( - 1.0  ) * Tabij["gfkj"] * Tabij["hdIi"] * Vijab["JIhg"] * Rai["eJ"];
+  ( - 1.0  ) * Tabij["gdkj"] * Tabij["heIi"] * Vijab["JIhg"] * Rai["fJ"];
+  ( + 1.0  ) * Tabij["gekj"] * Tabij["hdIi"] * Vijab["JIhg"] * Rai["fJ"];
+
+  ( + 0.5  ) * Tabij["efok"] * Tabij["hAij"] * Vijab["JohA"] * Rai["dJ"];
+  ( + 0.5  ) * Tabij["fdok"] * Tabij["hAij"] * Vijab["JohA"] * Rai["eJ"];
+  ( + 0.5  ) * Tabij["deok"] * Tabij["hAij"] * Vijab["JohA"] * Rai["fJ"];
+  ( - 0.5  ) * Tabij["efoj"] * Tabij["hAik"] * Vijab["JohA"] * Rai["dJ"];
+  ( - 0.5  ) * Tabij["fdoj"] * Tabij["hAik"] * Vijab["JohA"] * Rai["eJ"];
+  ( - 0.5  ) * Tabij["deoj"] * Tabij["hAik"] * Vijab["JohA"] * Rai["fJ"];
+  ( - 0.5  ) * Tabij["efoi"] * Tabij["hAkj"] * Vijab["JohA"] * Rai["dJ"];
+  ( - 0.5  ) * Tabij["fdoi"] * Tabij["hAkj"] * Vijab["JohA"] * Rai["eJ"];
+  ( - 0.5  ) * Tabij["deoi"] * Tabij["hAkj"] * Vijab["JohA"] * Rai["fJ"];
+
+  ( + 0.5  ) * Tabij["gfij"] * Tabij["depI"] * Vijab["pIBg"] * Rai["Bk"];
+  ( - 0.5  ) * Tabij["geij"] * Tabij["dfpI"] * Vijab["pIBg"] * Rai["Bk"];
+  ( - 0.5  ) * Tabij["gdij"] * Tabij["fepI"] * Vijab["pIBg"] * Rai["Bk"];
+  ( - 0.5  ) * Tabij["gfik"] * Tabij["depI"] * Vijab["pIBg"] * Rai["Bj"];
+  ( + 0.5  ) * Tabij["geik"] * Tabij["dfpI"] * Vijab["pIBg"] * Rai["Bj"];
+  ( + 0.5  ) * Tabij["gdik"] * Tabij["fepI"] * Vijab["pIBg"] * Rai["Bj"];
+  ( - 0.5  ) * Tabij["gfkj"] * Tabij["depI"] * Vijab["pIBg"] * Rai["Bi"];
+  ( + 0.5  ) * Tabij["gekj"] * Tabij["dfpI"] * Vijab["pIBg"] * Rai["Bi"];
+  ( + 0.5  ) * Tabij["gdkj"] * Tabij["fepI"] * Vijab["pIBg"] * Rai["Bi"];
+
+  ( + 1.0  ) * Tabij["efoi"] * Tabij["hdIj"] * Vijab["IoBh"] * Rai["Bk"];
+  ( + 1.0  ) * Tabij["fdoi"] * Tabij["heIj"] * Vijab["IoBh"] * Rai["Bk"];
+  ( - 1.0  ) * Tabij["deoj"] * Tabij["hfIi"] * Vijab["IoBh"] * Rai["Bk"];
+  ( + 1.0  ) * Tabij["deoi"] * Tabij["hfIj"] * Vijab["IoBh"] * Rai["Bk"];
+  ( - 1.0  ) * Tabij["fdoj"] * Tabij["heIi"] * Vijab["IoBh"] * Rai["Bk"];
+  ( - 1.0  ) * Tabij["efoj"] * Tabij["hdIi"] * Vijab["IoBh"] * Rai["Bk"];
+  ( - 1.0  ) * Tabij["efoi"] * Tabij["hdIk"] * Vijab["IoBh"] * Rai["Bj"];
+  ( - 1.0  ) * Tabij["fdoi"] * Tabij["heIk"] * Vijab["IoBh"] * Rai["Bj"];
+  ( + 1.0  ) * Tabij["deok"] * Tabij["hfIi"] * Vijab["IoBh"] * Rai["Bj"];
+  ( - 1.0  ) * Tabij["deoi"] * Tabij["hfIk"] * Vijab["IoBh"] * Rai["Bj"];
+  ( + 1.0  ) * Tabij["fdok"] * Tabij["heIi"] * Vijab["IoBh"] * Rai["Bj"];
+  ( + 1.0  ) * Tabij["efok"] * Tabij["hdIi"] * Vijab["IoBh"] * Rai["Bj"];
+  ( + 1.0  ) * Tabij["efoj"] * Tabij["hdIk"] * Vijab["IoBh"] * Rai["Bi"];
+  ( + 1.0  ) * Tabij["fdoj"] * Tabij["heIk"] * Vijab["IoBh"] * Rai["Bi"];
+  ( - 1.0  ) * Tabij["deok"] * Tabij["hfIj"] * Vijab["IoBh"] * Rai["Bi"];
+  ( + 1.0  ) * Tabij["deoj"] * Tabij["hfIk"] * Vijab["IoBh"] * Rai["Bi"];
+  ( - 1.0  ) * Tabij["fdok"] * Tabij["heIj"] * Vijab["IoBh"] * Rai["Bi"];
+  ( - 1.0  ) * Tabij["efok"] * Tabij["hdIj"] * Vijab["IoBh"] * Rai["Bi"];
+
+  ( + 0.5  ) * Tai["fo"] * Tai["hi"] * Tai["Aj"] * Vijab["JoAh"] * Rabij["deJk"];
+  ( - 0.5  ) * Tai["fo"] * Tai["hj"] * Tai["Ai"] * Vijab["JoAh"] * Rabij["deJk"];
+  ( - 0.5  ) * Tai["eo"] * Tai["hi"] * Tai["Aj"] * Vijab["JoAh"] * Rabij["dfJk"];
+  ( + 0.5  ) * Tai["eo"] * Tai["hj"] * Tai["Ai"] * Vijab["JoAh"] * Rabij["dfJk"];
+  ( - 0.5  ) * Tai["do"] * Tai["hi"] * Tai["Aj"] * Vijab["JoAh"] * Rabij["feJk"];
+  ( + 0.5  ) * Tai["do"] * Tai["hj"] * Tai["Ai"] * Vijab["JoAh"] * Rabij["feJk"];
+  ( - 0.5  ) * Tai["fo"] * Tai["hi"] * Tai["Ak"] * Vijab["JoAh"] * Rabij["deJj"];
+  ( + 0.5  ) * Tai["fo"] * Tai["hk"] * Tai["Ai"] * Vijab["JoAh"] * Rabij["deJj"];
+  ( + 0.5  ) * Tai["eo"] * Tai["hi"] * Tai["Ak"] * Vijab["JoAh"] * Rabij["dfJj"];
+  ( - 0.5  ) * Tai["eo"] * Tai["hk"] * Tai["Ai"] * Vijab["JoAh"] * Rabij["dfJj"];
+  ( + 0.5  ) * Tai["do"] * Tai["hi"] * Tai["Ak"] * Vijab["JoAh"] * Rabij["feJj"];
+  ( - 0.5  ) * Tai["do"] * Tai["hk"] * Tai["Ai"] * Vijab["JoAh"] * Rabij["feJj"];
+  ( + 0.5  ) * Tai["fo"] * Tai["hj"] * Tai["Ak"] * Vijab["JoAh"] * Rabij["deJi"];
+  ( - 0.5  ) * Tai["fo"] * Tai["hk"] * Tai["Aj"] * Vijab["JoAh"] * Rabij["deJi"];
+  ( - 0.5  ) * Tai["eo"] * Tai["hj"] * Tai["Ak"] * Vijab["JoAh"] * Rabij["dfJi"];
+  ( + 0.5  ) * Tai["eo"] * Tai["hk"] * Tai["Aj"] * Vijab["JoAh"] * Rabij["dfJi"];
+  ( - 0.5  ) * Tai["do"] * Tai["hj"] * Tai["Ak"] * Vijab["JoAh"] * Rabij["feJi"];
+  ( + 0.5  ) * Tai["do"] * Tai["hk"] * Tai["Aj"] * Vijab["JoAh"] * Rabij["feJi"];
+
+  ( - 0.5  ) * Tai["fo"] * Tai["ep"] * Tai["Ai"] * Vijab["poBA"] * Rabij["Bdjk"];
+  ( + 0.5  ) * Tai["eo"] * Tai["fp"] * Tai["Ai"] * Vijab["poBA"] * Rabij["Bdjk"];
+  ( + 0.5  ) * Tai["fo"] * Tai["dp"] * Tai["Ai"] * Vijab["poBA"] * Rabij["Bejk"];
+  ( - 0.5  ) * Tai["do"] * Tai["fp"] * Tai["Ai"] * Vijab["poBA"] * Rabij["Bejk"];
+  ( - 0.5  ) * Tai["eo"] * Tai["dp"] * Tai["Ai"] * Vijab["poBA"] * Rabij["Bfjk"];
+  ( + 0.5  ) * Tai["do"] * Tai["ep"] * Tai["Ai"] * Vijab["poBA"] * Rabij["Bfjk"];
+  ( + 0.5  ) * Tai["fo"] * Tai["ep"] * Tai["Aj"] * Vijab["poBA"] * Rabij["Bdik"];
+  ( - 0.5  ) * Tai["eo"] * Tai["fp"] * Tai["Aj"] * Vijab["poBA"] * Rabij["Bdik"];
+  ( - 0.5  ) * Tai["fo"] * Tai["dp"] * Tai["Aj"] * Vijab["poBA"] * Rabij["Beik"];
+  ( + 0.5  ) * Tai["do"] * Tai["fp"] * Tai["Aj"] * Vijab["poBA"] * Rabij["Beik"];
+  ( + 0.5  ) * Tai["eo"] * Tai["dp"] * Tai["Aj"] * Vijab["poBA"] * Rabij["Bfik"];
+  ( - 0.5  ) * Tai["do"] * Tai["ep"] * Tai["Aj"] * Vijab["poBA"] * Rabij["Bfik"];
+  ( + 0.5  ) * Tai["fo"] * Tai["ep"] * Tai["Ak"] * Vijab["poBA"] * Rabij["Bdji"];
+  ( - 0.5  ) * Tai["eo"] * Tai["fp"] * Tai["Ak"] * Vijab["poBA"] * Rabij["Bdji"];
+  ( - 0.5  ) * Tai["fo"] * Tai["dp"] * Tai["Ak"] * Vijab["poBA"] * Rabij["Beji"];
+  ( + 0.5  ) * Tai["do"] * Tai["fp"] * Tai["Ak"] * Vijab["poBA"] * Rabij["Beji"];
+  ( + 0.5  ) * Tai["eo"] * Tai["dp"] * Tai["Ak"] * Vijab["poBA"] * Rabij["Bfji"];
+  ( - 0.5  ) * Tai["do"] * Tai["ep"] * Tai["Ak"] * Vijab["poBA"] * Rabij["Bfji"];
+
+  ( - 0.5  ) * Tai["gi"] * Tai["hj"] * Tabij["efIk"] * Vijab["JIhg"] * Rai["dJ"];
+  ( + 0.5  ) * Tai["gj"] * Tai["hi"] * Tabij["efIk"] * Vijab["JIhg"] * Rai["dJ"];
+  ( - 0.5  ) * Tai["gi"] * Tai["hj"] * Tabij["fdIk"] * Vijab["JIhg"] * Rai["eJ"];
+  ( + 0.5  ) * Tai["gj"] * Tai["hi"] * Tabij["fdIk"] * Vijab["JIhg"] * Rai["eJ"];
+  ( - 0.5  ) * Tai["gi"] * Tai["hj"] * Tabij["deIk"] * Vijab["JIhg"] * Rai["fJ"];
+  ( + 0.5  ) * Tai["gj"] * Tai["hi"] * Tabij["deIk"] * Vijab["JIhg"] * Rai["fJ"];
+  ( + 0.5  ) * Tai["gi"] * Tai["hk"] * Tabij["efIj"] * Vijab["JIhg"] * Rai["dJ"];
+  ( - 0.5  ) * Tai["gk"] * Tai["hi"] * Tabij["efIj"] * Vijab["JIhg"] * Rai["dJ"];
+  ( + 0.5  ) * Tai["gi"] * Tai["hk"] * Tabij["fdIj"] * Vijab["JIhg"] * Rai["eJ"];
+  ( - 0.5  ) * Tai["gk"] * Tai["hi"] * Tabij["fdIj"] * Vijab["JIhg"] * Rai["eJ"];
+  ( + 0.5  ) * Tai["gi"] * Tai["hk"] * Tabij["deIj"] * Vijab["JIhg"] * Rai["fJ"];
+  ( - 0.5  ) * Tai["gk"] * Tai["hi"] * Tabij["deIj"] * Vijab["JIhg"] * Rai["fJ"];
+  ( - 0.5  ) * Tai["gj"] * Tai["hk"] * Tabij["efIi"] * Vijab["JIhg"] * Rai["dJ"];
+  ( + 0.5  ) * Tai["gk"] * Tai["hj"] * Tabij["efIi"] * Vijab["JIhg"] * Rai["dJ"];
+  ( - 0.5  ) * Tai["gj"] * Tai["hk"] * Tabij["fdIi"] * Vijab["JIhg"] * Rai["eJ"];
+  ( + 0.5  ) * Tai["gk"] * Tai["hj"] * Tabij["fdIi"] * Vijab["JIhg"] * Rai["eJ"];
+  ( - 0.5  ) * Tai["gj"] * Tai["hk"] * Tabij["deIi"] * Vijab["JIhg"] * Rai["fJ"];
+  ( + 0.5  ) * Tai["gk"] * Tai["hj"] * Tabij["deIi"] * Vijab["JIhg"] * Rai["fJ"];
+
+  ( + 1.0  ) * Tai["fo"] * Tai["hi"] * Tabij["Aejk"] * Vijab["JoAh"] * Rai["dJ"];
+  ( - 1.0  ) * Tai["fo"] * Tai["hi"] * Tabij["Adjk"] * Vijab["JoAh"] * Rai["eJ"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hi"] * Tabij["Afjk"] * Vijab["JoAh"] * Rai["dJ"];
+  ( + 1.0  ) * Tai["do"] * Tai["hi"] * Tabij["Afjk"] * Vijab["JoAh"] * Rai["eJ"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hi"] * Tabij["Adjk"] * Vijab["JoAh"] * Rai["fJ"];
+  ( - 1.0  ) * Tai["do"] * Tai["hi"] * Tabij["Aejk"] * Vijab["JoAh"] * Rai["fJ"];
+  ( - 1.0  ) * Tai["fo"] * Tai["hj"] * Tabij["Aeik"] * Vijab["JoAh"] * Rai["dJ"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hj"] * Tabij["Adik"] * Vijab["JoAh"] * Rai["eJ"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hj"] * Tabij["Afik"] * Vijab["JoAh"] * Rai["dJ"];
+  ( - 1.0  ) * Tai["do"] * Tai["hj"] * Tabij["Afik"] * Vijab["JoAh"] * Rai["eJ"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hj"] * Tabij["Adik"] * Vijab["JoAh"] * Rai["fJ"];
+  ( + 1.0  ) * Tai["do"] * Tai["hj"] * Tabij["Aeik"] * Vijab["JoAh"] * Rai["fJ"];
+  ( - 1.0  ) * Tai["fo"] * Tai["hk"] * Tabij["Aeji"] * Vijab["JoAh"] * Rai["dJ"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hk"] * Tabij["Adji"] * Vijab["JoAh"] * Rai["eJ"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hk"] * Tabij["Afji"] * Vijab["JoAh"] * Rai["dJ"];
+  ( - 1.0  ) * Tai["do"] * Tai["hk"] * Tabij["Afji"] * Vijab["JoAh"] * Rai["eJ"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hk"] * Tabij["Adji"] * Vijab["JoAh"] * Rai["fJ"];
+  ( + 1.0  ) * Tai["do"] * Tai["hk"] * Tabij["Aeji"] * Vijab["JoAh"] * Rai["fJ"];
+
+  ( - 1.0  ) * Tai["fo"] * Tai["hi"] * Tabij["deIj"] * Vijab["IoBh"] * Rai["Bk"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hi"] * Tabij["dfIj"] * Vijab["IoBh"] * Rai["Bk"];
+  ( + 1.0  ) * Tai["do"] * Tai["hi"] * Tabij["feIj"] * Vijab["IoBh"] * Rai["Bk"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hi"] * Tabij["deIk"] * Vijab["IoBh"] * Rai["Bj"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hi"] * Tabij["dfIk"] * Vijab["IoBh"] * Rai["Bj"];
+  ( - 1.0  ) * Tai["do"] * Tai["hi"] * Tabij["feIk"] * Vijab["IoBh"] * Rai["Bj"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hj"] * Tabij["deIi"] * Vijab["IoBh"] * Rai["Bk"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hj"] * Tabij["dfIi"] * Vijab["IoBh"] * Rai["Bk"];
+  ( - 1.0  ) * Tai["do"] * Tai["hj"] * Tabij["feIi"] * Vijab["IoBh"] * Rai["Bk"];
+  ( - 1.0  ) * Tai["fo"] * Tai["hk"] * Tabij["deIi"] * Vijab["IoBh"] * Rai["Bj"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hk"] * Tabij["dfIi"] * Vijab["IoBh"] * Rai["Bj"];
+  ( + 1.0  ) * Tai["do"] * Tai["hk"] * Tabij["feIi"] * Vijab["IoBh"] * Rai["Bj"];
+  ( - 1.0  ) * Tai["fo"] * Tai["hj"] * Tabij["deIk"] * Vijab["IoBh"] * Rai["Bi"];
+  ( + 1.0  ) * Tai["eo"] * Tai["hj"] * Tabij["dfIk"] * Vijab["IoBh"] * Rai["Bi"];
+  ( + 1.0  ) * Tai["do"] * Tai["hj"] * Tabij["feIk"] * Vijab["IoBh"] * Rai["Bi"];
+  ( + 1.0  ) * Tai["fo"] * Tai["hk"] * Tabij["deIj"] * Vijab["IoBh"] * Rai["Bi"];
+  ( - 1.0  ) * Tai["eo"] * Tai["hk"] * Tabij["dfIj"] * Vijab["IoBh"] * Rai["Bi"];
+  ( - 1.0  ) * Tai["do"] * Tai["hk"] * Tabij["feIj"] * Vijab["IoBh"] * Rai["Bi"];
+
+  ( + 0.5  ) * Tai["fo"] * Tai["ep"] * Tabij["Adij"] * Vijab["poBA"] * Rai["Bk"];
+  ( - 0.5  ) * Tai["eo"] * Tai["fp"] * Tabij["Adij"] * Vijab["poBA"] * Rai["Bk"];
+  ( - 0.5  ) * Tai["fo"] * Tai["dp"] * Tabij["Aeij"] * Vijab["poBA"] * Rai["Bk"];
+  ( + 0.5  ) * Tai["do"] * Tai["fp"] * Tabij["Aeij"] * Vijab["poBA"] * Rai["Bk"];
+  ( + 0.5  ) * Tai["eo"] * Tai["dp"] * Tabij["Afij"] * Vijab["poBA"] * Rai["Bk"];
+  ( - 0.5  ) * Tai["do"] * Tai["ep"] * Tabij["Afij"] * Vijab["poBA"] * Rai["Bk"];
+  ( - 0.5  ) * Tai["fo"] * Tai["ep"] * Tabij["Adik"] * Vijab["poBA"] * Rai["Bj"];
+  ( + 0.5  ) * Tai["eo"] * Tai["fp"] * Tabij["Adik"] * Vijab["poBA"] * Rai["Bj"];
+  ( + 0.5  ) * Tai["fo"] * Tai["dp"] * Tabij["Aeik"] * Vijab["poBA"] * Rai["Bj"];
+  ( - 0.5  ) * Tai["do"] * Tai["fp"] * Tabij["Aeik"] * Vijab["poBA"] * Rai["Bj"];
+  ( - 0.5  ) * Tai["eo"] * Tai["dp"] * Tabij["Afik"] * Vijab["poBA"] * Rai["Bj"];
+  ( + 0.5  ) * Tai["do"] * Tai["ep"] * Tabij["Afik"] * Vijab["poBA"] * Rai["Bj"];
+  ( - 0.5  ) * Tai["fo"] * Tai["ep"] * Tabij["Adkj"] * Vijab["poBA"] * Rai["Bi"];
+  ( + 0.5  ) * Tai["eo"] * Tai["fp"] * Tabij["Adkj"] * Vijab["poBA"] * Rai["Bi"];
+  ( + 0.5  ) * Tai["fo"] * Tai["dp"] * Tabij["Aekj"] * Vijab["poBA"] * Rai["Bi"];
+  ( - 0.5  ) * Tai["do"] * Tai["fp"] * Tabij["Aekj"] * Vijab["poBA"] * Rai["Bi"];
+  ( - 0.5  ) * Tai["eo"] * Tai["dp"] * Tabij["Afkj"] * Vijab["poBA"] * Rai["Bi"];
+  ( + 0.5  ) * Tai["do"] * Tai["ep"] * Tabij["Afkj"] * Vijab["poBA"] * Rai["Bi"];
+
+}
 
 // instantiate
 template
