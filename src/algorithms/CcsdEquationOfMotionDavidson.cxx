@@ -265,11 +265,13 @@ void CcsdEquationOfMotionDavidson::run() {
 
   bool intermediates(getIntegerArgument("intermediates", 1));
   CcsdSimilarityTransformedHamiltonian<F> H(
-    &Tai, &Tabij, Fij, Fab, Fia,
+    Fij, Fab, Fia,
     Vabcd, Viajb, Vijab, Vijkl, Vijka, Viabc, Viajk, Vabic,
     Vaibc, Vaibj, Viabj, Vijak, Vaijb, Vabci, NULL,
     intermediates
   );
+  H.setTai(&Tai);
+  H.setTabij(&Tabij);
 
   unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
   unsigned int minIterations(getIntegerArgument("minIterations", 1));

@@ -36,8 +36,6 @@ CcsdSimilarityTransformedHamiltonian<F>::~CcsdSimilarityTransformedHamiltonian()
 
 template <typename F>
 CcsdSimilarityTransformedHamiltonian<F>::CcsdSimilarityTransformedHamiltonian(
-  CTF::Tensor<F> *Tai_,
-  CTF::Tensor<F> *Tabij_,
   CTF::Tensor<F> *Fij_,
   CTF::Tensor<F> *Fab_,
   CTF::Tensor<F> *Fia_,
@@ -59,8 +57,6 @@ CcsdSimilarityTransformedHamiltonian<F>::CcsdSimilarityTransformedHamiltonian(
   bool withIntermediates_,
   CcsdSimilarityTransformedHamiltonian::Dressing dressing_
 ):
-  Tai(Tai_),
-  Tabij(Tabij_),
   Fij(Fij_),
   Fab(Fab_),
   Fia(Fia_),

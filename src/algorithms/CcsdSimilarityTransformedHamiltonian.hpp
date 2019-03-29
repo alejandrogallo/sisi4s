@@ -25,8 +25,6 @@ namespace cc4s {
     };
 
     CcsdSimilarityTransformedHamiltonian(
-      CTF::Tensor<F> *Tai_,
-      CTF::Tensor<F> *Tabij_,
       CTF::Tensor<F> *Fij_,
       CTF::Tensor<F> *Fab_,
       CTF::Tensor<F> *Fia_,
@@ -49,7 +47,11 @@ namespace cc4s {
       Dressing dressing_ = Dressing(CCSD)
     );
     virtual ~CcsdSimilarityTransformedHamiltonian();
-    virtual void run();
+
+    // dressing tensor setters
+    void setTai(CTF::Tensor<F> *Tai_) { Tai = Tai_; }
+    void setTabij(CTF::Tensor<F> *Tabij_) { Tabij = Tabij_; }
+    void setTabcijk(CTF::Tensor<F> *Tabcijk_) { Tabcijk = Tabcijk_; }
 
     // ccsd fok vectors
     CcsdFockVector<F> rightApplyIntermediates(CcsdFockVector<F> &v);
