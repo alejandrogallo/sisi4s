@@ -1045,7 +1045,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getIJKL() {
 }
 
 template <typename F>
-CcsdFockVector<F> CcsdSimilarityTransformedHamiltonian<F>::leftApply(
+CcsdFockVector<F> CcsdSimilarityTransformedHamiltonian<F>::leftApplyHirata(
   CcsdFockVector<F> &L
 ) {
   CcsdFockVector<F> LH(L);

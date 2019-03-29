@@ -53,7 +53,8 @@ namespace cc4s {
     CcsdFockVector<F> rightApplyIntermediates(CcsdFockVector<F> &v);
     CcsdFockVector<F> rightApplyHirata(CcsdFockVector<F> &v);
     CcsdFockVector<F> rightApply(CcsdFockVector<F> &v);
-    CcsdFockVector<F> leftApply(CcsdFockVector<F> &v);
+
+    CcsdFockVector<F> leftApplyHirata(CcsdFockVector<F> &v);
 
     // One body
     PTR(CTF::Tensor<F>) getIJ();
