@@ -1,5 +1,5 @@
 #include <algorithms/CcsdEquationOfMotionDavidson.hpp>
-#include <algorithms/CcsdSimilarityTransformedHamiltonian.hpp>
+#include <algorithms/SimilarityTransformedHamiltonian.hpp>
 #include <algorithms/CcsdPreconditioner.hpp>
 
 #include <math/EigenSystemDavidson.hpp>
@@ -285,7 +285,7 @@ void CcsdEquationOfMotionDavidson::run() {
     Tabij
   );
 
-  CcsdSimilarityTransformedHamiltonian<F> H(
+  SimilarityTransformedHamiltonian<F> H(
     Fij, Fab, Fia,
     Vabcd, Viajb, Vijab, Vijkl, Vijka, Viabc, Viajk, Vabic,
     Vaibc, Vaibj, Viabj, Vijak, Vaijb, Vabci, NULL,
@@ -313,7 +313,7 @@ void CcsdEquationOfMotionDavidson::run() {
   );
 
   EigenSystemDavidsonMono<
-    CcsdSimilarityTransformedHamiltonian<F>,
+    SimilarityTransformedHamiltonian<F>,
     CcsdPreconditioner<F>,
     CcsdFockVector<F>
   > eigenSystem(

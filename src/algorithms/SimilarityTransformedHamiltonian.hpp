@@ -1,5 +1,5 @@
-#ifndef CCSD_SIM_TRANS_DEFINED
-#define CCSD_SIM_TRANS_DEFINED
+#ifndef SIM_TRANS_HAMILTONIAN_DEFINED
+#define SIM_TRANS_HAMILTONIAN_DEFINED
 
 #include <algorithms/Algorithm.hpp>
 #include <math/FockVector.hpp>
@@ -9,7 +9,7 @@
 namespace cc4s {
 
   template <typename F=complex>
-  class CcsdSimilarityTransformedHamiltonian {
+  class SimilarityTransformedHamiltonian {
   public:
 
     /*! \enum Dressing
@@ -24,7 +24,7 @@ namespace cc4s {
       GENERAL,
     };
 
-    CcsdSimilarityTransformedHamiltonian(
+    SimilarityTransformedHamiltonian(
       CTF::Tensor<F> *Fij_,
       CTF::Tensor<F> *Fab_,
       CTF::Tensor<F> *Fia_,
@@ -46,7 +46,7 @@ namespace cc4s {
       bool withIntermediates_ = true,
       Dressing dressing_ = Dressing(CCSD)
     );
-    virtual ~CcsdSimilarityTransformedHamiltonian();
+    virtual ~SimilarityTransformedHamiltonian();
 
     // dressing tensor setters
     void setTai(CTF::Tensor<F> *Tai_) { Tai = Tai_; }
