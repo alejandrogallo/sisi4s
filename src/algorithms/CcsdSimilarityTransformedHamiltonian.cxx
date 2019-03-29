@@ -1147,16 +1147,18 @@ CcsdtFockVector<F> CcsdSimilarityTransformedHamiltonian<F>::rightApplyHirata(
   PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
   PTR(CTF::Tensor<F>) HRabcijk( HR.get(2) );
 
-  CcsdFockVector<F> CcsdR(
-      std::vector<PTR(CTF::Tensor<F>)>({Rai, Rabij}),
-      std::vector<std::string>({"ai", "abij"})
-  );
+  { // keep CcsdR only in this scope
+    CcsdFockVector<F> CcsdR(
+        std::vector<PTR(CTF::Tensor<F>)>({Rai, Rabij}),
+        std::vector<std::string>({"ai", "abij"})
+    );
 
-  CcsdFockVector<F> HCssdR(rightApply(CcsdR));
+    CcsdFockVector<F> HCssdR(rightApply(CcsdR));
 
-  (*HRai)["ai"] = (*HCssdR.get(0))["ai"];
-  (*HRabij)["abij"] = (*HCssdR.get(1))["abij"];
-  (*HRabcijk)["abcijk"] = (*HCssdR.get(2))["abcijk"];
+    (*HRai)["ai"] = (*HCssdR.get(0))["ai"];
+    (*HRabij)["abij"] = (*HCssdR.get(1))["abij"];
+    (*HRabcijk)["abcijk"] = (*HCssdR.get(2))["abcijk"];
+  }
 
   //: BEGIN SINGLES
   (*HRai)["bi"] += ( + 0.25  ) * (*Vijab)["klef"] * (*Rabcijk)["feblki"];
