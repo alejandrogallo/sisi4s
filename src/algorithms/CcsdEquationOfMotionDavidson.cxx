@@ -56,14 +56,27 @@ void CcsdEquationOfMotionDavidson::run() {
   bool printEigenvectorsDoubles(
     getIntegerArgument("printEigenvectorsDoubles", 1) == 1
   );
+  CTF::Tensor<double> *epsi(
+    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies")
+  );
+  CTF::Tensor<double> *epsa(
+    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
+  );
+  int Nv(epsa->lens[0]), No(epsi->lens[0]);
+  int  maxBasisSize(getIntegerArgument(
+    "maxBasisSize", No*Nv + (No*(No - 1)/2 ) * (Nv * (Nv - 1)/2)
+  ));
+  std::vector<int> refreshIterations(
+    RangeParser(getTextArgument("refreshIterations", "")).getRange()
+  );
 
   // Logging arguments
   LOG(0, "CcsdEomDavid") << "Max iterations " << maxIterations << std::endl;
   LOG(0, "CcsdEomDavid") << "ediff " << ediff << std::endl;
   LOG(0, "CcsdEomDavid") << eigenStates << " eigen states" << std::endl;
-  std::vector<int> refreshIterations(
-    RangeParser(getTextArgument("refreshIterations", "")).getRange()
-  );
+  LOG(0, "CcsdEomDavid") << "No: " << No << std::endl;
+  LOG(0, "CcsdEomDavid") << "Nv: " << Nv << std::endl;
+  LOG(0, "CcsdEomDavid") << "maxBasisSize: " << maxBasisSize << std::endl;
 
 
   // Get copy of couloumb integrals
@@ -210,12 +223,6 @@ void CcsdEquationOfMotionDavidson::run() {
   //CTF::Tensor<> *Vabij(
       //getTensorArgument<double, CTF::Tensor<>>("PPHHCoulombIntegrals"));
 
-  // Get orbital energies
-  CTF::Tensor<double> *epsi(
-      getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies"));
-  CTF::Tensor<double> *epsa(
-      getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies"));
-  int Nv(epsa->lens[0]), No(epsi->lens[0]);
 
   // HF terms
   int vv[] = {Nv, Nv};
@@ -294,7 +301,6 @@ void CcsdEquationOfMotionDavidson::run() {
   H.setTai(&Tai);
   H.setTabij(&Tabij);
 
-
   CcsdPreconditioner<F> P(
     Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl
   );
@@ -321,10 +327,7 @@ void CcsdEquationOfMotionDavidson::run() {
     eigenStates,
     &P,
     ediff,
-    getIntegerArgument(
-      "maxBasisSize",
-      No*Nv + (No*(No - 1)/2 ) * (Nv * (Nv - 1)/2)
-    ),
+    maxBasisSize,
     maxIterations,
     minIterations
   );
