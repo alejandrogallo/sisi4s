@@ -232,8 +232,6 @@ void CcsdEquationOfMotionDavidson::run() {
   } else {
     LOG(0, "CcsdEomDavid") << "Using canonical orbitals" << std::endl;
     Fia = NULL;
-    //(*Fab)["aa"] = (*epsa)["a"];
-    //(*Fij)["ii"] = (*epsi)["i"];
     CTF::Transform<double, F>(
       std::function<void(double, F &)>(
         [](double eps, F &f) { f = eps; }
@@ -254,29 +252,16 @@ void CcsdEquationOfMotionDavidson::run() {
   int syms4[] = {NS, NS, NS, NS};
   int vo[] = {Nv,No};
   int vvoo[] = {Nv,Nv,No,No};
-  // We initialize the T amplitudes here so that it is not necessary
-  // to do a ccsd calculation before to do the CISD calculation.
   CTF::Tensor<F> Tai(2, vo, syms2, *Cc4s::world, "Tai");
   CTF::Tensor<F> Tabij(4, vvoo, syms4, *Cc4s::world, "Tabij");
-  if (getIntegerArgument("CISD", 0) == 1) {
-    LOG(0, "CcsdEomDavid") << "Calculating CISD" << std::endl;
-    Tai["ai"] = 0.0;
-    Tabij["abij"] = 0.0;
-  } else {
-    // Get the Uccsd amplitudes from the input file
-    toComplexTensor(
-      (*getTensorArgument<double, CTF::Tensor<double> >("SinglesAmplitudes")),
-      Tai
-    );
-    toComplexTensor(
-      (*getTensorArgument<double, CTF::Tensor<double> >("DoublesAmplitudes")),
-      Tabij
-    );
-    //Tai["ai"] =
-    //(*getTensorArgument<F, CTF::Tensor<F> >("SinglesAmplitudes"))["ai"];
-    //Tabij["abij"] =
-    //(*getTensorArgument<F, CTF::Tensor<F> >("DoublesAmplitudes"))["abij"];
-  }
+  toComplexTensor(
+    (*getTensorArgument<double, CTF::Tensor<double> >("SinglesAmplitudes")),
+    Tai
+  );
+  toComplexTensor(
+    (*getTensorArgument<double, CTF::Tensor<double> >("DoublesAmplitudes")),
+    Tabij
+  );
 
   bool intermediates(getIntegerArgument("intermediates", 1));
   CcsdSimilarityTransformedHamiltonian<F> H(
