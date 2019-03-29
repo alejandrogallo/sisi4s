@@ -94,14 +94,26 @@ CcsdSimilarityTransformedHamiltonian<F>::CcsdSimilarityTransformedHamiltonian(
   No = Fij->lens[0];
   Nv = Fab->lens[0];
 
-  Tau_abij = NEW(CTF::Tensor<F>, *Tabij);
-  (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
-  (*Tau_abij)["abij"] += ( - 1.0 ) * (*Tai)["bi"] * (*Tai)["aj"];
 
 }
 
 template <typename F>
-void CcsdSimilarityTransformedHamiltonian<F>::run() {
+PTR(CTF::Tensor<F>) CcsdSimilarityTransformedHamiltonian<F>::getTauABIJ() {
+
+  if (Tau_abij) {
+    return Tau_abij;
+  }
+
+  LOG(0, "CcsdSimilarityTransformedH")
+  << "Building Tau_abij from Tai and Tabij"
+  << std::endl;
+
+  Tau_abij = NEW(CTF::Tensor<F>, *Tabij);
+  (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
+  (*Tau_abij)["abij"] += ( - 1.0 ) * (*Tai)["bi"] * (*Tai)["aj"];
+
+  return Tau_abij;
+
 }
 
 template <typename F>
@@ -580,6 +592,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getIJ() {
     (*Wij)["ij"] += (*Wia)["ie"] * (*Tai)["ej"];
     (*Wij)["ij"] += (  0.5) * (*Vijab)["imef"] * (*Tabij)["efjm"];
   } else {
+    Tau_abij = getTauABIJ();
     // This is the first row in diagram 10.55 in [1]
     LOG(0, "CcsdSimilarityTransformedH") << "Building Wij" << std::endl;
     (*Wij)["ij"]  = (*Fij)["ij"];
@@ -609,6 +622,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getAB() {
     (*Wab)["ab"] += ( -1.0) * (*Wia)["mb"] * (*Tai)["am"];
     (*Wab)["ab"] += (- 0.5) * (*Vijab)["mnbe"] * (*Tabij)["aemn"];
   } else {
+    Tau_abij = getTauABIJ();
     //diagram (10.54) first line in [1]
     LOG(0, "CcsdSimilarityTransformedH") << "Building Wab" << std::endl;
     (*Wab)["ab"]  = (*Fab)["ab"];
@@ -840,6 +854,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getABCD() {
   if (Wabcd) return Wabcd;
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wabcd" << std::endl;
 
+  Tau_abij = getTauABIJ();
   Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
   // diagram 10.69 in [1]
 
@@ -865,6 +880,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getABCI() {
   if (wabciIntermediates) {
     LOG(0, "CcsdSimilarityTransformedH") << "Building Wabci from Wabcd and Wia"
                                          << std::endl;
+    Tau_abij = getTauABIJ();
     Wabcd = getABCD();
     Wia = getIA();
     //--1
@@ -966,6 +982,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getIAJK() {
   Wiajk = NEW(CTF::Tensor<F>, *Viajk);
   Wia = getIA();
   Wijkl = getIJKL();
+  Tau_abij = getTauABIJ();
 
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wiajk from Wia and Wijkl" << std::endl;
   //This is built upon the already existing amplitudes
@@ -1031,6 +1048,7 @@ CcsdSimilarityTransformedHamiltonian<F>::getIJKL() {
   LOG(0, "CcsdSimilarityTransformedH") << "Building Wijkl" << std::endl;
 
   Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
+  Tau_abij = getTauABIJ();
 
   // diagram 10.70 in [1]
   //Taken directly from [2]

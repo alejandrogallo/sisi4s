@@ -81,6 +81,8 @@ namespace cc4s {
     // three body
     PTR(CTF::Tensor<F>) getABCIJK();
 
+    PTR(CTF::Tensor<F>) getTauABIJ();
+
   private:
 
     // one body
@@ -91,8 +93,9 @@ namespace cc4s {
     // three body
     PTR(CTF::Tensor<F>) Wabcijk;
 
-    CTF::Tensor<F> *Tai, *Tabij, *Tabcijk;
     PTR(CTF::Tensor<F>)  Tau_abij;
+
+    CTF::Tensor<F> *Tai, *Tabij, *Tabcijk;
     CTF::Tensor<F> *Fij, *Fab, *Fia;
     CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
