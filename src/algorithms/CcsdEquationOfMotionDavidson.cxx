@@ -44,7 +44,22 @@ void CcsdEquationOfMotionDavidson::run() {
 template <typename F>
 void CcsdEquationOfMotionDavidson::run() {
 
+  int syms2[] = {NS, NS};
+  int syms4[] = {NS, NS, NS, NS};
+
   // Arguments
+  bool preconditionerRandom(
+    getIntegerArgument("preconditionerRandom", 0) == 1
+  );
+  double preconditionerRandomSigma(getRealArgument(
+    "preconditionerRandomSigma", 0.1
+  ));
+  bool refreshOnMaxBasisSize(
+    getIntegerArgument("refreshOnMaxBasisSize", 0) == 1
+  );
+  std::vector<int> oneBodyRdmIndices(
+    RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange()
+  );
   int eigenStates(getIntegerArgument("eigenstates", 1));
   double ediff(getRealArgument("ediff", 1e-4));
   bool intermediates(getIntegerArgument("intermediates", 1));
@@ -69,6 +84,12 @@ void CcsdEquationOfMotionDavidson::run() {
   std::vector<int> refreshIterations(
     RangeParser(getTextArgument("refreshIterations", "")).getRange()
   );
+
+  int vv[] = {Nv, Nv};
+  int ov[] = {No, Nv};
+  int vo[] = {Nv,No};
+  int oo[] = {No, No};
+  int vvoo[] = {Nv,Nv,No,No};
 
   // Logging arguments
   LOG(0, "CcsdEomDavid") << "Max iterations " << maxIterations << std::endl;
@@ -225,18 +246,14 @@ void CcsdEquationOfMotionDavidson::run() {
 
 
   // HF terms
-  int vv[] = {Nv, Nv};
-  int ov[] = {No, Nv};
-  int oo[] = {No, No};
-  int kineticSyms[] = {NS, NS};
   CTF::Tensor<F> *Fab(
-    new CTF::Tensor<F>(2, vv, kineticSyms, *Cc4s::world, "Fab")
+    new CTF::Tensor<F>(2, vv, syms2, *Cc4s::world, "Fab")
   );
   CTF::Tensor<F> *Fij(
-    new CTF::Tensor<F>(2, oo, kineticSyms, *Cc4s::world, "Fij")
+    new CTF::Tensor<F>(2, oo, syms2, *Cc4s::world, "Fij")
   );
   CTF::Tensor<F> *Fia(
-    new CTF::Tensor<F>(2, ov, kineticSyms, *Cc4s::world, "Fia")
+    new CTF::Tensor<F>(2, ov, syms2, *Cc4s::world, "Fia")
   );
 
   if (
@@ -277,10 +294,6 @@ void CcsdEquationOfMotionDavidson::run() {
     );
   }
 
-  int syms2[] = {NS, NS};
-  int syms4[] = {NS, NS, NS, NS};
-  int vo[] = {Nv,No};
-  int vvoo[] = {Nv,Nv,No,No};
   CTF::Tensor<F> Tai(2, vo, syms2, *Cc4s::world, "Tai");
   CTF::Tensor<F> Tabij(4, vvoo, syms4, *Cc4s::world, "Tabij");
   toComplexTensor(
@@ -304,11 +317,8 @@ void CcsdEquationOfMotionDavidson::run() {
   CcsdPreconditioner<F> P(
     Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl
   );
-  P.preconditionerRandom = getIntegerArgument("preconditionerRandom", 0) == 1;
-  P.preconditionerRandomSigma = getRealArgument(
-    "preconditionerRandomSigma", 0.1
-  );
-
+  P.preconditionerRandom = preconditionerRandom;
+  P.preconditionerRandomSigma = preconditionerRandomSigma;
   allocatedTensorArgument(
     "SinglesHamiltonianDiagonal",
     new CTF::Tensor<>(*P.getDiagonalH().get(0))
@@ -331,18 +341,13 @@ void CcsdEquationOfMotionDavidson::run() {
     maxIterations,
     minIterations
   );
-  eigenSystem.refreshOnMaxBasisSize(
-      getIntegerArgument("refreshOnMaxBasisSize", 0) == 1
-  );
+  eigenSystem.refreshOnMaxBasisSize( refreshOnMaxBasisSize);
   if (eigenSystem.refreshOnMaxBasisSize()) {
     LOG(0, "CcsdEomDavid") <<
       "Refreshing on max basis size reaching" << std::endl;
   }
   eigenSystem.run();
 
-  std::vector<int> oneBodyRdmIndices(
-    RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange()
-  );
 
   if (oneBodyRdmIndices.size() > 0) {
     LOG(0, "CcsdEomDavid") << "Calculating 1-RDM with left states "
