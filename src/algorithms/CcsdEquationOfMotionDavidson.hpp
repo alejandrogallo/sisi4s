@@ -1,5 +1,3 @@
-/*Copyright (c) 2017, Andreas Grueneis, Felix Hummel and Alejandro Gallo, all
- * rights reserved.*/
 #ifndef CCSD_EQUATION_OF_MOTION_DAVIDSON
 #define CCSD_EQUATION_OF_MOTION_DAVIDSON
 

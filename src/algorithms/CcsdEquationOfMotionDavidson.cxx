@@ -1,6 +1,7 @@
 #include <algorithms/CcsdEquationOfMotionDavidson.hpp>
 #include <algorithms/SimilarityTransformedHamiltonian.hpp>
 #include <algorithms/CcsdPreconditioner.hpp>
+#include <algorithms/OneBodyReducedDensityMatrix.hpp>
 
 #include <math/EigenSystemDavidson.hpp>
 #include <math/MathFunctions.hpp>
@@ -365,54 +366,23 @@ void CcsdEquationOfMotionDavidson::run() {
       const CcsdFockVector<F> LApprox(R->conjugateTranspose());
       const CcsdFockVector<F> *L(&LApprox);
 
-      Rhoia["ia"]  = 0;
-      // this is 0 because r0 is 0
-      //Rhoia["ia"] += (*L->get(0))["ia"];
-      Rhoia["ia"] += (*L->get(1))["oifa"] * (*R->get(0))["fo"];
-      // this is 0 because r0 is 0
-      //Rhoia["ia"] += (*L->get(1))["oifa"] * Tai["fo"];
-      //Rhoia.print(stdout);
+      EomOneBodyReducedDensityMatrix<F> Rho(&Tai, &Tabij, L, R);
 
       TensorIo::writeText<F>(
-        "Rhoia-" + std::to_string(index) + ".tensor", Rhoia, "ij", "", " "
+        "Rhoia-" + std::to_string(index) + ".tensor",
+        *Rho.getIA(), "ij", "", " "
       );
-
-      Rhoai["ai"]  = 0;
-      Rhoai["ai"] += (*L->get(0))["ke"] * (*R->get(1))["eaki"];
-
-      Rhoai["ai"] += (*L->get(0))["ke"] * (*R->get(0))["ak"] * Tai["ei"];
-      Rhoai["ai"] += (*L->get(0))["ke"] * (*R->get(0))["ei"] * Tai["ak"];
-
-      Rhoai["ai"] += (-0.5) * (*L->get(1))["kled"] * (*R->get(0))["di"] * Tabij["eakl"];
-      Rhoai["ai"] += (-0.5) * (*L->get(1))["kled"] * (*R->get(0))["al"] * Tabij["edki"];
-
-      Rhoai["ai"] += (-0.5) * (*L->get(1))["kled"] * Tai["di"] * (*R->get(1))["eakl"];
-      Rhoai["ai"] += (-0.5) * (*L->get(1))["kled"] * Tai["al"] * (*R->get(1))["edki"];
-
       TensorIo::writeText<F>(
-        "Rhoai-" + std::to_string(index) + ".tensor", Rhoai, "ij", "", " "
+        "Rhoai-" + std::to_string(index) + ".tensor",
+        *Rho.getAI(), "ij", "", " "
       );
-
-      Rhoij["ij"]  = 0;
-      Rhoij["ij"] += (*L->get(0))["je"] * (*R->get(0))["ei"];
-      Rhoij["ij"] += 0.5 * (*L->get(1))["kjed"] * (*R->get(1))["edki"];
-      Rhoij["ij"] += (*L->get(1))["kjed"] * (*R->get(0))["ek"] * Tai["di"];
-      // This is not in the paper
-      Rhoij["ij"] += (*L->get(1))["kjed"] * (*R->get(0))["di"] * Tai["ek"];
-
       TensorIo::writeText<F>(
-        "Rhoij-" + std::to_string(index) + ".tensor", Rhoij, "ij", "", " "
+        "Rhoab-" + std::to_string(index) + ".tensor",
+        *Rho.getAB(), "ij", "", " "
       );
-
-      Rhoab["ab"]  = 0;
-      Rhoab["ab"] += (-1.0) * (*L->get(0))["ka"] * (*R->get(0))["bk"];
-      Rhoab["ab"] += (-0.5) * (*L->get(1))["klea"] * (*R->get(1))["ebkl"];
-      Rhoab["ab"] += (-1.0) * (*L->get(1))["klea"] * (*R->get(0))["ek"] * Tai["bl"];
-      // This is not in the paper
-      Rhoab["ab"] += (-1.0) * (*L->get(1))["klea"] * (*R->get(0))["bl"] * Tai["ek"];
-
       TensorIo::writeText<F>(
-        "Rhoab-" + std::to_string(index) + ".tensor", Rhoab, "ij", "", " "
+        "Rhoij-" + std::to_string(index) + ".tensor",
+        *Rho.getAB(), "ij", "", " "
       );
 
     }
