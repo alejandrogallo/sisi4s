@@ -45,9 +45,6 @@ void CcsdEquationOfMotionDavidson::run() {
 template <typename F>
 void CcsdEquationOfMotionDavidson::run() {
 
-  int syms2[] = {NS, NS};
-  int syms4[] = {NS, NS, NS, NS};
-
   // Arguments
   bool preconditionerRandom(
     getIntegerArgument("preconditionerRandom", 0) == 1
@@ -78,14 +75,16 @@ void CcsdEquationOfMotionDavidson::run() {
   CTF::Tensor<double> *epsa(
     getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
   );
+  std::vector<int> refreshIterations(
+    RangeParser(getTextArgument("refreshIterations", "")).getRange()
+  );
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int  maxBasisSize(getIntegerArgument(
     "maxBasisSize", No*Nv + (No*(No - 1)/2 ) * (Nv * (Nv - 1)/2)
   ));
-  std::vector<int> refreshIterations(
-    RangeParser(getTextArgument("refreshIterations", "")).getRange()
-  );
 
+  int syms2[] = {NS, NS};
+  int syms4[] = {NS, NS, NS, NS};
   int vv[] = {Nv, Nv};
   int ov[] = {No, Nv};
   int vo[] = {Nv,No};
@@ -355,12 +354,6 @@ void CcsdEquationOfMotionDavidson::run() {
                            << " approximated by right" << std::endl;
     for (auto &index: oneBodyRdmIndices) {
       LOG(0, "CcsdEomDavid") << "Calculating 1-RDM for state " << index << std::endl;
-
-      int syms[] = {NS, NS};
-      CTF::Tensor<F> Rhoia(2, ov, syms, *Cc4s::world, "Rhoia");
-      CTF::Tensor<F> Rhoai(2, vo, syms, *Cc4s::world, "Rhoai");
-      CTF::Tensor<F> Rhoij(2, oo, syms, *Cc4s::world, "Rhoij");
-      CTF::Tensor<F> Rhoab(2, vv, syms, *Cc4s::world, "Rhoab");
 
       const CcsdFockVector<F> *R(&eigenSystem.getRightEigenVectors()[index-1]);
       const CcsdFockVector<F> LApprox(R->conjugateTranspose());
