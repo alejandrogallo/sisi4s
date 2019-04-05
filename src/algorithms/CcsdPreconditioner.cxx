@@ -268,6 +268,21 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
 }
 
 template <typename F>
+CcsdtFockVector<F>
+CcsdPreconditioner<F>::getCorrection(
+  const complex lambda, CcsdtFockVector<F> &residuum
+) {
+  // Cast ccsdt into ccsd
+  V w(residuum);
+  // apply the old getCorrection
+  // and cast again into a ccsdt vector
+  CcsdtFockVector<F> result(getCorrection(lambda, w));
+  // et voila
+  return result;
+
+}
+
+template <typename F>
 CcsdFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
   const complex lambda, CcsdFockVector<F> &residuum
