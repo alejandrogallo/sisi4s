@@ -559,10 +559,8 @@ namespace cc4s {
 
   template <typename F, int N, int StartDimension=0>
   class FockVectorNdCanonical: public FockVector<F> {
-
-    using FockVector<F>::FockVector;
-
   public:
+    using FockVector<F>::FockVector;
 
     /**
      * \brief Build a canonical vector from No and Nv.
@@ -575,10 +573,12 @@ namespace cc4s {
       const std::string hindices("ijklomn");
       for (unsigned int i(StartDimension); i <= N/2; i++) {
 
-        std::vector<unsigned int> syms(i, NS);
-        std::vector<unsigned int> dimso(i, No);
-        std::vector<unsigned int> dimsv(i, Nv);
-        std::vector<unsigned int> dims(dimsv);
+        // vec<int> and not unsigned int, otherwise you'll be miserable for at
+        // least two days.
+        std::vector<int> syms(i, NS);
+        std::vector<int> dimso(i, No);
+        std::vector<int> dimsv(i, Nv);
+        std::vector<int> dims(dimsv);
         dims.insert(dims.end(), dimso.begin(), dimso.end());
 
         this->componentIndices.push_back(

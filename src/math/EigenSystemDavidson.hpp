@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <utility>
 #include <algorithm>
+#include <memory>
 
 namespace cc4s {
   template <typename H, typename P, typename V>
@@ -124,7 +125,6 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
   public:
     typedef typename V::FieldType F;
 
-
     EigenSystemDavidsonMono(
       H *h_,
       const int eigenVectorsCount_,
@@ -149,7 +149,12 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
       );
       // get inital estimates for rEV = initial B matrix
       LOG(1,"Davidson") << "Initial basis retrieving" << std::endl;
-      this->rightEigenVectors = this->p->getInitialBasis(this->eigenVectorsCount);
+      {
+        std::vector<typename P::V> initialBasis(
+          this->p->getInitialBasis(this->eigenVectorsCount)
+        );
+        this->rightEigenVectors.assign(initialBasis.begin(), initialBasis.end());
+      }
       LOG(1,"Davidson") << "Initial basis retrieved" << std::endl;
       std::vector<V> rightBasis( this->rightEigenVectors );
       std::vector<V> leftEigenVectors( this->rightEigenVectors );
@@ -385,7 +390,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
 
 
           // compute correction using preconditioner
-          V correction( this->p->getCorrection(this->eigenValues[k], residuum) );
+          V correction = this->p->getCorrection(this->eigenValues[k], residuum);
 
           // orthonormalize and append to rightBasis
           for (unsigned int b(0); b < rightBasis.size(); ++b) {
