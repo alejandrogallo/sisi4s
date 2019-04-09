@@ -23,8 +23,15 @@ The equations in this file are taken from the following sources
 #include <Options.hpp>
 #include <Cc4s.hpp>
 #include <array>
-
 #include <initializer_list>
+
+#ifdef DEBUG
+#define ST_DEBUG(msg) \
+  LOG(1, "debug:STHam:") << __LINE__ << ":" << \
+  "\x1b[33m" << msg << "\x1b[0m" << std::endl;
+#else
+#define ST_DEBUG(msg)
+#endif
 
 using namespace CTF;
 using namespace cc4s;
@@ -96,7 +103,6 @@ SimilarityTransformedHamiltonian<F>::SimilarityTransformedHamiltonian(
   No = Fij->lens[0];
   Nv = Fab->lens[0];
 
-
 }
 
 template <typename F>
@@ -136,7 +142,7 @@ CcsdFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   PTR(CTF::Tensor<F>) HRai( HR.get(0) );
   PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
 
-  //checkAntisymmetry(*Rabij);
+  ST_DEBUG("rightApplyHirata Ccsd")
 
   // Contruct HR (one body part)
   // TODO: why "bi" not "ai"?
@@ -485,6 +491,8 @@ CcsdFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   PTR(CTF::Tensor<F>) HRai( HR.get(0) );
   PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
 
+  ST_DEBUG("rightApplyIntermediates Ccsd")
+
   Wia = getIA();
   Wij = getIJ();
   Wab = getAB();
@@ -496,8 +504,6 @@ CcsdFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   Wijka = getIJKA();
   Wijkl = getIJKL();
 
-  //checkAntisymmetry(*Rabij);
-
   (*HRai)["ai"]  = 0.0;
   (*HRai)["ai"] += (- 1.0) * (*Wij)["li"] * (*Rai)["al"];
   (*HRai)["ai"] += (*Wab)["ad"] * (*Rai)["di"];
@@ -507,6 +513,8 @@ CcsdFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
 
   (*HRai)["ai"] += ( - 0.5 ) * (*Wijka)["lmid"] * (*Rabij)["adlm"];
   (*HRai)["ai"] += (   0.5 ) * (*Waibc)["alde"] * (*Rabij)["deil"];
+
+  ST_DEBUG("singles done")
 
   //(*HRai)["ai"]  = 0.0; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   // 2 body part
@@ -574,6 +582,8 @@ CcsdFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   (*HRabij)["abij"] +=          (*Wabci)["abej"] * (*Rai)["ei"];
   //P(ij)
   (*HRabij)["abij"] += (-1.0) * (*Wabci)["abei"] * (*Rai)["ej"];
+
+  ST_DEBUG("doubles done")
 
   return HR;
 }
@@ -1161,8 +1171,12 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
     (*HRabij)["abij"] = (*HCssdR.get(1))["abij"];
   }
 
+  ST_DEBUG("rightApplyHirata Ccsdt")
+
   //: BEGIN SINGLES
   (*HRai)["bi"] += ( + 0.25  ) * (*Vijab)["klef"] * (*Rabcijk)["feblki"];
+
+  ST_DEBUG("singles done")
 
   //: BEGIN DOUBLES
   if (Fia) {
@@ -1181,7 +1195,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabij)["cdij"] += ( + 0.5  ) * (*Viabc)["mdfg"] * (*Rabcijk)["gfcmij"];
   (*HRabij)["cdij"] += ( - 0.5  ) * (*Viabc)["mcfg"] * (*Rabcijk)["gfdmij"];
 
-  if (dressing != Dressing(NONE)) {
+  if (dressing != NONE) {
 
     (*HRabij)["cdij"] += ( + 0.5  ) * (*Tai)["ei"] * (*Vijab)["nohe"] * (*Rabcijk)["hcdonj"];
     (*HRabij)["cdij"] += ( - 0.5  ) * (*Tai)["ej"] * (*Vijab)["nohe"] * (*Rabcijk)["hcdoni"];
@@ -1204,6 +1218,8 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
     } // Dressing(CCSD)
 
   } // Dressing(NONE)
+
+  ST_DEBUG("doubles done")
 
   //: BEGIN TRIPLES
   if (Fia && dressing != NONE) {
@@ -1247,6 +1263,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
     (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Fia)["oh"] * (*Tabij)["deok"] * (*Rabij)["hfji"];
   }
 
+  ST_DEBUG("Vhphh * R2")
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Viajk)["ofij"] * (*Rabij)["deok"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Viajk)["oeij"] * (*Rabij)["dfok"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Viajk)["odij"] * (*Rabij)["feok"];
@@ -1257,6 +1274,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Viajk)["oekj"] * (*Rabij)["dfoi"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Viajk)["odkj"] * (*Rabij)["feoi"];
 
+  ST_DEBUG("Vpphp * R2")
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Vabic)["efig"] * (*Rabij)["gdjk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Vabic)["fdig"] * (*Rabij)["gejk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Vabic)["deig"] * (*Rabij)["gfjk"];
@@ -1267,10 +1285,12 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Vabic)["fdkg"] * (*Rabij)["geji"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Vabic)["dekg"] * (*Rabij)["gfji"];
 
+  ST_DEBUG("Vhhhh * R3")
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Vijkl)["opij"] * (*Rabcijk)["defpok"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Vijkl)["opik"] * (*Rabcijk)["defpoj"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Vijkl)["opkj"] * (*Rabcijk)["defpoi"];
 
+  ST_DEBUG("Vhphp * R3")
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Viajb)["ofih"] * (*Rabcijk)["hdeojk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Viajb)["oeih"] * (*Rabcijk)["hdfojk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Viajb)["odih"] * (*Rabcijk)["hfeojk"];
@@ -1281,6 +1301,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Viajb)["oekh"] * (*Rabcijk)["hdfoji"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Viajb)["odkh"] * (*Rabcijk)["hfeoji"];
 
+  ST_DEBUG("Vpppp * R3")
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Vabcd)["efgh"] * (*Rabcijk)["hgdijk"];
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Vabcd)["fdgh"] * (*Rabcijk)["hgeijk"];
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Vabcd)["degh"] * (*Rabcijk)["hgfijk"];
@@ -1289,6 +1310,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
     return HR;
   }
 
+  ST_DEBUG("T1 * Vhhhh * R2")
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["fo"] * (*Vijkl)["poij"] * (*Rabij)["depk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["eo"] * (*Vijkl)["poij"] * (*Rabij)["dfpk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["do"] * (*Vijkl)["poij"] * (*Rabij)["fepk"];
@@ -1299,6 +1321,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["eo"] * (*Vijkl)["pokj"] * (*Rabij)["dfpi"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["do"] * (*Vijkl)["pokj"] * (*Rabij)["fepi"];
 
+  ST_DEBUG("T1 * Vhphp * R2")
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["gj"] * (*Viajb)["pfig"] * (*Rabij)["depk"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["gj"] * (*Viajb)["peig"] * (*Rabij)["dfpk"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["gj"] * (*Viajb)["pdig"] * (*Rabij)["fepk"];
@@ -1318,6 +1341,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["gj"] * (*Viajb)["pekg"] * (*Rabij)["dfpi"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["gj"] * (*Viajb)["pdkg"] * (*Rabij)["fepi"];
 
+  ST_DEBUG("T1 * Vhphp * R2")
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["eo"] * (*Viajb)["ofih"] * (*Rabij)["hdjk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["do"] * (*Viajb)["ofih"] * (*Rabij)["hejk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["fo"] * (*Viajb)["oeih"] * (*Rabij)["hdjk"];
@@ -1337,6 +1361,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["do"] * (*Viajb)["oekh"] * (*Rabij)["hfji"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["eo"] * (*Viajb)["odkh"] * (*Rabij)["hfji"];
 
+  ST_DEBUG("T1 * Vpppp * R2")
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["gi"] * (*Vabcd)["efhg"] * (*Rabij)["hdjk"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["gi"] * (*Vabcd)["fdhg"] * (*Rabij)["hejk"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["gi"] * (*Vabcd)["dehg"] * (*Rabij)["hfjk"];
@@ -1347,6 +1372,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["gk"] * (*Vabcd)["fdhg"] * (*Rabij)["heji"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["gk"] * (*Vabcd)["dehg"] * (*Rabij)["hfji"];
 
+  ST_DEBUG("T1 * Vhhhp * R3")
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tai)["gj"] * (*Vijka)["pIig"] * (*Rabcijk)["defIpk"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tai)["gk"] * (*Vijka)["pIig"] * (*Rabcijk)["defIpj"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tai)["gi"] * (*Vijka)["pIjg"] * (*Rabcijk)["defIpk"];
@@ -1368,6 +1394,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["gp"] * (*Vijka)["Ipjg"] * (*Rabcijk)["defIik"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["gp"] * (*Vijka)["Ipkg"] * (*Rabcijk)["defIji"];
 
+  ST_DEBUG("T1 * Vhppp * R3")
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["gi"] * (*Viabc)["pfAg"] * (*Rabcijk)["Adepjk"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["gi"] * (*Viabc)["peAg"] * (*Rabcijk)["Adfpjk"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["gi"] * (*Viabc)["pdAg"] * (*Rabcijk)["Afepjk"];
@@ -1389,6 +1416,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["gp"] * (*Viabc)["peAg"] * (*Rabcijk)["Adfijk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["gp"] * (*Viabc)["pdAg"] * (*Rabcijk)["Afeijk"];
 
+  ST_DEBUG("T2 * Vhhhh * R1")
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["efok"] * (*Vijkl)["poij"] * (*Rai)["dp"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["fdok"] * (*Vijkl)["poij"] * (*Rai)["ep"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["deok"] * (*Vijkl)["poij"] * (*Rai)["fp"];
@@ -1399,6 +1427,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["fdoi"] * (*Vijkl)["pokj"] * (*Rai)["ep"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["deoi"] * (*Vijkl)["pokj"] * (*Rai)["fp"];
 
+  ST_DEBUG("T2 * Vhphp * R1")
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gejk"] * (*Viajb)["pfig"] * (*Rai)["dp"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gdjk"] * (*Viajb)["pfig"] * (*Rai)["ep"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfjk"] * (*Viajb)["peig"] * (*Rai)["dp"];
@@ -1437,6 +1466,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["dfoj"] * (*Viajb)["oekh"] * (*Rai)["hi"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["feoj"] * (*Viajb)["odkh"] * (*Rai)["hi"];
 
+  ST_DEBUG("T2 * Vpppp * R1")
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gdij"] * (*Vabcd)["efhg"] * (*Rai)["hk"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["geij"] * (*Vabcd)["dfhg"] * (*Rai)["hk"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfij"] * (*Vabcd)["edhg"] * (*Rai)["hk"];
@@ -1447,6 +1477,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gekj"] * (*Vabcd)["dfhg"] * (*Rai)["hi"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gfkj"] * (*Vabcd)["edhg"] * (*Rai)["hi"];
 
+  ST_DEBUG("T2 * Vhhhp * R2")
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["gfjk"] * (*Vijka)["pIig"] * (*Rabij)["deIp"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["gejk"] * (*Vijka)["pIig"] * (*Rabij)["dfIp"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["gdjk"] * (*Vijka)["pIig"] * (*Rabij)["feIp"];
@@ -1505,6 +1536,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["fdop"] * (*Vijka)["opkA"] * (*Rabij)["Aeji"];
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["deop"] * (*Vijka)["opkA"] * (*Rabij)["Afji"];
 
+  ST_DEBUG("T2 * Vhppp * R2")
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["geij"] * (*Viabc)["pfAg"] * (*Rabij)["Adpk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gdij"] * (*Viabc)["pfAg"] * (*Rabij)["Aepk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gfij"] * (*Viabc)["peAg"] * (*Rabij)["Adpk"];
@@ -1563,6 +1595,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gdpk"] * (*Viabc)["peAg"] * (*Rabij)["Afji"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gepk"] * (*Viabc)["pdAg"] * (*Rabij)["Afji"];
 
+  ST_DEBUG("T2 * Vhhpp * R3")
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["gfij"] * (*Vijab)["pIBg"] * (*Rabcijk)["BdeIpk"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["geij"] * (*Vijab)["pIBg"] * (*Rabcijk)["BdfIpk"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["gdij"] * (*Vijab)["pIBg"] * (*Rabcijk)["BfeIpk"];
@@ -1609,6 +1642,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["gepI"] * (*Vijab)["pIBg"] * (*Rabcijk)["Bdfijk"];
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["gdpI"] * (*Vijab)["pIBg"] * (*Rabcijk)["Bfeijk"];
 
+  ST_DEBUG("T1 * T1 * Vhhhp * R2")
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["fo"] * (*Tai)["hj"] * (*Vijka)["Ioih"] * (*Rabij)["deIk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["eo"] * (*Tai)["hj"] * (*Vijka)["Ioih"] * (*Rabij)["dfIk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["do"] * (*Tai)["hj"] * (*Vijka)["Ioih"] * (*Rabij)["feIk"];
@@ -1647,6 +1681,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tai)["eo"] * (*Tai)["dp"] * (*Vijka)["pokA"] * (*Rabij)["Afji"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tai)["do"] * (*Tai)["ep"] * (*Vijka)["pokA"] * (*Rabij)["Afji"];
 
+  ST_DEBUG("T1 * T1 * Vhppp * R2")
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tai)["gi"] * (*Tai)["hj"] * (*Viabc)["Ifhg"] * (*Rabij)["deIk"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tai)["gj"] * (*Tai)["hi"] * (*Viabc)["Ifhg"] * (*Rabij)["deIk"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tai)["gi"] * (*Tai)["hj"] * (*Viabc)["Iehg"] * (*Rabij)["dfIk"];
@@ -1685,6 +1720,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["do"] * (*Tai)["hk"] * (*Viabc)["oeAh"] * (*Rabij)["Afji"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["eo"] * (*Tai)["hk"] * (*Viabc)["odAh"] * (*Rabij)["Afji"];
 
+  ST_DEBUG("T1 * T1 * Vhhpp * R3")
   (*HRabcijk)["defijk"] += ( + 0.25  ) * (*Tai)["gi"] * (*Tai)["hj"] * (*Vijab)["IJhg"] * (*Rabcijk)["defJIk"];
   (*HRabcijk)["defijk"] += ( - 0.25  ) * (*Tai)["gj"] * (*Tai)["hi"] * (*Vijab)["IJhg"] * (*Rabcijk)["defJIk"];
   (*HRabcijk)["defijk"] += ( - 0.25  ) * (*Tai)["gi"] * (*Tai)["hk"] * (*Vijab)["IJhg"] * (*Rabcijk)["defJIj"];
@@ -1717,6 +1753,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["eo"] * (*Tai)["hI"] * (*Vijab)["IoBh"] * (*Rabcijk)["Bdfijk"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["do"] * (*Tai)["hI"] * (*Vijab)["IoBh"] * (*Rabcijk)["Bfeijk"];
 
+  ST_DEBUG("T2 * T1 * Vhhhp * R1")
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["efok"] * (*Tai)["hj"] * (*Vijka)["Ioih"] * (*Rai)["dI"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["fdok"] * (*Tai)["hj"] * (*Vijka)["Ioih"] * (*Rai)["eI"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["deok"] * (*Tai)["hj"] * (*Vijka)["Ioih"] * (*Rai)["fI"];
@@ -1774,6 +1811,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["dfoj"] * (*Tai)["ep"] * (*Vijka)["pokA"] * (*Rai)["Ai"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["feoj"] * (*Tai)["dp"] * (*Vijka)["pokA"] * (*Rai)["Ai"];
 
+  ST_DEBUG("T2 * T1 * Vhppp * R1")
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gejk"] * (*Tai)["hi"] * (*Viabc)["Ifhg"] * (*Rai)["dI"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gdjk"] * (*Tai)["hi"] * (*Viabc)["Ifhg"] * (*Rai)["eI"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfjk"] * (*Tai)["hi"] * (*Viabc)["Iehg"] * (*Rai)["dI"];
@@ -1831,6 +1869,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gfkj"] * (*Tai)["dp"] * (*Viabc)["peAg"] * (*Rai)["Ai"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfkj"] * (*Tai)["ep"] * (*Viabc)["pdAg"] * (*Rai)["Ai"];
 
+  ST_DEBUG("T2 * T1 * Vhhpp * R2")
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["gfjk"] * (*Tai)["hi"] * (*Vijab)["IJhg"] * (*Rabij)["deJI"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["gejk"] * (*Tai)["hi"] * (*Vijab)["IJhg"] * (*Rabij)["dfJI"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["gdjk"] * (*Tai)["hi"] * (*Vijab)["IJhg"] * (*Rabij)["feJI"];
@@ -1967,6 +2006,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["fdok"] * (*Tai)["hI"] * (*Vijab)["IoBh"] * (*Rabij)["Beji"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["deok"] * (*Tai)["hI"] * (*Vijab)["IoBh"] * (*Rabij)["Bfji"];
 
+  ST_DEBUG("T2 * T2 * Vhhpp * R1")
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["deok"] * (*Tabij)["hfij"] * (*Vijab)["IoBh"] * (*Rai)["BI"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["dfok"] * (*Tabij)["heij"] * (*Vijab)["IoBh"] * (*Rai)["BI"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["feok"] * (*Tabij)["hdij"] * (*Vijab)["IoBh"] * (*Rai)["BI"];
@@ -2035,6 +2075,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["fdok"] * (*Tabij)["heIj"] * (*Vijab)["IoBh"] * (*Rai)["Bi"];
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["efok"] * (*Tabij)["hdIj"] * (*Vijab)["IoBh"] * (*Rai)["Bi"];
 
+  ST_DEBUG("T1 * T1 * T1 * Vhhpp * R2")
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tai)["fo"] * (*Tai)["hi"] * (*Tai)["Aj"] * (*Vijab)["JoAh"] * (*Rabij)["deJk"];
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tai)["fo"] * (*Tai)["hj"] * (*Tai)["Ai"] * (*Vijab)["JoAh"] * (*Rabij)["deJk"];
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tai)["eo"] * (*Tai)["hi"] * (*Tai)["Aj"] * (*Vijab)["JoAh"] * (*Rabij)["dfJk"];
@@ -2073,6 +2114,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tai)["eo"] * (*Tai)["dp"] * (*Tai)["Ak"] * (*Vijab)["poBA"] * (*Rabij)["Bfji"];
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tai)["do"] * (*Tai)["ep"] * (*Tai)["Ak"] * (*Vijab)["poBA"] * (*Rabij)["Bfji"];
 
+  ST_DEBUG("T1 * T1 * T2 * V * R1")
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tai)["gi"] * (*Tai)["hj"] * (*Tabij)["efIk"] * (*Vijab)["JIhg"] * (*Rai)["dJ"];
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tai)["gj"] * (*Tai)["hi"] * (*Tabij)["efIk"] * (*Vijab)["JIhg"] * (*Rai)["dJ"];
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Tai)["gi"] * (*Tai)["hj"] * (*Tabij)["fdIk"] * (*Vijab)["JIhg"] * (*Rai)["eJ"];
@@ -2150,6 +2192,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tai)["do"] * (*Tai)["ep"] * (*Tabij)["Afkj"] * (*Vijab)["poBA"] * (*Rai)["Bi"];
 
   if (dressing == CCSDT) {
+    ST_DEBUG("T3 * * V * R1")
     (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["defojk"] * (*Vijka)["poiA"] * (*Rai)["Ap"];
     (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["defoki"] * (*Vijka)["pojA"] * (*Rai)["Ap"];
     (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["defoij"] * (*Vijka)["pokA"] * (*Rai)["Ap"];
@@ -2192,6 +2235,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
     (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gdfpkj"] * (*Viabc)["peAg"] * (*Rai)["Ai"];
     (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gfepkj"] * (*Viabc)["pdAg"] * (*Rai)["Ai"];
 
+    ST_DEBUG("T3 * V * R2")
     (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["gefijk"] * (*Vijab)["pIBg"] * (*Rabij)["BdIp"];
     (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["gfdijk"] * (*Vijab)["pIBg"] * (*Rabij)["BeIp"];
     (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["gdeijk"] * (*Vijab)["pIBg"] * (*Rabij)["BfIp"];
@@ -2238,6 +2282,7 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
     (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["gfdpIk"] * (*Vijab)["pIBg"] * (*Rabij)["Beji"];
     (*HRabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["gdepIk"] * (*Vijab)["pIBg"] * (*Rabij)["Bfji"];
 
+    ST_DEBUG("T3 * T1 * V * R1")
     (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["defojk"] * (*Tai)["hi"] * (*Vijab)["IoBh"] * (*Rai)["BI"];
     (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["defoki"] * (*Tai)["hj"] * (*Vijab)["IoBh"] * (*Rai)["BI"];
     (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["defoij"] * (*Tai)["hk"] * (*Vijab)["IoBh"] * (*Rai)["BI"];
@@ -2288,6 +2333,8 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
     (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["defoik"] * (*Tai)["hI"] * (*Vijab)["IoBh"] * (*Rai)["Bj"];
     (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["defokj"] * (*Tai)["hI"] * (*Vijab)["IoBh"] * (*Rai)["Bi"];
   }
+
+  ST_DEBUG("triples done")
 
   return HR;
 

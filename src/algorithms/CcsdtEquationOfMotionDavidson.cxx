@@ -347,9 +347,10 @@ void CcsdtEquationOfMotionDavidson::run() {
   NEW_FILE("EomCcsdtEnergies.dat") << "";
   for (auto &ev: eigenValues) {
     eigenCounter++;
-    LOG(0, "CcsdtEomDavid") << eigenCounter << ". Eigenvalue=" << ev << std::endl;
-    FILE("EomCcsdtEnergies.dat") << eigenCounter <<
-      " " << ev.real() << " " << ev.imag() << std::endl;
+    LOG(0, "CcsdtEomDavid")
+      << eigenCounter << ". Eigenvalue=" << ev << std::endl;
+    FILE("EomCcsdtEnergies.dat") << eigenCounter
+      << " " << ev.real() << " " << ev.imag() << std::endl;
   }
 
 }
