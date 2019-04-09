@@ -21,6 +21,7 @@ namespace cc4s {
     enum Dressing {
       CCSD,
       CCSDT,
+      NONE,
       GENERAL,
     };
 

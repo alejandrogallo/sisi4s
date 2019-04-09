@@ -80,11 +80,17 @@ SimilarityTransformedHamiltonian<F>::SimilarityTransformedHamiltonian(
 {
 
   if (dressing == Dressing(CCSD)) {
-    LOG(0, "CcsdSimilarityTransformedH") <<
-      "Dressing is supposed to come from CCSD" << std::endl;
+    LOG(0, "SimilarityTransformedH")
+      << "Dressing comes from CCSD" << std::endl;
+  } else if (dressing == Dressing(CCSDT)) {
+    LOG(0, "SimilarityTransformedH")
+      << "Dressing comes from CCSDT" << std::endl;
+  } else if (dressing == Dressing(NONE)) {
+    LOG(0, "SimilarityTransformedH")
+      << "No Dressing" << std::endl;
   } else if (dressing == Dressing(GENERAL)) {
-    LOG(0, "CcsdSimilarityTransformedH") <<
-      "Dressing is general Wai and Wabij are not 0" << std::endl;
+    LOG(0, "SimilarityTransformedH")
+      << "Dressing is general Wai and Wabij are not 0" << std::endl;
   }
 
   No = Fij->lens[0];
@@ -100,7 +106,7 @@ PTR(CTF::Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
     return Tau_abij;
   }
 
-  LOG(0, "CcsdSimilarityTransformedH")
+  LOG(0, "SimilarityTransformedH")
   << "Building Tau_abij from Tai and Tabij"
   << std::endl;
 
@@ -581,7 +587,7 @@ SimilarityTransformedHamiltonian<F>::getIJ() {
 
   if (true) {
     // This is the second row in diagram 10.55 in [1]
-    LOG(0, "CcsdSimilarityTransformedH") << "Building Wij from Wia" << std::endl;
+    LOG(0, "SimilarityTransformedH") << "Building Wij from Wia" << std::endl;
     Wia = getIA();
     (*Wij)["ij"]  = (*Fij)["ij"];
     (*Wij)["ij"] += (*Vijka)["imje"] * (*Tai)["em"];
@@ -590,7 +596,7 @@ SimilarityTransformedHamiltonian<F>::getIJ() {
   } else {
     Tau_abij = getTauABIJ();
     // This is the first row in diagram 10.55 in [1]
-    LOG(0, "CcsdSimilarityTransformedH") << "Building Wij" << std::endl;
+    LOG(0, "SimilarityTransformedH") << "Building Wij" << std::endl;
     (*Wij)["ij"]  = (*Fij)["ij"];
     (*Wij)["ij"] += (*Vijka)["imje"] * (*Tai)["em"];
     if (Fia) {
@@ -611,7 +617,7 @@ SimilarityTransformedHamiltonian<F>::getAB() {
 
   if (true) {
     //diagram (10.54) second line in [1]
-    LOG(0, "CcsdSimilarityTransformedH") << "Building Wab from Wia" << std::endl;
+    LOG(0, "SimilarityTransformedH") << "Building Wab from Wia" << std::endl;
     Wia = getIA();
     (*Wab)["ab"]  = (*Fab)["ab"];
     (*Wab)["ab"] += (*Viabc)["mafb"] * (*Tai)["fm"];
@@ -620,7 +626,7 @@ SimilarityTransformedHamiltonian<F>::getAB() {
   } else {
     Tau_abij = getTauABIJ();
     //diagram (10.54) first line in [1]
-    LOG(0, "CcsdSimilarityTransformedH") << "Building Wab" << std::endl;
+    LOG(0, "SimilarityTransformedH") << "Building Wab" << std::endl;
     (*Wab)["ab"]  = (*Fab)["ab"];
     (*Wab)["ab"] += (*Viabc)["mafb"] * (*Tai)["fm"];
     if (Fia) {
@@ -636,7 +642,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getAI() {
   if (Wai) return Wai;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wai" << std::endl;
+  LOG(0, "SimilarityTransformedH") << "Building Wai" << std::endl;
 
   int syms[] = {NS, NS};
   int ov[] = {Nv, No};
@@ -646,7 +652,7 @@ SimilarityTransformedHamiltonian<F>::getAI() {
 
   (*Wai)["bi"] = 0.0;
   if (dressing == Dressing(CCSD)) {
-    LOG(1, "CcsdSimilarityTransformedH") << "Wai = 0 since CCSD" << std::endl;
+    LOG(1, "SimilarityTransformedH") << "Wai = 0 since CCSD" << std::endl;
     return Wai;
   }
 
@@ -681,7 +687,7 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
 
   if (dressing == Dressing(CCSD)) {
     (*Wabij)["abij"] = 0.0;
-    LOG(1, "CcsdSimilarityTransformedH") <<
+    LOG(1, "SimilarityTransformedH") <<
         "Wabij = 0 since CCSD" << std::endl;
     return Wabij;
   }
@@ -790,7 +796,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getABCIJK() {
   if (Wabcijk) return Wabcijk;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wabcijk from Wabci"
+  LOG(0, "SimilarityTransformedH") << "Building Wabcijk from Wabci"
                                        << std::endl;
   int syms[] = {NS, NS, NS, NS};
   int vvvooo[] = {Nv,Nv,Nv,No,No,No};
@@ -814,7 +820,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIA() {
   if (Wia) return Wia;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wia" << std::endl;
+  LOG(0, "SimilarityTransformedH") << "Building Wia" << std::endl;
 
   int syms[] = {NS, NS};
   int ov[] = {No, Nv};
@@ -838,7 +844,7 @@ PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIJAB() {
   if (Wijab) return Wijab;
 
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wijab = Vijab" << std::endl;
+  LOG(0, "SimilarityTransformedH") << "Building Wijab = Vijab" << std::endl;
   Wijab = NEW(CTF::Tensor<F>, *Vijab);
 
   return Wijab;
@@ -848,7 +854,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getABCD() {
   if (Wabcd) return Wabcd;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wabcd" << std::endl;
+  LOG(0, "SimilarityTransformedH") << "Building Wabcd" << std::endl;
 
   Tau_abij = getTauABIJ();
   Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
@@ -874,7 +880,7 @@ SimilarityTransformedHamiltonian<F>::getABCI() {
 
   bool wabciIntermediates(false);
   if (wabciIntermediates) {
-    LOG(0, "CcsdSimilarityTransformedH") << "Building Wabci from Wabcd and Wia"
+    LOG(0, "SimilarityTransformedH") << "Building Wabci from Wabcd and Wia"
                                          << std::endl;
     Tau_abij = getTauABIJ();
     Wabcd = getABCD();
@@ -897,7 +903,7 @@ SimilarityTransformedHamiltonian<F>::getABCI() {
     //--7-5
     (*Wabci)["abci"] += (  0.5 ) * (*Vijak)["nmci"] * (*Tau_abij)["abnm"];
   } else {
-    LOG(0, "CcsdSimilarityTransformedH") << "Building Wabci" << std::endl;
+    LOG(0, "SimilarityTransformedH") << "Building Wabci" << std::endl;
     // from [1] first line of diagram 10.76, page 333
     //--1
     (*Wabci)["abci"]  = (*Vabci)["abci"];
@@ -938,7 +944,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getAIBC() {
   if (Waibc) return Waibc;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Waibc" << std::endl;
+  LOG(0, "SimilarityTransformedH") << "Building Waibc" << std::endl;
 
   Waibc = NEW(CTF::Tensor<F>, *Vaibc);
 
@@ -952,7 +958,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIABJ() {
   if (Wiabj) return Wiabj;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wiabj = Waijb" << std::endl;
+  LOG(0, "SimilarityTransformedH") << "Building Wiabj = Waijb" << std::endl;
 
   Wiabj = NEW(CTF::Tensor<F>, *Viabj);
 
@@ -980,7 +986,7 @@ SimilarityTransformedHamiltonian<F>::getIAJK() {
   Wijkl = getIJKL();
   Tau_abij = getTauABIJ();
 
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wiajk from Wia and Wijkl" << std::endl;
+  LOG(0, "SimilarityTransformedH") << "Building Wiajk from Wia and Wijkl" << std::endl;
   //This is built upon the already existing amplitudes
   //[1] diagram (10.79)
   //Takend directly from [2]
@@ -1026,7 +1032,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIJKA() {
   if (Wijka) return Wijka;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wijka" << std::endl;
+  LOG(0, "SimilarityTransformedH") << "Building Wijka" << std::endl;
 
   Wijka = NEW(CTF::Tensor<F>, *Vijka);
 
@@ -1041,7 +1047,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIJKL() {
   if (Wijkl) return Wijkl;
-  LOG(0, "CcsdSimilarityTransformedH") << "Building Wijkl" << std::endl;
+  LOG(0, "SimilarityTransformedH") << "Building Wijkl" << std::endl;
 
   Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
   Tau_abij = getTauABIJ();
@@ -1175,26 +1181,32 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabij)["cdij"] += ( + 0.5  ) * (*Viabc)["mdfg"] * (*Rabcijk)["gfcmij"];
   (*HRabij)["cdij"] += ( - 0.5  ) * (*Viabc)["mcfg"] * (*Rabcijk)["gfdmij"];
 
-  (*HRabij)["cdij"] += ( + 0.5  ) * (*Tai)["ei"] * (*Vijab)["nohe"] * (*Rabcijk)["hcdonj"];
-  (*HRabij)["cdij"] += ( - 0.5  ) * (*Tai)["ej"] * (*Vijab)["nohe"] * (*Rabcijk)["hcdoni"];
+  if (dressing != Dressing(NONE)) {
 
-  (*HRabij)["cdij"] += ( - 0.5  ) * (*Tai)["dm"] * (*Vijab)["nmgh"] * (*Rabcijk)["hgcnij"];
-  (*HRabij)["cdij"] += ( + 0.5  ) * (*Tai)["cm"] * (*Vijab)["nmgh"] * (*Rabcijk)["hgdnij"];
+    (*HRabij)["cdij"] += ( + 0.5  ) * (*Tai)["ei"] * (*Vijab)["nohe"] * (*Rabcijk)["hcdonj"];
+    (*HRabij)["cdij"] += ( - 0.5  ) * (*Tai)["ej"] * (*Vijab)["nohe"] * (*Rabcijk)["hcdoni"];
 
-  (*HRabij)["cdij"] += ( + 1.0  ) * (*Tai)["en"] * (*Vijab)["onhe"] * (*Rabcijk)["hcdoij"];
+    (*HRabij)["cdij"] += ( - 0.5  ) * (*Tai)["dm"] * (*Vijab)["nmgh"] * (*Rabcijk)["hgcnij"];
+    (*HRabij)["cdij"] += ( + 0.5  ) * (*Tai)["cm"] * (*Vijab)["nmgh"] * (*Rabcijk)["hgdnij"];
 
-  if (dressing == CCSDT) {
-    (*HRabij)["cdij"] += ( + 1.0  ) * (*Tabcijk)["ecdnij"] * (*Vijab)["onhe"] * (*Rai)["ho"];
+    (*HRabij)["cdij"] += ( + 1.0  ) * (*Tai)["en"] * (*Vijab)["onhe"] * (*Rabcijk)["hcdoij"];
 
-    (*HRabij)["cdij"] += ( + 0.5  ) * (*Tabcijk)["efdoij"] * (*Vijab)["poef"] * (*Rai)["cp"];
-    (*HRabij)["cdij"] += ( - 0.5  ) * (*Tabcijk)["efcoij"] * (*Vijab)["poef"] * (*Rai)["dp"];
+    if (dressing == CCSDT) {
 
-    (*HRabij)["cdij"] += ( - 0.5  ) * (*Tabcijk)["ecdnoi"] * (*Vijab)["nohe"] * (*Rai)["hj"];
-    (*HRabij)["cdij"] += ( + 0.5  ) * (*Tabcijk)["ecdnoj"] * (*Vijab)["nohe"] * (*Rai)["hi"];
-  }
+      (*HRabij)["cdij"] += ( + 1.0  ) * (*Tabcijk)["ecdnij"] * (*Vijab)["onhe"] * (*Rai)["ho"];
+
+      (*HRabij)["cdij"] += ( + 0.5  ) * (*Tabcijk)["efdoij"] * (*Vijab)["poef"] * (*Rai)["cp"];
+      (*HRabij)["cdij"] += ( - 0.5  ) * (*Tabcijk)["efcoij"] * (*Vijab)["poef"] * (*Rai)["dp"];
+
+      (*HRabij)["cdij"] += ( - 0.5  ) * (*Tabcijk)["ecdnoi"] * (*Vijab)["nohe"] * (*Rai)["hj"];
+      (*HRabij)["cdij"] += ( + 0.5  ) * (*Tabcijk)["ecdnoj"] * (*Vijab)["nohe"] * (*Rai)["hi"];
+
+    } // Dressing(CCSD)
+
+  } // Dressing(NONE)
 
   //: BEGIN TRIPLES
-  if (Fia) {
+  if (Fia && dressing != NONE) {
 
     if (dressing == CCSDT) {
       (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Fia)["oh"] * (*Tabcijk)["hefijk"] * (*Rai)["do"];
@@ -1272,6 +1284,10 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Vabcd)["efgh"] * (*Rabcijk)["hgdijk"];
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Vabcd)["fdgh"] * (*Rabcijk)["hgeijk"];
   (*HRabcijk)["defijk"] += ( - 0.5  ) * (*Vabcd)["degh"] * (*Rabcijk)["hgfijk"];
+
+  if (dressing == NONE) {
+    return HR;
+  }
 
   (*HRabcijk)["defijk"] += ( - 1.0  ) * (*Tai)["fo"] * (*Vijkl)["poij"] * (*Rabij)["depk"];
   (*HRabcijk)["defijk"] += ( + 1.0  ) * (*Tai)["eo"] * (*Vijkl)["poij"] * (*Rabij)["dfpk"];
