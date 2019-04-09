@@ -58,7 +58,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   std::vector<int> oneBodyRdmIndices(
     RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange()
   );
-  int eigenStates(getIntegerArgument("eigenstates", 1));
+  int eigenStates(getIntegerArgument("eigenStates", 1));
   double ediff(getRealArgument("ediff", 1e-4));
   bool intermediates(getIntegerArgument("intermediates", 1));
   unsigned int maxIterations(getIntegerArgument("maxIterations", 32));

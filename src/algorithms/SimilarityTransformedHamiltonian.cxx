@@ -1153,7 +1153,6 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
 
     (*HRai)["ai"] = (*HCssdR.get(0))["ai"];
     (*HRabij)["abij"] = (*HCssdR.get(1))["abij"];
-    (*HRabcijk)["abcijk"] = (*HCssdR.get(2))["abcijk"];
   }
 
   //: BEGIN SINGLES

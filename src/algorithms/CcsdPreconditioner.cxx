@@ -264,6 +264,8 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
     //basis[b] = 1 / std::sqrt(newVector.dot(newVector)) * newVector;
   //}
 
+    OUT() << "\treturning vecs =" << basis.size() << std::endl;
+
   return basis;
 }
 
