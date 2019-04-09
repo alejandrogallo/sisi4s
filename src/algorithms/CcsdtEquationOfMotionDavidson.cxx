@@ -299,11 +299,22 @@ void CcsdtEquationOfMotionDavidson::run() {
     Tabij
   );
 
+  enum SimilarityTransformedHamiltonian<F>::Dressing *dressing;
+  if (!isArgumentGiven("TriplesAmplitudes")) {
+    dressing = new enum SimilarityTransformedHamiltonian<F>::Dressing(
+      SimilarityTransformedHamiltonian<F>::CCSD
+    );
+  } else {
+    dressing = new enum SimilarityTransformedHamiltonian<F>::Dressing(
+      SimilarityTransformedHamiltonian<F>::CCSDT
+    );
+  }
+
   SimilarityTransformedHamiltonian<F> H(
     Fij, Fab, Fia,
     Vabcd, Viajb, Vijab, Vijkl, Vijka, Viabc, Viajk, Vabic,
     Vaibc, Vaibj, Viabj, Vijak, Vaijb, Vabci, NULL,
-    intermediates
+    intermediates, *dressing
   );
   H.setTai(&Tai);
   H.setTabij(&Tabij);
@@ -313,14 +324,6 @@ void CcsdtEquationOfMotionDavidson::run() {
   );
   P.preconditionerRandom = preconditionerRandom;
   P.preconditionerRandomSigma = preconditionerRandomSigma;
-  allocatedTensorArgument(
-    "SinglesHamiltonianDiagonal",
-    new CTF::Tensor<>(*P.getDiagonalH().get(0))
-  );
-  allocatedTensorArgument(
-    "DoublesHamiltonianDiagonal",
-    new CTF::Tensor<>(*P.getDiagonalH().get(1))
-  );
 
   EigenSystemDavidsonMono<
     SimilarityTransformedHamiltonian<F>,
