@@ -331,7 +331,7 @@ void CcsdEquationOfMotionDavidson::run() {
   EigenSystemDavidsonMono<
     SimilarityTransformedHamiltonian<F>,
     CcsdPreconditioner<F>,
-    CcsdFockVector<F>
+    SDFockVector<F>
   > eigenSystem(
     &H,
     eigenStates,
@@ -355,9 +355,9 @@ void CcsdEquationOfMotionDavidson::run() {
     for (auto &index: oneBodyRdmIndices) {
       LOG(0, "CcsdEomDavid") << "Calculating 1-RDM for state " << index << std::endl;
 
-      const CcsdFockVector<F> *R(&eigenSystem.getRightEigenVectors()[index-1]);
-      const CcsdFockVector<F> LApprox(R->conjugateTranspose());
-      const CcsdFockVector<F> *L(&LApprox);
+      const SDFockVector<F> *R(&eigenSystem.getRightEigenVectors()[index-1]);
+      const SDFockVector<F> LApprox(R->conjugateTranspose());
+      const SDFockVector<F> *L(&LApprox);
 
       EomOneBodyReducedDensityMatrix<F> Rho(&Tai, &Tabij, L, R);
 

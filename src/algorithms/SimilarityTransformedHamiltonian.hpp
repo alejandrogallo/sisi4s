@@ -55,10 +55,10 @@ namespace cc4s {
     void setTabcijk(CTF::Tensor<F> *Tabcijk_) { Tabcijk = Tabcijk_; }
 
     // ccsd fok vectors
-    CcsdFockVector<F> rightApplyIntermediates(CcsdFockVector<F> &v);
-    CcsdFockVector<F> rightApplyHirata(CcsdFockVector<F> &v);
-    CcsdFockVector<F> rightApply(CcsdFockVector<F> &v);
-    CcsdFockVector<F> leftApplyHirata(CcsdFockVector<F> &v);
+    SDFockVector<F> rightApplyIntermediates(SDFockVector<F> &v);
+    SDFockVector<F> rightApplyHirata(SDFockVector<F> &v);
+    SDFockVector<F> rightApply(SDFockVector<F> &v);
+    SDFockVector<F> leftApplyHirata(SDFockVector<F> &v);
 
     // ccsdt fok vectors
     CcsdtFockVector<F> rightApplyHirata(CcsdtFockVector<F> &v);

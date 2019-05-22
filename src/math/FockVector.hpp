@@ -631,13 +631,13 @@ namespace cc4s {
   class CcsdtFockVector;
 
   template <typename F>
-  class CcsdFockVector: public FockVectorNdCanonical<F,2,1> {
+  class SDFockVector: public FockVectorNdCanonical<F,2,1> {
   public:
     using FockVectorNdCanonical<F,2,1>::FockVectorNdCanonical;
 
-    CcsdFockVector(): FockVectorNdCanonical<F,2,1>(0,0) {}
+    SDFockVector(): FockVectorNdCanonical<F,2,1>(0,0) {}
 
-    CcsdFockVector(const CcsdFockVector<F> &a) {
+    SDFockVector(const SDFockVector<F> &a) {
       this->componentIndices = a.componentIndices;
       this->indexEnds.resize(2);
       this->componentTensors.resize(2);
@@ -645,21 +645,21 @@ namespace cc4s {
       this->buildIndexTranslation();
     }
 
-    CcsdFockVector(CcsdFockVector<F> &&a) {
+    SDFockVector(SDFockVector<F> &&a) {
       this->componentIndices = a.componentIndices;
       this->componentTensors = a.componentTensors;
       this->indexEnds.resize(2);
       this->buildIndexTranslation();
     }
 
-    CcsdFockVector<F> &operator =(const CcsdFockVector<F> &a) {
+    SDFockVector<F> &operator =(const SDFockVector<F> &a) {
       this->componentIndices = a.componentIndices;
       this->copyComponents(a.componentTensors);
       this->buildIndexTranslation();
       return *this;
     }
 
-    CcsdFockVector(const CcsdtFockVector<F> &a) {
+    SDFockVector(const CcsdtFockVector<F> &a) {
       this->componentIndices = a.componentIndices;
       this->indexEnds.resize(2);
       this->componentTensors.resize(2);
@@ -676,7 +676,7 @@ namespace cc4s {
 
     CcsdtFockVector(): FockVectorNdCanonical<F,3,1>(0,0) {}
 
-    CcsdtFockVector(const CcsdFockVector<F> &a) {
+    CcsdtFockVector(const SDFockVector<F> &a) {
       this->copyComponents(a.componentTensors);
       this->componentTensors.resize(3);
       this->componentIndices.resize(3);
@@ -698,7 +698,7 @@ namespace cc4s {
       this->buildIndexTranslation();
     }
 
-    CcsdtFockVector(const CcsdFockVector<F> &&a) {
+    CcsdtFockVector(const SDFockVector<F> &&a) {
       this->componentTensors.resize(3);
       this->componentIndices.resize(3);
       this->componentIndices[0] = a.componentIndices[0];
@@ -721,7 +721,7 @@ namespace cc4s {
       this->buildIndexTranslation();
     }
 
-    CcsdtFockVector<F> &operator =(CcsdFockVector<F> &&a) {
+    CcsdtFockVector<F> &operator =(SDFockVector<F> &&a) {
       this->componentTensors.resize(3);
       this->componentIndices.resize(3);
       this->componentIndices[0] = a.componentIndices[0];
@@ -746,7 +746,7 @@ namespace cc4s {
       return *this;
     }
 
-    CcsdtFockVector<F> &operator =(const CcsdFockVector<F> &a) {
+    CcsdtFockVector<F> &operator =(const SDFockVector<F> &a) {
       this->copyComponents(a.componentTensors);
       this->componentTensors.resize(3);
       this->componentIndices.resize(3);

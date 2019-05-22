@@ -116,7 +116,7 @@ CcsdPreconditioner<F>::CcsdPreconditioner(
 }
 
 template <typename F>
-std::vector<CcsdFockVector<F>>
+std::vector<SDFockVector<F>>
 CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   LOG(0, "CcsdPreconditioner") << "Getting initial basis " << std::endl;
   DefaultRandomEngine randomEngine;
@@ -285,11 +285,11 @@ CcsdPreconditioner<F>::getCorrection(
 }
 
 template <typename F>
-CcsdFockVector<F>
+SDFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
-  const complex lambda, CcsdFockVector<F> &residuum
+  const complex lambda, SDFockVector<F> &residuum
 ) {
-  CcsdFockVector<F> w(diagonalH);
+  SDFockVector<F> w(diagonalH);
 
   // Define a singleton helping class for the diagonal correction
   class DiagonalCorrection {
@@ -304,7 +304,7 @@ CcsdPreconditioner<F>::getCorrection(
       double lambda;
   } diagonalCorrection(std::real(lambda));
 
-  CcsdFockVector<F> correction(diagonalH);
+  SDFockVector<F> correction(diagonalH);
   // compute ((lambda * id - Diag(diagonal))^-1) . residuum
   for (unsigned int c(0); c < w.getComponentsCount(); ++c) {
     const char *indices( correction.componentIndices[c].c_str() );
@@ -334,6 +334,6 @@ template class CcsdPreconditioner<double>;
 template class CcsdPreconditioner<complex>;
 
 
-//template <> class CcsdFockVector::CcsdPreconditioner<double>{};
+//template <> class SDFockVector::CcsdPreconditioner<double>{};
 //template
 //CcsdPreconditioner<double>::CcsdPreconditioner();

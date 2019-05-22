@@ -125,17 +125,17 @@ PTR(CTF::Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
 }
 
 template <typename F>
-CcsdFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply(
-  CcsdFockVector<F> &R
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply(
+  SDFockVector<F> &R
 ) {
   return withIntermediates ? rightApplyIntermediates(R) : rightApplyHirata(R);
 }
 
 template <typename F>
-CcsdFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
-  CcsdFockVector<F> &R
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
+  SDFockVector<F> &R
 ) {
-  CcsdFockVector<F> HR(R);
+  SDFockVector<F> HR(R);
   // get pointers to the component tensors
   PTR(CTF::Tensor<F>) Rai( R.get(0) );
   PTR(CTF::Tensor<F>) Rabij( R.get(1) );
@@ -481,10 +481,10 @@ CcsdFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
 }
 
 template <typename F>
-CcsdFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
-  CcsdFockVector<F> &R
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
+  SDFockVector<F> &R
 ) {
-  CcsdFockVector<F> HR(R);
+  SDFockVector<F> HR(R);
   // get pointers to the component tensors
   PTR(CTF::Tensor<F>) Rai( R.get(0) );
   PTR(CTF::Tensor<F>) Rabij( R.get(1) );
@@ -1075,10 +1075,10 @@ SimilarityTransformedHamiltonian<F>::getIJKL() {
 }
 
 template <typename F>
-CcsdFockVector<F> SimilarityTransformedHamiltonian<F>::leftApplyHirata(
-  CcsdFockVector<F> &L
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::leftApplyHirata(
+  SDFockVector<F> &L
 ) {
-  CcsdFockVector<F> LH(L);
+  SDFockVector<F> LH(L);
   // get pointers to the component tensors
   PTR(CTF::Tensor<F>) Lia( L.get(0) );
   PTR(CTF::Tensor<F>) Lijab( L.get(1) );
@@ -1160,12 +1160,12 @@ CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   PTR(CTF::Tensor<F>) HRabcijk( HR.get(2) );
 
   { // keep CcsdR only in this scope
-    CcsdFockVector<F> CcsdR(
+    SDFockVector<F> CcsdR(
         std::vector<PTR(CTF::Tensor<F>)>({Rai, Rabij}),
         std::vector<std::string>({"ai", "abij"})
     );
 
-    CcsdFockVector<F> HCssdR(rightApply(CcsdR));
+    SDFockVector<F> HCssdR(rightApply(CcsdR));
 
     (*HRai)["ai"] = (*HCssdR.get(0))["ai"];
     (*HRabij)["abij"] = (*HCssdR.get(1))["abij"];
