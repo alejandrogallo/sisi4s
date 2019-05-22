@@ -1139,18 +1139,18 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::leftApplyHirata(
 }
 
 template <typename F>
-CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply(
-  CcsdtFockVector<F> &R
+SDTFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply(
+  SDTFockVector<F> &R
 ) {
   return rightApplyHirata(R);
 }
 
 template <typename F>
-CcsdtFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
-  CcsdtFockVector<F> &R
+SDTFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
+  SDTFockVector<F> &R
 ) {
 
-  CcsdtFockVector<F> HR(R);
+  SDTFockVector<F> HR(R);
   // get pointers to the component tensors
   PTR(CTF::Tensor<F>) Rai( R.get(0) );
   PTR(CTF::Tensor<F>) Rabij( R.get(1) );

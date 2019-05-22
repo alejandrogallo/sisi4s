@@ -53,8 +53,8 @@ namespace cc4s {
 
         V getCorrection(const complex eigenValue, V &residuum);
 
-        CcsdtFockVector<F>
-        getCorrection(const complex eigenValue, CcsdtFockVector<F> &residuum);
+        SDTFockVector<F>
+        getCorrection(const complex eigenValue, SDTFockVector<F> &residuum);
 
         V getDiagonalH() const { return diagonalH; }
 

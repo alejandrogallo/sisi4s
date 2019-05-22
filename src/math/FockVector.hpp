@@ -628,7 +628,7 @@ namespace cc4s {
   };
 
   template <typename F>
-  class CcsdtFockVector;
+  class SDTFockVector;
 
   template <typename F>
   class SDFockVector: public FockVectorNdCanonical<F,2,1> {
@@ -659,7 +659,7 @@ namespace cc4s {
       return *this;
     }
 
-    SDFockVector(const CcsdtFockVector<F> &a) {
+    SDFockVector(const SDTFockVector<F> &a) {
       this->componentIndices = a.componentIndices;
       this->indexEnds.resize(2);
       this->componentTensors.resize(2);
@@ -670,13 +670,13 @@ namespace cc4s {
   };
 
   template <typename F>
-  class CcsdtFockVector: public FockVectorNdCanonical<F,3,1> {
+  class SDTFockVector: public FockVectorNdCanonical<F,3,1> {
   public:
     using FockVectorNdCanonical<F,3,1>::FockVectorNdCanonical;
 
-    CcsdtFockVector(): FockVectorNdCanonical<F,3,1>(0,0) {}
+    SDTFockVector(): FockVectorNdCanonical<F,3,1>(0,0) {}
 
-    CcsdtFockVector(const SDFockVector<F> &a) {
+    SDTFockVector(const SDFockVector<F> &a) {
       this->copyComponents(a.componentTensors);
       this->componentTensors.resize(3);
       this->componentIndices.resize(3);
@@ -698,7 +698,7 @@ namespace cc4s {
       this->buildIndexTranslation();
     }
 
-    CcsdtFockVector(const SDFockVector<F> &&a) {
+    SDTFockVector(const SDFockVector<F> &&a) {
       this->componentTensors.resize(3);
       this->componentIndices.resize(3);
       this->componentIndices[0] = a.componentIndices[0];
@@ -721,7 +721,7 @@ namespace cc4s {
       this->buildIndexTranslation();
     }
 
-    CcsdtFockVector<F> &operator =(SDFockVector<F> &&a) {
+    SDTFockVector<F> &operator =(SDFockVector<F> &&a) {
       this->componentTensors.resize(3);
       this->componentIndices.resize(3);
       this->componentIndices[0] = a.componentIndices[0];
@@ -746,7 +746,7 @@ namespace cc4s {
       return *this;
     }
 
-    CcsdtFockVector<F> &operator =(const SDFockVector<F> &a) {
+    SDTFockVector<F> &operator =(const SDFockVector<F> &a) {
       this->copyComponents(a.componentTensors);
       this->componentTensors.resize(3);
       this->componentIndices.resize(3);

@@ -328,7 +328,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   EigenSystemDavidsonMono<
     SimilarityTransformedHamiltonian<F>,
     CcsdPreconditioner<F>,
-    CcsdtFockVector<F>
+    SDTFockVector<F>
   > eigenSystem(
     &H,
     eigenStates,

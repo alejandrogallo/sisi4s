@@ -270,15 +270,15 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
 }
 
 template <typename F>
-CcsdtFockVector<F>
+SDTFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
-  const complex lambda, CcsdtFockVector<F> &residuum
+  const complex lambda, SDTFockVector<F> &residuum
 ) {
   // Cast ccsdt into ccsd
   V w(residuum);
   // apply the old getCorrection
   // and cast again into a ccsdt vector
-  CcsdtFockVector<F> result(getCorrection(lambda, w));
+  SDTFockVector<F> result(getCorrection(lambda, w));
   // et voila
   return result;
 

@@ -61,8 +61,8 @@ namespace cc4s {
     SDFockVector<F> leftApplyHirata(SDFockVector<F> &v);
 
     // ccsdt fok vectors
-    CcsdtFockVector<F> rightApplyHirata(CcsdtFockVector<F> &v);
-    CcsdtFockVector<F> rightApply(CcsdtFockVector<F> &v);
+    SDTFockVector<F> rightApplyHirata(SDTFockVector<F> &v);
+    SDTFockVector<F> rightApply(SDTFockVector<F> &v);
 
     // One body
     PTR(CTF::Tensor<F>) getIJ();
