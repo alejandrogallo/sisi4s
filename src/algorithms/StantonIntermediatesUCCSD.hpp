@@ -7,6 +7,15 @@
 
 namespace cc4s {
 
+/*
+ * This is the code version of:
+ * ----------------------------
+ * John F. Stanton, Jürgen Gauss, John D. Watts, Rodney J. Bartlett.
+ * A direct product decomposition approach for symmetry exploitation in
+ * many‐body methods. I. Energy calculations.
+ * The Journal of Chemical Physics  1991 doi:10.1063/1.460620
+ *
+ */
   template <typename F=complex>
   class StantonIntermediatesUCCSD {
   public:
