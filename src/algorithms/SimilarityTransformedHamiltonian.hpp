@@ -2,6 +2,7 @@
 #define SIM_TRANS_HAMILTONIAN_DEFINED
 
 #include <algorithms/Algorithm.hpp>
+#include <algorithms/StantonIntermediatesUCCSD.hpp>
 #include <math/FockVector.hpp>
 #include <util/SharedPointer.hpp>
 #include <ctf.hpp>
@@ -21,8 +22,8 @@ namespace cc4s {
     enum Dressing {
       CCSD,
       CCSDT,
-      NONE,
-      GENERAL,
+      NONE, // Some terms will be then set to zero instead of multiplying by 0
+      GENERAL, // For a general T not fulfiling any particular criterium
     };
 
     SimilarityTransformedHamiltonian(
@@ -104,25 +105,14 @@ namespace cc4s {
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
                    *Vabij;
 
+    PTR(StantonIntermediatesUCCSD<F>) stantonIntermediatesUccsd;
+    PTR(StantonIntermediatesUCCSD<F>) getStantonIntermediatesUCCSD();
+
     bool withIntermediates;
 
     Dressing dressing;
 
     int No, Nv;
-
-  };
-
-  class CcsdSimilarityTransformedHamiltonianFactory: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(CcsdSimilarityTransformedHamiltonianFactory);
-    CcsdSimilarityTransformedHamiltonianFactory(
-      std::vector<Argument> const &argumentList
-    );
-    virtual ~CcsdSimilarityTransformedHamiltonianFactory();
-    virtual void run();
-
-    template<typename F>
-    void run();
 
   };
 

@@ -12,6 +12,7 @@ The equations in this file are taken from the following sources
     TABLE 1
 */
 #include <algorithms/SimilarityTransformedHamiltonian.hpp>
+#include <algorithms/StantonIntermediatesUCCSD.hpp>
 #include <math/MathFunctions.hpp>
 #include <math/ComplexTensor.hpp>
 #include <mixers/Mixer.hpp>
@@ -666,23 +667,34 @@ SimilarityTransformedHamiltonian<F>::getAI() {
     return Wai;
   }
 
-  // Equations from Hirata
-  if (Fia) {
-    (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["ib"];
-    (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["kd"] * (*Tabij)["dbki"];
-    (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Fia)["lc"];
+  if (withIntermediates) {
+
+    auto intermediates = getStantonIntermediatesUCCSD();
+    (*Wai)["bi"] = (*intermediates->getRai())["bi"];
+    (*Wai)["bi"] += (+ 1.0) * (*Fab)["bc"] * (*Tai)["ci"];
+    (*Wai)["bi"] += (- 1.0) * (*Fij)["ki"] * (*Tai)["bk"];
+
+  } else {
+
+    // Equations from Hirata
+    if (Fia) {
+      (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["ib"];
+      (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["kd"] * (*Tabij)["dbki"];
+      (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Fia)["lc"];
+    }
+    (*Wai)["bi"] += (+ 1.0) * (*Fab)["bc"] * (*Tai)["ci"];
+    (*Wai)["bi"] += (- 1.0) * (*Fij)["ki"] * (*Tai)["bk"];
+    (*Wai)["bi"] += (- 1.0) * (*Tai)["cl"] * (*Viajb)["lbic"];
+    (*Wai)["bi"] += (+ 0.5) * (*Tabij)["cblm"] * (*Vijka)["lmic"];
+    (*Wai)["bi"] += (+ 0.5) * (*Tabij)["cdmi"] * (*Viabc)["mbcd"];
+    (*Wai)["bi"] += (- 1.0) * (*Tai)["bk"] * (*Tai)["dm"] * (*Vijka)["kmid"];
+    (*Wai)["bi"] += (- 1.0) * (*Tai)["ci"] * (*Tai)["dm"] * (*Viabc)["mbcd"];
+    (*Wai)["bi"] += (- 0.5) * (*Tai)["fi"] * (*Tabij)["cblm"] * (*Vijab)["lmcf"];
+    (*Wai)["bi"] += (- 0.5) * (*Tai)["bn"] * (*Tabij)["cdmi"] * (*Vijab)["mncd"];
+    (*Wai)["bi"] += (+ 1.0) * (*Tabij)["cbli"] * (*Tai)["en"] * (*Vijab)["lnce"];
+    (*Wai)["bi"] += (- 1.0) * (*Tai)["ci"] * (*Tai)["bl"] * (*Tai)["en"] * (*Vijab)["lnce"];
+
   }
-  (*Wai)["bi"] += ( + 1.0  ) * (*Fab)["bc"] * (*Tai)["ci"];
-  (*Wai)["bi"] += ( - 1.0  ) * (*Fij)["ki"] * (*Tai)["bk"];
-  (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["cl"] * (*Viajb)["lbic"];
-  (*Wai)["bi"] += ( + 0.5  ) * (*Tabij)["cblm"] * (*Vijka)["lmic"];
-  (*Wai)["bi"] += ( + 0.5  ) * (*Tabij)["cdmi"] * (*Viabc)["mbcd"];
-  (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["bk"] * (*Tai)["dm"] * (*Vijka)["kmid"];
-  (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["dm"] * (*Viabc)["mbcd"];
-  (*Wai)["bi"] += ( - 0.5  ) * (*Tai)["fi"] * (*Tabij)["cblm"] * (*Vijab)["lmcf"];
-  (*Wai)["bi"] += ( - 0.5  ) * (*Tai)["bn"] * (*Tabij)["cdmi"] * (*Vijab)["mncd"];
-  (*Wai)["bi"] += ( + 1.0  ) * (*Tabij)["cbli"] * (*Tai)["en"] * (*Vijab)["lnce"];
-  (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Tai)["en"] * (*Vijab)["lnce"];
 
 
   return Wai;
@@ -701,6 +713,18 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
         "Wabij = 0 since CCSD" << std::endl;
     return Wabij;
   }
+
+  if (withIntermediates) {
+
+    auto intermediates = getStantonIntermediatesUCCSD();
+    (*Wabij)["abij"] = (*intermediates->getRabij())["abij"];
+    //These are the residum equations
+    (*Wabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
+    (*Wabij)["cdij"] += ( + 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
+    (*Wabij)["cdij"] += ( - 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
+    (*Wabij)["cdij"] += ( + 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
+
+  } else {
 
   // Equations are from hirata
   // WARNING: They are not optimized
@@ -798,6 +822,10 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
   (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["cm"] * (*Viajk)["mdij"];
   (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["dm"] * (*Viajk)["mcij"];
 
+  // end without intermediates
+
+  }
+
   return Wabij;
 
 }
@@ -836,7 +864,7 @@ SimilarityTransformedHamiltonian<F>::getIA() {
   int ov[] = {No, Nv};
   CTF::Tensor<F> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
 
-  getABCIJK();
+  //getABCIJK();
 
   Wia = NEW(CTF::Tensor<F>,  InitFia);
 
@@ -2338,6 +2366,35 @@ SDTFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
 
   return HR;
 
+}
+
+template <typename F>
+PTR(StantonIntermediatesUCCSD<F>)
+SimilarityTransformedHamiltonian<F>::getStantonIntermediatesUCCSD() {
+  if (stantonIntermediatesUccsd) return stantonIntermediatesUccsd;
+
+  stantonIntermediatesUccsd = NEW(StantonIntermediatesUCCSD<F>);
+  stantonIntermediatesUccsd->setTai(Tai);
+  stantonIntermediatesUccsd->setTabij(Tabij);
+  stantonIntermediatesUccsd->setVabcd(Vabcd);
+  stantonIntermediatesUccsd->setViajb(Viajb);
+  stantonIntermediatesUccsd->setVijab(Vijab);
+  stantonIntermediatesUccsd->setVijkl(Vijkl);
+  stantonIntermediatesUccsd->setVijka(Vijka);
+  stantonIntermediatesUccsd->setViabc(Viabc);
+  stantonIntermediatesUccsd->setViajk(Viajk);
+  stantonIntermediatesUccsd->setVabic(Vabic);
+  stantonIntermediatesUccsd->setVaibc(Vaibc);
+  stantonIntermediatesUccsd->setVaibj(Vaibj);
+  stantonIntermediatesUccsd->setViabj(Viabj);
+  stantonIntermediatesUccsd->setVijak(Vijak);
+  stantonIntermediatesUccsd->setVaijb(Vaijb);
+  stantonIntermediatesUccsd->setVabci(Vabci);
+  stantonIntermediatesUccsd->setVabij(Vabij);
+  stantonIntermediatesUccsd->setFij(Fij);
+  stantonIntermediatesUccsd->setFab(Fab);
+  if (Fia) stantonIntermediatesUccsd->setFia(Fia);
+  return stantonIntermediatesUccsd;
 }
 
 // instantiate
