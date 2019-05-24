@@ -154,6 +154,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     usingIntermediates,
     SimilarityTransformedHamiltonian<F>::Dressing::GENERAL
   );
+  H.useStantonIntermediatesUCCSD(usingIntermediates);
   H.setTai(Tai.get());
   H.setTabij(Tabij.get());
 

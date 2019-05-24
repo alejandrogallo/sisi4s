@@ -87,6 +87,13 @@ namespace cc4s {
 
     PTR(CTF::Tensor<F>) getTauABIJ();
 
+    void useStantonIntermediatesUCCSD(bool s) {
+      _useStantonIntermediatesUCCSD = s;
+    }
+    bool useStantonIntermediatesUCCSD() {
+      return _useStantonIntermediatesUCCSD;
+    }
+
   private:
 
     // one body
@@ -105,6 +112,7 @@ namespace cc4s {
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
                    *Vabij;
 
+    bool _useStantonIntermediatesUCCSD = false;
     PTR(StantonIntermediatesUCCSD<F>) stantonIntermediatesUccsd;
     PTR(StantonIntermediatesUCCSD<F>) getStantonIntermediatesUCCSD();
 

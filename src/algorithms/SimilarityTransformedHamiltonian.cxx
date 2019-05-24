@@ -667,7 +667,7 @@ SimilarityTransformedHamiltonian<F>::getAI() {
     return Wai;
   }
 
-  if (withIntermediates) {
+  if (useStantonIntermediatesUCCSD()) {
 
     auto intermediates = getStantonIntermediatesUCCSD();
     (*Wai)["bi"] = (*intermediates->getRai())["bi"];
@@ -714,7 +714,7 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
     return Wabij;
   }
 
-  if (withIntermediates) {
+  if (useStantonIntermediatesUCCSD()) {
 
     auto intermediates = getStantonIntermediatesUCCSD();
     (*Wabij)["abij"] = (*intermediates->getRabij())["abij"];
