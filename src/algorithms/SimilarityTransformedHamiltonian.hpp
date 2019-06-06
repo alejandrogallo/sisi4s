@@ -60,6 +60,8 @@ namespace cc4s {
     SDFockVector<F> rightApplyHirata(SDFockVector<F> &v);
     SDFockVector<F> rightApply(SDFockVector<F> &v);
     SDFockVector<F> leftApplyHirata(SDFockVector<F> &v);
+    SDFockVector<F> leftApplyIntermediates(SDFockVector<F> &v);
+    SDFockVector<F> leftApply(SDFockVector<F> &v);
 
     // ccsdt fok vectors
     SDTFockVector<F> rightApplyHirata(SDTFockVector<F> &v);

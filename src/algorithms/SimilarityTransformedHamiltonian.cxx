@@ -1103,6 +1103,77 @@ SimilarityTransformedHamiltonian<F>::getIJKL() {
 }
 
 template <typename F>
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::leftApplyIntermediates(
+  SDFockVector<F> &L
+){
+  /*
+  Equations from:
+
+  @book{book:293288,
+    author = {Isaiah Shavitt, Rodney J. Bartlett},
+    edition = {1},
+    isbn = {052181832X,9780521818322},
+    publisher = {Cambridge University Press},
+    series = {Cambridge Molecular Science},
+    title = {Many-Body Methods in Chemistry and Physics: MBPT and Coupled-Cluster Theory},
+    type = {book},
+    year = {2009},
+  }
+  */
+  SDFockVector<F> LH(L);
+  // get pointers to the component tensors
+  PTR(CTF::Tensor<F>) Lia( L.get(0) );
+  PTR(CTF::Tensor<F>) Lijab( L.get(1) );
+  PTR(CTF::Tensor<F>) LHia( LH.get(0) );
+  PTR(CTF::Tensor<F>) LHijab( LH.get(1) );
+
+  Wia = getIA();
+  Wij = getIJ();
+  Wab = getAB();
+  Wabcd = getABCD();
+  Wabci = getABCI();
+  Waibc = getAIBC();
+  Wiabj = getIABJ();
+  Wiajk = getIAJK();
+  Wijka = getIJKA();
+  Wijkl = getIJKL();
+
+  // Page 376
+  (*LHia)["ia"]  = 0.0;
+  // Diagram 1
+  (*LHia)["ia"] += (*Wia)["ia"];
+
+  // Diagram 3
+  (*LHia)["ia"] += ( + 1.0  ) * (*Wab)["ea"] * (*Lia)["ie"];
+  // Diagram 4
+  (*LHia)["ia"] += ( - 1.0  ) * (*Wij)["ik"] * (*Lia)["ka"];
+  // Diagram 5
+  (*LHia)["ia"] += ( + 1.0  ) * (*Wiabj)["ieak"] * (*Lia)["ke"];
+  // Diagram 18
+  (*LHia)["ia"] += ( + 1.0  ) * (*Wabci)["edak"] * (*Lijab)["iked"];
+  // Diagram 19
+  (*LHia)["ia"] += ( - 1.0  ) * (*Wiajk)["iekl"] * (*Lijab)["klae"];
+  // Diagram 26
+  (*LHia)["ia"] +=
+    ( - 1.0  ) * (*Waibc)["fida"] * (*Tabij)["edkl"] * (*Lijab)["klef"];
+  // Diagram 27
+  (*LHia)["ia"] +=
+    ( - 1.0  ) * (*Wijka)["mila"] * (*Tabij)["edkm"] * (*Lijab)["kled"];
+
+  // Page 377
+  //Diagram 1
+  (*LHijab)["ijab"] += ( + 1.0  ) * (*Vijab)["ijab"];
+  //Diagram 2
+  (*LHijab)["ijab"] += ( + 1.0  ) * (*LHia)["ia"] * (*Wia)["jb"];
+  //Diagram 4
+  (*LHijab)["ijab"] += ( + 1.0  ) * (*LHia)["ie"] * (*Waibc)["ejab"];
+  // TODO: 5 8 9 10 11 12 23 24
+
+  return LH;
+
+}
+
+template <typename F>
 SDFockVector<F> SimilarityTransformedHamiltonian<F>::leftApplyHirata(
   SDFockVector<F> &L
 ) {
