@@ -10,6 +10,7 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <fstream>
+#include <string>
 
 // TODO: to be removed from the main class
 #include <math/MathFunctions.hpp>
@@ -52,10 +53,16 @@ void Cc4s::run() {
       LOG(1, "root") << "step=" << (i+1) << ", realtime=" << time << " s"
         << ", operations=" << flops / 1e9 << " GFLOPS/core"
         << ", speed=" << flops / 1e9 / time.getFractionalSeconds() << " GFLOPS/s/core" << std::endl;
+      printStatistics();
     }
   }
 
-  printStatistics(rootFlops, totalFlops, totalTime);
+  OUT() << std::endl;
+  LOG(0, "root") << "total realtime=" << totalTime << " s" << std::endl;
+  LOG(0, "root") << "total operations=" << rootFlops / 1e9 << " GFLOPS/core"
+    << " speed=" << rootFlops/1e9 / totalTime.getFractionalSeconds() << " GFLOPS/s/core" << std::endl;
+  LOG(0, "root") << "overall operations=" << totalFlops / 1.e9 << " GFLOPS"
+    << std::endl;
 }
 
 void Cc4s::dryRun() {
@@ -71,11 +78,10 @@ void Cc4s::dryRun() {
   for (unsigned int i(0); i < algorithms.size(); ++i) {
     LOG(0, "root") << "step=" << (i+1) << ", " << algorithms[i]->getName() << std::endl;
     algorithms[i]->dryRun();
+    LOG(0, "root")
+      << "estimated memory=" << DryMemory::maxTotalSize / (1024.0*1024.0*1024.0)
+      << " GB" << std::endl;
   }
-
-  LOG(0, "root")
-    << "estimated memory=" << DryMemory::maxTotalSize / (1024.0*1024.0*1024.0)
-    << " GB" << std::endl;
 }
 
 
@@ -94,38 +100,53 @@ void Cc4s::printBanner() {
   OUT() << std::endl;
 }
 
-void Cc4s::printStatistics(
-  int64_t rootFlops, int64_t totalFlops, Time const &totalTime
-) {
-  std::string pid, comm, state, ppid, pgrp, session, ttyNr,
-    tpgid, flags, minflt, cminflt, majflt, cmajflt,
-    utime, stime, cutime, cstime, priority, nice,
-    O, itrealvalue, starttime;
-  int64_t vsize, rss;
-  // assuming LINUX 
-  std::ifstream statStream("/proc/self/stat", std::ios_base::in);
-  statStream >> pid >> comm >> state >> ppid >> pgrp >> session >> ttyNr
-    >> tpgid >> flags >> minflt >> cminflt >> majflt >> cmajflt
-    >> utime >> stime >> cutime >> cstime >> priority >> nice
-    >> O >> itrealvalue >> starttime >> vsize >> rss;
-  statStream.close();
-  // in case x86-64 is configured to use 2MB pages
-  int64_t pageSize = sysconf(_SC_PAGE_SIZE);
-  LOG(0, "root") << "total realtime=" << totalTime << " s" << std::endl;
-  LOG(0, "root") << "total operations=" << rootFlops / 1e9 << " GFLOPS/core"
-    << " speed=" << rootFlops/1e9 / totalTime.getFractionalSeconds() << " GFLOPS/s/core" << std::endl;
-  LOG(0, "root") << "physical memory=" << rss * pageSize / 1e9 << " GB/core"
-    << ", virtual memory: " << vsize / 1e9 << " GB/core" << std::endl;
+void Cc4s::printStatistics() {
+  std::string fieldName;
+  int64_t peakVirtualSize, peakPhysicalSize;
+  // assuming LINUX
+  std::ifstream statusStream("/proc/self/status", std::ios_base::in);
+  std::string line;
+  while (std::getline(statusStream, line)) {
+    std::istringstream lineStream(line);
+    lineStream >> fieldName;
+    if (fieldName == "VmPeak:") {
+      lineStream >> peakVirtualSize;
+    } else if (fieldName == "VmHWM:") {
+      lineStream >> peakPhysicalSize;
+    }
+    // TODO: check memory unit, currently assumed to be kB
+  }
+  statusStream.close();
+  real unitsPerGB(1024.0*1024.0);
+  LOG(0, "root") << "peak physical memory=" << peakPhysicalSize / unitsPerGB << " GB/core"
+    << ", peak virtual memory: " << peakVirtualSize / unitsPerGB << " GB/core" << std::endl;
 
-  int64_t globalVSize, globalRss;
+  int64_t globalPeakVirtualSize, globalPeakPhysicalSize;
   MpiCommunicator communicator(world->rank, world->np, world->comm);
-  communicator.reduce(vsize, globalVSize);
-  communicator.reduce(rss, globalRss);
-  LOG(0, "root") << "overall operations=" << totalFlops / 1.e9 << " GFLOPS"
-    << std::endl;
-  LOG(0, "root") << "overall physical memory="
-    << globalRss * pageSize / 1e9 << " GB"
-    << ", overall virtual memory=" << globalVSize / 1e9 << " GB" << std::endl;
+  communicator.reduce(peakPhysicalSize, globalPeakPhysicalSize);
+  communicator.reduce(peakVirtualSize, globalPeakVirtualSize);
+  LOG(0, "root") << "overall peak physical memory="
+    << globalPeakPhysicalSize / unitsPerGB << " GB"
+    << ", overall virtual memory=" << globalPeakVirtualSize / unitsPerGB << " GB" << std::endl;
+}
+
+bool Cc4s::isDebugged() {
+  // assuming LINUX
+  std::ifstream statusStream("/proc/self/status", std::ios_base::in);
+  std::string line;
+  while (std::getline(statusStream, line)) {
+    std::string pidField("TracerPid:");
+    size_t position(line.find(pidField));
+    if (position != std::string::npos) {
+      std::stringstream pidStream(line.substr(position + pidField.length()));
+      size_t pid; pidStream >> pid;
+      if (pid > 0) {
+        LOG(0, "root") << "Debugger present" << std::endl;
+      }
+      return pid > 0;
+    }
+  }
+  return false;
 }
 
 
@@ -142,17 +163,20 @@ int main(int argumentCount, char **arguments) {
   Log::setFileName(Cc4s::options->logFile);
   Log::setLogLevel(Cc4s::options->logLevel);
 
-#ifndef DEBUG
-  try {
-#endif
-    Cc4s cc4s;
+  Cc4s cc4s;
+  if (Cc4s::isDebugged()) {
+    // run without try-catch in debugger to allow tracing throwing code
     if (Cc4s::options->dryRun) cc4s.dryRun();
     else cc4s.run();
-#ifndef DEBUG
-  } catch (DetailedException *cause) {
-    LOG(0) << std::endl << cause->getMessage() << std::endl;
+  } else {
+    // without debugger: catch and write exception cause
+    try {
+      if (Cc4s::options->dryRun) cc4s.dryRun();
+      else cc4s.run();
+    } catch (DetailedException *cause) {
+      LOG(0) << std::endl << cause->getMessage() << std::endl;
+    }
   }
-#endif
   MPI_Finalize();
   return 0;
 }

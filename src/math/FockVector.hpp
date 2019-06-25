@@ -6,6 +6,7 @@
 #include <util/SharedPointer.hpp>
 #include <util/Exception.hpp>
 #include <math/MathFunctions.hpp>
+#include <Cc4s.hpp>
 
 #include <vector>
 #include <string>
@@ -555,6 +556,222 @@ namespace cc4s {
     }
     return stream << " )";
   }
+
+  template <typename F, int N, int StartDimension=0>
+  class FockVectorNdCanonical: public FockVector<F> {
+  public:
+    using FockVector<F>::FockVector;
+
+    /**
+     * \brief Build a canonical vector from No and Nv.
+     */
+    FockVectorNdCanonical(const unsigned int No, const unsigned int Nv) {
+      if (N > 6) {
+        throw new EXCEPTION("FockVectorNdCanonical implemented only up to 6");
+      }
+      const std::string pindices("abcdefg");
+      const std::string hindices("ijklomn");
+      for (unsigned int i(StartDimension); i <= N/2; i++) {
+
+        // vec<int> and not unsigned int, otherwise you'll be miserable for at
+        // least two days.
+        std::vector<int> syms(i, NS);
+        std::vector<int> dimso(i, No);
+        std::vector<int> dimsv(i, Nv);
+        std::vector<int> dims(dimsv);
+        dims.insert(dims.end(), dimso.begin(), dimso.end());
+
+        this->componentIndices.push_back(
+          pindices.substr(0, i) + hindices.substr(0, i)
+        );
+        this->componentTensors.push_back(
+          NEW(CTF::Tensor<F>, 2*i, dims.data(), syms.data(), *Cc4s::world)
+        );
+      }
+      this->buildIndexTranslation();
+    }
+
+    /**
+     * \brief Empty constructor
+     */
+    FockVectorNdCanonical() {}
+
+    /**
+     * \brief Move constructor taking possession of the tensors owned by a.
+     **/
+    FockVectorNdCanonical(FockVector<F> &&a) {
+      this->componentTensors = a.componentTensors;
+      this->componentIndices = a.componentIndices;
+      this->indexEnds.resize(a.componentTensors.size());
+
+      this->buildIndexTranslation();
+    }
+
+    /**
+     * \brief Copy constructor copying the tensors owned by a.
+     **/
+    FockVectorNdCanonical(const FockVector<F> &a) {
+      this->componentTensors.resize(a.componentTensors.size());
+      this->componentIndices = a.componentIndices;
+      this->indexEnds.resize(a.componentTensors.size());
+      this->copyComponents(a.componentTensors);
+
+      this->buildIndexTranslation();
+    }
+
+  };
+
+  template <typename F>
+  class CisdFockVector: public FockVectorNdCanonical<F,3,0> {
+  public:
+    using FockVectorNdCanonical<F,3,0>::FockVectorNdCanonical;
+  };
+
+  template <typename F>
+  class SDTFockVector;
+
+  template <typename F>
+  class SDFockVector: public FockVectorNdCanonical<F,2,1> {
+  public:
+    using FockVectorNdCanonical<F,2,1>::FockVectorNdCanonical;
+
+    SDFockVector(): FockVectorNdCanonical<F,2,1>(0,0) {}
+
+    SDFockVector(const SDFockVector<F> &a) {
+      this->componentIndices = a.componentIndices;
+      this->indexEnds.resize(2);
+      this->componentTensors.resize(2);
+      this->copyComponents(a.componentTensors);
+      this->buildIndexTranslation();
+    }
+
+    SDFockVector(SDFockVector<F> &&a) {
+      this->componentIndices = a.componentIndices;
+      this->componentTensors = a.componentTensors;
+      this->indexEnds.resize(2);
+      this->buildIndexTranslation();
+    }
+
+    SDFockVector<F> &operator =(const SDFockVector<F> &a) {
+      this->componentIndices = a.componentIndices;
+      this->copyComponents(a.componentTensors);
+      this->buildIndexTranslation();
+      return *this;
+    }
+
+    SDFockVector(const SDTFockVector<F> &a) {
+      this->componentIndices = a.componentIndices;
+      this->indexEnds.resize(2);
+      this->componentTensors.resize(2);
+      this->copyComponents(a.componentTensors);
+      this->buildIndexTranslation();
+    }
+
+  };
+
+  template <typename F>
+  class SDTFockVector: public FockVectorNdCanonical<F,3,1> {
+  public:
+    using FockVectorNdCanonical<F,3,1>::FockVectorNdCanonical;
+
+    SDTFockVector(): FockVectorNdCanonical<F,3,1>(0,0) {}
+
+    SDTFockVector(const SDFockVector<F> &a) {
+      this->copyComponents(a.componentTensors);
+      this->componentTensors.resize(3);
+      this->componentIndices.resize(3);
+      this->componentIndices[0] = a.componentIndices[0];
+      this->componentIndices[1] = a.componentIndices[1];
+      this->componentIndices[2] = "abcijk";
+      this->indexEnds.resize(3);
+      // This copies the components of a
+
+      int No(this->componentTensors[0]->lens[1]);
+      int Nv(this->componentTensors[0]->lens[0]);
+      int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
+      int syms[6] = {NS,NS,NS,NS,NS,NS};
+      this->componentTensors[2] = NEW(
+        CTF::Tensor<F>, 6, vvvooo, syms, *Cc4s::world
+      );
+      (*this->get(2))["abcijk"] = 0.0;
+
+      this->buildIndexTranslation();
+    }
+
+    SDTFockVector(const SDFockVector<F> &&a) {
+      this->componentTensors.resize(3);
+      this->componentIndices.resize(3);
+      this->componentIndices[0] = a.componentIndices[0];
+      this->componentIndices[1] = a.componentIndices[1];
+      this->componentIndices[2] = "abcijk";
+      this->indexEnds.resize(3);
+      // This copies the components of a
+      this->componentTensors[0] = a.componentTensors[0];
+      this->componentTensors[1] = a.componentTensors[1];
+
+      int No(this->componentTensors[0]->lens[1]);
+      int Nv(this->componentTensors[0]->lens[0]);
+      int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
+      int syms[6] = {NS,NS,NS,NS,NS,NS};
+      this->componentTensors[2] = NEW(
+        CTF::Tensor<F>, 6, vvvooo, syms, *Cc4s::world
+      );
+      (*this->get(2))["abcijk"] = 0.0;
+
+      this->buildIndexTranslation();
+    }
+
+    SDTFockVector<F> &operator =(SDFockVector<F> &&a) {
+      this->componentTensors.resize(3);
+      this->componentIndices.resize(3);
+      this->componentIndices[0] = a.componentIndices[0];
+      this->componentIndices[1] = a.componentIndices[1];
+      this->componentIndices[2] = "abcijk";
+      this->indexEnds.resize(3);
+      // This copies the components of a
+      this->componentTensors[0] = a.componentTensors[0];
+      this->componentTensors[1] = a.componentTensors[1];
+
+      int No(this->componentTensors[0]->lens[1]);
+      int Nv(this->componentTensors[0]->lens[0]);
+      int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
+      int syms[6] = {NS,NS,NS,NS,NS,NS};
+      this->componentTensors[2] = NEW(
+        CTF::Tensor<F>, 6, vvvooo, syms, *Cc4s::world
+      );
+      (*this->get(2))["abcijk"] = 0.0;
+
+      this->buildIndexTranslation();
+
+      return *this;
+    }
+
+    SDTFockVector<F> &operator =(const SDFockVector<F> &a) {
+      this->copyComponents(a.componentTensors);
+      this->componentTensors.resize(3);
+      this->componentIndices.resize(3);
+      this->componentIndices[0] = a.componentIndices[0];
+      this->componentIndices[1] = a.componentIndices[1];
+      this->componentIndices[2] = "abcijk";
+      this->indexEnds.resize(3);
+      // This copies the components of a
+
+      int No(this->componentTensors[0]->lens[1]);
+      int Nv(this->componentTensors[0]->lens[0]);
+      int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
+      int syms[6] = {NS,NS,NS,NS,NS,NS};
+      this->componentTensors[2] = NEW(
+        CTF::Tensor<F>, 6, vvvooo, syms, *Cc4s::world
+      );
+      (*this->get(2))["abcijk"] = 0.0;
+
+      this->buildIndexTranslation();
+
+      return *this;
+    }
+
+  };
+
 }
 
 #endif

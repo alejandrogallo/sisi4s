@@ -23,11 +23,12 @@ clean:
 # primary target
 all: build/${CONFIG}/bin/${TARGET}
 
-.PHONY: test wiki
+.PHONY: test wiki unit-test
 test:
 	bash test/test.sh -c $(CONFIG)
 
 unit-test: build/${CONFIG}/bin/Test
+unit-test: INCLUDE += -I.
 
 # generate documentation
 doc:

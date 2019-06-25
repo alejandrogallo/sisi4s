@@ -1,4 +1,4 @@
-#include <test/Test.hpp>
+#include <tests/Test.hpp>
 #include <math/MathFunctions.hpp>
 
 TEST_CASE( "Test sign of permutation up to degree 4", "[math]" ) {

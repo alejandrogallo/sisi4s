@@ -13,17 +13,17 @@ Mixer<F>::~Mixer() {
 }
 
 // instantiate
-template class Mixer<double>;
-template class Mixer<complex>;
+template class Mixer<cc4s::Float64>;
+template class Mixer<cc4s::Complex64>;
 
 
 template <typename F>
 std::map<
   std::string,
-  std::function<Mixer<F> *(Algorithm *algorithm)>
+  std::function<PTR(Mixer<F>) (Algorithm *algorithm)>
 > *MixerFactory<F>::mixerMap;
 
 // instantiate
-template class MixerFactory<double>;
-template class MixerFactory<complex>;
+template class MixerFactory<cc4s::Float64>;
+template class MixerFactory<cc4s::Complex64>;
 

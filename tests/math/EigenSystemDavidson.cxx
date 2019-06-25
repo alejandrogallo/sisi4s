@@ -1,4 +1,4 @@
-#include <test/Test.hpp>
+#include <tests/Test.hpp>
 
 #include <math/EigenSystemDavidson.hpp>
 #include <util/LapackMatrix.hpp>

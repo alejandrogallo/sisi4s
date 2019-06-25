@@ -1,4 +1,4 @@
-#include <test/Test.hpp>
+#include <tests/Test.hpp>
 #include <ctf.hpp>
 #include <Cc4s.hpp>
 #include <math/MathFunctions.hpp>

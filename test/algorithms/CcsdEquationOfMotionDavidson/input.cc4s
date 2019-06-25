@@ -7,26 +7,8 @@ CoulombVertexReader [
   %(file "../../resources/andreas/FTODDUMP")
   (unrestricted 1)
 ] [
-  (CoulombVertex FullCoulombVertex)
+  (CoulombVertex CoulombVertex)
   HoleEigenEnergies ParticleEigenEnergies
-].
-
-CoulombVertexSingularVectors [
-  FullCoulombVertex
-  (fieldVariables 100)
-  (reduction 0.5)
-] [
-  CoulombVertexSingularVectors
-  CoulombVertexSingularValues
-].
-
-TensorWriter [(Data CoulombVertexSingularValues)] [].
-
-ApproximateCoulombVertex [
-  FullCoulombVertex
-  CoulombVertexSingularVectors
-] [
-  CoulombVertex
 ].
 
 CoulombIntegralsFromVertex [
@@ -72,8 +54,11 @@ UccsdAmplitudesFromCoulombIntegrals [
   PPPPCoulombIntegrals
 
   HoleEigenEnergies ParticleEigenEnergies
-  (maxIterations 30)
+  (maxIterations 12)
   (antisymmetrize 1)
+  (unrestricted 1)
+  (intermediates 1)
+
   %(mixer "LinearMixer")
   (mixingRatio 1.0)
 ] [
@@ -81,7 +66,6 @@ UccsdAmplitudesFromCoulombIntegrals [
   (UccsdSinglesAmplitudes UccsdSinglesAmplitudes)
   (UccsdDoublesAmplitudes UccsdDoublesAmplitudes)
 ].
-
 
 CcsdEquationOfMotionDavidson [
 
@@ -103,13 +87,21 @@ CcsdEquationOfMotionDavidson [
   PPPPCoulombIntegrals
 
   HoleEigenEnergies ParticleEigenEnergies
+
   (SinglesAmplitudes UccsdSinglesAmplitudes)
   (DoublesAmplitudes UccsdDoublesAmplitudes)
+
   (eigenstates 7)
   %(maxIterations 2)
+  (preconditionerRandom 1)
+  (preconditionerRandomSigma 0.9)
+
+  (oneBodyRdmRange "1-2")
+
   (intermediates 1)
   (CISD 0)
   (printTensors 1)
+
 ] [
   SinglesHamiltonianDiagonal
   DoublesHamiltonianDiagonal

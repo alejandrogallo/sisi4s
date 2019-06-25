@@ -1,5 +1,5 @@
 #define CATCH_CONFIG_RUNNER
-#include <test/Test.hpp>
+#include <tests/Test.hpp>
 #include <Cc4s.hpp>
 #include <Parser.hpp>
 #include <util/MpiCommunicator.hpp>
@@ -36,7 +36,6 @@ int main(int argumentCount, char **arguments) {
   LogStream logStream(
     Cc4s::options->logFile, Cc4s::options->logLevel
   );
-  Log::setLogStream(&logStream);
 
   printBanner();
 
