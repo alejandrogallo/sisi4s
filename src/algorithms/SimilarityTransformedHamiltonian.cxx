@@ -45,30 +45,9 @@ SimilarityTransformedHamiltonian<F>::~SimilarityTransformedHamiltonian() {
 template <typename F>
 SimilarityTransformedHamiltonian<F>::SimilarityTransformedHamiltonian(
   int No_, int Nv_,
-  bool withIntermediates_,
-  SimilarityTransformedHamiltonian::Dressing dressing_
-):
-  No(No_),
-  Nv(Nv_),
-  withIntermediates(withIntermediates_),
-  dressing(dressing_)
-{
-
-  if (dressing == Dressing(CCSD)) {
-    LOG(0, "SimilarityTransformedH")
-      << "Dressing comes from CCSD" << std::endl;
-  } else if (dressing == Dressing(CCSDT)) {
-    LOG(0, "SimilarityTransformedH")
-      << "Dressing comes from CCSDT" << std::endl;
-  } else if (dressing == Dressing(NONE)) {
-    LOG(0, "SimilarityTransformedH")
-      << "No Dressing" << std::endl;
-  } else if (dressing == Dressing(GENERAL)) {
-    LOG(0, "SimilarityTransformedH")
-      << "Dressing is general Wai and Wabij are not 0" << std::endl;
-  }
-
-}
+  bool withIntermediates_
+): No(No_), Nv(Nv_), withIntermediates(withIntermediates_)
+{}
 
 template <typename F>
 PTR(CTF::Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {

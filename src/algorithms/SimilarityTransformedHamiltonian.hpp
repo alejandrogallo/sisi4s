@@ -29,8 +29,7 @@ namespace cc4s {
 
     SimilarityTransformedHamiltonian(
       int No, int Nv,
-      bool withIntermediates = true,
-      Dressing dressing = Dressing(CCSD)
+      bool withIntermediates = true
     );
     virtual ~SimilarityTransformedHamiltonian();
 

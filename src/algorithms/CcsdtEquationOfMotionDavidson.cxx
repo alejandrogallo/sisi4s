@@ -299,25 +299,23 @@ void CcsdtEquationOfMotionDavidson::run() {
     Tabij
   );
 
-  enum SimilarityTransformedHamiltonian<F>::Dressing *dressing;
+  enum SimilarityTransformedHamiltonian<F>::Dressing dressing;
   if (!isArgumentGiven("TriplesAmplitudes")) {
-    dressing = new enum SimilarityTransformedHamiltonian<F>::Dressing(
-      SimilarityTransformedHamiltonian<F>::CCSD
-    );
+    dressing = SimilarityTransformedHamiltonian<F>::Dressing::CCSD;
   } else {
-    dressing = new enum SimilarityTransformedHamiltonian<F>::Dressing(
-      SimilarityTransformedHamiltonian<F>::CCSDT
-    );
+    dressing = SimilarityTransformedHamiltonian<F>::Dressing::CCSDT;
   }
 
   SimilarityTransformedHamiltonian<F> H(
-    Fij->lens[0], Fab->lens[0], intermediates, *dressing);
+    Fij->lens[0], Fab->lens[0], intermediates);
+
   H.setFij(Fij).setFab(Fab).setFia(Fia)
     .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
     .setVijka(Vijka).setViabc(Viabc).setViajk(Viajk).setVabic(Vabic)
     .setVaibc(Vaibc).setVaibj(Vaibj).setViabj(Viabj).setVijak(Vijak)
     .setVaijb(Vaijb).setVabci(Vabci)
-    .setTai(&Tai).setTabij(&Tabij);
+    .setTai(&Tai).setTabij(&Tabij)
+    .setDressing(dressing);
 
   CcsdPreconditioner<F> P(
     Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl

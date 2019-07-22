@@ -149,8 +149,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
 
   SimilarityTransformedHamiltonian<F> H(
     Fij->lens[0], Fab->lens[0],
-    usingIntermediates,
-    SimilarityTransformedHamiltonian<F>::Dressing::GENERAL);
+    usingIntermediates);
 
   H.setFij(Fij).setFab(Fab).setFia(Fia)
     .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
@@ -158,6 +157,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     .setVaibc(Vaibc).setVaibj(Vaibj).setViabj(Viabj).setVijak(Vijak)
     .setVaijb(Vaijb).setVabci(Vabci).setVabij(Vabij)
     .setTai(Tai.get()).setTabij(Tabij.get())
+    .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::GENERAL)
     .useStantonIntermediatesUCCSD(usingIntermediates);
 
   // T1 equations:
