@@ -44,45 +44,12 @@ SimilarityTransformedHamiltonian<F>::~SimilarityTransformedHamiltonian() {
 
 template <typename F>
 SimilarityTransformedHamiltonian<F>::SimilarityTransformedHamiltonian(
-  CTF::Tensor<F> *Fij_,
-  CTF::Tensor<F> *Fab_,
-  CTF::Tensor<F> *Fia_,
-  CTF::Tensor<F> *Vabcd_,
-  CTF::Tensor<F> *Viajb_,
-  CTF::Tensor<F> *Vijab_,
-  CTF::Tensor<F> *Vijkl_,
-  CTF::Tensor<F> *Vijka_,
-  CTF::Tensor<F> *Viabc_,
-  CTF::Tensor<F> *Viajk_,
-  CTF::Tensor<F> *Vabic_,
-  CTF::Tensor<F> *Vaibc_,
-  CTF::Tensor<F> *Vaibj_,
-  CTF::Tensor<F> *Viabj_,
-  CTF::Tensor<F> *Vijak_,
-  CTF::Tensor<F> *Vaijb_,
-  CTF::Tensor<F> *Vabci_,
-  CTF::Tensor<F> *Vabij_,
+  int No_, int Nv_,
   bool withIntermediates_,
   SimilarityTransformedHamiltonian::Dressing dressing_
 ):
-  Fij(Fij_),
-  Fab(Fab_),
-  Fia(Fia_),
-  Vabcd(Vabcd_),
-  Viajb(Viajb_),
-  Vijab(Vijab_),
-  Vijkl(Vijkl_),
-  Vijka(Vijka_),
-  Viabc(Viabc_),
-  Viajk(Viajk_),
-  Vabic(Vabic_),
-  Vaibc(Vaibc_),
-  Vaibj(Vaibj_),
-  Viabj(Viabj_),
-  Vijak(Vijak_),
-  Vaijb(Vaijb_),
-  Vabci(Vabci_),
-  Vabij(Vabij_),
+  No(No_),
+  Nv(Nv_),
   withIntermediates(withIntermediates_),
   dressing(dressing_)
 {
@@ -100,9 +67,6 @@ SimilarityTransformedHamiltonian<F>::SimilarityTransformedHamiltonian(
     LOG(0, "SimilarityTransformedH")
       << "Dressing is general Wai and Wabij are not 0" << std::endl;
   }
-
-  No = Fij->lens[0];
-  Nv = Fab->lens[0];
 
 }
 

@@ -12,6 +12,7 @@ namespace cc4s {
   template <typename F=complex>
   class SimilarityTransformedHamiltonian {
   public:
+    typedef SimilarityTransformedHamiltonian STH;
 
     /*! \enum Dressing
      *
@@ -27,33 +28,11 @@ namespace cc4s {
     };
 
     SimilarityTransformedHamiltonian(
-      CTF::Tensor<F> *Fij_,
-      CTF::Tensor<F> *Fab_,
-      CTF::Tensor<F> *Fia_,
-      CTF::Tensor<F> *Vabcd_,
-      CTF::Tensor<F> *Viajb_,
-      CTF::Tensor<F> *Vijab_,
-      CTF::Tensor<F> *Vijkl_,
-      CTF::Tensor<F> *Vijka_,
-      CTF::Tensor<F> *Viabc_,
-      CTF::Tensor<F> *Viajk_,
-      CTF::Tensor<F> *Vabic_,
-      CTF::Tensor<F> *Vaibc_,
-      CTF::Tensor<F> *Vaibj_,
-      CTF::Tensor<F> *Viabj_,
-      CTF::Tensor<F> *Vijak_,
-      CTF::Tensor<F> *Vaijb_,
-      CTF::Tensor<F> *Vabci_,
-      CTF::Tensor<F> *Vabij_ = NULL,
-      bool withIntermediates_ = true,
-      Dressing dressing_ = Dressing(CCSD)
+      int No, int Nv,
+      bool withIntermediates = true,
+      Dressing dressing = Dressing(CCSD)
     );
     virtual ~SimilarityTransformedHamiltonian();
-
-    // dressing tensor setters
-    void setTai(CTF::Tensor<F> *Tai_) { Tai = Tai_; }
-    void setTabij(CTF::Tensor<F> *Tabij_) { Tabij = Tabij_; }
-    void setTabcijk(CTF::Tensor<F> *Tabcijk_) { Tabcijk = Tabcijk_; }
 
     // ccsd fok vectors
     SDFockVector<F> rightApplyIntermediates(SDFockVector<F> &v);
@@ -84,13 +63,42 @@ namespace cc4s {
     PTR(CTF::Tensor<F>) getIJKA();
     PTR(CTF::Tensor<F>) getIJKL();
 
+    // dressing tensor setters
+    STH& setTai(CTF::Tensor<F> *t) { Tai = t; return *this;}
+    STH& setTabij(CTF::Tensor<F> *t) { Tabij = t; return *this;}
+    STH& setTabcijk(CTF::Tensor<F> *t) { Tabcijk = t; return *this;}
+
+    // V amplitudes setters
+    STH& setFij(CTF::Tensor<F> *t) { Fij = t; return *this; }
+    STH& setFab(CTF::Tensor<F> *t) { Fab = t; return *this; }
+    STH& setFia(CTF::Tensor<F> *t) { Fia = t; return *this; }
+    STH& setVabcd(CTF::Tensor<F> *t) { Vabcd = t; return *this; }
+    STH& setViajb(CTF::Tensor<F> *t) { Viajb = t; return *this; }
+    STH& setVijab(CTF::Tensor<F> *t) { Vijab = t; return *this; }
+    STH& setVijkl(CTF::Tensor<F> *t) { Vijkl = t; return *this; }
+    STH& setVijka(CTF::Tensor<F> *t) { Vijka = t; return *this; }
+    STH& setViabc(CTF::Tensor<F> *t) { Viabc = t; return *this; }
+    STH& setViajk(CTF::Tensor<F> *t) { Viajk = t; return *this; }
+    STH& setVabic(CTF::Tensor<F> *t) { Vabic = t; return *this; }
+    STH& setVaibc(CTF::Tensor<F> *t) { Vaibc = t; return *this; }
+    STH& setVaibj(CTF::Tensor<F> *t) { Vaibj = t; return *this; }
+    STH& setViabj(CTF::Tensor<F> *t) { Viabj = t; return *this; }
+    STH& setVijak(CTF::Tensor<F> *t) { Vijak = t; return *this; }
+    STH& setVaijb(CTF::Tensor<F> *t) { Vaijb = t; return *this; }
+    STH& setVabci(CTF::Tensor<F> *t) { Vabci = t; return *this; }
+    STH& setVabij(CTF::Tensor<F> *t) { Vabij = t; return *this; }
+
+    STH& setWithIntermediates(bool t) {withIntermediates = t; return *this;}
+    STH& setDressing(Dressing d) {dressing = d; return *this;}
+
     // three body
     PTR(CTF::Tensor<F>) getABCIJK();
 
     PTR(CTF::Tensor<F>) getTauABIJ();
 
-    void useStantonIntermediatesUCCSD(bool s) {
+    STH& useStantonIntermediatesUCCSD(bool s) {
       _useStantonIntermediatesUCCSD = s;
+      return *this;
     }
     bool useStantonIntermediatesUCCSD() {
       return _useStantonIntermediatesUCCSD;
@@ -118,11 +126,9 @@ namespace cc4s {
     PTR(StantonIntermediatesUCCSD<F>) stantonIntermediatesUccsd;
     PTR(StantonIntermediatesUCCSD<F>) getStantonIntermediatesUCCSD();
 
-    bool withIntermediates;
-
-    Dressing dressing;
-
     int No, Nv;
+    bool withIntermediates;
+    Dressing dressing;
 
   };
 
