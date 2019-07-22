@@ -106,6 +106,17 @@ namespace cc4s {
 
   private:
 
+    bool _useStantonIntermediatesUCCSD = false;
+    PTR(StantonIntermediatesUCCSD<F>) stantonIntermediatesUccsd;
+    PTR(StantonIntermediatesUCCSD<F>) getStantonIntermediatesUCCSD();
+
+    int No, Nv;
+    bool withIntermediates;
+    Dressing dressing;
+
+    //
+    // Resources that should be destroyed after the class gets destroyed
+    //
     // one body
     PTR(CTF::Tensor<F>)  Wij, Wab, Wia, Wai;
     // two body
@@ -116,23 +127,19 @@ namespace cc4s {
 
     PTR(CTF::Tensor<F>)  Tau_abij;
 
+
+    //
+    // External resources that should not be cleaned up after
+    // Hamiltonian class gets destroyed
+    //
     CTF::Tensor<F> *Tai, *Tabij, *Tabcijk;
     CTF::Tensor<F> *Fij, *Fab, *Fia;
     CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
                    *Vabij;
 
-    bool _useStantonIntermediatesUCCSD = false;
-    PTR(StantonIntermediatesUCCSD<F>) stantonIntermediatesUccsd;
-    PTR(StantonIntermediatesUCCSD<F>) getStantonIntermediatesUCCSD();
-
-    int No, Nv;
-    bool withIntermediates;
-    Dressing dressing;
-
   };
 
 }
 
 #endif
-
