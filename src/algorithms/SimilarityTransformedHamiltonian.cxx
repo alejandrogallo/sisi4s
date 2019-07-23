@@ -39,17 +39,6 @@ using namespace cc4s;
 
 
 template <typename F>
-SimilarityTransformedHamiltonian<F>::~SimilarityTransformedHamiltonian() {
-}
-
-template <typename F>
-SimilarityTransformedHamiltonian<F>::SimilarityTransformedHamiltonian(
-  int No_, int Nv_,
-  bool withIntermediates_
-): No(No_), Nv(Nv_), withIntermediates(withIntermediates_)
-{}
-
-template <typename F>
 PTR(CTF::Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
 
   if (Tau_abij) {
@@ -57,8 +46,8 @@ PTR(CTF::Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
   }
 
   LOG(0, "SimilarityTransformedH")
-  << "Building Tau_abij from Tai and Tabij"
-  << std::endl;
+    << "Building Tau_abij from Tai and Tabij"
+    << std::endl;
 
   Tau_abij = NEW(CTF::Tensor<F>, *Tabij);
   (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
@@ -72,7 +61,8 @@ template <typename F>
 SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply(
   SDFockVector<F> &R
 ) {
-  return withIntermediates ? rightApplyIntermediates(R) : rightApplyHirata(R);
+  return useRightApplyIntermediates ?
+    rightApplyIntermediates(R) : rightApplyHirata(R);
 }
 
 template <typename F>

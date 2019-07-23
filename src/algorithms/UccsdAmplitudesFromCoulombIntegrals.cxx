@@ -147,9 +147,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     return residuum;
   }
 
-  SimilarityTransformedHamiltonian<F> H(
-    Fij->lens[0], Fab->lens[0],
-    usingIntermediates);
+  SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
 
   H.setFij(Fij).setFab(Fab).setFia(Fia)
     .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)

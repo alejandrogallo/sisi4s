@@ -27,11 +27,8 @@ namespace cc4s {
       GENERAL, // For a general T not fulfiling any particular criterium
     };
 
-    SimilarityTransformedHamiltonian(
-      int No, int Nv,
-      bool withIntermediates = true
-    );
-    virtual ~SimilarityTransformedHamiltonian();
+    SimilarityTransformedHamiltonian(int No_, int Nv_): No(No_), Nv(Nv_) {};
+    ~SimilarityTransformedHamiltonian(){};
 
     // ccsd fok vectors
     SDFockVector<F> rightApplyIntermediates(SDFockVector<F> &v);
@@ -87,7 +84,8 @@ namespace cc4s {
     STH& setVabci(CTF::Tensor<F> *t) { Vabci = t; return *this; }
     STH& setVabij(CTF::Tensor<F> *t) { Vabij = t; return *this; }
 
-    STH& setWithIntermediates(bool t) {withIntermediates = t; return *this;}
+    STH& setRightApplyIntermediates(bool t) {
+      useRightApplyIntermediates = t; return *this;}
     STH& setDressing(Dressing d) {dressing = d; return *this;}
 
     // three body
@@ -110,7 +108,7 @@ namespace cc4s {
     PTR(StantonIntermediatesUCCSD<F>) getStantonIntermediatesUCCSD();
 
     int No, Nv;
-    bool withIntermediates;
+    bool useRightApplyIntermediates;
     Dressing dressing;
 
     //

@@ -306,8 +306,7 @@ void CcsdtEquationOfMotionDavidson::run() {
     dressing = SimilarityTransformedHamiltonian<F>::Dressing::CCSDT;
   }
 
-  SimilarityTransformedHamiltonian<F> H(
-    Fij->lens[0], Fab->lens[0], intermediates);
+  SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
 
   H.setFij(Fij).setFab(Fab).setFia(Fia)
     .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
@@ -315,6 +314,7 @@ void CcsdtEquationOfMotionDavidson::run() {
     .setVaibc(Vaibc).setVaibj(Vaibj).setViabj(Viabj).setVijak(Vijak)
     .setVaijb(Vaijb).setVabci(Vabci)
     .setTai(&Tai).setTabij(&Tabij)
+    .setRightApplyIntermediates(intermediates)
     .setDressing(dressing);
 
   CcsdPreconditioner<F> P(
