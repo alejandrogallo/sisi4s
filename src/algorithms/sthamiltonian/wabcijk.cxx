@@ -13,8 +13,7 @@ template <typename F>
 PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getABCIJK() {
   if (Wabcijk) return Wabcijk;
-  LOG(0, "SimilarityTransformedH") << "Building Wabcijk from Wabci"
-                                       << std::endl;
+  LOG(1, getAbbreviation()) << "Building Wabcijk" << std::endl;
   int syms[] = {NS, NS, NS, NS};
   int vvvooo[] = {Nv,Nv,Nv,No,No,No};
 

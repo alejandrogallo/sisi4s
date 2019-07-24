@@ -104,6 +104,8 @@ namespace cc4s {
       return _useStantonIntermediatesUCCSD;
     }
 
+    constexpr std::string getAbbreviation() const { return "STH"; }
+
   private:
 
     bool _useStantonIntermediatesUCCSD = false;

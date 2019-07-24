@@ -14,12 +14,13 @@ PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getABIJ() {
   if (Wabij) return Wabij;
 
+  LOG(1, getAbbreviation()) << "Building Wabij" << std::endl;
+
   Wabij = NEW(CTF::Tensor<F>, *Vabij);
 
   if (dressing == Dressing(CCSD)) {
     (*Wabij)["abij"] = 0.0;
-    LOG(1, "SimilarityTransformedH") <<
-        "Wabij = 0 since CCSD" << std::endl;
+    LOG(1, getAbbreviation()) << "Wabij = 0 since CCSD" << std::endl;
     return Wabij;
   }
 
