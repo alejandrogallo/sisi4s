@@ -34,9 +34,7 @@ The equations in this file are taken from the following sources
 #define ST_DEBUG(msg)
 #endif
 
-using namespace CTF;
 using namespace cc4s;
-
 
 template <typename F>
 PTR(CTF::Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
@@ -628,163 +626,12 @@ SimilarityTransformedHamiltonian<F>::getAI() {
     (*Wai)["bi"] += (- 1.0) * (*Tai)["ci"] * (*Tai)["bl"] * (*Tai)["en"] * (*Vijab)["lnce"];
 
   }
+  if (Tabcijk) { // Begin Wai with Triples Tabcijk
+    (*Wai)["bi"] += ( + 0.25 ) * (*Tabcijk)["cdbmni"] * (*Vijab)["mncd"];
+  } // end Wai with Triples Tabcijk
 
 
   return Wai;
-}
-
-template <typename F>
-PTR(CTF::Tensor<F>)
-SimilarityTransformedHamiltonian<F>::getABIJ() {
-  if (Wabij) return Wabij;
-
-  Wabij = NEW(CTF::Tensor<F>, *Vabij);
-
-  if (dressing == Dressing(CCSD)) {
-    (*Wabij)["abij"] = 0.0;
-    LOG(1, "SimilarityTransformedH") <<
-        "Wabij = 0 since CCSD" << std::endl;
-    return Wabij;
-  }
-
-  if (useStantonIntermediatesUCCSD()) {
-
-    auto intermediates = getStantonIntermediatesUCCSD();
-    (*Wabij)["abij"] = (*intermediates->getRabij())["abij"];
-    //These are the residum equations
-    (*Wabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
-    (*Wabij)["cdij"] += ( + 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
-    (*Wabij)["cdij"] += ( - 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
-    (*Wabij)["cdij"] += ( + 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
-
-  } else {
-
-  // Equations are from hirata
-  // WARNING: They are not optimized
-  if (Fia) {
-    (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["cdmj"] * (*Fia)["mf"] * (*Tai)["fi"];
-    (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["cdmi"] * (*Fia)["mf"] * (*Tai)["fj"];
-    (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["fcij"] * (*Fia)["mf"] * (*Tai)["dm"];
-    (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["fdij"] * (*Fia)["mf"] * (*Tai)["cm"];
-  }
-
-  //These are the residum equations
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
-
-  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmn"] * (*Vijkl)["mnij"];
-
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["cm"] * (*Tai)["dn"] * (*Vijkl)["mnij"];
-
-  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmn"] * (*Tai)["gj"] * (*Vijka)["mnig"];
-  (*Wabij)["cdij"] += ( - 0.5  ) * (*Tabij)["cdmn"] * (*Tai)["gi"] * (*Vijka)["mnjg"];
-
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["cdmj"] * (*Tai)["fo"] * (*Vijka)["moif"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["cdmi"] * (*Tai)["fo"] * (*Vijka)["mojf"];
-
-  (*Wabij)["cdij"] += ( - 0.5  ) * (*Tabij)["efij"] * (*Tai)["co"] * (*Viabc)["odef"];
-  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tabij)["efij"] * (*Tai)["do"] * (*Viabc)["ocef"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ecij"] * (*Tai)["fo"] * (*Viabc)["odef"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["edij"] * (*Tai)["fo"] * (*Viabc)["ocef"];
-
-  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tabij)["edij"] * (*Tabij)["fcop"] * (*Vijab)["opef"];
-  (*Wabij)["cdij"] += ( - 0.5  ) * (*Tabij)["ecij"] * (*Tabij)["fdop"] * (*Vijab)["opef"];
-
-  (*Wabij)["cdij"] += ( + 0.25  ) * (*Tabij)["efij"] * (*Tabij)["cdop"] * (*Vijab)["opef"];
-
-  (*Wabij)["cdij"] += ( - 0.5  ) * (*Tabij)["cdmi"] * (*Tabij)["fgpj"] * (*Vijab)["mpfg"];
-  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmj"] * (*Tabij)["fgpi"] * (*Vijab)["mpfg"];
-
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ej"] * (*Tai)["cn"] * (*Tai)["do"] * (*Vijka)["noie"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["ei"] * (*Tai)["cn"] * (*Tai)["do"] * (*Vijka)["noje"];
-
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Tai)["co"] * (*Viabc)["odef"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Tai)["do"] * (*Viabc)["ocef"];
-
-  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Tabij)["cdop"] * (*Vijab)["opef"];
-
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["cdpj"] * (*Tai)["ei"] * (*Tai)["fo"] * (*Vijab)["opef"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["cdpi"] * (*Tai)["ej"] * (*Tai)["fo"] * (*Vijab)["opef"];
-
-  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tai)["cm"] * (*Tai)["dn"] * (*Tabij)["ghij"] * (*Vijab)["mngh"];
-
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["hcij"] * (*Tai)["dm"] * (*Tai)["fo"] * (*Vijab)["mofh"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["hdij"] * (*Tai)["cm"] * (*Tai)["fo"] * (*Vijab)["mofh"];
-
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Tai)["co"] * (*Tai)["dp"] * (*Vijab)["opef"];
-
-
-  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tabij)["efij"] * (*Vabcd)["cdef"];
-
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Vabcd)["cdef"];
-
-
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["ecni"] * (*Viajb)["ndje"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ecnj"] * (*Viajb)["ndie"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["edni"] * (*Viajb)["ncje"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["ednj"] * (*Viajb)["ncie"];
-
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ecni"] * (*Tai)["gj"] * (*Viabc)["ndeg"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["ecnj"] * (*Tai)["gi"] * (*Viabc)["ndeg"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["edni"] * (*Tai)["gj"] * (*Viabc)["nceg"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ednj"] * (*Tai)["gi"] * (*Viabc)["nceg"];
-
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ecni"] * (*Tai)["do"] * (*Vijka)["noje"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["ecnj"] * (*Tai)["do"] * (*Vijka)["noie"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["edni"] * (*Tai)["co"] * (*Vijka)["noje"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ednj"] * (*Tai)["co"] * (*Vijka)["noie"];
-
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["edni"] * (*Tabij)["gcpj"] * (*Vijab)["npeg"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ecni"] * (*Tabij)["gdpj"] * (*Vijab)["npeg"];
-
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["gcpi"] * (*Tai)["ej"] * (*Tai)["dn"] * (*Vijab)["npeg"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["gcpj"] * (*Tai)["ei"] * (*Tai)["dn"] * (*Vijab)["npeg"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["gdpi"] * (*Tai)["ej"] * (*Tai)["cn"] * (*Vijab)["npeg"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["gdpj"] * (*Tai)["ei"] * (*Tai)["cn"] * (*Vijab)["npeg"];
-
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["cn"] * (*Viajb)["ndje"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["ej"] * (*Tai)["cn"] * (*Viajb)["ndie"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["ei"] * (*Tai)["dn"] * (*Viajb)["ncje"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ej"] * (*Tai)["dn"] * (*Viajb)["ncie"];
-
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ej"] * (*Vabic)["cdie"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["ei"] * (*Vabic)["cdje"];
-
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["cm"] * (*Viajk)["mdij"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["dm"] * (*Viajk)["mcij"];
-
-  // end without intermediates
-
-  }
-
-  return Wabij;
-
-}
-
-template <typename F>
-PTR(CTF::Tensor<F>)
-SimilarityTransformedHamiltonian<F>::getABCIJK() {
-  if (Wabcijk) return Wabcijk;
-  LOG(0, "SimilarityTransformedH") << "Building Wabcijk from Wabci"
-                                       << std::endl;
-  int syms[] = {NS, NS, NS, NS};
-  int vvvooo[] = {Nv,Nv,Nv,No,No,No};
-
-  CTF::Tensor<F> Rabcijk(4, vvvooo, syms, *Cc4s::world, "Wabcijk");
-
-  Wabcijk = NEW(CTF::Tensor<F>,  Rabcijk);
-  Wabci = getABCI();
-
-  (*Wabcijk)["abcijk"] = (+ 1.0) * (*Tabij)["aeij"] * (*Wabci)["bcek"];
-  // we have to antisymmetrize a-b a-c and i-k j-k
-  // a-b
-  (*Wabcijk)["abcijk"] = (- 1.0) * (*Tabij)["beij"] * (*Wabci)["acek"];
-  // a-c
-  (*Wabcijk)["abcijk"] = (- 1.0) * (*Tabij)["ceij"] * (*Wabci)["baek"];
-
-  return Wabcijk;
 }
 
 template <typename F>
@@ -796,8 +643,6 @@ SimilarityTransformedHamiltonian<F>::getIA() {
   int syms[] = {NS, NS};
   int ov[] = {No, Nv};
   CTF::Tensor<F> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
-
-  //getABCIJK();
 
   Wia = NEW(CTF::Tensor<F>,  InitFia);
 

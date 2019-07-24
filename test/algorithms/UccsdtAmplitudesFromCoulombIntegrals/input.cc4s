@@ -17,6 +17,7 @@ CoulombIntegralsFromVertex [
   HHPHCoulombIntegrals
   HHPPCoulombIntegrals
   HPHHCoulombIntegrals
+  PHHPCoulombIntegrals
   HPHPCoulombIntegrals
   HPPHCoulombIntegrals
   HPPPCoulombIntegrals
@@ -46,9 +47,10 @@ UccsdAmplitudesFromCoulombIntegrals [
   PPPHCoulombIntegrals
   PPPHCoulombIntegrals
   PPPPCoulombIntegrals
+  PHHPCoulombIntegrals
 
   HoleEigenEnergies ParticleEigenEnergies
-  (maxIterations 15)
+  (maxIterations 3)
   (unrestricted 1)
   (antisymmetrize 1)
   (mixer "DiisMixer")
@@ -78,14 +80,16 @@ UccsdtAmplitudesFromCoulombIntegrals [
   PPPHCoulombIntegrals
   PPPHCoulombIntegrals
   PPPPCoulombIntegrals
+  PHHPCoulombIntegrals
 
   (intialDoublesAmplitudes UccsdDoublesAmplitudes)
   (intialSinglesAmplitudes UccsdSinglesAmplitudes)
 
   HoleEigenEnergies ParticleEigenEnergies
-  (maxIterations 30)
+  (maxIterations 3)
   (unrestricted 1)
   (antisymmetrize 1)
+  (intermediates 1)
   (mixer "DiisMixer")
 
 ] [
@@ -95,4 +99,7 @@ UccsdtAmplitudesFromCoulombIntegrals [
   (UccsdtTriplesAmplitudes UccsdtTriplesAmplitudes)
 ].
 
+TensorGetMax [(Tensor UccsdtSinglesAmplitudes)] [].
+TensorGetMax [(Tensor UccsdtDoublesAmplitudes)] [].
+TensorGetMax [(Tensor UccsdtTriplesAmplitudes)] [].
 TensorWriter [(Data UccsdtEnergy)] [].

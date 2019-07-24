@@ -125,7 +125,6 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
 
   // Create T and R and intermediates
   // Read the amplitudes Tai and Tabij
-  //amplitudes->get(0)
   auto Tai(amplitudes->get(0));
   Tai->set_name("Tai");
   auto Tabij(amplitudes->get(1));
@@ -141,8 +140,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
 
   if (iterationStep == 0){
     LOG(1, getAbbreviation())
-      << "Set initial Rabij amplitudes to Vijab"
-    << std::endl;
+      << "Set initial Rabij amplitudes to Vijab" << std::endl;
     (*Rabij)["abij"] = (*Vijab)["ijab"];
     return residuum;
   }

@@ -27,7 +27,9 @@ namespace cc4s {
       GENERAL, // For a general T not fulfiling any particular criterium
     };
 
-    SimilarityTransformedHamiltonian(int No_, int Nv_): No(No_), Nv(Nv_) {};
+    SimilarityTransformedHamiltonian(int No_, int Nv_): No(No_), Nv(Nv_) {
+      Tabcijk = NULL;
+    };
     ~SimilarityTransformedHamiltonian(){};
 
     // ccsd fok vectors
@@ -59,10 +61,14 @@ namespace cc4s {
     PTR(CTF::Tensor<F>) getIJKA();
     PTR(CTF::Tensor<F>) getIJKL();
 
+    // three body
+    PTR(CTF::Tensor<F>) getABCIJK();
+
     // dressing tensor setters
     STH& setTai(CTF::Tensor<F> *t) { Tai = t; return *this;}
     STH& setTabij(CTF::Tensor<F> *t) { Tabij = t; return *this;}
     STH& setTabcijk(CTF::Tensor<F> *t) { Tabcijk = t; return *this;}
+    STH& setTabcdijkl(CTF::Tensor<F> *t) { Tabcdijkl = t; return *this;}
 
     // V amplitudes setters
     STH& setFij(CTF::Tensor<F> *t) { Fij = t; return *this; }
@@ -87,9 +93,6 @@ namespace cc4s {
     STH& setRightApplyIntermediates(bool t) {
       useRightApplyIntermediates = t; return *this;}
     STH& setDressing(Dressing d) {dressing = d; return *this;}
-
-    // three body
-    PTR(CTF::Tensor<F>) getABCIJK();
 
     PTR(CTF::Tensor<F>) getTauABIJ();
 
@@ -122,14 +125,14 @@ namespace cc4s {
     // three body
     PTR(CTF::Tensor<F>) Wabcijk;
 
-    PTR(CTF::Tensor<F>)  Tau_abij;
+    PTR(CTF::Tensor<F>) Tau_abij;
 
 
     //
     // External resources that should not be cleaned up after
     // Hamiltonian class gets destroyed
     //
-    CTF::Tensor<F> *Tai, *Tabij, *Tabcijk;
+    CTF::Tensor<F> *Tai, *Tabij, *Tabcijk, *Tabcdijkl;
     CTF::Tensor<F> *Fij, *Fab, *Fia;
     CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
