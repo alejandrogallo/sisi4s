@@ -636,6 +636,48 @@ SimilarityTransformedHamiltonian<F>::getAI() {
 
 template <typename F>
 PTR(CTF::Tensor<F>)
+SimilarityTransformedHamiltonian<F>::getAI_RPA() {
+  if (Wai) return Wai;
+  LOG(1, getAbbreviation())
+    << "Building Wai only with Vijab and Viajb" << std::endl;
+
+  int syms[] = {NS, NS};
+  int ov[] = {Nv, No};
+  CTF::Tensor<F> InitFai(2, ov, syms, *Cc4s::world, "InitFai");
+
+  Wai = NEW(CTF::Tensor<F>, InitFai);
+
+  (*Wai)["bi"] = 0.0;
+  if (dressing == Dressing(RPA)) {
+    LOG(1, getAbbreviation()) << "Wai = 0 since CCSD" << std::endl;
+    return Wai;
+  }
+
+  // Equations from Hirata
+  if (Fia) {
+    (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["ib"];
+    (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["kd"] * (*Tabij)["dbki"];
+    (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Fia)["lc"];
+  }
+  (*Wai)["bi"] += (+ 1.0) * (*Fab)["bc"] * (*Tai)["ci"];
+  (*Wai)["bi"] += (- 1.0) * (*Fij)["ki"] * (*Tai)["bk"];
+  (*Wai)["bi"] += (- 1.0) * (*Tai)["cl"] * (*Viajb)["lbic"];
+
+  (*Wai)["bi"] += (- 0.5) * (*Tai)["fi"] * (*Tabij)["cblm"] * (*Vijab)["lmcf"];
+  (*Wai)["bi"] += (- 0.5) * (*Tai)["bn"] * (*Tabij)["cdmi"] * (*Vijab)["mncd"];
+  (*Wai)["bi"] += (+ 1.0) * (*Tabij)["cbli"] * (*Tai)["en"] * (*Vijab)["lnce"];
+  (*Wai)["bi"] += (- 1.0) * (*Tai)["ci"] * (*Tai)["bl"] * (*Tai)["en"] * (*Vijab)["lnce"];
+
+  if (Tabcijk) { // Begin Wai with Triples Tabcijk
+    (*Wai)["bi"] += ( + 0.25 ) * (*Tabcijk)["cdbmni"] * (*Vijab)["mncd"];
+  } // end Wai with Triples Tabcijk
+
+  return Wai;
+}
+
+
+template <typename F>
+PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIA() {
   if (Wia) return Wia;
   LOG(1, getAbbreviation()) << "Building Wia" << std::endl;

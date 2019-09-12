@@ -24,6 +24,7 @@ namespace cc4s {
       CCSD,
       CCSDT,
       NONE, // Some terms will be then set to zero instead of multiplying by 0
+      RPA,
       GENERAL, // For a general T not fulfiling any particular criterium
     };
 
@@ -48,10 +49,12 @@ namespace cc4s {
     PTR(CTF::Tensor<F>) getIJ();
     PTR(CTF::Tensor<F>) getAB();
     PTR(CTF::Tensor<F>) getAI();
+    PTR(CTF::Tensor<F>) getAI_RPA();
     PTR(CTF::Tensor<F>) getIA();
 
     // Two body
     PTR(CTF::Tensor<F>) getABIJ();
+    PTR(CTF::Tensor<F>) getABIJ_RPA();
     PTR(CTF::Tensor<F>) getIJAB();
     PTR(CTF::Tensor<F>) getABCD();
     PTR(CTF::Tensor<F>) getABCI();

@@ -16,7 +16,9 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
 
   LOG(1, getAbbreviation()) << "Building Wabij" << std::endl;
 
-  Wabij = NEW(CTF::Tensor<F>, *Vabij);
+  int syms[] = {NS, NS};
+  int vvoo[] = {Nv,Nv,No,No};
+  Wabij = NEW(CTF::Tensor<F>, 4, vvoo, syms, *Cc4s::world, "Wabij");
 
   if (dressing == Dressing(CCSD)) {
     (*Wabij)["abij"] = 0.0;
@@ -157,6 +159,81 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
   (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabcijk)["ecdnij"] * (*Tai)["gp"] * (*Vijab)["npeg"];
 
   } // end Wabij with Triples Tabcijk
+
+  return Wabij;
+
+}
+
+template <typename F>
+PTR(CTF::Tensor<F>)
+SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
+  if (Wabij) return Wabij;
+
+  LOG(1, getAbbreviation())
+    << "Building Wabij only with Vabij and Viajb" << std::endl;
+
+  int syms[] = {NS, NS};
+  int vvoo[] = {Nv,Nv,No,No};
+  Wabij = NEW(CTF::Tensor<F>, 4, vvoo, syms, *Cc4s::world, "Wabij");
+
+  if (dressing == Dressing(RPA)) {
+    (*Wabij)["abij"] = 0.0;
+    LOG(1, getAbbreviation()) << "Wabij = 0 since RPA" << std::endl;
+    return Wabij;
+  }
+
+  // Equations are from hirata
+  // WARNING: They are not optimized
+  if (Fia) {
+    (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["cdmj"] * (*Fia)["mf"] * (*Tai)["fi"];
+    (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["cdmi"] * (*Fia)["mf"] * (*Tai)["fj"];
+    (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["fcij"] * (*Fia)["mf"] * (*Tai)["dm"];
+    (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["fdij"] * (*Fia)["mf"] * (*Tai)["cm"];
+  }
+
+  //These are the residum equations
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
+
+  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tabij)["edij"] * (*Tabij)["fcop"] * (*Vijab)["opef"];
+  (*Wabij)["cdij"] += ( - 0.5  ) * (*Tabij)["ecij"] * (*Tabij)["fdop"] * (*Vijab)["opef"];
+
+  (*Wabij)["cdij"] += ( + 0.25  ) * (*Tabij)["efij"] * (*Tabij)["cdop"] * (*Vijab)["opef"];
+
+  (*Wabij)["cdij"] += ( - 0.5  ) * (*Tabij)["cdmi"] * (*Tabij)["fgpj"] * (*Vijab)["mpfg"];
+  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmj"] * (*Tabij)["fgpi"] * (*Vijab)["mpfg"];
+
+  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Tabij)["cdop"] * (*Vijab)["opef"];
+
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["cdpj"] * (*Tai)["ei"] * (*Tai)["fo"] * (*Vijab)["opef"];
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["cdpi"] * (*Tai)["ej"] * (*Tai)["fo"] * (*Vijab)["opef"];
+
+  (*Wabij)["cdij"] += ( + 0.5  ) * (*Tai)["cm"] * (*Tai)["dn"] * (*Tabij)["ghij"] * (*Vijab)["mngh"];
+
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["hcij"] * (*Tai)["dm"] * (*Tai)["fo"] * (*Vijab)["mofh"];
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["hdij"] * (*Tai)["cm"] * (*Tai)["fo"] * (*Vijab)["mofh"];
+
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Tai)["co"] * (*Tai)["dp"] * (*Vijab)["opef"];
+
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["ecni"] * (*Viajb)["ndje"];
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ecnj"] * (*Viajb)["ndie"];
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["edni"] * (*Viajb)["ncje"];
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["ednj"] * (*Viajb)["ncie"];
+
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["edni"] * (*Tabij)["gcpj"] * (*Vijab)["npeg"];
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ecni"] * (*Tabij)["gdpj"] * (*Vijab)["npeg"];
+
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["gcpi"] * (*Tai)["ej"] * (*Tai)["dn"] * (*Vijab)["npeg"];
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["gcpj"] * (*Tai)["ei"] * (*Tai)["dn"] * (*Vijab)["npeg"];
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["gdpi"] * (*Tai)["ej"] * (*Tai)["cn"] * (*Vijab)["npeg"];
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["gdpj"] * (*Tai)["ei"] * (*Tai)["cn"] * (*Vijab)["npeg"];
+
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["cn"] * (*Viajb)["ndje"];
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["ej"] * (*Tai)["cn"] * (*Viajb)["ndie"];
+  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["ei"] * (*Tai)["dn"] * (*Viajb)["ncje"];
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ej"] * (*Tai)["dn"] * (*Viajb)["ncie"];
 
   return Wabij;
 
