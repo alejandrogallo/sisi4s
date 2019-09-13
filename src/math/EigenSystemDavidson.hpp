@@ -390,7 +390,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
 
 
           // compute correction using preconditioner
-          V correction = this->p->getCorrection(this->eigenValues[k], residuum);
+          V correction(this->p->getCorrection(this->eigenValues[k], residuum));
 
           // orthonormalize and append to rightBasis
           for (unsigned int b(0); b < rightBasis.size(); ++b) {
