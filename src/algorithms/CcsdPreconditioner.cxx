@@ -286,7 +286,20 @@ CcsdPreconditioner<F>::getCorrection(
   SDTFockVector<F> result(getCorrection(lambda, w));
   // et voila
   return result;
+}
 
+template <typename F>
+SFockVector<F>
+CcsdPreconditioner<F>::getCorrection(
+  const complex lambda, SFockVector<F> &residuum
+) {
+  // Cast s into sd
+  SDFockVector<F> w(residuum);
+  // apply the old getCorrection
+  // and cast again into a ccsdt vector
+  SFockVector<F> result(getCorrection(lambda, w));
+  // et voila
+  return result;
 }
 
 template <typename F>

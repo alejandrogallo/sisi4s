@@ -53,7 +53,11 @@ namespace cc4s {
        */
       std::vector<V> getInitialBasis(int eigenVectorsCount);
 
-      V getCorrection(const complex eigenValue, V &residuum);
+      SFockVector<F>
+      getCorrection(const complex eigenValue, SFockVector<F> &residuum);
+
+      SDFockVector<F>
+      getCorrection(const complex eigenValue, SDFockVector<F> &residuum);
 
       SDTFockVector<F>
       getCorrection(const complex eigenValue, SDTFockVector<F> &residuum);
