@@ -64,6 +64,51 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply(
 }
 
 template <typename F>
+SFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(
+  SFockVector<F> &R
+) {
+  // This is only using Viajb and Vijab
+  SFockVector<F> HR(R);
+  // get pointers to the component tensors
+  PTR(CTF::Tensor<F>) Rai( R.get(0) );
+  PTR(CTF::Tensor<F>) HRai( HR.get(0) );
+
+  ST_DEBUG("rightApplyHirata_RPA")
+
+  // Contruct HR (one body part)
+  // TODO: why "bi" not "ai"?
+  (*HRai)["bi"]  = 0.0;
+
+  // WIJ =====================================================================
+  (*HRai)["bi"] += ( - 1.0 ) * (*Fij)["ki"] * (*Rai)["bk"];
+  //(*HRai)["bi"] += ( + 1.0  ) * (*Tai)["cl"] * (*Vijka)["lmic"] * (*Rai)["bm"];
+  (*HRai)["bi"] += ( - 0.5 ) * (*Tabij)["cdmi"] * (*Vijab)["mncd"] * (*Rai)["bn"];
+  if (Tai) {
+    (*HRai)["bi"] += ( + 1.0  ) * (*Tai)["ci"] * (*Tai)["dm"] * (*Vijab)["mncd"] * (*Rai)["bn"];
+  }
+
+  // WAB =====================================================================
+  (*HRai)["bi"] += ( + 1.0 ) * (*Fab)["bc"] * (*Rai)["ci"];
+  //(*HRai)["bi"] += ( + 1.0  ) * (*Tai)["cl"] * (*Viabc)["lbce"] * (*Rai)["ei"];
+  (*HRai)["bi"] += ( - 0.5 ) * (*Tabij)["cblm"] * (*Vijab)["lmcf"] * (*Rai)["fi"];
+  if (Tai) {
+    (*HRai)["bi"] += ( + 1.0  ) * (*Tai)["bk"] * (*Tai)["dm"] * (*Vijab)["kmdf"] * (*Rai)["fi"];
+  }
+
+  // WIABJ ===================================================================
+  (*HRai)["bi"] += ( - 1.0 ) * (*Viajb)["kbid"] * (*Rai)["dk"];
+  (*HRai)["bi"] += ( + 1.0 ) * (*Tabij)["cbli"] * (*Vijab)["lmcf"] * (*Rai)["fm"];
+  //(*HRai)["bi"] += ( - 1.0  ) * (*Tai)["bk"] * (*Vijka)["klie"] * (*Rai)["el"];
+  //(*HRai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Viabc)["lbce"] * (*Rai)["el"];
+  if (Tai) {
+    (*HRai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Vijab)["lmcf"] * (*Rai)["fm"];
+  }
+
+  return HR;
+
+}
+
+template <typename F>
 SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
   SDFockVector<F> &R
 ) {

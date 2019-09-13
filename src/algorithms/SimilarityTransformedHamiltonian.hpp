@@ -33,6 +33,8 @@ namespace cc4s {
     };
     ~SimilarityTransformedHamiltonian(){};
 
+    SFockVector<F> rightApplyHirata_RPA(SFockVector<F> &v);
+
     // ccsd fok vectors
     SDFockVector<F> rightApplyIntermediates(SDFockVector<F> &v);
     SDFockVector<F> rightApplyHirata(SDFockVector<F> &v);
@@ -107,7 +109,7 @@ namespace cc4s {
       return _useStantonIntermediatesUCCSD;
     }
 
-    constexpr char* getAbbreviation() const { return "STH"; }
+    std::string getAbbreviation() const { return "STH"; }
 
   private:
 
