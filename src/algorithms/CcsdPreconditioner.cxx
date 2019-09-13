@@ -56,62 +56,67 @@ double EomDiagonalValueComparator<complex>::computeDifference(
   return diff;
 }
 
+
 template <typename F>
-CcsdPreconditioner<F>::CcsdPreconditioner(
-  CTF::Tensor<F> &Tai,
-  CTF::Tensor<F> &Tabij,
-  CTF::Tensor<F> &Fij,
-  CTF::Tensor<F> &Fab,
-  CTF::Tensor<F> &Vabcd,
-  CTF::Tensor<F> &Viajb,
-  CTF::Tensor<F> &Vijab,
-  CTF::Tensor<F> &Vijkl
-): diagonalH(
+void CcsdPreconditioner<F>::calculateDiagonal(){
+  diagonalH = NEW(V,
     std::vector<PTR(CTF::Tensor<F>)>(
-      {NEW(CTF::Tensor<F>, Tai), NEW(CTF::Tensor<F>, Tabij)}
+      {NEW(CTF::Tensor<F>, *Tai), NEW(CTF::Tensor<F>, *Tabij)}
     ),
     std::vector<std::string>({"ai", "abij"})
-  )
-  {
+  );
   // pointers to singles and doubles tensors of diagonal part
-  auto Dai( diagonalH.get(0) );
-  auto Dabij( diagonalH.get(1) );
+  auto Dai( diagonalH->get(0) );
+  auto Dabij( diagonalH->get(1) );
 
-  // TODO: Maybe inster the Tai part to the diagonal
+  // TODO: Maybe insert the Tai part to the diagonal
 
   // calculate diagonal elements of H
-  (*Dai)["bi"] =  ( - 1.0 ) * Fij["ii"];
-  (*Dai)["bi"] += ( + 1.0 ) * Fab["bb"];
-/*  (*Dai)["bi"] += ( - 1.0 ) * Viajb["ibib"];
-  (*Dai)["bi"] += ( + 1.0 ) * Tabij["cbli"] * Vijab["licb"];
-  (*Dai)["bi"] += ( - 0.5 ) * Tabij["cdmi"] * Vijab["micd"];
-  (*Dai)["bi"] += ( - 0.5 ) * Tabij["cblm"] * Vijab["lmcb"];
-*/
-  (*Dabij)["cdij"] =  ( - 1.0 ) * Fij["ii"];
-  (*Dabij)["cdij"] += ( - 1.0 ) * Fij["jj"];
-  (*Dabij)["cdij"] += ( + 1.0 ) * Fab["cc"];
-  (*Dabij)["cdij"] += ( + 1.0 ) * Fab["dd"];
+  (*Dai)["bi"] =  ( - 1.0 ) * (*Fij)["ii"];
+  (*Dai)["bi"] += ( + 1.0 ) * (*Fab)["bb"];
+
 /*
-  (*Dabij)["cdij"] += ( + 0.5 ) * Vijkl["ijij"];
-  (*Dabij)["ccij"] += ( + 1.0 ) * Viajb["icic"];
-  (*Dabij)["cdij"] += ( - 1.0 ) * Viajb["icic"];
-  (*Dabij)["ccii"] += ( - 1.0 ) * Viajb["icic"];
-  (*Dabij)["cdii"] += ( + 1.0 ) * Viajb["icic"];
-  (*Dabij)["cdij"] += ( + 0.5 ) * Vabcd["cdcd"];
-  (*Dabij)["ccij"] += ( + 0.5 ) * Tabij["ecij"] * Vijab["ijec"];
-  (*Dabij)["cdij"] += ( - 0.5 ) * Tabij["ecij"] * Vijab["ijec"];
-  (*Dabij)["cdij"] += ( + 0.25) * Tabij["efij"] * Vijab["ijef"];
-  (*Dabij)["cdij"] += ( - 0.5 ) * Tabij["cdmi"] * Vijab["micd"];
-  (*Dabij)["cdii"] += ( + 0.5 ) * Tabij["cdmi"] * Vijab["micd"];
-  (*Dabij)["ccij"] += ( - 1.0 ) * Tabij["ecni"] * Vijab["niec"];
-  (*Dabij)["cdij"] += ( + 1.0 ) * Tabij["ecni"] * Vijab["niec"];
-  (*Dabij)["ccii"] += ( + 1.0 ) * Tabij["ecni"] * Vijab["niec"];
-  (*Dabij)["cdii"] += ( - 1.0 ) * Tabij["ecni"] * Vijab["niec"];
-  (*Dabij)["cdij"] += ( - 0.5 ) * Tabij["efoi"] * Vijab["oief"];
-  (*Dabij)["cdii"] += ( + 0.5 ) * Tabij["efoi"] * Vijab["oief"];
-  (*Dabij)["cdij"] += ( + 0.25) * Tabij["cdmn"] * Vijab["mncd"];
-  (*Dabij)["ccij"] += ( + 0.5 ) * Tabij["ecno"] * Vijab["noec"];
-  (*Dabij)["cdij"] += ( - 0.5 ) * Tabij["ecno"] * Vijab["noec"];
+  if (Viajb) {
+    (*Dai)["bi"] += ( - 1.0 ) * (*Viajb)["ibib"];
+  }
+  if (Vijab) {
+    (*Dai)["bi"] += ( + 1.0 ) * (*Tabij)["cbli"] * (*Vijab)["licb"];
+    (*Dai)["bi"] += ( - 0.5 ) * (*Tabij)["cdmi"] * (*Vijab)["micd"];
+    (*Dai)["bi"] += ( - 0.5 ) * (*Tabij)["cblm"] * (*Vijab)["lmcb"];
+  }
+*/
+  (*Dabij)["cdij"] =  ( - 1.0 ) * (*Fij)["ii"];
+  (*Dabij)["cdij"] += ( - 1.0 ) * (*Fij)["jj"];
+  (*Dabij)["cdij"] += ( + 1.0 ) * (*Fab)["cc"];
+  (*Dabij)["cdij"] += ( + 1.0 ) * (*Fab)["dd"];
+/*
+  if (Vijkl) (*Dabij)["cdij"] += ( + 0.5 ) * (*Vijkl)["ijij"];
+
+  if (Viajb) {
+    (*Dabij)["ccij"] += ( + 1.0 ) * (*Viajb)["icic"];
+    (*Dabij)["cdij"] += ( - 1.0 ) * (*Viajb)["icic"];
+    (*Dabij)["ccii"] += ( - 1.0 ) * (*Viajb)["icic"];
+    (*Dabij)["cdii"] += ( + 1.0 ) * (*Viajb)["icic"];
+  }
+
+  if (Vabcd) (*Dabij)["cdij"] += ( + 0.5 ) * (*Vabcd)["cdcd"];
+
+  if (Vijab) {
+    (*Dabij)["ccij"] += ( + 0.5 ) * (*Tabij)["ecij"] * (*Vijab)["ijec"];
+    (*Dabij)["cdij"] += ( - 0.5 ) * (*Tabij)["ecij"] * (*Vijab)["ijec"];
+    (*Dabij)["cdij"] += ( + 0.25) * (*Tabij)["efij"] * (*Vijab)["ijef"];
+    (*Dabij)["cdij"] += ( - 0.5 ) * (*Tabij)["cdmi"] * (*Vijab)["micd"];
+    (*Dabij)["cdii"] += ( + 0.5 ) * (*Tabij)["cdmi"] * (*Vijab)["micd"];
+    (*Dabij)["ccij"] += ( - 1.0 ) * (*Tabij)["ecni"] * (*Vijab)["niec"];
+    (*Dabij)["cdij"] += ( + 1.0 ) * (*Tabij)["ecni"] * (*Vijab)["niec"];
+    (*Dabij)["ccii"] += ( + 1.0 ) * (*Tabij)["ecni"] * (*Vijab)["niec"];
+    (*Dabij)["cdii"] += ( - 1.0 ) * (*Tabij)["ecni"] * (*Vijab)["niec"];
+    (*Dabij)["cdij"] += ( - 0.5 ) * (*Tabij)["efoi"] * (*Vijab)["oief"];
+    (*Dabij)["cdii"] += ( + 0.5 ) * (*Tabij)["efoi"] * (*Vijab)["oief"];
+    (*Dabij)["cdij"] += ( + 0.25) * (*Tabij)["cdmn"] * (*Vijab)["mncd"];
+    (*Dabij)["ccij"] += ( + 0.5 ) * (*Tabij)["ecno"] * (*Vijab)["noec"];
+    (*Dabij)["cdij"] += ( - 0.5 ) * (*Tabij)["ecno"] * (*Vijab)["noec"];
+  }
 */
 }
 
@@ -119,15 +124,15 @@ template <typename F>
 std::vector<SDFockVector<F>>
 CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   LOG(0, "CcsdPreconditioner") << "Getting initial basis " << std::endl;
+  if (preconditionerRandom) {
+    LOG(0, "CcsdPreconditioner") << "Randomizing initial guess" << std::endl;
+  }
   DefaultRandomEngine randomEngine;
   std::normal_distribution<double> normalDistribution(
     0.0, preconditionerRandomSigma
   );
-  if (preconditionerRandom) {
-    LOG(0, "CcsdPreconditioner") << "Randomizing initial guess" << std::endl;
-  }
   // find K=eigenVectorsCount lowest diagonal elements at each processor
-  std::vector<std::pair<size_t, F>> localElements( diagonalH.readLocal() );
+  std::vector<std::pair<size_t, F>> localElements( diagonalH->readLocal() );
   std::sort(
     localElements.begin(), localElements.end(),
     EomDiagonalValueComparator<F>()
@@ -174,7 +179,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   unsigned int b(0);
   int zeroVectorCount(0);
   while (currentEigenVectorCount < eigenVectorsCount) {
-    V basisElement(diagonalH);
+    V basisElement(*diagonalH);
     basisElement *= 0.0;
     std::vector<std::pair<size_t,F>> elements;
     if (communicator.getRank() == 0) {
@@ -289,7 +294,7 @@ SDFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
   const complex lambda, SDFockVector<F> &residuum
 ) {
-  SDFockVector<F> w(diagonalH);
+  SDFockVector<F> w(*diagonalH);
 
   // Define a singleton helping class for the diagonal correction
   class DiagonalCorrection {
@@ -304,14 +309,14 @@ CcsdPreconditioner<F>::getCorrection(
       double lambda;
   } diagonalCorrection(std::real(lambda));
 
-  SDFockVector<F> correction(diagonalH);
+  SDFockVector<F> correction(*diagonalH);
   // compute ((lambda * id - Diag(diagonal))^-1) . residuum
   for (unsigned int c(0); c < w.getComponentsCount(); ++c) {
     const char *indices( correction.componentIndices[c].c_str() );
     (*correction.get(c)).contract(
       1.0,
       *residuum.get(c),indices,
-      *diagonalH.get(c),indices,
+      *diagonalH->get(c),indices,
       0.0,indices,
       CTF::Bivar_Function<F>(diagonalCorrection)
     );
@@ -332,8 +337,3 @@ CcsdPreconditioner<F>::getCorrection(
 // instantiate
 template class CcsdPreconditioner<double>;
 template class CcsdPreconditioner<complex>;
-
-
-//template <> class SDFockVector::CcsdPreconditioner<double>{};
-//template
-//CcsdPreconditioner<double>::CcsdPreconditioner();

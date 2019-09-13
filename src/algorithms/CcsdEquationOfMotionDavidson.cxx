@@ -305,30 +305,35 @@ void CcsdEquationOfMotionDavidson::run() {
     Tabij
   );
 
+  // INITIALIZE SIMILARITY TRANSFORMED HAMILTONIAN
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
-
-  H.setFij(Fij).setFab(Fab).setFia(Fia)
+  H
+    // Set single particle integrals
+    .setFij(Fij).setFab(Fab).setFia(Fia)
+    // coulomb integrals setting
     .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
     .setVijka(Vijka).setViabc(Viabc).setViajk(Viajk).setVabic(Vabic)
     .setVaibc(Vaibc).setVaibj(Vaibj).setViabj(Viabj).setVijak(Vijak)
     .setVaijb(Vaijb).setVabci(Vabci)
+    // set dressing for the hamiltonian
     .setTai(&Tai).setTabij(&Tabij)
+    // should we use intermediates of the Wabij etc?
     .setRightApplyIntermediates(intermediates)
-    .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::CCSD);
+    // Declare dressing of the hamiltonian so that we know that
+    // Wai = Wabij = 0
+    .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::CCSD)
+  ;
 
-  CcsdPreconditioner<F> P(
-    Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl
-  );
-  P.preconditionerRandom = preconditionerRandom;
-  P.preconditionerRandomSigma = preconditionerRandomSigma;
-  allocatedTensorArgument(
-    "SinglesHamiltonianDiagonal",
-    new CTF::Tensor<>(*P.getDiagonalH().get(0))
-  );
-  allocatedTensorArgument(
-    "DoublesHamiltonianDiagonal",
-    new CTF::Tensor<>(*P.getDiagonalH().get(1))
-  );
+  // INITIALIZE SIMILARITY PRECONDITIONER
+  CcsdPreconditioner<F> P;
+  P
+    .setTai(&Tai).setTabij(&Tabij)
+    .setFij(Fij).setFab(Fab)
+    // Set coulomb integrals
+    .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
+    // Set random information
+    .setRandom(preconditionerRandom).setRandomSigma(preconditionerRandomSigma)
+  ;
 
   EigenSystemDavidsonMono<
     SimilarityTransformedHamiltonian<F>,
@@ -343,7 +348,7 @@ void CcsdEquationOfMotionDavidson::run() {
     maxIterations,
     minIterations
   );
-  eigenSystem.refreshOnMaxBasisSize( refreshOnMaxBasisSize);
+  eigenSystem.refreshOnMaxBasisSize(refreshOnMaxBasisSize);
   if (eigenSystem.refreshOnMaxBasisSize()) {
     LOG(0, "CcsdEomDavid") <<
       "Refreshing on max basis size reaching" << std::endl;
