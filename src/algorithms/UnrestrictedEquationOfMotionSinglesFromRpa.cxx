@@ -109,46 +109,6 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
   CTF::Tensor<F> *Vijab(&cVijab);
   toComplexTensor(*pVijab, *Vijab);
 
-  CTF::Tensor<double> *pViajb(
-    getTensorArgument<double, CTF::Tensor<double> >("HPHPCoulombIntegrals")
-  );
-  CTF::Tensor<F> cViajb(
-    pViajb->order, pViajb->lens, pViajb->sym, *Cc4s::world,
-    pViajb->get_name()
-  );
-  CTF::Tensor<F> *Viajb(&cViajb);
-  toComplexTensor(*pViajb, *Viajb);
-
-  CTF::Tensor<double> *pVaibj(
-    getTensorArgument<double, CTF::Tensor<double> >("PHPHCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVaibj(
-    pVaibj->order, pVaibj->lens, pVaibj->sym, *Cc4s::world,
-    pVaibj->get_name()
-  );
-  CTF::Tensor<F> *Vaibj(&cVaibj);
-  toComplexTensor(*pVaibj, *Vaibj);
-
-  CTF::Tensor<double> *pViabj(
-    getTensorArgument<double, CTF::Tensor<double> >("HPPHCoulombIntegrals")
-  );
-  CTF::Tensor<F> cViabj(
-    pViabj->order, pViabj->lens, pViabj->sym, *Cc4s::world,
-    pViabj->get_name()
-  );
-  CTF::Tensor<F> *Viabj(&cViabj);
-  toComplexTensor(*pViabj, *Viabj);
-
-  CTF::Tensor<double> *pVaijb(
-    getTensorArgument<double, CTF::Tensor<double> >("PHHPCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVaijb(
-    pVaijb->order, pVaijb->lens, pVaijb->sym, *Cc4s::world,
-    pVaijb->get_name()
-  );
-  CTF::Tensor<F> *Vaijb(&cVaijb);
-  toComplexTensor(*pVaijb, *Vaijb);
-
   // HF terms
   CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms2, *Cc4s::world, "Fab"));
   CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms2, *Cc4s::world, "Fij"));
@@ -206,12 +166,8 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
 
   H.setFij(Fij).setFab(Fab).setFia(Fia)
-    .setViajb(Viajb)
     .setVijab(Vijab)
-    .setVaibj(Vaibj)
-    .setViabj(Viabj)
-    .setVaijb(Vaijb)
-    .setTai(&Tai).setTabij(&Tabij)
+    .setTabij(&Tabij)
     .setRightApplyIntermediates(intermediates)
     .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::RPA);
 
@@ -230,7 +186,7 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
     .setTai(&Tai).setTabij(&Tabij)
     .setFij(Fij).setFab(Fab)
     // Set coulomb integrals
-    .setViajb(Viajb).setVijab(Vijab)
+    .setVijab(Vijab)
     // Set random information
     .setRandom(preconditionerRandom).setRandomSigma(preconditionerRandomSigma)
   ;
