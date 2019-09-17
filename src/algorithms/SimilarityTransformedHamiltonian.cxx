@@ -73,6 +73,15 @@ SFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(
   PTR(CTF::Tensor<F>) Rai( R.get(0) );
   PTR(CTF::Tensor<F>) HRai( HR.get(0) );
 
+  int ovvo[] = {No, Nv, Nv, No};
+  int lens[] = {NS, NS, NS, NS};
+
+  if (!Wiabj) {
+    Wiabj = NEW(CTF::Tensor<F>, 4, ovvo, lens, *Cc4s::world, "Wiabj");
+    ST_DEBUG("build Wiabj")
+    (*Wiabj)["iabj"] = (*Tabij)["camj"] * (*Vijab)["micb"];
+  }
+
   ST_DEBUG("rightApplyHirata_RPA")
 
   // Contruct HR (one body part)
