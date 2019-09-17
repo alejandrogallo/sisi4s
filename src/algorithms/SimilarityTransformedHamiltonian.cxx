@@ -74,6 +74,9 @@ SFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(
   PTR(CTF::Tensor<F>) HRai( HR.get(0) );
 
   int ovvo[] = {No, Nv, Nv, No};
+  int oo[] = {No, No};
+  int vv[] = {Nv, Nv};
+  int lens2[] = {NS, NS};
   int lens[] = {NS, NS, NS, NS};
 
   if (!Wiabj) {
@@ -82,34 +85,50 @@ SFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(
     (*Wiabj)["iabj"] = (*Tabij)["camj"] * (*Vijab)["micb"];
   }
 
+  if (!Wab) {
+    Wab = NEW(CTF::Tensor<F>, 2, vv, lens2, *Cc4s::world, "Wab");
+    ST_DEBUG("build Wab")
+    (*Wab)["ab"]  = (*Fab)["ab"];
+    (*Wab)["ab"] += (- 0.5) * (*Vijab)["mnbe"] * (*Tabij)["aemn"];
+  }
+
+  if (!Wij) {
+    Wij = NEW(CTF::Tensor<F>, 2, oo, lens2, *Cc4s::world, "Wij");
+    ST_DEBUG("build Wij")
+    (*Wij)["ij"]  = (*Fij)["ij"];
+    (*Wij)["ij"] += (  0.5) * (*Vijab)["imef"] * (*Tabij)["efjm"];
+  }
+
   ST_DEBUG("rightApplyHirata_RPA")
 
   // Contruct HR (one body part)
   // TODO: why "bi" not "ai"?
   (*HRai)["bi"]  = 0.0;
 
+  //ST_DEBUG("WIJ")
   // WIJ =====================================================================
-  (*HRai)["bi"] += ( - 1.0 ) * (*Fij)["ki"] * (*Rai)["bk"];
-  //(*HRai)["bi"] += ( + 1.0  ) * (*Tai)["cl"] * (*Vijka)["lmic"] * (*Rai)["bm"];
-  (*HRai)["bi"] += ( - 0.5 ) * (*Tabij)["cdmi"] * (*Vijab)["mncd"] * (*Rai)["bn"];
+  //(*HRai)["bi"] += ( - 1.0 ) * (*Fij)["ki"] * (*Rai)["bk"];
+  //(*HRai)["bi"] += ( - 0.5 ) * (*Tabij)["cdmi"] * (*Vijab)["mncd"] * (*Rai)["bn"];
+  (*HRai)["bi"] += ( - 1.0 ) * (*Wij)["ni"] * (*Rai)["bn"];
   if (Tai) {
     (*HRai)["bi"] += ( + 1.0  ) * (*Tai)["ci"] * (*Tai)["dm"] * (*Vijab)["mncd"] * (*Rai)["bn"];
   }
 
+  //ST_DEBUG("WAB")
   // WAB =====================================================================
-  (*HRai)["bi"] += ( + 1.0 ) * (*Fab)["bc"] * (*Rai)["ci"];
-  //(*HRai)["bi"] += ( + 1.0  ) * (*Tai)["cl"] * (*Viabc)["lbce"] * (*Rai)["ei"];
-  (*HRai)["bi"] += ( - 0.5 ) * (*Tabij)["cblm"] * (*Vijab)["lmcf"] * (*Rai)["fi"];
+  //(*HRai)["bi"] += ( + 1.0 ) * (*Fab)["bc"] * (*Rai)["ci"];
+  //(*HRai)["bi"] += ( - 0.5 ) * (*Tabij)["cblm"] * (*Vijab)["lmcf"] * (*Rai)["fi"];
+  (*HRai)["bi"] += (*Wab)["bc"] * (*Rai)["ci"];
   if (Tai) {
     (*HRai)["bi"] += ( + 1.0  ) * (*Tai)["bk"] * (*Tai)["dm"] * (*Vijab)["kmdf"] * (*Rai)["fi"];
   }
 
+  //ST_DEBUG("WIABJ")
   // WIABJ ===================================================================
-  (*HRai)["bi"] += ( - 1.0 ) * (*Viajb)["kbid"] * (*Rai)["dk"];
-  (*HRai)["bi"] += ( + 1.0 ) * (*Tabij)["cbli"] * (*Vijab)["lmcf"] * (*Rai)["fm"];
-  //(*HRai)["bi"] += ( - 1.0  ) * (*Tai)["bk"] * (*Vijka)["klie"] * (*Rai)["el"];
-  //(*HRai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Viabc)["lbce"] * (*Rai)["el"];
+  //(*HRai)["bi"] += ( + 1.0 )  * (*Rai)["fm"] * (*Tabij)["cbli"] * (*Vijab)["lmcf"];
+  (*HRai)["bi"] += ( + 1.0 )  * (*Wiabj)["mbfi"] * (*Rai)["fm"];
   if (Tai) {
+    ST_DEBUG("T1")
     (*HRai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Vijab)["lmcf"] * (*Rai)["fm"];
   }
 
