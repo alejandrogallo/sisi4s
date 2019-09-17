@@ -28,9 +28,7 @@ namespace cc4s {
       GENERAL, // For a general T not fulfiling any particular criterium
     };
 
-    SimilarityTransformedHamiltonian(int No_, int Nv_): No(No_), Nv(Nv_) {
-      Tabcijk = NULL;
-    };
+    SimilarityTransformedHamiltonian(int No_, int Nv_): No(No_), Nv(Nv_) {};
     ~SimilarityTransformedHamiltonian(){};
 
     SFockVector<F> rightApplyHirata_RPA(SFockVector<F> &v);
@@ -139,7 +137,8 @@ namespace cc4s {
     // External resources that should not be cleaned up after
     // Hamiltonian class gets destroyed
     //
-    CTF::Tensor<F> *Tai, *Tabij, *Tabcijk, *Tabcdijkl;
+    CTF::Tensor<F>
+      *Tai=nullptr, *Tabij=nullptr, *Tabcijk=nullptr, *Tabcdijkl=nullptr;
     CTF::Tensor<F> *Fij, *Fab, *Fia;
     CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,

@@ -684,7 +684,7 @@ PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getAI_RPA() {
   if (Wai) return Wai;
   LOG(1, getAbbreviation())
-    << "Building Wai only with Vijab and Viajb" << std::endl;
+    << "Building Wai only with Vijab" << std::endl;
 
   int syms[] = {NS, NS};
   int ov[] = {Nv, No};
@@ -706,7 +706,6 @@ SimilarityTransformedHamiltonian<F>::getAI_RPA() {
   }
   (*Wai)["bi"] += (+ 1.0) * (*Fab)["bc"] * (*Tai)["ci"];
   (*Wai)["bi"] += (- 1.0) * (*Fij)["ki"] * (*Tai)["bk"];
-  (*Wai)["bi"] += (- 1.0) * (*Tai)["cl"] * (*Viajb)["lbic"];
 
   (*Wai)["bi"] += (- 0.5) * (*Tai)["fi"] * (*Tabij)["cblm"] * (*Vijab)["lmcf"];
   (*Wai)["bi"] += (- 0.5) * (*Tai)["bn"] * (*Tabij)["cdmi"] * (*Vijab)["mncd"];
