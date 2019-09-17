@@ -170,9 +170,9 @@ SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
   if (Wabij) return Wabij;
 
   LOG(1, getAbbreviation())
-    << "Building Wabij only with Vabij and Viajb" << std::endl;
+    << "Building Wabij only with Vabij" << std::endl;
 
-  int syms[] = {NS, NS};
+  int syms[] = {NS, NS, NS, NS};
   int vvoo[] = {Nv,Nv,No,No};
   Wabij = NEW(CTF::Tensor<F>, 4, vvoo, syms, *Cc4s::world, "Wabij");
 
@@ -217,11 +217,6 @@ SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
 
   (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Tai)["co"] * (*Tai)["dp"] * (*Vijab)["opef"];
 
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["ecni"] * (*Viajb)["ndje"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ecnj"] * (*Viajb)["ndie"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["edni"] * (*Viajb)["ncje"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["ednj"] * (*Viajb)["ncie"];
-
   (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["edni"] * (*Tabij)["gcpj"] * (*Vijab)["npeg"];
   (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["ecni"] * (*Tabij)["gdpj"] * (*Vijab)["npeg"];
 
@@ -229,11 +224,6 @@ SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
   (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["gcpj"] * (*Tai)["ei"] * (*Tai)["dn"] * (*Vijab)["npeg"];
   (*Wabij)["cdij"] += ( + 1.0  ) * (*Tabij)["gdpi"] * (*Tai)["ej"] * (*Tai)["cn"] * (*Vijab)["npeg"];
   (*Wabij)["cdij"] += ( - 1.0  ) * (*Tabij)["gdpj"] * (*Tai)["ei"] * (*Tai)["cn"] * (*Vijab)["npeg"];
-
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["cn"] * (*Viajb)["ndje"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["ej"] * (*Tai)["cn"] * (*Viajb)["ndie"];
-  (*Wabij)["cdij"] += ( - 1.0  ) * (*Tai)["ei"] * (*Tai)["dn"] * (*Viajb)["ncje"];
-  (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["ej"] * (*Tai)["dn"] * (*Viajb)["ncie"];
 
   return Wabij;
 
