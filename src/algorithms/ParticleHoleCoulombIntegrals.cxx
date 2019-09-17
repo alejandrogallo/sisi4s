@@ -37,12 +37,35 @@ void ParticleHoleCoulombIntegrals::run() {
   // allocate coulomb integrals
   int Nv(GammaGai->lens[1]);
   int No(GammaGai->lens[2]);
-  int lens[] = { Nv, Nv, No, No };
+  int vvoo[] = { Nv, Nv, No, No };
+  int oovv[] = { No, No, Nv, Nv };
   int syms[] = { NS, NS, NS, NS };
-  Tensor<> *Vabij(new Tensor<>(4, lens, syms, *Cc4s::world, "Vabij"));
-  allocatedTensorArgument("PPHHCoulombIntegrals", Vabij);
-  (*Vabij)["abij"] =  realGammaGai["gai"] * realGammaGai["gbj"];
-  (*Vabij)["abij"] += imagGammaGai["gai"] * imagGammaGai["gbj"];
+  Tensor<> *Vabij(
+    isArgumentGiven("PPHHCoulombIntegrals") ?
+    new Tensor<>(4, vvoo, syms, *Cc4s::world, "Vabij") : nullptr
+  );
+  Tensor<> *Vijab(
+    isArgumentGiven("HHPPCoulombIntegrals") ?
+    new Tensor<>(4, oovv, syms, *Cc4s::world, "Vijab") : nullptr
+  );
+  if (Vabij) {
+    allocatedTensorArgument("PPHHCoulombIntegrals", Vabij);
+    (*Vabij)["abij"] =  realGammaGai["gai"] * realGammaGai["gbj"];
+    (*Vabij)["abij"] += imagGammaGai["gai"] * imagGammaGai["gbj"];
+  }
+  if (Vijab) {
+    // FIXME: allow Complex integrals
+    allocatedTensorArgument("HHPPCoulombIntegrals", Vijab);
+    (*Vijab)["ijab"] = (*Vabij)["abij"];
+  }
+
+  int antisymmetrize(getIntegerArgument("antisymmetrize", 0));
+  if (antisymmetrize) {
+    LOG(0, "CoulombIntegrals") << "Calculating antisymmetrized integrals"
+      << std::endl;
+    if (Vabij) (*Vabij)["abij"] -= (*Vabij)["abji"];
+    if (Vijab) (*Vijab)["ijab"] -= (*Vijab)["jiab"];
+  }
 }
 
 void ParticleHoleCoulombIntegrals::dryRun() {
