@@ -64,8 +64,7 @@ namespace cc4s {
 
       void calculateDiagonal();
       PTR(V) getDiagonal() {
-        if (!diagonalH)
-         calculateDiagonal();
+        if (!diagonalH) calculateDiagonal();
         return diagonalH;
       }
 

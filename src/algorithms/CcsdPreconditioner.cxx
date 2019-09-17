@@ -123,6 +123,7 @@ void CcsdPreconditioner<F>::calculateDiagonal(){
 template <typename F>
 std::vector<SDFockVector<F>>
 CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
+  calculateDiagonal();
   LOG(0, "CcsdPreconditioner") << "Getting initial basis " << std::endl;
   if (preconditionerRandom) {
     LOG(0, "CcsdPreconditioner") << "Randomizing initial guess" << std::endl;
