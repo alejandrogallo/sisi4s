@@ -22,11 +22,83 @@ ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexReader);
 ParticleHoleCoulombVertexReader::ParticleHoleCoulombVertexReader(
   std::vector<Argument> const &argumentList
 ): Algorithm(argumentList) {
-  
+
 }
 
 ParticleHoleCoulombVertexReader::~ParticleHoleCoulombVertexReader() {
 }
+
+struct Unrestricter {
+
+  CTF::Tensor<complex>*
+  doVertex(CTF::Tensor<complex> *GammaGqr) const {
+    // The field variable NG remains the same
+    int vertexLens[] = {
+      GammaGqr->lens[0], 2*GammaGqr->lens[1], 2*GammaGqr->lens[2]
+    };
+    auto uGammaGqr(
+      new Tensor<complex>(3, vertexLens, GammaGqr->sym, *Cc4s::world, "uGammaGqr")
+    );
+
+    int *upUnrestrictedStates(new int[GammaGqr->lens[1]]);
+    for (int q(0); q < GammaGqr->lens[1]; ++q) {
+      upUnrestrictedStates[q] = 2*q;
+    }
+    int *upUp[] = { nullptr, upUnrestrictedStates, upUnrestrictedStates };
+    // do uGammaGqr[G, upUn[q], upUn[r]] = GammaGqr[G,q,r] with upUn[q] = 2q.
+    // NOTE: the behavior of all below permute calls is documented differently
+    // in v1.4.1
+    uGammaGqr->permute(1.0, *GammaGqr, upUp, 1.0);
+    delete upUnrestrictedStates;
+
+    int *downUnrestrictedStates(new int[GammaGqr->lens[1]]);
+    for (int q(0); q < GammaGqr->lens[1]; ++q) {
+      downUnrestrictedStates[q] = 2*q+1;
+    }
+    int *downDown[] = { nullptr, downUnrestrictedStates, downUnrestrictedStates };
+    // do uGammaGqr[G, dnUn[q], dnUn[r]] = GammaGqr[G,q,r] with dnUn[q] = 2q+1.
+    uGammaGqr->permute(1.0, *GammaGqr, downDown, 1.0);
+    delete downUnrestrictedStates;
+
+    // overwrite restricted vertex
+    return uGammaGqr;
+  }
+
+  CTF::Tensor<double>*
+  doEigenEnergies(CTF::Tensor<double> *eps) const {
+    int lens[] = { 2*eps->lens[0] };
+    auto uEps(
+      new Tensor<double>(
+        1,
+        lens,
+        eps->sym,
+        *Cc4s::world,
+        ("u" + std::string{eps->get_name()}).c_str()
+      )
+    );
+
+    int *upUnrestrictedStates(new int[eps->lens[0]]);
+    for (int i(0); i < eps->lens[0]; ++i) {
+      upUnrestrictedStates[i] = 2*i;
+    }
+    // do uEps[upUn[i]] = eps[i] with upUn[i] = 2i
+    uEps->permute(1.0, *eps, &upUnrestrictedStates, 1.0);
+    delete upUnrestrictedStates;
+
+    int *downUnrestrictedStates(new int[eps->lens[0]]);
+    for (int i(0); i < eps->lens[0]; ++i) {
+      downUnrestrictedStates[i] = 2*i + 1;
+    }
+    // do uEps[dnUn[i]] = eps[i] with dnUn[i] = 2i+1
+    uEps->permute(1.0, *eps, &downUnrestrictedStates, 1.0);
+    delete downUnrestrictedStates;
+
+    // overwrite restricted eigen energies
+    // FIXME: eigen energies should be given after handleUnrestricted
+    return uEps;
+  }
+
+};
 
 void ParticleHoleCoulombVertexReader::run() {
   std::string fileName(getTextArgument("file"));
@@ -50,7 +122,7 @@ void ParticleHoleCoulombVertexReader::run() {
   int No(header.No);
   int Nv(header.Nv);
   int Np(No + Nv);
-  
+
   // Print NG, No, Nv, Np
   LOG(1, "Reader") << "NG=" << NG << std::endl;
   LOG(1, "Reader") << "No=" << No << std::endl;
@@ -111,6 +183,20 @@ void ParticleHoleCoulombVertexReader::run() {
 
   // Combine to complex tensor
   toComplexTensor(realGammaGai, imagGammaGai, *GammaGai);
+
+  // handle unrestricted
+  int unrestricted(getIntegerArgument("unrestricted", 0));
+  Unrestricter u;
+  if (unrestricted) {
+    // Enter the allocated data (and by that type the output data to tensors)
+    LOG(1, "Reader") << "Unrestricting " << epsi->get_name() << std::endl;
+    allocatedTensorArgument("HoleEigenEnergies", u.doEigenEnergies(epsi));
+    LOG(1, "Reader") << "Unrestricting " << epsa->get_name() << std::endl;
+    allocatedTensorArgument("ParticleEigenEnergies", u.doEigenEnergies(epsa));
+    LOG(1, "Reader") << "Unrestricting " << GammaGai->get_name() << std::endl;
+    allocatedTensorArgument<complex>("ParticleHoleCoulombVertex", u.doVertex(GammaGai));
+  }
+
 }
 
 void ParticleHoleCoulombVertexReader::dryRun() {
@@ -130,7 +216,7 @@ void ParticleHoleCoulombVertexReader::dryRun() {
   int No(header.No);
   int Nv(header.Nv);
   int Np(No + Nv);
-  
+
   // Print NG, No, Nv, Np
   LOG(1, "Reader") << "NG=" << NG << std::endl;
   LOG(1, "Reader") << "No=" << No << std::endl;
