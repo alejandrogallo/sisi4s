@@ -1,4 +1,5 @@
 #include <algorithms/SimilarityTransformedHamiltonian.hpp>
+#include <math/Complex.hpp>
 #ifdef DEBUG
 #define ST_DEBUG(msg) \
   LOG(1, "debug:STHam:") << __LINE__ << ":" << \
@@ -230,5 +231,5 @@ SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
 }
 
 // instantiate
-template class SimilarityTransformedHamiltonian<complex>;
+template class SimilarityTransformedHamiltonian<cc4s::complex>;
 template class SimilarityTransformedHamiltonian<double>;

@@ -30,14 +30,14 @@ ParticleHoleCoulombVertexReader::~ParticleHoleCoulombVertexReader() {
 
 struct Unrestricter {
 
-  CTF::Tensor<complex>*
-  doVertex(CTF::Tensor<complex> *GammaGqr) const {
+  CTF::Tensor<cc4s::complex>*
+  doVertex(CTF::Tensor<cc4s::complex> *GammaGqr) const {
     // The field variable NG remains the same
     int vertexLens[] = {
       GammaGqr->lens[0], 2*GammaGqr->lens[1], 2*GammaGqr->lens[2]
     };
     auto uGammaGqr(
-      new Tensor<complex>(3, vertexLens, GammaGqr->sym, *Cc4s::world, "uGammaGqr")
+      new Tensor<cc4s::complex>(3, vertexLens, GammaGqr->sym, *Cc4s::world, "uGammaGqr")
     );
 
     int *upUnrestrictedStates(new int[GammaGqr->lens[1]]);
@@ -134,8 +134,8 @@ void ParticleHoleCoulombVertexReader::run() {
   int vertexSyms[] = { NS, NS, NS };
   Tensor<> *epsi(new Vector<>(No, *Cc4s::world, "epsi"));
   Tensor<> *epsa(new Vector<>(Nv, *Cc4s::world, "epsa"));
-  Tensor<complex> *GammaGai(
-    new Tensor<complex>(
+  Tensor<cc4s::complex> *GammaGai(
+    new Tensor<cc4s::complex>(
       3, vertexLens, vertexSyms, *Cc4s::world, "GammaGai"
     )
   );
@@ -143,7 +143,7 @@ void ParticleHoleCoulombVertexReader::run() {
   // Enter the allocated data (and by that type the output data to tensors)
   allocatedTensorArgument("HoleEigenEnergies", epsi);
   allocatedTensorArgument("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<complex>("ParticleHoleCoulombVertex", GammaGai);
+  allocatedTensorArgument<cc4s::complex>("ParticleHoleCoulombVertex", GammaGai);
 
   // Real and imaginary parts are read in seperately
   Tensor<> realGammaGai(

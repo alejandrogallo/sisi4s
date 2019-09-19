@@ -2362,6 +2362,6 @@ SimilarityTransformedHamiltonian<F>::getStantonIntermediatesUCCSD() {
 
 // instantiate
 template
-class SimilarityTransformedHamiltonian<complex>;
+class SimilarityTransformedHamiltonian<cc4s::complex>;
 template
 class SimilarityTransformedHamiltonian<double>;

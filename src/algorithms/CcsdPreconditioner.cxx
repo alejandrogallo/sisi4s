@@ -48,9 +48,9 @@ public:
 };
 
 template<>
-double EomDiagonalValueComparator<complex>::computeDifference(
-    const complex &a,
-    const complex &b
+double EomDiagonalValueComparator<cc4s::complex>::computeDifference(
+    const cc4s::complex &a,
+    const cc4s::complex &b
   ) {
   double diff(b.imag() + b.real() - a.imag() - a.real());
   return diff;
@@ -278,7 +278,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
 template <typename F>
 SDTFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
-  const complex lambda, SDTFockVector<F> &residuum
+  const cc4s::complex lambda, SDTFockVector<F> &residuum
 ) {
   // Cast ccsdt into ccsd
   V w(residuum);
@@ -292,7 +292,7 @@ CcsdPreconditioner<F>::getCorrection(
 template <typename F>
 SFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
-  const complex lambda, SFockVector<F> &residuum
+  const cc4s::complex lambda, SFockVector<F> &residuum
 ) {
   // Cast s into sd
   SDFockVector<F> w(residuum);
@@ -306,7 +306,7 @@ CcsdPreconditioner<F>::getCorrection(
 template <typename F>
 SDFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
-  const complex lambda, SDFockVector<F> &residuum
+  const cc4s::complex lambda, SDFockVector<F> &residuum
 ) {
   SDFockVector<F> w(*diagonalH);
 
@@ -350,4 +350,4 @@ CcsdPreconditioner<F>::getCorrection(
 
 // instantiate
 template class CcsdPreconditioner<double>;
-template class CcsdPreconditioner<complex>;
+template class CcsdPreconditioner<cc4s::complex>;

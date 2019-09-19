@@ -43,12 +43,12 @@ PTR(FockVector<double>) UccsdtAmplitudesFromCoulombIntegrals::getResiduum(
     getResiduumSth<double>(iterationStep, amplitudes);
 }
 
-PTR(FockVector<complex>) UccsdtAmplitudesFromCoulombIntegrals::getResiduum(
-  const int iterationStep, const PTR(const FockVector<complex>) &amplitudes
+PTR(FockVector<cc4s::complex>) UccsdtAmplitudesFromCoulombIntegrals::getResiduum(
+  const int iterationStep, const PTR(const FockVector<cc4s::complex>) &amplitudes
 ) {
   return getIntegerArgument("hirataEquations", 0) == 1      ?
-    getResiduumTemplate<complex>(iterationStep, amplitudes) :
-    getResiduumSth<complex>(iterationStep, amplitudes);
+    getResiduumTemplate<cc4s::complex>(iterationStep, amplitudes) :
+    getResiduumSth<cc4s::complex>(iterationStep, amplitudes);
 }
 
 template <typename F>
