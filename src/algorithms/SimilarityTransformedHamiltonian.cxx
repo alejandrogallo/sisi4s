@@ -256,7 +256,7 @@ SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_IP(
 
 
 template <typename F>
-SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply_CCSD_EA(
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_EA(
   SDFockVector<F> &R
 ) {
 
