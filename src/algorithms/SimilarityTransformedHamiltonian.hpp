@@ -31,6 +31,7 @@ namespace cc4s {
     SimilarityTransformedHamiltonian(int No_, int Nv_): No(No_), Nv(Nv_) {};
     ~SimilarityTransformedHamiltonian(){};
 
+    // RPA, singles
     SFockVector<F> rightApplyHirata_RPA(SFockVector<F> &v);
 
     // ccsd fok vectors
@@ -44,6 +45,13 @@ namespace cc4s {
     // ccsdt fok vectors
     SDTFockVector<F> rightApplyHirata(SDTFockVector<F> &v);
     SDTFockVector<F> rightApply(SDTFockVector<F> &v);
+
+    // ip and ea ccsd
+    SDFockVector<F> rightApply_CCSD_IP(SDFockVector<F>&);
+    SDFockVector<F> rightApplyHirata_CCSD_IP(SDFockVector<F>&);
+    SDFockVector<F> rightApplyIntermediates_CCSD_IP(SDFockVector<F>&);
+
+    SDFockVector<F> rightApply_CCSD_EA(SDFockVector<F>&);
 
     // One body
     PTR(CTF::Tensor<F>) getIJ();

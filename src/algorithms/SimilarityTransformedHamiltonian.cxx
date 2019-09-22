@@ -64,9 +64,261 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply(
 }
 
 template <typename F>
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply_CCSD_IP(
+  SDFockVector<F> &R
+) {
+  return useRightApplyIntermediates ?
+    rightApplyIntermediates_CCSD_IP(R) : rightApplyHirata_CCSD_IP(R);
+}
+
+
+template <typename F>
+SDFockVector<F>
+SimilarityTransformedHamiltonian<F>::rightApplyIntermediates_CCSD_IP(
+  SDFockVector<F> &R
+) {
+  SDFockVector<F> HR(R);
+  PTR(CTF::Tensor<F>) Ri(R.get(0) );
+  PTR(CTF::Tensor<F>) Raij(R.get(1) );
+  PTR(CTF::Tensor<F>) HRi(HR.get(0) );
+  PTR(CTF::Tensor<F>) HRaij(HR.get(1) );
+
+  // For singles
+  Wij = getIJ();
+  Wia = getIA();
+  Wijka = getIJKA();
+
+  // For doubles
+  Wab = getAB();
+  Wiajk = getIAJK();
+  Wiabj = getIABJ();
+  Wijkl = getIJKL();
+
+  (*HRi)["i"]  = 0.0;
+  (*HRi)["i"] += (-1.0) * (*Wij)["mi"] * (*Ri)["m"];
+  (*HRi)["i"] += (-1.0) * (*Wia)["mc"] * (*Raij)["cim"];
+  (*HRi)["i"] += (-0.5) * (*Wijka)["nmic"] * (*Raij)["cmn"];
+
+  (*HRaij)["aij"]  = 0.0;
+  (*HRaij)["aij"] += (-1.0) * (*Wiajk)["maji"] * (*Ri)["m"];
+  (*HRaij)["aij"] += (+1.0) * (*Wab)["ac"] * (*Raij)["cij"];
+  // we have to antisymmetrize here
+  (*HRaij)["aij"] += (-1.0) * (*Wij)["mi"] * (*Raij)["amj"];
+  (*HRaij)["aij"] += (+1.0) * (*Wij)["mj"] * (*Raij)["ami"];
+  // also antisymmetrize
+  (*HRaij)["aij"] += (+1.0) * (*Wiabj)["maci"] * (*Raij)["cmj"];
+  (*HRaij)["aij"] += (-1.0) * (*Wiabj)["macj"] * (*Raij)["cmi"];
+
+  (*HRaij)["aij"] += (+0.5) * (*Wijkl)["mnij"] * (*Raij)["amn"];
+
+  // three body term
+  // WHHPHPH = Wijakbl := Vijbc * Tcakl (page 354 Shavitt 10.88)
+  // (*Wijakbl)["nmaicj"] * (*Raij)["cmn"];
+  // (*Wijakbl)["nmaicj"] = (*Vijab)["mnce"] * (*Tabij)["eaij"];
+
+  //(*HRaij)["aij"] += (-0.5) * (*Vijab)["mnce"] * (*Tabij)["eaij"] * (*Raij)["cmn"];
+  // Change order for preformance
+  // TODO: Really review this little puppy
+  (*HRaij)["aij"] += (-0.5) * (*Tabij)["eaji"] * (*Vijab)["mnce"] * (*Raij)["cmn"];
+
+  return HR;
+}
+
+template <typename F>
+SDFockVector<F>
+SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_IP(
+  SDFockVector<F> &R
+) {
+
+  SDFockVector<F> HR(R);
+  PTR(CTF::Tensor<F>) Ri(R.get(0) );
+  PTR(CTF::Tensor<F>) Raij(R.get(1) );
+  PTR(CTF::Tensor<F>) HRi(HR.get(0) );
+  PTR(CTF::Tensor<F>) HRaij(HR.get(1) );
+
+  (*HRi)["i"] = 0.0;
+  if (Fia) {
+    (*HRi)["i"] += (+ 1.0) * (*Fia)["kc"] * (*Raij)["cki"];
+    (*HRi)["i"] += (- 1.0) * (*Fia)["kc"] * (*Tai)["ci"] * (*Ri)["k"];
+  }
+  (*HRi)["i"] += (- 1.0) * (*Fij)["ki"] * (*Ri)["k"];
+  (*HRi)["i"] += (+ 0.5) * (*Vijka)["klid"] * (*Raij)["dkl"];
+  (*HRi)["i"] += (- 1.0) * (*Tai)["bl"] * (*Vijka)["mlib"] * (*Ri)["m"];
+  (*HRi)["i"] += (- 0.5) * (*Tai)["bi"] * (*Vijab)["lmeb"] * (*Raij)["elm"];
+  (*HRi)["i"] += (+ 1.0) * (*Tai)["bl"] * (*Vijab)["mleb"] * (*Raij)["emi"];
+  (*HRi)["i"] += (+ 0.5) * (*Tabij)["bcmi"] * (*Vijab)["nmbc"] * (*Ri)["n"];
+  (*HRi)["i"] += (+ 1.0) * (*Tai)["bi"] * (*Tai)["cm"] * (*Vijab)["nmcb"] * (*Ri)["n"];
+
+  (*HRaij)["bij"] = 0.0;
+  if (Fia) {
+    //(*HRaij)["bij"] += (- 1.0 + 1.0 * P["bij=>bji"]) * (*Fia)["me"] * (*Tai)["ei"] * (*Raij)["bmj"];
+    (*HRaij)["bij"] += (- 1.0) * (*Fia)["me"] * (*Tai)["ei"] * (*Raij)["bmj"];
+    (*HRaij)["bij"] += (+ 1.0) * (*Fia)["me"] * (*Tai)["ej"] * (*Raij)["bmi"];
+    (*HRaij)["bij"] += (- 1.0) * (*Fia)["me"] * (*Tai)["bm"] * (*Raij)["eij"];
+    (*HRaij)["bij"] += (+ 1.0) * (*Fia)["me"] * (*Tabij)["ebij"] * (*Ri)["m"];
+  }
+  (*HRaij)["bij"] += (+ 1.0) * (*Viajk)["mbij"] * (*Ri)["m"];
+
+  //(*HRaij)["bij"] += (- 1.0 + 1.0 * P["bij=>bji"]) * (*Fij)["mi"] * (*Raij)["bmj"];
+  (*HRaij)["bij"] += (- 1.0) * (*Fij)["mi"] * (*Raij)["bmj"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Fij)["mj"] * (*Raij)["bmi"];
+
+  (*HRaij)["bij"] += (+ 1.0) * (*Fab)["bd"] * (*Raij)["dij"];
+  (*HRaij)["bij"] += (+ 0.5) * (*Vijkl)["mnij"] * (*Raij)["bmn"];
+
+  //(*HRaij)["bij"] += (- 1.0 + 1.0 * P["bij=>bji"]) * (*Viajb)["mbie"] * (*Raij)["emj"];
+  (*HRaij)["bij"] += (- 1.0) * (*Viajb)["mbie"] * (*Raij)["emj"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Viajb)["mbje"] * (*Raij)["emi"];
+
+  (*HRaij)["bij"] += (- 1.0) * (*Tai)["bm"] * (*Vijkl)["nmij"] * (*Ri)["n"];
+
+  //(*HRaij)["bij"] += (+ 1.0 - 1.0 * P["bji=>bij"]) * (*Tai)["dj"] * (*Viajb)["nbid"] * (*Ri)["n"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Tai)["dj"] * (*Viajb)["nbid"] * (*Ri)["n"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tai)["di"] * (*Viajb)["nbjd"] * (*Ri)["n"];
+
+  //(*HRaij)["bij"] += (+ 0.5 - 0.5 * P["bji=>bij"]) * (*Tai)["dj"] * (*Vijka)["noid"] * (*Raij)["bno"];
+  (*HRaij)["bij"] += (+ 0.5) * (*Tai)["dj"] * (*Vijka)["noid"] * (*Raij)["bno"];
+  (*HRaij)["bij"] += (- 0.5) * (*Tai)["di"] * (*Vijka)["nojd"] * (*Raij)["bno"];
+
+  //(*HRaij)["bij"] += (+ 1.0 - 1.0 * P["bij=>bji"]) * (*Tai)["bm"] * (*Vijka)["nmif"] * (*Raij)["fnj"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Tai)["bm"] * (*Vijka)["nmif"] * (*Raij)["fnj"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tai)["bm"] * (*Vijka)["nmjf"] * (*Raij)["fni"];
+
+  //(*HRaij)["bij"] += (- 1.0 + 1.0 * P["bij=>bji"]) * (*Tai)["dn"] * (*Vijka)["onid"] * (*Raij)["boj"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tai)["dn"] * (*Vijka)["onid"] * (*Raij)["boj"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Tai)["dn"] * (*Vijka)["onjd"] * (*Raij)["boi"];
+
+  //(*HRaij)["bij"] += (+ 1.0 - 1.0 * P["bij=>bji"]) * (*Tai)["di"] * (*Viabc)["nbfd"] * (*Raij)["fnj"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Tai)["di"] * (*Viabc)["nbfd"] * (*Raij)["fnj"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tai)["dj"] * (*Viabc)["nbfd"] * (*Raij)["fni"];
+
+  (*HRaij)["bij"] += (- 1.0) * (*Tai)["dn"] * (*Viabc)["nbfd"] * (*Raij)["fij"];
+
+  //(*HRaij)["bij"] += (+ 1.0 - 1.0 * P["bji=>bij"]) * (*Tabij)["dbnj"] * (*Vijka)["onid"] * (*Ri)["o"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Tabij)["dbnj"] * (*Vijka)["onid"] * (*Ri)["o"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tabij)["dbni"] * (*Vijka)["onjd"] * (*Ri)["o"];
+
+
+  (*HRaij)["bij"] += (+ 0.5) * (*Tabij)["deij"] * (*Viabc)["obde"] * (*Ri)["o"];
+  (*HRaij)["bij"] += (+ 0.5) * (*Tabij)["dbij"] * (*Vijab)["nogd"] * (*Raij)["gno"];
+  (*HRaij)["bij"] += (+ 0.25) * (*Tabij)["deij"] * (*Vijab)["oIde"] * (*Raij)["boI"];
+
+  //(*HRaij)["bij"] += (+ 1.0 - 1.0 * P["bij=>bji"]) * (*Tabij)["dbni"] * (*Vijab)["ongd"] * (*Raij)["goj"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Tabij)["dbni"] * (*Vijab)["ongd"] * (*Raij)["goj"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tabij)["dbnj"] * (*Vijab)["ongd"] * (*Raij)["goi"];
+
+  //(*HRaij)["bij"] += (+ 0.5 - 0.5 * P["bij=>bji"]) * (*Tabij)["deoi"] * (*Vijab)["Iode"] * (*Raij)["bIj"];
+  (*HRaij)["bij"] += (+ 0.5) * (*Tabij)["deoi"] * (*Vijab)["Iode"] * (*Raij)["bIj"];
+  (*HRaij)["bij"] += (- 0.5) * (*Tabij)["deoj"] * (*Vijab)["Iode"] * (*Raij)["bIi"];
+
+
+  (*HRaij)["bij"] += (+ 0.5) * (*Tabij)["dbno"] * (*Vijab)["nogd"] * (*Raij)["gij"];
+
+  //(*HRaij)["bij"] += (- 1.0 + 1.0 * P["bji=>bij"]) * (*Tai)["bm"] * (*Tai)["ej"] * (*Vijka)["omie"] * (*Ri)["o"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tai)["bm"] * (*Tai)["ej"] * (*Vijka)["omie"] * (*Ri)["o"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Tai)["bm"] * (*Tai)["ei"] * (*Vijka)["omje"] * (*Ri)["o"];
+
+  //(*HRaij)["bij"] += (- 0.5 + 0.5 * P["bij=>bji"]) * (*Tai)["di"] * (*Tai)["ej"] * (*Viabc)["obed"] * (*Ri)["o"];
+  (*HRaij)["bij"] += (- 0.5) * (*Tai)["di"] * (*Tai)["ej"] * (*Viabc)["obed"] * (*Ri)["o"];
+  (*HRaij)["bij"] += (+ 0.5) * (*Tai)["dj"] * (*Tai)["ei"] * (*Viabc)["obed"] * (*Ri)["o"];
+
+  //(*HRaij)["bij"] += (- 0.25 + 0.25 * P["bij=>bji"]) * (*Tai)["di"] * (*Tai)["ej"] * (*Vijab)["oIed"] * (*Raij)["boI"];
+  (*HRaij)["bij"] += (- 0.25) * (*Tai)["di"] * (*Tai)["ej"] * (*Vijab)["oIed"] * (*Raij)["boI"];
+  (*HRaij)["bij"] += (+ 0.25) * (*Tai)["dj"] * (*Tai)["ei"] * (*Vijab)["oIed"] * (*Raij)["boI"];
+
+  //(*HRaij)["bij"] += (- 1.0 + 1.0 * P["bij=>bji"]) * (*Tai)["bm"] * (*Tai)["ei"] * (*Vijab)["omge"] * (*Raij)["goj"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tai)["bm"] * (*Tai)["ei"] * (*Vijab)["omge"] * (*Raij)["goj"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Tai)["bm"] * (*Tai)["ej"] * (*Vijab)["omge"] * (*Raij)["goi"];
+
+  //(*HRaij)["bij"] += (+ 1.0 - 1.0 * P["bij=>bji"]) * (*Tai)["di"] * (*Tai)["eo"] * (*Vijab)["Ioed"] * (*Raij)["bIj"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Tai)["di"] * (*Tai)["eo"] * (*Vijab)["Ioed"] * (*Raij)["bIj"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tai)["dj"] * (*Tai)["eo"] * (*Vijab)["Ioed"] * (*Raij)["bIi"];
+
+
+  (*HRaij)["bij"] += (+ 1.0) * (*Tai)["bm"] * (*Tai)["eo"] * (*Vijab)["omge"] * (*Raij)["gij"];
+
+  //(*HRaij)["bij"] += (+ 1.0 - 1.0 * P["bji=>bij"]) * (*Tabij)["dbnj"] * (*Tai)["fi"] * (*Vijab)["Infd"] * (*Ri)["I"];
+  (*HRaij)["bij"] += (+ 1.0) * (*Tabij)["dbnj"] * (*Tai)["fi"] * (*Vijab)["Infd"] * (*Ri)["I"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tabij)["dbni"] * (*Tai)["fj"] * (*Vijab)["Infd"] * (*Ri)["I"];
+
+
+  (*HRaij)["bij"] += (- 0.5) * (*Tabij)["deij"] * (*Tai)["bo"] * (*Vijab)["Iode"] * (*Ri)["I"];
+  (*HRaij)["bij"] += (- 1.0) * (*Tabij)["dbij"] * (*Tai)["eo"] * (*Vijab)["Ioed"] * (*Ri)["I"];
+
+  //(*HRaij)["bij"] += (+ 0.5 - 0.5 * P["bij=>bji"]) * (*Tai)["bm"] * (*Tai)["ei"] * (*Tai)["fj"] * (*Vijab)["Imfe"] * (*Ri)["I"];
+  (*HRaij)["bij"] += (+ 0.5) * (*Tai)["bm"] * (*Tai)["ei"] * (*Tai)["fj"] * (*Vijab)["Imfe"] * (*Ri)["I"];
+  (*HRaij)["bij"] += (- 0.5) * (*Tai)["bm"] * (*Tai)["ej"] * (*Tai)["fi"] * (*Vijab)["Imfe"] * (*Ri)["I"];
+
+
+  return HR;;
+
+}
+
+
+template <typename F>
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply_CCSD_EA(
+  SDFockVector<F> &R
+) {
+
+  SDFockVector<F> HR(R);
+  PTR(CTF::Tensor<F>) Ra(R.get(0) );
+  PTR(CTF::Tensor<F>) Rabi(R.get(1) );
+  PTR(CTF::Tensor<F>) HRa(HR.get(0) );
+  PTR(CTF::Tensor<F>) HRabi(HR.get(1) );
+
+  (*HRa)["a"] += (+ 1.0) * (*Fab)["ab"] * (*Ra)["b"];
+  (*HRa)["a"] += (+ 1.0) * (*Fia)["kc"] * (*Rabi)["cak"];
+  (*HRa)["a"] += (+ 0.5) * (*Viabc)["kacd"] * (*Rabi)["cdk"];
+  (*HRa)["a"] += (- 1.0) * (*Fia)["kc"] * (*Tai)["ak"] * (*Ra)["c"];
+  (*HRa)["a"] += (- 1.0) * (*Tai)["bl"] * (*Viabc)["ladb"] * (*Ra)["d"];
+  (*HRa)["a"] += (- 0.5) * (*Tai)["ak"] * (*Vijab)["lkde"] * (*Rabi)["del"];
+  (*HRa)["a"] += (+ 1.0) * (*Tai)["bl"] * (*Vijab)["mleb"] * (*Rabi)["eam"];
+  (*HRa)["a"] += (+ 0.5) * (*Tabij)["balm"] * (*Vijab)["lmeb"] * (*Ra)["e"];
+  (*HRa)["a"] += (+ 1.0) * (*Tai)["ak"] * (*Tai)["cm"] * (*Vijab)["mkec"] * (*Ra)["e"];
+
+  // TODO: do permutations
+  (*HRabi)["bci"] += (+ 1.0) * (*Vabic)["bcid"] * (*Ra)["d"];
+  (*HRabi)["bci"] += (- 1.0) * (*Fij)["mi"] * (*Rabi)["bcm"];
+  //(*HRabi)["bci"] += (- 1.0 + 1.0 * P["cbi=>bci"]) * (*Fab)["cd"] * (*Rabi)["dbi"];
+  //(*HRabi)["bci"] += (+ 1.0 - 1.0 * P["cbi=>bci"]) * (*Viajb)["mcie"] * (*Rabi)["ebm"];
+  (*HRabi)["bci"] += (+ 0.5) * (*Vabcd)["bcde"] * (*Rabi)["dei"];
+  //(*HRabi)["bci"] += (- 1.0 + 1.0 * P["bci=>cbi"]) * (*Tai)["bm"] * (*Viajb)["mcie"] * (*Ra)["e"];
+  (*HRabi)["bci"] += (- 1.0) * (*Tai)["di"] * (*Vabcd)["bced"] * (*Ra)["e"];
+  (*HRabi)["bci"] += (- 1.0) * (*Fia)["me"] * (*Tai)["ei"] * (*Rabi)["bcm"];
+  //(*HRabi)["bci"] += (+ 1.0 - 1.0 * P["cbi=>bci"]) * (*Fia)["me"] * (*Tai)["cm"] * (*Rabi)["ebi"];
+  //(*HRabi)["bci"] += (- 1.0 + 1.0 * P["cbi=>bci"]) * (*Tai)["cm"] * (*Vijka)["nmif"] * (*Rabi)["fbn"];
+  (*HRabi)["bci"] += (- 1.0) * (*Tai)["dn"] * (*Vijka)["onid"] * (*Rabi)["bco"];
+  //(*HRabi)["bci"] += (- 1.0 + 1.0 * P["cbi=>bci"]) * (*Tai)["di"] * (*Viabc)["ncfd"] * (*Rabi)["fbn"];
+  //(*HRabi)["bci"] += (- 0.5 + 0.5 * P["bci=>cbi"]) * (*Tai)["bm"] * (*Viabc)["mcef"] * (*Rabi)["efi"];
+  //(*HRabi)["bci"] += (+ 1.0 - 1.0 * P["cbi=>bci"]) * (*Tai)["dn"] * (*Viabc)["ncfd"] * (*Rabi)["fbi"];
+  (*HRabi)["bci"] += (+ 1.0) * (*Fia)["me"] * (*Tabij)["bcmi"] * (*Ra)["e"];
+  (*HRabi)["bci"] += (+ 0.5) * (*Tabij)["bcmn"] * (*Vijka)["mnif"] * (*Ra)["f"];
+  //(*HRabi)["bci"] += (- 1.0 + 1.0 * P["bci=>cbi"]) * (*Tabij)["dbni"] * (*Viabc)["ncfd"] * (*Ra)["f"];
+  (*HRabi)["bci"] += (+ 0.5) * (*Tabij)["bcmi"] * (*Vijab)["nmfg"] * (*Rabi)["fgn"];
+  //(*HRabi)["bci"] += (- 1.0 + 1.0 * P["cbi=>bci"]) * (*Tabij)["dcni"] * (*Vijab)["ongd"] * (*Rabi)["gbo"];
+  (*HRabi)["bci"] += (+ 0.5) * (*Tabij)["deoi"] * (*Vijab)["Iode"] * (*Rabi)["bcI"];
+  (*HRabi)["bci"] += (+ 0.25) * (*Tabij)["bcmn"] * (*Vijab)["mnfg"] * (*Rabi)["fgi"];
+  //(*HRabi)["bci"] += (- 0.5 + 0.5 * P["cbi=>bci"]) * (*Tabij)["dcno"] * (*Vijab)["nogd"] * (*Rabi)["gbi"];
+  //(*HRabi)["bci"] += (+ 0.5 - 0.5 * P["cbi=>bci"]) * (*Tai)["cm"] * (*Tai)["bn"] * (*Vijka)["nmif"] * (*Ra)["f"];
+  //(*HRabi)["bci"] += (+ 1.0 - 1.0 * P["bci=>cbi"]) * (*Tai)["bm"] * (*Tai)["ei"] * (*Viabc)["mcfe"] * (*Ra)["f"];
+  //(*HRabi)["bci"] += (+ 1.0 - 1.0 * P["cbi=>bci"]) * (*Tai)["cm"] * (*Tai)["ei"] * (*Vijab)["omge"] * (*Rabi)["gbo"];
+  (*HRabi)["bci"] += (+ 1.0) * (*Tai)["di"] * (*Tai)["eo"] * (*Vijab)["Ioed"] * (*Rabi)["bcI"];
+  //(*HRabi)["bci"] += (+ 0.25 - 0.25 * P["cbi=>bci"]) * (*Tai)["cm"] * (*Tai)["bn"] * (*Vijab)["nmfg"] * (*Rabi)["fgi"];
+  //(*HRabi)["bci"] += (- 1.0 + 1.0 * P["cbi=>bci"]) * (*Tai)["cm"] * (*Tai)["eo"] * (*Vijab)["omge"] * (*Rabi)["gbi"];
+  (*HRabi)["bci"] += (- 0.5) * (*Tabij)["bcmn"] * (*Tai)["fi"] * (*Vijab)["mngf"] * (*Ra)["g"];
+  //(*HRabi)["bci"] += (- 1.0 + 1.0 * P["bci=>cbi"]) * (*Tabij)["dbni"] * (*Tai)["co"] * (*Vijab)["ongd"] * (*Ra)["g"];
+  (*HRabi)["bci"] += (- 1.0) * (*Tabij)["bcmi"] * (*Tai)["eo"] * (*Vijab)["omge"] * (*Ra)["g"];
+  //(*HRabi)["bci"] += (- 0.5 + 0.5 * P["cbi=>bci"]) * (*Tai)["cm"] * (*Tai)["bn"] * (*Tai)["fi"] * (*Vijab)["nmgf"] * (*Ra)["g"];
+
+  return HR;;
+
+}
+
+template <typename F>
 SFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(
   SFockVector<F> &R
 ) {
+
   // This is only using Viajb and Vijab
   SFockVector<F> HR(R);
   // get pointers to the component tensors
@@ -607,7 +859,7 @@ SimilarityTransformedHamiltonian<F>::getIJ() {
     (*Wij)["ij"]  = (*Fij)["ij"];
     (*Wij)["ij"] += (*Vijka)["imje"] * (*Tai)["em"];
     (*Wij)["ij"] += (*Wia)["ie"] * (*Tai)["ej"];
-    (*Wij)["ij"] += (  0.5) * (*Vijab)["imef"] * (*Tabij)["efjm"];
+    (*Wij)["ij"] += (+ 0.5) * (*Vijab)["imef"] * (*Tabij)["efjm"];
   } else {
     Tau_abij = getTauABIJ();
     // This is the first row in diagram 10.55 in [1]
