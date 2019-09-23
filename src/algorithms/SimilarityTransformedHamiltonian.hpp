@@ -51,7 +51,9 @@ namespace cc4s {
     SDFockVector<F> rightApplyHirata_CCSD_IP(SDFockVector<F>&);
     SDFockVector<F> rightApplyIntermediates_CCSD_IP(SDFockVector<F>&);
 
+    SDFockVector<F> rightApply_CCSD_EA(SDFockVector<F>&);
     SDFockVector<F> rightApplyHirata_CCSD_EA(SDFockVector<F>&);
+    SDFockVector<F> rightApplyIntermediates_CCSD_EA(SDFockVector<F>&);
 
     // One body
     PTR(CTF::Tensor<F>) getIJ();

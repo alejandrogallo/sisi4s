@@ -254,6 +254,60 @@ SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_IP(
 
 }
 
+template <typename F>
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply_CCSD_EA(
+  SDFockVector<F> &R
+) {
+  return useRightApplyIntermediates ?
+    rightApplyIntermediates_CCSD_EA(R) : rightApplyHirata_CCSD_EA(R);
+}
+
+template <typename F>
+SDFockVector<F>
+SimilarityTransformedHamiltonian<F>::rightApplyIntermediates_CCSD_EA(
+  SDFockVector<F> &R
+) {
+  SDFockVector<F> HR(R);
+  PTR(CTF::Tensor<F>) Ra(R.get(0) );
+  PTR(CTF::Tensor<F>) Rabi(R.get(1) );
+  PTR(CTF::Tensor<F>) HRa(HR.get(0) );
+  PTR(CTF::Tensor<F>) HRabi(HR.get(1) );
+
+  // For singles
+  Wia = getIA();
+  Wab = getAB();
+  Wijka = getIJKA();
+  Waibc = getAIBC();
+  Wabcd = getABCD();
+
+  // For doubles
+  Wij = getIJ();
+  Wabci = getABCI();
+
+  (*HRa)["a"]  = 0.0;
+  (*HRa)["a"] += (+1.0) * (*Wab)["ae"] * (*Ra)["e"];
+  (*HRa)["a"] += (+1.0) * (*Wia)["me"] * (*Rabi)["eam"];
+  (*HRa)["a"] += (+0.5) * (*Waibc)["amde"] * (*Rabi)["edm"];
+
+  (*HRabi)["abi"]  = 0.0;
+  (*HRabi)["abi"] += (+1.0) * (*Wabci)["baei"] * (*Ra)["e"];
+  // we have to antisymmetrize here
+  (*HRabi)["abi"] += (+1.0) * (*Wab)["ae"] * (*Rabi)["ebi"];
+  (*HRabi)["abi"] += (-1.0) * (*Wab)["be"] * (*Rabi)["eai"];
+  (*HRabi)["abi"] += (-1.0) * (*Wij)["mi"] * (*Rabi)["abm"];
+  // also antisymmetrize
+  (*HRabi)["abi"] += (+1.0) * (*Wiabj)["maei"] * (*Rabi)["ebm"];
+  (*HRabi)["abi"] += (-1.0) * (*Wiabj)["mbei"] * (*Rabi)["eam"];
+
+  (*HRabi)["abi"] += (+0.5) * (*Wabcd)["abef"] * (*Rabi)["efi"];
+
+  // three body term: TODO
+  // WPHPPPH = Waibcdj
+  //(*HRabi)["abi"] += (-0.5) * (*Tabij)["eaji"] * (*Vijab)["mnce"] * (*Rabi)["cmn"];
+
+  return HR;
+}
+
 
 template <typename F>
 SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_EA(
