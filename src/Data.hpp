@@ -7,6 +7,7 @@
 #include <math/Complex.hpp>
 #include <string>
 #include <map>
+#include <vector>
 #include <ctf.hpp>
 // TODO: find out why Exception must be included after string,map and ctf
 #include <util/Exception.hpp>
@@ -168,6 +169,19 @@ namespace cc4s {
       std::string const &name_, int64_t const value_
     ): NumericData(name_, "real"), value(value_) { }
     int64_t value;
+  };
+
+  template <typename F=double, typename C=std::vector<F> >
+  struct ContainerData: public NumericData {
+    ContainerData(
+        C *value_
+    ): NumericData("Container of " + TypeTraits<F>::getName()), value(value_){}
+    ContainerData(
+      std::string const &name_, C *value_
+    ): NumericData(name_, "Container of " + TypeTraits<F>::getName()),
+      value(value_) {}
+    virtual ~ContainerData() { if (value) delete value; }
+    C *value;
   };
 
   template < typename F=double, typename T=CTF::Tensor<F> >

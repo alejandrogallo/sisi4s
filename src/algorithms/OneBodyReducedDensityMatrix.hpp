@@ -21,24 +21,24 @@ namespace cc4s {
 
   };
 
+  /**
+   * \brief This implements one body rdm for eom ccsd
+   * In principle it calculates
+   *            p    T
+   *  <0| L \rho  R e |0>
+   *            q
+   *  For L and R being singles doubles vectors without 0-th components.
+   */
   template<typename F>
   class EomOneBodyReducedDensityMatrix: public OneBodyReducedDensityMatrix<F> {
-
   public:
 
 
     EomOneBodyReducedDensityMatrix(
       CTF::Tensor<F> *Tai_, CTF::Tensor<F> *Tabij_,
-      const FockVector<F> *L_, const FockVector<F> *R_
+      const SDFockVector<F> *L_, const SDFockVector<F> *R_
     ): Tai(Tai_), Tabij(Tabij_), L(L_), R(R_){
       LOG(0, "OneBodyRDM") << "Calculating eom ccsd 1rdm" << std::endl;
-    }
-
-    EomOneBodyReducedDensityMatrix(
-      CTF::Tensor<F> *Tai_, CTF::Tensor<F> *Tabij_, CTF::Tensor<F> *Tabcijk_,
-      const FockVector<F> *L_, const FockVector<F> *R_
-    ): Tai(Tai_), Tabij(Tabij_), Tabcijk(Tabcijk_), L(L_), R(R_){
-      LOG(0, "OneBodyRDM") << "Calculating eom ccsdt 1rdm" << std::endl;
     }
 
     PTR(CTF::Tensor<F>) getAI() {
@@ -113,8 +113,8 @@ namespace cc4s {
   private:
 
     PTR(CTF::Tensor<F>) Rai, Ria, Rij, Rab;
-    CTF::Tensor<F> *Tai, *Tabij, *Tabcijk;
-    const FockVector<F> *L, *R;
+    CTF::Tensor<F> *Tai, *Tabij;
+    const SDFockVector<F> *L, *R;
 
   };
 

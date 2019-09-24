@@ -8,6 +8,8 @@
 #include <util/Log.hpp>
 #include <iostream>
 #include <sstream>
+#include <vector>
+#include <list>
 
 using namespace cc4s;
 
@@ -148,6 +150,39 @@ cc4s::real Algorithm::getRealArgumentFromTensor(TensorData<real> *data) {
   scalar[""] = (*data->value)[""];
   return scalar.get_val();
 }
+
+template <typename F, typename C>
+C *Algorithm::getContainerArgument(std::string const &name) {
+  Data *data(getArgumentData(name));
+  ContainerData<F, C> *containerData(dynamic_cast<ContainerData<F, C> *>(data));
+  if (containerData) return containerData->value;
+  // TODO: provide conversion routines from real to complex containers
+  std::stringstream sStream;
+  sStream << "Incompatible type for argument: " << name << ". "
+    << "Excpected container of " << TypeTraits<F>::getName()
+    << ", found " << data->getTypeName() << ".";
+  throw new EXCEPTION(sStream.str());
+}
+
+template <typename F, typename C>
+void Algorithm::allocateContainerArgument(
+  std::string const &name, C *container
+) {
+  Data *mentionedData(getArgumentData(name));
+  new ContainerData<F, C >(
+    mentionedData->getName(), container
+  );
+}
+template
+void Algorithm::allocateContainerArgument< int64_t, std::vector<int64_t> >(
+  std::string const &name, std::vector<int64_t> *container);
+template
+void Algorithm::allocateContainerArgument< cc4s::real, std::vector<cc4s::real> >(
+  std::string const &name, std::vector<cc4s::real> *container);
+template
+void Algorithm::allocateContainerArgument< cc4s::complex, std::vector<cc4s::complex> >(
+  std::string const &name, std::vector<cc4s::complex> *container);
+
 
 template <typename F, typename T>
 T *Algorithm::getTensorArgument(std::string const &name) {
