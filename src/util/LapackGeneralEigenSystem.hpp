@@ -264,18 +264,17 @@ namespace cc4s {
       ) {
         // FIXME: Move the inf code into particular implementations
         double inf = std::numeric_limits<double>::infinity();
-        complex A(
-          std::abs(a.second) < 1E-4 ? *(new complex(inf,inf)) : a.second
-        );
-        complex B(
-          std::abs(b.second) < 1E-4 ? *(new complex(inf,inf)) : b.second
-        );
-        complex diff(B-A);
+        double A(std::abs(a.second) < 1E-4 ? inf : std::real(a.second));
+        double B(std::abs(b.second) < 1E-4 ? inf : std::real(b.second));
+        double diff(B-A);
         double magnitude( std::abs(a.second)+std::abs(b.second) );
-        if (std::real(diff) > +1E-13*magnitude) return true;
-        if (std::real(diff) < -1E-13*magnitude) return false;
-        if (std::imag(diff) > +1E-13*magnitude) return false;
-        if (std::imag(diff) < -1E-13*magnitude) return true;
+        if (std::real(diff) > +1E-13*magnitude)
+          return true;
+        else
+          return false;
+        //if (std::real(diff) < -1E-13*magnitude) return false;
+        //if (std::imag(diff) > +1E-13*magnitude) return false;
+        //if (std::imag(diff) < -1E-13*magnitude) return true;
         return a.first < b.first;
       }
     };
