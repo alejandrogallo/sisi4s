@@ -25,11 +25,28 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   }
 }
 
+template <typename F>
+inline void logVectorNorms(LapackMatrix<F> &A, const char *name) {
+  F norm;
+  for (int j(0); j < A.getColumns(); j++) {
+    norm = F(0);
+    for (int i(0); i < A.getRows(); i++) {
+      norm += std::conj(A(i,j)) * A(i,j);
+    }
+    LOG(1, "NaturalTransitionOrbitalsFromRhoAI") <<
+      "|" << name << "(" << j << ")|**2 " << norm << std::endl;
+  }
+
+}
+
 template <typename F> void
 NaturalTransitionOrbitalsFromRhoAI::run() {
   auto RhoAI(getTensorArgument<F>("RhoAI"));
   int No(RhoAI->lens[1]), Nv(RhoAI->lens[0]);
   int oo[] = {No, No}, vv[] = {Nv, Nv}, syms[] = {NS, NS};
+
+  LOG(0, "NaturalTransitionOrbitalsFromRhoAI") << "No: " << No << std::endl;
+  LOG(0, "NaturalTransitionOrbitalsFromRhoAI") << "Nv: " << Nv << std::endl;
 
   auto I = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "I");
   auto A = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "A");
@@ -62,6 +79,7 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   );
   allocatedTensorArgument<F>(
     "OccupiedTransformationMatrix", iRightEigenVectorsTensor);
+  logVectorNorms<F>(iRightEigenVectors, "occ");
 
   LapackMatrix<complex> aRightEigenVectors(asolver.getRightEigenVectors());
   CTF::Tensor<F> *aRightEigenVectorsTensor = new CTF::Tensor<F>(
@@ -75,6 +93,7 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   );
   allocatedTensorArgument<F>(
     "VirtualTransformationMatrix", aRightEigenVectorsTensor);
+  logVectorNorms<F>(aRightEigenVectors, "vir");
 
   std::vector<complex> iLambdas(isolver.getEigenValues());
   CTF::Tensor<F> *iLambdasTensor = new CTF::Tensor<F>(
