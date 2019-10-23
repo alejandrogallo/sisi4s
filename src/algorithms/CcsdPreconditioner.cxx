@@ -349,6 +349,187 @@ CcsdPreconditioner<F>::getCorrection(
 }
 
 template <typename F>
+void EACcsdPreconditioner<F>::calculateDiagonal(){
+  int No(this->Fij->lens[0]), Nv(this->Fab->lens[0]);
+  std::vector<int> v{{Nv}}, vvo{{Nv, Nv, No}}, ns{{NS}}, nss{{NS,NS,NS}};
+
+  auto& Fij = this->Fij;
+  auto& Fab = this->Fab;
+
+  this->diagonalH = NEW(SDFockVector<F>, std::vector<PTR(CTF::Tensor<F>)>({
+        NEW(CTF::Tensor<F>, 1, v.data(), ns.data(), *Cc4s::world, "Da"),
+        NEW(CTF::Tensor<F>, 3, vvo.data(), nss.data(), *Cc4s::world, "Dabi")
+      }
+    ),
+    std::vector<std::string>({"a", "abi"})
+  );
+
+  auto Da(this->diagonalH->get(0));
+  auto Dabi(this->diagonalH->get(1));
+
+  // calculate diagonal elements of H
+  (*Da)["a"] =  ( + 1.0 ) * (*Fab)["aa"];
+
+  (*Dabi)["cdi"] =  ( - 1.0 ) * (*Fij)["ii"];
+  (*Dabi)["cdi"] += ( - 1.0 ) * (*Fij)["jj"];
+  (*Dabi)["cdi"] += ( + 1.0 ) * (*Fab)["cc"];
+  (*Dabi)["cdi"] += ( + 1.0 ) * (*Fab)["dd"];
+
+}
+
+template <typename F>
+std::vector<SDFockVector<F>>
+EACcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
+  calculateDiagonal();
+  LOG(0, "EACcsdPreconditioner") << "Getting initial basis " << std::endl;
+  // find K=eigenVectorsCount lowest diagonal elements at each processor
+  std::vector<std::pair<size_t, F>> localElements(this->diagonalH->readLocal());
+  std::sort(
+    localElements.begin(), localElements.end(),
+    EomDiagonalValueComparator<F>()
+  );
+  int localElementsSize(localElements.size() );
+
+  // gather all K elements of all processors at root
+  //   convert into homogeneous arrays for MPI gather
+  const int trialEigenVectorsCount(10*eigenVectorsCount);
+  std::vector<size_t> localLowestElementIndices(trialEigenVectorsCount);
+  std::vector<F> localLowestElementValues(trialEigenVectorsCount);
+  for (
+    int i(0);
+    i < std::min(localElementsSize, trialEigenVectorsCount);
+    ++i
+  ) {
+    localLowestElementIndices[i] = localElements[i].first;
+    localLowestElementValues[i] = localElements[i].second;
+  }
+  MpiCommunicator communicator(*Cc4s::world);
+  std::vector<size_t> lowestElementIndices;
+  std::vector<F> lowestElementValues;
+  communicator.gather(localLowestElementIndices, lowestElementIndices);
+  communicator.gather(localLowestElementValues, lowestElementValues);
+  //   convert back into (index,value) pairs for sorting
+  std::vector<std::pair<size_t, F>> lowestElements(lowestElementValues.size());
+  for (unsigned int i(0); i < lowestElementValues.size(); ++i) {
+    lowestElements[i].first = lowestElementIndices[i];
+    lowestElements[i].second = lowestElementValues[i];
+  }
+
+  // find globally lowest K diagonal elements among the gathered elements
+  std::sort(
+    lowestElements.begin(), lowestElements.end(),
+    EomDiagonalValueComparator<F>()
+  );
+  // at rank==0 (root) lowestElements contains K*Np entries
+  // rank > 0 has an empty list
+
+  // create basis vectors for each lowest element
+  std::vector<SDFockVector<F>> basis;
+
+  int currentEigenVectorCount(0);
+  unsigned int b(0);
+  int zeroVectorCount(0);
+  while (currentEigenVectorCount < eigenVectorsCount) {
+    SDFockVector<F> basisElement(*this->diagonalH);
+    basisElement *= 0.0;
+    std::vector<std::pair<size_t,F>> elements;
+    if (communicator.getRank() == 0) {
+      if ( b >= lowestElements.size() ) {
+        throw EXCEPTION("No more elements to create initial basis");
+      }
+      elements.push_back(
+        std::make_pair(lowestElements[b].first, 1.0)
+      );
+    }
+    basisElement.write(elements);
+    // (101, -70), (32, -55), ...
+    // b1: 0... 1 (at global position 101) 0 ...
+    // b2: 0... 1 (at global position 32) 0 ...i
+
+    // Filter out unphysical components from the basisElement
+    (*basisElement.get(1))["aai"]=0.0;
+
+    // Antisymmetrize the new basis element
+    (*basisElement.get(1))["abi"] -= (*basisElement.get(1))["bai"];
+
+    LOG(1, "EACcsdPreconditioner")
+      << "basis size " << basis.size() << std::endl;
+
+    // Grams-schmidt it with the other elements of the basis
+    for (unsigned int j(0); j < basis.size(); ++j) {
+      basisElement -= basis[j] * basis[j].dot(basisElement);
+    }
+
+    // Normalize basisElement
+    F basisElementNorm(std::sqrt(basisElement.dot(basisElement)));
+
+    // Check if basisElementNorm is zero
+    if ( std::abs(basisElementNorm) < 1e-10 ) {
+      zeroVectorCount++;
+      b++;
+      continue;
+    }
+
+    basisElement = 1.0 / std::sqrt(basisElement.dot(basisElement))*basisElement;
+    basisElementNorm = std::sqrt(basisElement.dot(basisElement));
+
+    b++;
+
+    if ( std::abs(basisElementNorm - double(1)) > 1e-10 * double(1)) continue;
+
+    currentEigenVectorCount++;
+
+    // If it got here, basisElement is a valid vector
+    basis.push_back(basisElement);
+
+  }
+
+  return basis;
+}
+
+template <typename F>
+SDFockVector<F>
+EACcsdPreconditioner<F>::getCorrection(
+  const cc4s::complex lambda, SDFockVector<F> &residuum
+) {
+  SDFockVector<F> w(*this->diagonalH);
+
+  // Define a singleton helping class for the diagonal correction
+  class DiagonalCorrection {
+    public:
+      DiagonalCorrection(const double lambda_): lambda(lambda_) {
+      }
+      F operator ()(const F residuumElement, const F diagonalElement) {
+        return std::abs(lambda - diagonalElement) < 1E-4 ?
+          0.0 : residuumElement / (lambda - diagonalElement);
+      }
+    protected:
+      double lambda;
+  } diagonalCorrection(std::real(lambda));
+
+  SDFockVector<F> correction(*this->diagonalH);
+  // compute ((lambda * id - Diag(diagonal))^-1) . residuum
+  for (unsigned int c(0); c < w.getComponentsCount(); ++c) {
+    const char *indices( correction.componentIndices[c].c_str() );
+    (*correction.get(c)).contract(
+      1.0,
+      *residuum.get(c),indices,
+      *this->diagonalH->get(c),indices,
+      0.0,indices,
+      CTF::Bivar_Function<F>(diagonalCorrection)
+    );
+  }
+  // Filter out unphysical components from the correction
+  (*correction.get(1))["aai"]=0.0;
+
+  // Antisymmetrize the correction
+  (*correction.get(1))["abi"] -= (*correction.get(1))["bai"];
+
+  return correction;
+}
+
+
+template <typename F>
 void IPCcsdPreconditioner<F>::calculateDiagonal(){
   int No(this->Fij->lens[0]), Nv(this->Fab->lens[0]);
   std::vector<int> o{{No}}, voo{{Nv, No, No}}, ns{{NS}}, nss{{NS,NS,NS}};
@@ -534,3 +715,6 @@ template class CcsdPreconditioner<cc4s::complex>;
 
 template class IPCcsdPreconditioner<double>;
 template class IPCcsdPreconditioner<cc4s::complex>;
+
+template class EACcsdPreconditioner<double>;
+template class EACcsdPreconditioner<cc4s::complex>;

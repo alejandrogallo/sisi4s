@@ -106,6 +106,20 @@ namespace cc4s {
 
   };
 
+  template <typename F>
+  class EACcsdPreconditioner: public CcsdPreconditioner<F> {
+  public:
+
+    void calculateDiagonal();
+
+    std::vector<SDFockVector<F>>
+    getInitialBasis(int eigenVectorsCount);
+
+    SDFockVector<F>
+    getCorrection(const complex eigenValue, SDFockVector<F> &residuum);
+
+  };
+
 }
 
 #endif
