@@ -37,7 +37,21 @@ inline void logVectorNorms(LapackMatrix<F> &A, const char *name) {
     LOG(1, "NaturalTransitionOrbitalsFromRhoAI") <<
       "|" << name << "(" << j << ")|**2 " << norm << std::endl;
   }
+}
 
+template <typename F>
+inline void logOverlap(LapackMatrix<F> &A, const char *name) {
+  F o;
+  for (int j(0); j < A.getColumns(); j++) {
+    for (int i(0); i < A.getRows(); i++) {
+      o = F(0);
+      for (int k(0); k < A.getRows(); k++) {
+        o += std::conj(A(k,i)) * A(k,j);
+      }
+      LOG(1, "NaturalTransitionOrbitalsFromRhoAI") <<
+        "Overlap_" << name << "(" << i << ","<<j<<") " << o << std::endl;
+    }
+  }
 }
 
 template <typename F> void
@@ -84,6 +98,7 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   allocatedTensorArgument<F>(
     "OccupiedTransformationMatrix", iRightEigenVectorsTensor);
   logVectorNorms<F>(iRightEigenVectors, "occ");
+  logOverlap<F>(iRightEigenVectors, "occ");
 
   LapackMatrix<complex> aRightEigenVectors(asolver.getRightEigenVectors());
   CTF::Tensor<F> *aRightEigenVectorsTensor = new CTF::Tensor<F>(
@@ -98,6 +113,7 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   allocatedTensorArgument<F>(
     "VirtualTransformationMatrix", aRightEigenVectorsTensor);
   logVectorNorms<F>(aRightEigenVectors, "vir");
+  logOverlap<F>(aRightEigenVectors, "vir");
 
   std::vector<complex> iLambdas(isolver.getEigenValues());
   CTF::Tensor<F> *iLambdasTensor = new CTF::Tensor<F>(
