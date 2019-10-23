@@ -43,7 +43,7 @@ template <typename F>
 inline void logOverlap(LapackMatrix<F> &A, const char *name) {
   F o;
   for (int j(0); j < A.getColumns(); j++) {
-    for (int i(0); i < A.getRows(); i++) {
+    for (int i(0); i < A.getColumns(); i++) {
       o = F(0);
       for (int k(0); k < A.getRows(); k++) {
         o += std::conj(A(k,i)) * A(k,j);
