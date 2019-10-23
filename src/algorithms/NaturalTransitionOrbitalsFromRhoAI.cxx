@@ -88,7 +88,11 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   LapackMatrix<complex> iRightEigenVectors(isolver.getRightEigenVectors());
   CTF::Tensor<F> *iRightEigenVectorsTensor = new CTF::Tensor<F>(
     2, oo, syms, *Cc4s::world, "RightEigenVectorsOccupied");
-  indices.resize(No * No);
+  if (iRightEigenVectorsTensor->wrld->rank == 0) {
+    indices.resize(No * No);
+  } else {
+    indices.resize(0);
+  }
   std::iota(indices.begin(), indices.end(), 0);
   iRightEigenVectorsTensor->write(
     indices.size(),
@@ -103,7 +107,11 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   LapackMatrix<complex> aRightEigenVectors(asolver.getRightEigenVectors());
   CTF::Tensor<F> *aRightEigenVectorsTensor = new CTF::Tensor<F>(
     2, vv, syms, *Cc4s::world, "RightEigenVectorsVirtual");
-  indices.resize(Nv * Nv);
+  if (iRightEigenVectorsTensor->wrld->rank == 0) {
+    indices.resize(Nv * Nv);
+  } else {
+    indices.resize(0);
+  }
   std::iota(indices.begin(), indices.end(), 0);
   aRightEigenVectorsTensor->write(
     indices.size(),
