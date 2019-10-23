@@ -321,10 +321,14 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_EA(
   PTR(CTF::Tensor<F>) HRabi(HR.get(1) );
 
   (*HRa)["a"]  = 0.0;
+
+  if (Fia) {
+    (*HRa)["a"] += (+ 1.0) * (*Fia)["kc"] * (*Rabi)["cak"];
+    (*HRa)["a"] += (- 1.0) * (*Fia)["kc"] * (*Tai)["ak"] * (*Ra)["c"];
+  }
+
   (*HRa)["a"] += (+ 1.0) * (*Fab)["ab"] * (*Ra)["b"];
-  (*HRa)["a"] += (+ 1.0) * (*Fia)["kc"] * (*Rabi)["cak"];
   (*HRa)["a"] += (+ 0.5) * (*Viabc)["kacd"] * (*Rabi)["cdk"];
-  (*HRa)["a"] += (- 1.0) * (*Fia)["kc"] * (*Tai)["ak"] * (*Ra)["c"];
   (*HRa)["a"] += (- 1.0) * (*Tai)["bl"] * (*Viabc)["ladb"] * (*Ra)["d"];
   (*HRa)["a"] += (- 0.5) * (*Tai)["ak"] * (*Vijab)["lkde"] * (*Rabi)["del"];
   (*HRa)["a"] += (+ 1.0) * (*Tai)["bl"] * (*Vijab)["mleb"] * (*Rabi)["eam"];
@@ -332,6 +336,17 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_EA(
   (*HRa)["a"] += (+ 1.0) * (*Tai)["ak"] * (*Tai)["cm"] * (*Vijab)["mkec"] * (*Ra)["e"];
 
   (*HRabi)["bci"]  = 0.0;
+
+  if (Fia) {
+    (*HRabi)["bci"] += (- 1.0) * (*Fia)["me"] * (*Tai)["ei"] * (*Rabi)["bcm"];
+
+    //(*HRabi)["bci"] += (+ 1.0 - 1.0 * P["cbi=>bci"]) * (*Fia)["me"] * (*Tai)["cm"] * (*Rabi)["ebi"];
+    (*HRabi)["bci"] += (+ 1.0) * (*Fia)["me"] * (*Tai)["cm"] * (*Rabi)["ebi"];
+    (*HRabi)["bci"] += (- 1.0) * (*Fia)["me"] * (*Tai)["bm"] * (*Rabi)["eci"];
+
+    (*HRabi)["bci"] += (+ 1.0) * (*Fia)["me"] * (*Tabij)["bcmi"] * (*Ra)["e"];
+  }
+
   (*HRabi)["bci"] += (+ 1.0) * (*Vabic)["bcid"] * (*Ra)["d"];
   (*HRabi)["bci"] += (- 1.0) * (*Fij)["mi"] * (*Rabi)["bcm"];
 
@@ -350,11 +365,7 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_EA(
   (*HRabi)["bci"] += (+ 1.0) * (*Tai)["cm"] * (*Viajb)["mbie"] * (*Ra)["e"];
 
   (*HRabi)["bci"] += (- 1.0) * (*Tai)["di"] * (*Vabcd)["bced"] * (*Ra)["e"];
-  (*HRabi)["bci"] += (- 1.0) * (*Fia)["me"] * (*Tai)["ei"] * (*Rabi)["bcm"];
 
-  //(*HRabi)["bci"] += (+ 1.0 - 1.0 * P["cbi=>bci"]) * (*Fia)["me"] * (*Tai)["cm"] * (*Rabi)["ebi"];
-  (*HRabi)["bci"] += (+ 1.0) * (*Fia)["me"] * (*Tai)["cm"] * (*Rabi)["ebi"];
-  (*HRabi)["bci"] += (- 1.0) * (*Fia)["me"] * (*Tai)["bm"] * (*Rabi)["eci"];
 
   //(*HRabi)["bci"] += (- 1.0 + 1.0 * P["cbi=>bci"]) * (*Tai)["cm"] * (*Vijka)["nmif"] * (*Rabi)["fbn"];
   (*HRabi)["bci"] += (- 1.0) * (*Tai)["cm"] * (*Vijka)["nmif"] * (*Rabi)["fbn"];
@@ -374,7 +385,6 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_EA(
   (*HRabi)["bci"] += (+ 1.0) * (*Tai)["dn"] * (*Viabc)["ncfd"] * (*Rabi)["fbi"];
   (*HRabi)["bci"] += (- 1.0) * (*Tai)["dn"] * (*Viabc)["nbfd"] * (*Rabi)["fci"];
 
-  (*HRabi)["bci"] += (+ 1.0) * (*Fia)["me"] * (*Tabij)["bcmi"] * (*Ra)["e"];
   (*HRabi)["bci"] += (+ 0.5) * (*Tabij)["bcmn"] * (*Vijka)["mnif"] * (*Ra)["f"];
 
   //(*HRabi)["bci"] += (- 1.0 + 1.0 * P["bci=>cbi"]) * (*Tabij)["dbni"] * (*Viabc)["ncfd"] * (*Ra)["f"];
