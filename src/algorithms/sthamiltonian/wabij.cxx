@@ -30,7 +30,10 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
   if (useStantonIntermediatesUCCSD()) {
 
     auto intermediates = getStantonIntermediatesUCCSD();
+    LOG(1, getAbbreviation()) << "getting stanton intermediates" << std::endl;
     (*Wabij)["abij"] = (*intermediates->getRabij())["abij"];
+    LOG(1, getAbbreviation()) << "done" << std::endl;
+
     //These are the residum equations
     (*Wabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
     (*Wabij)["cdij"] += ( + 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];

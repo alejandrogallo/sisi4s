@@ -5,6 +5,7 @@
 #include <util/Log.hpp>
 #include <vector>
 #include <math/Complex.hpp>
+#include <math/ComplexTensor.hpp>
 #include <numeric>      // std::iota
 #include <algorithm>
 
@@ -51,8 +52,11 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   auto I = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "I");
   auto A = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "A");
 
-  (*I)["ij"] = (*RhoAI)["ei"] * (*RhoAI)["ej"];
-  (*A)["ab"] = (*RhoAI)["am"] * (*RhoAI)["bm"];
+  auto RhoAIConj = NEW(CTF::Tensor<F>, RhoAI);
+  conjugate(*RhoAIConj);
+
+  (*I)["ij"] = (*RhoAIConj)["ei"] * (*RhoAI)["ej"];
+  (*A)["ab"] = (*RhoAIConj)["am"] * (*RhoAI)["bm"];
 
   LapackMatrix<F> IMatrix(*I);
   LapackMatrix<F> AMatrix(*A);
