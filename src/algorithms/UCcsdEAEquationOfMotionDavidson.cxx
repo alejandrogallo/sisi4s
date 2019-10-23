@@ -90,9 +90,28 @@ void UCcsdEAEquationOfMotionDavidson::run() {
   LOG(0, "EAEomDavid") << "Nv: " << Nv << std::endl;
   LOG(0, "EAEomDavid") << "maxBasisSize: " << maxBasisSize << std::endl;
 
-
+  // EA integrals: Vabcd Vabic Viabc Viajb Vijab Vijka
   // Get copy of couloumb integrals
-
+  //Vabic
+  CTF::Tensor<double> *pVabic(
+    getTensorArgument<double, CTF::Tensor<double> >("PPHPCoulombIntegrals")
+  );
+  CTF::Tensor<F> cVabic(
+    pVabic->order, pVabic->lens, pVabic->sym, *Cc4s::world,
+    pVabic->get_name()
+  );
+  CTF::Tensor<F> *Vabic(&cVabic);
+  toComplexTensor(*pVabic, *Vabic);
+  //Vabcd
+  CTF::Tensor<double> *pVabcd(
+    getTensorArgument<double, CTF::Tensor<double> >("PPPPCoulombIntegrals")
+  );
+  CTF::Tensor<F> cVabcd(
+    pVabcd->order, pVabcd->lens, pVabcd->sym, *Cc4s::world,
+    pVabcd->get_name()
+  );
+  CTF::Tensor<F> *Vabcd(&cVabcd);
+  toComplexTensor(*pVabcd, *Vabcd);
   //Viabc
   CTF::Tensor<double> *pViabc(
     getTensorArgument<double, CTF::Tensor<double> >("HPPPCoulombIntegrals")
@@ -159,16 +178,6 @@ void UCcsdEAEquationOfMotionDavidson::run() {
   CTF::Tensor<F> *Vijka(&cVijka);
   toComplexTensor(*pVijka, *Vijka);
 
-  //Vijkl
-  CTF::Tensor<double> *pVijkl(
-    getTensorArgument<double, CTF::Tensor<double> >("HHHHCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVijkl(
-    pVijkl->order, pVijkl->lens, pVijkl->sym, *Cc4s::world,
-    pVijkl->get_name()
-  );
-  CTF::Tensor<F> *Vijkl(&cVijkl);
-  toComplexTensor(*pVijkl, *Vijkl);
 
   //Viabj
   CTF::Tensor<double> *pViabj(
@@ -255,7 +264,8 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     .setViajk(Viajk)
     .setVijab(Vijab)
     .setVijka(Vijka)
-    .setVijkl(Vijkl)
+    .setVijkl(Vabcd)
+    .setVijkl(Vabic)
     // for intermediates
     .setViajb(Viajb)
     .setVaibc(Vaibc)
