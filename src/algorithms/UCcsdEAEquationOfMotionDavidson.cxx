@@ -264,8 +264,8 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     .setViajk(Viajk)
     .setVijab(Vijab)
     .setVijka(Vijka)
-    .setVijkl(Vabcd)
-    .setVijkl(Vabic)
+    .setVabcd(Vabcd)
+    .setVabic(Vabic)
     // for intermediates
     .setViajb(Viajb)
     .setVaibc(Vaibc)
