@@ -279,6 +279,7 @@ SimilarityTransformedHamiltonian<F>::rightApplyIntermediates_CCSD_EA(
   Wijka = getIJKA();
   Waibc = getAIBC();
   Wabcd = getABCD();
+  Wiabj = getIABJ();
 
   // For doubles
   Wij = getIJ();
@@ -301,9 +302,8 @@ SimilarityTransformedHamiltonian<F>::rightApplyIntermediates_CCSD_EA(
 
   (*HRabi)["abi"] += (+0.5) * (*Wabcd)["abef"] * (*Rabi)["efi"];
 
-  // three body term: TODO
   // WPHPPPH = Waibcdj
-  //(*HRabi)["abi"] += (-0.5) * (*Tabij)["eaji"] * (*Vijab)["mnce"] * (*Rabi)["cmn"];
+  (*HRabi)["abi"] += (-0.5) * (*Tabij)["abin"] * (*Vijab)["mnef"] * (*Rabi)["efm"];
 
   return HR;
 }
@@ -876,7 +876,7 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   PTR(CTF::Tensor<F>) HRai( HR.get(0) );
   PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
 
-  ST_DEBUG("rightApplyIntermediates Ccsd")
+  //ST_DEBUG("rightApplyIntermediates Ccsd")
 
   Wia = getIA();
   Wij = getIJ();
@@ -899,7 +899,7 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   (*HRai)["ai"] += ( - 0.5 ) * (*Wijka)["lmid"] * (*Rabij)["adlm"];
   (*HRai)["ai"] += (   0.5 ) * (*Waibc)["alde"] * (*Rabij)["deil"];
 
-  ST_DEBUG("singles done")
+  //ST_DEBUG("singles done")
 
   //(*HRai)["ai"]  = 0.0; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   // 2 body part
@@ -968,7 +968,7 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   //P(ij)
   (*HRabij)["abij"] += (-1.0) * (*Wabci)["abei"] * (*Rai)["ej"];
 
-  ST_DEBUG("doubles done")
+  //ST_DEBUG("doubles done")
 
   return HR;
 }
