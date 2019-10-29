@@ -17,6 +17,10 @@ namespace cc4s {
 
     virtual void run();
 
+    template <typename F>
+    void
+    buildTransformations(CTF::Tensor<F> &rho, const std::string name);
+
     template<typename F>
     void run();
 

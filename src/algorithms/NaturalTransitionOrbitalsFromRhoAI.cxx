@@ -27,7 +27,7 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
 }
 
 template <typename F>
-inline void logVectorNorms(LapackMatrix<F> &A, const char *name) {
+inline void logVectorNorms(LapackMatrix<F> &A, const std::string name) {
   F norm;
   for (int j(0); j < A.getColumns(); j++) {
     norm = F(0);
@@ -40,7 +40,7 @@ inline void logVectorNorms(LapackMatrix<F> &A, const char *name) {
 }
 
 template <typename F>
-inline void logOverlap(LapackMatrix<F> &A, const char *name) {
+inline void logOverlap(LapackMatrix<F> &A, const std::string name) {
   F o;
   for (int j(0); j < A.getColumns(); j++) {
     for (int i(0); i < A.getColumns(); i++) {
@@ -95,6 +95,52 @@ void cleanupSpinStates(CTF::Tensor<F> &t){
   delete[] globalIndices;
 }
 
+template <typename F>
+void
+NaturalTransitionOrbitalsFromRhoAI::buildTransformations(CTF::Tensor<F> &rho, const std::string name) {
+  // We build first a lapack matrix in order to do the diagonalization
+  //
+  LapackMatrix<F> rhoMatrix(rho);
+  int n(rho.lens[0]);
+  int nn[] = {n,n};
+  std::vector<int64_t> indices;
+
+  LOG(0, "NaturalTransitionOrbitalsFromRhoAI") << "Diagonalizing " <<
+    name << " " << n << "x" << n << " block" << std::endl;
+  LapackGeneralEigenSystem<F> solver(rhoMatrix);
+
+  // get the right eigenvectors
+  LapackMatrix<complex> rightEigenVectors(solver.getRightEigenVectors());
+  CTF::Tensor<F> *rightEigenVectorsTensor =
+    new CTF::Tensor<F>(2, nn, rho.sym, *Cc4s::world, "r");
+  // the indices will hold the vector indices
+  if (rightEigenVectorsTensor->wrld->rank == 0) {
+    indices.resize(n * n);
+  } else {
+    indices.resize(0);
+  }
+  std::iota(indices.begin(), indices.end(), 0);
+  // write the data in the rightEigenVectors into the tensor
+  rightEigenVectorsTensor->write(
+    indices.size(),
+    indices.data(),
+    rightEigenVectors.getValues());
+  allocatedTensorArgument<F>(
+    name + "TransformationMatrix", rightEigenVectorsTensor);
+  // log vector norms and overlaps
+  logVectorNorms<F>(rightEigenVectors, name);
+  logOverlap<F>(rightEigenVectors, name);
+
+  std::vector<complex> lambdas(solver.getEigenValues());
+  CTF::Tensor<F> *lambdasTensor =
+    new CTF::Tensor<F>(1, nn, rho.sym, *Cc4s::world, "lambdas");
+  indices.resize(n);
+  std::iota(indices.begin(), indices.end(), 0);
+  lambdasTensor->write(indices.size(), indices.data(), lambdas.data());
+  allocatedTensorArgument<F>(name + "EigenValues", lambdasTensor);
+
+}
+
 template <typename F> void
 NaturalTransitionOrbitalsFromRhoAI::run() {
   bool cleanup(getIntegerArgument("cleanupSpinChannels", 0) == 1);
@@ -120,73 +166,7 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   (*I)["ij"] = (*RhoAIConj)["ei"] * (*RhoAI)["ej"];
   (*A)["ab"] = (*RhoAIConj)["am"] * (*RhoAI)["bm"];
 
-  LapackMatrix<F> IMatrix(*I);
-  LapackMatrix<F> AMatrix(*A);
-
-  LOG(0, "NaturalTransitionOrbitalsFromRhoAI") <<
-    "Diagonalizing occupied " << No << "x" << No << " block" << std::endl;
-  LapackGeneralEigenSystem<F> isolver(IMatrix);
-
-  LOG(0, "NaturalTransitionOrbitalsFromRhoAI") <<
-    "Diagonalizing virtual  " << Nv << "x" << Nv << " block" << std::endl;
-  LapackGeneralEigenSystem<F> asolver(AMatrix);
-
-  std::vector<int64_t> indices;
-
-  LapackMatrix<complex> iRightEigenVectors(isolver.getRightEigenVectors());
-  CTF::Tensor<F> *iRightEigenVectorsTensor = new CTF::Tensor<F>(
-    2, oo, syms, *Cc4s::world, "RightEigenVectorsOccupied");
-  if (iRightEigenVectorsTensor->wrld->rank == 0) {
-    indices.resize(No * No);
-  } else {
-    indices.resize(0);
-  }
-  std::iota(indices.begin(), indices.end(), 0);
-  iRightEigenVectorsTensor->write(
-    indices.size(),
-    indices.data(),
-    iRightEigenVectors.getValues()
-  );
-  allocatedTensorArgument<F>(
-    "OccupiedTransformationMatrix", iRightEigenVectorsTensor);
-  logVectorNorms<F>(iRightEigenVectors, "occ");
-  logOverlap<F>(iRightEigenVectors, "occ");
-
-  LapackMatrix<complex> aRightEigenVectors(asolver.getRightEigenVectors());
-  CTF::Tensor<F> *aRightEigenVectorsTensor = new CTF::Tensor<F>(
-    2, vv, syms, *Cc4s::world, "RightEigenVectorsVirtual");
-  if (iRightEigenVectorsTensor->wrld->rank == 0) {
-    indices.resize(Nv * Nv);
-  } else {
-    indices.resize(0);
-  }
-  std::iota(indices.begin(), indices.end(), 0);
-  aRightEigenVectorsTensor->write(
-    indices.size(),
-    indices.data(),
-    aRightEigenVectors.getValues()
-  );
-  allocatedTensorArgument<F>(
-    "VirtualTransformationMatrix", aRightEigenVectorsTensor);
-  logVectorNorms<F>(aRightEigenVectors, "vir");
-  logOverlap<F>(aRightEigenVectors, "vir");
-
-  std::vector<complex> iLambdas(isolver.getEigenValues());
-  CTF::Tensor<F> *iLambdasTensor = new CTF::Tensor<F>(
-    1, oo, syms, *Cc4s::world, "lambdas");
-  indices.resize(No);
-  std::iota(indices.begin(), indices.end(), 0);
-  iLambdasTensor->write(indices.size(), indices.data(), iLambdas.data());
-  allocatedTensorArgument<F>("OccupiedEigenValues", iLambdasTensor);
-
-  std::vector<complex> aLambdas(asolver.getEigenValues());
-  CTF::Tensor<F> *aLambdasTensor = new CTF::Tensor<F>(
-    1, vv, syms, *Cc4s::world, "lambdas");
-  indices.resize(Nv);
-  std::iota(indices.begin(), indices.end(), 0);
-  aLambdasTensor->write(indices.size(), indices.data(), aLambdas.data());
-  allocatedTensorArgument<F>("VirtualEigenValues", aLambdasTensor);
-
-
+  buildTransformations(*I, "Occupied");
+  buildTransformations(*A, "Virtual");
 
 }
