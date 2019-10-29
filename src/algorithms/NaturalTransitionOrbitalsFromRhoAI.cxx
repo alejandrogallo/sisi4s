@@ -111,25 +111,35 @@ NaturalTransitionOrbitalsFromRhoAI::buildTransformations(CTF::Tensor<F> &rho, co
 
   // get the right eigenvectors
   LapackMatrix<complex> rightEigenVectors(solver.getRightEigenVectors());
-  CTF::Tensor<F> *rightEigenVectorsTensor =
+  CTF::Tensor<F> *rEigenVecs =
     new CTF::Tensor<F>(2, nn, rho.sym, *Cc4s::world, "r");
+  CTF::Tensor<F> *overlapMatrix =
+    new CTF::Tensor<F>(*rEigenVecs);
+
   // the indices will hold the vector indices
-  if (rightEigenVectorsTensor->wrld->rank == 0) {
+  if (rEigenVecs->wrld->rank == 0) {
     indices.resize(n * n);
   } else {
     indices.resize(0);
   }
   std::iota(indices.begin(), indices.end(), 0);
   // write the data in the rightEigenVectors into the tensor
-  rightEigenVectorsTensor->write(
+  rEigenVecs->write(
     indices.size(),
     indices.data(),
     rightEigenVectors.getValues());
   allocatedTensorArgument<F>(
-    name + "TransformationMatrix", rightEigenVectorsTensor);
+    name + "TransformationMatrix", rEigenVecs);
+
   // log vector norms and overlaps
   logVectorNorms<F>(rightEigenVectors, name);
-  logOverlap<F>(rightEigenVectors, name);
+  //logOverlap<F>(rightEigenVectors, name);
+
+  auto eigenConj = NEW(CTF::Tensor<F>, rEigenVecs);
+  conjugate(*eigenConj);
+
+  (*overlapMatrix)["ab"] = (*rEigenVecs)["be"] * (*eigenConj)["ea"];
+  allocatedTensorArgument<F>(name + "OverlapMatrix", overlapMatrix);
 
   std::vector<complex> lambdas(solver.getEigenValues());
   CTF::Tensor<F> *lambdasTensor =
