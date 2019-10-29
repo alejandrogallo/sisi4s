@@ -63,6 +63,8 @@ void cleanupSpinStates(CTF::Tensor<F> &t){
 
   // read the values of the tensor in the current processor
   t.read_local(&nValues, &globalIndices, &values);
+  LOG(1, "NaturalTransitionOrbitalsFromRhoAI") <<
+    "local values = " << nValues << std::endl;
 
   for (int i=0; i<nValues; i++) {
     int g = globalIndices[i];
@@ -80,10 +82,12 @@ void cleanupSpinStates(CTF::Tensor<F> &t){
     // if up and down are zero, it means that at some point the the indices
     // were part of a cross-term element, this should the be set to zero
     // because we're filtering out the terms of this kind.
-    if (!(up || down)) { values[g] = F(0); }
+    if (!(up || down)) { values[i] = F(0); }
   }
 
   // now we have to write the values back into the tensor
+  LOG(1, "NaturalTransitionOrbitalsFromRhoAI") <<
+    "Writing the cleaned up values back into the tensor" << std::endl;
   t.write(nValues, globalIndices, values);
 
   // clean up the mess
@@ -93,7 +97,7 @@ void cleanupSpinStates(CTF::Tensor<F> &t){
 
 template <typename F> void
 NaturalTransitionOrbitalsFromRhoAI::run() {
-  auto cleanup(getIntegerArgument("cleanup-spin-channels", 0) == 1);
+  bool cleanup(getIntegerArgument("cleanupSpinChannels", 0) == 1);
   auto RhoAI(getTensorArgument<F>("RhoAI"));
   int No(RhoAI->lens[1]), Nv(RhoAI->lens[0]);
   int oo[] = {No, No}, vv[] = {Nv, Nv}, syms[] = {NS, NS};
