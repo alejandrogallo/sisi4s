@@ -55,47 +55,6 @@ inline void logOverlap(LapackMatrix<F> &A, const std::string name) {
 }
 
 template <typename F>
-void cleanupSpinStates(CTF::Tensor<F> &t){
-  int64_t nValues;
-  int64_t *globalIndices;
-  F *values;
-  int order(t.order);
-
-  // read the values of the tensor in the current processor
-  t.read_local(&nValues, &globalIndices, &values);
-  LOG(1, "NaturalTransitionOrbitalsFromRhoAI") <<
-    "local values = " << nValues << std::endl;
-
-  for (int i=0; i<nValues; i++) {
-    int g = globalIndices[i];
-    // global index "carry"
-    int gc = g;
-    // this is a selector for the case where crossterms appear
-    bool up(true), down(true);
-    for (int o(0); o < order; o++) {
-      int modulizer = t.lens[o];
-      int ijk = gc % modulizer;
-      up = up && (ijk % 2 == 0);
-      down = down && ((ijk % 2 + 1) == 1);
-      gc /= modulizer;
-    }
-    // if up and down are zero, it means that at some point the the indices
-    // were part of a cross-term element, this should the be set to zero
-    // because we're filtering out the terms of this kind.
-    if (!(up || down)) { values[i] = F(0); }
-  }
-
-  // now we have to write the values back into the tensor
-  LOG(1, "NaturalTransitionOrbitalsFromRhoAI") <<
-    "Writing the cleaned up values back into the tensor" << std::endl;
-  t.write(nValues, globalIndices, values);
-
-  // clean up the mess
-  delete[] values;
-  delete[] globalIndices;
-}
-
-template <typename F>
 void
 NaturalTransitionOrbitalsFromRhoAI::buildTransformations(CTF::Tensor<F> &rho, const std::string name) {
   // We build first a lapack matrix in order to do the diagonalization
@@ -153,19 +112,12 @@ NaturalTransitionOrbitalsFromRhoAI::buildTransformations(CTF::Tensor<F> &rho, co
 
 template <typename F> void
 NaturalTransitionOrbitalsFromRhoAI::run() {
-  bool cleanup(getIntegerArgument("cleanupSpinChannels", 0) == 1);
   auto RhoAI(getTensorArgument<F>("RhoAI"));
   int No(RhoAI->lens[1]), Nv(RhoAI->lens[0]);
   int oo[] = {No, No}, vv[] = {Nv, Nv}, syms[] = {NS, NS};
 
   LOG(0, "NaturalTransitionOrbitalsFromRhoAI") << "No: " << No << std::endl;
   LOG(0, "NaturalTransitionOrbitalsFromRhoAI") << "Nv: " << Nv << std::endl;
-
-  if (cleanup) {
-    LOG(0, "NaturalTransitionOrbitalsFromRhoAI") <<
-      "Cleaning the Spin contamination channels" << std::endl;
-    cleanupSpinStates(*RhoAI);
-  }
 
   auto I = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "I");
   auto A = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "A");
