@@ -43,6 +43,9 @@ namespace cc4s {
     setVijkl(CTF::Tensor<F> *t) { Vijkl = t; return *this;}
 
     CcsdPreconditioner&
+    setSpinFlip(bool t) { spinFlip = t; return *this; }
+
+    CcsdPreconditioner&
     setRandom(bool t) { preconditionerRandom = t; return *this;}
     CcsdPreconditioner&
     setRandomSigma(double t) { preconditionerRandomSigma=t; return *this;}
@@ -83,6 +86,9 @@ namespace cc4s {
      * Wether or not to use random preconditioners.
      */
     bool preconditionerRandom = false;
+
+    // wether or not to use spin flip in the filtering
+    bool spinFlip = false;
 
     /**
      * The standard deviation used in the normal distribution to create

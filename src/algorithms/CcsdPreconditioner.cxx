@@ -14,6 +14,43 @@
 
 using namespace cc4s;
 
+template <typename F>
+void filterOutSpinFlipEntries(CTF::Tensor<F> &t){
+  int64_t nValues;
+  int64_t *globalIndices;
+  F *values;
+  int order(t.order);
+
+  // read the values of the tensor in the current processor
+  t.read_local(&nValues, &globalIndices, &values);
+
+  for (int i=0; i<nValues; i++) {
+    int g = globalIndices[i];
+    // global index "carry"
+    int gc = g;
+    // this is a selector for the case where crossterms appear
+    bool up(true), down(true);
+    for (int o(0); o < order; o++) {
+      int modulizer = t.lens[o];
+      int ijk = gc % modulizer;
+      up = up && (ijk % 2 == 0);
+      down = down && ((ijk % 2 + 1) == 1);
+      gc /= modulizer;
+    }
+    // if up and down are zero, it means that at some point the the indices
+    // were part of a cross-term element, this should the be set to zero
+    // because we're filtering out the terms of this kind.
+    if (!(up || down)) { values[i] = F(0); }
+  }
+
+  // now we have to write the values back into the tensor
+  t.write(nValues, globalIndices, values);
+
+  // clean up the mess
+  delete[] values;
+  delete[] globalIndices;
+}
+
 /**
  * \brief Comparator that should filter out zero values of the diagonal
  * matrix.
@@ -134,6 +171,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   );
   // find K=eigenVectorsCount lowest diagonal elements at each processor
   std::vector<std::pair<size_t, F>> localElements( diagonalH->readLocal() );
+  // sort the local elements according to the eom comparator
   std::sort(
     localElements.begin(), localElements.end(),
     EomDiagonalValueComparator<F>()
@@ -145,6 +183,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   const int trialEigenVectorsCount(10*eigenVectorsCount);
   std::vector<size_t> localLowestElementIndices(trialEigenVectorsCount);
   std::vector<F> localLowestElementValues(trialEigenVectorsCount);
+  // get the local elements indices and values into their own vectors
   for (
     int i(0);
     i < std::min(localElementsSize, trialEigenVectorsCount);
@@ -156,6 +195,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   MpiCommunicator communicator(*Cc4s::world);
   std::vector<size_t> lowestElementIndices;
   std::vector<F> lowestElementValues;
+  // get local lowest (indices or values) into a vector
   communicator.gather(localLowestElementIndices, lowestElementIndices);
   communicator.gather(localLowestElementValues, lowestElementValues);
   //   convert back into (index,value) pairs for sorting
@@ -177,21 +217,24 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   std::vector<V> basis;
 
   int currentEigenVectorCount(0);
-  unsigned int b(0);
+  unsigned int loopCount(0);
   int zeroVectorCount(0);
   while (currentEigenVectorCount < eigenVectorsCount) {
     V basisElement(*diagonalH);
     basisElement *= 0.0;
     std::vector<std::pair<size_t,F>> elements;
     if (communicator.getRank() == 0) {
-      if ( b >= lowestElements.size() ) {
+      if ( loopCount >= lowestElements.size() ) {
         throw EXCEPTION("No more elements to create initial basis");
       }
+      // put a a pair in the elements (globalIndex, 1.0)
       elements.push_back(
-        std::make_pair(lowestElements[b].first, 1.0)
+        std::make_pair(lowestElements[loopCount].first, 1.0)
       );
     }
     basisElement.write(elements);
+
+    // random transformation
     if (preconditionerRandom) {
       auto Rai(*basisElement.get(0));
       auto Rabij(*basisElement.get(1));
@@ -200,28 +243,22 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
       (*basisElement.get(0))["ai"] += Rai["ai"];
       (*basisElement.get(1))["abij"] += Rabij["abij"];
     }
-    // (101, -70), (32, -55), ...
-    // b1: 0... 1 (at global position 101) 0 ...
-    // b2: 0... 1 (at global position 32) 0 ...i
 
-    // Filter out unphysical components from the basisElement
+    // FILTER: unphysical components from the basisElement
     (*basisElement.get(1))["abii"]=0.0;
     (*basisElement.get(1))["aaij"]=0.0;
     (*basisElement.get(1))["aaii"]=0.0;
 
-    double preDot2(std::abs(basisElement.dot(basisElement)));
-    // Antisymmetrize the new basis element
+    // FILTER: Antisymmetrize the new basis element
     (*basisElement.get(1))["abij"] -= (*basisElement.get(1))["abji"];
     (*basisElement.get(1))["abij"] -= (*basisElement.get(1))["baij"];
 
-    OUT() << "\tnormPreSymmetrize=" << preDot2 << std::endl;
+    // FILTER: Spin Flip
+    for (auto &t: basisElement.componentTensors) {
+      filterOutSpinFlipEntries(*t);
+    }
 
-    double preDot3(std::abs(basisElement.dot(basisElement)));
-    OUT() << "\tnormAfterSymmetrize=" << preDot3 << std::endl;
-
-    OUT() << "\tbasisSize=" << basis.size() << std::endl;
-
-    // Grams-schmidt it with the other elements of the basis
+    // FILTER: Grams-schmidt it with the other elements of the basis
     for (unsigned int j(0); j < basis.size(); ++j) {
       basisElement -= basis[j] * basis[j].dot(basisElement);
     }
@@ -232,14 +269,16 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
     // Check if basisElementNorm is zero
     if ( std::abs(basisElementNorm) < 1e-10 ) {
       zeroVectorCount++;
-      b++;
+      loopCount++;
       continue;
     }
+
+    OUT() << "\tbasisSize=" << basis.size() << std::endl;
 
     basisElement = 1.0 / std::sqrt(basisElement.dot(basisElement))*basisElement;
     basisElementNorm = std::sqrt(basisElement.dot(basisElement));
 
-    b++;
+    loopCount++;
 
     if ( std::abs(basisElementNorm - double(1)) > 1e-10 * double(1)) continue;
 
