@@ -46,12 +46,15 @@ template <typename F>
 void CcsdEquationOfMotionDavidson::run() {
 
   // Arguments
+  //
+  // for preconditioner
   bool preconditionerRandom(
-    getIntegerArgument("preconditionerRandom", 0) == 1
-  );
+    getIntegerArgument("preconditionerRandom", 0) == 1);
   double preconditionerRandomSigma(getRealArgument(
-    "preconditionerRandomSigma", 0.1
-  ));
+    "preconditionerRandomSigma", 0.1));
+  bool preconditionerSpinFlip(
+    getIntegerArgument("preconditionerSpinFlip", 1) == 1);
+  // for davidson
   bool refreshOnMaxBasisSize(
     getIntegerArgument("refreshOnMaxBasisSize", 0) == 1
   );
@@ -333,6 +336,8 @@ void CcsdEquationOfMotionDavidson::run() {
     .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
     // Set random information
     .setRandom(preconditionerRandom).setRandomSigma(preconditionerRandomSigma)
+    // spin flip filtering?
+    .setSpinFlip(preconditionerSpinFlip)
   ;
 
   EigenSystemDavidsonMono<
