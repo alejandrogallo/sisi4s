@@ -26,7 +26,7 @@ UccsdAmplitudesFromCoulombIntegrals::~UccsdAmplitudesFromCoulombIntegrals() {
 }
 
 void UccsdAmplitudesFromCoulombIntegrals::run() {
-  usingIntermediates = (bool) getIntegerArgument("intermediates", 1);
+  usingIntermediates = getIntegerArgument("intermediates", 1) == 1;
   if (! usingIntermediates ) {
     LOG(0, getAbbreviation()) <<
       "Not using intermediates, the code will be much slower."
@@ -58,12 +58,10 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   const int iterationStep, const PTR(const FockVector<F>) &amplitudes
 ) {
   CTF::Tensor<double> *epsi(
-    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies")
-  );
+    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies"));
 
   CTF::Tensor<double> *epsa(
-    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
-  );
+    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies"));
 
   // Get couloumb integrals
   auto Vijkl(getTensorArgument<F, CTF::Tensor<F> >("HHHHCoulombIntegrals"));
@@ -86,12 +84,8 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   int vv[] = {Nv, Nv};
   int oo[] = {No, No};
   int syms[] = {NS, NS};
-  CTF::Tensor<F> *Fab(
-    new CTF::Tensor<F>(2, vv, syms, *Cc4s::world, "Fab")
-  );
-  CTF::Tensor<F> *Fij(
-    new CTF::Tensor<F>(2, oo, syms, *Cc4s::world, "Fij")
-  );
+  CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms, *Cc4s::world, "Fab"));
+  CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms, *Cc4s::world, "Fij"));
   CTF::Tensor<F> *Fia;
 
   if (
@@ -100,24 +94,20 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     isArgumentGiven("PPFockMatrix")
   ) {
     if (iterationStep == 0){
-    LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
+      LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
     }
     Fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
     Fab = getTensorArgument<F, CTF::Tensor<F> >("PPFockMatrix");
     Fij = getTensorArgument<F, CTF::Tensor<F> >("HHFockMatrix");
   } else {
-    Fia = NULL;
+    Fia = nullptr;
     CTF::Transform<double, F>(
-      std::function<void(double, F &)>(
-        [](double eps, F &f) { f = eps; }
-      )
+      std::function<void(double, F &)>([](double eps, F &f) { f = eps; })
     ) (
       (*epsi)["i"], (*Fij)["ii"]
     );
     CTF::Transform<double, F>(
-      std::function<void(double, F &)>(
-        [](double eps, F &f) { f = eps; }
-      )
+      std::function<void(double, F &)>([](double eps, F &f) { f = eps; })
     ) (
       (*epsa)["a"], (*Fab)["aa"]
     );
@@ -162,7 +152,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   // Wai part of the \bar H and setting it to zero
   //
   auto Wai = H.getAI();
-  (*Rai)["ai"] += (*Wai)["ai"];
+  (*Rai)["ai"]  = (*Wai)["ai"];
   //These are the residum equations, we have to substract them from Wai
   (*Rai)["bi"] += ( - 1.0  ) * (*Fab)["bc"] * (*Tai)["ci"];
   (*Rai)["bi"] += ( + 1.0  ) * (*Fij)["ki"] * (*Tai)["bk"];
@@ -173,7 +163,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   // Wabij part of the \bar H and setting it to zero
   //
   auto Wabij = H.getABIJ();
-  (*Rabij)["abij"] += (*Wabij)["abij"];
+  (*Rabij)["abij"]  = (*Wabij)["abij"];
   //These are the residum equations, substract them from Wabij
   (*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
   (*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
