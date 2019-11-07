@@ -56,6 +56,8 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
   (*Wabij)["cdij"] += ( - 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
   (*Wabij)["cdij"] += ( + 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
 
+  (*Wabij)["cdij"] += ( + 1.0  ) * (*Vabij)["cdij"];
+
   (*Wabij)["cdij"] += ( + 0.5  ) * (*Tabij)["cdmn"] * (*Vijkl)["mnij"];
 
   (*Wabij)["cdij"] += ( + 1.0  ) * (*Tai)["cm"] * (*Tai)["dn"] * (*Vijkl)["mnij"];
