@@ -1041,9 +1041,8 @@ SimilarityTransformedHamiltonian<F>::getAI() {
 
   int syms[] = {NS, NS};
   int ov[] = {Nv, No};
-  CTF::Tensor<F> InitFai(2, ov, syms, *Cc4s::world, "InitFai");
 
-  Wai = NEW(CTF::Tensor<F>, InitFai);
+  Wai = NEW(CTF::Tensor<F>, 2, ov, syms, *Cc4s::world, "Wai");
 
   (*Wai)["bi"] = 0.0;
   if (dressing == Dressing(CCSD)) {
