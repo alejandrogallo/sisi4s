@@ -17,7 +17,7 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
 
   LOG(1, getAbbreviation()) << "Building Wabij" << std::endl;
 
-  int syms[] = {NS, NS};
+  int syms[] = {NS, NS, NS, NS};
   int vvoo[] = {Nv,Nv,No,No};
   Wabij = NEW(CTF::Tensor<F>, 4, vvoo, syms, *Cc4s::world, "Wabij");
 
@@ -32,7 +32,6 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
     auto intermediates = getStantonIntermediatesUCCSD();
     LOG(1, getAbbreviation()) << "getting stanton intermediates" << std::endl;
     (*Wabij)["abij"] = (*intermediates->getRabij())["abij"];
-    LOG(1, getAbbreviation()) << "done" << std::endl;
 
     //These are the residum equations
     (*Wabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];

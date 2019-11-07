@@ -149,7 +149,7 @@ namespace cc4s {
     //
     CTF::Tensor<F>
       *Tai=nullptr, *Tabij=nullptr, *Tabcijk=nullptr, *Tabcdijkl=nullptr;
-    CTF::Tensor<F> *Fij, *Fab, *Fia;
+    CTF::Tensor<F> *Fij, *Fab, *Fia=nullptr;
     CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
                    *Vabij;
