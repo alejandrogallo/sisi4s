@@ -31,7 +31,9 @@ namespace cc4s {
       const int oo[] = {No, No};
       const int syms[] = {NS, NS};
       Rij = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Rij");
+      auto Rconj = CTF::Tensor<F>(*Rij);
       // TODO: Conjugate R
+      conjugate(Rconj);
       (*Rij)["ii"]  = (*R.get(0))["aj"] * (*R.get(0))["aj"];
       (*Rij)["ij"] += (-1.0) * (*R.get(0))["ai"] * (*R.get(0))["aj"];
       return Rij;
@@ -43,7 +45,8 @@ namespace cc4s {
       const int vv[] = {Nv, Nv};
       const int syms[] = {NS, NS};
       Rab = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Rab");
-      // TODO: Conjugate R
+      auto Rconj = CTF::Tensor<F>(*Rab);
+      conjugate(Rconj);
       (*Rab)["ab"] = (*R.get(0))["ai"] * (*R.get(0))["bi"];
       return Rab;
     }
