@@ -29,6 +29,35 @@ CcsdEquationOfMotionDavidson::CcsdEquationOfMotionDavidson(
 }
 CcsdEquationOfMotionDavidson::~CcsdEquationOfMotionDavidson() {}
 
+template <typename F>
+struct SpinOperator {
+  SpinOperator(int No_, int Nv_): No(No_), Nv(Nv_) {};
+  virtual PTR(CTF::Tensor<F>) getIJ() = 0;
+  virtual PTR(CTF::Tensor<F>) getAB() = 0;
+  PTR(CTF::Tensor<F>) Sab, Sij;
+  int No, Nv;
+};
+
+template <typename F>
+struct SzOperator: public SpinOperator<F> {
+  SzOperator(int No, int Nv): SpinOperator<F>(No, Nv) {};
+  PTR(CTF::Tensor<F>) getIJ() {
+    if (this->Sij) return this->Sij;
+    LOG(0, "SzOperator") << "Calculating Sz_ij" << std::endl;
+    int oo[] = {this->No, this->No}, syms[] = {NS, NS};
+    this->Sij = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Szij");
+    (*this->Sij)["ii"] = 0.5;
+    return this->Sij;
+  }
+  PTR(CTF::Tensor<F>) getAB() {
+    if (this->Sab) return this->Sab;
+    LOG(0, "SzOperator") << "Calculating Sz_ab" << std::endl;
+    int vv[] = {this->Nv, this->Nv},  syms[] = {NS, NS};
+    this->Sab = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Szab");
+    (*this->Sab)["aa"] = 0.5;
+    return this->Sab;
+  }
+};
 
 void CcsdEquationOfMotionDavidson::run() {
 
@@ -364,6 +393,11 @@ void CcsdEquationOfMotionDavidson::run() {
   if (oneBodyRdmIndices.size() > 0) {
     LOG(0, "CcsdEomDavid") << "Calculating 1-RDM with left states "
                            << " approximated by right" << std::endl;
+
+    auto Ssquared(SzOperator<F>(No, Nv));
+    TensorIo::writeText<F>("Szab.tensor", *Ssquared.getAB(), "ij", "", " ");
+    TensorIo::writeText<F>("Szij.tensor", *Ssquared.getIJ(), "ij", "", " ");
+
     for (auto &index: oneBodyRdmIndices) {
       LOG(0, "CcsdEomDavid") << "Calculating 1-RDM for state " << index << std::endl;
 
@@ -389,6 +423,13 @@ void CcsdEquationOfMotionDavidson::run() {
         "Rhoij-" + std::to_string(index) + ".tensor",
         *Rho.getAB(), "ij", "", " "
       );
+      CTF::Scalar<F> s2;
+
+      s2[""]  = (*Ssquared.getAB())["ab"] * (*Rho.getAB())["ba"];
+      s2[""] += (*Ssquared.getIJ())["ij"] * (*Rho.getIJ())["ji"];
+      F s2Val(s2.get_val());
+
+      LOG(0, "CcsdEomDavid") << "S^2 " << s2Val << std::endl;
 
     }
   }
