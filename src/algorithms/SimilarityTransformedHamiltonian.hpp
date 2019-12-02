@@ -103,6 +103,9 @@ namespace cc4s {
     STH& setVabci(CTF::Tensor<F> *t) { Vabci = t; return *this; }
     STH& setVabij(CTF::Tensor<F> *t) { Vabij = t; return *this; }
 
+    // coulomb bertex setter
+    STH& setGammaGqr(CTF::Tensor<F> *t) { GammaGqr = t; return *this; }
+
     STH& setRightApplyIntermediates(bool t) {
       useRightApplyIntermediates = t; return *this;}
     STH& setDressing(Dressing d) {dressing = d; return *this;}
@@ -153,6 +156,8 @@ namespace cc4s {
     CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
                    *Vabij;
+    // coulomb vertex
+    CTF::Tensor<F> *GammaGqr=nullptr;
 
   };
 
