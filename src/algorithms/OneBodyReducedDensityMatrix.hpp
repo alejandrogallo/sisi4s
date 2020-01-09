@@ -22,26 +22,63 @@ namespace cc4s {
   };
 
   template<typename F>
-  class EomOneBodyReducedDensityMatrix: public OneBodyReducedDensityMatrix<F> {
+  class CisOneBodyReducedDensityMatrix: public OneBodyReducedDensityMatrix<F> {
+    CisOneBodyReducedDensityMatrix(const SFockVector<F> &r): R(r) {}
 
+    PTR(CTF::Tensor<F>) getIJ() override {
+      if (Rij) { return Rij; }
+      const int No(R.get(0)->lens[1]);
+      const int oo[] = {No, No};
+      const int syms[] = {NS, NS};
+      Rij = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Rij");
+      auto Rconj = CTF::Tensor<F>(*Rij);
+      // TODO: Conjugate R
+      conjugate(Rconj);
+      (*Rij)["ii"]  = (*R.get(0))["aj"] * (*R.get(0))["aj"];
+      (*Rij)["ij"] += (-1.0) * (*R.get(0))["ai"] * (*R.get(0))["aj"];
+      return Rij;
+    }
+
+    PTR(CTF::Tensor<F>) getAB() override {
+      if (Rab) { return Rab; }
+      const int Nv(R.get(0)->lens[0]);
+      const int vv[] = {Nv, Nv};
+      const int syms[] = {NS, NS};
+      Rab = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Rab");
+      auto Rconj = CTF::Tensor<F>(*Rab);
+      conjugate(Rconj);
+      (*Rab)["ab"] = (*R.get(0))["ai"] * (*R.get(0))["bi"];
+      return Rab;
+    }
+
+  private:
+
+    PTR(CTF::Tensor<F>) Rai, Ria, Rij, Rab;
+    const SFockVector<F> &R;
+
+  };
+
+  /**
+   * \brief This implements one body rdm for eom ccsd
+   * In principle it calculates
+   *            p    T
+   *  <0| L \rho  R e |0>
+   *            q
+   *  For L and R being singles doubles vectors without 0-th components.
+   */
+  template<typename F>
+  class EomOneBodyReducedDensityMatrix: public OneBodyReducedDensityMatrix<F> {
   public:
 
 
     EomOneBodyReducedDensityMatrix(
       CTF::Tensor<F> *Tai_, CTF::Tensor<F> *Tabij_,
-      const FockVector<F> *L_, const FockVector<F> *R_
+      const SDFockVector<F> *L_, const SDFockVector<F> *R_
     ): Tai(Tai_), Tabij(Tabij_), L(L_), R(R_){
       LOG(0, "OneBodyRDM") << "Calculating eom ccsd 1rdm" << std::endl;
     }
 
-    EomOneBodyReducedDensityMatrix(
-      CTF::Tensor<F> *Tai_, CTF::Tensor<F> *Tabij_, CTF::Tensor<F> *Tabcijk_,
-      const FockVector<F> *L_, const FockVector<F> *R_
-    ): Tai(Tai_), Tabij(Tabij_), Tabcijk(Tabcijk_), L(L_), R(R_){
-      LOG(0, "OneBodyRDM") << "Calculating eom ccsdt 1rdm" << std::endl;
-    }
-
-    PTR(CTF::Tensor<F>) getAI() {
+    PTR(CTF::Tensor<F>) getAI() override {
       if (Rai) { return Rai; }
       Rai = NEW(CTF::Tensor<F>, *Tai);
 
@@ -57,7 +94,7 @@ namespace cc4s {
       return Rai;
     }
 
-    PTR(CTF::Tensor<F>) getIJ() {
+    PTR(CTF::Tensor<F>) getIJ() override {
       if (Rij) { return Rij; }
       const int No(Tai->lens[1]);
       const int oo[] = {No, No};
@@ -74,7 +111,7 @@ namespace cc4s {
       return Rij;
     }
 
-    PTR(CTF::Tensor<F>) getAB() {
+    PTR(CTF::Tensor<F>) getAB() override {
       if (Rab) { return Rab; }
       const int Nv(Tai->lens[0]);
       const int vv[] = {Nv, Nv};
@@ -92,7 +129,7 @@ namespace cc4s {
 
     }
 
-    PTR(CTF::Tensor<F>) getIA() {
+    PTR(CTF::Tensor<F>) getIA() override {
       if (Ria) { return Ria; }
       const int Nv(Tai->lens[0]), No(Tai->lens[1]);
       const int ov[] = {No, Nv};
@@ -113,8 +150,8 @@ namespace cc4s {
   private:
 
     PTR(CTF::Tensor<F>) Rai, Ria, Rij, Rab;
-    CTF::Tensor<F> *Tai, *Tabij, *Tabcijk;
-    const FockVector<F> *L, *R;
+    CTF::Tensor<F> *Tai, *Tabij;
+    const SDFockVector<F> *L, *R;
 
   };
 

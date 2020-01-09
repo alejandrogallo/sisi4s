@@ -296,7 +296,7 @@ void CoulombIntegralsFromVertex::calculateRealIntegrals() {
 
   if (Viabj) {
     // ovvo = hl * vvoo
-    LOG(1, "CoulombIntegrals") << "Evaluating"
+    LOG(1, "CoulombIntegrals") << "Evaluating "
                                << Viabj->get_name() << " using "
                                << Vabij->get_name() << std::endl;
 

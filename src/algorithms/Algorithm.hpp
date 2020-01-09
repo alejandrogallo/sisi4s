@@ -4,6 +4,7 @@
 
 #include <Data.hpp>
 #include <string>
+#include <vector>
 #include <ctf.hpp>
 
 namespace cc4s {
@@ -51,6 +52,12 @@ namespace cc4s {
     );
     template < typename F=real, typename T=CTF::Tensor<F> >
     T *getTensorArgument(std::string const &argumentName);
+    template < typename F=real, typename C=std::vector<F> >
+    C *getContainerArgument(std::string const &argumentName);
+    template < typename F=real, typename C=std::vector<F> >
+    void allocateContainerArgument(
+      std::string const &argumentName, C *container
+    );
 
     // typing, allocating and setting output arguments
     /**

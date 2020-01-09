@@ -12,6 +12,7 @@ namespace cc4s {
   template <typename F=complex>
   class SimilarityTransformedHamiltonian {
   public:
+    typedef SimilarityTransformedHamiltonian STH;
 
     /*! \enum Dressing
      *
@@ -23,37 +24,15 @@ namespace cc4s {
       CCSD,
       CCSDT,
       NONE, // Some terms will be then set to zero instead of multiplying by 0
+      RPA,
       GENERAL, // For a general T not fulfiling any particular criterium
     };
 
-    SimilarityTransformedHamiltonian(
-      CTF::Tensor<F> *Fij_,
-      CTF::Tensor<F> *Fab_,
-      CTF::Tensor<F> *Fia_,
-      CTF::Tensor<F> *Vabcd_,
-      CTF::Tensor<F> *Viajb_,
-      CTF::Tensor<F> *Vijab_,
-      CTF::Tensor<F> *Vijkl_,
-      CTF::Tensor<F> *Vijka_,
-      CTF::Tensor<F> *Viabc_,
-      CTF::Tensor<F> *Viajk_,
-      CTF::Tensor<F> *Vabic_,
-      CTF::Tensor<F> *Vaibc_,
-      CTF::Tensor<F> *Vaibj_,
-      CTF::Tensor<F> *Viabj_,
-      CTF::Tensor<F> *Vijak_,
-      CTF::Tensor<F> *Vaijb_,
-      CTF::Tensor<F> *Vabci_,
-      CTF::Tensor<F> *Vabij_ = NULL,
-      bool withIntermediates_ = true,
-      Dressing dressing_ = Dressing(CCSD)
-    );
-    virtual ~SimilarityTransformedHamiltonian();
+    SimilarityTransformedHamiltonian(int No_, int Nv_): No(No_), Nv(Nv_) {};
+    ~SimilarityTransformedHamiltonian(){};
 
-    // dressing tensor setters
-    void setTai(CTF::Tensor<F> *Tai_) { Tai = Tai_; }
-    void setTabij(CTF::Tensor<F> *Tabij_) { Tabij = Tabij_; }
-    void setTabcijk(CTF::Tensor<F> *Tabcijk_) { Tabcijk = Tabcijk_; }
+    // RPA, singles
+    SFockVector<F> rightApplyHirata_RPA(SFockVector<F> &v);
 
     // ccsd fok vectors
     SDFockVector<F> rightApplyIntermediates(SDFockVector<F> &v);
@@ -67,14 +46,25 @@ namespace cc4s {
     SDTFockVector<F> rightApplyHirata(SDTFockVector<F> &v);
     SDTFockVector<F> rightApply(SDTFockVector<F> &v);
 
+    // ip and ea ccsd
+    SDFockVector<F> rightApply_CCSD_IP(SDFockVector<F>&);
+    SDFockVector<F> rightApplyHirata_CCSD_IP(SDFockVector<F>&);
+    SDFockVector<F> rightApplyIntermediates_CCSD_IP(SDFockVector<F>&);
+
+    SDFockVector<F> rightApply_CCSD_EA(SDFockVector<F>&);
+    SDFockVector<F> rightApplyHirata_CCSD_EA(SDFockVector<F>&);
+    SDFockVector<F> rightApplyIntermediates_CCSD_EA(SDFockVector<F>&);
+
     // One body
     PTR(CTF::Tensor<F>) getIJ();
     PTR(CTF::Tensor<F>) getAB();
     PTR(CTF::Tensor<F>) getAI();
+    PTR(CTF::Tensor<F>) getAI_RPA();
     PTR(CTF::Tensor<F>) getIA();
 
     // Two body
     PTR(CTF::Tensor<F>) getABIJ();
+    PTR(CTF::Tensor<F>) getABIJ_RPA();
     PTR(CTF::Tensor<F>) getIJAB();
     PTR(CTF::Tensor<F>) getABCD();
     PTR(CTF::Tensor<F>) getABCI();
@@ -87,17 +77,64 @@ namespace cc4s {
     // three body
     PTR(CTF::Tensor<F>) getABCIJK();
 
+    // dressing tensor setters
+    STH& setTai(CTF::Tensor<F> *t) { Tai = t; return *this;}
+    STH& setTabij(CTF::Tensor<F> *t) { Tabij = t; return *this;}
+    STH& setTabcijk(CTF::Tensor<F> *t) { Tabcijk = t; return *this;}
+    STH& setTabcdijkl(CTF::Tensor<F> *t) { Tabcdijkl = t; return *this;}
+
+    // V amplitudes setters
+    STH& setFij(CTF::Tensor<F> *t) { Fij = t; return *this; }
+    STH& setFab(CTF::Tensor<F> *t) { Fab = t; return *this; }
+    STH& setFia(CTF::Tensor<F> *t) { Fia = t; return *this; }
+    STH& setVabcd(CTF::Tensor<F> *t) { Vabcd = t; return *this; }
+    STH& setViajb(CTF::Tensor<F> *t) { Viajb = t; return *this; }
+    STH& setVijab(CTF::Tensor<F> *t) { Vijab = t; return *this; }
+    STH& setVijkl(CTF::Tensor<F> *t) { Vijkl = t; return *this; }
+    STH& setVijka(CTF::Tensor<F> *t) { Vijka = t; return *this; }
+    STH& setViabc(CTF::Tensor<F> *t) { Viabc = t; return *this; }
+    STH& setViajk(CTF::Tensor<F> *t) { Viajk = t; return *this; }
+    STH& setVabic(CTF::Tensor<F> *t) { Vabic = t; return *this; }
+    STH& setVaibc(CTF::Tensor<F> *t) { Vaibc = t; return *this; }
+    STH& setVaibj(CTF::Tensor<F> *t) { Vaibj = t; return *this; }
+    STH& setViabj(CTF::Tensor<F> *t) { Viabj = t; return *this; }
+    STH& setVijak(CTF::Tensor<F> *t) { Vijak = t; return *this; }
+    STH& setVaijb(CTF::Tensor<F> *t) { Vaijb = t; return *this; }
+    STH& setVabci(CTF::Tensor<F> *t) { Vabci = t; return *this; }
+    STH& setVabij(CTF::Tensor<F> *t) { Vabij = t; return *this; }
+
+    // coulomb bertex setter
+    STH& setGammaGqr(CTF::Tensor<F> *t) { GammaGqr = t; return *this; }
+
+    STH& setRightApplyIntermediates(bool t) {
+      useRightApplyIntermediates = t; return *this;}
+    STH& setDressing(Dressing d) {dressing = d; return *this;}
+
     PTR(CTF::Tensor<F>) getTauABIJ();
 
-    void useStantonIntermediatesUCCSD(bool s) {
+    STH& useStantonIntermediatesUCCSD(bool s) {
       _useStantonIntermediatesUCCSD = s;
+      return *this;
     }
     bool useStantonIntermediatesUCCSD() {
       return _useStantonIntermediatesUCCSD;
     }
 
+    std::string getAbbreviation() const { return "STH"; }
+
   private:
 
+    bool _useStantonIntermediatesUCCSD = false;
+    PTR(StantonIntermediatesUCCSD<F>) stantonIntermediatesUccsd;
+    PTR(StantonIntermediatesUCCSD<F>) getStantonIntermediatesUCCSD();
+
+    int No, Nv;
+    bool useRightApplyIntermediates;
+    Dressing dressing;
+
+    //
+    // Resources that should be destroyed after the class gets destroyed
+    //
     // one body
     PTR(CTF::Tensor<F>)  Wij, Wab, Wia, Wai;
     // two body
@@ -106,27 +143,24 @@ namespace cc4s {
     // three body
     PTR(CTF::Tensor<F>) Wabcijk;
 
-    PTR(CTF::Tensor<F>)  Tau_abij;
+    PTR(CTF::Tensor<F>) Tau_abij;
 
-    CTF::Tensor<F> *Tai, *Tabij, *Tabcijk;
-    CTF::Tensor<F> *Fij, *Fab, *Fia;
+
+    //
+    // External resources that should not be cleaned up after
+    // Hamiltonian class gets destroyed
+    //
+    CTF::Tensor<F>
+      *Tai=nullptr, *Tabij=nullptr, *Tabcijk=nullptr, *Tabcdijkl=nullptr;
+    CTF::Tensor<F> *Fij, *Fab, *Fia=nullptr;
     CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
                    *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
                    *Vabij;
-
-    bool _useStantonIntermediatesUCCSD = false;
-    PTR(StantonIntermediatesUCCSD<F>) stantonIntermediatesUccsd;
-    PTR(StantonIntermediatesUCCSD<F>) getStantonIntermediatesUCCSD();
-
-    bool withIntermediates;
-
-    Dressing dressing;
-
-    int No, Nv;
+    // coulomb vertex
+    CTF::Tensor<F> *GammaGqr=nullptr;
 
   };
 
 }
 
 #endif
-

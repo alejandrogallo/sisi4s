@@ -20,8 +20,10 @@ build/${CONFIG}/obj/mixers/Mixer.o \
 build/${CONFIG}/obj/mixers/LinearMixer.o \
 build/${CONFIG}/obj/mixers/DiisMixer.o \
 build/${CONFIG}/obj/algorithms/Algorithm.o \
-build/${CONFIG}/obj/algorithms/SimilarityTransformedHamiltonian.o \
+build/${CONFIG}/obj/algorithms/sthamiltonian/wabij.o \
+build/${CONFIG}/obj/algorithms/sthamiltonian/wabcijk.o \
 build/${CONFIG}/obj/algorithms/StantonIntermediatesUCCSD.o \
+build/${CONFIG}/obj/algorithms/SimilarityTransformedHamiltonian.o \
 build/${CONFIG}/obj/algorithms/ClusterSinglesDoublesAlgorithm.o \
 build/${CONFIG}/obj/algorithms/ClusterSinglesDoublesTriplesAlgorithm.o \
 build/${CONFIG}/obj/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.o \
@@ -31,6 +33,7 @@ build/${CONFIG}/obj/algorithms/ParticleHoleCoulombVertexDecomposition.o \
 build/${CONFIG}/obj/algorithms/GenerateRandomMatrix.o \
 build/${CONFIG}/obj/algorithms/GenerateRandomComplexMatrix.o \
 build/${CONFIG}/obj/algorithms/GenerateRandomTensor.o \
+build/${CONFIG}/obj/algorithms/TensorGetMax.o \
 build/${CONFIG}/obj/algorithms/TensorReader.o \
 build/${CONFIG}/obj/algorithms/TensorWriter.o \
 build/${CONFIG}/obj/algorithms/TensorNetwork.o \
@@ -77,9 +80,12 @@ build/${CONFIG}/obj/algorithms/experimental/StochasticContraction.o \
 build/${CONFIG}/obj/algorithms/DrccdEquationOfMotion.o \
 build/${CONFIG}/obj/algorithms/Mp2EquationOfMotion.o \
 build/${CONFIG}/obj/algorithms/CcsdEquationOfMotionDavidson.o \
+build/${CONFIG}/obj/algorithms/UCcsdIPEquationOfMotionDavidson.o \
+build/${CONFIG}/obj/algorithms/UCcsdEAEquationOfMotionDavidson.o \
+build/${CONFIG}/obj/algorithms/UnrestrictedEquationOfMotionSinglesFromRpa.o \
 build/${CONFIG}/obj/algorithms/CcsdPreconditioner.o \
-build/${CONFIG}/obj/algorithms/CcsdtEquationOfMotionDavidson.o \
 build/${CONFIG}/obj/algorithms/CcdEquationOfMotion.o \
+build/${CONFIG}/obj/algorithms/UrpaAmplitudesFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/UccsdAmplitudesFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/UccsdtAmplitudesFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/Mp2ImaginaryFrequencyGrid.o \
@@ -87,7 +93,9 @@ build/${CONFIG}/obj/algorithms/RpaApxEnergy.o \
 build/${CONFIG}/obj/algorithms/LaplaceTransform.o \
 build/${CONFIG}/obj/algorithms/BasisSetExtrapolation.o \
 build/${CONFIG}/obj/algorithms/RandomOrbitals.o \
+build/${CONFIG}/obj/algorithms/NaturalTransitionOrbitalsFromRhoAI.o \
 
+#build/${CONFIG}/obj/algorithms/CcsdtEquationOfMotionDavidson.o \
 #build/${CONFIG}/obj/algorithms/UccsdtqAmplitudesFromCoulombIntegrals.o \
 #build/${CONFIG}/obj/algorithms/ThermalEquationOfMotion.o \
 

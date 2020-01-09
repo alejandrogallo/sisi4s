@@ -68,7 +68,7 @@ namespace cc4s {
 
     // Input quantities
     CTF::Tensor<F> *Tai, *Tabij;
-    CTF::Tensor<F> *Fij, *Fab, *Fia=NULL;
+    CTF::Tensor<F> *Fij, *Fab, *Fia=nullptr;
     CTF::Tensor<F>
       *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
       *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci, *Vabij;

@@ -622,10 +622,47 @@ namespace cc4s {
   };
 
   template <typename F>
-  class CisdFockVector: public FockVectorNdCanonical<F,3,0> {
+  class SDFockVector;
+
+  template <typename F>
+  class SFockVector: public FockVectorNdCanonical<F,1,1> {
   public:
-    using FockVectorNdCanonical<F,3,0>::FockVectorNdCanonical;
+    using FockVectorNdCanonical<F,1,1>::FockVectorNdCanonical;
+
+    SFockVector(): FockVectorNdCanonical<F,1,1>(0,0) {}
+
+    SFockVector(const SFockVector<F> &a) {
+      this->componentIndices = a.componentIndices;
+      this->indexEnds.resize(1);
+      this->componentTensors.resize(1);
+      this->copyComponents(a.componentTensors);
+      this->buildIndexTranslation();
+    }
+
+    SFockVector(SFockVector<F> &&a) {
+      this->componentIndices = a.componentIndices;
+      this->componentTensors = a.componentTensors;
+      this->indexEnds.resize(1);
+      this->buildIndexTranslation();
+    }
+
+    SFockVector<F> &operator =(const SFockVector<F> &a) {
+      this->componentIndices = a.componentIndices;
+      this->copyComponents(a.componentTensors);
+      this->buildIndexTranslation();
+      return *this;
+    }
+
+    SFockVector(const SDFockVector<F> &a) {
+      this->componentIndices = a.componentIndices;
+      this->indexEnds.resize(1);
+      this->componentTensors.resize(1);
+      this->copyComponents(a.componentTensors);
+      this->buildIndexTranslation();
+    }
+
   };
+
 
   template <typename F>
   class SDTFockVector;
@@ -657,6 +694,14 @@ namespace cc4s {
       this->copyComponents(a.componentTensors);
       this->buildIndexTranslation();
       return *this;
+    }
+
+    SDFockVector(const SFockVector<F> &a) {
+      this->componentIndices = a.componentIndices;
+      this->indexEnds.resize(2);
+      this->componentTensors.resize(2);
+      this->copyComponents(a.componentTensors);
+      this->buildIndexTranslation();
     }
 
     SDFockVector(const SDTFockVector<F> &a) {

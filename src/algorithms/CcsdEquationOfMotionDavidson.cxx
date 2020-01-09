@@ -29,6 +29,35 @@ CcsdEquationOfMotionDavidson::CcsdEquationOfMotionDavidson(
 }
 CcsdEquationOfMotionDavidson::~CcsdEquationOfMotionDavidson() {}
 
+template <typename F>
+struct SpinOperator {
+  SpinOperator(int No_, int Nv_): No(No_), Nv(Nv_) {};
+  virtual PTR(CTF::Tensor<F>) getIJ() = 0;
+  virtual PTR(CTF::Tensor<F>) getAB() = 0;
+  PTR(CTF::Tensor<F>) Sab, Sij;
+  int No, Nv;
+};
+
+template <typename F>
+struct SzOperator: public SpinOperator<F> {
+  SzOperator(int No, int Nv): SpinOperator<F>(No, Nv) {};
+  PTR(CTF::Tensor<F>) getIJ() {
+    if (this->Sij) return this->Sij;
+    LOG(0, "SzOperator") << "Calculating Sz_ij" << std::endl;
+    int oo[] = {this->No, this->No}, syms[] = {NS, NS};
+    this->Sij = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Szij");
+    (*this->Sij)["ii"] = 0.5;
+    return this->Sij;
+  }
+  PTR(CTF::Tensor<F>) getAB() {
+    if (this->Sab) return this->Sab;
+    LOG(0, "SzOperator") << "Calculating Sz_ab" << std::endl;
+    int vv[] = {this->Nv, this->Nv},  syms[] = {NS, NS};
+    this->Sab = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Szab");
+    (*this->Sab)["aa"] = 0.5;
+    return this->Sab;
+  }
+};
 
 void CcsdEquationOfMotionDavidson::run() {
 
@@ -46,12 +75,15 @@ template <typename F>
 void CcsdEquationOfMotionDavidson::run() {
 
   // Arguments
+  //
+  // for preconditioner
   bool preconditionerRandom(
-    getIntegerArgument("preconditionerRandom", 0) == 1
-  );
+    getIntegerArgument("preconditionerRandom", 0) == 1);
   double preconditionerRandomSigma(getRealArgument(
-    "preconditionerRandomSigma", 0.1
-  ));
+    "preconditionerRandomSigma", 0.1));
+  bool preconditionerSpinFlip(
+    getIntegerArgument("preconditionerSpinFlip", 1) == 1);
+  // for davidson
   bool refreshOnMaxBasisSize(
     getIntegerArgument("refreshOnMaxBasisSize", 0) == 1
   );
@@ -305,28 +337,37 @@ void CcsdEquationOfMotionDavidson::run() {
     Tabij
   );
 
-  SimilarityTransformedHamiltonian<F> H(
-    Fij, Fab, Fia,
-    Vabcd, Viajb, Vijab, Vijkl, Vijka, Viabc, Viajk, Vabic,
-    Vaibc, Vaibj, Viabj, Vijak, Vaijb, Vabci, NULL,
-    intermediates
-  );
-  H.setTai(&Tai);
-  H.setTabij(&Tabij);
+  // INITIALIZE SIMILARITY TRANSFORMED HAMILTONIAN
+  SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
+  H
+    // Set single particle integrals
+    .setFij(Fij).setFab(Fab).setFia(Fia)
+    // coulomb integrals setting
+    .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
+    .setVijka(Vijka).setViabc(Viabc).setViajk(Viajk).setVabic(Vabic)
+    .setVaibc(Vaibc).setVaibj(Vaibj).setViabj(Viabj).setVijak(Vijak)
+    .setVaijb(Vaijb).setVabci(Vabci)
+    // set dressing for the hamiltonian
+    .setTai(&Tai).setTabij(&Tabij)
+    // should we use intermediates of the Wabij etc?
+    .setRightApplyIntermediates(intermediates)
+    // Declare dressing of the hamiltonian so that we know that
+    // Wai = Wabij = 0
+    .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::CCSD)
+  ;
 
-  CcsdPreconditioner<F> P(
-    Tai, Tabij, *Fij, *Fab, *Vabcd, *Viajb, *Vijab, *Vijkl
-  );
-  P.preconditionerRandom = preconditionerRandom;
-  P.preconditionerRandomSigma = preconditionerRandomSigma;
-  allocatedTensorArgument(
-    "SinglesHamiltonianDiagonal",
-    new CTF::Tensor<>(*P.getDiagonalH().get(0))
-  );
-  allocatedTensorArgument(
-    "DoublesHamiltonianDiagonal",
-    new CTF::Tensor<>(*P.getDiagonalH().get(1))
-  );
+  // INITIALIZE SIMILARITY PRECONDITIONER
+  CcsdPreconditioner<F> P;
+  P
+    .setTai(&Tai).setTabij(&Tabij)
+    .setFij(Fij).setFab(Fab)
+    // Set coulomb integrals
+    .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
+    // Set random information
+    .setRandom(preconditionerRandom).setRandomSigma(preconditionerRandomSigma)
+    // spin flip filtering?
+    .setSpinFlip(preconditionerSpinFlip)
+  ;
 
   EigenSystemDavidsonMono<
     SimilarityTransformedHamiltonian<F>,
@@ -341,7 +382,7 @@ void CcsdEquationOfMotionDavidson::run() {
     maxIterations,
     minIterations
   );
-  eigenSystem.refreshOnMaxBasisSize( refreshOnMaxBasisSize);
+  eigenSystem.refreshOnMaxBasisSize(refreshOnMaxBasisSize);
   if (eigenSystem.refreshOnMaxBasisSize()) {
     LOG(0, "CcsdEomDavid") <<
       "Refreshing on max basis size reaching" << std::endl;
@@ -352,6 +393,11 @@ void CcsdEquationOfMotionDavidson::run() {
   if (oneBodyRdmIndices.size() > 0) {
     LOG(0, "CcsdEomDavid") << "Calculating 1-RDM with left states "
                            << " approximated by right" << std::endl;
+
+    auto Ssquared(SzOperator<F>(No, Nv));
+    TensorIo::writeText<F>("Szab.tensor", *Ssquared.getAB(), "ij", "", " ");
+    TensorIo::writeText<F>("Szij.tensor", *Ssquared.getIJ(), "ij", "", " ");
+
     for (auto &index: oneBodyRdmIndices) {
       LOG(0, "CcsdEomDavid") << "Calculating 1-RDM for state " << index << std::endl;
 
@@ -377,6 +423,13 @@ void CcsdEquationOfMotionDavidson::run() {
         "Rhoij-" + std::to_string(index) + ".tensor",
         *Rho.getAB(), "ij", "", " "
       );
+      CTF::Scalar<F> s2;
+
+      s2[""]  = (*Ssquared.getAB())["ab"] * (*Rho.getAB())["ba"];
+      s2[""] += (*Ssquared.getIJ())["ij"] * (*Rho.getIJ())["ji"];
+      F s2Val(s2.get_val());
+
+      LOG(0, "CcsdEomDavid") << "S^2 " << s2Val << std::endl;
 
     }
   }

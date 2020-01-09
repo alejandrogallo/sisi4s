@@ -14,6 +14,43 @@
 
 using namespace cc4s;
 
+template <typename F>
+void filterOutSpinFlipEntries(CTF::Tensor<F> &t){
+  int64_t nValues;
+  int64_t *globalIndices;
+  F *values;
+  int order(t.order);
+
+  // read the values of the tensor in the current processor
+  t.read_local(&nValues, &globalIndices, &values);
+
+  for (int i=0; i<nValues; i++) {
+    int g = globalIndices[i];
+    // global index "carry"
+    int gc = g;
+    // this is a selector for the case where crossterms appear
+    bool up(true), down(true);
+    for (int o(0); o < order; o++) {
+      int modulizer = t.lens[o];
+      int ijk = gc % modulizer;
+      up = up && (ijk % 2 == 0);
+      down = down && ((ijk % 2 + 1) == 1);
+      gc /= modulizer;
+    }
+    // if up and down are zero, it means that at some point the the indices
+    // were part of a cross-term element, this should the be set to zero
+    // because we're filtering out the terms of this kind.
+    if (!(up || down)) { values[i] = F(0); }
+  }
+
+  // now we have to write the values back into the tensor
+  t.write(nValues, globalIndices, values);
+
+  // clean up the mess
+  delete[] values;
+  delete[] globalIndices;
+}
+
 /**
  * \brief Comparator that should filter out zero values of the diagonal
  * matrix.
@@ -48,86 +85,93 @@ public:
 };
 
 template<>
-double EomDiagonalValueComparator<complex>::computeDifference(
-    const complex &a,
-    const complex &b
+double EomDiagonalValueComparator<cc4s::complex>::computeDifference(
+    const cc4s::complex &a,
+    const cc4s::complex &b
   ) {
   double diff(b.imag() + b.real() - a.imag() - a.real());
   return diff;
 }
 
+
 template <typename F>
-CcsdPreconditioner<F>::CcsdPreconditioner(
-  CTF::Tensor<F> &Tai,
-  CTF::Tensor<F> &Tabij,
-  CTF::Tensor<F> &Fij,
-  CTF::Tensor<F> &Fab,
-  CTF::Tensor<F> &Vabcd,
-  CTF::Tensor<F> &Viajb,
-  CTF::Tensor<F> &Vijab,
-  CTF::Tensor<F> &Vijkl
-): diagonalH(
+void CcsdPreconditioner<F>::calculateDiagonal(){
+  diagonalH = NEW(V,
     std::vector<PTR(CTF::Tensor<F>)>(
-      {NEW(CTF::Tensor<F>, Tai), NEW(CTF::Tensor<F>, Tabij)}
+      {NEW(CTF::Tensor<F>, *Tai), NEW(CTF::Tensor<F>, *Tabij)}
     ),
     std::vector<std::string>({"ai", "abij"})
-  )
-  {
+  );
   // pointers to singles and doubles tensors of diagonal part
-  auto Dai( diagonalH.get(0) );
-  auto Dabij( diagonalH.get(1) );
+  auto Dai( diagonalH->get(0) );
+  auto Dabij( diagonalH->get(1) );
 
-  // TODO: Maybe inster the Tai part to the diagonal
+  // TODO: Maybe insert the Tai part to the diagonal
 
   // calculate diagonal elements of H
-  (*Dai)["bi"] =  ( - 1.0 ) * Fij["ii"];
-  (*Dai)["bi"] += ( + 1.0 ) * Fab["bb"];
-/*  (*Dai)["bi"] += ( - 1.0 ) * Viajb["ibib"];
-  (*Dai)["bi"] += ( + 1.0 ) * Tabij["cbli"] * Vijab["licb"];
-  (*Dai)["bi"] += ( - 0.5 ) * Tabij["cdmi"] * Vijab["micd"];
-  (*Dai)["bi"] += ( - 0.5 ) * Tabij["cblm"] * Vijab["lmcb"];
-*/
-  (*Dabij)["cdij"] =  ( - 1.0 ) * Fij["ii"];
-  (*Dabij)["cdij"] += ( - 1.0 ) * Fij["jj"];
-  (*Dabij)["cdij"] += ( + 1.0 ) * Fab["cc"];
-  (*Dabij)["cdij"] += ( + 1.0 ) * Fab["dd"];
+  (*Dai)["bi"] =  ( - 1.0 ) * (*Fij)["ii"];
+  (*Dai)["bi"] += ( + 1.0 ) * (*Fab)["bb"];
+
 /*
-  (*Dabij)["cdij"] += ( + 0.5 ) * Vijkl["ijij"];
-  (*Dabij)["ccij"] += ( + 1.0 ) * Viajb["icic"];
-  (*Dabij)["cdij"] += ( - 1.0 ) * Viajb["icic"];
-  (*Dabij)["ccii"] += ( - 1.0 ) * Viajb["icic"];
-  (*Dabij)["cdii"] += ( + 1.0 ) * Viajb["icic"];
-  (*Dabij)["cdij"] += ( + 0.5 ) * Vabcd["cdcd"];
-  (*Dabij)["ccij"] += ( + 0.5 ) * Tabij["ecij"] * Vijab["ijec"];
-  (*Dabij)["cdij"] += ( - 0.5 ) * Tabij["ecij"] * Vijab["ijec"];
-  (*Dabij)["cdij"] += ( + 0.25) * Tabij["efij"] * Vijab["ijef"];
-  (*Dabij)["cdij"] += ( - 0.5 ) * Tabij["cdmi"] * Vijab["micd"];
-  (*Dabij)["cdii"] += ( + 0.5 ) * Tabij["cdmi"] * Vijab["micd"];
-  (*Dabij)["ccij"] += ( - 1.0 ) * Tabij["ecni"] * Vijab["niec"];
-  (*Dabij)["cdij"] += ( + 1.0 ) * Tabij["ecni"] * Vijab["niec"];
-  (*Dabij)["ccii"] += ( + 1.0 ) * Tabij["ecni"] * Vijab["niec"];
-  (*Dabij)["cdii"] += ( - 1.0 ) * Tabij["ecni"] * Vijab["niec"];
-  (*Dabij)["cdij"] += ( - 0.5 ) * Tabij["efoi"] * Vijab["oief"];
-  (*Dabij)["cdii"] += ( + 0.5 ) * Tabij["efoi"] * Vijab["oief"];
-  (*Dabij)["cdij"] += ( + 0.25) * Tabij["cdmn"] * Vijab["mncd"];
-  (*Dabij)["ccij"] += ( + 0.5 ) * Tabij["ecno"] * Vijab["noec"];
-  (*Dabij)["cdij"] += ( - 0.5 ) * Tabij["ecno"] * Vijab["noec"];
+  if (Viajb) {
+    (*Dai)["bi"] += ( - 1.0 ) * (*Viajb)["ibib"];
+  }
+  if (Vijab) {
+    (*Dai)["bi"] += ( + 1.0 ) * (*Tabij)["cbli"] * (*Vijab)["licb"];
+    (*Dai)["bi"] += ( - 0.5 ) * (*Tabij)["cdmi"] * (*Vijab)["micd"];
+    (*Dai)["bi"] += ( - 0.5 ) * (*Tabij)["cblm"] * (*Vijab)["lmcb"];
+  }
+*/
+  (*Dabij)["cdij"] =  ( - 1.0 ) * (*Fij)["ii"];
+  (*Dabij)["cdij"] += ( - 1.0 ) * (*Fij)["jj"];
+  (*Dabij)["cdij"] += ( + 1.0 ) * (*Fab)["cc"];
+  (*Dabij)["cdij"] += ( + 1.0 ) * (*Fab)["dd"];
+/*
+  if (Vijkl) (*Dabij)["cdij"] += ( + 0.5 ) * (*Vijkl)["ijij"];
+
+  if (Viajb) {
+    (*Dabij)["ccij"] += ( + 1.0 ) * (*Viajb)["icic"];
+    (*Dabij)["cdij"] += ( - 1.0 ) * (*Viajb)["icic"];
+    (*Dabij)["ccii"] += ( - 1.0 ) * (*Viajb)["icic"];
+    (*Dabij)["cdii"] += ( + 1.0 ) * (*Viajb)["icic"];
+  }
+
+  if (Vabcd) (*Dabij)["cdij"] += ( + 0.5 ) * (*Vabcd)["cdcd"];
+
+  if (Vijab) {
+    (*Dabij)["ccij"] += ( + 0.5 ) * (*Tabij)["ecij"] * (*Vijab)["ijec"];
+    (*Dabij)["cdij"] += ( - 0.5 ) * (*Tabij)["ecij"] * (*Vijab)["ijec"];
+    (*Dabij)["cdij"] += ( + 0.25) * (*Tabij)["efij"] * (*Vijab)["ijef"];
+    (*Dabij)["cdij"] += ( - 0.5 ) * (*Tabij)["cdmi"] * (*Vijab)["micd"];
+    (*Dabij)["cdii"] += ( + 0.5 ) * (*Tabij)["cdmi"] * (*Vijab)["micd"];
+    (*Dabij)["ccij"] += ( - 1.0 ) * (*Tabij)["ecni"] * (*Vijab)["niec"];
+    (*Dabij)["cdij"] += ( + 1.0 ) * (*Tabij)["ecni"] * (*Vijab)["niec"];
+    (*Dabij)["ccii"] += ( + 1.0 ) * (*Tabij)["ecni"] * (*Vijab)["niec"];
+    (*Dabij)["cdii"] += ( - 1.0 ) * (*Tabij)["ecni"] * (*Vijab)["niec"];
+    (*Dabij)["cdij"] += ( - 0.5 ) * (*Tabij)["efoi"] * (*Vijab)["oief"];
+    (*Dabij)["cdii"] += ( + 0.5 ) * (*Tabij)["efoi"] * (*Vijab)["oief"];
+    (*Dabij)["cdij"] += ( + 0.25) * (*Tabij)["cdmn"] * (*Vijab)["mncd"];
+    (*Dabij)["ccij"] += ( + 0.5 ) * (*Tabij)["ecno"] * (*Vijab)["noec"];
+    (*Dabij)["cdij"] += ( - 0.5 ) * (*Tabij)["ecno"] * (*Vijab)["noec"];
+  }
 */
 }
 
 template <typename F>
 std::vector<SDFockVector<F>>
 CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
+  calculateDiagonal();
   LOG(0, "CcsdPreconditioner") << "Getting initial basis " << std::endl;
+  if (preconditionerRandom) {
+    LOG(0, "CcsdPreconditioner") << "Randomizing initial guess" << std::endl;
+  }
   DefaultRandomEngine randomEngine;
   std::normal_distribution<double> normalDistribution(
     0.0, preconditionerRandomSigma
   );
-  if (preconditionerRandom) {
-    LOG(0, "CcsdPreconditioner") << "Randomizing initial guess" << std::endl;
-  }
   // find K=eigenVectorsCount lowest diagonal elements at each processor
-  std::vector<std::pair<size_t, F>> localElements( diagonalH.readLocal() );
+  std::vector<std::pair<size_t, F>> localElements( diagonalH->readLocal() );
+  // sort the local elements according to the eom comparator
   std::sort(
     localElements.begin(), localElements.end(),
     EomDiagonalValueComparator<F>()
@@ -139,6 +183,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   const int trialEigenVectorsCount(10*eigenVectorsCount);
   std::vector<size_t> localLowestElementIndices(trialEigenVectorsCount);
   std::vector<F> localLowestElementValues(trialEigenVectorsCount);
+  // get the local elements indices and values into their own vectors
   for (
     int i(0);
     i < std::min(localElementsSize, trialEigenVectorsCount);
@@ -150,6 +195,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   MpiCommunicator communicator(*Cc4s::world);
   std::vector<size_t> lowestElementIndices;
   std::vector<F> lowestElementValues;
+  // get local lowest (indices or values) into a vector
   communicator.gather(localLowestElementIndices, lowestElementIndices);
   communicator.gather(localLowestElementValues, lowestElementValues);
   //   convert back into (index,value) pairs for sorting
@@ -171,21 +217,24 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   std::vector<V> basis;
 
   int currentEigenVectorCount(0);
-  unsigned int b(0);
+  unsigned int loopCount(0);
   int zeroVectorCount(0);
   while (currentEigenVectorCount < eigenVectorsCount) {
-    V basisElement(diagonalH);
+    V basisElement(*diagonalH);
     basisElement *= 0.0;
     std::vector<std::pair<size_t,F>> elements;
     if (communicator.getRank() == 0) {
-      if ( b >= lowestElements.size() ) {
+      if ( loopCount >= lowestElements.size() ) {
         throw EXCEPTION("No more elements to create initial basis");
       }
+      // put a a pair in the elements (globalIndex, 1.0)
       elements.push_back(
-        std::make_pair(lowestElements[b].first, 1.0)
+        std::make_pair(lowestElements[loopCount].first, 1.0)
       );
     }
     basisElement.write(elements);
+
+    // random transformation
     if (preconditionerRandom) {
       auto Rai(*basisElement.get(0));
       auto Rabij(*basisElement.get(1));
@@ -194,28 +243,22 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
       (*basisElement.get(0))["ai"] += Rai["ai"];
       (*basisElement.get(1))["abij"] += Rabij["abij"];
     }
-    // (101, -70), (32, -55), ...
-    // b1: 0... 1 (at global position 101) 0 ...
-    // b2: 0... 1 (at global position 32) 0 ...i
 
-    // Filter out unphysical components from the basisElement
+    // FILTER: unphysical components from the basisElement
     (*basisElement.get(1))["abii"]=0.0;
     (*basisElement.get(1))["aaij"]=0.0;
     (*basisElement.get(1))["aaii"]=0.0;
 
-    double preDot2(std::abs(basisElement.dot(basisElement)));
-    // Antisymmetrize the new basis element
+    // FILTER: Antisymmetrize the new basis element
     (*basisElement.get(1))["abij"] -= (*basisElement.get(1))["abji"];
     (*basisElement.get(1))["abij"] -= (*basisElement.get(1))["baij"];
 
-    OUT() << "\tnormPreSymmetrize=" << preDot2 << std::endl;
+    // FILTER: Spin Flip
+    for (auto &t: basisElement.componentTensors) {
+      filterOutSpinFlipEntries(*t);
+    }
 
-    double preDot3(std::abs(basisElement.dot(basisElement)));
-    OUT() << "\tnormAfterSymmetrize=" << preDot3 << std::endl;
-
-    OUT() << "\tbasisSize=" << basis.size() << std::endl;
-
-    // Grams-schmidt it with the other elements of the basis
+    // FILTER: Grams-schmidt it with the other elements of the basis
     for (unsigned int j(0); j < basis.size(); ++j) {
       basisElement -= basis[j] * basis[j].dot(basisElement);
     }
@@ -226,14 +269,16 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
     // Check if basisElementNorm is zero
     if ( std::abs(basisElementNorm) < 1e-10 ) {
       zeroVectorCount++;
-      b++;
+      loopCount++;
       continue;
     }
+
+    OUT() << "\tbasisSize=" << basis.size() << std::endl;
 
     basisElement = 1.0 / std::sqrt(basisElement.dot(basisElement))*basisElement;
     basisElementNorm = std::sqrt(basisElement.dot(basisElement));
 
-    b++;
+    loopCount++;
 
     if ( std::abs(basisElementNorm - double(1)) > 1e-10 * double(1)) continue;
 
@@ -272,7 +317,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
 template <typename F>
 SDTFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
-  const complex lambda, SDTFockVector<F> &residuum
+  const cc4s::complex lambda, SDTFockVector<F> &residuum
 ) {
   // Cast ccsdt into ccsd
   V w(residuum);
@@ -281,15 +326,28 @@ CcsdPreconditioner<F>::getCorrection(
   SDTFockVector<F> result(getCorrection(lambda, w));
   // et voila
   return result;
+}
 
+template <typename F>
+SFockVector<F>
+CcsdPreconditioner<F>::getCorrection(
+  const cc4s::complex lambda, SFockVector<F> &residuum
+) {
+  // Cast s into sd
+  SDFockVector<F> w(residuum);
+  // apply the old getCorrection
+  // and cast again into a ccsdt vector
+  SFockVector<F> result(getCorrection(lambda, w));
+  // et voila
+  return result;
 }
 
 template <typename F>
 SDFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
-  const complex lambda, SDFockVector<F> &residuum
+  const cc4s::complex lambda, SDFockVector<F> &residuum
 ) {
-  SDFockVector<F> w(diagonalH);
+  SDFockVector<F> w(*diagonalH);
 
   // Define a singleton helping class for the diagonal correction
   class DiagonalCorrection {
@@ -304,14 +362,14 @@ CcsdPreconditioner<F>::getCorrection(
       double lambda;
   } diagonalCorrection(std::real(lambda));
 
-  SDFockVector<F> correction(diagonalH);
+  SDFockVector<F> correction(*diagonalH);
   // compute ((lambda * id - Diag(diagonal))^-1) . residuum
   for (unsigned int c(0); c < w.getComponentsCount(); ++c) {
     const char *indices( correction.componentIndices[c].c_str() );
     (*correction.get(c)).contract(
       1.0,
       *residuum.get(c),indices,
-      *diagonalH.get(c),indices,
+      *diagonalH->get(c),indices,
       0.0,indices,
       CTF::Bivar_Function<F>(diagonalCorrection)
     );
@@ -329,11 +387,373 @@ CcsdPreconditioner<F>::getCorrection(
   return correction;
 }
 
+template <typename F>
+void EACcsdPreconditioner<F>::calculateDiagonal(){
+  int No(this->Fij->lens[0]), Nv(this->Fab->lens[0]);
+  std::vector<int> v{{Nv}}, vvo{{Nv, Nv, No}}, ns{{NS}}, nss{{NS,NS,NS}};
+
+  auto& Fij = this->Fij;
+  auto& Fab = this->Fab;
+
+  this->diagonalH = NEW(SDFockVector<F>, std::vector<PTR(CTF::Tensor<F>)>({
+        NEW(CTF::Tensor<F>, 1, v.data(), ns.data(), *Cc4s::world, "Da"),
+        NEW(CTF::Tensor<F>, 3, vvo.data(), nss.data(), *Cc4s::world, "Dabi")
+      }
+    ),
+    std::vector<std::string>({"a", "abi"})
+  );
+
+  auto Da(this->diagonalH->get(0));
+  auto Dabi(this->diagonalH->get(1));
+
+  // calculate diagonal elements of H
+  (*Da)["a"] =  ( + 1.0 ) * (*Fab)["aa"];
+
+  (*Dabi)["cdi"] =  ( - 1.0 ) * (*Fij)["ii"];
+  (*Dabi)["cdi"] += ( - 1.0 ) * (*Fij)["jj"];
+  (*Dabi)["cdi"] += ( + 1.0 ) * (*Fab)["cc"];
+  (*Dabi)["cdi"] += ( + 1.0 ) * (*Fab)["dd"];
+
+}
+
+template <typename F>
+std::vector<SDFockVector<F>>
+EACcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
+  calculateDiagonal();
+  LOG(0, "EACcsdPreconditioner") << "Getting initial basis " << std::endl;
+  // find K=eigenVectorsCount lowest diagonal elements at each processor
+  std::vector<std::pair<size_t, F>> localElements(this->diagonalH->readLocal());
+  std::sort(
+    localElements.begin(), localElements.end(),
+    EomDiagonalValueComparator<F>()
+  );
+  int localElementsSize(localElements.size() );
+
+  // gather all K elements of all processors at root
+  //   convert into homogeneous arrays for MPI gather
+  const int trialEigenVectorsCount(10*eigenVectorsCount);
+  std::vector<size_t> localLowestElementIndices(trialEigenVectorsCount);
+  std::vector<F> localLowestElementValues(trialEigenVectorsCount);
+  for (
+    int i(0);
+    i < std::min(localElementsSize, trialEigenVectorsCount);
+    ++i
+  ) {
+    localLowestElementIndices[i] = localElements[i].first;
+    localLowestElementValues[i] = localElements[i].second;
+  }
+  MpiCommunicator communicator(*Cc4s::world);
+  std::vector<size_t> lowestElementIndices;
+  std::vector<F> lowestElementValues;
+  communicator.gather(localLowestElementIndices, lowestElementIndices);
+  communicator.gather(localLowestElementValues, lowestElementValues);
+  //   convert back into (index,value) pairs for sorting
+  std::vector<std::pair<size_t, F>> lowestElements(lowestElementValues.size());
+  for (unsigned int i(0); i < lowestElementValues.size(); ++i) {
+    lowestElements[i].first = lowestElementIndices[i];
+    lowestElements[i].second = lowestElementValues[i];
+  }
+
+  // find globally lowest K diagonal elements among the gathered elements
+  std::sort(
+    lowestElements.begin(), lowestElements.end(),
+    EomDiagonalValueComparator<F>()
+  );
+  // at rank==0 (root) lowestElements contains K*Np entries
+  // rank > 0 has an empty list
+
+  // create basis vectors for each lowest element
+  std::vector<SDFockVector<F>> basis;
+
+  int currentEigenVectorCount(0);
+  unsigned int b(0);
+  int zeroVectorCount(0);
+  while (currentEigenVectorCount < eigenVectorsCount) {
+    SDFockVector<F> basisElement(*this->diagonalH);
+    basisElement *= 0.0;
+    std::vector<std::pair<size_t,F>> elements;
+    if (communicator.getRank() == 0) {
+      if ( b >= lowestElements.size() ) {
+        throw EXCEPTION("No more elements to create initial basis");
+      }
+      elements.push_back(
+        std::make_pair(lowestElements[b].first, 1.0)
+      );
+    }
+    basisElement.write(elements);
+    // (101, -70), (32, -55), ...
+    // b1: 0... 1 (at global position 101) 0 ...
+    // b2: 0... 1 (at global position 32) 0 ...i
+
+    // Filter out unphysical components from the basisElement
+    (*basisElement.get(1))["aai"]=0.0;
+
+    // Antisymmetrize the new basis element
+    (*basisElement.get(1))["abi"] -= (*basisElement.get(1))["bai"];
+
+    LOG(1, "EACcsdPreconditioner")
+      << "basis size " << basis.size() << std::endl;
+
+    // Grams-schmidt it with the other elements of the basis
+    for (unsigned int j(0); j < basis.size(); ++j) {
+      basisElement -= basis[j] * basis[j].dot(basisElement);
+    }
+
+    // Normalize basisElement
+    F basisElementNorm(std::sqrt(basisElement.dot(basisElement)));
+
+    // Check if basisElementNorm is zero
+    if ( std::abs(basisElementNorm) < 1e-10 ) {
+      zeroVectorCount++;
+      b++;
+      continue;
+    }
+
+    basisElement = 1.0 / std::sqrt(basisElement.dot(basisElement))*basisElement;
+    basisElementNorm = std::sqrt(basisElement.dot(basisElement));
+
+    b++;
+
+    if ( std::abs(basisElementNorm - double(1)) > 1e-10 * double(1)) continue;
+
+    currentEigenVectorCount++;
+
+    // If it got here, basisElement is a valid vector
+    basis.push_back(basisElement);
+
+  }
+
+  return basis;
+}
+
+template <typename F>
+SDFockVector<F>
+EACcsdPreconditioner<F>::getCorrection(
+  const cc4s::complex lambda, SDFockVector<F> &residuum
+) {
+  SDFockVector<F> w(*this->diagonalH);
+
+  // Define a singleton helping class for the diagonal correction
+  class DiagonalCorrection {
+    public:
+      DiagonalCorrection(const double lambda_): lambda(lambda_) {
+      }
+      F operator ()(const F residuumElement, const F diagonalElement) {
+        return std::abs(lambda - diagonalElement) < 1E-4 ?
+          0.0 : residuumElement / (lambda - diagonalElement);
+      }
+    protected:
+      double lambda;
+  } diagonalCorrection(std::real(lambda));
+
+  SDFockVector<F> correction(*this->diagonalH);
+  // compute ((lambda * id - Diag(diagonal))^-1) . residuum
+  for (unsigned int c(0); c < w.getComponentsCount(); ++c) {
+    const char *indices( correction.componentIndices[c].c_str() );
+    (*correction.get(c)).contract(
+      1.0,
+      *residuum.get(c),indices,
+      *this->diagonalH->get(c),indices,
+      0.0,indices,
+      CTF::Bivar_Function<F>(diagonalCorrection)
+    );
+  }
+  // Filter out unphysical components from the correction
+  (*correction.get(1))["aai"]=0.0;
+
+  // Antisymmetrize the correction
+  (*correction.get(1))["abi"] -= (*correction.get(1))["bai"];
+
+  return correction;
+}
+
+
+template <typename F>
+void IPCcsdPreconditioner<F>::calculateDiagonal(){
+  int No(this->Fij->lens[0]), Nv(this->Fab->lens[0]);
+  std::vector<int> o{{No}}, voo{{Nv, No, No}}, ns{{NS}}, nss{{NS,NS,NS}};
+
+  auto& Fij = this->Fij;
+  auto& Fab = this->Fab;
+
+  this->diagonalH = NEW(SDFockVector<F>, std::vector<PTR(CTF::Tensor<F>)>({
+        NEW(CTF::Tensor<F>, 1, o.data(), ns.data(), *Cc4s::world, "Di"),
+        NEW(CTF::Tensor<F>, 3, voo.data(), nss.data(), *Cc4s::world, "Daij")
+      }
+    ),
+    std::vector<std::string>({"i", "aij"})
+  );
+
+  auto Di(this->diagonalH->get(0));
+  auto Daij(this->diagonalH->get(1));
+
+  // calculate diagonal elements of H
+  (*Di)["i"] =  ( - 1.0 ) * (*Fij)["ii"];
+
+  (*Daij)["cij"] =  ( - 1.0 ) * (*Fij)["ii"];
+  (*Daij)["cij"] += ( - 1.0 ) * (*Fij)["jj"];
+  (*Daij)["cij"] += ( + 1.0 ) * (*Fab)["cc"];
+  (*Daij)["cij"] += ( + 1.0 ) * (*Fab)["dd"];
+
+}
+
+template <typename F>
+std::vector<SDFockVector<F>>
+IPCcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
+  calculateDiagonal();
+  LOG(0, "IPCcsdPreconditioner") << "Getting initial basis " << std::endl;
+  // find K=eigenVectorsCount lowest diagonal elements at each processor
+  std::vector<std::pair<size_t, F>> localElements(this->diagonalH->readLocal());
+  std::sort(
+    localElements.begin(), localElements.end(),
+    EomDiagonalValueComparator<F>()
+  );
+  int localElementsSize(localElements.size() );
+
+  // gather all K elements of all processors at root
+  //   convert into homogeneous arrays for MPI gather
+  const int trialEigenVectorsCount(10*eigenVectorsCount);
+  std::vector<size_t> localLowestElementIndices(trialEigenVectorsCount);
+  std::vector<F> localLowestElementValues(trialEigenVectorsCount);
+  for (
+    int i(0);
+    i < std::min(localElementsSize, trialEigenVectorsCount);
+    ++i
+  ) {
+    localLowestElementIndices[i] = localElements[i].first;
+    localLowestElementValues[i] = localElements[i].second;
+  }
+  MpiCommunicator communicator(*Cc4s::world);
+  std::vector<size_t> lowestElementIndices;
+  std::vector<F> lowestElementValues;
+  communicator.gather(localLowestElementIndices, lowestElementIndices);
+  communicator.gather(localLowestElementValues, lowestElementValues);
+  //   convert back into (index,value) pairs for sorting
+  std::vector<std::pair<size_t, F>> lowestElements(lowestElementValues.size());
+  for (unsigned int i(0); i < lowestElementValues.size(); ++i) {
+    lowestElements[i].first = lowestElementIndices[i];
+    lowestElements[i].second = lowestElementValues[i];
+  }
+
+  // find globally lowest K diagonal elements among the gathered elements
+  std::sort(
+    lowestElements.begin(), lowestElements.end(),
+    EomDiagonalValueComparator<F>()
+  );
+  // at rank==0 (root) lowestElements contains K*Np entries
+  // rank > 0 has an empty list
+
+  // create basis vectors for each lowest element
+  std::vector<SDFockVector<F>> basis;
+
+  int currentEigenVectorCount(0);
+  unsigned int b(0);
+  int zeroVectorCount(0);
+  while (currentEigenVectorCount < eigenVectorsCount) {
+    SDFockVector<F> basisElement(*this->diagonalH);
+    basisElement *= 0.0;
+    std::vector<std::pair<size_t,F>> elements;
+    if (communicator.getRank() == 0) {
+      if ( b >= lowestElements.size() ) {
+        throw EXCEPTION("No more elements to create initial basis");
+      }
+      elements.push_back(
+        std::make_pair(lowestElements[b].first, 1.0)
+      );
+    }
+    basisElement.write(elements);
+    // (101, -70), (32, -55), ...
+    // b1: 0... 1 (at global position 101) 0 ...
+    // b2: 0... 1 (at global position 32) 0 ...i
+
+    // Filter out unphysical components from the basisElement
+    (*basisElement.get(1))["aii"]=0.0;
+
+    // Antisymmetrize the new basis element
+    (*basisElement.get(1))["aij"] -= (*basisElement.get(1))["aji"];
+
+    LOG(1, "IPCcsdPreconditioner")
+      << "basis size " << basis.size() << std::endl;
+
+    // Grams-schmidt it with the other elements of the basis
+    for (unsigned int j(0); j < basis.size(); ++j) {
+      basisElement -= basis[j] * basis[j].dot(basisElement);
+    }
+
+    // Normalize basisElement
+    F basisElementNorm(std::sqrt(basisElement.dot(basisElement)));
+
+    // Check if basisElementNorm is zero
+    if ( std::abs(basisElementNorm) < 1e-10 ) {
+      zeroVectorCount++;
+      b++;
+      continue;
+    }
+
+    basisElement = 1.0 / std::sqrt(basisElement.dot(basisElement))*basisElement;
+    basisElementNorm = std::sqrt(basisElement.dot(basisElement));
+
+    b++;
+
+    if ( std::abs(basisElementNorm - double(1)) > 1e-10 * double(1)) continue;
+
+    currentEigenVectorCount++;
+
+    // If it got here, basisElement is a valid vector
+    basis.push_back(basisElement);
+
+  }
+
+  return basis;
+}
+
+template <typename F>
+SDFockVector<F>
+IPCcsdPreconditioner<F>::getCorrection(
+  const cc4s::complex lambda, SDFockVector<F> &residuum
+) {
+  SDFockVector<F> w(*this->diagonalH);
+
+  // Define a singleton helping class for the diagonal correction
+  class DiagonalCorrection {
+    public:
+      DiagonalCorrection(const double lambda_): lambda(lambda_) {
+      }
+      F operator ()(const F residuumElement, const F diagonalElement) {
+        return std::abs(lambda - diagonalElement) < 1E-4 ?
+          0.0 : residuumElement / (lambda - diagonalElement);
+      }
+    protected:
+      double lambda;
+  } diagonalCorrection(std::real(lambda));
+
+  SDFockVector<F> correction(*this->diagonalH);
+  // compute ((lambda * id - Diag(diagonal))^-1) . residuum
+  for (unsigned int c(0); c < w.getComponentsCount(); ++c) {
+    const char *indices( correction.componentIndices[c].c_str() );
+    (*correction.get(c)).contract(
+      1.0,
+      *residuum.get(c),indices,
+      *this->diagonalH->get(c),indices,
+      0.0,indices,
+      CTF::Bivar_Function<F>(diagonalCorrection)
+    );
+  }
+  // Filter out unphysical components from the correction
+  (*correction.get(1))["aii"]=0.0;
+
+  // Antisymmetrize the correction
+  (*correction.get(1))["aij"] -= (*correction.get(1))["aji"];
+
+  return correction;
+}
+
 // instantiate
 template class CcsdPreconditioner<double>;
-template class CcsdPreconditioner<complex>;
+template class CcsdPreconditioner<cc4s::complex>;
 
+template class IPCcsdPreconditioner<double>;
+template class IPCcsdPreconditioner<cc4s::complex>;
 
-//template <> class SDFockVector::CcsdPreconditioner<double>{};
-//template
-//CcsdPreconditioner<double>::CcsdPreconditioner();
+template class EACcsdPreconditioner<double>;
+template class EACcsdPreconditioner<cc4s::complex>;

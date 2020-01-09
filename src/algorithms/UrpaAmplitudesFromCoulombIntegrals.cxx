@@ -1,8 +1,6 @@
-#include <algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp>
+#include <algorithms/UrpaAmplitudesFromCoulombIntegrals.hpp>
 #include <algorithms/SimilarityTransformedHamiltonian.hpp>
 #include <unistd.h>
-#include <tcc/Tcc.hpp>
-#include <tcc/DryMachineTensor.hpp>
 #include <math/MathFunctions.hpp>
 #include <math/ComplexTensor.hpp>
 #include <math/RandomTensor.hpp>
@@ -13,72 +11,43 @@
 #include <Cc4s.hpp>
 
 using namespace cc4s;
-using namespace tcc;
 
-ALGORITHM_REGISTRAR_DEFINITION(UccsdAmplitudesFromCoulombIntegrals);
+ALGORITHM_REGISTRAR_DEFINITION(UrpaAmplitudesFromCoulombIntegrals);
 
-UccsdAmplitudesFromCoulombIntegrals::UccsdAmplitudesFromCoulombIntegrals(
-  std::vector<Argument> const &argumentList
-): ClusterSinglesDoublesAlgorithm(argumentList) {}
-
-
-UccsdAmplitudesFromCoulombIntegrals::~UccsdAmplitudesFromCoulombIntegrals() {
-}
-
-void UccsdAmplitudesFromCoulombIntegrals::run() {
-  usingIntermediates = getIntegerArgument("intermediates", 1) == 1;
-  if (! usingIntermediates ) {
-    LOG(0, getAbbreviation()) <<
-      "Not using intermediates, the code will be much slower."
-    << std::endl;
-  }
-  ClusterSinglesDoublesAlgorithm::run();
-}
-
-PTR(FockVector<cc4s::complex>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
-  const int iterationStep, const PTR(const FockVector<complex>) &amplitudes
+PTR(FockVector<cc4s::complex>)
+UrpaAmplitudesFromCoulombIntegrals::getResiduum(
+  const int iterationStep,
+  const PTR(const FockVector<complex>) &amplitudes
 ) {
   if (iterationStep == 0){
     LOG(1, getAbbreviation()) <<
-       "WARNING: Using complex version of Uccsd" << std::endl;
+       "WARNING: Using complex version of Urpa" << std::endl;
     LOG(1, getAbbreviation()) <<
        "WARNING: Complex version is not tested." << std::endl;
   }
   return getResiduumTemplate<complex>(iterationStep, amplitudes);
 }
 
-PTR(FockVector<double>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
+PTR(FockVector<double>) UrpaAmplitudesFromCoulombIntegrals::getResiduum(
   const int iterationStep, const PTR(const FockVector<double>) &amplitudes
 ) {
   return getResiduumTemplate<double>(iterationStep, amplitudes);
 }
 
 template <typename F>
-PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
+PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   const int iterationStep, const PTR(const FockVector<F>) &amplitudes
 ) {
   CTF::Tensor<double> *epsi(
-    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies"));
+    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies")
+  );
 
   CTF::Tensor<double> *epsa(
-    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies"));
+    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
+  );
 
   // Get couloumb integrals
-  auto Vijkl(getTensorArgument<F, CTF::Tensor<F> >("HHHHCoulombIntegrals"));
-  auto Vabcd(getTensorArgument<F, CTF::Tensor<F> >("PPPPCoulombIntegrals"));
-  auto Vijka(getTensorArgument<F, CTF::Tensor<F> >("HHHPCoulombIntegrals"));
   auto Vijab(getTensorArgument<F, CTF::Tensor<F> >("HHPPCoulombIntegrals"));
-  auto Viajk(getTensorArgument<F, CTF::Tensor<F> >("HPHHCoulombIntegrals"));
-  auto Viajb(getTensorArgument<F, CTF::Tensor<F> >("HPHPCoulombIntegrals"));
-  auto Viabc(getTensorArgument<F, CTF::Tensor<F> >("HPPPCoulombIntegrals"));
-  auto Vabij(getTensorArgument<F, CTF::Tensor<F> >("PPHHCoulombIntegrals"));
-  auto Vabic(getTensorArgument<F, CTF::Tensor<F> >("PPHPCoulombIntegrals"));
-  auto Viabj(getTensorArgument<F, CTF::Tensor<F> >("HPPHCoulombIntegrals"));
-  auto Vaibc(getTensorArgument<F, CTF::Tensor<F> >("PHPPCoulombIntegrals"));
-  auto Vijak(getTensorArgument<F, CTF::Tensor<F> >("HHPHCoulombIntegrals"));
-  auto Vabci(getTensorArgument<F, CTF::Tensor<F> >("PPPHCoulombIntegrals"));
-  auto Vaibj(getTensorArgument<F, CTF::Tensor<F> >("PHPHCoulombIntegrals"));
-  auto Vaijb(getTensorArgument<F, CTF::Tensor<F> >("PHHPCoulombIntegrals"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int vv[] = {Nv, Nv};
@@ -100,14 +69,18 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     Fab = getTensorArgument<F, CTF::Tensor<F> >("PPFockMatrix");
     Fij = getTensorArgument<F, CTF::Tensor<F> >("HHFockMatrix");
   } else {
-    Fia = nullptr;
+    Fia = NULL;
     CTF::Transform<double, F>(
-      std::function<void(double, F &)>([](double eps, F &f) { f = eps; })
+      std::function<void(double, F &)>(
+        [](double eps, F &f) { f = eps; }
+      )
     ) (
       (*epsi)["i"], (*Fij)["ii"]
     );
     CTF::Transform<double, F>(
-      std::function<void(double, F &)>([](double eps, F &f) { f = eps; })
+      std::function<void(double, F &)>(
+        [](double eps, F &f) { f = eps; }
+      )
     ) (
       (*epsa)["a"], (*Fab)["aa"]
     );
@@ -138,21 +111,18 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
 
   H.setFij(Fij).setFab(Fab).setFia(Fia)
-    .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
-    .setVijka(Vijka).setViabc(Viabc).setViajk(Viajk).setVabic(Vabic)
-    .setVaibc(Vaibc).setVaibj(Vaibj).setViabj(Viabj).setVijak(Vijak)
-    .setVaijb(Vaijb).setVabci(Vabci).setVabij(Vabij)
-    .setTai(Tai.get()).setTabij(Tabij.get())
-    .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::GENERAL)
-    .useStantonIntermediatesUCCSD(usingIntermediates);
+    .setVijab(Vijab)
+    .setTai(Tai.get())
+    .setTabij(Tabij.get())
+    .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::GENERAL);
 
   // T1 equations:
   //
   // The singles amplitude equations are simply taking the
   // Wai part of the \bar H and setting it to zero
   //
-  auto Wai = H.getAI();
-  (*Rai)["ai"]  = (*Wai)["ai"];
+  auto Wai = H.getAI_RPA();
+  (*Rai)["ai"] += (*Wai)["ai"];
   //These are the residum equations, we have to substract them from Wai
   (*Rai)["bi"] += ( - 1.0  ) * (*Fab)["bc"] * (*Tai)["ci"];
   (*Rai)["bi"] += ( + 1.0  ) * (*Fij)["ki"] * (*Tai)["bk"];
@@ -162,8 +132,8 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   // The doubles amplitude equations are simply taking the
   // Wabij part of the \bar H and setting it to zero
   //
-  auto Wabij = H.getABIJ();
-  (*Rabij)["abij"]  = (*Wabij)["abij"];
+  auto Wabij = H.getABIJ_RPA();
+  (*Rabij)["abij"] += (*Wabij)["abij"];
   //These are the residum equations, substract them from Wabij
   (*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
   (*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
