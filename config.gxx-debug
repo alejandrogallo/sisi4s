@@ -15,6 +15,14 @@ CTF_PATH=lib/build/${CONFIG}/ctf
 CTF_LIB=-L${CTF_PATH}/lib -lctf
 CTF_INCLUDE=-I${CTF_PATH}/include
 
+# libint library
+LIBINT_PATH = lib/build/${CONFIG}/libint
+LIBINT_LIB = -L${LIBINT_PATH}/lib -lint2
+LIBINT_INCLUDE = -I${LIBINT_PATH}/include/ -I${LIBINT_PATH}/include/libint2
+
+# eigen library
+EIGEN_INCLUDE = -Ilib/build/${CONFIG}/eigen/include/eigen3/
+
 # BLAS and LAPACK library, expects BLAS_PATH to be set
 BLAS_LIB= -L${BLAS_PATH}/lib -lopenblas
 BLAS_INCLUDE=-I${BLAS_PATH}/include
@@ -23,10 +31,11 @@ BLAS_INCLUDE=-I${BLAS_PATH}/include
 SCALAPACK_LIB=-L${SCALAPACK_PATH}/lib -lscalapack
 
 # additional include directories for header files
-INCLUDE=${CTF_INCLUDE} ${BLAS_INCLUDE}
+INCLUDE=${CTF_INCLUDE} ${BLAS_INCLUDE} ${LIBINT_INCLUDE} ${EIGEN_INCLUDE}
 
 # additional library paths and libraries to link to
-LIBS=-Wl,-Bstatic ${CTF_LIB} ${SCALAPACK_LIB} ${BLAS_LIB} -lgfortran -lquadmath -Wl,-Bdynamic
+LIBS=-Wl,-Bstatic ${CTF_LIB} ${SCALAPACK_LIB} ${BLAS_LIB} \
+     -lgfortran -lquadmath -Wl,-Bdynamic ${LIBINT_LIB}
 
 # destination path for installation
 INSTALL=~/bin/cc4s/${CONFIG}
