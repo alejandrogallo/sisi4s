@@ -20,7 +20,7 @@ HartreeFock::~HartreeFock() {}
 double
 getNuclearRepulsionEnergy(std::vector<libint2::Atom>& structure)
 {
-  int i, j;
+  unsigned int i, j;
   double enuc(0.0), r2(0.0);
   LOG(1, "HartreeFock") << "Calculating nuclear repulsion energy" << std::endl;
   for (i = 0; i < structure.size(); ++i) {
@@ -72,12 +72,12 @@ getOneBodyIntegrals(
   // loop over unique shell pairs, {s1,s2} such that s1 >= s2
   // this is due to the permutational symmetry of the real integrals over
   // Hermitian operators: (1|2) = (2|1)
-  for(auto s1=0; s1!=shells.size(); ++s1) {
+  for(size_t s1=0; s1!=shells.size(); ++s1) {
 
     auto bf1 = shell2bf[s1]; // first basis function in this shell
     auto n1 = shells[s1].size();
 
-    for(auto s2=0; s2<=s1; ++s2) {
+    for(size_t s2=0; s2<=s1; ++s2) {
 
       auto bf2 = shell2bf[s2];
       auto n2 = shells[s2].size();
@@ -128,24 +128,24 @@ getTwoBodyFock(
 
   // loop over shell pairs of the Fock matrix, {s1,s2}
   // Fock matrix is symmetric, but skipping it here for simplicity (see compute_2body_fock)
-  for(auto s1=0; s1!=shells.size(); ++s1) {
+  for(size_t s1=0; s1!=shells.size(); ++s1) {
 
     auto bf1_first = shell2bf[s1]; // first basis function in this shell
     auto n1 = shells[s1].size();
 
-    for(auto s2=0; s2!=shells.size(); ++s2) {
+    for(size_t s2=0; s2!=shells.size(); ++s2) {
 
       auto bf2_first = shell2bf[s2];
       auto n2 = shells[s2].size();
 
       // loop over shell pairs of the density matrix, {s3,s4}
       // again symmetry is not used for simplicity
-      for(auto s3=0; s3!=shells.size(); ++s3) {
+      for(size_t s3=0; s3!=shells.size(); ++s3) {
 
         auto bf3_first = shell2bf[s3];
         auto n3 = shells[s3].size();
 
-        for(auto s4=0; s4!=shells.size(); ++s4) {
+        for(size_t s4=0; s4!=shells.size(); ++s4) {
 
           auto bf4_first = shell2bf[s4];
           auto n4 = shells[s4].size();
@@ -160,13 +160,13 @@ getTwoBodyFock(
           // hence some manual labor here:
           // 1) loop over every integral in the shell set (= nested loops over basis functions in each shell)
           // and 2) add contribution from each integral
-          for(auto f1=0, f1234=0; f1!=n1; ++f1) {
+          for(size_t f1=0, f1234=0; f1!=n1; ++f1) {
             const auto bf1 = f1 + bf1_first;
-            for(auto f2=0; f2!=n2; ++f2) {
+            for(size_t f2=0; f2!=n2; ++f2) {
               const auto bf2 = f2 + bf2_first;
-              for(auto f3=0; f3!=n3; ++f3) {
+              for(size_t f3=0; f3!=n3; ++f3) {
                 const auto bf3 = f3 + bf3_first;
-                for(auto f4=0; f4!=n4; ++f4, ++f1234) {
+                for(size_t f4=0; f4!=n4; ++f4, ++f1234) {
                   const auto bf4 = f4 + bf4_first;
                   G(bf1,bf2) += D(bf3,bf4) * 2.0 * buf_1234[f1234];
                 }
@@ -178,13 +178,13 @@ getTwoBodyFock(
           engine.compute(shells[s1], shells[s3], shells[s2], shells[s4]);
           const auto* buf_1324 = buf[0];
 
-          for(auto f1=0, f1324=0; f1!=n1; ++f1) {
+          for(size_t f1=0, f1324=0; f1!=n1; ++f1) {
             const auto bf1 = f1 + bf1_first;
-            for(auto f3=0; f3!=n3; ++f3) {
+            for(size_t f3=0; f3!=n3; ++f3) {
               const auto bf3 = f3 + bf3_first;
-              for(auto f2=0; f2!=n2; ++f2) {
+              for(size_t f2=0; f2!=n2; ++f2) {
                 const auto bf2 = f2 + bf2_first;
-                for(auto f4=0; f4!=n4; ++f4, ++f1324) {
+                for(size_t f4=0; f4!=n4; ++f4, ++f1324) {
                   const auto bf4 = f4 + bf4_first;
                   G(bf1,bf2) -= D(bf3,bf4) * buf_1324[f1324];
                 }
@@ -203,77 +203,78 @@ getTwoBodyFock(
 
 
 void HartreeFock::run() {
-  LOG(0, "HartreeFock") << "Calculating hartree fock" << std::endl;
-  LOG(1, "HartreeFock") << "We'll see how this works" << std::endl;
 
   const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
   const std::string basisSet(getTextArgument("basisSet", "sto-3g"));
-  int maxIterations(getIntegerArgument("maxIterations", 16));
+  unsigned int maxIterations(getIntegerArgument("maxIterations", 16));
   double electronicConvergence(getRealArgument("energyDifference", 1e-4));
-  int numberOfElectrons(getIntegerArgument("numberOfElectrons", 0));
-  int i;
-  int nBasisFunctions;
-  int No;
+  int numberOfElectrons(getIntegerArgument("numberOfElectrons", -1));
+  unsigned int i;
+  unsigned int nBasisFunctions;
+  unsigned int No;
   double enuc;
 
-  LOG(1, "HartreeFock") << "Electronic iterations  = " << maxIterations  << std::endl;
-  LOG(1, "HartreeFock") << "Electronic convergence = " << electronicConvergence << std::endl;
-  LOG(1, "HartreeFock") << "Basis set              = " << basisSet              << std::endl;
+  LOG(1, "HartreeFock") << "maxIterations: " << maxIterations  << std::endl;
+  LOG(1, "HartreeFock") << "ediff: " << electronicConvergence << std::endl;
+  LOG(1, "HartreeFock") << "Basis set: " << basisSet << std::endl;
 
-  LOG(2, "HartreeFock") << "Initialising libint2" << std::endl;
-  libint2::initialize();  // safe to use libint now
+  // Initialize libint
+  LOG(1, "HartreeFock") << "libint2: " << LIBINT_VERSION << std::endl;
+  LOG(1, "HartreeFock") << "MAX_AM: " << LIBINT_MAX_AM << std::endl;
+  libint2::initialize();
 
-  LOG(1, "HartreeFock") << "Reading structure from " << xyzStructureFile << std::endl;
+  LOG(1, "HartreeFock") << "structure: " << xyzStructureFile << std::endl;
   std::ifstream structureFileStream(xyzStructureFile.c_str());
   std::vector<libint2::Atom> atoms(libint2::read_dotxyz(structureFileStream));
   structureFileStream.close();
 
-  LOG(1, "HartreeFock") << "Computing number of electrons" << std::endl;
-  for (i = 0; i < atoms.size(); ++i) {
-    numberOfElectrons += atoms[i].atomic_number;
+  libint2::BasisSet shells(basisSet, atoms);
+  nBasisFunctions = shells.nbf();
+
+  if (numberOfElectrons == -1) {
+    numberOfElectrons = 0;
+    for (auto &atom: atoms) {
+      std::cout << atom.atomic_number << std::endl;
+      std::cout << atom.x << " " << atom.y << " " << atom.z << std::endl;
+      numberOfElectrons += atom.atomic_number;
+    }
   }
-  LOG(1, "HartreeFock") << "Number of atoms = " << atoms.size() << std::endl;
-  LOG(1, "HartreeFock") << "Number of electrons = " << numberOfElectrons << std::endl;
 
   // restricted hartree fock
   No = numberOfElectrons/2;
+  LOG(1, "HartreeFock") << "natoms: " << atoms.size() << std::endl;
+  LOG(1, "HartreeFock") << "nelec: " << numberOfElectrons << std::endl;
+  LOG(1, "HartreeFock") << "No: " << No << std::endl;
 
   enuc = getNuclearRepulsionEnergy(atoms);
-  LOG(1, "HartreeFock") << "Nuclear repulsion energy " << enuc << std::endl;
+  LOG(1, "HartreeFock") << "nuclear energy: " << enuc << std::endl;
 
-  LOG(1, "HartreeFock") << "Initializing basis set" << std::endl;
-  libint2::BasisSet shells(basisSet, atoms);
+  LOG(1, "HartreeFock") << "Initializing basis set.." << std::endl;
 
-  nBasisFunctions = shells.nbf();
-
-  LOG(1, "HartreeFock") << "Number of basis functions = " << nBasisFunctions
-    << std::endl;
+  LOG(1, "HartreeFock") << "#basis: " << nBasisFunctions << std::endl;
   LOG(1, "HartreeFock")
     << "Maximum number of primitives in shells = "
     << shells.max_nprim()
     << std::endl;
-  LOG(1, "HartreeFock")
-    << "Maximum value of l in shells = "
-    << shells.max_l()
-    << std::endl;
+  LOG(1, "HartreeFock") << "max_l: " << shells.max_l() << std::endl;
 
   LOG(1, "HartreeFock") << "Calculating overlaps" << std::endl;
   Eigen::MatrixXd S = getOneBodyIntegrals(
-    shells, libint2::Operator::overlap, atoms
-  );
-  OUT() << S << std::endl;
+    shells,
+    libint2::Operator::overlap, atoms);
+  //OUT() << S << std::endl;
 
   LOG(1, "HartreeFock") << "Calculating kinteic integrals" << std::endl;
   Eigen::MatrixXd T = getOneBodyIntegrals(
     shells, libint2::Operator::kinetic, atoms
   );
-  OUT() << T << std::endl;
+  //OUT() << T << std::endl;
 
   LOG(1, "HartreeFock") << "Compute nuclear repulsion integrals" << std::endl;
   Eigen::MatrixXd V = getOneBodyIntegrals(
     shells, libint2::Operator::nuclear, atoms
   );
-  OUT() << V << std::endl;
+  //OUT() << V << std::endl;
 
   LOG(1, "HartreeFock") << "Calculating the core hamiltonian" << std::endl
     << "  H = T + V" << std::endl;
@@ -296,10 +297,10 @@ void HartreeFock::run() {
   }
 
   LOG(1, "HartreeFock") << "Initial Density Matrix:" << std::endl;
-  OUT() << D << std::endl;
+  //OUT() << D << std::endl;
 
 
-  int iter(0);
+  unsigned int iter(0);
   double rmsd(0);
   double energyDifference(0);
   double ehf(0);
@@ -335,21 +336,22 @@ void HartreeFock::run() {
     energyDifference = ehf - ehfLast;
     rmsd = (D - D_last).norm();
 
-    if (iter == 1)
+    if (iter == 1) {
       LOG(0, "HartreeFock") <<
-        "Iter   "
-        "E(elec)   "
-        "E(tot)    "
-        "Delta(E)   "
-        "RMS(D)  "
+        "Iter" << "\t" <<
+        "E(elec)" << "\t" <<
+        "E(tot)" << "\t" <<
+        "Delta(E)" << "\t" <<
+        "RMS(D)"
         << std::endl;
+    }
 
-    LOG(0, "HartreeFock") <<
-        iter << "      " <<
-        ehf  << "   " <<
-        ehf + enuc << "    " <<
-        energyDifference << "    " <<
-        rmsd << "    " <<
+    LOG(0, "HartreeFock") << std::setprecision(15) << std::setw(10) <<
+        iter << "\t" <<
+        ehf  << "\t" <<
+        ehf + enuc << "\t" <<
+        energyDifference << "\t" <<
+        rmsd << "\t" <<
         std::endl;
 
   } while (
