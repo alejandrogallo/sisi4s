@@ -253,8 +253,7 @@ void HartreeFock::run() {
 
   LOG(1, "HartreeFock") << "#basis: " << nBasisFunctions << std::endl;
   LOG(1, "HartreeFock")
-    << "Maximum number of primitives in shells = "
-    << shells.max_nprim()
+    << "Maximum primitives in shells = " << shells.max_nprim()
     << std::endl;
   LOG(1, "HartreeFock") << "max_l: " << shells.max_l() << std::endl;
 
@@ -264,20 +263,31 @@ void HartreeFock::run() {
     libint2::Operator::overlap, atoms);
   //OUT() << S << std::endl;
 
-  LOG(1, "HartreeFock") << "Calculating kinteic integrals" << std::endl;
+  LOG(1, "HartreeFock") << "shell: l ao cg" << std::endl;
+  for (auto &shell: shells) {
+    LOG(1, "HartreeFock") << "shell: "
+      << shell.size() << " "
+      << shell.nprim() << " "
+      << shell.ncontr() << " "
+      << std::endl;
+  }
+
+  LOG(1, "HartreeFock") << "Calculating kinetic integrals" << std::endl;
   Eigen::MatrixXd T = getOneBodyIntegrals(
-    shells, libint2::Operator::kinetic, atoms
-  );
-  //OUT() << T << std::endl;
+    shells,
+    libint2::Operator::kinetic,
+    atoms);
+  LOG(1, "HartreeFock") << "T(" << T.rows() << "," << T.cols() << ")" << std::endl;
+
 
   LOG(1, "HartreeFock") << "Compute nuclear repulsion integrals" << std::endl;
   Eigen::MatrixXd V = getOneBodyIntegrals(
-    shells, libint2::Operator::nuclear, atoms
-  );
-  //OUT() << V << std::endl;
+    shells,
+    libint2::Operator::nuclear,
+    atoms);
+  LOG(1, "HartreeFock") << "V(" << V.rows() << "," << V.cols() << ")" << std::endl;
 
-  LOG(1, "HartreeFock") << "Calculating the core hamiltonian" << std::endl
-    << "  H = T + V" << std::endl;
+  LOG(1, "HartreeFock") << "Calculating the core hamiltonian" << std::endl;
   Eigen::MatrixXd H = T + V;
 
   // T and V no longer needed, free up the memory
