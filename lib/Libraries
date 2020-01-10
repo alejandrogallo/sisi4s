@@ -1,7 +1,11 @@
+# vim:ft=make
 # libraries needed by cc4s
-LIBRARIES=build/${CONFIG}/ctf/lib/libctf.a
+LIBRARIES = ${CTF_LIB} ${LIBINT_LIB} ${EIGEN_LIB}
+
+.PHONY: libint eigen ctf
 
 ###### ctf ######
+CTF_LIB = build/${CONFIG}/ctf/lib/libctf.a
 src/ctf/configure:
 	cd ..; git submodule init
 	cd ..; git submodule update
@@ -13,3 +17,43 @@ build/${CONFIG}/ctf/Makefile: src/ctf/configure
 build/${CONFIG}/ctf/lib/libctf.a: build/${CONFIG}/ctf/Makefile
 	$(CTF_CALLBACK)
 	$(MAKE) -C build/${CONFIG}/ctf
+
+ctf: ${CTF_LIB}
+
+# LIBINT LIB
+############
+
+
+LIBINT_BUILD_PATH = build/${CONFIG}/libint
+LIBINT_LIB = ${LIBINT_BUILD_PATH}/build/lib/libint2.la
+
+${LIBINT_LIB}: src/libint/configure
+	mkdir -p $(dir $@)
+	cd ${LIBINT_BUILD_PATH}/build && \
+	$(PWD)/src/libint/configure \
+		--prefix=$(PWD)/${LIBINT_BUILD_PATH} \
+		CXX=g++ CXXFLAGS="-std=c++11" && \
+	$(MAKE) install
+
+src/libint/configure: src/libint
+	cd $(dir $@) && ./autogen.sh
+
+src/libint:
+	git clone -b v2.6.0 https://github.com/evaleev/libint $@
+
+libint: ${LIBINT_LIB}
+
+# EIGEN LIB
+###########
+
+EIGEN_LIB = build/${CONFIG}/eigen/include
+
+src/eigen:
+	git clone -b 3.3.7 https://gitlab.com/libeigen/eigen.git $@
+
+${EIGEN_LIB}: src/eigen
+	mkdir -p $@
+	cmake -B $(dir $@) -DCMAKE_INSTALL_PREFIX=$(PWD)/$(dir $@) $<
+	cd $(dir $@) && make && make install
+
+eigen: ${EIGEN_LIB}
