@@ -4,7 +4,8 @@ LIBRARIES = ${CTF_LIB} ${LIBINT_LIB} ${EIGEN_LIB}
 
 .PHONY: libint eigen ctf
 
-###### ctf ######
+# CTF
+###############################################################################
 CTF_LIB = build/${CONFIG}/ctf/lib/libctf.a
 src/ctf/configure:
 	cd ..; git submodule init
@@ -21,16 +22,17 @@ build/${CONFIG}/ctf/lib/libctf.a: build/${CONFIG}/ctf/Makefile
 ctf: ${CTF_LIB}
 
 # LIBINT LIB
-############
-
+###############################################################################
 
 LIBINT_BUILD_PATH = build/${CONFIG}/libint
 LIBINT_LIB = ${LIBINT_BUILD_PATH}/build/lib/libint2.la
+LIBINT_MAX_AM ?= 4
+LIBINT_COMMIT ?= v2.6.0
 
 ${LIBINT_LIB}: src/libint/configure
 	mkdir -p $(dir $@)
 	cd ${LIBINT_BUILD_PATH}/build && \
-	$(PWD)/src/libint/configure \
+	$(PWD)/src/libint/configure --with-max-am=${LIBINT_MAX_AM} \
 		--prefix=$(PWD)/${LIBINT_BUILD_PATH} \
 		CXX=g++ CXXFLAGS="-std=c++11" && \
 	$(MAKE) install
@@ -39,12 +41,12 @@ src/libint/configure: src/libint
 	cd $(dir $@) && ./autogen.sh
 
 src/libint:
-	git clone -b v2.6.0 https://github.com/evaleev/libint $@
+	git clone -b ${LIBINT_COMMIT} https://github.com/evaleev/libint $@
 
 libint: ${LIBINT_LIB}
 
 # EIGEN LIB
-###########
+###############################################################################
 
 EIGEN_LIB = build/${CONFIG}/eigen/include
 
