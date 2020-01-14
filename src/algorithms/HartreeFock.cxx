@@ -126,14 +126,107 @@ getOneBodyIntegrals(
 }
 
 
-/*
-Eigen::MatrixXd
-getTwoBodyMatrices(
-  const libint2::BasisSet shells,
-  const Eigen::MatrixXd& D
-  ) {
-}
-*/
+struct IntegralProvider {
+  IntegralProvider(
+    int No_,
+    int Nv_,
+    double *coefficients,
+    libint2::BasisSet& shells_):
+    No(No_), Nv(Nv_), C(coefficients), shells(shells_) {
+      compute();
+    }
+
+  void compute() {
+
+    const size_t Np(No+Nv);
+    const size_t NpNp(Np*Np);
+    const size_t NpNpNp(Np*Np*Np);
+    const size_t dimension(std::pow(Np, 4));
+    LOG(1, "Integrals")
+      << "Allocating and computing Vpqrs ("
+      << sizeof(double) * dimension / std::pow(2, 30)
+      << " GB)" << std::endl;
+    V = new double[dimension];
+    struct ShellInfo {
+      size_t size, begin, end;
+      ShellInfo(size_t s, size_t t): size(s), begin(t), end(s+t) {}
+    };
+
+    libint2::Engine engine(
+      libint2::Operator::coulomb,
+      shells.max_nprim(),
+      shells.max_l(), 0);
+
+    // store shell by shell calculation in this buffer
+    const auto& vpqrs = engine.results();
+
+    const std::vector<size_t> shell2bf(shells.shell2bf());
+
+    // the outside loops will loop over the shells.
+    // This will create a block of Vpqrs, where pqrs are contracted
+    // gaussian indices belonging to their respective shells.
+    // Since we only want to calculate integrals transformed by the
+    // coefficients provided, we will contract them with the coefficients.
+    for (size_t P(0); P != shells.size(); ++P) {
+      const ShellInfo infoP(shells[P].size(), shell2bf[P]);
+    for (size_t Q(0); Q != shells.size(); ++Q) {
+      const ShellInfo infoQ(shells[Q].size(), shell2bf[Q]);
+    for (size_t R(0); R != shells.size(); ++R) {
+      const ShellInfo infoR(shells[R].size(), shell2bf[R]);
+    for (size_t S(0); S != shells.size(); ++S) {
+      const ShellInfo infoS(shells[S].size(), shell2bf[S]);
+      // compute integrals
+      engine.compute(shells[P], shells[Q], shells[R], shells[S]);
+
+      for (size_t p(0); p != shells.size(); ++p) {
+      for (size_t q(0); q != shells.size(); ++q) {
+      for (size_t r(0); r != shells.size(); ++r) {
+      for (size_t s(0); s != shells.size(); ++s) {
+
+        const size_t Ipqrs(p + q*Np + r*NpNp + s*NpNpNp);
+        V[Ipqrs] = 0.0;
+
+        for (size_t ip(infoP.begin); ip < infoP.end; ++ip) {
+        for (size_t iq(infoQ.begin); iq < infoQ.end; ++iq) {
+        for (size_t ir(infoR.begin); ir < infoR.end; ++ir) {
+        for (size_t is(infoS.begin); is < infoS.end; ++is) {
+
+          const size_t ipqrs(ip + iq*Np + ir*NpNp * is*NpNpNp);
+          V[Ipqrs] +=
+            C[ip + p*Np] *
+            C[iq + q*Np] *
+            C[ir + r*Np] *
+            C[is + s*Np] *
+            vpqrs[0][ipqrs];
+
+        } // s
+        } // r
+        } // q
+        } // p
+
+      } // s
+      } // r
+      } // q
+      } // p
+
+    } // S
+    } // R
+    } // Q
+    } // P
+
+  }
+
+  ~IntegralProvider() {
+    delete[] V;
+  }
+
+  private:
+  int No, Nv;
+  double *C;
+  libint2::BasisSet& shells;
+  double *V;
+};
+
 
 Eigen::MatrixXd
 getTwoBodyFock(
@@ -247,7 +340,7 @@ void HartreeFock::run() {
   int numberOfElectrons(getIntegerArgument("numberOfElectrons", -1));
   unsigned int i;
   unsigned int nBasisFunctions;
-  unsigned int No;
+  unsigned int No, Nv;
   double enuc;
 
   LOG(1, "HartreeFock") << "maxIterations: " << maxIterations  << std::endl;
@@ -272,17 +365,19 @@ void HartreeFock::run() {
     }
   }
 
-  // restricted hartree fock
-  No = numberOfElectrons/2;
   LOG(1, "HartreeFock") << "natoms: " << atoms.size() << std::endl;
   LOG(1, "HartreeFock") << "nelec: " << numberOfElectrons << std::endl;
-  LOG(1, "HartreeFock") << "No: " << No << std::endl;
 
   // initializing basis set and outputing relevant information
   LOG(1, "HartreeFock") << "basis: " << basisSet << std::endl;
   libint2::BasisSet shells(basisSet, atoms);
   nBasisFunctions = shells.nbf();
+  // restricted hartree fock
+  No = numberOfElectrons/2;
+  Nv = nBasisFunctions - No;
   LOG(1, "HartreeFock") << "Initializing basis set.." << std::endl;
+  LOG(1, "HartreeFock") << "No: " << No << std::endl;
+  LOG(1, "HartreeFock") << "Nv: " << Nv << std::endl;
   LOG(1, "HartreeFock") << "#shells: " << shells.size() << std::endl;
   LOG(1, "HartreeFock") << "#functions: " << nBasisFunctions << std::endl;
   LOG(1, "HartreeFock") << "max_l: " << shells.max_l() << std::endl;
@@ -290,8 +385,10 @@ void HartreeFock::run() {
     << "Max functions in shell = " << shells.max_nprim() << std::endl;
 
   LOG(1, "HartreeFock") << "shell: l\tAOS\tCGS" << std::endl;
+  i = 0;
   for (auto &shell: shells) {
-    LOG(1, "HartreeFock") << "shell: "
+    i++;
+    LOG(1, "HartreeFock") << "shell " << i << ": "
       << shell.size() << "\t"
       << shell.nprim() << "\t"
       << shell.ncontr() << "\t"
@@ -331,6 +428,13 @@ void HartreeFock::run() {
   T.resize(0,0);
   V.resize(0,0);
 
+  LOG(1, "HartreeFock")
+    << "mem:Fock "
+    << sizeof(double) * nBasisFunctions * nBasisFunctions / std::pow(2, 30.0)
+    << " GB"
+    << std::endl;
+
+
   Eigen::MatrixXd D(nBasisFunctions, nBasisFunctions);
   Eigen::MatrixXd F(nBasisFunctions, nBasisFunctions);
   Eigen::MatrixXd D_last = D;
@@ -343,13 +447,14 @@ void HartreeFock::run() {
       D(i,j) = 1;
     }
   }
+  LOG(1, "HartreeFock") << "\tdone" << std::endl;
 
   unsigned int iter(0);
   double rmsd(0);
   double energyDifference(0);
   double ehf(0);
   double ehfLast(0);
-  Eigen::MatrixXd eps;
+  Eigen::MatrixXd eps, C;
 
   do {
 
@@ -359,6 +464,7 @@ void HartreeFock::run() {
     D_last = D;
 
     F = H;
+    LOG(2, "HartreeFock") << "calculating fock matrix" << std::endl;
     F += getTwoBodyFock(shells, D);
 
     // solve F C = e S C
@@ -367,18 +473,7 @@ void HartreeFock::run() {
     eps = gen_eig_solver.eigenvalues();
 
     // C now has all eigenvectors from the shell of course
-    auto C(gen_eig_solver.eigenvectors());
-    /*
-    for (unsigned int ii(0) ; ii < C.cols() ; ii++) {
-      for (unsigned int jj(0) ; jj < C.rows() ; jj++) {
-        float nn(0);
-        for (unsigned int kk(0) ; kk < C.rows() ; kk++) {
-          nn += C(kk,ii) * C(kk, jj);
-        }
-        LOG(1, "HartreeFock") << ii << "|" << jj << " = " << nn << std::endl;
-      }
-    }
-    */
+    C = gen_eig_solver.eigenvectors();
 
     // Computer the new density D = C(occ) . C(occ)T
     auto C_occ(C.leftCols(No));
@@ -424,6 +519,9 @@ void HartreeFock::run() {
   }
 
   LOG(1, "HartreeFock") << "energy=" << ehf + enuc << std::endl;
+  double *coefficients = &C(0);
+
+  IntegralProvider ints(No, Nv, coefficients, shells);
 
   libint2::finalize();
 
