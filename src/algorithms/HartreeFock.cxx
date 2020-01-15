@@ -38,6 +38,8 @@
 #include <util/Log.hpp>
 #include <iostream>
 #include <Eigen/Eigenvalues>
+#include <ctf.hpp>
+#include <numeric>      // std::iota
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFock);
@@ -260,6 +262,7 @@ getTwoBodyFock(
 
     for(size_t s2 = 0; s2 != shells.size(); ++s2) {
 
+      LOG(1, "Integrals") << s1 << ", " << s2 << std::endl;
       auto bf2_first = shell2bf[s2];
       auto n2 = shells[s2].size();
 
@@ -271,6 +274,7 @@ getTwoBodyFock(
         auto n3 = shells[s3].size();
 
         for(size_t s4 = 0; s4 != shells.size(); ++s4) {
+          // TODO: angular momentum checking
 
           auto bf4_first = shell2bf[s4];
           auto n4 = shells[s4].size();
@@ -340,7 +344,7 @@ void HartreeFock::run() {
   int numberOfElectrons(getIntegerArgument("numberOfElectrons", -1));
   unsigned int i;
   unsigned int nBasisFunctions;
-  unsigned int No, Nv;
+  unsigned int No, Nv, Np;
   double enuc;
 
   LOG(1, "HartreeFock") << "maxIterations: " << maxIterations  << std::endl;
@@ -375,6 +379,7 @@ void HartreeFock::run() {
   // restricted hartree fock
   No = numberOfElectrons/2;
   Nv = nBasisFunctions - No;
+  Np = Nv + No;
   LOG(1, "HartreeFock") << "Initializing basis set.." << std::endl;
   LOG(1, "HartreeFock") << "No: " << No << std::endl;
   LOG(1, "HartreeFock") << "Nv: " << Nv << std::endl;
@@ -520,8 +525,37 @@ void HartreeFock::run() {
 
   LOG(1, "HartreeFock") << "energy=" << ehf + enuc << std::endl;
   double *coefficients = &C(0);
+  //IntegralProvider ints(No, Nv, coefficients, shells);
 
-  IntegralProvider ints(No, Nv, coefficients, shells);
+  // export stuff
+  int pp[] = {(int)Np, (int)Np};
+  int syms[] = {NS, NS};
+  auto ctfCoefficients(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "C"));
+  std::vector<int64_t> indices;
+  indices.resize(Np*Np);
+  std::iota(indices.begin(), indices.end(), 0);
+  ctfCoefficients->write(indices.size(), indices.data(), coefficients);
+
+  //auto fockMatrix(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "F"));
+  //fockMatrix->write(indices.size(), indices.data(), &F(0));
+
+  int o[] = {(int)No}, v[] = {(int)Nv};
+  // epsilon for holes
+  indices.resize(No);
+  std::iota(indices.begin(), indices.end(), 0);
+  auto epsi(new CTF::Tensor<double>(1, o, syms, *Cc4s::world, "epsi"));
+  epsi->write(indices.size(), indices.data(), &eps(0));
+  // epsilon for particles
+  indices.resize(Nv);
+  std::iota(indices.begin(), indices.end(), 0);
+  auto epsa(new CTF::Tensor<double>(1, v, syms, *Cc4s::world, "epsa"));
+  epsa->write(indices.size(), indices.data(), &eps(0) + No);
+
+
+  allocatedTensorArgument<double>("Eigenvectors", ctfCoefficients);
+  allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
+  allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
+  //allocatedTensorArgument<double>("FockMatrix", fockMatrix);
 
   libint2::finalize();
 
