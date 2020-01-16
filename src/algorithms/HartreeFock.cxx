@@ -143,12 +143,12 @@ struct IntegralProvider {
     const size_t Np(No+Nv);
     const size_t NpNp(Np*Np);
     const size_t NpNpNp(Np*Np*Np);
-    const size_t dimension(std::pow(Np, 4));
+    const size_t NpNpNpNp(Np*Np*Np*Np);
     LOG(1, "Integrals")
       << "Allocating and computing Vpqrs ("
-      << sizeof(double) * dimension / std::pow(2, 30)
+      << sizeof(double) * NpNpNpNp / std::pow(2, 30)
       << " GB)" << std::endl;
-    V = new double[dimension];
+    V = new double[NpNpNpNp];
     struct ShellInfo {
       size_t size, begin, end;
       ShellInfo(size_t s, size_t t): size(s), begin(t), end(s+t) {}
@@ -187,19 +187,25 @@ struct IntegralProvider {
 
         const size_t Ipqrs(p + q*Np + r*NpNp + s*NpNpNp);
         V[Ipqrs] = 0.0;
+        //std::cout << "Ipqrs " << Ipqrs << std::endl;
 
         for (size_t ip(infoP.begin); ip < infoP.end; ++ip) {
         for (size_t iq(infoQ.begin); iq < infoQ.end; ++iq) {
         for (size_t ir(infoR.begin); ir < infoR.end; ++ir) {
         for (size_t is(infoS.begin); is < infoS.end; ++is) {
 
-          const size_t ipqrs(ip + iq*Np + ir*NpNp * is*NpNpNp);
+          const size_t ipqrs(is +
+                             ir*infoS.size +
+                             iq*infoS.size*infoR.size +
+                             ip*infoS.size*infoR.size*infoQ.size);
+          //std::cout << "ipqrs " << ipqrs << std::endl;
           V[Ipqrs] +=
             C[ip + p*Np] *
             C[iq + q*Np] *
             C[ir + r*Np] *
             C[is + s*Np] *
             vpqrs[0][ipqrs];
+
 
         } // s
         } // r
@@ -217,6 +223,8 @@ struct IntegralProvider {
     } // P
 
   }
+
+  double *getVpqrs() { return V; }
 
   ~IntegralProvider() {
     delete[] V;
@@ -262,7 +270,7 @@ getTwoBodyFock(
 
     for(size_t s2 = 0; s2 != shells.size(); ++s2) {
 
-      LOG(1, "Integrals") << s1 << ", " << s2 << std::endl;
+      //LOG(1, "Integrals") << s1 << ", " << s2 << std::endl;
       auto bf2_first = shell2bf[s2];
       auto n2 = shells[s2].size();
 
@@ -524,17 +532,17 @@ void HartreeFock::run() {
   }
 
   LOG(1, "HartreeFock") << "energy=" << ehf + enuc << std::endl;
-  double *coefficients = &C(0);
-  //IntegralProvider ints(No, Nv, coefficients, shells);
+  IntegralProvider ints(No, Nv, &C(0), shells);
 
+
+  int syms[] = {NS, NS, NS, NS};
   // export stuff
   int pp[] = {(int)Np, (int)Np};
-  int syms[] = {NS, NS};
   auto ctfCoefficients(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "C"));
   std::vector<int64_t> indices;
   indices.resize(Np*Np);
   std::iota(indices.begin(), indices.end(), 0);
-  ctfCoefficients->write(indices.size(), indices.data(), coefficients);
+  ctfCoefficients->write(indices.size(), indices.data(), &C(0));
 
   //auto fockMatrix(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "F"));
   //fockMatrix->write(indices.size(), indices.data(), &F(0));
@@ -551,10 +559,28 @@ void HartreeFock::run() {
   auto epsa(new CTF::Tensor<double>(1, v, syms, *Cc4s::world, "epsa"));
   epsa->write(indices.size(), indices.data(), &eps(0) + No);
 
+  int vvoo[] = {(int)Nv, (int)Nv, (int)No, (int)No};
+  int oovv[] = {(int)No, (int)No, (int)Nv, (int)Nv};
+  int pppp[] = {(int)Np, (int)Np, (int)Np, (int)Np};
+
+  indices.resize(Np*Np*Np*Np);
+  std::iota(indices.begin(), indices.end(), 0);
+
+  CTF::Tensor<double> Vpqrs(4, pppp, syms, *Cc4s::world, "Vpqrs");
+  Vpqrs.write(indices.size(), indices.data(), ints.getVpqrs());
+  CTF::Tensor<double>* Vabij;
+  CTF::Tensor<double>* NewVabij;
+  int vabijStart[] = {0, 0, (int)No, (int)No};
+  int vabijEnd[] = {(int)No, (int)No, (int)Np, (int)Np};
+  NewVabij = new CTF::Tensor<double>(
+      Vpqrs.slice(vabijStart, vabijEnd));
+  Vabij = new CTF::Tensor<double>(4, vvoo, syms, *Cc4s::world, "blah");
+  (*Vabij)["abij"] = (*NewVabij)["ijab"];
 
   allocatedTensorArgument<double>("Eigenvectors", ctfCoefficients);
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
+  allocatedTensorArgument<double>("PPHHCoulombIntegrals", Vabij);
   //allocatedTensorArgument<double>("FockMatrix", fockMatrix);
 
   libint2::finalize();
