@@ -127,6 +127,10 @@ getOneBodyIntegrals(
   return result;
 }
 
+struct ShellInfo {
+  size_t size, begin, end;
+  ShellInfo(size_t s, size_t t): size(s), begin(t), end(s+t) {}
+};
 
 struct IntegralProvider {
   IntegralProvider(
@@ -149,10 +153,6 @@ struct IntegralProvider {
       << sizeof(double) * NpNpNpNp / std::pow(2, 30)
       << " GB)" << std::endl;
     V = new double[NpNpNpNp];
-    struct ShellInfo {
-      size_t size, begin, end;
-      ShellInfo(size_t s, size_t t): size(s), begin(t), end(s+t) {}
-    };
 
     libint2::Engine engine(
       libint2::Operator::coulomb,
@@ -261,81 +261,54 @@ getTwoBodyFock(
   // engine.compute()
   const auto& resultBuffer = engine.results();
 
-  // loop over shell pairs of the Fock matrix, {s1,s2}
-  // Fock matrix is symmetric, but skipping it here for simplicity
   for(size_t s1 = 0; s1 != shells.size(); ++s1) {
+  for(size_t s2 = 0; s2 != shells.size(); ++s2) {
+  for(size_t s3 = 0; s3 != shells.size(); ++s3) {
+  for(size_t s4 = 0; s4 != shells.size(); ++s4) {
+    // Fock matrix loop indices: s1, s2
+    // dens matrix loop indices: s3, s4
+    // TODO: use simmetry for s3 and s4
+    // TODO: angular momentum checking
+    const ShellInfo s1Info(shells[s1].size(), shell2bf[s1]);
+    const ShellInfo s2Info(shells[s2].size(), shell2bf[s2]);
+    const ShellInfo s3Info(shells[s3].size(), shell2bf[s3]);
+    const ShellInfo s4Info(shells[s4].size(), shell2bf[s4]);
 
-    auto bf1_first = shell2bf[s1]; // first basis function in this shell
-    auto n1 = shells[s1].size();
+    // Coulomb contribution to the Fock matrix is from {s1,s2,s3,s4} ints
+    engine.compute(shells[s1], shells[s2], shells[s3], shells[s4]);
+    const auto* buf_1234 = resultBuffer[0];
+    // if all integrals screened out, skip to next quartet
+    if (buf_1234 == nullptr) continue;
 
-    for(size_t s2 = 0; s2 != shells.size(); ++s2) {
-
-      //LOG(1, "Integrals") << s1 << ", " << s2 << std::endl;
-      auto bf2_first = shell2bf[s2];
-      auto n2 = shells[s2].size();
-
-      // loop over shell pairs of the density matrix, {s3,s4}
-      // again symmetry is not used for simplicity
-      for(size_t s3 = 0; s3 != shells.size(); ++s3) {
-
-        auto bf3_first = shell2bf[s3];
-        auto n3 = shells[s3].size();
-
-        for(size_t s4 = 0; s4 != shells.size(); ++s4) {
-          // TODO: angular momentum checking
-
-          auto bf4_first = shell2bf[s4];
-          auto n4 = shells[s4].size();
-
-          // Coulomb contribution to the Fock matrix is from {s1,s2,s3,s4}
-          // integrals
-          engine.compute(shells[s1], shells[s2], shells[s3], shells[s4]);
-          const auto* buf_1234 = resultBuffer[0];
-          if (buf_1234 == nullptr)
-            continue; // if all integrals screened out, skip to next quartet
-
-          // we don't have an analog of Eigen for tensors (yet ... see
-          // github.com/BTAS/BTAS, under development)
-          // hence some manual labor here:
-          // 1) loop over every integral in the shell set (= nested loops over
-          //    basis functions in each shell)
-          // 2) add contribution from each integral
-          for(size_t f1 = 0, f1234 = 0; f1 != n1; ++f1) {
-            const auto bf1 = f1 + bf1_first;
-            for(size_t f2 = 0; f2 != n2; ++f2) {
-              const auto bf2 = f2 + bf2_first;
-              for(size_t f3 = 0; f3 != n3; ++f3) {
-                const auto bf3 = f3 + bf3_first;
-                for(size_t f4 = 0; f4 != n4; ++f4, ++f1234) {
-                  const auto bf4 = f4 + bf4_first;
-                  G(bf1,bf2) += D(bf3,bf4) * 2.0 * buf_1234[f1234];
-                }
-              }
-            }
-          }
-
-          // exchange contribution to the Fock matrix is from {s1,s3,s2,s4}
-          // integrals
-          engine.compute(shells[s1], shells[s3], shells[s2], shells[s4]);
-          const auto* buf_1324 = resultBuffer[0];
-
-          for(size_t f1 = 0, f1324 = 0; f1 != n1; ++f1) {
-            const auto bf1 = f1 + bf1_first;
-            for(size_t f3 = 0; f3 != n3; ++f3) {
-              const auto bf3 = f3 + bf3_first;
-              for(size_t f2 = 0; f2 != n2; ++f2) {
-                const auto bf2 = f2 + bf2_first;
-                for(size_t f4 = 0; f4 != n4; ++f4, ++f1324) {
-                  const auto bf4 = f4 + bf4_first;
-                  G(bf1,bf2) -= D(bf3,bf4) * buf_1324[f1324];
-                }
-              }
-            }
-          }
-
-        }
-      }
+    // Hartree part
+    for(size_t f1(s1Info.begin), f1234 = 0; f1 < s1Info.end; ++f1) {
+    for(size_t f2(s2Info.begin); f2 < s2Info.end; ++f2) {
+    for(size_t f3(s3Info.begin); f3 < s3Info.end; ++f3) {
+    for(size_t f4(s4Info.begin); f4 < s4Info.end; ++f4, ++f1234) {
+        G(f1, f2) += D(f3, f4) * 2.0 * buf_1234[f1234];
     }
+    }
+    }
+    }
+
+    // exchange contribution to the Fock matrix is from {s1,s3,s2,s4} ints
+    engine.compute(shells[s1], shells[s3], shells[s2], shells[s4]);
+    const auto* buf_1324 = resultBuffer[0];
+
+    // Exchange part
+    for(size_t f1(s1Info.begin), f1324 = 0; f1 < s1Info.end; ++f1) {
+    for(size_t f3(s3Info.begin); f3 < s3Info.end; ++f3) {
+    for(size_t f2(s2Info.begin); f2 < s2Info.end; ++f2) {
+    for(size_t f4(s4Info.begin); f4 < s4Info.end; ++f4, ++f1324) {
+        G(f1, f2) -= D(f3, f4) * buf_1324[f1324];
+    }
+    }
+    }
+    }
+
+  }
+  }
+  }
   }
 
   return G;
@@ -505,18 +478,18 @@ void HartreeFock::run() {
 
     if (iter == 1) {
       LOG(1, "HartreeFockIt") << std::setprecision(15) << std::setw(10) <<
-        "Iter" << "\t" <<
-        "E" << "\t" <<
-        "DeltaE" << "\t" <<
+        "Iter"    << "\t" <<
+        "E"       << "\t" <<
+        "DeltaE"  << "\t" <<
         "RMS(D)"
         << std::endl;
     }
 
     LOG(1, "HartreeFockIt") <<
-      iter << "\t" <<
-      ehf  << "\t" <<
-      energyDifference << "\t" <<
-      rmsd << "\t" <<
+      iter              << "\t" <<
+      ehf               << "\t" <<
+      energyDifference  << "\t" <<
+      rmsd              << "\t" <<
     std::endl;
 
 
