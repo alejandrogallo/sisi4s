@@ -69,18 +69,22 @@ getNuclearRepulsionEnergy(std::vector<libint2::Atom>& structure)
   return enuc;
 }
 
+struct ShellInfo {
+  size_t size, begin, end;
+  inline ShellInfo(const libint2::BasisSet &shells, const size_t i):
+    size(shells[i].size()), begin(shells.shell2bf()[i]), end(size+begin) {}
+  inline size_t operator[](const size_t g) const { return g % size; }
+};
 
 Eigen::MatrixXd
 getOneBodyIntegrals(
   const libint2::BasisSet& shells,
-  libint2::Operator obtype,
-  const std::vector<libint2::Atom>& atoms
-  )
-{
+  const libint2::Operator obtype,
+  const std::vector<libint2::Atom>& atoms) {
 
   // Get number of basis set functions
-  int n = shells.nbf();
-  Eigen::MatrixXd result(n,n);
+  const size_t Np = shells.nbf();
+  Eigen::MatrixXd result(Np, Np);
 
   // construct the overlap integrals engine
   libint2::Engine engine(obtype, shells.max_nprim(), shells.max_l(), 0);
@@ -95,33 +99,28 @@ getOneBodyIntegrals(
     engine.set_params(q);
   }
 
-  const std::vector<size_t> shell2bf = shells.shell2bf();
-
   const auto& resultBuffer = engine.results();
 
-  // loop over unique shell pairs s1>=s2
-  for(size_t s1 = 0; s1 != shells.size(); ++s1) {
+  // loop over unique shell pairs p>=q
+  for(size_t p = 0; p < shells.size(); ++p) {
+  for(size_t q = 0; q <= p; ++q) {
 
-    auto bf1 = shell2bf[s1]; // first basis function in this shell
-    auto n1 = shells[s1].size(); // size of the shell (how many cgs are in it)
+    const ShellInfo P(shells, p), Q(shells, q);
 
-    for(size_t s2 = 0; s2 <= s1; ++s2) {
+    engine.compute(shells[p], shells[q]);
 
-      auto bf2 = shell2bf[s2];
-      auto n2 = shells[s2].size();
+    // copy the result buffer of size (P.size*Q.size) to the
+    // bufferMatrix, needed to do a block assignment to the Eigen matrix
+    Eigen::Map<const Eigen::MatrixXd>
+      bufferMatrix(resultBuffer[0], P.size, Q.size);
+    result.block(P.begin, Q.begin, P.size, Q.size) = bufferMatrix;
 
-      engine.compute(shells[s1], shells[s2]);
-
-      // copy the result buffer of size (n1*n2) to the
-      // bufferMatrix, needed to do a block assignment to the Eigen matrix
-      Eigen::Map<const Eigen::MatrixXd> bufferMatrix(resultBuffer[0], n1, n2);
-      result.block(bf1, bf2, n1, n2) = bufferMatrix;
-      if (s1 != s2) {
-        // transpose and copy to the non-explicitly calculated block
-        result.block(bf2, bf1, n2, n1) = bufferMatrix.transpose();
-      }
-
+    if (p != q) {
+      // transpose and copy to the non-explicitly calculated block
+      result.block(Q.begin, P.begin, Q.size, P.size) = bufferMatrix.transpose();
     }
+
+  }
   }
 
   return result;
