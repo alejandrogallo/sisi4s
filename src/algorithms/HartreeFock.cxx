@@ -76,6 +76,7 @@ struct ShellInfo {
   inline size_t operator[](const size_t g) const { return g % size; }
 };
 
+
 Eigen::MatrixXd
 getOneBodyIntegrals(
   const libint2::BasisSet& shells,
@@ -93,8 +94,8 @@ getOneBodyIntegrals(
     std::vector<std::pair<double,std::array<double,3>>> q;
     for(const libint2::Atom& atom : atoms) {
       q.push_back(
-          {static_cast<double>(atom.atomic_number), {{atom.x, atom.y, atom.z}}}
-          );
+        {static_cast<double>(atom.atomic_number), {{atom.x, atom.y, atom.z}}}
+      );
     }
     engine.set_params(q);
   }
@@ -120,8 +121,8 @@ getOneBodyIntegrals(
       result.block(Q.begin, P.begin, Q.size, P.size) = bufferMatrix.transpose();
     }
 
-  }
-  }
+  }  // q
+  }  // p
 
   return result;
 }
@@ -139,8 +140,6 @@ struct IntegralProvider {
   void compute() {
 
     const size_t Np(No+Nv);
-    const size_t NpNp(Np*Np);
-    const size_t NpNpNp(Np*Np*Np);
     const size_t NpNpNpNp(Np*Np*Np*Np);
     LOG(1, "Integrals")
       << "Allocating and computing Vpqrs ("
@@ -156,12 +155,8 @@ struct IntegralProvider {
     // store shell by shell calculation in this buffer
     const auto& vsrqp = engine.results();
 
-    for (size_t p(0), Isrqp(0); p < Np; ++p) {
-    for (size_t q(0); q < Np; ++q) {
-    for (size_t r(0); r < Np; ++r) {
-    for (size_t s(0); s < Np; ++s, ++Isrqp) {
-      V[Isrqp] = 0.0;
-    }}}}
+    for (size_t p(0); p < NpNpNpNp; ++p) V[p] = 0.0;
+
     LOG(1, "Integrals") << "Initialized to zero" << std::endl;
 
     // the outside loops will loop over the shells.
@@ -178,30 +173,27 @@ struct IntegralProvider {
                       M(shells, _M),
                       N(shells, _N);
 
-      // compute integrals
+      // compute integrals (K L , M N)
       engine.compute(shells[_K], shells[_L], shells[_M], shells[_N]);
 
+      // loop over all C orbitals
       for (size_t p(0), Isrqp(0); p < Np; ++p) {
       for (size_t q(0); q < Np; ++q) {
       for (size_t r(0); r < Np; ++r) {
       for (size_t s(0); s < Np; ++s, ++Isrqp) {
-
-        //const size_t Isrqp(s + r*Np + q*NpNp + p*NpNpNp);
 
         for (size_t k(K.begin), Inmlk = 0; k < K.end; ++k) {
         for (size_t l(L.begin); l < L.end; ++l) {
         for (size_t m(M.begin); m < M.end; ++m) {
         for (size_t n(N.begin); n < N.end; ++n, ++Inmlk) {
 
-          //const size_t Inmlk(N[n] +
-                             //M[m]*N.size +
-                             //L[l]*N.size*M.size +
-                             //K[k]*N.size*M.size*L.size);
+          // <p q | r s> = (p r , q s)
+          //               (k l , m n)
 
           V[Isrqp] +=
             C[k + p*Np] *
-            C[l + q*Np] *
-            C[m + r*Np] *
+            C[l + r*Np] *
+            C[m + q*Np] *
             C[n + s*Np] *
             vsrqp[0][Inmlk];
 
@@ -274,18 +266,6 @@ getTwoBodyFock(const libint2::BasisSet& shells, const Eigen::MatrixXd& D) {
     for(size_t q(Q.begin); q < Q.end; ++q) {
     for(size_t r(R.begin); r < R.end; ++r) {
     for(size_t s(S.begin); s < S.end; ++s, ++f1234) {
-      const size_t in(
-        S[s] +
-        R[r]*S.size +
-        Q[q]*S.size*R.size +
-        P[p]*S.size*R.size*Q.size
-      );
-      const size_t inn(
-        p +
-        q*P.size +
-        r*P.size*Q.size +
-        s*P.size*Q.size*R.size
-      );
       G(p, q) += D(r, s) * 2.0 * buf_1234[f1234];
     } // s
     } // r
@@ -430,9 +410,9 @@ void HartreeFock::run() {
 
   LOG(1, "HartreeFock") << "Setting initial density matrix" << std::endl;
   for ( i=0 ; i < nBasisFunctions ; i++) {
-    for (unsigned j=i ; j < i+1 ; j++) {
-      D(i,j) = 1;
-    }
+  for (unsigned j=i ; j < i+1 ; j++) {
+    D(i,j) = 1;
+  }
   }
   LOG(1, "HartreeFock") << "\tdone" << std::endl;
 
