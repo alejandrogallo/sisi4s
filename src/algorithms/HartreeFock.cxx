@@ -126,11 +126,6 @@ getOneBodyIntegrals(
   return result;
 }
 
-struct ShellInfo {
-  size_t size, begin, end;
-  ShellInfo(size_t s, size_t t): size(s), begin(t), end(s+t) {}
-};
-
 struct IntegralProvider {
   IntegralProvider(
     int No_,
@@ -159,52 +154,56 @@ struct IntegralProvider {
       shells.max_l(), 0);
 
     // store shell by shell calculation in this buffer
-    const auto& vpqrs = engine.results();
+    const auto& vsrqp = engine.results();
 
-    const std::vector<size_t> shell2bf(shells.shell2bf());
+    for (size_t p(0), Isrqp(0); p < Np; ++p) {
+    for (size_t q(0); q < Np; ++q) {
+    for (size_t r(0); r < Np; ++r) {
+    for (size_t s(0); s < Np; ++s, ++Isrqp) {
+      V[Isrqp] = 0.0;
+    }}}}
+    LOG(1, "Integrals") << "Initialized to zero" << std::endl;
 
     // the outside loops will loop over the shells.
     // This will create a block of Vpqrs, where pqrs are contracted
     // gaussian indices belonging to their respective shells.
     // Since we only want to calculate integrals transformed by the
     // coefficients provided, we will contract them with the coefficients.
-    for (size_t P(0); P != shells.size(); ++P) {
-      const ShellInfo infoP(shells[P].size(), shell2bf[P]);
-    for (size_t Q(0); Q != shells.size(); ++Q) {
-      const ShellInfo infoQ(shells[Q].size(), shell2bf[Q]);
-    for (size_t R(0); R != shells.size(); ++R) {
-      const ShellInfo infoR(shells[R].size(), shell2bf[R]);
-    for (size_t S(0); S != shells.size(); ++S) {
-      const ShellInfo infoS(shells[S].size(), shell2bf[S]);
+    for (size_t _K(0); _K < shells.size(); ++_K) { // kappa
+    for (size_t _L(0); _L < shells.size(); ++_L) { // lambda
+    for (size_t _M(0); _M < shells.size(); ++_M) { // mu
+    for (size_t _N(0); _N < shells.size(); ++_N) { // nu
+      const ShellInfo K(shells, _K),
+                      L(shells, _L),
+                      M(shells, _M),
+                      N(shells, _N);
+
       // compute integrals
-      engine.compute(shells[P], shells[Q], shells[R], shells[S]);
+      engine.compute(shells[_K], shells[_L], shells[_M], shells[_N]);
 
-      for (size_t p(0); p != shells.size(); ++p) {
-      for (size_t q(0); q != shells.size(); ++q) {
-      for (size_t r(0); r != shells.size(); ++r) {
-      for (size_t s(0); s != shells.size(); ++s) {
+      for (size_t p(0), Isrqp(0); p < Np; ++p) {
+      for (size_t q(0); q < Np; ++q) {
+      for (size_t r(0); r < Np; ++r) {
+      for (size_t s(0); s < Np; ++s, ++Isrqp) {
 
-        const size_t Ipqrs(p + q*Np + r*NpNp + s*NpNpNp);
-        V[Ipqrs] = 0.0;
-        //std::cout << "Ipqrs " << Ipqrs << std::endl;
+        //const size_t Isrqp(s + r*Np + q*NpNp + p*NpNpNp);
 
-        for (size_t ip(infoP.begin); ip < infoP.end; ++ip) {
-        for (size_t iq(infoQ.begin); iq < infoQ.end; ++iq) {
-        for (size_t ir(infoR.begin); ir < infoR.end; ++ir) {
-        for (size_t is(infoS.begin); is < infoS.end; ++is) {
+        for (size_t k(K.begin), Inmlk = 0; k < K.end; ++k) {
+        for (size_t l(L.begin); l < L.end; ++l) {
+        for (size_t m(M.begin); m < M.end; ++m) {
+        for (size_t n(N.begin); n < N.end; ++n, ++Inmlk) {
 
-          const size_t ipqrs(is +
-                             ir*infoS.size +
-                             iq*infoS.size*infoR.size +
-                             ip*infoS.size*infoR.size*infoQ.size);
-          //std::cout << "ipqrs " << ipqrs << std::endl;
-          V[Ipqrs] +=
-            C[ip + p*Np] *
-            C[iq + q*Np] *
-            C[ir + r*Np] *
-            C[is + s*Np] *
-            vpqrs[0][ipqrs];
+          //const size_t Inmlk(N[n] +
+                             //M[m]*N.size +
+                             //L[l]*N.size*M.size +
+                             //K[k]*N.size*M.size*L.size);
 
+          V[Isrqp] +=
+            C[k + p*Np] *
+            C[l + q*Np] *
+            C[m + r*Np] *
+            C[n + s*Np] *
+            vsrqp[0][Inmlk];
 
         } // s
         } // r
@@ -216,18 +215,15 @@ struct IntegralProvider {
       } // q
       } // p
 
-    } // S
-    } // R
-    } // Q
-    } // P
+    } // N
+    } // M
+    } // L
+    } // K
 
   }
 
   double *getVpqrs() { return V; }
-
-  ~IntegralProvider() {
-    delete[] V;
-  }
+  ~IntegralProvider() { delete[] V; }
 
   private:
   int No, Nv;
@@ -238,13 +234,10 @@ struct IntegralProvider {
 
 
 Eigen::MatrixXd
-getTwoBodyFock(
-  const libint2::BasisSet& shells,
-  const Eigen::MatrixXd& D
-  ) {
+getTwoBodyFock(const libint2::BasisSet& shells, const Eigen::MatrixXd& D) {
 
-  const auto n = shells.nbf();  // number of basis functions
-  Eigen::MatrixXd G = Eigen::MatrixXd::Zero(n,n);  // result matrix
+  const size_t Np = shells.nbf();
+  Eigen::MatrixXd G = Eigen::MatrixXd::Zero(Np, Np);
 
   // turn on the engine
   libint2::Engine engine(
@@ -253,62 +246,71 @@ getTwoBodyFock(
     shells.max_l(),
     0);
 
-  // shell to its first basis function map
-  const std::vector<size_t> shell2bf = shells.shell2bf();
-
   // resultBuffer[0] points to the target shell set after every call to
   // engine.compute()
   const auto& resultBuffer = engine.results();
 
-  for(size_t s1 = 0; s1 != shells.size(); ++s1) {
-  for(size_t s2 = 0; s2 != shells.size(); ++s2) {
-  for(size_t s3 = 0; s3 != shells.size(); ++s3) {
-  for(size_t s4 = 0; s4 != shells.size(); ++s4) {
-    // Fock matrix loop indices: s1, s2
-    // dens matrix loop indices: s3, s4
-    // TODO: use simmetry for s3 and s4
+  for(size_t _P = 0; _P < shells.size(); ++_P) {
+  for(size_t _Q = 0; _Q < shells.size(); ++_Q) {
+  for(size_t _R = 0; _R < shells.size(); ++_R) {
+  for(size_t _S = 0; _S < shells.size(); ++_S) {
+    // Fock matrix loop indices: _P, _Q
+    // dens matrix loop indices: _R, _S
+    // TODO: use simmetry for _R and _S
     // TODO: angular momentum checking
-    const ShellInfo s1Info(shells[s1].size(), shell2bf[s1]);
-    const ShellInfo s2Info(shells[s2].size(), shell2bf[s2]);
-    const ShellInfo s3Info(shells[s3].size(), shell2bf[s3]);
-    const ShellInfo s4Info(shells[s4].size(), shell2bf[s4]);
+    const ShellInfo P(shells, _P),
+                    Q(shells, _Q),
+                    R(shells, _R),
+                    S(shells, _S);
 
-    // Coulomb contribution to the Fock matrix is from {s1,s2,s3,s4} ints
-    engine.compute(shells[s1], shells[s2], shells[s3], shells[s4]);
-    const auto* buf_1234 = resultBuffer[0];
+    // Coulomb contribution to the Fock matrix is from {_P,_Q,_R,_S} ints
+    engine.compute(shells[_P], shells[_Q], shells[_R], shells[_S]);
+    const double* buf_1234 = resultBuffer[0];
     // if all integrals screened out, skip to next quartet
     if (buf_1234 == nullptr) continue;
 
     // Hartree part
-    for(size_t f1(s1Info.begin), f1234 = 0; f1 < s1Info.end; ++f1) {
-    for(size_t f2(s2Info.begin); f2 < s2Info.end; ++f2) {
-    for(size_t f3(s3Info.begin); f3 < s3Info.end; ++f3) {
-    for(size_t f4(s4Info.begin); f4 < s4Info.end; ++f4, ++f1234) {
-        G(f1, f2) += D(f3, f4) * 2.0 * buf_1234[f1234];
-    }
-    }
-    }
-    }
+    for(size_t p(P.begin), f1234 = 0; p < P.end; ++p) {
+    for(size_t q(Q.begin); q < Q.end; ++q) {
+    for(size_t r(R.begin); r < R.end; ++r) {
+    for(size_t s(S.begin); s < S.end; ++s, ++f1234) {
+      const size_t in(
+        S[s] +
+        R[r]*S.size +
+        Q[q]*S.size*R.size +
+        P[p]*S.size*R.size*Q.size
+      );
+      const size_t inn(
+        p +
+        q*P.size +
+        r*P.size*Q.size +
+        s*P.size*Q.size*R.size
+      );
+      G(p, q) += D(r, s) * 2.0 * buf_1234[f1234];
+    } // s
+    } // r
+    } // q
+    } // p
 
-    // exchange contribution to the Fock matrix is from {s1,s3,s2,s4} ints
-    engine.compute(shells[s1], shells[s3], shells[s2], shells[s4]);
-    const auto* buf_1324 = resultBuffer[0];
+    // exchange contribution to the Fock matrix is from {_P,_R,_Q,_S} ints
+    engine.compute(shells[_P], shells[_R], shells[_Q], shells[_S]);
+    const double* buf_1324 = resultBuffer[0];
 
     // Exchange part
-    for(size_t f1(s1Info.begin), f1324 = 0; f1 < s1Info.end; ++f1) {
-    for(size_t f3(s3Info.begin); f3 < s3Info.end; ++f3) {
-    for(size_t f2(s2Info.begin); f2 < s2Info.end; ++f2) {
-    for(size_t f4(s4Info.begin); f4 < s4Info.end; ++f4, ++f1324) {
-        G(f1, f2) -= D(f3, f4) * buf_1324[f1324];
-    }
-    }
-    }
-    }
+    for(size_t p(P.begin), f1324 = 0; p < P.end; ++p) {
+    for(size_t r(R.begin); r < R.end; ++r) {
+    for(size_t q(Q.begin); q < Q.end; ++q) {
+    for(size_t s(S.begin); s < S.end; ++s, ++f1324) {
+      G(p, q) -= D(r, s) * buf_1324[f1324];
+    } // s
+    } // q
+    } // r
+    } // p
 
-  }
-  }
-  }
-  }
+  } // _S
+  } // _R
+  } // _Q
+  } // _P
 
   return G;
 }
@@ -542,12 +544,12 @@ void HartreeFock::run() {
   Vpqrs.write(indices.size(), indices.data(), ints.getVpqrs());
   CTF::Tensor<double>* Vabij;
   CTF::Tensor<double>* NewVabij;
-  int vabijStart[] = {0, 0, (int)No, (int)No};
-  int vabijEnd[] = {(int)No, (int)No, (int)Np, (int)Np};
-  NewVabij = new CTF::Tensor<double>(
+  int vabijStart[] = {(int)No, (int)No, 0      , 0};
+  int vabijEnd[]   = {(int)Np, (int)Np, (int)No, (int)No};
+  Vabij = new CTF::Tensor<double>(
       Vpqrs.slice(vabijStart, vabijEnd));
-  Vabij = new CTF::Tensor<double>(4, vvoo, syms, *Cc4s::world, "blah");
-  (*Vabij)["abij"] = (*NewVabij)["ijab"];
+  //Vabij = new CTF::Tensor<double>(4, vvoo, syms, *Cc4s::world, "blah");
+  //(*Vabij)["abij"] = (*NewVabij)["ijab"];
 
   allocatedTensorArgument<double>("Eigenvectors", ctfCoefficients);
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
