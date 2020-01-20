@@ -70,9 +70,13 @@ getNuclearRepulsionEnergy(std::vector<libint2::Atom>& structure)
 }
 
 struct ShellInfo {
-  size_t size, begin, end;
-  inline ShellInfo(const libint2::BasisSet &shells, const size_t i):
-    size(shells[i].size()), begin(shells.shell2bf()[i]), end(size+begin) {}
+  size_t size, begin, end, l;
+  inline ShellInfo(const libint2::BasisSet &shells, const size_t i) {
+    size = shells[i].size();
+    begin = shells.shell2bf()[i];
+    end = size + begin;
+    l = shells[i].contr[0].l;
+  }
   inline size_t operator[](const size_t g) const { return g % size; }
 };
 
@@ -155,7 +159,7 @@ struct IntegralProvider {
     // store shell by shell calculation in this buffer
     const auto& vsrqp = engine.results();
 
-    for (size_t p(0); p < NpNpNpNp; ++p) V[p] = 0.0;
+    for (size_t p(0); p < NpNpNpNp; ++p) { V[p] = 0.0; }
 
     LOG(1, "Integrals") << "Initialized to zero" << std::endl;
 
