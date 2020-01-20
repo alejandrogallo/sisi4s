@@ -62,8 +62,16 @@ F ClusterSinglesDoublesAlgorithm::run() {
     getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS)
   );
 
-  F e(0);
-  for (int i(0); i < maxIterationsCount; ++i) {
+  F amplitudesConvergence(
+    getRealArgument("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE)
+  );
+  F energyConvergence(
+    getRealArgument("energyConvergence", DEFAULT_ENERGY_CONVERGENCE)
+  );
+
+  F e(0), previousE(0);
+  int i(0);
+  for (; i < maxIterationsCount; ++i) {
     LOG(0, getCapitalizedAbbreviation()) << "iteration: " << i+1 << std::endl;
     // call the getResiduum of the actual algorithm,
     // which will be specified by inheriting classes
@@ -75,12 +83,22 @@ F ClusterSinglesDoublesAlgorithm::run() {
     // get mixer's best guess for amplitudes
     amplitudes = mixer->get();
     e = getEnergy(amplitudes);
+    if (
+      std::abs((e-previousE)/e) < std::abs(energyConvergence) &&
+      std::abs(
+        amplitudesChange->dot(*amplitudesChange) / amplitudes->dot(*amplitudes)
+      ) < std::abs(amplitudesConvergence * amplitudesConvergence)
+    ) break;
+    previousE = e;
   }
 
   if (maxIterationsCount == 0) {
     LOG(0, getCapitalizedAbbreviation()) <<
       "computing energy from given amplitudes" << std::endl;
     e = getEnergy(amplitudes);
+  } else if (i == maxIterationsCount) {
+    LOG(0, getCapitalizedAbbreviation()) <<
+      "WARNING: energy or amplitudes convergence not reached." << std::endl;
   }
 
   storeAmplitudes(amplitudes, {"Singles", "Doubles"});
@@ -135,8 +153,10 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     energy[""] =  ( -0.5 ) * spins * (*Tabij)["abij"] * (*Vijab)["ijba"];
     energy[""] += ( -0.5 ) * spins * (*Tai)["ai"] * (*Tai)["bj"] * (*Vijab)["ijba"];
     F exce(energy.get_val());
-    LOG(1, getCapitalizedAbbreviation()) << "dir=" << dire << std::endl;
-    LOG(1, getCapitalizedAbbreviation()) << "exc=" << exce << std::endl;
+    LOG(1, getCapitalizedAbbreviation()) << std::setprecision(5) <<
+      "dir=" << dire << std::endl;
+    LOG(1, getCapitalizedAbbreviation()) << std::setprecision(5) <<
+      "exc=" << exce << std::endl;
     e = dire + exce;
   }
 
@@ -145,11 +165,13 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
     energy[""] = spins * (*Tai)["ai"] * (*fia)["ia"];
     F noncanonical(energy.get_val());
-    LOG(0, getCapitalizedAbbreviation()) << "noncanonical=" << noncanonical << std::endl;
+    LOG(0, getCapitalizedAbbreviation())
+      << "noncanonical=" << noncanonical << std::endl;
     e += noncanonical;
   }
 
-  LOG(0, getCapitalizedAbbreviation()) << "e=" << e << std::endl;
+  LOG(0, getCapitalizedAbbreviation()) << std::setprecision(5) <<
+    "e=" << e << std::endl;
 
   return e;
 }
