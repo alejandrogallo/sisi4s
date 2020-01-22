@@ -131,103 +131,6 @@ getOneBodyIntegrals(
   return result;
 }
 
-struct IntegralProvider {
-  IntegralProvider(
-    int No_,
-    int Nv_,
-    double *coefficients,
-    libint2::BasisSet& shells_):
-    No(No_), Nv(Nv_), C(coefficients), shells(shells_) {
-      compute();
-    }
-
-  void compute() {
-
-    const size_t Np(No+Nv);
-    const size_t NpNpNpNp(Np*Np*Np*Np);
-    LOG(1, "Integrals")
-      << "Allocating and computing Vpqrs ("
-      << sizeof(double) * NpNpNpNp / std::pow(2, 30)
-      << " GB)" << std::endl;
-    V = new double[NpNpNpNp];
-
-    libint2::Engine engine(
-      libint2::Operator::coulomb,
-      shells.max_nprim(),
-      shells.max_l(), 0);
-
-    // store shell by shell calculation in this buffer
-    const auto& vsrqp = engine.results();
-
-    for (size_t p(0); p < NpNpNpNp; ++p) { V[p] = 0.0; }
-
-    LOG(1, "Integrals") << "Initialized to zero" << std::endl;
-
-    // the outside loops will loop over the shells.
-    // This will create a block of Vpqrs, where pqrs are contracted
-    // gaussian indices belonging to their respective shells.
-    // Since we only want to calculate integrals transformed by the
-    // coefficients provided, we will contract them with the coefficients.
-    for (size_t _K(0); _K < shells.size(); ++_K) { // kappa
-    for (size_t _L(0); _L < shells.size(); ++_L) { // lambda
-    for (size_t _M(0); _M < shells.size(); ++_M) { // mu
-    for (size_t _N(0); _N < shells.size(); ++_N) { // nu
-      const ShellInfo K(shells, _K),
-                      L(shells, _L),
-                      M(shells, _M),
-                      N(shells, _N);
-
-      // compute integrals (K L , M N)
-      engine.compute(shells[_K], shells[_L], shells[_M], shells[_N]);
-
-      // loop over all C orbitals
-      for (size_t p(0), Isrqp(0); p < Np; ++p) {
-      for (size_t q(0); q < Np; ++q) {
-      for (size_t r(0); r < Np; ++r) {
-      for (size_t s(0); s < Np; ++s, ++Isrqp) {
-
-        for (size_t k(K.begin), Inmlk = 0; k < K.end; ++k) {
-        for (size_t l(L.begin); l < L.end; ++l) {
-        for (size_t m(M.begin); m < M.end; ++m) {
-        for (size_t n(N.begin); n < N.end; ++n, ++Inmlk) {
-
-          // <p q | r s> = (p r , q s)
-          //               (k l , m n)
-
-          V[Isrqp] +=
-            C[k + p*Np] *
-            C[l + r*Np] *
-            C[m + q*Np] *
-            C[n + s*Np] *
-            vsrqp[0][Inmlk];
-
-        } // s
-        } // r
-        } // q
-        } // p
-
-      } // s
-      } // r
-      } // q
-      } // p
-
-    } // N
-    } // M
-    } // L
-    } // K
-
-  }
-
-  double *getVpqrs() { return V; }
-  ~IntegralProvider() { delete[] V; }
-
-  private:
-  int No, Nv;
-  double *C;
-  libint2::BasisSet& shells;
-  double *V;
-};
-
 
 Eigen::MatrixXd
 getTwoBodyFock(const libint2::BasisSet& shells, const Eigen::MatrixXd& D) {
@@ -490,10 +393,8 @@ void HartreeFock::run() {
   }
 
   LOG(1, "HartreeFock") << "energy=" << ehf + enuc << std::endl;
-  IntegralProvider ints(No, Nv, &C(0), shells);
 
-
-  int syms[] = {NS, NS, NS, NS};
+  int syms[] = {NS, NS};
   // export stuff
   int pp[] = {(int)Np, (int)Np};
   auto ctfCoefficients(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "C"));
@@ -501,9 +402,6 @@ void HartreeFock::run() {
   indices.resize(Np*Np);
   std::iota(indices.begin(), indices.end(), 0);
   ctfCoefficients->write(indices.size(), indices.data(), &C(0));
-
-  //auto fockMatrix(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "F"));
-  //fockMatrix->write(indices.size(), indices.data(), &F(0));
 
   int o[] = {(int)No}, v[] = {(int)Nv};
   // epsilon for holes
@@ -517,29 +415,12 @@ void HartreeFock::run() {
   auto epsa(new CTF::Tensor<double>(1, v, syms, *Cc4s::world, "epsa"));
   epsa->write(indices.size(), indices.data(), &eps(0) + No);
 
-  int vvoo[] = {(int)Nv, (int)Nv, (int)No, (int)No};
-  int oovv[] = {(int)No, (int)No, (int)Nv, (int)Nv};
-  int pppp[] = {(int)Np, (int)Np, (int)Np, (int)Np};
-
   indices.resize(Np*Np*Np*Np);
   std::iota(indices.begin(), indices.end(), 0);
-
-  CTF::Tensor<double> Vpqrs(4, pppp, syms, *Cc4s::world, "Vpqrs");
-  Vpqrs.write(indices.size(), indices.data(), ints.getVpqrs());
-  CTF::Tensor<double>* Vabij;
-  CTF::Tensor<double>* NewVabij;
-  int vabijStart[] = {(int)No, (int)No, 0      , 0};
-  int vabijEnd[]   = {(int)Np, (int)Np, (int)No, (int)No};
-  Vabij = new CTF::Tensor<double>(
-      Vpqrs.slice(vabijStart, vabijEnd));
-  //Vabij = new CTF::Tensor<double>(4, vvoo, syms, *Cc4s::world, "blah");
-  //(*Vabij)["abij"] = (*NewVabij)["ijab"];
 
   allocatedTensorArgument<double>("OrbitalCoefficients", ctfCoefficients);
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
-  if (isArgumentGiven("PPHHCoulombIntegrals"))
-    allocatedTensorArgument<double>("PPHHCoulombIntegrals", Vabij);
 
   libint2::finalize();
 
