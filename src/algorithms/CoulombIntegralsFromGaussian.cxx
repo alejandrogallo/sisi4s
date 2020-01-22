@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 #include <libint2.hpp>
 #include <algorithms/CoulombIntegralsFromGaussian.hpp>
 #include <ctf.hpp>
@@ -9,6 +10,7 @@
 #include <Eigen/Eigenvalues>
 #include <ctf.hpp>
 #include <numeric>      // std::iota
+#include <map>      // std::iota
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromGaussian);
@@ -24,6 +26,8 @@ struct ShellInfo {
   inline size_t operator[](const size_t g) const { return g % size; }
 };
 
+enum Index { NO, NV, NP };
+typedef std::array<Index, 4> PQRSIndices;
 
 struct IntegralProvider {
   IntegralProvider(
@@ -33,20 +37,25 @@ struct IntegralProvider {
     libint2::BasisSet& shells_):
     No(No_), Nv(Nv_), Np(No_+Nv_), C(coefficients), shells(shells_) {}
 
-  enum Index { NO, NV, NP };
   struct Limit {
     size_t lower; size_t upper; size_t size;
     Limit(size_t l, size_t h): lower(l), upper(h), size(h - l){}
   };
   Limit indexToLimits(Index &i) {
-    if      (i == Index::NO) return Limit(0, No);
-    else if (i == Index::NV) return Limit(No, Nv);
-    else                     return Limit(0, Nv);
+    if      (i == Index::NO) return Limit(0 , No     );
+    else if (i == Index::NV) return Limit(No, No + Nv);
+    else                     return Limit(0 , No + Nv);
+  }
+  size_t indexToInt(Index i) {
+    if      (i == Index::NO) return No;
+    else if (i == Index::NV) return Nv;
+    else                     return No + Nv;
   }
 
   void compute_Vklmn() {
     // If already computed, return
     if (Vklmn) return;
+    libint2::initialize();
 
     const size_t NpNpNpNp(Np*Np*Np*Np);
     LOG(1, "Integrals")
@@ -92,8 +101,16 @@ struct IntegralProvider {
           // <p q | r s> = (p r , q s)
           //               (k l , m n)
 
-          // TODO: do it correctly
-          Vklmn[Inmlk] += vsrqp[0][Inmlk];
+          // TODO: do it easier
+          size_t bigI(
+            n +
+            m * Np +
+            l * Np*Np +
+            k * Np*Np*Np);
+
+          //LOG(1, "Integrals")  << Inmlk << " <- "<< bigI << std::endl;
+
+          Vklmn[bigI] += vsrqp[0][Inmlk];
 
         } // s
         } // r
@@ -104,6 +121,8 @@ struct IntegralProvider {
     } // M
     } // L
     } // K
+
+  libint2::finalize();
 
   }
 
@@ -120,9 +139,9 @@ struct IntegralProvider {
     std::vector<double> result(dimension, 0.0);
 
     // loop over all C orbitals
-    for (size_t p(qLim.lower), Isrqp(0); p < qLim.upper; ++p         ) {
-    for (size_t q(qLim.lower);           q < qLim.upper; ++q         ) {
+    for (size_t p(pLim.lower), Isrqp(0); p < pLim.upper; ++p         ) {
     for (size_t r(rLim.lower);           r < rLim.upper; ++r         ) {
+    for (size_t q(qLim.lower);           q < qLim.upper; ++q         ) {
     for (size_t s(sLim.lower);           s < sLim.upper; ++s, ++Isrqp) {
 
       for (size_t k(0), Inmlk = 0; k < Np; ++k         ) {
@@ -131,7 +150,7 @@ struct IntegralProvider {
       for (size_t n(0);            n < Np; ++n, ++Inmlk) {
 
         // <p q | r s> = (p r , q s)
-        //               (k l , m n)
+        //LOG(1, "Integrals:")  << Isrqp  << ": " << Inmlk << std::endl;
 
         result.data()[Isrqp] +=
           C[k + p*Np] *
@@ -140,10 +159,10 @@ struct IntegralProvider {
           C[n + s*Np] *
           Vklmn[Inmlk];
 
-      } // s
-      } // r
-      } // q
-      } // p
+      } // n
+      } // m
+      } // l
+      } // k
 
     } // s
     } // r
@@ -162,23 +181,82 @@ struct IntegralProvider {
 };
 
 
+CTF::Tensor<double>*
+vectorToTensor(const std::vector<double> v, const std::vector<int> lens) {
+  std::vector<int> syms(lens.size(), NS);
+  auto result(
+    new CTF::Tensor<double>(
+      lens.size(), lens.data(), syms.data(), *Cc4s::world, "T"));
+  std::vector<int64_t> indices(v.size());
+  std::iota(indices.begin(), indices.end(), 0);
+  result->write(v.size(), indices.data(), v.data());
+  return result;
+}
+
+
 void CoulombIntegralsFromGaussian::run() {
+  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
+  const std::string basisSet(getTextArgument("basisSet"));
   auto C(getTensorArgument("OrbitalCoefficients"));
-  int antisymmetrize(getIntegerArgument("antisymmetrize", 0));
-  isArgumentGiven("PHPHCoulombIntegrals");
-  isArgumentGiven("PPHHCoulombIntegrals");
-  isArgumentGiven("HHHHCoulombIntegrals");
-  isArgumentGiven("HHHPCoulombIntegrals");
-  isArgumentGiven("PPPPCoulombIntegrals");
-  isArgumentGiven("PPPHCoulombIntegrals");
-  isArgumentGiven("PHHHCoulombIntegrals");
-  isArgumentGiven("HHPPCoulombIntegrals");
-  isArgumentGiven("PHHPCoulombIntegrals");
-  isArgumentGiven("HPHHCoulombIntegrals");
-  isArgumentGiven("HPHPCoulombIntegrals");
-  isArgumentGiven("HPPPCoulombIntegrals");
-  isArgumentGiven("PPHPCoulombIntegrals");
-  isArgumentGiven("HPPHCoulombIntegrals");
-  isArgumentGiven("HHPHCoulombIntegrals");
-  isArgumentGiven("PHPPCoulombIntegrals");
+  int No(getIntegerArgument("No")), Nv, Np;
+  std::vector<double> orbitals;
+
+  std::ifstream structureFileStream(xyzStructureFile.c_str());
+  const auto atoms(libint2::read_dotxyz(structureFileStream));
+  structureFileStream.close();
+  libint2::BasisSet shells(basisSet, atoms);
+
+  Np = shells.nbf();
+  Nv = Np - No;
+
+  orbitals.resize(Np*Np);
+  {
+    std::vector<int64_t> indices(Np*Np);
+    std::iota(indices.begin(), indices.end(), 0);
+    C->read(orbitals.size(), indices.data(), orbitals.data());
+  }
+
+  IntegralProvider ints(No, Nv, orbitals.data(), shells);
+
+  std::map< std::string, std::array<Index, 4> > integralSizes({
+      { "HHHHCoulombIntegrals", PQRSIndices({NO, NO, NO, NO})},
+      { "HHHPCoulombIntegrals", PQRSIndices({NO, NO, NO, NV})},
+      { "HHPHCoulombIntegrals", PQRSIndices({NO, NO, NV, NO})},
+      { "HHPPCoulombIntegrals", PQRSIndices({NO, NO, NV, NV})},
+      { "HPHHCoulombIntegrals", PQRSIndices({NO, NV, NO, NO})},
+      { "HPHPCoulombIntegrals", PQRSIndices({NO, NV, NO, NV})},
+      { "HPPHCoulombIntegrals", PQRSIndices({NO, NV, NV, NO})},
+      { "HPPPCoulombIntegrals", PQRSIndices({NO, NV, NV, NV})},
+      { "PHHHCoulombIntegrals", PQRSIndices({NV, NO, NO, NO})},
+      { "PHHPCoulombIntegrals", PQRSIndices({NV, NO, NO, NV})},
+      { "PHPHCoulombIntegrals", PQRSIndices({NV, NO, NV, NO})},
+      { "PHPPCoulombIntegrals", PQRSIndices({NV, NO, NV, NV})},
+      { "PPHHCoulombIntegrals", PQRSIndices({NV, NV, NO, NO})},
+      { "PPHPCoulombIntegrals", PQRSIndices({NV, NV, NO, NV})},
+      { "PPPHCoulombIntegrals", PQRSIndices({NV, NV, NV, NO})},
+      { "PPPPCoulombIntegrals", PQRSIndices({NV, NV, NV, NV})},
+  });
+
+  LOG(1, "CoulombIntegralsFromGaussian")
+    << "structure: " << xyzStructureFile << std::endl;
+  LOG(1, "CoulombIntegralsFromGaussian") << "No: " << No << std::endl;
+  LOG(1, "CoulombIntegralsFromGaussian") << "Nv: " << Nv << std::endl;
+
+  for (const auto &integral : integralSizes) {
+    const auto& name(integral.first);
+    if (isArgumentGiven(name)) {
+      const auto& i(integral.second);
+
+      LOG(1, "CoulombIntegralsFromGaussian")
+        << "Computing " <<  name << std::endl;
+
+      std::vector<double> result(ints.compute(i[0], i[1], i[2], i[3]));
+      std::vector<int> lens(4);
+      for (unsigned int j(0) ; j < 4 ; j++) {
+        lens[j] = (int)ints.indexToInt(i[j]);
+      }
+      allocatedTensorArgument<double>(name, vectorToTensor(result, lens));
+    }
+  }
+
 }

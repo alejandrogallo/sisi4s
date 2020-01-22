@@ -535,11 +535,11 @@ void HartreeFock::run() {
   //Vabij = new CTF::Tensor<double>(4, vvoo, syms, *Cc4s::world, "blah");
   //(*Vabij)["abij"] = (*NewVabij)["ijab"];
 
-  allocatedTensorArgument<double>("Eigenvectors", ctfCoefficients);
+  allocatedTensorArgument<double>("OrbitalCoefficients", ctfCoefficients);
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<double>("PPHHCoulombIntegrals", Vabij);
-  //allocatedTensorArgument<double>("FockMatrix", fockMatrix);
+  if (isArgumentGiven("PPHHCoulombIntegrals"))
+    allocatedTensorArgument<double>("PPHHCoulombIntegrals", Vabij);
 
   libint2::finalize();
 
