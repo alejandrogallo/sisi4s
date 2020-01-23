@@ -9,8 +9,9 @@
 #include <iostream>
 #include <Eigen/Eigenvalues>
 #include <ctf.hpp>
-#include <numeric>      // std::iota
-#include <map>      // std::iota
+#include <numeric>
+#include <set>
+#include <map>
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromGaussian);
@@ -27,7 +28,33 @@ struct ShellInfo {
 };
 
 enum Index { NO, NV, NP };
-typedef std::array<Index, 4> PQRSIndices;
+
+template <typename A>
+A permuteIndices(const A& a, size_t i, size_t j) {
+  A b(a); b[i] = a[j]; b[j] = a[i]; return b;
+}
+
+struct IntegralInfo {
+  const std::string name;
+  const std::array<Index, 4> indices;
+  const std::string ids;
+  IntegralInfo(std::string n, std::array<Index, 4> i, std::string is):
+    name(n), indices(i), ids(is){}
+  std::vector<IntegralInfo> getAntisymmetrizers() const {
+    std::vector<IntegralInfo> result;
+    for (unsigned int i(0) ; i <= 2 ; i+=2) {
+      std::string newName;
+      std::array<Index, 4> newIndices;
+      std::string newIds;
+      newName = permuteIndices(name, i, i+1);
+      //if (newName == name) continue;
+      newIndices = permuteIndices(indices, i, i+1);
+      newIds = permuteIndices(ids, i, i+1);
+      result.push_back({newName, newIndices, newIds});
+    }
+    return result;
+  }
+};
 
 struct IntegralProvider {
   IntegralProvider(
@@ -199,6 +226,7 @@ void CoulombIntegralsFromGaussian::run() {
   const std::string basisSet(getTextArgument("basisSet"));
   auto C(getTensorArgument("OrbitalCoefficients"));
   int No(getIntegerArgument("No")), Nv, Np;
+  bool antisymmetrize(getIntegerArgument("antisymmetrize", 0) == 1);
   std::vector<double> orbitals;
 
   std::ifstream structureFileStream(xyzStructureFile.c_str());
@@ -216,25 +244,26 @@ void CoulombIntegralsFromGaussian::run() {
     C->read(orbitals.size(), indices.data(), orbitals.data());
   }
 
-  IntegralProvider ints(No, Nv, orbitals.data(), shells);
 
-  std::map< std::string, std::array<Index, 4> > integralSizes({
-      { "HHHHCoulombIntegrals", PQRSIndices({NO, NO, NO, NO})},
-      { "HHHPCoulombIntegrals", PQRSIndices({NO, NO, NO, NV})},
-      { "HHPHCoulombIntegrals", PQRSIndices({NO, NO, NV, NO})},
-      { "HHPPCoulombIntegrals", PQRSIndices({NO, NO, NV, NV})},
-      { "HPHHCoulombIntegrals", PQRSIndices({NO, NV, NO, NO})},
-      { "HPHPCoulombIntegrals", PQRSIndices({NO, NV, NO, NV})},
-      { "HPPHCoulombIntegrals", PQRSIndices({NO, NV, NV, NO})},
-      { "HPPPCoulombIntegrals", PQRSIndices({NO, NV, NV, NV})},
-      { "PHHHCoulombIntegrals", PQRSIndices({NV, NO, NO, NO})},
-      { "PHHPCoulombIntegrals", PQRSIndices({NV, NO, NO, NV})},
-      { "PHPHCoulombIntegrals", PQRSIndices({NV, NO, NV, NO})},
-      { "PHPPCoulombIntegrals", PQRSIndices({NV, NO, NV, NV})},
-      { "PPHHCoulombIntegrals", PQRSIndices({NV, NV, NO, NO})},
-      { "PPHPCoulombIntegrals", PQRSIndices({NV, NV, NO, NV})},
-      { "PPPHCoulombIntegrals", PQRSIndices({NV, NV, NV, NO})},
-      { "PPPPCoulombIntegrals", PQRSIndices({NV, NV, NV, NV})},
+  IntegralProvider engine(No, Nv, orbitals.data(), shells);
+
+  const std::vector<IntegralInfo> integralInfos({
+    {"HHHHCoulombIntegrals", {NO,NO,NO,NO}, "ijkl"},
+    {"HHHPCoulombIntegrals", {NO,NO,NO,NV}, "ijka"},
+    {"HHPHCoulombIntegrals", {NO,NO,NV,NO}, "ijak"},
+    {"HHPPCoulombIntegrals", {NO,NO,NV,NV}, "ijab"},
+    {"HPHHCoulombIntegrals", {NO,NV,NO,NO}, "iajk"},
+    {"HPHPCoulombIntegrals", {NO,NV,NO,NV}, "iajb"},
+    {"HPPHCoulombIntegrals", {NO,NV,NV,NO}, "iabj"},
+    {"HPPPCoulombIntegrals", {NO,NV,NV,NV}, "iabc"},
+    {"PHHHCoulombIntegrals", {NV,NO,NO,NO}, "aijk"},
+    {"PHHPCoulombIntegrals", {NV,NO,NO,NV}, "aijb"},
+    {"PHPHCoulombIntegrals", {NV,NO,NV,NO}, "aibj"},
+    {"PHPPCoulombIntegrals", {NV,NO,NV,NV}, "aibc"},
+    {"PPHHCoulombIntegrals", {NV,NV,NO,NO}, "abij"},
+    {"PPHPCoulombIntegrals", {NV,NV,NO,NV}, "abic"},
+    {"PPPHCoulombIntegrals", {NV,NV,NV,NO}, "abci"},
+    {"PPPPCoulombIntegrals", {NV,NV,NV,NV}, "abcd"},
   });
 
   LOG(1, "CoulombIntegralsFromGaussian")
@@ -242,20 +271,45 @@ void CoulombIntegralsFromGaussian::run() {
   LOG(1, "CoulombIntegralsFromGaussian") << "No: " << No << std::endl;
   LOG(1, "CoulombIntegralsFromGaussian") << "Nv: " << Nv << std::endl;
 
-  for (const auto &integral : integralSizes) {
-    const auto& name(integral.first);
-    if (isArgumentGiven(name)) {
-      const auto& i(integral.second);
+  for (const auto &integral : integralInfos) {
+    if ( ! isArgumentGiven(integral.name) ) continue;
+    const auto& i(integral.indices);
 
-      LOG(1, "CoulombIntegralsFromGaussian")
-        << "Computing " <<  name << std::endl;
+    LOG(1, "CoulombIntegralsFromGaussian")
+      << "Computing " <<  integral.name << std::endl;
 
-      std::vector<double> result(ints.compute(i[0], i[1], i[2], i[3]));
-      std::vector<int> lens(4);
-      for (unsigned int j(0) ; j < 4 ; j++) {
-        lens[j] = (int)ints.indexToInt(i[j]);
+    std::vector<double> result(engine.compute(i[0], i[1], i[2], i[3]));
+    std::vector<int> lens(4);
+    for (unsigned int j(0) ; j < 4 ; j++) {
+      lens[j] = (int)engine.indexToInt(i[j]);
+    }
+    allocatedTensorArgument<double>(
+      integral.name, vectorToTensor(result, lens));
+  }
+
+  if (antisymmetrize) {
+    std::set<std::string> antiSet;
+    for (const auto &integral : integralInfos) {
+      if ( ! isArgumentGiven(integral.name) ) continue;
+      for (const auto& antigral: integral.getAntisymmetrizers()) {
+        if (isArgumentGiven(antigral.name) && !antiSet.count(antigral.name)) {
+          // we can use antigral since it has been computed and it has not
+          // been initialized
+          LOG(1, "CoulombIntegralsFromGaussian")
+            << "Anti symmetrizing " << integral.name
+            << " with " << antigral.name << std::endl;
+          LOG(1, "CoulombIntegralsFromGaussian")
+            << integral.name << "[" << integral.ids << "] -= "
+            << antigral.name << "[" << antigral.ids << "]"
+            << std::endl;
+          auto inteCtf(getTensorArgument<double>(integral.name));
+          auto antiCtf(getTensorArgument<double>(antigral.name));
+          (*inteCtf)[integral.ids.data()] -= (*antiCtf)[antigral.ids.data()];
+          antiSet.insert(integral.name);
+          break;
+        }
+
       }
-      allocatedTensorArgument<double>(name, vectorToTensor(result, lens));
     }
   }
 
