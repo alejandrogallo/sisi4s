@@ -198,7 +198,6 @@ void CoulombIntegralsFromGaussian::run() {
   const std::string basisSet(getTextArgument("basisSet"));
   auto C(getTensorArgument("OrbitalCoefficients"));
   int No(getIntegerArgument("No")), Nv, Np;
-  bool antisymmetrize(getIntegerArgument("antisymmetrize", 0) == 1);
   std::vector<double> orbitals;
 
   std::ifstream structureFileStream(xyzStructureFile.c_str());
@@ -257,32 +256,6 @@ void CoulombIntegralsFromGaussian::run() {
     }
     allocatedTensorArgument<double>(
       integral.name, vectorToTensor(result, lens));
-  }
-
-  if (antisymmetrize) {
-    std::set<std::string> antiSet;
-    for (const auto &integral : integralInfos) {
-      if ( ! isArgumentGiven(integral.name) ) continue;
-      for (const auto& antigral: integral.getAntisymmetrizers()) {
-        if (isArgumentGiven(antigral.name) && !antiSet.count(antigral.name)) {
-          // we can use antigral since it has been computed and it has not
-          // been initialized
-          LOG(1, "CoulombIntegralsFromGaussian")
-            << "Anti symmetrizing " << integral.name
-            << " with " << antigral.name << std::endl;
-          LOG(1, "CoulombIntegralsFromGaussian")
-            << integral.name << "[" << integral.ids << "] -= "
-            << antigral.name << "[" << antigral.ids << "]"
-            << std::endl;
-          auto inteCtf(getTensorArgument<double>(integral.name));
-          auto antiCtf(getTensorArgument<double>(antigral.name));
-          (*inteCtf)[integral.ids.data()] -= (*antiCtf)[antigral.ids.data()];
-          antiSet.insert(integral.name);
-          break;
-        }
-
-      }
-    }
   }
 
 }

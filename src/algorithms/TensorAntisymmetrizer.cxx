@@ -42,10 +42,10 @@ void TensorAntisymmetrizer::run() {
       if (isArgumentGiven(antigral.name) && !antiSet.count(antigral.name)) {
         // we can use antigral since it has been computed and it has not
         // been initialized
-        LOG(1, "CoulombIntegralsFromGaussian")
+        LOG(1, "TensorAntisymmetrizer")
           << "Anti symmetrizing " << integral.name
           << " with " << antigral.name << std::endl;
-        LOG(1, "CoulombIntegralsFromGaussian")
+        LOG(1, "TensorAntisymmetrizer")
           << integral.name << "[" << integral.ids << "] -= "
           << antigral.name << "[" << antigral.ids << "]"
           << std::endl;
@@ -60,7 +60,7 @@ void TensorAntisymmetrizer::run() {
     // if integral.name is not antisymmetrized, then something went
     // wrong, we don't have enough integrals to do this, panic!
     if (!antiSet.count(integral.name)) {
-      LOG(1, "Integrals")
+      LOG(1, "TensorAntisymmetrizer")
         << "error: " 
         << integral.name << " could not be antisymmetrized"
         << std::endl;

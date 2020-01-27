@@ -1,7 +1,55 @@
 FcidumpReader [
-  (file "FCIDUMP")
-  ph
-  hh
-  hhhh
-] [
+  %(file "FCIDUMP")
+  (file "FCIDUMP_faruk")
+  %ph
+  %hp
+  %hh
+  pp
+  %hhhh
+  %hhhp
+  %hhph
+  %hhpp
+  %hphh
+  hphp
+  hpph
+  %hppp
+  %phhh
+  %phhp
+  %phph
+  %phpp
+  %pphh
+  %pphp
+  %ppph
+  %pppp
+  ] [
+  (hh FockIJ)
+  %(ph FockAI)
+  (pp FockAB)
+  %(hhhh HHHHCoulombIntegrals)
+  %(hhhp HHHPCoulombIntegrals)
+  %(hhph HHPHCoulombIntegrals)
+  %(hhpp HHPPCoulombIntegrals)
+  %(hphh HPHHCoulombIntegrals)
+  (hphp HPHPCoulombIntegrals)
+  (hpph HPPHCoulombIntegrals)
+  %(hppp HPPPCoulombIntegrals)
+  %(phhh PHHHCoulombIntegrals)
+  %(phhp PHHPCoulombIntegrals)
+  %(phph PHPHCoulombIntegrals)
+  %(phpp PHPPCoulombIntegrals)
+  %(pphh PPHHCoulombIntegrals)
+  %(pphp PPHPCoulombIntegrals)
+  %(ppph PPPHCoulombIntegrals)
+  %(pppp PPPPCoulombIntegrals)
 ].
+
+TensorAntisymmetrizer [
+  HPPHCoulombIntegrals
+  HPHPCoulombIntegrals
+] [
+  HPPHCoulombIntegrals
+].
+
+TensorWriter[(Data FockIJ)] [].
+TensorWriter[(Data FockAB)] [].
+%TensorWriter[(Data FockAI)] [].
