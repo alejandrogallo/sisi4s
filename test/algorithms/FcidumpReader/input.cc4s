@@ -1,55 +1,113 @@
 FcidumpReader [
   %(file "FCIDUMP")
-  (file "FCIDUMP_faruk")
-  %ph
-  %hp
-  %hh
+  %(file "FCIDUMP_faruk")
+  %(file "FCIDUMP_faruk_permuted")
+  (file "FCIDUMP.out")
+  % override nelec
+  %(nelec 4)
+
+  ph
+  hp
+  hh
   pp
-  %hhhh
-  %hhhp
-  %hhph
-  %hhpp
-  %hphh
+  hhhh
+  hhhp
+  hhph
+  hhpp
+  hphh
   hphp
   hpph
-  %hppp
-  %phhh
-  %phhp
-  %phph
-  %phpp
-  %pphh
-  %pphp
-  %ppph
-  %pppp
+  hppp
+  phhh
+  phhp
+  phph
+  phpp
+  pphh
+  pphp
+  ppph
+  pppp
+
   ] [
+
   (hh FockIJ)
-  %(ph FockAI)
+  (ph FockAI)
+  (hp FockIA)
   (pp FockAB)
-  %(hhhh HHHHCoulombIntegrals)
-  %(hhhp HHHPCoulombIntegrals)
-  %(hhph HHPHCoulombIntegrals)
-  %(hhpp HHPPCoulombIntegrals)
-  %(hphh HPHHCoulombIntegrals)
+  (hhhh HHHHCoulombIntegrals)
+  (hhhp HHHPCoulombIntegrals)
+  (hhph HHPHCoulombIntegrals)
+  (hhpp HHPPCoulombIntegrals)
+  (hphh HPHHCoulombIntegrals)
   (hphp HPHPCoulombIntegrals)
   (hpph HPPHCoulombIntegrals)
-  %(hppp HPPPCoulombIntegrals)
-  %(phhh PHHHCoulombIntegrals)
-  %(phhp PHHPCoulombIntegrals)
-  %(phph PHPHCoulombIntegrals)
-  %(phpp PHPPCoulombIntegrals)
-  %(pphh PPHHCoulombIntegrals)
-  %(pphp PPHPCoulombIntegrals)
-  %(ppph PPPHCoulombIntegrals)
-  %(pppp PPPPCoulombIntegrals)
+  (hppp HPPPCoulombIntegrals)
+  (phhh PHHHCoulombIntegrals)
+  (phhp PHHPCoulombIntegrals)
+  (phph PHPHCoulombIntegrals)
+  (phpp PHPPCoulombIntegrals)
+  (pphh PPHHCoulombIntegrals)
+  (pphp PPHPCoulombIntegrals)
+  (ppph PPPHCoulombIntegrals)
+  (pppp PPPPCoulombIntegrals)
+
 ].
 
-TensorAntisymmetrizer [
-  HPPHCoulombIntegrals
-  HPHPCoulombIntegrals
-] [
-  HPPHCoulombIntegrals
-].
+%TensorAntisymmetrizer [
+%  HPPHCoulombIntegrals
+%  HPHPCoulombIntegrals
+%] [
+%  HPPHCoulombIntegrals
+%].
 
 TensorWriter[(Data FockIJ)] [].
 TensorWriter[(Data FockAB)] [].
-%TensorWriter[(Data FockAI)] [].
+TensorWriter[(Data FockAI)] [].
+TensorWriter[(Data FockIA)] [].
+
+TensorWriter[(Data HHHHCoulombIntegrals)] [].
+TensorWriter[(Data HHHPCoulombIntegrals)] [].
+TensorWriter[(Data HHPHCoulombIntegrals)] [].
+TensorWriter[(Data HHPPCoulombIntegrals)] [].
+TensorWriter[(Data HPHHCoulombIntegrals)] [].
+TensorWriter[(Data HPHPCoulombIntegrals)] [].
+TensorWriter[(Data HPPHCoulombIntegrals)] [].
+TensorWriter[(Data HPPPCoulombIntegrals)] [].
+TensorWriter[(Data PHHHCoulombIntegrals)] [].
+TensorWriter[(Data PHHPCoulombIntegrals)] [].
+TensorWriter[(Data PHPHCoulombIntegrals)] [].
+TensorWriter[(Data PHPPCoulombIntegrals)] [].
+TensorWriter[(Data PPHHCoulombIntegrals)] [].
+TensorWriter[(Data PPHPCoulombIntegrals)] [].
+TensorWriter[(Data PPPHCoulombIntegrals)] [].
+TensorWriter[(Data PPPPCoulombIntegrals)] [].
+
+TensorReader[(file "ParticleEigenEnergies.dat")][(Data ParticleEigenEnergies)].
+TensorReader[(file "HoleEigenEnergies.dat")][(Data HoleEigenEnergies)].
+
+CcsdEnergyFromCoulombIntegralsReference [
+
+ParticleEigenEnergies
+HoleEigenEnergies
+
+(maxIterations 100)
+
+HHHHCoulombIntegrals
+HHHPCoulombIntegrals
+HHPHCoulombIntegrals
+HHPPCoulombIntegrals
+HPHHCoulombIntegrals
+HPHPCoulombIntegrals
+HPPHCoulombIntegrals
+HPPPCoulombIntegrals
+PHHHCoulombIntegrals
+PHHPCoulombIntegrals
+PHPHCoulombIntegrals
+PHPPCoulombIntegrals
+PPHHCoulombIntegrals
+PPHPCoulombIntegrals
+PPPHCoulombIntegrals
+PPPPCoulombIntegrals
+
+] [
+  CcsdEnergy
+].
