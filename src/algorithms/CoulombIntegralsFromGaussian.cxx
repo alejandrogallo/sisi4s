@@ -16,17 +16,22 @@
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromGaussian);
 
+// struct for storing information about the shell ends in the for loops
+// calculating the integrals
 struct ShellInfo {
+  // size of the shell, global begin and global end
+  // l should be the angular momentum
   size_t size, begin, end, l;
+  // constructor from a BasisSet and a shell index i
   inline ShellInfo(const libint2::BasisSet &shells, const size_t i) {
     size = shells[i].size();
     begin = shells.shell2bf()[i];
     end = size + begin;
     l = shells[i].contr[0].l;
   }
-  inline size_t operator[](const size_t g) const { return g % size; }
 };
 
+// general enum for calculating different parts of the integrals
 enum Index { NO, NV, NP };
 
 template <typename A>
@@ -34,6 +39,9 @@ A permuteIndices(const A& a, size_t i, size_t j) {
   A b(a); b[i] = a[j]; b[j] = a[i]; return b;
 }
 
+// struct used to store information about the names, indices ranges
+// and string indices for ctf. It computes also IntegralInfos for
+// antisymmetry options
 struct IntegralInfo {
   const std::string name;
   const std::array<Index, 4> indices;
@@ -42,14 +50,10 @@ struct IntegralInfo {
     name(n), indices(i), ids(is){}
   std::vector<IntegralInfo> getAntisymmetrizers() const {
     std::vector<IntegralInfo> result;
-    for (unsigned int i(0) ; i <= 2 ; i+=2) {
-      std::string newName;
-      std::array<Index, 4> newIndices;
-      std::string newIds;
-      newName = permuteIndices(name, i, i+1);
-      //if (newName == name) continue;
-      newIndices = permuteIndices(indices, i, i+1);
-      newIds = permuteIndices(ids, i, i+1);
+    for (auto i: std::vector<int>({0,2})) {
+      std::string newName(permuteIndices(name, i, i+1));
+      std::array<Index, 4> newIndices(permuteIndices(indices, i, i+1));
+      std::string newIds(permuteIndices(ids, i, i+1));
       result.push_back({newName, newIndices, newIds});
     }
     return result;
@@ -126,23 +130,19 @@ struct IntegralProvider {
         for (size_t n(N.begin); n < N.end; ++n, ++Inmlk) {
 
           // <p q | r s> = (p r , q s)
-          //               (k l , m n)
 
-          // TODO: do it easier
           size_t bigI(
             n +
             m * Np +
             l * Np*Np +
             k * Np*Np*Np);
 
-          //LOG(1, "Integrals")  << Inmlk << " <- "<< bigI << std::endl;
-
           Vklmn[bigI] += vsrqp[0][Inmlk];
 
-        } // s
-        } // r
-        } // q
-        } // p
+        } // n
+        } // m
+        } // l
+        } // k
 
     } // N
     } // M
