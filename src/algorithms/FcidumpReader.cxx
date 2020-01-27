@@ -107,7 +107,7 @@ struct IntegralParser {
       const char _HorP(name[i-2]);
       // if the index is not what we're expecting then return false
       if ((k <= No && _HorP == 'p') || (k > No && _HorP == 'h')) return false;
-      gIndices[i-2] = _HorP == 'p' ? k - spin_uhf*No : k - 1;
+      gIndices[i-2] = _HorP == 'p' ? k - No - 1 : k - 1;
     }
     LOG(1, "FcidumpReader") << name << ": " << line << std::endl;
 
@@ -150,6 +150,8 @@ void FcidumpReader::run() {
   if (nelec != -1) header.nelec = nelec;
   const int No((header.uhf == 1 ? 1 : 0.5) * header.nelec);
   const int Nv((header.uhf == 1 ? 2 : 1) * header.norb - No);
+
+  if (header.uhf) { throw new EXCEPTION("UHF not implemented"); }
 
   LOG(0, "FcidumpReader") << "Fcidump = " << filePath << std::endl;
   LOG(0, "FcidumpReader") << "NELEC   = " << header.nelec << std::endl;
