@@ -144,7 +144,10 @@ struct IntegralParser {
 
 void FcidumpReader::run() {
   const auto filePath(getTextArgument("file", "FCIDUMP"));
-  const FcidumpReader::FcidumpHeader header(parseHeader(filePath));
+  // override the header of the fcidump
+  const int nelec(getIntegerArgument("nelec", -1));
+  FcidumpReader::FcidumpHeader header(parseHeader(filePath));
+  if (nelec != -1) header.nelec = nelec;
   const int No((header.uhf == 1 ? 1 : 0.5) * header.nelec);
   const int Nv((header.uhf == 1 ? 2 : 1) * header.norb - No);
 
