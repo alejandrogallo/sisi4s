@@ -47,9 +47,11 @@ FcidumpReader::parseHeader(const std::string &filePath) {
   return header;
 }
 
+
 struct IntegralParser {
   static const size_t index_columns{4};
   std::string name;
+  std::string chemistName;
   std::regex regex;
   std::vector<double> values;
   std::vector<int64_t> indices;
@@ -60,9 +62,14 @@ struct IntegralParser {
   size_t dimension;
   IntegralParser(std::string name_, const FcidumpReader::FcidumpHeader &header)
       :name(name_) {
+
     if (!std::regex_match(name, std::regex{"^[hp]*$"})) {
       throw new EXCEPTION("Name should be a combination of [hp] or empty");
     }
+
+    // create the chemistName of this integral
+    chemistName = (name.size() == 4) ?  permuteIndices(name, 1, 2) : name;
+
     uhf = header.uhf;
     No = (uhf == 1 ? 1 : 0.5) * header.nelec;
     Nv = (uhf == 1 ? 2 : 1) * header.norb - No;
@@ -70,16 +77,16 @@ struct IntegralParser {
     syms.insert(syms.begin(), name.size(), NS);
     // build lens
     std::for_each(name.begin(), name.end(),
-      [&](const char& a){ lens.push_back(a == 'h' ? No : Nv); });
+                  [&](const char& a){ lens.push_back(a == 'h' ? No : Nv); });
     // build dimensio
-    dimension = std::accumulate(
-      lens.begin(), lens.end(), 1, std::multiplies<int>());
+    dimension = std::accumulate(lens.begin(), lens.end(), 1,
+                                std::multiplies<int>());
     // start to build regex for the numbers
     // it starts with the numerical value of the integral
     std::string regex_str{"^\\s*(\\S+)"};
     // and then so many indices as lens we have
-    std::for_each(
-      lens.begin(), lens.end(), [&](int){ regex_str += "\\s+([1-9][0-9]*)"; });
+    std::for_each(lens.begin(), lens.end(),
+                  [&](int){ regex_str += "\\s+([1-9][0-9]*)"; });
     // if lens is less that the number of columns available, the rest should
     // be zeros
     for (size_t i(0); i<(index_columns - lens.size()); ++i) {
@@ -104,13 +111,15 @@ struct IntegralParser {
     for(unsigned int i(2); i<matches.size(); i++) {
       int k = std::atoi(std::string{matches[i]}.c_str());
       // what is the corresponding index in our integrals, H or P?
-      const char _HorP(name[i-2]);
+      const char _HorP(chemistName[i-2]);
       // if the index is not what we're expecting then return false
       if ((k <= No && _HorP == 'p') || (k > No && _HorP == 'h')) return false;
       gIndices[i-2] = _HorP == 'p' ? k - No - 1 : k - 1;
     }
-    LOG(1, "FcidumpReader") << name << ": " << line << std::endl;
+    LOG(1, "FcidumpReader") << name << ":(" << chemistName << "):"
+                            << line << std::endl;
 
+    // this will be in physics notation
     {// build up gIndexLens (1, N_1, N_1 * N_2, ..., N_1 *...* N_n-1)
       // copy lens into tempLens
       std::vector<int> tempLens(lens);
@@ -119,11 +128,14 @@ struct IntegralParser {
       // insert at the beginning a 1
       tempLens.insert(tempLens.begin(), 1);
       // create the list with the partial products of the elements
-      // in tempLens, and store them in gIngexLens.begin()
-      std::partial_sum(
-        tempLens.begin(), tempLens.end(),
-        gIndexLens.begin(), std::multiplies<int>());
+      // in tempLens, and store them in gIndexLens.begin()
+      std::partial_sum(tempLens.begin(), tempLens.end(),
+                       gIndexLens.begin(), std::multiplies<int>());
     }
+    // gIndices was read in chemist notation since it comes from a chemistName
+    // so we have to change it back to physics notation to store the index
+    // correctly
+    if (gIndices.size() == 4) gIndices = permuteIndices(gIndices, 1, 2);
     values.push_back(std::atof(std::string{matches[1]}.c_str()));
     indices.push_back(
       std::inner_product(
