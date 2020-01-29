@@ -116,8 +116,8 @@ struct IntegralParser {
       if ((k <= No && _HorP == 'p') || (k > No && _HorP == 'h')) return false;
       gIndices[i-2] = _HorP == 'p' ? k - No - 1 : k - 1;
     }
-    LOG(1, "FcidumpReader") << name << ":(" << chemistName << "):"
-                            << line << std::endl;
+    //LOG(1, "FcidumpReader") << name << ":(" << chemistName << "):"
+                            //<< line << std::endl;
 
     // this will be in physics notation
     {// build up gIndexLens (1, N_1, N_1 * N_2, ..., N_1 *...* N_n-1)
@@ -231,5 +231,64 @@ void FcidumpReader::run() {
       allocatedTensorArgument<double>(name, parser.allocateTensor());
     }
   }
+
+  std::vector<int> vv({Nv, Nv}), oo({No, No}), ov({No, Nv}), vo({Nv, No});
+  std::vector<int> syms({NS, NS});
+
+  // ij: HH HHHH
+  auto fij(new CTF::Tensor<double>(2, oo.data(), syms.data(), *Cc4s::world));
+  auto hh(getTensorArgument<double>("hh"));
+  auto hhhh(getTensorArgument<double>("hhhh"));
+  (*fij)["ij"]  = (*hh)["ij"];
+  (*fij)["ij"] += (+2.0)*(*hhhh)["ikjk"];
+  (*fij)["ij"] += (-1.0)*(*hhhh)["ikkj"];
+  allocatedTensorArgument<double>("HHFockMatrix", fij);
+
+  // ab: PP PHPH PHHP
+  auto fab(new CTF::Tensor<double>(2, vv.data(), syms.data(), *Cc4s::world));
+  auto pp(getTensorArgument<double>("pp"));
+  auto phph(getTensorArgument<double>("phph"));
+  auto hphp(getTensorArgument<double>("hphp"));
+  auto phhp(getTensorArgument<double>("phhp"));
+  auto hhpp(getTensorArgument<double>("hhpp"));
+  (*fab)["ab"] = (*pp)["ab"];
+  (*fab)["ab"] += (+2.0)*(*phph)["akbk"];
+  //(*fab)["ab"] += (+2.0)*(*hphp)["kakb"];
+  //(*fab)["ab"] += (+2.0)*(*hhpp)["kkab"];
+  (*fab)["ab"] += (-1.0)*(*phhp)["akkb"];
+  allocatedTensorArgument<double>("PPFockMatrix", fab);
+
+  // ai: PH PHHH
+  auto fai(new CTF::Tensor<double>(2, vo.data(), syms.data(), *Cc4s::world));
+  auto ph(getTensorArgument<double>("ph"));
+  auto phhh(getTensorArgument<double>("phhh"));
+  (*fai)["ai"] = (*ph)["ai"];
+  (*fai)["ai"] += (+2.0)*(*phhh)["akik"];
+  (*fai)["ai"] += (-1.0)*(*phhh)["akki"];
+  allocatedTensorArgument<double>("PHFockMatrix", fai);
+
+  // ia: HP HHPH HHHP
+  auto fia(new CTF::Tensor<double>(2, ov.data(), syms.data(), *Cc4s::world));
+  (*fai)["ai"] = (*fia)["ia"];
+  allocatedTensorArgument<double>("HPFockMatrix", fia);
+
+  auto epsi(new CTF::Tensor<double>(1, oo.data(), syms.data(), *Cc4s::world));
+  (*epsi)["i"] = (*fij)["ii"];
+  allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
+
+  auto epsa(new CTF::Tensor<double>(1, vv.data(), syms.data(), *Cc4s::world));
+  (*epsa)["a"] = (*fab)["aa"];
+  allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
+
+  //phph->print();
+  //phhp->print();
+
+  CTF::Scalar<double> energy;
+  energy[""]  = (+2.0) * (*hh)["ii"];
+  energy[""] += (+2.0) * (*hhhh)["ikik"];
+  energy[""] += (-1.0) * (*hhhh)["ikki"];
+  const double dEnergy(energy.get_val());
+
+  LOG(0, "FcidumpReader") << "hf energy: " << dEnergy << std::endl;
 
 }
