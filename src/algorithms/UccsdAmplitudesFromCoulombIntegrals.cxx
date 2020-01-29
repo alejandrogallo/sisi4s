@@ -57,11 +57,43 @@ template <typename F>
 PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   const int iterationStep, const PTR(const FockVector<F>) &amplitudes
 ) {
-  CTF::Tensor<double> *epsi(
-    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies"));
+  CTF::Tensor<F> *Fab, *Fij, *Fia;
 
-  CTF::Tensor<double> *epsa(
-    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies"));
+  if (
+    isArgumentGiven("HPFockMatrix") &&
+    isArgumentGiven("HHFockMatrix") &&
+    isArgumentGiven("PPFockMatrix")
+  ) {
+    if (iterationStep == 0){
+      LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
+    }
+    Fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
+    Fab = getTensorArgument<F, CTF::Tensor<F> >("PPFockMatrix");
+    Fij = getTensorArgument<F, CTF::Tensor<F> >("HHFockMatrix");
+  } else {
+    auto epsi = getTensorArgument<double,
+                             CTF::Tensor<double> >("HoleEigenEnergies");
+    auto epsa = getTensorArgument<double,
+                             CTF::Tensor<double> >("ParticleEigenEnergies");
+    Fia = nullptr;
+    const int Nv(epsa->lens[0]), No(epsi->lens[0]);
+    const int vv[] = {Nv, Nv};
+    const int oo[] = {No, No};
+    const int syms[] = {NS, NS};
+    Fab = new CTF::Tensor<F>(2, vv, syms, *Cc4s::world, "Fab");
+    Fij = new CTF::Tensor<F>(2, oo, syms, *Cc4s::world, "Fij");
+    CTF::Transform<double, F>(
+      std::function<void(double, F &)>([](double eps, F &f) { f = eps; })
+    ) (
+      (*epsi)["i"], (*Fij)["ii"]
+    );
+    CTF::Transform<double, F>(
+      std::function<void(double, F &)>([](double eps, F &f) { f = eps; })
+    ) (
+      (*epsa)["a"], (*Fab)["aa"]
+    );
+  }
+
 
   // Get couloumb integrals
   auto Vijkl(getTensorArgument<F, CTF::Tensor<F> >("HHHHCoulombIntegrals"));
@@ -79,39 +111,6 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   auto Vabci(getTensorArgument<F, CTF::Tensor<F> >("PPPHCoulombIntegrals"));
   auto Vaibj(getTensorArgument<F, CTF::Tensor<F> >("PHPHCoulombIntegrals"));
   auto Vaijb(getTensorArgument<F, CTF::Tensor<F> >("PHHPCoulombIntegrals"));
-
-  int Nv(epsa->lens[0]), No(epsi->lens[0]);
-  int vv[] = {Nv, Nv};
-  int oo[] = {No, No};
-  int syms[] = {NS, NS};
-  CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms, *Cc4s::world, "Fab"));
-  CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms, *Cc4s::world, "Fij"));
-  CTF::Tensor<F> *Fia;
-
-  if (
-    isArgumentGiven("HPFockMatrix") &&
-    isArgumentGiven("HHFockMatrix") &&
-    isArgumentGiven("PPFockMatrix")
-  ) {
-    if (iterationStep == 0){
-      LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
-    }
-    Fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
-    Fab = getTensorArgument<F, CTF::Tensor<F> >("PPFockMatrix");
-    Fij = getTensorArgument<F, CTF::Tensor<F> >("HHFockMatrix");
-  } else {
-    Fia = nullptr;
-    CTF::Transform<double, F>(
-      std::function<void(double, F &)>([](double eps, F &f) { f = eps; })
-    ) (
-      (*epsi)["i"], (*Fij)["ii"]
-    );
-    CTF::Transform<double, F>(
-      std::function<void(double, F &)>([](double eps, F &f) { f = eps; })
-    ) (
-      (*epsa)["a"], (*Fab)["aa"]
-    );
-  }
 
   // Create T and R and intermediates
   // Read the amplitudes Tai and Tabij
