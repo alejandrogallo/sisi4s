@@ -26,6 +26,14 @@ A hSym(const A& a) { return permuteIndices(permuteIndices(a, 0, 2), 1, 3); }
 // r  s
 template <typename A>
 A vlSym(const A& a) { return permuteIndices(a, 0, 2); }
+// p|q
+// r s
+template <typename A>
+A upTr(const A& a) { return permuteIndices(a, 0, 1); }
+// p q
+// r|s
+template <typename A>
+A downTr(const A& a) { return permuteIndices(a, 2, 3); }
 
 // struct used to store information about the names, indices ranges
 // and string indices for ctf. It computes also IntegralInfos for
@@ -39,25 +47,25 @@ struct IntegralInfo {
 
   std::vector<IntegralInfo> getAntisymmetrizers() const {
     std::vector<IntegralInfo> result;
-    std::vector<IntegralInfo> equivalents;
+    std::vector<IntegralInfo> targets;
     std::set<std::string> names;
-    equivalents.push_back({vSym(name), vSym(indices), vSym(ids)});
-    equivalents.push_back({hSym(name), hSym(indices), hSym(ids)});
-    equivalents.push_back({vlSym(name), vlSym(indices), vlSym(ids)});
-    for (auto& eq: equivalents) {
-      for (auto i: std::vector<int>({0,2})) {
-        std::string newName(permuteIndices(eq.name, i, i+1));
-        if (names.count(newName) >= 1) continue;
-        names.insert(newName);
-        std::array<Index, 4> newIndices(permuteIndices(eq.indices, i, i+1));
-        std::string newIds(permuteIndices(eq.ids, i, i+1));
-        result.push_back({newName, newIndices, newIds});
+    // build up targets
+    targets.push_back({upTr(name), upTr(indices), upTr(ids)});
+    targets.push_back({downTr(name), downTr(indices), downTr(ids)});
+    for (auto& t: targets) {
+      std::vector<IntegralInfo> equivalents;
+      // set up the equivalent tensors for the current target
+      equivalents.push_back({vSym(t.name),  vSym(t.indices),  vSym(t.ids)});
+      equivalents.push_back({hSym(t.name),  hSym(t.indices),  hSym(t.ids)});
+      equivalents.push_back({vlSym(t.name), vlSym(t.indices), vlSym(t.ids)});
+      for (auto& eq: equivalents) {
+        if (names.count(eq.name) >= 1) continue;
+        names.insert(eq.name);
+        result.push_back({eq.name, eq.indices, eq.ids});
       }
     }
-    // TODO: sort and unique result
     return result;
   }
-  private:
 
 };
 
