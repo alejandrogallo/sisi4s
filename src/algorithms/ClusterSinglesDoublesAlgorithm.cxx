@@ -138,10 +138,10 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   // singles amplitudes are optional
   auto Tai( amplitudes->get(0) );
   auto Tabij( amplitudes->get(1) );
-  F e;
+  F e(0.0);
   std::streamsize ss = std::cout.precision();
   if (antisymmetrized) {
-    energy[""] += ( + 0.25  ) * (*Tabij)["abkl"] * (*Vijab)["klab"];
+    energy[""]  = ( + 0.25  ) * (*Tabij)["abkl"] * (*Vijab)["klab"];
     energy[""] += ( + 0.5  ) * (*Tai)["aj"] * (*Tai)["cl"] * (*Vijab)["jlac"];
     e = energy.get_val();
   } else {
