@@ -37,7 +37,7 @@ void FockMatrixFromCoulombIntegrals::run() {
   auto hh(getTensorArgument<double>("HHMatrix"));
   auto hhhh(getTensorArgument<double>("HHHHCoulombIntegrals"));
   (*fij)["ij"]  = (*hh)["ij"];
-  (*fij)["ij"] += (spins)*(*hhhh)["ikjk"];
+  (*fij)["ij"] += (unrestricted ? 1.0 : 2.0)*(*hhhh)["ikjk"];
   (*fij)["ij"] += (-1.0)*(*hhhh)["ikkj"];
   allocatedTensorArgument<double>("HHFockMatrix", fij);
 
@@ -46,7 +46,7 @@ void FockMatrixFromCoulombIntegrals::run() {
   auto pp(getTensorArgument<double>("PPMatrix"));
   auto phhp(getTensorArgument<double>("PHHPCoulombIntegrals"));
   (*fab)["ab"] = (*pp)["ab"];
-  (*fab)["ab"] += (spins)*(*phph)["akbk"];
+  (*fab)["ab"] += (unrestricted ? 1.0 : 2.0)*(*phph)["akbk"];
   (*fab)["ab"] += (-1.0)*(*phhp)["akkb"];
   allocatedTensorArgument<double>("PPFockMatrix", fab);
 
@@ -55,13 +55,13 @@ void FockMatrixFromCoulombIntegrals::run() {
   auto ph(getTensorArgument<double>("PHMatrix"));
   auto phhh(getTensorArgument<double>("PHHHCoulombIntegrals"));
   (*fai)["ai"] = (*ph)["ai"];
-  (*fai)["ai"] += (spins)*(*phhh)["akik"];
+  (*fai)["ai"] += (unrestricted ? 1.0 : 2.0)*(*phhh)["akik"];
   (*fai)["ai"] += (-1.0)*(*phhh)["akki"];
   allocatedTensorArgument<double>("PHFockMatrix", fai);
 
   // ia: HP HHPH HHHP
   auto fia(new CTF::Tensor<double>(2, ov.data(), syms.data(), *Cc4s::world));
-  (*fai)["ai"] = (*fia)["ia"];
+  (*fia)["ia"] = (*fai)["ai"];
   allocatedTensorArgument<double>("HPFockMatrix", fia);
 
   auto epsi(new CTF::Tensor<double>(1, oo.data(), syms.data(), *Cc4s::world));
@@ -73,9 +73,9 @@ void FockMatrixFromCoulombIntegrals::run() {
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
 
   CTF::Scalar<double> energy;
-  energy[""]  = (spins) * (*hh)["ii"];
-  energy[""] += (spins) * (*hhhh)["ikik"];
-  energy[""] += (-1.0) * (*hhhh)["ikki"];
+  energy[""]  = (unrestricted ?  1.0 :  2.0) * (*hh)["ii"];
+  energy[""] += (unrestricted ?  0.5 :  2.0) * (*hhhh)["ikik"];
+  energy[""] += (unrestricted ? -0.5 : -1.0) * (*hhhh)["ikki"];
   const double dEnergy(energy.get_val());
 
   LOG(0, "FockMatrixFromCoulombIntegrals")
