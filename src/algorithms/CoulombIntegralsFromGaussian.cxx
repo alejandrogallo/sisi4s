@@ -43,6 +43,7 @@ struct IntegralProvider {
   struct Limit {
     size_t lower; size_t upper; size_t size;
     Limit(size_t l, size_t h): lower(l), upper(h), size(h - l){}
+    inline const size_t operator[](const size_t& i) const { return i - lower; }
   };
   Limit indexToLimits(Index &i) {
     if      (i == Index::NO) return Limit(0 , No     );
@@ -125,7 +126,9 @@ struct IntegralProvider {
 
   }
 
+  //std::vector<double> compute(Index P, Index Q, Index R, Index S) {
   std::vector<double> compute(Index P, Index Q, Index R, Index S) {
+    // < P Q | R S > = (P R | Q S)
 
     compute_Vklmn();
 
@@ -137,11 +140,16 @@ struct IntegralProvider {
     const size_t dimension(pLim.size * qLim.size * rLim.size * sLim.size);
     std::vector<double> result(dimension, 0.0);
 
-    // loop over all C orbitals
-    for (size_t p(pLim.lower), Isrqp(0); p < pLim.upper; ++p         ) {
-    for (size_t r(rLim.lower);           r < rLim.upper; ++r         ) {
+    // // loop over all C orbitals
+    // for (size_t p(pLim.lower), ipqrs(0); p < pLim.upper; ++p         ) {
+    // for (size_t r(rLim.lower);           r < rLim.upper; ++r         ) {
+    // for (size_t q(qLim.lower);           q < qLim.upper; ++q         ) {
+    // for (size_t s(sLim.lower);           s < sLim.upper; ++s, ++ipqrs) {
+
+    for (size_t s(sLim.lower), ipqrs(0); s < sLim.upper; ++s         ) {
     for (size_t q(qLim.lower);           q < qLim.upper; ++q         ) {
-    for (size_t s(sLim.lower);           s < sLim.upper; ++s, ++Isrqp) {
+    for (size_t r(rLim.lower);           r < rLim.upper; ++r         ) {
+    for (size_t p(pLim.lower);           p < pLim.upper; ++p, ++ipqrs) {
 
       for (size_t k(0), Inmlk = 0; k < Np; ++k         ) {
       for (size_t l(0);            l < Np; ++l         ) {
@@ -149,13 +157,18 @@ struct IntegralProvider {
       for (size_t n(0);            n < Np; ++n, ++Inmlk) {
 
         // <p q | r s> = (p r , q s)
-        //LOG(1, "Integrals:")  << Isrqp  << ": " << Inmlk << std::endl;
+        //LOG(1, "Integrals:")  << ipqrs  << ": " << Inmlk << std::endl;
+        const int IPQRS(
+          pLim[p] +
+          qLim[q] * pLim.size +
+          rLim[r] * pLim.size*qLim.size +
+          sLim[s] * pLim.size*qLim.size*rLim.size);
 
-        result.data()[Isrqp] +=
-          C[k + p*Np] *
-          C[l + r*Np] *
-          C[m + q*Np] *
-          C[n + s*Np] *
+        result.data()[IPQRS] +=
+          C[k + s*Np] *
+          C[l + q*Np] *
+          C[m + r*Np] *
+          C[n + p*Np] *
           Vklmn[Inmlk];
 
       } // n
@@ -197,7 +210,9 @@ void CoulombIntegralsFromGaussian::run() {
   const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
   const std::string basisSet(getTextArgument("basisSet"));
   auto C(getTensorArgument("OrbitalCoefficients"));
-  int No(getIntegerArgument("No")), Nv, Np;
+  const int nelect(getIntegerArgument("nelec", -1));
+  const int No(getIntegerArgument("No", nelect/2));
+  int Nv, Np;
   std::vector<double> orbitals;
 
   std::ifstream structureFileStream(xyzStructureFile.c_str());

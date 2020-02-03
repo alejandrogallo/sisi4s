@@ -417,10 +417,13 @@ void HartreeFock::run() {
 
   indices.resize(Np*Np*Np*Np);
   std::iota(indices.begin(), indices.end(), 0);
+  CTF::Scalar<double> hfEnergy;
+  hfEnergy[""] = (ehf + enuc);
 
   allocatedTensorArgument<double>("OrbitalCoefficients", ctfCoefficients);
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
+  allocatedTensorArgument<double>("HartreeFockEnergy", new CTF::Scalar<double>(hfEnergy));
 
   libint2::finalize();
 

@@ -94,6 +94,8 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     );
   }
 
+  //(*Fij)["ii"] *= 0.0;
+  //(*Fab)["aa"] *= 0.0;
 
   // Get couloumb integrals
   auto Vijkl(getTensorArgument<F, CTF::Tensor<F> >("HHHHCoulombIntegrals"));
