@@ -15,12 +15,10 @@ PTR(CTF::Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getABCIJK() {
   if (Wabcijk) return Wabcijk;
   LOG(1, getAbbreviation()) << "Building Wabcijk" << std::endl;
-  int syms[] = {NS, NS, NS, NS};
-  int vvvooo[] = {Nv,Nv,Nv,No,No,No};
+  const int syms[]   = {NS,NS,NS,NS,NS,NS};
+  const int vvvooo[] = {Nv,Nv,Nv,No,No,No};
 
-  CTF::Tensor<F> Rabcijk(4, vvvooo, syms, *Cc4s::world, "Wabcijk");
-
-  Wabcijk = NEW(CTF::Tensor<F>,  Rabcijk);
+  Wabcijk = NEW(CTF::Tensor<F>,  6, vvvooo, syms, *Cc4s::world, "Wabcijk");
 
   //Triples
   (*Wabcijk)["edfijk"] = 0.0;
