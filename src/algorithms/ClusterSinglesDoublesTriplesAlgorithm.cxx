@@ -64,8 +64,16 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
     getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS)
   );
 
-  F e(0);
-  for (int i(0); i < maxIterationsCount; ++i) {
+  F amplitudesConvergence(
+    getRealArgument("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE)
+  );
+  F energyConvergence(
+    getRealArgument("energyConvergence", DEFAULT_ENERGY_CONVERGENCE)
+  );
+
+  F e(0), previousE(0);
+  int i(0);
+  for (; i < maxIterationsCount; ++i) {
     LOG(0, getCapitalizedAbbreviation()) << "iteration: " << i+1 << std::endl;
     // call the getResiduum of the actual algorithm,
     // which will be specified by inheriting classes
@@ -77,12 +85,22 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
     // get mixer's best guess for amplitudes
     amplitudes = mixer->get();
     e = getEnergy(amplitudes);
+    if (
+      std::abs((e-previousE)/e) < std::abs(energyConvergence) &&
+      std::abs(
+        amplitudesChange->dot(*amplitudesChange) / amplitudes->dot(*amplitudes)
+      ) < std::abs(amplitudesConvergence * amplitudesConvergence)
+    ) break;
+    previousE = e;
   }
 
   if (maxIterationsCount == 0) {
     LOG(0, getCapitalizedAbbreviation()) <<
       "computing energy from given amplitudes" << std::endl;
     e = getEnergy(amplitudes);
+  } else if (i == maxIterationsCount) {
+    LOG(0, getCapitalizedAbbreviation()) <<
+      "WARNING: energy or amplitudes convergence not reached." << std::endl;
   }
 
   storeAmplitudes(amplitudes, {"Singles", "Doubles", "Triples"});
