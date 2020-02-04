@@ -182,16 +182,22 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
   (*Rabij)["cdij"] += ( + 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
   (*Rabij)["cdij"] += ( - 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
 
+  //Residum equations
+  //(*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
+  //(*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
+  //(*Rabij)["cdij"] += ( - 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
+  //(*Rabij)["cdij"] += ( + 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
+
   // T3 equations:
   auto Wabcijk = H.getABCIJK();
   (*Rabcijk)["abcijk"] += (*Wabcijk)["abcijk"];
   //These are the residum equations, substract them from Wabij
-  (*Rabcijk)["edfijk"] -= ( - 1.0  ) * (*Fij)["oi"] * (*Tabcijk)["defojk"];
-  (*Rabcijk)["edfijk"] -= ( + 1.0  ) * (*Fij)["oj"] * (*Tabcijk)["defoik"];
-  (*Rabcijk)["edfijk"] -= ( + 1.0  ) * (*Fij)["ok"] * (*Tabcijk)["defoji"];
-  (*Rabcijk)["edfijk"] -= ( + 1.0  ) * (*Fab)["fg"] * (*Tabcijk)["gdeijk"];
-  (*Rabcijk)["edfijk"] -= ( - 1.0  ) * (*Fab)["eg"] * (*Tabcijk)["gdfijk"];
-  (*Rabcijk)["edfijk"] -= ( - 1.0  ) * (*Fab)["dg"] * (*Tabcijk)["gfeijk"];
+  (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fij)["oi"] * (*Tabcijk)["defojk"];
+  (*Rabcijk)["defijk"] += ( - 1.0  ) * (*Fij)["oj"] * (*Tabcijk)["defoik"];
+  (*Rabcijk)["defijk"] += ( - 1.0  ) * (*Fij)["ok"] * (*Tabcijk)["defoji"];
+  (*Rabcijk)["defijk"] += ( - 1.0  ) * (*Fab)["fg"] * (*Tabcijk)["gdeijk"];
+  (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fab)["eg"] * (*Tabcijk)["gdfijk"];
+  (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fab)["dg"] * (*Tabcijk)["gfeijk"];
 
   return residuum;
 
