@@ -126,7 +126,6 @@ struct IntegralProvider {
 
   }
 
-  //std::vector<double> compute(Index P, Index Q, Index R, Index S) {
   std::vector<double> compute(Index P, Index Q, Index R, Index S) {
     // < P Q | R S > = (P R | Q S)
 
@@ -139,12 +138,6 @@ struct IntegralProvider {
 
     const size_t dimension(pLim.size * qLim.size * rLim.size * sLim.size);
     std::vector<double> result(dimension, 0.0);
-
-    // // loop over all C orbitals
-    // for (size_t p(pLim.lower), ipqrs(0); p < pLim.upper; ++p         ) {
-    // for (size_t r(rLim.lower);           r < rLim.upper; ++r         ) {
-    // for (size_t q(qLim.lower);           q < qLim.upper; ++q         ) {
-    // for (size_t s(sLim.lower);           s < sLim.upper; ++s, ++ipqrs) {
 
     for (size_t s(sLim.lower), ipqrs(0); s < sLim.upper; ++s         ) {
     for (size_t q(qLim.lower);           q < qLim.upper; ++q         ) {
