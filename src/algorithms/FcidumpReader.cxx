@@ -47,6 +47,16 @@ FcidumpReader::parseHeader(const std::string &filePath) {
   return header;
 }
 
+int
+indexToLenght(const char a, const int No, const int Nv) {
+  if (a == 'h') {
+    return No;
+  } else if (a == 'p') {
+    return Nv;
+  } else {
+    return No + Nv;
+  }
+}
 
 struct IntegralParser {
   static const size_t index_columns{4};
@@ -63,8 +73,8 @@ struct IntegralParser {
   IntegralParser(std::string name_, const FcidumpReader::FcidumpHeader &header)
       :name(name_) {
 
-    if (!std::regex_match(name, std::regex{"^[hp]*$"})) {
-      throw new EXCEPTION("Name should be a combination of [hp] or empty");
+    if (!std::regex_match(name, std::regex{"^[hpt]*$"})) {
+      throw new EXCEPTION("Name should be a combination of [hpt] or empty");
     }
 
     // create the chemistName of this integral
@@ -77,7 +87,8 @@ struct IntegralParser {
     syms.insert(syms.begin(), name.size(), NS);
     // build lens
     std::for_each(name.begin(), name.end(),
-                  [&](const char& a){ lens.push_back(a == 'h' ? No : Nv); });
+                  [&](const char& a){
+                    lens.push_back(indexToLenght(a, No, Nv)); });
     // build dimensio
     dimension = std::accumulate(lens.begin(), lens.end(), 1,
                                 std::multiplies<int>());
@@ -111,10 +122,17 @@ struct IntegralParser {
     for(unsigned int i(2); i<matches.size(); i++) {
       int k = std::atoi(std::string{matches[i]}.c_str());
       // what is the corresponding index in our integrals, H or P?
-      const char _HorP(chemistName[i-2]);
+      const char _HorPorT(chemistName[i-2]);
       // if the index is not what we're expecting then return false
-      if ((k <= No && _HorP == 'p') || (k > No && _HorP == 'h')) return false;
-      gIndices[i-2] = _HorP == 'p' ? k - No - 1 : k - 1;
+      if ((k <= No && _HorPorT == 'p') || (k > No && _HorPorT == 'h')) return false;
+      if (_HorPorT == 'p') {
+        gIndices[i-2] =  k - No - 1;
+      } else if (_HorPorT == 'h') {
+        gIndices[i-2] = k - 1;
+      } else {
+        // just get the pure index if
+        gIndices[i-2] = k;
+      }
     }
     //LOG(1, "FcidumpReader") << name << ":(" << chemistName << "):"
                             //<< line << std::endl;
@@ -174,6 +192,7 @@ void FcidumpReader::run() {
   LOG(0, "FcidumpReader") << "Nv      = " << Nv << std::endl;
 
   const std::vector<IntegralInfo> twoBody({
+    {"tttt", {NV,NV,NV,NV}, "pqrs"},
     {"hhhh", {NO,NO,NO,NO}, "ijkl"},
     {"hhhp", {NO,NO,NO,NV}, "ijka"},
     {"hhph", {NO,NO,NV,NO}, "ijak"},
@@ -193,6 +212,7 @@ void FcidumpReader::run() {
   });
 
   const std::vector<std::string> integralNames{
+    "tt", "tttt",
     "hh", "pp", "hp", "ph",
     "hhhh", "hhhp", "hhph", "hhpp", "hphh", "hphp", "hpph", "hppp",
     "phhh", "phhp", "phph", "phpp", "pphh", "pphp", "ppph", "pppp" };
