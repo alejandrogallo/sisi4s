@@ -40,6 +40,7 @@
 #include <Eigen/Eigenvalues>
 #include <ctf.hpp>
 #include <numeric>      // std::iota
+#include <util/Emitter.hpp>
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFock);
@@ -330,6 +331,9 @@ void HartreeFock::run() {
   double ehfLast(0);
   Eigen::MatrixXd eps, C;
 
+  EMIT() << YAML::Key << "iterations"
+         << YAML::Value << YAML::BeginSeq;
+
   do {
 
     ++iter;
@@ -380,6 +384,17 @@ void HartreeFock::run() {
       rmsd              << "\t" <<
     std::endl;
 
+    EMIT() <<
+      YAML::BeginMap <<
+        YAML::Key << "iteration" <<
+        YAML::Value << iter <<
+        YAML::Key << "energy" <<
+        YAML::Value <<
+          YAML::BeginMap <<
+            YAML::Key << "value" <<
+            YAML::Value << ehf <<
+          YAML::EndMap <<
+      YAML::EndMap;
 
   } while (
       ((fabs(energyDifference) > electronicConvergence) ||
@@ -387,6 +402,7 @@ void HartreeFock::run() {
       (iter < maxIterations)
       );
 
+  EMIT() << YAML::EndSeq;
   for (unsigned int e; e<eps.size(); e++) {
     LOG(1, "HartreeFock")
       << "band " << e + 1 << " = " << eps(e,0) << std::endl;
@@ -426,5 +442,19 @@ void HartreeFock::run() {
   allocatedTensorArgument<double>("HartreeFockEnergy", new CTF::Scalar<double>(hfEnergy));
 
   libint2::finalize();
+
+  EMIT() <<
+    //--
+    YAML::Key << "energy-convergence" <<
+    YAML::Value << electronicConvergence <<
+    //--
+    YAML::Key << "energy" <<
+    YAML::Value <<
+      YAML::BeginMap <<
+        YAML::Key << "value" <<
+        YAML::Value << ehf + enuc <<
+        YAML::Key << "nuclear" <<
+        YAML::Value << enuc <<
+      YAML::EndMap;
 
 }
