@@ -202,7 +202,7 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
   auto V(getTensorArgument("CoulombIntegrals"));
   const int nelect(getIntegerArgument("nelec", -1));
   const int No(getIntegerArgument("No", nelect/2));
-  const int Nv(getIntegerArgument("Nv", nelect/2));
+  const int Nv(getIntegerArgument("Nv", V->lens[0] - No));
   const int Np(No + Nv);
   std::vector<double> orbitals;
 
