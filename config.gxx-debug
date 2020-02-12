@@ -34,8 +34,8 @@ SCALAPACK_LIB=-L${SCALAPACK_PATH}/lib -lscalapack
 INCLUDE=${CTF_INCLUDE} ${BLAS_INCLUDE} ${LIBINT_INCLUDE} ${EIGEN_INCLUDE}
 
 # additional library paths and libraries to link to
-LIBS=-Wl,-Bstatic ${CTF_LIB} ${SCALAPACK_LIB} ${BLAS_LIB} \
-     -lgfortran -lquadmath -Wl,-Bdynamic ${LIBINT_LIB}
+LIBS=-Wl,-Bstatic ${CTF_LIB} ${LIBINT_LIB} ${SCALAPACK_LIB} ${BLAS_LIB} \
+     -lquadmath -Wl,-Bdynamic -lgfortran
 
 # destination path for installation
 INSTALL=~/bin/cc4s/${CONFIG}
