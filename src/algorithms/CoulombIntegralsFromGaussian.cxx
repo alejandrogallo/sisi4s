@@ -261,6 +261,8 @@ struct IntegralProvider {
 
   }
 
+  double * getAll() {return Vklmn;}
+
   private:
   size_t No, Nv, Np;
   double *C;
@@ -354,6 +356,19 @@ void CoulombIntegralsFromGaussian::run() {
     }
     allocatedTensorArgument<double>(
       integral.name, vectorToTensor(result, lens));
+  }
+
+  if (isArgumentGiven("CoulombIntegrals")) {
+    engine.compute_Vklmn();
+    const std::vector<int64_t> lens({Np, Np, Np, Np});
+    const std::vector<int>     syms({NS, NS, NS, NS});
+    CTF::Tensor<double> Vklmn(lens.size(), lens.data(), syms.data(), *Cc4s::world);
+    {
+      std::vector<int64_t> indices(Np*Np*Np*Np);
+      std::iota(indices.begin(), indices.end(), 0);
+      Vklmn.write(indices.size(), indices.data(), engine.getAll());
+    }
+    allocatedTensorArgument<double>("CoulombIntegrals", &Vklmn);
   }
 
 }
