@@ -52,14 +52,16 @@ libint: ${LIBINT_LIB}
 # EIGEN LIB
 ###############################################################################
 
-EIGEN_LIB = build/${CONFIG}/eigen/include
+EIGEN_BUILD_PATH = $(PWD)/build/${CONFIG}/eigen/
+EIGEN_LIB = $(EIGEN_BUILD_PATH)/include/eigen3/Eigen/Eigen
 
 src/eigen:
 	git clone -b 3.3.7 https://gitlab.com/libeigen/eigen.git $@
 
 ${EIGEN_LIB}: src/eigen
-	mkdir -p $@
-	cmake -B $(dir $@) -DCMAKE_INSTALL_PREFIX=$(PWD)/$(dir $@) $<
-	cd $(dir $@) && make && make install
+	mkdir -p $(EIGEN_BUILD_PATH)
+	cd $< ; mkdir -p build; cd build; \
+	cmake -DCMAKE_INSTALL_PREFIX=$(EIGEN_BUILD_PATH) ../ ; \
+	make install
 
 eigen: ${EIGEN_LIB}
