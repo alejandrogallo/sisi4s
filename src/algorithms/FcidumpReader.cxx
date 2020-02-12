@@ -59,16 +59,25 @@ indexToLenght(const char a, const int No, const int Nv) {
 }
 
 struct IntegralParser {
+  // how many index columns are there in the fcidump
   static const size_t index_columns{4};
+  // e.g. hh
   std::string name;
+  // e.g. hh in chemist notation
   std::string chemistName;
+  // regex for a single line
   std::regex regex;
+  // actual values of the tensor
   std::vector<double> values;
+  // actual indices
   std::vector<int64_t> indices;
+  // ctf lens
   std::vector<int> lens;
+  // ctf syms
   std::vector<int> syms;
   bool uhf;
   int No, Nv;
+  // general size of the tensor
   size_t dimension;
   IntegralParser(std::string name_, const FcidumpReader::FcidumpHeader &header)
       :name(name_) {
@@ -131,7 +140,7 @@ struct IntegralParser {
         gIndices[i-2] = k - 1;
       } else {
         // just get the pure index if
-        gIndices[i-2] = k;
+        gIndices[i-2] = k - 1;
       }
     }
     //LOG(1, "FcidumpReader") << name << ":(" << chemistName << "):"
@@ -192,7 +201,7 @@ void FcidumpReader::run() {
   LOG(0, "FcidumpReader") << "Nv      = " << Nv << std::endl;
 
   const std::vector<IntegralInfo> twoBody({
-    {"tttt", {NV,NV,NV,NV}, "pqrs"},
+    {"tttt", {NP,NP,NP,NP}, "pqrs"},
     {"hhhh", {NO,NO,NO,NO}, "ijkl"},
     {"hhhp", {NO,NO,NO,NV}, "ijka"},
     {"hhph", {NO,NO,NV,NO}, "ijak"},
