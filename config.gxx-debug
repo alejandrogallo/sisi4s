@@ -23,6 +23,11 @@ LIBINT_INCLUDE = -I${LIBINT_PATH}/include/ -I${LIBINT_PATH}/include/libint2
 # eigen library
 EIGEN_INCLUDE = -Ilib/build/${CONFIG}/eigen/include/eigen3/
 
+# yaml-cpp library
+YAML_PATH=lib/build/${CONFIG}/yaml-cpp
+YAML_LIB=-L${YAML_PATH} -lyaml-cpp
+YAML_INCLUDE=-I${YAML_PATH}/include
+
 # BLAS and LAPACK library, expects BLAS_PATH to be set
 BLAS_LIB= -L${BLAS_PATH}/lib -lopenblas
 BLAS_INCLUDE=-I${BLAS_PATH}/include
@@ -30,11 +35,12 @@ BLAS_INCLUDE=-I${BLAS_PATH}/include
 # ScaLAPACK libarary, expects SCALAPACK_PATH to be set
 SCALAPACK_LIB=-L${SCALAPACK_PATH}/lib -lscalapack
 
-# additional include directories for header files
-INCLUDE=${CTF_INCLUDE} ${BLAS_INCLUDE} ${LIBINT_INCLUDE} ${EIGEN_INCLUDE}
+INCLUDE=${CTF_INCLUDE} ${BLAS_INCLUDE} \
+        ${YAML_INCLUDE} ${LIBINT_INCLUDE} \
+        ${EIGEN_INCLUDE}
 
 # additional library paths and libraries to link to
-LIBS=-Wl,-Bstatic ${CTF_LIB} ${SCALAPACK_LIB} ${BLAS_LIB} \
+LIBS=-Wl,-Bstatic ${CTF_LIB} ${SCALAPACK_LIB} ${BLAS_LIB} ${YAML_LIB} \
      -lgfortran -lquadmath -Wl,-Bdynamic ${LIBINT_LIB}
 
 # destination path for installation

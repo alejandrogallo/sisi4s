@@ -2,6 +2,7 @@
 #include <math/MathFunctions.hpp>
 #include <math/MultiCombinations.hpp>
 #include <tcc/DryTensor.hpp>
+#include <util/Emitter.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Cc4s.hpp>
@@ -23,8 +24,8 @@ ThermalMp2EnergyFromCoulombIntegrals::~ThermalMp2EnergyFromCoulombIntegrals() {
 void ThermalMp2EnergyFromCoulombIntegrals::run() {
   Tensor<> *epsi(getTensorArgument("ThermalHoleEigenEnergies"));
   Tensor<> *epsa(getTensorArgument("ThermalParticleEigenEnergies"));
-  Tensor<> *Ni(getTensorArgument("ThermalHoleOccupancies"));
-  Tensor<> *Na(getTensorArgument("ThermalParticleOccupancies"));
+//  Tensor<> *Ni(getTensorArgument("ThermalHoleOccupancies"));
+//  Tensor<> *Na(getTensorArgument("ThermalParticleOccupancies"));
   Tensor<> *Vabij(getTensorArgument("ThermalPPHHCoulombIntegrals"));
   beta = 1/getRealArgument("Temperature");
 
@@ -56,9 +57,40 @@ void ThermalMp2EnergyFromCoulombIntegrals::run() {
   testDLogZMp2(1, D_MU);
 */
 
-  computeFreeEnergy();
-  computeEnergyMoments();
-  computeNumberMoments();
+  // TODO: compute Helmholtz free energy from
+  // F0 + Omega_1 + Omega_2 - 1/2 (dOmega_1/dmu)^2 / (d^2Omega_0/dmu^2)
+  // [Fetta, Walecka, Eq.(30.69)]
+
+  real Omega0(-getDLogZH0(0, D_MU)/beta);
+  real Omega1(-getDLogZHf(0, D_MU)/beta);
+  real Omega2(-getDLogZMp2(0, D_MU)/beta);
+
+  real N0_0(-getDLogZH0(1, D_MU)/beta);
+  real N1_0(-getDLogZHf(1, D_MU)/beta);
+  real N2_0(-getDLogZMp2(1, D_MU)/beta);
+
+  real N0_1(-getDLogZH0(2, D_MU)/beta);
+  real N1_1(-getDLogZHf(2, D_MU)/beta);
+
+  real N0_2(-getDLogZH0(3, D_MU)/beta);
+
+  real mu1(-N1_0/N0_1);
+  real mu2(-(N2_0+N1_1*mu1+0.5*N0_2*mu1*mu1)/N0_1);
+
+  real Fc(Omega1 + Omega2 - N1_0*mu1 - 0.5*N0_1*mu1*mu1);
+  EMIT() << YAML::Key << "Omega0" << YAML::Value << Omega0;
+  EMIT() << YAML::Key << "Omega1" << YAML::Value << Omega1;
+  EMIT() << YAML::Key << "Omega2" << YAML::Value << Omega2;
+  EMIT() << YAML::Key << "N0_0" << YAML::Value << N0_0;
+  EMIT() << YAML::Key << "N1_0" << YAML::Value << N1_0;
+  EMIT() << YAML::Key << "N2_0" << YAML::Value << N2_0;
+  EMIT() << YAML::Key << "N0_1" << YAML::Value << N0_1;
+  EMIT() << YAML::Key << "N1_1" << YAML::Value << N1_1;
+  EMIT() << YAML::Key << "N0_2" << YAML::Value << N0_2;
+  EMIT() << YAML::Key << "mu1" << YAML::Value << mu1;
+  EMIT() << YAML::Key << "mu2" << YAML::Value << mu2;
+
+  setRealArgument("ThermalFreeEnergy", Fc);
 }
 
 void ThermalMp2EnergyFromCoulombIntegrals::dryRun() {
@@ -84,74 +116,6 @@ void ThermalMp2EnergyFromCoulombIntegrals::dryRun() {
   DryTensor<> Tabij(4, vvoo, syms);
 
   DryScalar<> energy();
-}
-
-
-void ThermalMp2EnergyFromCoulombIntegrals::computeFreeEnergy() {
-  real F( -getRealArgument("Temperature") * getDLogZ(0, D_BETA) );
-  setRealArgument("ThermalFreeEnergy", F);
-}
-
-void ThermalMp2EnergyFromCoulombIntegrals::computeEnergyMoments() {
-  unsigned int n( std::max(getIntegerArgument("maxEnergyMoment", 2),1l) );
-  std::vector<real> energyMoments(n);
-
-  for (unsigned int k(1); k <= n; ++k) {
-    energyMoments[k-1] = getDLogZ(k, D_BETA);
-  }
-
-  std::vector<int64_t> indices(Dabij->wrld->rank == 0 ? n : 0);
-  for (size_t i(0); i < indices.size(); ++i) { indices[i] = i; };
-  auto ctfEnergyMoments(new CTF::Tensor<>(1, std::vector<int>({int(n)}).data()));
-  ctfEnergyMoments->write(indices.size(), indices.data(), energyMoments.data());
-  allocatedTensorArgument("ThermalEnergyMoments", ctfEnergyMoments);
-}
-
-void ThermalMp2EnergyFromCoulombIntegrals::computeNumberMoments() {
-  unsigned int n( std::max(getIntegerArgument("maxNumberMoment", 2),1l) );
-  std::vector<real> numberMoments(n);
-
-  for (unsigned int k(1); k <= n; ++k) {
-    numberMoments[k-1] = getDLogZ(k, D_MU);
-  }
-
-  std::vector<int64_t> indices(Dabij->wrld->rank == 0 ? n : 0);
-  for (size_t i(0); i < indices.size(); ++i) { indices[i] = i; };
-  auto ctfNumberMoments(new CTF::Tensor<>(1, std::vector<int>({int(n)}).data()));
-  ctfNumberMoments->write(indices.size(), indices.data(), numberMoments.data());
-  allocatedTensorArgument("ThermalNumberMoments", ctfNumberMoments);
-}
-
-
-cc4s::real ThermalMp2EnergyFromCoulombIntegrals::getDLogZ(
-  const unsigned int n, const bool dbeta
-) {
-  real dLogZ;
-  dLogZ = getDLogZMp2(n, dbeta);
-  // just report contribution but don't count
-  dLogZ += getDLogZHf(n, dbeta);
-  dLogZ += getDLogZH0(n, dbeta);
-
-  if (n == 1 && !dbeta) {
-    // just report contribution but don't count
-    getDLogZHfDEps();
-  }
-
-/*
-  real mu(getRealArgument("ChemicalPotential"));
-  int N(getIntegerArgument("Electrons"));
-  switch (n) {
-  case 0:
-    writeContribution("mu*N", n, -beta*mu*N);
-    dLogZ += -beta*mu*N;
-    break;
-  case 1:
-    writeContribution("mu*N", n, mu*N);
-    dLogZ += mu*N;
-    break;
-  }
-*/
-  return dLogZ;
 }
 
 
@@ -353,15 +317,19 @@ cc4s::real ThermalMp2EnergyFromCoulombIntegrals::getDLogZHfDEps(
   Tensor<> *na(getTensorArgument("ThermalParticleOccupancies"));
   Tensor<> *Vijkl(getTensorArgument("ThermalHHHHCoulombIntegrals"));
   real spins(getIntegerArgument("unrestricted", 0) ? 1.0 : 2.0);
-  Tensor<> depsdmu(*ni);
-  depsdmu["k"] = beta * spins * (*Vijkl)["kjkj"] * (*ni)["j"] * (*na)["j"];
-  depsdmu["k"] = beta * (*Vijkl)["kjjk"] * (*ni)["j"] * (*na)["j"];
+  Tensor<> *depsdmu(new Tensor<>(*ni));
+  // FIXME: assumes No=Nv=Np
+  (*depsdmu)["k"] =  beta * spins * (*Vijkl)["kjkj"] * (*ni)["j"] * (*na)["j"];
+  (*depsdmu)["k"] -= beta * (*Vijkl)["kjjk"] * (*ni)["j"] * (*na)["j"];
+  // write deps/dmu
+  allocatedTensorArgument("ThermalDEpsDMu", depsdmu);
+
   Scalar<> energy;
   // we compute -Veff + HF = -2*HF + HF = -HF, so the sign is negative
-  energy[""] = (+beta) * spins * spins * depsdmu["j"] * (*Vijkl)["ijij"]
+  energy[""] = (+beta) * spins * spins * (*depsdmu)["j"] * (*Vijkl)["ijij"]
     * (*na)["j"] * (*ni)["i"] * (*ni)["j"];
   real direct( energy.get_val() );
-  energy[""] = (-beta) * spins * depsdmu["j"] * (*Vijkl)["ijji"]
+  energy[""] = (-beta) * spins * (*depsdmu)["j"] * (*Vijkl)["ijji"]
     * (*na)["j"] * (*ni)["i"] * (*ni)["j"];
   real exchange( energy.get_val() );
 

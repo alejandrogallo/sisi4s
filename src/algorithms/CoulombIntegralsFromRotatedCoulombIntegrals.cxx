@@ -1,44 +1,34 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <libint2.hpp>
-#include <algorithms/CoulombIntegralsFromGaussian.hpp>
+#include <algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.hpp>
 #include <ctf.hpp>
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
-#include <Eigen/Eigenvalues>
 #include <ctf.hpp>
 #include <numeric>
 #include <set>
 #include <map>
 
 using namespace cc4s;
-ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromGaussian);
-
-// struct for storing information about the shell ends in the for loops
-// calculating the integrals
-struct ShellInfo {
-  // size of the shell, global begin and global end
-  // l should be the angular momentum
-  size_t size, begin, end, l;
-  // constructor from a BasisSet and a shell index i
-  inline ShellInfo(const libint2::BasisSet &shells, const size_t i) {
-    size = shells[i].size();
-    begin = shells.shell2bf()[i];
-    end = size + begin;
-    l = shells[i].contr[0].l;
-  }
-};
+ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromRotatedCoulombIntegrals);
 
 struct IntegralProvider {
+
   IntegralProvider(
     size_t No_,
     size_t Nv_,
-    double *coefficients,
-    libint2::BasisSet& shells_):
-    No(No_), Nv(Nv_), Np(No_+Nv_), C(coefficients), shells(shells_) {}
+    std::vector<double> &coefficients,
+    CTF::Tensor<double> &coulombIntegrals)
+    :No(No_), Nv(Nv_), Np(No_+Nv_), C(coefficients)
+ {
+    std::vector<int64_t> indices(Np*Np*Np*Np);
+    std::iota(indices.begin(), indices.end(), 0);
+    Vklmn.resize(indices.size());
+    coulombIntegrals.read(indices.size(), indices.data(), Vklmn.data());
+  }
 
   struct Limit {
     size_t lower; size_t upper; size_t size;
@@ -56,81 +46,9 @@ struct IntegralProvider {
     else                     return No + Nv;
   }
 
-  void compute_Vklmn() {
-    // If already computed, return
-    if (Vklmn) return;
-    libint2::initialize();
-
-    const size_t NpNpNpNp(Np*Np*Np*Np);
-    LOG(1, "Integrals")
-      << "Allocating and computing Vklmn ("
-      << sizeof(double) * NpNpNpNp / std::pow(2, 30)
-      << " GB)" << std::endl;
-    Vklmn = new double[NpNpNpNp];
-
-    libint2::Engine engine(
-      libint2::Operator::coulomb,
-      shells.max_nprim(),
-      shells.max_l(), 0);
-
-    // store shell by shell calculation in this buffer
-    const auto& vsrqp = engine.results();
-
-    for (size_t p(0); p < NpNpNpNp; ++p) { Vklmn[p] = 0.0; }
-
-    LOG(1, "Integrals") << "Initialized to zero" << std::endl;
-
-    // the outside loops will loop over the shells.
-    // This will create a block of Vpqrs, where pqrs are contracted
-    // gaussian indices belonging to their respective shells.
-    // Since we only want to calculate integrals transformed by the
-    // coefficients provided, we will contract them with the coefficients.
-    for (size_t _K(0); _K < shells.size(); ++_K) { // kappa
-    for (size_t _L(0); _L < shells.size(); ++_L) { // lambda
-    for (size_t _M(0); _M < shells.size(); ++_M) { // mu
-    for (size_t _N(0); _N < shells.size(); ++_N) { // nu
-      const ShellInfo K(shells, _K),
-                      L(shells, _L),
-                      M(shells, _M),
-                      N(shells, _N);
-
-      // compute integrals (K L , M N)
-      engine.compute(shells[_K], shells[_L], shells[_M], shells[_N]);
-
-        for (size_t k(K.begin), Inmlk = 0; k < K.end; ++k) {
-        for (size_t l(L.begin); l < L.end; ++l) {
-        for (size_t m(M.begin); m < M.end; ++m) {
-        for (size_t n(N.begin); n < N.end; ++n, ++Inmlk) {
-
-          // <p q | r s> = (p r , q s)
-
-          size_t bigI(
-            n +
-            m * Np +
-            l * Np*Np +
-            k * Np*Np*Np);
-
-          Vklmn[bigI] += vsrqp[0][Inmlk];
-
-        } // n
-        } // m
-        } // l
-        } // k
-
-    } // N
-    } // M
-    } // L
-    } // K
-
-  libint2::finalize();
-
-  }
-
   // This is a faster version of the obvious implementation
   std::vector<double> compute_fast(Index P, Index Q, Index R, Index S) {
     // < P Q | R S > = (P R | Q S)
-
-    compute_Vklmn();
 
     const Limit pLim(indexToLimits(P)),
                 qLim(indexToLimits(Q)),
@@ -212,8 +130,6 @@ struct IntegralProvider {
   std::vector<double> compute(Index P, Index Q, Index R, Index S) {
     // < P Q | R S > = (P R | Q S)
 
-    compute_Vklmn();
-
     const Limit pLim(indexToLimits(P)),
                 qLim(indexToLimits(Q)),
                 rLim(indexToLimits(R)),
@@ -261,18 +177,15 @@ struct IntegralProvider {
 
   }
 
-  double * getAll() {return Vklmn;}
-
   private:
   size_t No, Nv, Np;
-  double *C;
-  libint2::BasisSet& shells;
-  double *Vklmn = nullptr;
+  const std::vector<double> &C;
+  std::vector<double> Vklmn;
 };
 
 
 CTF::Tensor<double>*
-vectorToTensor(const std::vector<double> v, const std::vector<int> lens) {
+stdVectorToTensor(const std::vector<double> v, const std::vector<int> lens) {
   std::vector<int> syms(lens.size(), NS);
   auto result(
     new CTF::Tensor<double>(
@@ -284,22 +197,14 @@ vectorToTensor(const std::vector<double> v, const std::vector<int> lens) {
 }
 
 
-void CoulombIntegralsFromGaussian::run() {
-  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
-  const std::string basisSet(getTextArgument("basisSet"));
+void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
   auto C(getTensorArgument("OrbitalCoefficients"));
+  auto V(getTensorArgument("CoulombIntegrals"));
   const int nelect(getIntegerArgument("nelec", -1));
   const int No(getIntegerArgument("No", nelect/2));
-  int Nv, Np;
+  const int Nv(getIntegerArgument("Nv", nelect/2));
+  const int Np(No + Nv);
   std::vector<double> orbitals;
-
-  std::ifstream structureFileStream(xyzStructureFile.c_str());
-  const auto atoms(libint2::read_dotxyz(structureFileStream));
-  structureFileStream.close();
-  libint2::BasisSet shells(basisSet, atoms);
-
-  Np = shells.nbf();
-  Nv = Np - No;
 
   orbitals.resize(Np*Np);
   {
@@ -308,8 +213,7 @@ void CoulombIntegralsFromGaussian::run() {
     C->read(orbitals.size(), indices.data(), orbitals.data());
   }
 
-
-  IntegralProvider engine(No, Nv, orbitals.data(), shells);
+  IntegralProvider engine(No, Nv, orbitals, *V);
 
   const std::vector<IntegralInfo> integralInfos({
     {"HHHHCoulombIntegrals", {NO,NO,NO,NO}, "ijkl"},
@@ -330,21 +234,21 @@ void CoulombIntegralsFromGaussian::run() {
     {"PPPPCoulombIntegrals", {NV,NV,NV,NV}, "abcd"},
   });
 
-  LOG(1, "CoulombIntegralsFromGaussian")
-    << "structure: " << xyzStructureFile << std::endl;
-  LOG(1, "CoulombIntegralsFromGaussian") << "No: " << No << std::endl;
-  LOG(1, "CoulombIntegralsFromGaussian") << "Nv: " << Nv << std::endl;
+  LOG(1, "CoulombIntegralsFromRotatedCoulombIntegrals")
+    << "No: " << No << std::endl;
+  LOG(1, "CoulombIntegralsFromRotatedCoulombIntegrals")
+    << "Nv: " << Nv << std::endl;
 
   for (const auto &integral : integralInfos) {
     if ( ! isArgumentGiven(integral.name) ) continue;
     const auto& i(integral.indices);
 
-    LOG(1, "CoulombIntegralsFromGaussian")
+    LOG(1, "CoulombIntegralsFromRotatedCoulombIntegrals")
       << "Computing " <<  integral.name << std::endl;
 
     std::vector<double> result;
     if (!isArgumentGiven("fast")) {
-      LOG(1, "CoulombIntegralsFromGaussian")
+      LOG(1, "CoulombIntegralsFromRotatedCoulombIntegrals")
         << "Computing slow implementation" << std::endl;
       result = engine.compute(i[0], i[1], i[2], i[3]);
     } else {
@@ -355,20 +259,7 @@ void CoulombIntegralsFromGaussian::run() {
       lens[j] = (int)engine.indexToInt(i[j]);
     }
     allocatedTensorArgument<double>(
-      integral.name, vectorToTensor(result, lens));
-  }
-
-  if (isArgumentGiven("CoulombIntegrals")) {
-    engine.compute_Vklmn();
-    const std::vector<int64_t> lens({Np, Np, Np, Np});
-    const std::vector<int>     syms({NS, NS, NS, NS});
-    CTF::Tensor<double> Vklmn(lens.size(), lens.data(), syms.data(), *Cc4s::world);
-    {
-      std::vector<int64_t> indices(Np*Np*Np*Np);
-      std::iota(indices.begin(), indices.end(), 0);
-      Vklmn.write(indices.size(), indices.data(), engine.getAll());
-    }
-    allocatedTensorArgument<double>("CoulombIntegrals", &Vklmn);
+      integral.name, stdVectorToTensor(result, lens));
   }
 
 }
