@@ -14,6 +14,7 @@
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromRotatedCoulombIntegrals);
+#define LOGGER(_l) LOG(_l, "CoulombIntegralsFromRotatedCoulombIntegrals")
 
 struct IntegralProvider {
 
@@ -149,7 +150,6 @@ struct IntegralProvider {
       for (size_t n(0);            n < Np; ++n, ++Inmlk) {
 
         // <p q | r s> = (p r , q s)
-        //LOG(1, "Integrals:")  << ipqrs  << ": " << Inmlk << std::endl;
         const int IPQRS(
           pLim[p] +
           qLim[q] * pLim.size +
@@ -234,22 +234,18 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
     {"PPPPCoulombIntegrals", {NV,NV,NV,NV}, "abcd"},
   });
 
-  LOG(1, "CoulombIntegralsFromRotatedCoulombIntegrals")
-    << "No: " << No << std::endl;
-  LOG(1, "CoulombIntegralsFromRotatedCoulombIntegrals")
-    << "Nv: " << Nv << std::endl;
+  LOGGER(1) << "No: " << No << std::endl;
+  LOGGER(1) << "Nv: " << Nv << std::endl;
 
   for (const auto &integral : integralInfos) {
     if ( ! isArgumentGiven(integral.name) ) continue;
     const auto& i(integral.indices);
 
-    LOG(1, "CoulombIntegralsFromRotatedCoulombIntegrals")
-      << "Computing " <<  integral.name << std::endl;
+    LOGGER(1) << "Computing " <<  integral.name << std::endl;
 
     std::vector<double> result;
     if (!isArgumentGiven("fast")) {
-      LOG(1, "CoulombIntegralsFromRotatedCoulombIntegrals")
-        << "Computing slow implementation" << std::endl;
+      LOGGER(1) << "Computing slow implementation" << std::endl;
       result = engine.compute(i[0], i[1], i[2], i[3]);
     } else {
       result = engine.compute_fast(i[0], i[1], i[2], i[3]);
