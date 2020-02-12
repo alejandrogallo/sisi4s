@@ -23,7 +23,7 @@ toEigenMatrix(CTF::Tensor<double> &ctf) {
   // make indices a range from 0 to indices.size()-1
   std::iota(indices.begin(), indices.end(), 0);
 
-  ctf.write(indices.size(), indices.data(), values.data());
+  ctf.read(indices.size(), indices.data(), values.data());
 
   for (size_t i(0); i<values.size(); i++) {
     result(i) = values[i];
@@ -63,12 +63,15 @@ void HartreeFockFromCoulombIntegrals::run() {
   const double electronicConvergence(getRealArgument("energyDifference", 1e-4));
   const size_t Np(No+Nv);
 
-  LOG(1, "HartreeFockFromCoulombIntegrals") << "maxIterations: " << maxIterations  << std::endl;
-  LOG(1, "HartreeFockFromCoulombIntegrals") << "ediff: " << electronicConvergence << std::endl;
+  LOG(1, "HartreeFockFromCoulombIntegrals")
+    << "maxIterations: " << maxIterations  << std::endl;
+  LOG(1, "HartreeFockFromCoulombIntegrals")
+    << "ediff: " << electronicConvergence << std::endl;
   LOG(1, "HartreeFockFromCoulombIntegrals") << "No: " << No << std::endl;
   LOG(1, "HartreeFockFromCoulombIntegrals") << "Nv: " << Nv << std::endl;
 
-  LOG(1, "HartreeFockFromCoulombIntegrals") << "Calculating overlaps" << std::endl;
+  LOG(1, "HartreeFockFromCoulombIntegrals")
+    << "Calculating overlaps" << std::endl;
   // TODO: the algorithm should be able to read a user passed overlap matrix
   //       this algorithm will only work for orthonormal basis
   Eigen::MatrixXd S(Eigen::MatrixXd::Identity(Np, Np));
@@ -162,9 +165,7 @@ void HartreeFockFromCoulombIntegrals::run() {
       << "band " << e + 1 << " = " << eps(e,0) << std::endl;
   }
 
-  // TODO
-  double enuc;
-  LOG(1, "HartreeFockFromCoulombIntegrals") << "energy=" << ehf + enuc << std::endl;
+  LOG(1, "HartreeFockFromCoulombIntegrals") << "energy=" << ehf << std::endl;
 
   int syms[] = {NS, NS};
   // export stuff
@@ -190,7 +191,7 @@ void HartreeFockFromCoulombIntegrals::run() {
   indices.resize(Np*Np*Np*Np);
   std::iota(indices.begin(), indices.end(), 0);
   CTF::Scalar<double> hfEnergy;
-  hfEnergy[""] = (ehf + enuc);
+  hfEnergy[""] = (ehf);
 
   allocatedTensorArgument<double>("OrbitalCoefficients", ctfCoefficients);
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
