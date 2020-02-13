@@ -34,10 +34,9 @@ struct ShellInfo {
 
 struct CoulombIntegralsProvider {
   CoulombIntegralsProvider(
-    const size_t No_,
-    const size_t Nv_,
+    const size_t Np_,
     const libint2::BasisSet& shells_):
-    No(No_), Nv(Nv_), Np(No_+Nv_), shells(shells_) {}
+    Np(Np_), shells(shells_) {}
 
   void compute() {
     // If already computed, return
@@ -105,7 +104,7 @@ struct CoulombIntegralsProvider {
   double *data() {return Vklmn.data();}
 
   private:
-  const size_t No, Nv, Np;
+  const size_t Np;
   const libint2::BasisSet& shells;
   std::vector<double> Vklmn;
 };
@@ -114,22 +113,17 @@ struct CoulombIntegralsProvider {
 void CoulombIntegralsFromGaussian::run() {
   const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
   const std::string basisSet(getTextArgument("basisSet"));
-  const int nelect(getIntegerArgument("nelec", -1));
-  const int No(getIntegerArgument("No", nelect/2));
 
   std::ifstream structureFileStream(xyzStructureFile.c_str());
   const auto atoms(libint2::read_dotxyz(structureFileStream));
   structureFileStream.close();
   const libint2::BasisSet shells(basisSet, atoms);
   const int Np(shells.nbf());
-  const int Nv(Np - No);
 
-  CoulombIntegralsProvider engine(No, Nv, shells);
+  CoulombIntegralsProvider engine(Np, shells);
 
   LOG(1, "CoulombIntegralsFromGaussian")
     << "structure: " << xyzStructureFile << std::endl;
-  LOG(1, "CoulombIntegralsFromGaussian") << "No: " << No << std::endl;
-  LOG(1, "CoulombIntegralsFromGaussian") << "Nv: " << Nv << std::endl;
 
   const std::vector<int> lens(4, Np);
   const std::vector<int> syms(4, NS);
