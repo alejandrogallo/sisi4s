@@ -11,6 +11,7 @@
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromCoulombIntegrals);
+#define LOGGER(_l) LOG(_l, "HartreeFockFromCoulombIntegrals")
 
 Eigen::MatrixXd
 toEigenMatrix(CTF::Tensor<double> &ctf) {
@@ -34,7 +35,7 @@ toEigenMatrix(CTF::Tensor<double> &ctf) {
 
 CTF::Tensor<double>
 toCtfMatrix(const Eigen::MatrixXd &m) {
-  int syms[] = {NS, NS}, lens[] = {m.rows(), m.cols()};
+  int syms[] = {NS, NS}, lens[] = {(int)m.rows(), (int)m.cols()};
   std::vector<int64_t> indices(m.rows() * m.cols());
   CTF::Tensor<double> t(2, lens, syms, *Cc4s::world);
 
@@ -58,25 +59,23 @@ void HartreeFockFromCoulombIntegrals::run() {
   auto ctfH(getTensorArgument<double>("h"));
   const auto H(toEigenMatrix(*ctfH));
   auto V(getTensorArgument<double>("CoulombIntegrals"));
-  const unsigned int No(getIntegerArgument("No")), Nv(getIntegerArgument("Nv"));
+  const unsigned int No(getIntegerArgument("No"));
+  const size_t Nv(getIntegerArgument("Nv", V->lens[0] - No));
+  const size_t Np(No+Nv);
   const unsigned int maxIterations(getIntegerArgument("maxIterations", 16));
   const double electronicConvergence(getRealArgument("energyDifference", 1e-4));
-  const size_t Np(No+Nv);
 
-  LOG(1, "HartreeFockFromCoulombIntegrals")
-    << "maxIterations: " << maxIterations  << std::endl;
-  LOG(1, "HartreeFockFromCoulombIntegrals")
-    << "ediff: " << electronicConvergence << std::endl;
-  LOG(1, "HartreeFockFromCoulombIntegrals") << "No: " << No << std::endl;
-  LOG(1, "HartreeFockFromCoulombIntegrals") << "Nv: " << Nv << std::endl;
+  LOGGER(1) << "maxIterations: " << maxIterations  << std::endl;
+  LOGGER(1) << "ediff: " << electronicConvergence << std::endl;
+  LOGGER(1) << "No: " << No << std::endl;
+  LOGGER(1) << "Nv: " << Nv << std::endl;
+  LOGGER(1) << "Calculating overlaps" << std::endl;
 
-  LOG(1, "HartreeFockFromCoulombIntegrals")
-    << "Calculating overlaps" << std::endl;
   // TODO: the algorithm should be able to read a user passed overlap matrix
   //       this algorithm will only work for orthonormal basis
   Eigen::MatrixXd S(Eigen::MatrixXd::Identity(Np, Np));
 
-  LOG(1, "HartreeFockFromCoulombIntegrals")
+  LOGGER(1)
     << "mem:Fock "
     << sizeof(double) * Np * Np / std::pow(2, 30.0)
     << " GB"
@@ -88,13 +87,13 @@ void HartreeFockFromCoulombIntegrals::run() {
 
   D *= 0.0;
 
-  LOG(1, "HartreeFockFromCoulombIntegrals") << "Setting initial density matrix" << std::endl;
+  LOGGER(1) << "Setting initial density matrix" << std::endl;
   for (unsigned i=0 ; i < Np ; i++) {
   for (unsigned j=i ; j < i+1 ; j++) {
     D(i,j) = 1;
   }
   }
-  LOG(1, "HartreeFockFromCoulombIntegrals") << "\tdone" << std::endl;
+  LOGGER(1) << "\tdone" << std::endl;
 
   unsigned int iter(0);
   double rmsd(0);
@@ -111,7 +110,7 @@ void HartreeFockFromCoulombIntegrals::run() {
     D_last = D;
 
     F = H;
-    LOG(2, "HartreeFockFromCoulombIntegrals") << "calculating fock matrix" << std::endl;
+    LOGGER(2) << "calculating fock matrix" << std::endl;
     F += getFockMatrix(D, *V);
 
     // solve F C = e S C
@@ -138,7 +137,7 @@ void HartreeFockFromCoulombIntegrals::run() {
     rmsd = (D - D_last).norm();
 
     if (iter == 1) {
-      LOG(1, "HartreeFockFromCoulombIntegralsIt") << std::setprecision(15) << std::setw(10) <<
+      LOGGER(1) << std::setprecision(15) << std::setw(10) <<
         "Iter"    << "\t" <<
         "E"       << "\t" <<
         "DeltaE"  << "\t" <<
@@ -146,7 +145,7 @@ void HartreeFockFromCoulombIntegrals::run() {
         << std::endl;
     }
 
-    LOG(1, "HartreeFockFromCoulombIntegralsIt") <<
+    LOGGER(1) <<
       iter              << "\t" <<
       ehf               << "\t" <<
       energyDifference  << "\t" <<
@@ -161,11 +160,10 @@ void HartreeFockFromCoulombIntegrals::run() {
       );
 
   for (unsigned int e; e<eps.size(); e++) {
-    LOG(1, "HartreeFockFromCoulombIntegrals")
-      << "band " << e + 1 << " = " << eps(e,0) << std::endl;
+    LOGGER(1) << "band " << e + 1 << " = " << eps(e,0) << std::endl;
   }
 
-  LOG(1, "HartreeFockFromCoulombIntegrals") << "energy=" << ehf << std::endl;
+  LOGGER(1) << "energy=" << ehf << std::endl;
 
   int syms[] = {NS, NS};
   // export stuff
@@ -196,6 +194,6 @@ void HartreeFockFromCoulombIntegrals::run() {
   allocatedTensorArgument<double>("OrbitalCoefficients", ctfCoefficients);
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<double>("HartreeFockFromCoulombIntegralsEnergy", new CTF::Scalar<double>(hfEnergy));
+  allocatedTensorArgument<double>("HartreeFockEnergy", new CTF::Scalar<double>(hfEnergy));
 
 }
