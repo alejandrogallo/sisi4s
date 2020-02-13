@@ -47,9 +47,7 @@ struct IntegralProvider {
     else                     return No + Nv;
   }
 
-  // This is a faster version of the obvious implementation
-  std::vector<double> compute_fast(Index P, Index Q, Index R, Index S) {
-    // < P Q | R S > = (P R | Q S)
+  std::vector<double> compute(Index P, Index Q, Index R, Index S) {
 
     const Limit pLim(indexToLimits(P)),
                 qLim(indexToLimits(Q)),
@@ -60,63 +58,93 @@ struct IntegralProvider {
     std::vector<double> result(dimension, 0.0);
 
     for (size_t s(sLim.lower); s < sLim.upper; ++s) {
-    for (size_t q(qLim.lower); q < qLim.upper; ++q) {
     for (size_t r(rLim.lower); r < rLim.upper; ++r) {
+    for (size_t q(qLim.lower); q < qLim.upper; ++q) {
     for (size_t p(pLim.lower); p < pLim.upper; ++p) {
 
-      //  <p q | r s> = (p r , q s)
-      const int IPQRS(
-        pLim[p] +
-        qLim[q] * pLim.size +
-        rLim[r] * pLim.size*qLim.size +
-        sLim[s] * pLim.size*qLim.size*rLim.size);
+      const size_t IPQRS = pLim[p] +
+                           qLim[q] * pLim.size +
+                           rLim[r] * pLim.size*qLim.size +
+                           sLim[s] * pLim.size*qLim.size*rLim.size
+                           ;
 
-      std::vector<double> Vpmlk(
-        Np*Np*Np* pLim.size, 0.0);
-      std::vector<double> Vprlk(
-        Np*Np*    rLim.size*pLim.size, 0.0);
-      std::vector<double> Vprqk(
-        Np*       qLim.size*rLim.size*pLim.size, 0.0);
+      std::vector<double>
+        Vpmlk(Np*Np*Np* pLim.size, 0.0),
+        Vprlk(Np*Np*    pLim.size*rLim.size, 0.0),
+        Vprqk(Np*       pLim.size*rLim.size*qLim.size, 0.0);
 
-      // we will define four intermediates
+      // COMPUTE Vpmlk =====================
       for (size_t k(0), Inmlk = 0; k < Np; ++k) {
-
-        const size_t Iprqk(
-          pLim[p] +
-          rLim[r] * pLim.size +
-          qLim[q] * pLim.size*rLim.size +
-          k       * pLim.size*rLim.size*pLim.size);
-
-        result.data()[IPQRS] += C[k + s*Np] * Vprqk[Iprqk];
-
       for (size_t l(0); l < Np; ++l) {
-
-        const size_t Iprlk(
-          pLim[p] +
-          rLim[r] * pLim.size +
-          l       * pLim.size*rLim.size +
-          k       * pLim.size*rLim.size*Np);
-
-        Vprqk[Iprqk] += C[l + q*Np] * Vprlk[Iprlk];
-
       for (size_t m(0); m < Np; ++m) {
 
-        const size_t Ipmlk(
-          pLim[p] +
-          m * pLim.size +
-          l * pLim.size*Np +
-          k * pLim.size*Np*Np);
-
-        Vprlk[Iprlk] += C[m + r*Np] * Vpmlk[Ipmlk];
+        const size_t Ipmlk = pLim[p] +
+                             m * pLim.size +
+                             l * pLim.size*Np +
+                             k * pLim.size*Np*Np
+                             ;
 
       for (size_t n(0); n < Np; ++n, ++Inmlk) {
 
-        //  Vnmlk
         Vpmlk[Ipmlk] += C[n + p*Np] * Vklmn[Inmlk];
 
-      } // n
-      } // m
-      } // l
+      } /* n */ } /* m */ } /* l */ } /* k */
+
+      // COMPUTE Vprlk ======================
+      for (size_t k(0); k < Np; ++k) {
+      for (size_t l(0); l < Np; ++l) {
+
+        const size_t Iprlk = pLim[p] +
+                             rLim[r] * pLim.size +
+                             l       * pLim.size*rLim.size +
+                             k       * pLim.size*rLim.size*Np
+                             ;
+
+
+      for (size_t m(0); m < Np; ++m) {
+
+        const size_t Ipmlk = pLim[p] +
+                             m * pLim.size +
+                             l * pLim.size*Np +
+                             k * pLim.size*Np*Np
+                             ;
+
+        Vprlk[Iprlk] += C[m + r*Np] * Vpmlk[Ipmlk];
+
+      } /* m */ } /* l */ } /* k */
+
+      // COMPUTE Vprqk =====================
+      for (size_t k(0); k < Np; ++k) {
+
+        const size_t Iprqk = pLim[p] +
+                             rLim[r] * pLim.size +
+                             qLim[q] * pLim.size*rLim.size +
+                             k       * pLim.size*rLim.size*qLim.size
+                             ;
+
+      for (size_t l(0); l < Np; ++l) {
+
+        const size_t Iprlk = pLim[p] +
+                             rLim[r] * pLim.size +
+                             l       * pLim.size*rLim.size +
+                             k       * pLim.size*rLim.size*Np
+                             ;
+
+        Vprqk[Iprqk] += C[l + q*Np] * Vprlk[Iprlk];
+
+      } /* l */ } /* k */
+
+      // COMPUTE Vpqrs =====================
+      for (size_t k(0); k < Np; ++k) {
+
+        const size_t Iprqk = pLim[p] +
+                             rLim[r] * pLim.size +
+                             qLim[q] * pLim.size*rLim.size +
+                             k       * pLim.size*rLim.size*qLim.size
+                             ;
+
+        result[IPQRS] += C[k + s*Np] * Vprqk[Iprqk];
+
       } // k
 
     } // s
@@ -128,7 +156,7 @@ struct IntegralProvider {
 
   }
 
-  std::vector<double> compute(Index P, Index Q, Index R, Index S) {
+  std::vector<double> computeSlow(Index P, Index Q, Index R, Index S) {
     // < P Q | R S > = (P R | Q S)
 
     const Limit pLim(indexToLimits(P)),
@@ -140,8 +168,8 @@ struct IntegralProvider {
     std::vector<double> result(dimension, 0.0);
 
     for (size_t s(sLim.lower), ipqrs(0); s < sLim.upper; ++s         ) {
-    for (size_t q(qLim.lower);           q < qLim.upper; ++q         ) {
     for (size_t r(rLim.lower);           r < rLim.upper; ++r         ) {
+    for (size_t q(qLim.lower);           q < qLim.upper; ++q         ) {
     for (size_t p(pLim.lower);           p < pLim.upper; ++p, ++ipqrs) {
 
       for (size_t k(0), Inmlk = 0; k < Np; ++k         ) {
@@ -156,7 +184,7 @@ struct IntegralProvider {
           rLim[r] * pLim.size*qLim.size +
           sLim[s] * pLim.size*qLim.size*rLim.size);
 
-        result.data()[IPQRS] +=
+        result[IPQRS] +=
           C[k + s*Np] *
           C[l + q*Np] *
           C[m + r*Np] *
@@ -178,7 +206,7 @@ struct IntegralProvider {
   }
 
   private:
-  size_t No, Nv, Np;
+  const size_t No, Nv, Np;
   const std::vector<double> &C;
   std::vector<double> Vklmn;
 };
@@ -244,11 +272,11 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
     LOGGER(1) << "Computing " <<  integral.name << std::endl;
 
     std::vector<double> result;
-    if (!isArgumentGiven("fast")) {
+    if (isArgumentGiven("slow")) {
       LOGGER(1) << "Computing slow implementation" << std::endl;
-      result = engine.compute(i[0], i[1], i[2], i[3]);
+      result = std::move(engine.computeSlow(i[0], i[1], i[2], i[3]));
     } else {
-      result = engine.compute_fast(i[0], i[1], i[2], i[3]);
+      result = std::move(engine.compute(i[0], i[1], i[2], i[3]));
     }
     std::vector<int> lens(4);
     for (unsigned int j(0) ; j < 4 ; j++) {
