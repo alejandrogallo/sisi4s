@@ -146,9 +146,9 @@ getTwoBodyFock(const libint2::BasisSet& shells, const Eigen::MatrixXd& D) {
     shells.max_l(),
     0);
 
-  // resultBuffer[0] points to the target shell set after every call to
-  // engine.compute()
-  const auto& resultBuffer = engine.results();
+  // integrals[0] points to the target shell set after every call to
+  // engine.compute
+  const auto& integrals = engine.results();
 
   for(size_t _P = 0; _P < shells.size(); ++_P) {
   for(size_t _Q = 0; _Q < shells.size(); ++_Q) {
@@ -165,16 +165,16 @@ getTwoBodyFock(const libint2::BasisSet& shells, const Eigen::MatrixXd& D) {
 
     // Coulomb contribution to the Fock matrix is from {_P,_Q,_R,_S} ints
     engine.compute(shells[_P], shells[_Q], shells[_R], shells[_S]);
-    const double* buf_1234 = resultBuffer[0];
+    const double* Vprqs = integrals[0];
     // if all integrals screened out, skip to next quartet
-    if (buf_1234 == nullptr) continue;
+    if (Vprqs == nullptr) continue;
 
     // Hartree part
-    for(size_t p(P.begin), f1234 = 0; p < P.end; ++p) {
+    for(size_t p(P.begin), Iprqs = 0; p < P.end; ++p) {
     for(size_t q(Q.begin); q < Q.end; ++q) {
     for(size_t r(R.begin); r < R.end; ++r) {
-    for(size_t s(S.begin); s < S.end; ++s, ++f1234) {
-      G(p, q) += D(r, s) * 2.0 * buf_1234[f1234];
+    for(size_t s(S.begin); s < S.end; ++s, ++Iprqs) {
+      G(p, q) += D(r, s) * 2.0 * Vprqs[Iprqs];
     } // s
     } // r
     } // q
@@ -182,14 +182,14 @@ getTwoBodyFock(const libint2::BasisSet& shells, const Eigen::MatrixXd& D) {
 
     // exchange contribution to the Fock matrix is from {_P,_R,_Q,_S} ints
     engine.compute(shells[_P], shells[_R], shells[_Q], shells[_S]);
-    const double* buf_1324 = resultBuffer[0];
+    const double* Vprsq = integrals[0];
 
     // Exchange part
-    for(size_t p(P.begin), f1324 = 0; p < P.end; ++p) {
+    for(size_t p(P.begin), Iprsq = 0; p < P.end; ++p) {
     for(size_t r(R.begin); r < R.end; ++r) {
     for(size_t q(Q.begin); q < Q.end; ++q) {
-    for(size_t s(S.begin); s < S.end; ++s, ++f1324) {
-      G(p, q) -= D(r, s) * buf_1324[f1324];
+    for(size_t s(S.begin); s < S.end; ++s, ++Iprsq) {
+      G(p, q) -= D(r, s) * Vprsq[Iprsq];
     } // s
     } // q
     } // r
