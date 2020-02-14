@@ -57,23 +57,13 @@ struct IntegralProvider {
     const size_t dimension(pLim.size * qLim.size * rLim.size * sLim.size);
     std::vector<double> result(dimension, 0.0);
 
-    for (size_t s(sLim.lower); s < sLim.upper; ++s) {
-    for (size_t r(rLim.lower); r < rLim.upper; ++r) {
-    for (size_t q(qLim.lower); q < qLim.upper; ++q) {
+    std::vector<double> Vpmlk(Np*Np*Np* pLim.size, 0.0),
+                        Vprlk(Np*Np*    pLim.size*rLim.size, 0.0),
+                        Vprqk(Np*       pLim.size*rLim.size*qLim.size, 0.0)
+                        ;
+
+    // COMPUTE Vpmlk =====================
     for (size_t p(pLim.lower); p < pLim.upper; ++p) {
-
-      const size_t IPQRS = pLim[p] +
-                           qLim[q] * pLim.size +
-                           rLim[r] * pLim.size*qLim.size +
-                           sLim[s] * pLim.size*qLim.size*rLim.size
-                           ;
-
-      std::vector<double>
-        Vpmlk(Np*Np*Np* pLim.size, 0.0),
-        Vprlk(Np*Np*    pLim.size*rLim.size, 0.0),
-        Vprqk(Np*       pLim.size*rLim.size*qLim.size, 0.0);
-
-      // COMPUTE Vpmlk =====================
       for (size_t k(0), Inmlk = 0; k < Np; ++k) {
       for (size_t l(0); l < Np; ++l) {
       for (size_t m(0); m < Np; ++m) {
@@ -89,8 +79,11 @@ struct IntegralProvider {
         Vpmlk[Ipmlk] += C[n + p*Np] * Vklmn[Inmlk];
 
       } /* n */ } /* m */ } /* l */ } /* k */
+    }
 
-      // COMPUTE Vprlk ======================
+    // COMPUTE Vprlk ======================
+    for (size_t r(rLim.lower); r < rLim.upper; ++r) {
+    for (size_t p(pLim.lower); p < pLim.upper; ++p) {
       for (size_t k(0); k < Np; ++k) {
       for (size_t l(0); l < Np; ++l) {
 
@@ -112,7 +105,11 @@ struct IntegralProvider {
         Vprlk[Iprlk] += C[m + r*Np] * Vpmlk[Ipmlk];
 
       } /* m */ } /* l */ } /* k */
+    }}
 
+    for (size_t r(rLim.lower); r < rLim.upper; ++r) {
+    for (size_t q(qLim.lower); q < qLim.upper; ++q) {
+    for (size_t p(pLim.lower); p < pLim.upper; ++p) {
       // COMPUTE Vprqk =====================
       for (size_t k(0); k < Np; ++k) {
 
@@ -132,9 +129,21 @@ struct IntegralProvider {
 
         Vprqk[Iprqk] += C[l + q*Np] * Vprlk[Iprlk];
 
-      } /* l */ } /* k */
+      }}
+    }}}
 
-      // COMPUTE Vpqrs =====================
+    // COMPUTE Vpqrs =====================
+    for (size_t s(sLim.lower); s < sLim.upper; ++s) {
+    for (size_t r(rLim.lower); r < rLim.upper; ++r) {
+    for (size_t q(qLim.lower); q < qLim.upper; ++q) {
+    for (size_t p(pLim.lower); p < pLim.upper; ++p) {
+
+      const size_t IPQRS = pLim[p] +
+                           qLim[q] * pLim.size +
+                           rLim[r] * pLim.size*qLim.size +
+                           sLim[s] * pLim.size*qLim.size*rLim.size
+                           ;
+
       for (size_t k(0); k < Np; ++k) {
 
         const size_t Iprqk = pLim[p] +
@@ -147,10 +156,7 @@ struct IntegralProvider {
 
       } // k
 
-    } // s
-    } // r
-    } // q
-    } // p
+    }}}}
 
     return result;
 
