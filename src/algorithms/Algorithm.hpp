@@ -5,6 +5,7 @@
 #include <Data.hpp>
 #include <string>
 #include <vector>
+#include <sstream>
 #include <ctf.hpp>
 
 namespace cc4s {
@@ -58,6 +59,26 @@ namespace cc4s {
     void allocateContainerArgument(
       std::string const &argumentName, C *container
     );
+
+    // Get all arguments given by the user in the input file
+    std::vector<std::string> getGivenArgumentNames() const {
+      std::vector<std::string> names;
+      for (const auto& p: arguments) { names.push_back(p.first); }
+      return names;
+    }
+
+    // Check that all the arguments given by the user
+    // conform to the args that you're expecting in the algorithm
+    void checkArgumentsOrDie(const std::vector<std::string> args) const {
+      const std::vector<std::string> actualArguments(getGivenArgumentNames());
+      std::stringstream s;
+      for (const auto& p: actualArguments) {
+        if (std::count(args.begin(), args.end(), p) != 1) {
+          s << "Error: parameter (" << p << ") unknown";
+          throw new EXCEPTION(s.str());
+        }
+      }
+    }
 
     // typing, allocating and setting output arguments
     /**
