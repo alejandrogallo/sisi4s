@@ -83,15 +83,15 @@ void CcsdEquationOfMotionDavidson::run() {
 
   typedef struct { const std::string name; PTR(CTF::Tensor<F>) &data; } _Int;
   std::vector<_Int>
-  requiredIntegrals = {
-    { "HHHHCoulombIntegrals", Vijkl }, { "PPPPCoulombIntegrals", Vabcd },
-    { "HHHPCoulombIntegrals", Vijka }, { "HHPPCoulombIntegrals", Vijab },
-    { "HPHHCoulombIntegrals", Viajk }, { "HPHPCoulombIntegrals", Viajb },
-    { "HPPPCoulombIntegrals", Viabc }, { "PPHPCoulombIntegrals", Vabic },
-    { "PPPHCoulombIntegrals", Vabci }, { "PHPPCoulombIntegrals", Vaibc },
-    { "PHPHCoulombIntegrals", Vaibj }, { "HPPHCoulombIntegrals", Viabj },
-    { "HHPHCoulombIntegrals", Vijak }, { "PHHPCoulombIntegrals", Vaijb },
-  };
+  requiredIntegrals =
+    { { "HHHHCoulombIntegrals", Vijkl }, { "PPPPCoulombIntegrals", Vabcd }
+    , { "HHHPCoulombIntegrals", Vijka }, { "HHPPCoulombIntegrals", Vijab }
+    , { "HPHHCoulombIntegrals", Viajk }, { "HPHPCoulombIntegrals", Viajb }
+    , { "HPPPCoulombIntegrals", Viabc }, { "PPHPCoulombIntegrals", Vabic }
+    , { "PPPHCoulombIntegrals", Vabci }, { "PHPPCoulombIntegrals", Vaibc }
+    , { "PHPHCoulombIntegrals", Vaibj }, { "HPPHCoulombIntegrals", Viabj }
+    , { "HHPHCoulombIntegrals", Vijak }, { "PHHPCoulombIntegrals", Vaijb }
+    };
 
   std::vector<std::string> allArguments = { "complexVersion"
                                           , "oneBodyRdmRange"
@@ -122,6 +122,7 @@ void CcsdEquationOfMotionDavidson::run() {
                                           };
   // possible integrals
   for (auto& i: requiredIntegrals) { allArguments.push_back(i.name); }
+  checkArgumentsOrDie(allArguments);
 
   const struct { double sigma; bool random; bool spinFlip; }
   precSettings = { getRealArgument("preconditionerRandomSigma", 0.01)
@@ -130,11 +131,6 @@ void CcsdEquationOfMotionDavidson::run() {
                  };
 
   const double ediff(getRealArgument("ediff", 1e-6));
-
-  for (auto& i: getGivenArgumentNames()) {
-    LOGGER(1) << i << std::endl;
-  }
-  checkArgumentsOrDie(allArguments);
 
   const bool
     intermediates(getIntegerArgument("intermediates", 1))
