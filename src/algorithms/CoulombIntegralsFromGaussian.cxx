@@ -13,6 +13,7 @@
 #include <numeric>
 #include <set>
 #include <map>
+#define LOGGER(_l) LOG(_l, "CoulombIntegralsFromGaussian")
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromGaussian);
@@ -43,7 +44,7 @@ struct CoulombIntegralsProvider {
     libint2::initialize();
 
     const size_t NpNpNpNp(Np*Np*Np*Np);
-    LOG(1, "Integrals")
+    LOGGER(1)
       << "Allocating and computing Vklmn ("
       << sizeof(double) * NpNpNpNp / std::pow(2, 30)
       << " GB)" << std::endl;
@@ -77,8 +78,6 @@ struct CoulombIntegralsProvider {
         for (size_t m(M.begin); m < M.end; ++m) {
         for (size_t n(N.begin); n < N.end; ++n, ++Inmlk) {
 
-          // <p q | r s> = (p r , q s)
-
           size_t bigI(
             n +
             m * Np +
@@ -111,8 +110,19 @@ struct CoulombIntegralsProvider {
 
 
 void CoulombIntegralsFromGaussian::run() {
-  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
-  const std::string basisSet(getTextArgument("basisSet"));
+
+  std::vector<std::string> allArguments =
+    { "xyzStructureFile"
+    , "basisSet"
+    , "chemistNotation"
+    , "CoulombIntegrals"
+    };
+  checkArgumentsOrDie(allArguments);
+
+  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""))
+                  , basisSet(getTextArgument("basisSet"))
+                  ;
+  const bool chemistNotation(getIntegerArgument("chemistNotation", 1) == 1);
 
   std::ifstream structureFileStream(xyzStructureFile.c_str());
   const auto atoms(libint2::read_dotxyz(structureFileStream));
@@ -122,8 +132,7 @@ void CoulombIntegralsFromGaussian::run() {
 
   CoulombIntegralsProvider engine(Np, shells);
 
-  LOG(1, "CoulombIntegralsFromGaussian")
-    << "structure: " << xyzStructureFile << std::endl;
+  LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
 
   const std::vector<int> lens(4, Np);
   const std::vector<int> syms(4, NS);
@@ -135,8 +144,25 @@ void CoulombIntegralsFromGaussian::run() {
     std::iota(indices.begin(), indices.end(), 0);
     Vklmn->write(indices.size(), indices.data(), engine.data());
   }
-  LOG(1, "CoulombIntegralsFromGaussian")
-    << "Allocating CoulombIntegrals" << std::endl;
-  allocatedTensorArgument<double>("CoulombIntegrals", Vklmn);
+
+  LOGGER(1) << "Allocating CoulombIntegrals" << std::endl;
+
+  if (chemistNotation) {
+
+    LOGGER(1) <<
+      "WARNING: this integral is in chemist notation, Vklmn = (kl|mn) = <km|ln>"
+      << std::endl;
+    allocatedTensorArgument<double>("CoulombIntegrals", Vklmn);
+
+  } else {
+
+    LOGGER(1) << "NOTE: this integral is in physicist notation" << std::endl;
+    auto newV(new CTF::Tensor<double>(*Vklmn));
+
+    (*newV)["pqrs"] = (*Vklmn)["prqs"];
+    allocatedTensorArgument<double>("CoulombIntegrals", newV);
+    delete Vklmn;
+
+  }
 
 }
