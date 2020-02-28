@@ -75,7 +75,6 @@ void HartreeFockFromCoulombIntegrals::run() {
   if (isArgumentGiven("OverlapMatrix")) {
     LOGGER(1) << "Setting provided OverlapMatrix" << std::endl;
     S = toEigenMatrix(*getTensorArgument<double>("OverlapMatrix"));
-    std::cout << S << std::endl;
   }
 
   LOGGER(1)
