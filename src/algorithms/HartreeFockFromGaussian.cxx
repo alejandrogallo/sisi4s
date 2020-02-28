@@ -42,6 +42,7 @@
 #include <numeric>      // std::iota
 #include <util/Emitter.hpp>
 #define LOGGER(_l) LOG(_l, "HartreeFockFromGaussian")
+#define IF_GIVEN(_l, ...) if (isArgumentGiven(_l)) { __VA_ARGS__ }
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromGaussian);
@@ -51,6 +52,15 @@ HartreeFockFromGaussian::HartreeFockFromGaussian(
 }
 HartreeFockFromGaussian::~HartreeFockFromGaussian() {}
 
+CTF::Tensor<double>
+eigenToCtfMatrix(const Eigen::MatrixXd &m) {
+  int syms[] = {NS, NS}, lens[] = {(int)m.rows(), (int)m.cols()};
+  std::vector<int64_t> indices(m.rows() * m.cols());
+  CTF::Tensor<double> t(2, lens, syms, *Cc4s::world);
+  std::iota(indices.begin(), indices.end(), 0);
+  t.write(indices.size(), indices.data(), &m(0));
+  return t;
+}
 
 double
 getNuclearRepulsionEnergy(std::vector<libint2::Atom>& structure)
@@ -205,18 +215,35 @@ getTwoBodyFock(const libint2::BasisSet& shells, const Eigen::MatrixXd& D) {
 }
 
 
-
 void HartreeFockFromGaussian::run() {
 
-  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
-  const std::string basisSet(getTextArgument("basisSet", "sto-3g"));
-  unsigned int maxIterations(getIntegerArgument("maxIterations", 16));
-  double electronicConvergence(getRealArgument("energyDifference", 1e-4));
+  std::vector<std::string> allArguments =
+    { "xyzStructureFile"
+    , "basisSet"
+    , "CoreHamiltonian"
+    , "energyDifference"
+    , "maxIterations"
+    , "numberOfElectrons"
+    , "OrbitalCoefficients"
+    , "OverlapMatrix"
+    , "HartreeFockEnergy"
+    , "HoleEigenEnergies"
+    , "ParticleEigenEnergies"
+    };
+  checkArgumentsOrDie(allArguments);
+
+  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""))
+                  , basisSet(getTextArgument("basisSet", "sto-3g"))
+                  ;
+  double electronicConvergence(getRealArgument("energyDifference", 1e-4))
+       , enuc
+       ;
   int numberOfElectrons(getIntegerArgument("numberOfElectrons", -1));
-  unsigned int i;
-  unsigned int nBasisFunctions;
-  unsigned int No, Nv, Np;
-  double enuc;
+  unsigned int maxIterations(getIntegerArgument("maxIterations", 16))
+             , i
+             , nBasisFunctions
+             , No, Nv, Np
+             ;
 
   LOGGER(1) << "maxIterations: " << maxIterations  << std::endl;
   LOGGER(1) << "ediff: " << electronicConvergence << std::endl;
@@ -406,36 +433,55 @@ void HartreeFockFromGaussian::run() {
 
   LOGGER(1) << "energy=" << ehf + enuc << std::endl;
 
-  int syms[] = {NS, NS};
-  // export stuff
-  int pp[] = {(int)Np, (int)Np};
-  auto ctfCoefficients(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "C"));
+  int syms[] = {NS, NS}
+    , o[]    = {(int)No}
+    , v[]    = {(int)Nv}
+    ;
   std::vector<int64_t> indices;
-  indices.resize(Np*Np);
-  std::iota(indices.begin(), indices.end(), 0);
-  ctfCoefficients->write(indices.size(), indices.data(), &C(0));
 
-  int o[] = {(int)No}, v[] = {(int)Nv};
-  // epsilon for holes
-  indices.resize(No);
-  std::iota(indices.begin(), indices.end(), 0);
-  auto epsi(new CTF::Tensor<double>(1, o, syms, *Cc4s::world, "epsi"));
-  epsi->write(indices.size(), indices.data(), &eps(0));
-  // epsilon for particles
-  indices.resize(Nv);
-  std::iota(indices.begin(), indices.end(), 0);
-  auto epsa(new CTF::Tensor<double>(1, v, syms, *Cc4s::world, "epsa"));
-  epsa->write(indices.size(), indices.data(), &eps(0) + No);
 
-  indices.resize(Np*Np*Np*Np);
-  std::iota(indices.begin(), indices.end(), 0);
-  CTF::Scalar<double> hfEnergy;
-  hfEnergy[""] = (ehf + enuc);
+  IF_GIVEN("CoreHamiltonian",
+    LOGGER(1) << "Exporting CoreHamiltonian" << std::endl;
+    allocatedTensorArgument<double>(
+      "CoreHamiltonian", new CTF::Tensor<double>(eigenToCtfMatrix(H)));
+  )
 
-  allocatedTensorArgument<double>("OrbitalCoefficients", ctfCoefficients);
-  allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
-  allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<double>("HartreeFockEnergy", new CTF::Scalar<double>(hfEnergy));
+  IF_GIVEN("OrbitalCoefficients",
+    LOGGER(1) << "Exporting OrbitalCoefficients" << std::endl;
+    allocatedTensorArgument<double>(
+      "OrbitalCoefficients", new CTF::Tensor<double>(eigenToCtfMatrix(C)));
+  )
+
+  IF_GIVEN("HoleEigenEnergies",
+    // epsilon for holes
+    indices.resize(No);
+    std::iota(indices.begin(), indices.end(), 0);
+    auto epsi(new CTF::Tensor<double>(1, o, syms, *Cc4s::world, "epsi"));
+    epsi->write(indices.size(), indices.data(), &eps(0));
+    allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
+  )
+
+  IF_GIVEN("ParticleEigenEnergies",
+    // epsilon for particles
+    indices.resize(Nv);
+    std::iota(indices.begin(), indices.end(), 0);
+    auto epsa(new CTF::Tensor<double>(1, v, syms, *Cc4s::world, "epsa"));
+    epsa->write(indices.size(), indices.data(), &eps(0) + No);
+    allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
+  )
+
+  IF_GIVEN("HartreeFockEnergy",
+    CTF::Scalar<double> hfEnergy;
+    hfEnergy[""] = (ehf + enuc);
+    allocatedTensorArgument<double>("HartreeFockEnergy",
+                                    new CTF::Scalar<double>(hfEnergy));
+  )
+
+  IF_GIVEN("OverlapMatrix",
+    LOGGER(1) << "Exporting OverlapMatrix in the atomic basis" << std::endl;
+    allocatedTensorArgument<double>(
+      "OverlapMatrix", new CTF::Tensor<double>(eigenToCtfMatrix(S)));
+  )
 
   libint2::finalize();
 
