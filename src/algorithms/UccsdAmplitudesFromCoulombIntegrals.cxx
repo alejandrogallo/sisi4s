@@ -26,12 +26,39 @@ UccsdAmplitudesFromCoulombIntegrals::~UccsdAmplitudesFromCoulombIntegrals() {
 }
 
 void UccsdAmplitudesFromCoulombIntegrals::run() {
+
+  // Set this for cluster singles doubles algorithm
+  getIntegerArgument("antisymmetrize");
+  getIntegerArgument("unrestricted");
+
+  const std::vector<std::string> allArguments =
+    { "intermediates" // stanton intermediates
+    , "antisymmetrize", "unrestricted"
+    // Solver
+    , "mixer", "maxIterations", "amplitudesConvergence", "energyConvergence"
+    , "mixingRatio", "maxResidua"
+    // Fock matrix
+    , "HPFockMatrix" , "PPFockMatrix" , "HHFockMatrix"
+    , "HoleEigenEnergies" , "ParticleEigenEnergies"
+    // integrals
+    , "HHHHCoulombIntegrals" , "PPPPCoulombIntegrals" , "HHHPCoulombIntegrals"
+    , "HHPPCoulombIntegrals" , "HPHHCoulombIntegrals" , "HPHPCoulombIntegrals"
+    , "HPPPCoulombIntegrals" , "PPHHCoulombIntegrals" , "PPHPCoulombIntegrals"
+    , "HPPHCoulombIntegrals" , "PHPPCoulombIntegrals" , "HHPHCoulombIntegrals"
+    , "PPPHCoulombIntegrals" , "PHPHCoulombIntegrals" , "PHHPCoulombIntegrals"
+    , "UccsdDoublesAmplitudes", "UccsdSinglesAmplitudes", "UccsdEnergy"
+    };
+  checkArgumentsOrDie(allArguments);
+
   usingIntermediates = getIntegerArgument("intermediates", 1) == 1;
   if (! usingIntermediates ) {
     LOG(0, getAbbreviation()) <<
-      "Not using intermediates, the code will be much slower."
-    << std::endl;
+      "Not using Stanton et al. intermediates, the code will be much slower."
+      << std::endl;
   }
+  LOG(0, getAbbreviation())
+    << "stanton intermediates: " << usingIntermediates << std::endl;
+
   ClusterSinglesDoublesAlgorithm::run();
 }
 
@@ -71,15 +98,14 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     Fab = getTensorArgument<F, CTF::Tensor<F> >("PPFockMatrix");
     Fij = getTensorArgument<F, CTF::Tensor<F> >("HHFockMatrix");
   } else {
-    auto epsi = getTensorArgument<double,
-                             CTF::Tensor<double> >("HoleEigenEnergies");
-    auto epsa = getTensorArgument<double,
-                             CTF::Tensor<double> >("ParticleEigenEnergies");
+    auto epsi = getTensorArgument<double>("HoleEigenEnergies");
+    auto epsa = getTensorArgument<double>("ParticleEigenEnergies");
     Fia = nullptr;
     const int Nv(epsa->lens[0]), No(epsi->lens[0]);
     const int vv[] = {Nv, Nv};
     const int oo[] = {No, No};
     const int syms[] = {NS, NS};
+    // TODO: solve this memory leak
     Fab = new CTF::Tensor<F>(2, vv, syms, *Cc4s::world, "Fab");
     Fij = new CTF::Tensor<F>(2, oo, syms, *Cc4s::world, "Fij");
     CTF::Transform<double, F>(
@@ -94,39 +120,35 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     );
   }
 
-  //(*Fij)["ii"] *= 0.0;
-  //(*Fab)["aa"] *= 0.0;
-
   // Get couloumb integrals
-  auto Vijkl(getTensorArgument<F, CTF::Tensor<F> >("HHHHCoulombIntegrals"));
-  auto Vabcd(getTensorArgument<F, CTF::Tensor<F> >("PPPPCoulombIntegrals"));
-  auto Vijka(getTensorArgument<F, CTF::Tensor<F> >("HHHPCoulombIntegrals"));
-  auto Vijab(getTensorArgument<F, CTF::Tensor<F> >("HHPPCoulombIntegrals"));
-  auto Viajk(getTensorArgument<F, CTF::Tensor<F> >("HPHHCoulombIntegrals"));
-  auto Viajb(getTensorArgument<F, CTF::Tensor<F> >("HPHPCoulombIntegrals"));
-  auto Viabc(getTensorArgument<F, CTF::Tensor<F> >("HPPPCoulombIntegrals"));
-  auto Vabij(getTensorArgument<F, CTF::Tensor<F> >("PPHHCoulombIntegrals"));
-  auto Vabic(getTensorArgument<F, CTF::Tensor<F> >("PPHPCoulombIntegrals"));
-  auto Viabj(getTensorArgument<F, CTF::Tensor<F> >("HPPHCoulombIntegrals"));
-  auto Vaibc(getTensorArgument<F, CTF::Tensor<F> >("PHPPCoulombIntegrals"));
-  auto Vijak(getTensorArgument<F, CTF::Tensor<F> >("HHPHCoulombIntegrals"));
-  auto Vabci(getTensorArgument<F, CTF::Tensor<F> >("PPPHCoulombIntegrals"));
-  auto Vaibj(getTensorArgument<F, CTF::Tensor<F> >("PHPHCoulombIntegrals"));
-  auto Vaijb(getTensorArgument<F, CTF::Tensor<F> >("PHHPCoulombIntegrals"));
+  auto Vijkl(getTensorArgument<F>("HHHHCoulombIntegrals"));
+  auto Vabcd(getTensorArgument<F>("PPPPCoulombIntegrals"));
+  auto Vijka(getTensorArgument<F>("HHHPCoulombIntegrals"));
+  auto Vijab(getTensorArgument<F>("HHPPCoulombIntegrals"));
+  auto Viajk(getTensorArgument<F>("HPHHCoulombIntegrals"));
+  auto Viajb(getTensorArgument<F>("HPHPCoulombIntegrals"));
+  auto Viabc(getTensorArgument<F>("HPPPCoulombIntegrals"));
+  auto Vabij(getTensorArgument<F>("PPHHCoulombIntegrals"));
+  auto Vabic(getTensorArgument<F>("PPHPCoulombIntegrals"));
+  auto Viabj(getTensorArgument<F>("HPPHCoulombIntegrals"));
+  auto Vaibc(getTensorArgument<F>("PHPPCoulombIntegrals"));
+  auto Vijak(getTensorArgument<F>("HHPHCoulombIntegrals"));
+  auto Vabci(getTensorArgument<F>("PPPHCoulombIntegrals"));
+  auto Vaibj(getTensorArgument<F>("PHPHCoulombIntegrals"));
+  auto Vaijb(getTensorArgument<F>("PHHPCoulombIntegrals"));
 
-  // Create T and R and intermediates
   // Read the amplitudes Tai and Tabij
-  auto Tai(amplitudes->get(0));
-  Tai->set_name("Tai");
-  auto Tabij(amplitudes->get(1));
-  Tabij->set_name("Tabij");
+  auto Tai(amplitudes->get(0))
+     , Tabij(amplitudes->get(1))
+     ;
 
   auto residuum(NEW(FockVector<F>, *amplitudes));
+  auto Rai(residuum->get(0))
+     , Rabij(residuum->get(1))
+     ;
+
   *residuum *= 0.0;
-  // Allocate Tensors for T2 amplitudes
-  auto Rai(residuum->get(0));
   Rai->set_name("Rai");
-  auto Rabij(residuum->get(1));
   Rabij->set_name("Rabij");
 
   if (iterationStep == 0){
@@ -138,14 +160,21 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
 
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
 
-  H.setFij(Fij).setFab(Fab).setFia(Fia)
-    .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
-    .setVijka(Vijka).setViabc(Viabc).setViajk(Viajk).setVabic(Vabic)
-    .setVaibc(Vaibc).setVaibj(Vaibj).setViabj(Viabj).setVijak(Vijak)
-    .setVaijb(Vaijb).setVabci(Vabci).setVabij(Vabij)
-    .setTai(Tai.get()).setTabij(Tabij.get())
-    .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::GENERAL)
-    .useStantonIntermediatesUCCSD(usingIntermediates);
+  H
+   // set fock matrix
+   .setFij(Fij).setFab(Fab).setFia(Fia)
+   // set coulomb integrals
+   .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
+   .setVijka(Vijka).setViabc(Viabc).setViajk(Viajk).setVabic(Vabic)
+   .setVaibc(Vaibc).setVaibj(Vaibj).setViabj(Viabj).setVijak(Vijak)
+   .setVaijb(Vaijb).setVabci(Vabci).setVabij(Vabij)
+   // set current t-amplitudes
+   .setTai(Tai.get()).setTabij(Tabij.get())
+   // set a general dressing
+   .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::GENERAL)
+   // use stanton intermediates?
+   .useStantonIntermediatesUCCSD(usingIntermediates)
+   ;
 
   // T1 equations:
   //
