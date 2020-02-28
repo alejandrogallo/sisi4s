@@ -56,9 +56,9 @@ getFockMatrix(const Eigen::MatrixXd &d, CTF::Tensor<double> &V) {
 
 void HartreeFockFromCoulombIntegrals::run() {
 
-  auto ctfH(getTensorArgument<double>("h"));
+  const auto ctfH(getTensorArgument<double>("h"));
   const auto H(toEigenMatrix(*ctfH));
-  auto V(getTensorArgument<double>("CoulombIntegrals"));
+  const auto V(getTensorArgument<double>("CoulombIntegrals"));
   const unsigned int No(getIntegerArgument("No"));
   const size_t Nv(getIntegerArgument("Nv", V->lens[0] - No));
   const size_t Np(No+Nv);
@@ -71,9 +71,12 @@ void HartreeFockFromCoulombIntegrals::run() {
   LOGGER(1) << "Nv: " << Nv << std::endl;
   LOGGER(1) << "Calculating overlaps" << std::endl;
 
-  // TODO: the algorithm should be able to read a user passed overlap matrix
-  //       this algorithm will only work for orthonormal basis
   Eigen::MatrixXd S(Eigen::MatrixXd::Identity(Np, Np));
+  if (isArgumentGiven("OverlapMatrix")) {
+    LOGGER(1) << "Setting provided OverlapMatrix" << std::endl;
+    S = toEigenMatrix(*getTensorArgument<double>("OverlapMatrix"));
+    std::cout << S << std::endl;
+  }
 
   LOGGER(1)
     << "mem:Fock "
