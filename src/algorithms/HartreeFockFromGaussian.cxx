@@ -32,7 +32,7 @@
 #include <string>
 #include <vector>
 #include <libint2.hpp>
-#include <algorithms/HartreeFock.hpp>
+#include <algorithms/HartreeFockFromGaussian.hpp>
 #include <ctf.hpp>
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
@@ -41,14 +41,15 @@
 #include <ctf.hpp>
 #include <numeric>      // std::iota
 #include <util/Emitter.hpp>
+#define LOGGER(_l) LOG(_l, "HartreeFockFromGaussian")
 
 using namespace cc4s;
-ALGORITHM_REGISTRAR_DEFINITION(HartreeFock);
-HartreeFock::HartreeFock(
+ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromGaussian);
+HartreeFockFromGaussian::HartreeFockFromGaussian(
   std::vector<Argument> const &argumentList
 ): Algorithm(argumentList) {
 }
-HartreeFock::~HartreeFock() {}
+HartreeFockFromGaussian::~HartreeFockFromGaussian() {}
 
 
 double
@@ -56,7 +57,7 @@ getNuclearRepulsionEnergy(std::vector<libint2::Atom>& structure)
 {
   unsigned int i, j;
   double enuc(0.0), r2(0.0);
-  LOG(1, "HartreeFock") << "Calculating nuclear repulsion energy" << std::endl;
+  LOGGER(1) << "Calculating nuclear repulsion energy" << std::endl;
   for (i = 0; i < structure.size(); ++i) {
     for (j = i + 1; j < structure.size(); ++j) {
       r2 = 0.0;
@@ -205,7 +206,7 @@ getTwoBodyFock(const libint2::BasisSet& shells, const Eigen::MatrixXd& D) {
 
 
 
-void HartreeFock::run() {
+void HartreeFockFromGaussian::run() {
 
   const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
   const std::string basisSet(getTextArgument("basisSet", "sto-3g"));
@@ -217,15 +218,15 @@ void HartreeFock::run() {
   unsigned int No, Nv, Np;
   double enuc;
 
-  LOG(1, "HartreeFock") << "maxIterations: " << maxIterations  << std::endl;
-  LOG(1, "HartreeFock") << "ediff: " << electronicConvergence << std::endl;
+  LOGGER(1) << "maxIterations: " << maxIterations  << std::endl;
+  LOGGER(1) << "ediff: " << electronicConvergence << std::endl;
 
   // Initialize libint
-  LOG(1, "HartreeFock") << "libint2: " << LIBINT_VERSION << std::endl;
-  LOG(1, "HartreeFock") << "MAX_AM: " << LIBINT_MAX_AM << std::endl;
+  LOGGER(1) << "libint2: " << LIBINT_VERSION << std::endl;
+  LOGGER(1) << "MAX_AM: " << LIBINT_MAX_AM << std::endl;
   libint2::initialize();
 
-  LOG(1, "HartreeFock") << "structure: " << xyzStructureFile << std::endl;
+  LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
   std::ifstream structureFileStream(xyzStructureFile.c_str());
   std::vector<libint2::Atom> atoms(libint2::read_dotxyz(structureFileStream));
   structureFileStream.close();
@@ -239,31 +240,30 @@ void HartreeFock::run() {
     }
   }
 
-  LOG(1, "HartreeFock") << "natoms: " << atoms.size() << std::endl;
-  LOG(1, "HartreeFock") << "nelec: " << numberOfElectrons << std::endl;
+  LOGGER(1) << "natoms: " << atoms.size() << std::endl;
+  LOGGER(1) << "nelec: " << numberOfElectrons << std::endl;
 
   // initializing basis set and outputing relevant information
-  LOG(1, "HartreeFock") << "basis: " << basisSet << std::endl;
+  LOGGER(1) << "basis: " << basisSet << std::endl;
   libint2::BasisSet shells(basisSet, atoms);
   nBasisFunctions = shells.nbf();
   // restricted hartree fock
   No = numberOfElectrons/2;
   Nv = nBasisFunctions - No;
   Np = Nv + No;
-  LOG(1, "HartreeFock") << "Initializing basis set.." << std::endl;
-  LOG(1, "HartreeFock") << "No: " << No << std::endl;
-  LOG(1, "HartreeFock") << "Nv: " << Nv << std::endl;
-  LOG(1, "HartreeFock") << "#shells: " << shells.size() << std::endl;
-  LOG(1, "HartreeFock") << "#functions: " << nBasisFunctions << std::endl;
-  LOG(1, "HartreeFock") << "max_l: " << shells.max_l() << std::endl;
-  LOG(1, "HartreeFock")
-    << "Max functions in shell = " << shells.max_nprim() << std::endl;
+  LOGGER(1) << "Initializing basis set.." << std::endl;
+  LOGGER(1) << "No: " << No << std::endl;
+  LOGGER(1) << "Nv: " << Nv << std::endl;
+  LOGGER(1) << "#shells: " << shells.size() << std::endl;
+  LOGGER(1) << "#functions: " << nBasisFunctions << std::endl;
+  LOGGER(1) << "max_l: " << shells.max_l() << std::endl;
+  LOGGER(1) << "Max functions in shell = " << shells.max_nprim() << std::endl;
 
-  LOG(1, "HartreeFock") << "shell: l\tAOS\tCGS" << std::endl;
+  LOGGER(1) << "shell: l\tAOS\tCGS" << std::endl;
   i = 0;
   for (auto &shell: shells) {
     i++;
-    LOG(1, "HartreeFock") << "shell " << i << ": "
+    LOGGER(1) << "shell " << i << ": "
       << shell.size() << "\t"
       << shell.nprim() << "\t"
       << shell.ncontr() << "\t"
@@ -271,39 +271,36 @@ void HartreeFock::run() {
   }
 
   enuc = getNuclearRepulsionEnergy(atoms);
-  LOG(1, "HartreeFock") << "nuclear energy: " << enuc << std::endl;
+  LOGGER(1) << "nuclear energy: " << enuc << std::endl;
 
-  LOG(1, "HartreeFock") << "Calculating overlaps" << std::endl;
+  LOGGER(1) << "Calculating overlaps" << std::endl;
   Eigen::MatrixXd S = getOneBodyIntegrals(
     shells,
     libint2::Operator::overlap, atoms);
 
-  LOG(1, "HartreeFock") << "Calculating kinetic integrals" << std::endl;
+  LOGGER(1) << "Calculating kinetic integrals" << std::endl;
   Eigen::MatrixXd T = getOneBodyIntegrals(
     shells,
     libint2::Operator::kinetic,
     atoms);
-  LOG(1, "HartreeFock")
-    << "T(" << T.rows() << "," << T.cols() << ")" << std::endl;
+  LOGGER(1) << "T(" << T.rows() << "," << T.cols() << ")" << std::endl;
 
 
-  LOG(1, "HartreeFock")
-    << "Compute nuclear repulsion integrals" << std::endl;
+  LOGGER(1) << "Compute nuclear repulsion integrals" << std::endl;
   Eigen::MatrixXd V = getOneBodyIntegrals(
     shells,
     libint2::Operator::nuclear,
     atoms);
-  LOG(1, "HartreeFock")
-    << "V(" << V.rows() << "," << V.cols() << ")" << std::endl;
+  LOGGER(1) << "V(" << V.rows() << "," << V.cols() << ")" << std::endl;
 
-  LOG(1, "HartreeFock") << "Calculating the core hamiltonian" << std::endl;
+  LOGGER(1) << "Calculating the core hamiltonian" << std::endl;
   Eigen::MatrixXd H = T + V;
 
   // T and V no longer needed, free up the memory
   T.resize(0,0);
   V.resize(0,0);
 
-  LOG(1, "HartreeFock")
+  LOGGER(1)
     << "mem:Fock "
     << sizeof(double) * nBasisFunctions * nBasisFunctions / std::pow(2, 30.0)
     << " GB"
@@ -316,13 +313,13 @@ void HartreeFock::run() {
 
   D *= 0.0;
 
-  LOG(1, "HartreeFock") << "Setting initial density matrix" << std::endl;
+  LOGGER(1) << "Setting initial density matrix" << std::endl;
   for ( i=0 ; i < nBasisFunctions ; i++) {
   for (unsigned j=i ; j < i+1 ; j++) {
     D(i,j) = 1;
   }
   }
-  LOG(1, "HartreeFock") << "\tdone" << std::endl;
+  LOGGER(1) << "\tdone" << std::endl;
 
   unsigned int iter(0);
   double rmsd(0);
@@ -342,7 +339,7 @@ void HartreeFock::run() {
     D_last = D;
 
     F = H;
-    LOG(2, "HartreeFock") << "calculating fock matrix" << std::endl;
+    LOGGER(2) << "calculating fock matrix" << std::endl;
     F += getTwoBodyFock(shells, D);
 
     // solve F C = e S C
@@ -404,11 +401,10 @@ void HartreeFock::run() {
 
   EMIT() << YAML::EndSeq;
   for (unsigned int e; e<eps.size(); e++) {
-    LOG(1, "HartreeFock")
-      << "band " << e + 1 << " = " << eps(e,0) << std::endl;
+    LOGGER(1) << "band " << e + 1 << " = " << eps(e,0) << std::endl;
   }
 
-  LOG(1, "HartreeFock") << "energy=" << ehf + enuc << std::endl;
+  LOGGER(1) << "energy=" << ehf + enuc << std::endl;
 
   int syms[] = {NS, NS};
   // export stuff
