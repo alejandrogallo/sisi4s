@@ -13,6 +13,7 @@
 #include <numeric>
 #include <set>
 #include <map>
+#include <util/Emitter.hpp>
 #define LOGGER(_l) LOG(_l, "CoulombIntegralsFromGaussian")
 
 using namespace cc4s;
@@ -138,6 +139,13 @@ void CoulombIntegralsFromGaussian::run() {
   const std::vector<int> syms(4, NS);
   auto Vklmn(new CTF::Tensor<double>(4, lens.data(), syms.data(),
                                       *Cc4s::world, "V"));
+
+  EMIT() << YAML::Key << "Np" << YAML::Value << Np
+         << YAML::Key << "xyz" << YAML::Value << xyzStructureFile
+         << YAML::Key << "basis-set" << YAML::Value << basisSet
+         << YAML::Key << "chemist-notation" << YAML::Value << chemistNotation
+         ;
+
   engine.compute();
   {
     std::vector<int64_t> indices(Np*Np*Np*Np);
