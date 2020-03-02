@@ -11,6 +11,7 @@
 #include <numeric>
 #include <set>
 #include <map>
+#include <util/Emitter.hpp>
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromRotatedCoulombIntegrals);
@@ -238,6 +239,7 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
   const int No(getIntegerArgument("No", nelect/2));
   const int Nv(getIntegerArgument("Nv", V->lens[0] - No));
   const int Np(No + Nv);
+  const bool chemistNotation(getIntegerArgument("chemistNotation", 1) == 1);
   std::vector<double> orbitals;
 
   orbitals.resize(Np*Np);
@@ -268,8 +270,17 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
     {"PPPPCoulombIntegrals", {NV,NV,NV,NV}, "abcd"},
   });
 
+  LOGGER(1)
+    << "Note: CoulombIntegrals have to be in chemist notation!"
+    << std::endl;
   LOGGER(1) << "No: " << No << std::endl;
   LOGGER(1) << "Nv: " << Nv << std::endl;
+
+  EMIT() << YAML::Key << "No" << YAML::Value << No
+         << YAML::Key << "Nv" << YAML::Value << Nv
+         << YAML::Key << "Np" << YAML::Value << Np
+         << YAML::Key << "chemist-notation" << YAML::Value << chemistNotation
+         ;
 
   for (const auto &integral : integralInfos) {
     if ( ! isArgumentGiven(integral.name) ) continue;
