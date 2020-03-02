@@ -17,23 +17,13 @@ using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromRotatedCoulombIntegrals);
 #define LOGGER(_l) LOG(_l, "CoulombIntegralsFromRotatedCoulombIntegrals")
 
+template <typename V>
 struct IntegralProvider {
 
-  IntegralProvider(
-    size_t No_,
-    size_t Nv_,
-    std::vector<double> &coefficients,
-    CTF::Tensor<double> &coulombIntegrals)
-    :No(No_), Nv(Nv_), Np(No_+Nv_), C(coefficients)
- {
-    std::vector<int64_t> indices(Np*Np*Np*Np);
-    std::iota(indices.begin(), indices.end(), 0);
-    Vklmn.resize(indices.size());
-    coulombIntegrals.read(indices.size(), indices.data(), Vklmn.data());
-  }
+  IntegralProvider(size_t no, size_t nv): No(no), Nv(nv), Np(no+nv) {}
 
   struct Limit {
-    size_t lower; size_t upper; size_t size;
+    size_t lower, upper, size;
     Limit(size_t l, size_t h): lower(l), upper(h), size(h - l){}
     inline const size_t operator[](const size_t& i) const { return i - lower; }
   };
@@ -48,20 +38,40 @@ struct IntegralProvider {
     else                     return No + Nv;
   }
 
+  virtual V compute(Index P, Index Q, Index R, Index S) = 0;
+
+  const size_t No, Nv, Np;
+};
+
+struct VectorIntegralProvider: public IntegralProvider< std::vector<double> > {
+
+  VectorIntegralProvider( size_t no
+                        , size_t nv
+                        , std::vector<double> &coefficients
+                        , CTF::Tensor<double> &coulombIntegrals
+                        ) :IntegralProvider(no, nv), C(coefficients)
+ {
+    std::vector<int64_t> indices(Np*Np*Np*Np);
+    std::iota(indices.begin(), indices.end(), 0);
+    Vklmn.resize(indices.size());
+    coulombIntegrals.read(indices.size(), indices.data(), Vklmn.data());
+  }
+
   std::vector<double> compute(Index P, Index Q, Index R, Index S) {
 
-    const Limit pLim(indexToLimits(P)),
-                qLim(indexToLimits(Q)),
-                rLim(indexToLimits(R)),
-                sLim(indexToLimits(S));
+    const Limit pLim(indexToLimits(P))
+              , qLim(indexToLimits(Q))
+              , rLim(indexToLimits(R))
+              , sLim(indexToLimits(S))
+              ;
 
     const size_t dimension(pLim.size * qLim.size * rLim.size * sLim.size);
     std::vector<double> result(dimension, 0.0);
 
-    std::vector<double> Vpmlk(Np*Np*Np* pLim.size, 0.0),
-                        Vprlk(Np*Np*    pLim.size*rLim.size, 0.0),
-                        Vprqk(Np*       pLim.size*rLim.size*qLim.size, 0.0)
-                        ;
+    std::vector<double> Vpmlk(Np*Np*Np* pLim.size, 0.0)
+                      , Vprlk(Np*Np*    pLim.size*rLim.size, 0.0)
+                      , Vprqk(Np*       pLim.size*rLim.size*qLim.size, 0.0)
+                      ;
 
     // COMPUTE Vpmlk =====================
     for (size_t p(pLim.lower); p < pLim.upper; ++p) {
@@ -69,11 +79,11 @@ struct IntegralProvider {
       for (size_t l(0); l < Np; ++l) {
       for (size_t m(0); m < Np; ++m) {
 
-        const size_t Ipmlk = pLim[p] +
-                             m * pLim.size +
-                             l * pLim.size*Np +
-                             k * pLim.size*Np*Np
-                             ;
+        const size_t Ipmlk = pLim[p]
+                           + m * pLim.size
+                           + l * pLim.size*Np
+                           + k * pLim.size*Np*Np
+                           ;
 
       for (size_t n(0); n < Np; ++n, ++Inmlk) {
 
@@ -88,20 +98,20 @@ struct IntegralProvider {
       for (size_t k(0); k < Np; ++k) {
       for (size_t l(0); l < Np; ++l) {
 
-        const size_t Iprlk = pLim[p] +
-                             rLim[r] * pLim.size +
-                             l       * pLim.size*rLim.size +
-                             k       * pLim.size*rLim.size*Np
-                             ;
+        const size_t Iprlk = pLim[p]
+                           + rLim[r] * pLim.size
+                           + l       * pLim.size*rLim.size
+                           + k       * pLim.size*rLim.size*Np
+                           ;
 
 
       for (size_t m(0); m < Np; ++m) {
 
-        const size_t Ipmlk = pLim[p] +
-                             m * pLim.size +
-                             l * pLim.size*Np +
-                             k * pLim.size*Np*Np
-                             ;
+        const size_t Ipmlk = pLim[p]
+                           + m * pLim.size
+                           + l * pLim.size*Np
+                           + k * pLim.size*Np*Np
+                           ;
 
         Vprlk[Iprlk] += C[m + r*Np] * Vpmlk[Ipmlk];
 
@@ -114,11 +124,11 @@ struct IntegralProvider {
       // COMPUTE Vprqk =====================
       for (size_t k(0); k < Np; ++k) {
 
-        const size_t Iprqk = pLim[p] +
-                             rLim[r] * pLim.size +
-                             qLim[q] * pLim.size*rLim.size +
-                             k       * pLim.size*rLim.size*qLim.size
-                             ;
+        const size_t Iprqk = pLim[p]
+                           + rLim[r] * pLim.size
+                           + qLim[q] * pLim.size*rLim.size
+                           + k       * pLim.size*rLim.size*qLim.size
+                           ;
 
       for (size_t l(0); l < Np; ++l) {
 
@@ -139,19 +149,19 @@ struct IntegralProvider {
     for (size_t q(qLim.lower); q < qLim.upper; ++q) {
     for (size_t p(pLim.lower); p < pLim.upper; ++p) {
 
-      const size_t IPQRS = pLim[p] +
-                           qLim[q] * pLim.size +
-                           rLim[r] * pLim.size*qLim.size +
-                           sLim[s] * pLim.size*qLim.size*rLim.size
-                           ;
+      const size_t IPQRS = pLim[p]
+                         + qLim[q] * pLim.size
+                         + rLim[r] * pLim.size*qLim.size
+                         + sLim[s] * pLim.size*qLim.size*rLim.size
+                         ;
 
       for (size_t k(0); k < Np; ++k) {
 
-        const size_t Iprqk = pLim[p] +
-                             rLim[r] * pLim.size +
-                             qLim[q] * pLim.size*rLim.size +
-                             k       * pLim.size*rLim.size*qLim.size
-                             ;
+        const size_t Iprqk = pLim[p]
+                           + rLim[r] * pLim.size
+                           + qLim[q] * pLim.size*rLim.size
+                           + k       * pLim.size*rLim.size*qLim.size
+                           ;
 
         result[IPQRS] += C[k + s*Np] * Vprqk[Iprqk];
 
@@ -162,14 +172,20 @@ struct IntegralProvider {
     return result;
 
   }
+  const std::vector<double> &C;
+  std::vector<double> Vklmn;
+};
 
-  std::vector<double> computeSlow(Index P, Index Q, Index R, Index S) {
+struct SlowVectorIntegralProvider: public VectorIntegralProvider {
+  using VectorIntegralProvider::VectorIntegralProvider;
+  std::vector<double> compute(Index P, Index Q, Index R, Index S) {
     // < P Q | R S > = (P R | Q S)
 
-    const Limit pLim(indexToLimits(P)),
-                qLim(indexToLimits(Q)),
-                rLim(indexToLimits(R)),
-                sLim(indexToLimits(S));
+    const Limit pLim(indexToLimits(P))
+              , qLim(indexToLimits(Q))
+              , rLim(indexToLimits(R))
+              , sLim(indexToLimits(S))
+              ;
 
     const size_t dimension(pLim.size * qLim.size * rLim.size * sLim.size);
     std::vector<double> result(dimension, 0.0);
@@ -185,18 +201,18 @@ struct IntegralProvider {
       for (size_t n(0);            n < Np; ++n, ++Inmlk) {
 
         // <p q | r s> = (p r , q s)
-        const int IPQRS(
-          pLim[p] +
-          qLim[q] * pLim.size +
-          rLim[r] * pLim.size*qLim.size +
-          sLim[s] * pLim.size*qLim.size*rLim.size);
+        const int IPQRS = pLim[p]
+                        + qLim[q] * pLim.size
+                        + rLim[r] * pLim.size * qLim.size
+                        + sLim[s] * pLim.size * qLim.size * rLim.size
+                        ;
 
-        result[IPQRS] +=
-          C[k + s*Np] *
-          C[l + q*Np] *
-          C[m + r*Np] *
-          C[n + p*Np] *
-          Vklmn[Inmlk];
+        result[IPQRS] += C[k + s*Np]
+                       * C[l + q*Np]
+                       * C[m + r*Np]
+                       * C[n + p*Np]
+                       * Vklmn[Inmlk]
+                       ;
 
       } // n
       } // m
@@ -212,12 +228,56 @@ struct IntegralProvider {
 
   }
 
-  private:
-  const size_t No, Nv, Np;
-  const std::vector<double> &C;
-  std::vector<double> Vklmn;
 };
 
+struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
+  CtfIntegralProvider(size_t no
+                    , size_t nv
+                    , CTF::Tensor<double> &coefficients
+                    , CTF::Tensor<double> &coulombIntegrals
+                    ):IntegralProvider(no, nv)
+                    , C(coefficients) , V(coulombIntegrals) {}
+
+  CTF::Tensor<double> *compute() {
+    if (VTransformed != nullptr) { return VTransformed; }
+    LOGGER(1) << "computing main transformation" << std::endl;
+    VTransformed = new CTF::Tensor<double>(true, V);
+    (*VTransformed)["pqrs"] = C["ns"]
+                            * C["lr"]
+                            * C["mq"]
+                            * C["kp"]
+                            * V["klmn"]
+                            ;
+    return VTransformed;
+  }
+
+  CTF::Tensor<double> compute(Index P, Index Q, Index R, Index S) {
+    // Compute the transformation if it's not done
+    const auto& vpqrs(compute());
+
+    const Limit p(indexToLimits(P))
+              , q(indexToLimits(Q))
+              , r(indexToLimits(R))
+              , s(indexToLimits(S))
+              ;
+
+    int a[] = {(int)p.lower, (int)q.lower, (int)r.lower, (int)s.lower}
+      , e[] = {(int)p.upper, (int)q.upper, (int)r.upper, (int)s.upper}
+      ;
+
+    LOGGER(1) << "Slicing "
+     "{" << a[0] << "," << a[1] << "," << a[2] << "," << a[3] << "}" <<
+     " -> " <<
+     "{" << e[0] << "," << e[1] << "," << e[2] << "," << e[3] << "}" <<
+     std::endl;
+
+    return vpqrs->slice(a, e);
+  }
+
+  private:
+    CTF::Tensor<double> &C, &V;
+    CTF::Tensor<double>* VTransformed = nullptr;
+};
 
 CTF::Tensor<double>*
 stdVectorToTensor(const std::vector<double> v, const std::vector<int> lens) {
@@ -231,6 +291,54 @@ stdVectorToTensor(const std::vector<double> v, const std::vector<int> lens) {
   return result;
 }
 
+template <typename V>
+void computeAndExport ( Algorithm&
+                      , IntegralProvider<V>&
+                      , std::vector<IntegralInfo>&
+                      );
+
+template<>
+void computeAndExport ( Algorithm &a
+                      , IntegralProvider< std::vector<double> > &engine
+                      , std::vector<IntegralInfo> &integralInfos
+                      ) {
+  for (const auto &integral : integralInfos) {
+    if ( ! a.isArgumentGiven(integral.name) ) continue;
+    const auto& i(integral.indices);
+
+    LOGGER(1) << "Computing " <<  integral.name << std::endl;
+
+    std::vector<double> result;
+    result = std::move(engine.compute(i[0], i[1], i[2], i[3]));
+    std::vector<int> lens(4);
+    for (unsigned int j(0) ; j < 4 ; j++) {
+      lens[j] = (int)engine.indexToInt(i[j]);
+    }
+    a.allocatedTensorArgument<double>( integral.name
+                                     , stdVectorToTensor(result, lens)
+                                     );
+  }
+}
+
+template<>
+void computeAndExport ( Algorithm &a
+                      , IntegralProvider< CTF::Tensor<double> > &engine
+                      , std::vector<IntegralInfo> &integralInfos
+                      ) {
+
+  for (const auto &integral : integralInfos) {
+    if ( ! a.isArgumentGiven(integral.name) ) continue;
+    const auto& i(integral.indices);
+
+    LOGGER(1) << "Computing " <<  integral.name << std::endl;
+
+    a.allocatedTensorArgument<double>
+      ( integral.name
+      , new CTF::Tensor<double>(engine.compute(i[0], i[1], i[2], i[3]))
+      );
+
+  }
+}
 
 void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
   auto C(getTensorArgument("OrbitalCoefficients"));
@@ -249,58 +357,64 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
     C->read(orbitals.size(), indices.data(), orbitals.data());
   }
 
-  IntegralProvider engine(No, Nv, orbitals, *V);
 
-  const std::vector<IntegralInfo> integralInfos({
-    {"HHHHCoulombIntegrals", {NO,NO,NO,NO}, "ijkl"},
-    {"HHHPCoulombIntegrals", {NO,NO,NO,NV}, "ijka"},
-    {"HHPHCoulombIntegrals", {NO,NO,NV,NO}, "ijak"},
-    {"HHPPCoulombIntegrals", {NO,NO,NV,NV}, "ijab"},
-    {"HPHHCoulombIntegrals", {NO,NV,NO,NO}, "iajk"},
-    {"HPHPCoulombIntegrals", {NO,NV,NO,NV}, "iajb"},
-    {"HPPHCoulombIntegrals", {NO,NV,NV,NO}, "iabj"},
-    {"HPPPCoulombIntegrals", {NO,NV,NV,NV}, "iabc"},
-    {"PHHHCoulombIntegrals", {NV,NO,NO,NO}, "aijk"},
-    {"PHHPCoulombIntegrals", {NV,NO,NO,NV}, "aijb"},
-    {"PHPHCoulombIntegrals", {NV,NO,NV,NO}, "aibj"},
-    {"PHPPCoulombIntegrals", {NV,NO,NV,NV}, "aibc"},
-    {"PPHHCoulombIntegrals", {NV,NV,NO,NO}, "abij"},
-    {"PPHPCoulombIntegrals", {NV,NV,NO,NV}, "abic"},
-    {"PPPHCoulombIntegrals", {NV,NV,NV,NO}, "abci"},
-    {"PPPPCoulombIntegrals", {NV,NV,NV,NV}, "abcd"},
-  });
+  std::vector<IntegralInfo> integralInfos =
+    { {"HHHHCoulombIntegrals", {NO,NO,NO,NO}, "ijkl"}
+    , {"HHHPCoulombIntegrals", {NO,NO,NO,NV}, "ijka"}
+    , {"HHPHCoulombIntegrals", {NO,NO,NV,NO}, "ijak"}
+    , {"HHPPCoulombIntegrals", {NO,NO,NV,NV}, "ijab"}
+    , {"HPHHCoulombIntegrals", {NO,NV,NO,NO}, "iajk"}
+    , {"HPHPCoulombIntegrals", {NO,NV,NO,NV}, "iajb"}
+    , {"HPPHCoulombIntegrals", {NO,NV,NV,NO}, "iabj"}
+    , {"HPPPCoulombIntegrals", {NO,NV,NV,NV}, "iabc"}
+    , {"PHHHCoulombIntegrals", {NV,NO,NO,NO}, "aijk"}
+    , {"PHHPCoulombIntegrals", {NV,NO,NO,NV}, "aijb"}
+    , {"PHPHCoulombIntegrals", {NV,NO,NV,NO}, "aibj"}
+    , {"PHPPCoulombIntegrals", {NV,NO,NV,NV}, "aibc"}
+    , {"PPHHCoulombIntegrals", {NV,NV,NO,NO}, "abij"}
+    , {"PPHPCoulombIntegrals", {NV,NV,NO,NV}, "abic"}
+    , {"PPPHCoulombIntegrals", {NV,NV,NV,NO}, "abci"}
+    , {"PPPPCoulombIntegrals", {NV,NV,NV,NV}, "abcd"}
+    };
 
-  LOGGER(1)
-    << "Note: CoulombIntegrals have to be in chemist notation!"
-    << std::endl;
+  LOGGER(1) << "Note: CoulombIntegrals have to be in chemist notation!"
+            << std::endl;
   LOGGER(1) << "No: " << No << std::endl;
   LOGGER(1) << "Nv: " << Nv << std::endl;
+
+
+  struct EngineInfo {
+    enum EngineName { CTF, VECTOR_SLOW, VECTOR_FAST };
+    static EngineName fromString(const std::string name) {
+      if (name == "ctf") return CTF;
+      if (name == "VectorSlow") return VECTOR_SLOW;
+      if (name == "VectorFast") return VECTOR_FAST;
+      throw new EXCEPTION("Engine name not recognised");
+    }
+  };
+
+  const EngineInfo::EngineName engineType(EngineInfo::fromString(
+                                          getTextArgument("engine", "ctf")));
+
+  LOGGER(1) << "Using engine: " << engineType << std::endl;
+
+  if (engineType == EngineInfo::VECTOR_FAST) {
+    VectorIntegralProvider engine(No, Nv, orbitals, *V);
+    computeAndExport(*this, engine, integralInfos);
+  } else if (engineType == EngineInfo::VECTOR_SLOW) {
+    SlowVectorIntegralProvider engine(No, Nv, orbitals, *V);
+    computeAndExport(*this, engine, integralInfos);
+  } else {
+    CtfIntegralProvider engine(No, Nv, *C, *V);
+    engine.compute();
+    computeAndExport(*this, engine, integralInfos);
+  }
 
   EMIT() << YAML::Key << "No" << YAML::Value << No
          << YAML::Key << "Nv" << YAML::Value << Nv
          << YAML::Key << "Np" << YAML::Value << Np
+         << YAML::Key << "engine" << YAML::Value << engineType
          << YAML::Key << "chemist-notation" << YAML::Value << chemistNotation
          ;
-
-  for (const auto &integral : integralInfos) {
-    if ( ! isArgumentGiven(integral.name) ) continue;
-    const auto& i(integral.indices);
-
-    LOGGER(1) << "Computing " <<  integral.name << std::endl;
-
-    std::vector<double> result;
-    if (isArgumentGiven("slow")) {
-      LOGGER(1) << "Computing slow implementation" << std::endl;
-      result = std::move(engine.computeSlow(i[0], i[1], i[2], i[3]));
-    } else {
-      result = std::move(engine.compute(i[0], i[1], i[2], i[3]));
-    }
-    std::vector<int> lens(4);
-    for (unsigned int j(0) ; j < 4 ; j++) {
-      lens[j] = (int)engine.indexToInt(i[j]);
-    }
-    allocatedTensorArgument<double>(
-      integral.name, stdVectorToTensor(result, lens));
-  }
 
 }
