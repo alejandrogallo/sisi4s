@@ -20,22 +20,21 @@ ALGORITHM_REGISTRAR_DEFINITION(FockMatrixFromCoulombIntegrals);
 
 void FockMatrixFromCoulombIntegrals::run() {
 
-  bool unrestricted(getIntegerArgument("unrestricted", 0) == 1);
-  double spins(unrestricted ? 1.0 : 2.0);
+  const bool unrestricted(getIntegerArgument("unrestricted", 0) == 1);
 
   LOG(0, "FockMatrixFromCoulombIntegrals")
     << "unrestricted? " << unrestricted
     << std::endl;
 
-  auto phph(getTensorArgument<double>("PHPHCoulombIntegrals"));
+  const auto phph(getTensorArgument<double>("PHPHCoulombIntegrals"));
   int No(phph->lens[1]), Nv(phph->lens[0]);
   std::vector<int> vv({Nv, Nv}), oo({No, No}), ov({No, Nv}), vo({Nv, No});
   std::vector<int> syms({NS, NS});
 
   // ij: HH HHHH
   auto fij(new CTF::Tensor<double>(2, oo.data(), syms.data(), *Cc4s::world));
-  auto hh(getTensorArgument<double>("HHMatrix"));
-  auto hhhh(getTensorArgument<double>("HHHHCoulombIntegrals"));
+  const auto hh(getTensorArgument<double>("HHMatrix"));
+  const auto hhhh(getTensorArgument<double>("HHHHCoulombIntegrals"));
   (*fij)["ij"]  = (*hh)["ij"];
   (*fij)["ij"] += (unrestricted ? 1.0 : 2.0)*(*hhhh)["ikjk"];
   (*fij)["ij"] += (-1.0)*(*hhhh)["ikkj"];
@@ -43,8 +42,8 @@ void FockMatrixFromCoulombIntegrals::run() {
 
   // ab: PP PHPH PHHP
   auto fab(new CTF::Tensor<double>(2, vv.data(), syms.data(), *Cc4s::world));
-  auto pp(getTensorArgument<double>("PPMatrix"));
-  auto phhp(getTensorArgument<double>("PHHPCoulombIntegrals"));
+  const auto pp(getTensorArgument<double>("PPMatrix"));
+  const auto phhp(getTensorArgument<double>("PHHPCoulombIntegrals"));
   (*fab)["ab"] = (*pp)["ab"];
   (*fab)["ab"] += (unrestricted ? 1.0 : 2.0)*(*phph)["akbk"];
   (*fab)["ab"] += (-1.0)*(*phhp)["akkb"];
@@ -52,8 +51,8 @@ void FockMatrixFromCoulombIntegrals::run() {
 
   // ai: PH PHHH
   auto fai(new CTF::Tensor<double>(2, vo.data(), syms.data(), *Cc4s::world));
-  auto ph(getTensorArgument<double>("PHMatrix"));
-  auto phhh(getTensorArgument<double>("PHHHCoulombIntegrals"));
+  const auto ph(getTensorArgument<double>("PHMatrix"));
+  const auto phhh(getTensorArgument<double>("PHHHCoulombIntegrals"));
   (*fai)["ai"] = (*ph)["ai"];
   (*fai)["ai"] += (unrestricted ? 1.0 : 2.0)*(*phhh)["akik"];
   (*fai)["ai"] += (-1.0)*(*phhh)["akki"];
