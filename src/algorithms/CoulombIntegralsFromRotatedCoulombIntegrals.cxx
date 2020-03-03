@@ -47,11 +47,20 @@ struct VectorIntegralProvider: public IntegralProvider< std::vector<double> > {
 
   VectorIntegralProvider( size_t no
                         , size_t nv
-                        , std::vector<double> &coefficients
+                        , CTF::Tensor<double> &coeffs
                         , CTF::Tensor<double> &coulombIntegrals
-                        ) :IntegralProvider(no, nv), C(coefficients)
- {
-    std::vector<int64_t> indices(Np*Np*Np*Np);
+                        ) :IntegralProvider(no, nv)
+  {
+    const int rank_m = int(Cc4s::world->rank == 0); // rank mask
+
+    // read in the orbital coefficients
+    C.resize(rank_m * Np*Np);
+    std::vector<int64_t> indices(C.size());
+    std::iota(indices.begin(), indices.end(), 0);
+    coeffs.read(C.size(), indices.data(), C.data());
+
+    // read in the integrals
+    indices.resize(rank_m * Np*Np*Np*Np);
     std::iota(indices.begin(), indices.end(), 0);
     Vklmn.resize(indices.size());
     coulombIntegrals.read(indices.size(), indices.data(), Vklmn.data());
@@ -172,7 +181,7 @@ struct VectorIntegralProvider: public IntegralProvider< std::vector<double> > {
     return result;
 
   }
-  const std::vector<double> &C;
+  std::vector<double> C;
   std::vector<double> Vklmn;
 };
 
@@ -279,15 +288,18 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
     CTF::Tensor<double>* VTransformed = nullptr;
 };
 
-CTF::Tensor<double>*
-stdVectorToTensor(const std::vector<double> v, const std::vector<int> lens) {
+CTF::Tensor<double>* stdVectorToTensor( const std::vector<double> v
+                                      , const std::vector<int> lens) {
   std::vector<int> syms(lens.size(), NS);
-  auto result(
-    new CTF::Tensor<double>(
-      lens.size(), lens.data(), syms.data(), *Cc4s::world, "T"));
-  std::vector<int64_t> indices(v.size());
+  auto result(new CTF::Tensor<double>( lens.size()
+                                     , lens.data()
+                                     , syms.data()
+                                     , *Cc4s::world
+                                     , "T"
+                                     ));
+  std::vector<int64_t> indices(int(Cc4s::world->rank == 0) * v.size());
   std::iota(indices.begin(), indices.end(), 0);
-  result->write(v.size(), indices.data(), v.data());
+  result->write(indices.size(), indices.data(), v.data());
   return result;
 }
 
@@ -348,15 +360,6 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
   const int Nv(getIntegerArgument("Nv", V->lens[0] - No));
   const int Np(No + Nv);
   const bool chemistNotation(getIntegerArgument("chemistNotation", 1) == 1);
-  std::vector<double> orbitals;
-
-  orbitals.resize(Np*Np);
-  {
-    std::vector<int64_t> indices(Np*Np);
-    std::iota(indices.begin(), indices.end(), 0);
-    C->read(orbitals.size(), indices.data(), orbitals.data());
-  }
-
 
   std::vector<IntegralInfo> integralInfos =
     { {"HHHHCoulombIntegrals", {NO,NO,NO,NO}, "ijkl"}
@@ -384,8 +387,8 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
 
 
   struct EngineInfo {
-    enum EngineName { CTF, VECTOR_SLOW, VECTOR_FAST };
-    static EngineName fromString(const std::string name) {
+    enum Name { CTF, VECTOR_SLOW, VECTOR_FAST };
+    static Name fromString(const std::string name) {
       if (name == "ctf") return CTF;
       if (name == "VectorSlow") return VECTOR_SLOW;
       if (name == "VectorFast") return VECTOR_FAST;
@@ -393,16 +396,16 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
     }
   };
 
-  const EngineInfo::EngineName engineType(EngineInfo::fromString(
-                                          getTextArgument("engine", "ctf")));
+  const EngineInfo::Name engineType(EngineInfo::fromString(
+                                    getTextArgument("engine", "ctf")));
 
   LOGGER(1) << "Using engine: " << engineType << std::endl;
 
   if (engineType == EngineInfo::VECTOR_FAST) {
-    VectorIntegralProvider engine(No, Nv, orbitals, *V);
+    VectorIntegralProvider engine(No, Nv, *C, *V);
     computeAndExport(*this, engine, integralInfos);
   } else if (engineType == EngineInfo::VECTOR_SLOW) {
-    SlowVectorIntegralProvider engine(No, Nv, orbitals, *V);
+    SlowVectorIntegralProvider engine(No, Nv, *C, *V);
     computeAndExport(*this, engine, integralInfos);
   } else {
     CtfIntegralProvider engine(No, Nv, *C, *V);
