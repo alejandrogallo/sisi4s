@@ -406,7 +406,6 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
     computeAndExport(*this, engine, integralInfos);
   } else {
     CtfIntegralProvider engine(No, Nv, *C, *V);
-    engine.compute();
     computeAndExport(*this, engine, integralInfos);
   }
 
