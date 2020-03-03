@@ -112,7 +112,7 @@ struct CoulombIntegralsProvider {
 
 void CoulombIntegralsFromGaussian::run() {
 
-  std::vector<std::string> allArguments =
+  const std::vector<std::string> allArguments =
     { "xyzStructureFile"
     , "basisSet"
     , "chemistNotation"
@@ -135,6 +135,7 @@ void CoulombIntegralsFromGaussian::run() {
 
   LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
 
+  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
   const std::vector<int> lens(4, Np);
   const std::vector<int> syms(4, NS);
   auto Vklmn(new CTF::Tensor<double>(4, lens.data(), syms.data(),
@@ -148,7 +149,7 @@ void CoulombIntegralsFromGaussian::run() {
 
   engine.compute();
   {
-    std::vector<int64_t> indices(Np*Np*Np*Np);
+    std::vector<int64_t> indices(rank_m * Np*Np*Np*Np);
     std::iota(indices.begin(), indices.end(), 0);
     Vklmn->write(indices.size(), indices.data(), engine.data());
   }
