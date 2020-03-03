@@ -54,8 +54,9 @@ HartreeFockFromGaussian::~HartreeFockFromGaussian() {}
 
 CTF::Tensor<double>
 eigenToCtfMatrix(const Eigen::MatrixXd &m) {
+  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
   int syms[] = {NS, NS}, lens[] = {(int)m.rows(), (int)m.cols()};
-  std::vector<int64_t> indices(m.rows() * m.cols());
+  std::vector<int64_t> indices(rank_m * m.rows() * m.cols());
   CTF::Tensor<double> t(2, lens, syms, *Cc4s::world);
   std::iota(indices.begin(), indices.end(), 0);
   t.write(indices.size(), indices.data(), &m(0));
@@ -438,7 +439,7 @@ void HartreeFockFromGaussian::run() {
     , v[]    = {(int)Nv}
     ;
   std::vector<int64_t> indices;
-
+  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
 
   IF_GIVEN("CoreHamiltonian",
     LOGGER(1) << "Exporting CoreHamiltonian" << std::endl;
@@ -454,7 +455,7 @@ void HartreeFockFromGaussian::run() {
 
   IF_GIVEN("HoleEigenEnergies",
     // epsilon for holes
-    indices.resize(No);
+    indices.resize(rank_m * No);
     std::iota(indices.begin(), indices.end(), 0);
     auto epsi(new CTF::Tensor<double>(1, o, syms, *Cc4s::world, "epsi"));
     epsi->write(indices.size(), indices.data(), &eps(0));
@@ -463,7 +464,7 @@ void HartreeFockFromGaussian::run() {
 
   IF_GIVEN("ParticleEigenEnergies",
     // epsilon for particles
-    indices.resize(Nv);
+    indices.resize(rank_m * Nv);
     std::iota(indices.begin(), indices.end(), 0);
     auto epsa(new CTF::Tensor<double>(1, v, syms, *Cc4s::world, "epsa"));
     epsa->write(indices.size(), indices.data(), &eps(0) + No);
