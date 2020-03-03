@@ -171,11 +171,12 @@ struct IntegralParser {
   }
 
   CTF::Tensor<double>* allocateTensor() {
+    const int rank_m = int(Cc4s::world->rank == 0); // rank mask
     auto t(new CTF::Tensor<double>(lens.size(),
                                    lens.data(),
                                    syms.data(),
                                    *Cc4s::world));
-    t->write(indices.size(), indices.data(), values.data());
+    t->write(rank_m * indices.size(), indices.data(), values.data());
     return t;
   }
 
