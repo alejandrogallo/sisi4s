@@ -29,6 +29,7 @@ Cc4s::~Cc4s() {
 void Cc4s::run() {
   EMIT() << YAML::BeginMap;
   printBanner();
+  listHosts();
   Parser parser(options->file);
   std::vector<Algorithm *> algorithms(parser.parse());
   LOG(0, "root") <<
@@ -144,14 +145,14 @@ void Cc4s::printBanner() {
     ", date=" << CC4S_DATE << std::endl;
   LOG(0, "root") << "build date=" << buildDate.str() << std::endl;
   LOG(0, "root") << "compiler=" << COMPILER_VERSION << std::endl;
-  LOG(0, "root") << "number of processes=" << Cc4s::world->np << std::endl;
+  LOG(0, "root") << "total processes=" << Cc4s::world->np << std::endl;
   OUT() << std::endl;
 
   EMIT()
     << YAML::Key << "version" << YAML::Value << CC4S_VERSION
     << YAML::Key << "build-date" << YAML::Value << buildDate.str()
     << YAML::Key << "compiler" << YAML::Value << COMPILER_VERSION
-    << YAML::Key << "number-of-processes" << Cc4s::world->np;
+    << YAML::Key << "total-processes" << Cc4s::world->np;
 }
 
 void Cc4s::printStatistics() {
@@ -213,6 +214,49 @@ bool Cc4s::isDebugged() {
   return false;
 }
 
+void Cc4s::listHosts() {
+  char ownName[MPI_MAX_PROCESSOR_NAME];
+  int nameLength;
+  MPI_Get_processor_name(ownName, &nameLength);
+  ownName[nameLength] = 0;
+
+  if (world->rank == 0) {
+    std::map<std::string,std::vector<int>> ranksOfHosts;
+    // enter hostname/rank
+    ranksOfHosts[ownName].push_back(0);
+    // receive all names but own name from remote ranks
+    for (int remoteRank(1); remoteRank < world->np; ++remoteRank) {
+      char remoteName[MPI_MAX_PROCESSOR_NAME];
+      MPI_Recv(
+        remoteName, MPI_MAX_PROCESSOR_NAME, MPI_BYTE,
+        remoteRank, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE
+      );
+      // and enter remote name/rank into map
+      ranksOfHosts[remoteName].push_back(remoteRank);
+    }
+    EMIT() << YAML::Key << "hosts" << YAML::Value;
+    EMIT() << YAML::BeginSeq;
+    for (auto &ranksOfHost: ranksOfHosts) {
+      EMIT() << YAML::BeginMap
+        << YAML::Key << "host" << YAML::Value << ranksOfHost.first
+        << YAML::Key << "ranks" << YAML::Value;
+      EMIT() << YAML::Flow << YAML::BeginSeq;
+      for (auto &rank: ranksOfHost.second) {
+        EMIT() << rank;
+      }
+      EMIT() << YAML::EndSeq;
+      EMIT() << YAML::EndMap;
+    }
+    EMIT() << YAML::EndSeq;
+  } else {
+    // send own name 
+    MPI_Send(
+      ownName, MPI_MAX_PROCESSOR_NAME, MPI_BYTE,
+      0, 0, MPI_COMM_WORLD
+    );
+  }
+}
+
 
 World *Cc4s::world;
 Options *Cc4s::options;
@@ -243,7 +287,7 @@ int main(int argumentCount, char **arguments) {
     }
   }
 
-  Emitter::finalize();
+  EMIT_FLUSH();
   MPI_Finalize();
   return 0;
 }
