@@ -101,7 +101,7 @@ struct CoulombIntegralsProvider {
 
   }
 
-  double *data() {return Vklmn.data();}
+  double* data() {return Vklmn.data();}
 
   private:
   const size_t Np;
@@ -148,9 +148,11 @@ void CoulombIntegralsFromGaussian::run() {
          ;
 
   engine.compute();
+  LOGGER(1) << "computation done" << std::endl;
   {
     std::vector<int64_t> indices(rank_m * Np*Np*Np*Np);
     std::iota(indices.begin(), indices.end(), 0);
+    LOGGER(1) << "writing into ctf tensor" << std::endl;
     Vklmn->write(indices.size(), indices.data(), engine.data());
   }
 
