@@ -16,6 +16,8 @@
 #include <util/Emitter.hpp>
 #define LOGGER(_l) LOG(_l, "CoulombIntegralsFromGaussian")
 
+typedef libint2::Operator Operator;
+
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromGaussian);
 
@@ -35,13 +37,14 @@ struct ShellInfo {
 };
 
 struct CoulombIntegralsProvider {
-  CoulombIntegralsProvider(
-    const size_t Np_,
-    const libint2::BasisSet& shells_):
-    Np(Np_), shells(shells_) {}
+  CoulombIntegralsProvider( const size_t Np_
+                          , const libint2::BasisSet& shells_
+                          , const Operator op_ = Operator::coulomb
+                          ):
+    Np(Np_), shells(shells_), op(op_) {}
 
   void compute() {
-    // If already computed, return
+    // If already computed, return, op(op_)
     libint2::initialize();
 
     const size_t NpNpNpNp(Np*Np*Np*Np);
@@ -51,10 +54,7 @@ struct CoulombIntegralsProvider {
       << " GB)" << std::endl;
     Vklmn.resize(NpNpNpNp, 0.0);
 
-    libint2::Engine engine(
-      libint2::Operator::coulomb,
-      shells.max_nprim(),
-      shells.max_l(), 0);
+    libint2::Engine engine(op, shells.max_nprim(), shells.max_l(), 0);
 
     // store shell by shell calculation in this buffer
     const auto& vsrqp = engine.results();
@@ -66,10 +66,11 @@ struct CoulombIntegralsProvider {
     for (size_t _L(0); _L < shells.size(); ++_L) { // lambda
     for (size_t _M(0); _M < shells.size(); ++_M) { // mu
     for (size_t _N(0); _N < shells.size(); ++_N) { // nu
-      const ShellInfo K(shells, _K),
-                      L(shells, _L),
-                      M(shells, _M),
-                      N(shells, _N);
+      const ShellInfo K(shells, _K)
+                    , L(shells, _L)
+                    , M(shells, _M)
+                    , N(shells, _N)
+                    ;
 
       // compute integrals (K L , M N)
       engine.compute(shells[_K], shells[_L], shells[_M], shells[_N]);
@@ -106,15 +107,15 @@ struct CoulombIntegralsProvider {
   private:
   const size_t Np;
   const libint2::BasisSet& shells;
+  const Operator op;
   std::vector<double> Vklmn;
 };
-
-
 void CoulombIntegralsFromGaussian::run() {
 
   const std::vector<std::string> allArguments =
     { "xyzStructureFile"
     , "basisSet"
+    , "kernel"
     , "chemistNotation"
     , "CoulombIntegrals"
     };
@@ -122,6 +123,7 @@ void CoulombIntegralsFromGaussian::run() {
 
   const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""))
                   , basisSet(getTextArgument("basisSet"))
+                  , kernel(getTextArgument("kernel", "coulomb"))
                   ;
   const bool chemistNotation(getIntegerArgument("chemistNotation", 1) == 1);
 
@@ -130,9 +132,15 @@ void CoulombIntegralsFromGaussian::run() {
   structureFileStream.close();
   const libint2::BasisSet shells(basisSet, atoms);
   const int Np(shells.nbf());
+  const Operator op([&](void){
+    if      (kernel == "coulomb") return Operator::coulomb;
+    else if (kernel == "delta")   return Operator::delta;
+    else                          return Operator::coulomb;
+  }());
 
-  CoulombIntegralsProvider engine(Np, shells);
+  CoulombIntegralsProvider engine(Np, shells, op);
 
+  LOGGER(1) << "kernel: " << kernel << std::endl;
   LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
 
   const int rank_m = int(Cc4s::world->rank == 0); // rank mask
@@ -144,6 +152,7 @@ void CoulombIntegralsFromGaussian::run() {
   EMIT() << YAML::Key << "Np" << YAML::Value << Np
          << YAML::Key << "xyz" << YAML::Value << xyzStructureFile
          << YAML::Key << "basis-set" << YAML::Value << basisSet
+         << YAML::Key << "kernel" << YAML::Value << kernel
          << YAML::Key << "chemist-notation" << YAML::Value << chemistNotation
          ;
 
