@@ -254,8 +254,11 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
     (*basisElement.get(1))["abij"] -= (*basisElement.get(1))["baij"];
 
     // FILTER: Spin Flip
-    for (auto &t: basisElement.componentTensors) {
-      filterOutSpinFlipEntries(*t);
+    if (!spinFlip) {
+      LOG(0, "CcsdPreconditioner") << "Filtering out spin flip" << std::endl;
+      for (auto &t: basisElement.componentTensors) {
+        filterOutSpinFlipEntries(*t);
+      }
     }
 
     // FILTER: Grams-schmidt it with the other elements of the basis
