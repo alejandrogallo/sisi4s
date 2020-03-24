@@ -15,14 +15,6 @@ CTF_PATH=lib/build/${CONFIG}/ctf
 CTF_LIB=-L${CTF_PATH}/lib -lctf
 CTF_INCLUDE=-I${CTF_PATH}/include
 
-# libint library
-LIBINT_PATH = lib/build/${CONFIG}/libint
-LIBINT_LIB = -L${LIBINT_PATH}/lib -lint2
-LIBINT_INCLUDE = -I${LIBINT_PATH}/include/ -I${LIBINT_PATH}/include/libint2
-
-# eigen library
-EIGEN_INCLUDE = -Ilib/build/${CONFIG}/eigen/include/eigen3/
-
 # yaml-cpp library
 YAML_PATH=lib/build/${CONFIG}/yaml-cpp
 YAML_LIB=-L${YAML_PATH} -lyaml-cpp
@@ -35,15 +27,19 @@ BLAS_INCLUDE=-I${BLAS_PATH}/include
 # ScaLAPACK libarary, expects SCALAPACK_PATH to be set
 SCALAPACK_LIB=-L${SCALAPACK_PATH}/lib -lscalapack
 
-INCLUDE=${CTF_INCLUDE} ${BLAS_INCLUDE} \
-        ${YAML_INCLUDE} ${LIBINT_INCLUDE} \
-        ${EIGEN_INCLUDE}
+INCLUDE += ${CTF_INCLUDE} ${BLAS_INCLUDE} ${YAML_INCLUDE}
 
 # additional library paths and libraries to link to
-LIBS=-Wl,-Bstatic ${CTF_LIB} ${LIBINT_LIB} ${SCALAPACK_LIB} \
-      ${BLAS_LIB} ${YAML_LIB} \
-     -lquadmath -Wl,-Bdynamic -lgfortran
+LIBS += -Wl,-Bstatic ${CTF_LIB} ${SCALAPACK_LIB} \
+        ${BLAS_LIB} ${YAML_LIB} \
+       -lquadmath -Wl,-Bdynamic -lgfortran
 
 # destination path for installation
 INSTALL=~/bin/cc4s/${CONFIG}
 
+HF=
+ifeq ($(HF), yes)
+include hf.mk
+endif
+
+# vim:ft=make

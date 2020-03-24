@@ -36,3 +36,7 @@ LIBS=-Wl,-Bstatic ${CTF_LIB} ${SCALAPACK_LIB} ${BLAS_LIB} ${YAML_LIB} -lgfortran
 # destination path for installation
 INSTALL=~/bin/cc4s/${CONFIG}
 
+HF=
+ifeq ($(HF), yes)
+include hf.mk
+endif
