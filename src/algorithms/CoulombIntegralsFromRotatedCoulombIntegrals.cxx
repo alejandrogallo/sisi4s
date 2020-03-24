@@ -353,12 +353,20 @@ void computeAndExport ( Algorithm &a
 }
 
 void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
+
+  std::vector<std::string> args( { "OrbitalCoefficients"
+                                 , "CoulombIntegrals"
+                                 , "nelec"
+                                 , "No"
+                                 , "chemistNotation"
+                                 , "engine"
+                                 } );
+
   auto C(getTensorArgument("OrbitalCoefficients"));
   auto V(getTensorArgument("CoulombIntegrals"));
   const int nelect(getIntegerArgument("nelec", -1));
   const int No(getIntegerArgument("No", nelect/2));
-  const int Nv(getIntegerArgument("Nv", V->lens[0] - No));
-  const int Np(No + Nv);
+  const int Nv(V->lens[0] - No);
   const bool chemistNotation(getIntegerArgument("chemistNotation", 1) == 1);
 
   std::vector<IntegralInfo> integralInfos =
@@ -379,6 +387,9 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
     , {"PPPHCoulombIntegrals", {NV,NV,NV,NO}, "abci"}
     , {"PPPPCoulombIntegrals", {NV,NV,NV,NV}, "abcd"}
     };
+
+  for (const auto& i: integralInfos) args.push_back(i.name);
+  checkArgumentsOrDie(args);
 
   LOGGER(1) << "Note: CoulombIntegrals have to be in chemist notation!"
             << std::endl;
@@ -414,7 +425,6 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
 
   EMIT() << YAML::Key << "No" << YAML::Value << No
          << YAML::Key << "Nv" << YAML::Value << Nv
-         << YAML::Key << "Np" << YAML::Value << Np
          << YAML::Key << "engine" << YAML::Value << engineType
          << YAML::Key << "chemist-notation" << YAML::Value << chemistNotation
          ;
