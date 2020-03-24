@@ -1,2 +1,5 @@
 # This configuration is to enable some debug features of CTF
 CTF_CONFIG='CXX=mpicxx AR=gcc-ar CXXFLAGS="-Ofast -march=native -flto -fopenmp -DPROFILE" --blas="-L${BLAS_PATH} -lopenblas -lgfortran" --scalapack="-L${SCALAPACK_PATH} -lscalapack"'
+
+LIBINT_MAX_AM = 4
+LIBINT_COMMIT = v2.6.0

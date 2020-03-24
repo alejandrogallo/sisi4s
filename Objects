@@ -3,6 +3,7 @@ build/${CONFIG}/obj/Options.o \
 build/${CONFIG}/obj/Data.o \
 build/${CONFIG}/obj/Parser.o \
 build/${CONFIG}/obj/util/Log.o \
+build/${CONFIG}/obj/util/Emitter.o \
 build/${CONFIG}/obj/util/Timer.o \
 build/${CONFIG}/obj/util/FlopsCounter.o \
 build/${CONFIG}/obj/util/TensorIo.o \
@@ -51,9 +52,11 @@ build/${CONFIG}/obj/algorithms/ParticleHoleCoulombVertexReader.o \
 build/${CONFIG}/obj/algorithms/ParticleHoleCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/CoulombVertexReader.o \
 build/${CONFIG}/obj/algorithms/CoulombIntegralsFromVertex.o \
+build/${CONFIG}/obj/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/Mp2EnergyFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/DrccdEnergyFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/CcsdEnergyFromCoulombIntegrals.o \
+build/${CONFIG}/obj/algorithms/CcsdEnergyFromCoulombIntegralsReference.o \
 build/${CONFIG}/obj/algorithms/CoulombVertexSingularVectors.o \
 build/${CONFIG}/obj/algorithms/ParticleHoleCoulombVertexSingularVectors.o \
 build/${CONFIG}/obj/algorithms/ApproximateCoulombVertex.o \
@@ -94,6 +97,22 @@ build/${CONFIG}/obj/algorithms/LaplaceTransform.o \
 build/${CONFIG}/obj/algorithms/BasisSetExtrapolation.o \
 build/${CONFIG}/obj/algorithms/RandomOrbitals.o \
 build/${CONFIG}/obj/algorithms/NaturalTransitionOrbitalsFromRhoAI.o \
+build/${CONFIG}/obj/algorithms/CcsdDiagrammaticDecomposition.o \
+build/${CONFIG}/obj/algorithms/FcidumpReader.o \
+build/${CONFIG}/obj/algorithms/TensorUnrestricter.o \
+build/${CONFIG}/obj/algorithms/TensorAntisymmetrizer.o \
+build/${CONFIG}/obj/algorithms/FockMatrixFromCoulombIntegrals.o \
+build/${CONFIG}/obj/algorithms/MeanCorrelationHoleDepth.o \
+
+ifeq (${HF}, yes)
+
+OBJECTS += \
+build/${CONFIG}/obj/algorithms/HartreeFockFromGaussian.o \
+build/${CONFIG}/obj/algorithms/HartreeFockFromCoulombIntegrals.o \
+build/${CONFIG}/obj/algorithms/CoulombIntegralsFromGaussian.o \
+
+endif
+
 
 #build/${CONFIG}/obj/algorithms/CcsdtEquationOfMotionDavidson.o \
 #build/${CONFIG}/obj/algorithms/UccsdtqAmplitudesFromCoulombIntegrals.o \
@@ -109,3 +128,5 @@ build/${CONFIG}/obj/../tests/algorithms/UccsdAmplitudesFromCoulombIntegrals.o  \
 
 #build/${CONFIG}/obj/../tests/util/LapackGeneralEigenSystem.o \
 # build/${CONFIG}/obj/test/math/EigenSystemDavidson.o \
+
+# vim:ft=make

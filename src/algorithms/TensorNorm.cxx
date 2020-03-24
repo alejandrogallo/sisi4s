@@ -21,9 +21,8 @@ TensorNorm::~TensorNorm() {
  * \brief Testing environement
  */
 void TensorNorm::run() {
-  Tensor<> *A(getTensorArgument("A"));
+  Tensor<> *A(getTensorArgument("Data"));
   double norm(frobeniusNorm(*A));
-//  double norm(A->norm2());
-  LOG(0) << "|A| = " << norm << std::endl;
-  setRealArgument("Norm", norm);
+  LOG(0, "TensorNorm") << "norm = " << norm << std::endl;
+  if (isArgumentGiven("Norm")) setRealArgument("Norm", norm);
 }

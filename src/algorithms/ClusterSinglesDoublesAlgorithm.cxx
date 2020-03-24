@@ -5,6 +5,7 @@
 #include <tcc/DryTensor.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Log.hpp>
+#include <util/Emitter.hpp>
 #include <util/Exception.hpp>
 #include <ctf.hpp>
 #include <Options.hpp>
@@ -62,9 +63,27 @@ F ClusterSinglesDoublesAlgorithm::run() {
     getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS)
   );
 
-  F e(0);
-  for (int i(0); i < maxIterationsCount; ++i) {
+  F amplitudesConvergence(
+    getRealArgument("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE)
+  );
+  F energyConvergence(
+    getRealArgument("energyConvergence", DEFAULT_ENERGY_CONVERGENCE)
+  );
+  EMIT()
+    << YAML::Key << "max-iterations" << YAML::Value << maxIterationsCount
+    << YAML::Key << "amplitudes-convergence"
+    << YAML::Value << std::abs(amplitudesConvergence)
+    << YAML::Key << "energy-convergence"
+    << YAML::Value << std::abs(energyConvergence);
+
+  EMIT() << YAML::Key << "iterations" << YAML::Value;
+  EMIT() << YAML::BeginSeq;
+  F e(0), previousE(0);
+  int i(0);
+  for (; i < maxIterationsCount; ++i) {
+    EMIT() << YAML::BeginMap;
     LOG(0, getCapitalizedAbbreviation()) << "iteration: " << i+1 << std::endl;
+    EMIT() << YAML::Key << "iteration" << YAML::Value << i+1;
     // call the getResiduum of the actual algorithm,
     // which will be specified by inheriting classes
     auto estimatedAmplitudes( getResiduum(i, amplitudes) );
@@ -75,12 +94,28 @@ F ClusterSinglesDoublesAlgorithm::run() {
     // get mixer's best guess for amplitudes
     amplitudes = mixer->get();
     e = getEnergy(amplitudes);
+    if (
+      std::abs((e-previousE)/e) < std::abs(energyConvergence) &&
+      std::abs(
+        amplitudesChange->dot(*amplitudesChange) / amplitudes->dot(*amplitudes)
+      ) < std::abs(amplitudesConvergence * amplitudesConvergence)
+    ) {
+      // FIXME: use safer programming style than Begin/End
+      EMIT() << YAML::EndMap;
+      break;
+    }
+    previousE = e;
+    EMIT() << YAML::EndMap;
   }
+  EMIT() << YAML::EndSeq;
 
   if (maxIterationsCount == 0) {
     LOG(0, getCapitalizedAbbreviation()) <<
       "computing energy from given amplitudes" << std::endl;
     e = getEnergy(amplitudes);
+  } else if (i == maxIterationsCount) {
+    LOG(0, getCapitalizedAbbreviation()) <<
+      "WARNING: energy or amplitudes convergence not reached." << std::endl;
   }
 
   storeAmplitudes(amplitudes, {"Singles", "Doubles"});
@@ -120,12 +155,17 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   // singles amplitudes are optional
   auto Tai( amplitudes->get(0) );
   auto Tabij( amplitudes->get(1) );
-  F e;
-
+  F e(0.0);
+  std::streamsize ss = std::cout.precision();
   if (antisymmetrized) {
-    energy[""] += ( + 0.25  ) * (*Tabij)["abkl"] * (*Vijab)["klab"];
+    energy[""]  = ( + 0.25  ) * (*Tabij)["abkl"] * (*Vijab)["klab"];
     energy[""] += ( + 0.5  ) * (*Tai)["aj"] * (*Tai)["cl"] * (*Vijab)["jlac"];
     e = energy.get_val();
+    // FIXME: imaginary part ignored
+    EMIT() << YAML::Key << "energy" << YAML::Value
+      << YAML::BeginMap
+      << YAML::Key << "value" << YAML::Value << std::real(e)
+      << YAML::EndMap;
   } else {
     // direct term
     energy[""] = 0.5 * spins * spins * (*Tabij)["abij"] * (*Vijab)["ijab"];
@@ -135,9 +175,23 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     energy[""] =  ( -0.5 ) * spins * (*Tabij)["abij"] * (*Vijab)["ijba"];
     energy[""] += ( -0.5 ) * spins * (*Tai)["ai"] * (*Tai)["bj"] * (*Vijab)["ijba"];
     F exce(energy.get_val());
-    LOG(1, getCapitalizedAbbreviation()) << "dir=" << dire << std::endl;
-    LOG(1, getCapitalizedAbbreviation()) << "exc=" << exce << std::endl;
+    LOG(1, getCapitalizedAbbreviation()) << std::setprecision(10) <<
+      "dir= " << dire << std::endl;
+    LOG(1, getCapitalizedAbbreviation()) << std::setprecision(10) <<
+      "exc= " << exce << std::endl;
+    LOG(1, getCapitalizedAbbreviation()) << std::setprecision(10) <<
+      "sing= " << 0.25*dire - 0.5*exce << std::endl;
+    LOG(1, getCapitalizedAbbreviation()) << std::setprecision(10) <<
+      "trip= " << 0.75*dire + 1.5*exce << std::endl;
     e = dire + exce;
+    EMIT() << YAML::Key << "energy" << YAML::Value
+      << YAML::BeginMap
+      << YAML::Key << "value" << YAML::Value << std::real(e)
+      << YAML::Key << "direct" << YAML::Value << std::real(dire)
+      << YAML::Key << "exchange" << YAML::Value << std::real(exce)
+      << YAML::Key << "singlet" << YAML::Value << std::real(0.25*dire - 0.5*exce)
+      << YAML::Key << "triplet" << YAML::Value << std::real(0.75*dire + 1.5*exce)
+      << YAML::EndMap;
   }
 
   if (isArgumentGiven("HPFockMatrix")) {
@@ -145,11 +199,13 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
     energy[""] = spins * (*Tai)["ai"] * (*fia)["ia"];
     F noncanonical(energy.get_val());
-    LOG(0, getCapitalizedAbbreviation()) << "noncanonical=" << noncanonical << std::endl;
+    LOG(0, getCapitalizedAbbreviation())
+      << "noncanonical=" << noncanonical << std::endl;
     e += noncanonical;
   }
 
-  LOG(0, getCapitalizedAbbreviation()) << "e=" << e << std::endl;
+  LOG(0, getCapitalizedAbbreviation()) << std::setprecision(10) <<
+    "energy= " << e << std::setprecision(ss) << std::endl;
 
   return e;
 }
@@ -681,7 +737,7 @@ Tensor<cc4s::complex> *
   PiaR.set_name("PiaR");
   auto PicR(PiqR->slice(aRStart,aREnd));
   PicR.set_name("PicR");
-  
+
   Tensor<complex> conjPiaR(false, PiaR);
   conjPiaR.set_name("ConjPiaR");
   conjPiaR.sum(1.0, PiaR,"aR", 0.0,"aR", fConj);
@@ -699,7 +755,7 @@ Tensor<cc4s::complex> *
   leftPiaR.set_name("leftPiaR");
   auto rightPiaR(PiaR.slice(rightPiStart , rightPiEnd));
   rightPiaR.set_name("rightPiaR");
-  
+
   // Slice the respective parts from LambdaGR
   int leftLambdaStart[]  = { 0  ,                                a };
   int leftLambdaEnd[]    = { NG , std::min(a+factorsSliceSize, NR) };

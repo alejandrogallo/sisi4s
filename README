@@ -6,7 +6,12 @@
   * this should automatically fetch the submodules' source from the respective maintainers, configure the modules for the given configuration (See below) and build the modules for that configuration.
   * by default the configuration ''icc'' is used.
 
+===== Building libint =====
+  * You need libboost
+    sudo apt-get install libboost-dev
+
 ===== Building =====
+  * You need the package autoconf (sudo apt-get install autoconf)
   * check gcc version. Need at least gcc 4.7.2 (As tested, gcc 4.6 does not work).
   * write or edit a ''config.<config>'' file for your build environment.
   * the configuration files ''config.gxx'' and ''config.icc'' contain predifined retail environments for ''gxx'' and ''icc'', respectively, using full optimization and without debugging info.

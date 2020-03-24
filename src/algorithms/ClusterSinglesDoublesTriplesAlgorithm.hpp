@@ -45,11 +45,6 @@ namespace cc4s {
      */
     virtual std::string getAbbreviation() = 0;
 
-    /**
-     * \brief Defines the default number of iterations (16).
-     */
-    static int constexpr DEFAULT_MAX_ITERATIONS = 16;
-
     static double constexpr DEFAULT_LEVEL_SHIFT = 0.0;
 
   protected:

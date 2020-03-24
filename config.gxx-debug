@@ -15,6 +15,11 @@ CTF_PATH=lib/build/${CONFIG}/ctf
 CTF_LIB=-L${CTF_PATH}/lib -lctf
 CTF_INCLUDE=-I${CTF_PATH}/include
 
+# yaml-cpp library
+YAML_PATH=lib/build/${CONFIG}/yaml-cpp
+YAML_LIB=-L${YAML_PATH} -lyaml-cpp
+YAML_INCLUDE=-I${YAML_PATH}/include
+
 # BLAS and LAPACK library, expects BLAS_PATH to be set
 BLAS_LIB= -L${BLAS_PATH}/lib -lopenblas
 BLAS_INCLUDE=-I${BLAS_PATH}/include
@@ -22,12 +27,19 @@ BLAS_INCLUDE=-I${BLAS_PATH}/include
 # ScaLAPACK libarary, expects SCALAPACK_PATH to be set
 SCALAPACK_LIB=-L${SCALAPACK_PATH}/lib -lscalapack
 
-# additional include directories for header files
-INCLUDE=${CTF_INCLUDE} ${BLAS_INCLUDE}
+INCLUDE += ${CTF_INCLUDE} ${BLAS_INCLUDE} ${YAML_INCLUDE}
 
 # additional library paths and libraries to link to
-LIBS=-Wl,-Bstatic ${CTF_LIB} ${SCALAPACK_LIB} ${BLAS_LIB} -lgfortran -lquadmath -Wl,-Bdynamic
+LIBS += -Wl,-Bstatic ${CTF_LIB} ${SCALAPACK_LIB} \
+        ${BLAS_LIB} ${YAML_LIB} \
+       -lquadmath -Wl,-Bdynamic -lgfortran
 
 # destination path for installation
 INSTALL=~/bin/cc4s/${CONFIG}
 
+HF=
+ifeq ($(HF), yes)
+include hf.mk
+endif
+
+# vim:ft=make

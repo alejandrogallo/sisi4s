@@ -14,6 +14,7 @@
 #include <ctf.hpp>
 #include <Cc4s.hpp>
 #include <util/SharedPointer.hpp>
+#include <util/Emitter.hpp>
 
 #include <algorithm>
 #include <utility>
@@ -22,6 +23,7 @@
 using namespace cc4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdEquationOfMotionDavidson);
+#define LOGGER(_l) LOG(_l, "CcsdEomDavid")
 
 CcsdEquationOfMotionDavidson::CcsdEquationOfMotionDavidson(
   std::vector<Argument> const &argumentList
@@ -62,10 +64,10 @@ struct SzOperator: public SpinOperator<F> {
 void CcsdEquationOfMotionDavidson::run() {
 
   if (getIntegerArgument("complexVersion", 1) == 1) {
-    LOG(0, "CcsdEomDavid") << "Using complex code" << std::endl;
+    LOGGER(0) << "Using complex code" << std::endl;
     CcsdEquationOfMotionDavidson::run<complex>();
   } else {
-    LOG(0, "CcsdEomDavid") << "Using real code" << std::endl;
+    LOGGER(0) << "Using real code" << std::endl;
     CcsdEquationOfMotionDavidson::run<double>();
   }
 
@@ -74,226 +76,139 @@ void CcsdEquationOfMotionDavidson::run() {
 template <typename F>
 void CcsdEquationOfMotionDavidson::run() {
 
-  // Arguments
-  //
-  // for preconditioner
-  bool preconditionerRandom(
-    getIntegerArgument("preconditionerRandom", 0) == 1);
-  double preconditionerRandomSigma(getRealArgument(
-    "preconditionerRandomSigma", 0.1));
-  bool preconditionerSpinFlip(
-    getIntegerArgument("preconditionerSpinFlip", 1) == 1);
-  // for davidson
-  bool refreshOnMaxBasisSize(
-    getIntegerArgument("refreshOnMaxBasisSize", 0) == 1
-  );
-  std::vector<int> oneBodyRdmIndices(
-    RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange()
-  );
-  int eigenStates(getIntegerArgument("eigenstates", 1));
-  double ediff(getRealArgument("ediff", 1e-4));
-  bool intermediates(getIntegerArgument("intermediates", 1));
-  unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
-  unsigned int minIterations(getIntegerArgument("minIterations", 1));
-  std::vector<int> eigenvectorsIndices(
-    RangeParser(getTextArgument("printEigenvectorsRange", "")).getRange()
-  );
-  bool printEigenvectorsDoubles(
-    getIntegerArgument("printEigenvectorsDoubles", 1) == 1
-  );
-  CTF::Tensor<double> *epsi(
-    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies")
-  );
-  CTF::Tensor<double> *epsa(
-    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
-  );
-  std::vector<int> refreshIterations(
-    RangeParser(getTextArgument("refreshIterations", "")).getRange()
-  );
-  int Nv(epsa->lens[0]), No(epsi->lens[0]);
-  int  maxBasisSize(getIntegerArgument(
-    "maxBasisSize", No*Nv + (No*(No - 1)/2 ) * (Nv * (Nv - 1)/2)
-  ));
+  // initialize integrals, convert them to complex if we are using the
+  // complex code
+  PTR(CTF::Tensor<F>) Vijkl, Vabcd, Vijka, Vijab, Viajk, Viajb, Viabc,
+                      Vabic, Vabci, Vaibc, Vaibj, Viabj, Vijak, Vaijb;
 
-  int syms2[] = {NS, NS};
-  int syms4[] = {NS, NS, NS, NS};
-  int vv[] = {Nv, Nv};
-  int ov[] = {No, Nv};
-  int vo[] = {Nv,No};
-  int oo[] = {No, No};
-  int vvoo[] = {Nv,Nv,No,No};
+  typedef struct { const std::string name; PTR(CTF::Tensor<F>) &data; } _Int;
+  std::vector<_Int>
+  requiredIntegrals =
+    { { "HHHHCoulombIntegrals", Vijkl }, { "PPPPCoulombIntegrals", Vabcd }
+    , { "HHHPCoulombIntegrals", Vijka }, { "HHPPCoulombIntegrals", Vijab }
+    , { "HPHHCoulombIntegrals", Viajk }, { "HPHPCoulombIntegrals", Viajb }
+    , { "HPPPCoulombIntegrals", Viabc }, { "PPHPCoulombIntegrals", Vabic }
+    , { "PPPHCoulombIntegrals", Vabci }, { "PHPPCoulombIntegrals", Vaibc }
+    , { "PHPHCoulombIntegrals", Vaibj }, { "HPPHCoulombIntegrals", Viabj }
+    , { "HHPHCoulombIntegrals", Vijak }, { "PHHPCoulombIntegrals", Vaijb }
+    };
+
+  std::vector<std::string> allArguments = { "complexVersion"
+                                          , "oneBodyRdmRange"
+                                          , "printEigenvectorsDoubles"
+                                          , "printEigenvectorsRange"
+                                          // Davidson solver
+                                          , "ediff"
+                                          , "maxBasisSize"
+                                          , "intermediates"
+                                          , "eigenstates"
+                                          , "refreshIterations"
+                                          , "refreshOnMaxBasisSize"
+                                          , "maxIterations"
+                                          , "minIterations"
+                                          // preconditioner
+                                          , "preconditionerRandom"
+                                          , "preconditionerRandomSigma"
+                                          , "preconditionerSpinFlip"
+                                          // T amplitudes
+                                          , "SinglesAmplitudes"
+                                          , "DoublesAmplitudes"
+                                          // Fock Matrix
+                                          , "ParticleEigenEnergies"
+                                          , "HoleEigenEnergies"
+                                          , "HPFockMatrix"
+                                          , "HHFockMatrix"
+                                          , "PPFockMatrix"
+                                          };
+  // possible integrals
+  for (auto& i: requiredIntegrals) { allArguments.push_back(i.name); }
+  checkArgumentsOrDie(allArguments);
+
+  const struct { double sigma; bool random; bool spinFlip; }
+  precSettings = { getRealArgument("preconditionerRandomSigma", 0.01)
+                 , getIntegerArgument("preconditionerRandom", 0) == 1
+                 , getIntegerArgument("preconditionerSpinFlip", 1) == 1
+                 };
+
+  const double ediff(getRealArgument("ediff", 1e-6));
+
+  const bool
+    intermediates(getIntegerArgument("intermediates", 1))
+  , refreshOnMaxBasisSize(getIntegerArgument("refreshOnMaxBasisSize", 0) == 1)
+  , printEigenvectorsDoubles(getIntegerArgument("printEigenvectorsDoubles", 1)
+                             == 1)
+  ;
+
+  const std::vector<int>
+    refreshIterations(
+        RangeParser(getTextArgument("refreshIterations", "")).getRange())
+  , oneBodyRdmIndices(
+        RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange())
+  , eigenvectorsIndices(
+        RangeParser(getTextArgument("printEigenvectorsRange", "")).getRange())
+  ;
+
+  const unsigned
+  int eigenStates(getIntegerArgument("eigenstates", 1))
+    , maxIterations(getIntegerArgument("maxIterations", 32))
+    , minIterations(getIntegerArgument("minIterations", 1))
+    ;
+
+  auto *epsi(getTensorArgument<double>("HoleEigenEnergies"))
+     , *epsa(getTensorArgument<double>("ParticleEigenEnergies"))
+     ;
+
+  int Nv(epsa->lens[0])
+    , No(epsi->lens[0])
+    ;
+
+  int syms[] = {NS, NS, NS, NS}
+    , vvoo[] = {Nv, Nv, No, No}
+    , vv[] = {Nv, Nv}
+    , ov[] = {No, Nv}
+    , vo[] = {Nv, No}
+    , oo[] = {No, No}
+    ;
+
+  const int maxBasisSize =
+    getIntegerArgument("maxBasisSize", No*Nv + (No * (No - 1)/2 ) *
+                                               (Nv * (Nv - 1)/2)) ;
+
+  EMIT() << YAML::Key << "No"            << YAML::Value << Nv
+         << YAML::Key << "Nv"            << YAML::Value << No
+         << YAML::Key << "maxBasisSize"  << YAML::Value << maxBasisSize
+         << YAML::Key << "maxIterations" << YAML::Value << maxIterations
+         << YAML::Key << "eigenStates"   << YAML::Value << eigenStates
+         ;
+
 
   // Logging arguments
-  LOG(0, "CcsdEomDavid") << "Max iterations " << maxIterations << std::endl;
-  LOG(0, "CcsdEomDavid") << "ediff " << ediff << std::endl;
-  LOG(0, "CcsdEomDavid") << eigenStates << " eigen states" << std::endl;
-  LOG(0, "CcsdEomDavid") << "No: " << No << std::endl;
-  LOG(0, "CcsdEomDavid") << "Nv: " << Nv << std::endl;
-  LOG(0, "CcsdEomDavid") << "maxBasisSize: " << maxBasisSize << std::endl;
+  LOGGER(0) << "max iter:  " << maxIterations << std::endl;
+  LOGGER(0) << "ediff:     " << ediff << std::endl;
+  LOGGER(0) << "nroots:    " << eigenStates << std::endl;
+  LOGGER(0) << "No:        " << No << std::endl;
+  LOGGER(0) << "Nv:        " << Nv << std::endl;
+  LOGGER(0) << "max basis: " << maxBasisSize << std::endl;
 
 
-  // Get copy of couloumb integrals
-  CTF::Tensor<double> *pVijkl(
-    getTensorArgument<double, CTF::Tensor<double> >("HHHHCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVijkl(
-    pVijkl->order, pVijkl->lens, pVijkl->sym, *Cc4s::world,
-    pVijkl->get_name()
-  );
-  CTF::Tensor<F> *Vijkl(&cVijkl);
-  toComplexTensor(*pVijkl, *Vijkl);
+  for (auto &integral: requiredIntegrals) {
+    LOGGER(0) << "Converting " << integral.name << std::endl;
+    auto in(getTensorArgument<double>(integral.name));
+    integral.data = NEW(CTF::Tensor<F>, in->order, in->lens, in->sym,
+                                        *in->wrld, in->get_name());
+    toComplexTensor(*in, *integral.data);
+  }
 
-  CTF::Tensor<double> *pVabcd(
-    getTensorArgument<double, CTF::Tensor<double> >("PPPPCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVabcd(
-    pVabcd->order, pVabcd->lens, pVabcd->sym, *Cc4s::world,
-    pVabcd->get_name()
-  );
-  CTF::Tensor<F> *Vabcd(&cVabcd);
-  toComplexTensor(*pVabcd, *Vabcd);
+  // set up Fock matrix elements
+  auto Fab(NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Fab"));
+  auto Fij(NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Fij"));
+  auto Fia(NEW(CTF::Tensor<F>, 2, ov, syms, *Cc4s::world, "Fia"));
 
-  CTF::Tensor<double> *pVijka(
-    getTensorArgument<double, CTF::Tensor<double> >("HHHPCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVijka(
-    pVijka->order, pVijka->lens, pVijka->sym, *Cc4s::world,
-    pVijka->get_name()
-  );
-  CTF::Tensor<F> *Vijka(&cVijka);
-  toComplexTensor(*pVijka, *Vijka);
-
-  CTF::Tensor<double> *pVijab(
-    getTensorArgument<double, CTF::Tensor<double> >("HHPPCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVijab(
-    pVijab->order, pVijab->lens, pVijab->sym, *Cc4s::world,
-    pVijab->get_name()
-  );
-  CTF::Tensor<F> *Vijab(&cVijab);
-  toComplexTensor(*pVijab, *Vijab);
-
-  CTF::Tensor<double> *pViajk(
-    getTensorArgument<double, CTF::Tensor<double> >("HPHHCoulombIntegrals")
-  );
-  CTF::Tensor<F> cViajk(
-    pViajk->order, pViajk->lens, pViajk->sym, *Cc4s::world,
-    pViajk->get_name()
-  );
-  CTF::Tensor<F> *Viajk(&cViajk);
-  toComplexTensor(*pViajk, *Viajk);
-
-  CTF::Tensor<double> *pViajb(
-    getTensorArgument<double, CTF::Tensor<double> >("HPHPCoulombIntegrals")
-  );
-  CTF::Tensor<F> cViajb(
-    pViajb->order, pViajb->lens, pViajb->sym, *Cc4s::world,
-    pViajb->get_name()
-  );
-  CTF::Tensor<F> *Viajb(&cViajb);
-  toComplexTensor(*pViajb, *Viajb);
-
-  CTF::Tensor<double> *pViabc(
-    getTensorArgument<double, CTF::Tensor<double> >("HPPPCoulombIntegrals")
-  );
-  CTF::Tensor<F> cViabc(
-    pViabc->order, pViabc->lens, pViabc->sym, *Cc4s::world,
-    pViabc->get_name()
-  );
-  CTF::Tensor<F> *Viabc(&cViabc);
-  toComplexTensor(*pViabc, *Viabc);
-
-  CTF::Tensor<double> *pVabic(
-    getTensorArgument<double, CTF::Tensor<double> >("PPHPCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVabic(
-    pVabic->order, pVabic->lens, pVabic->sym, *Cc4s::world,
-    pVabic->get_name()
-  );
-  CTF::Tensor<F> *Vabic(&cVabic);
-  toComplexTensor(*pVabic, *Vabic);
-
-  CTF::Tensor<double> *pVabci(
-    getTensorArgument<double, CTF::Tensor<double> >("PPPHCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVabci(
-    pVabci->order, pVabci->lens, pVabci->sym, *Cc4s::world,
-    pVabci->get_name()
-  );
-  CTF::Tensor<F> *Vabci(&cVabci);
-  toComplexTensor(*pVabci, *Vabci);
-
-  CTF::Tensor<double> *pVaibc(
-    getTensorArgument<double, CTF::Tensor<double> >("PHPPCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVaibc(
-    pVaibc->order, pVaibc->lens, pVaibc->sym, *Cc4s::world,
-    pVaibc->get_name()
-  );
-  CTF::Tensor<F> *Vaibc(&cVaibc);
-  toComplexTensor(*pVaibc, *Vaibc);
-
-  CTF::Tensor<double> *pVaibj(
-    getTensorArgument<double, CTF::Tensor<double> >("PHPHCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVaibj(
-    pVaibj->order, pVaibj->lens, pVaibj->sym, *Cc4s::world,
-    pVaibj->get_name()
-  );
-  CTF::Tensor<F> *Vaibj(&cVaibj);
-  toComplexTensor(*pVaibj, *Vaibj);
-
-  CTF::Tensor<double> *pViabj(
-    getTensorArgument<double, CTF::Tensor<double> >("HPPHCoulombIntegrals")
-  );
-  CTF::Tensor<F> cViabj(
-    pViabj->order, pViabj->lens, pViabj->sym, *Cc4s::world,
-    pViabj->get_name()
-  );
-  CTF::Tensor<F> *Viabj(&cViabj);
-  toComplexTensor(*pViabj, *Viabj);
-
-  CTF::Tensor<double> *pVijak(
-    getTensorArgument<double, CTF::Tensor<double> >("HHPHCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVijak(
-    pVijak->order, pVijak->lens, pVijak->sym, *Cc4s::world,
-    pVijak->get_name()
-  );
-  CTF::Tensor<F> *Vijak(&cVijak);
-  toComplexTensor(*pVijak, *Vijak);
-
-  CTF::Tensor<double> *pVaijb(
-    getTensorArgument<double, CTF::Tensor<double> >("PHHPCoulombIntegrals")
-  );
-  CTF::Tensor<F> cVaijb(
-    pVaijb->order, pVaijb->lens, pVaijb->sym, *Cc4s::world,
-    pVaijb->get_name()
-  );
-  CTF::Tensor<F> *Vaijb(&cVaijb);
-  toComplexTensor(*pVaijb, *Vaijb);
-
-  //CTF::Tensor<> *Vabij(
-      //getTensorArgument<double, CTF::Tensor<>>("PPHHCoulombIntegrals"));
-
-
-  // HF terms
-  CTF::Tensor<F> *Fab(
-    new CTF::Tensor<F>(2, vv, syms2, *Cc4s::world, "Fab")
-  );
-  CTF::Tensor<F> *Fij(
-    new CTF::Tensor<F>(2, oo, syms2, *Cc4s::world, "Fij")
-  );
-  CTF::Tensor<F> *Fia(
-    new CTF::Tensor<F>(2, ov, syms2, *Cc4s::world, "Fia")
-  );
-
-  if (
-    isArgumentGiven("HPFockMatrix") &&
-    isArgumentGiven("HHFockMatrix") &&
-    isArgumentGiven("PPFockMatrix")
-  ) {
-    LOG(0, "CcsdEomDavid") << "Using non-canonical orbitals" << std::endl;
+  if (  isArgumentGiven("HPFockMatrix")
+     && isArgumentGiven("HHFockMatrix")
+     && isArgumentGiven("PPFockMatrix")
+     ) {
+    LOGGER(0) << "Using non-canonical orbitals" << std::endl;
 
     CTF::Tensor<double> *realFia(
       getTensorArgument<double, CTF::Tensor<double> >("HPFockMatrix")
@@ -308,7 +223,7 @@ void CcsdEquationOfMotionDavidson::run() {
     toComplexTensor(*realFab, *Fab);
     toComplexTensor(*realFia, *Fia);
   } else {
-    LOG(0, "CcsdEomDavid") << "Using canonical orbitals" << std::endl;
+    LOGGER(0) << "Using canonical orbitals" << std::endl;
     Fia = NULL;
     CTF::Transform<double, F>(
       std::function<void(double, F &)>(
@@ -326,8 +241,8 @@ void CcsdEquationOfMotionDavidson::run() {
     );
   }
 
-  CTF::Tensor<F> Tai(2, vo, syms2, *Cc4s::world, "Tai");
-  CTF::Tensor<F> Tabij(4, vvoo, syms4, *Cc4s::world, "Tabij");
+  CTF::Tensor<F> Tai(2, vo, syms, *Cc4s::world, "Tai");
+  CTF::Tensor<F> Tabij(4, vvoo, syms, *Cc4s::world, "Tabij");
   toComplexTensor(
     (*getTensorArgument<double, CTF::Tensor<double> >("SinglesAmplitudes")),
     Tai
@@ -341,12 +256,15 @@ void CcsdEquationOfMotionDavidson::run() {
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
   H
     // Set single particle integrals
-    .setFij(Fij).setFab(Fab).setFia(Fia)
+    .setFij(Fij.get()).setFab(Fab.get()).setFia(Fia.get())
     // coulomb integrals setting
-    .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
-    .setVijka(Vijka).setViabc(Viabc).setViajk(Viajk).setVabic(Vabic)
-    .setVaibc(Vaibc).setVaibj(Vaibj).setViabj(Viabj).setVijak(Vijak)
-    .setVaijb(Vaijb).setVabci(Vabci)
+    .setVabcd(Vabcd.get()).setViajb(Viajb.get())
+    .setVijab(Vijab.get()).setVijkl(Vijkl.get())
+    .setVijka(Vijka.get()).setViabc(Viabc.get())
+    .setViajk(Viajk.get()).setVabic(Vabic.get())
+    .setVaibc(Vaibc.get()).setVaibj(Vaibj.get())
+    .setViabj(Viabj.get()).setVijak(Vijak.get())
+    .setVaijb(Vaijb.get()).setVabci(Vabci.get())
     // set dressing for the hamiltonian
     .setTai(&Tai).setTabij(&Tabij)
     // should we use intermediates of the Wabij etc?
@@ -360,46 +278,49 @@ void CcsdEquationOfMotionDavidson::run() {
   CcsdPreconditioner<F> P;
   P
     .setTai(&Tai).setTabij(&Tabij)
-    .setFij(Fij).setFab(Fab)
+    .setFij(Fij.get()).setFab(Fab.get())
+
     // Set coulomb integrals
-    .setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)
-    // Set random information
-    .setRandom(preconditionerRandom).setRandomSigma(preconditionerRandomSigma)
-    // spin flip filtering?
-    .setSpinFlip(preconditionerSpinFlip)
+    //
+    .setVabcd(Vabcd.get()).setViajb(Viajb.get())
+    .setVijab(Vijab.get()).setVijkl(Vijkl.get())
+
+    // preconditioner settings
+    //
+    .setRandom(precSettings.random)
+    .setRandomSigma(precSettings.sigma)
+    .setSpinFlip(precSettings.spinFlip)
   ;
 
-  EigenSystemDavidsonMono<
-    SimilarityTransformedHamiltonian<F>,
-    CcsdPreconditioner<F>,
-    SDFockVector<F>
-  > eigenSystem(
-    &H,
-    eigenStates,
-    &P,
-    ediff,
-    maxBasisSize,
-    maxIterations,
-    minIterations
-  );
+  // INITIALIZE DAVIDSON SOLVER
+  EigenSystemDavidsonMono < SimilarityTransformedHamiltonian<F>,
+                            CcsdPreconditioner<F>,
+                            SDFockVector<F> >
+    eigenSystem(&H,
+                eigenStates,
+                &P,
+                ediff,
+                maxBasisSize,
+                maxIterations,
+                minIterations);
+
   eigenSystem.refreshOnMaxBasisSize(refreshOnMaxBasisSize);
   if (eigenSystem.refreshOnMaxBasisSize()) {
-    LOG(0, "CcsdEomDavid") <<
-      "Refreshing on max basis size reaching" << std::endl;
+    LOGGER(0) << "Refreshing on max basis size reaching" << std::endl;
   }
   eigenSystem.run();
 
 
   if (oneBodyRdmIndices.size() > 0) {
-    LOG(0, "CcsdEomDavid") << "Calculating 1-RDM with left states "
-                           << " approximated by right" << std::endl;
+    LOGGER(0) << "Calculating 1-RDM with left states "
+              << " approximated by right" << std::endl;
 
     auto Ssquared(SzOperator<F>(No, Nv));
     TensorIo::writeText<F>("Szab.tensor", *Ssquared.getAB(), "ij", "", " ");
     TensorIo::writeText<F>("Szij.tensor", *Ssquared.getIJ(), "ij", "", " ");
 
     for (auto &index: oneBodyRdmIndices) {
-      LOG(0, "CcsdEomDavid") << "Calculating 1-RDM for state " << index << std::endl;
+      LOGGER(0) << "Calculating 1-RDM for state " << index << std::endl;
 
       const SDFockVector<F> *R(&eigenSystem.getRightEigenVectors()[index-1]);
       const SDFockVector<F> LApprox(R->conjugateTranspose());
@@ -429,7 +350,7 @@ void CcsdEquationOfMotionDavidson::run() {
       s2[""] += (*Ssquared.getIJ())["ij"] * (*Rho.getIJ())["ji"];
       F s2Val(s2.get_val());
 
-      LOG(0, "CcsdEomDavid") << "S^2 " << s2Val << std::endl;
+      LOGGER(0) << "S^2 " << s2Val << std::endl;
 
     }
   }
@@ -437,11 +358,11 @@ void CcsdEquationOfMotionDavidson::run() {
   if (eigenvectorsIndices.size() > 0) {
 
     if (!printEigenvectorsDoubles) {
-      LOG(0, "CcsdEomDavid") << "Not writing out Rabij" << std::endl;
+      LOGGER(0) << "Not writing out Rabij" << std::endl;
     }
 
     for (auto &index: eigenvectorsIndices) {
-      LOG(1, "CcsdEomDavid") << "Writing out eigenvector " << index << std::endl;
+      LOGGER(1) << "Writing out eigenvector " << index << std::endl;
       auto eigenState(eigenSystem.getRightEigenVectors()[index-1]);
       TensorIo::writeText<F>(
         "Rai-" + std::to_string(index) + ".tensor",
@@ -460,12 +381,17 @@ void CcsdEquationOfMotionDavidson::run() {
 
   std::vector<complex> eigenValues(eigenSystem.getEigenValues());
   int eigenCounter(0);
-  NEW_FILE("EomCcsdEnergies.dat") << "";
+  EMIT() << YAML::Key << "eigenValues"
+         << YAML::Value << YAML::BeginSeq;
   for (auto &ev: eigenValues) {
     eigenCounter++;
-    LOG(0, "CcsdEomDavid") << eigenCounter << ". Eigenvalue=" << ev << std::endl;
-    FILE("EomCcsdEnergies.dat") << eigenCounter <<
-      " " << ev.real() << " " << ev.imag() << std::endl;
+    LOGGER(0) << eigenCounter << ". Eigenvalue=" << ev << std::endl;
+    EMIT() << YAML::BeginMap
+              << YAML::Key << "real" << YAML::Value << ev.real()
+              << YAML::Key << "imag" << YAML::Value << ev.imag()
+           << YAML::EndMap;
+
   }
+  EMIT() << YAML::EndSeq;
 
 }
