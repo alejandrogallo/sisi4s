@@ -22,3 +22,7 @@ LIBS=-L${CTF}/lib -lctf -mkl -lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64
 # destination path for installation
 INSTALL=~/bin/cc4s/${CONFIG}
 
+HF=
+ifeq ($(HF), yes)
+include hf.mk
+endif
