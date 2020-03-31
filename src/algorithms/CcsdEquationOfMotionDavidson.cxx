@@ -139,14 +139,15 @@ void CcsdEquationOfMotionDavidson::run() {
                              == 1)
   ;
 
-  const std::vector<int>
-    refreshIterations(
-        RangeParser(getTextArgument("refreshIterations", "")).getRange())
-  , oneBodyRdmIndices(
-        RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange())
-  , eigenvectorsIndices(
-        RangeParser(getTextArgument("printEigenvectorsRange", "")).getRange())
-  ;
+  const std::function<std::vector<int>(const std::string)> argToRange
+    = [&](const std::string a) {
+        return RangeParser(getTextArgument(a, "")).getRange();
+      };
+  const
+  std::vector<int> refreshIterations(argToRange("refreshIterations"))
+                 , oneBodyRdmIndices(argToRange("oneBodyRdmRange"))
+                 , eigenvectorsIndices(argToRange("printEigenvectorsRange"))
+                 ;
 
   const unsigned
   int eigenStates(getIntegerArgument("eigenstates", 1))
