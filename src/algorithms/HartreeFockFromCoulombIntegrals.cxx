@@ -8,16 +8,18 @@
 #include <iostream>
 #include <ctf.hpp>
 #include <numeric>      // std::iota
+#define IF_GIVEN(_l, ...) if (isArgumentGiven(_l)) { __VA_ARGS__ }
+#define LOGGER(_l) LOG(_l, "HartreeFockFromCoulombIntegrals")
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromCoulombIntegrals);
-#define LOGGER(_l) LOG(_l, "HartreeFockFromCoulombIntegrals")
 
 Eigen::MatrixXd
 toEigenMatrix(CTF::Tensor<double> &ctf) {
+  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
   Eigen::MatrixXd result(ctf.lens[0], ctf.lens[1]);
 
-  const size_t size(ctf.lens[0] * ctf.lens[1]);
+  const size_t size(rank_m * ctf.lens[0] * ctf.lens[1]);
   std::vector<int64_t> indices(size);
   std::vector<double> values(size);
 
@@ -35,8 +37,9 @@ toEigenMatrix(CTF::Tensor<double> &ctf) {
 
 CTF::Tensor<double>
 toCtfMatrix(const Eigen::MatrixXd &m) {
+  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
   int syms[] = {NS, NS}, lens[] = {(int)m.rows(), (int)m.cols()};
-  std::vector<int64_t> indices(m.rows() * m.cols());
+  std::vector<int64_t> indices(rank_m * m.rows() * m.cols());
   CTF::Tensor<double> t(2, lens, syms, *Cc4s::world);
 
   //  make indices a range from 0 to indices.size()-1
@@ -167,35 +170,43 @@ void HartreeFockFromCoulombIntegrals::run() {
 
   LOGGER(1) << "energy=" << ehf << std::endl;
 
-  int syms[] = {NS, NS};
   // export stuff
-  int pp[] = {(int)Np, (int)Np};
-  auto ctfCoefficients(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "C"));
-  std::vector<int64_t> indices;
-  indices.resize(Np*Np);
-  std::iota(indices.begin(), indices.end(), 0);
-  ctfCoefficients->write(indices.size(), indices.data(), &C(0));
-
+  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
+  int syms[] = {NS, NS};
   int o[] = {(int)No}, v[] = {(int)Nv};
-  // epsilon for holes
-  indices.resize(No);
-  std::iota(indices.begin(), indices.end(), 0);
-  auto epsi(new CTF::Tensor<double>(1, o, syms, *Cc4s::world, "epsi"));
-  epsi->write(indices.size(), indices.data(), &eps(0));
-  // epsilon for particles
-  indices.resize(Nv);
-  std::iota(indices.begin(), indices.end(), 0);
-  auto epsa(new CTF::Tensor<double>(1, v, syms, *Cc4s::world, "epsa"));
-  epsa->write(indices.size(), indices.data(), &eps(0) + No);
+  std::vector<int64_t> indices;
 
-  indices.resize(Np*Np*Np*Np);
-  std::iota(indices.begin(), indices.end(), 0);
-  CTF::Scalar<double> hfEnergy;
-  hfEnergy[""] = (ehf);
+  IF_GIVEN("OrbitalCoefficients",
+    int pp[] = {(int)Np, (int)Np};
+    auto ctfcs(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "C"));
+    indices.resize(rank_m * Np * Np);
+    std::iota(indices.begin(), indices.end(), 0);
+    ctfcs->write(indices.size(), indices.data(), &C(0));
+    allocatedTensorArgument<double>("OrbitalCoefficients", ctfcs);
+  )
 
-  allocatedTensorArgument<double>("OrbitalCoefficients", ctfCoefficients);
-  allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
-  allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<double>("HartreeFockEnergy", new CTF::Scalar<double>(hfEnergy));
+  IF_GIVEN("HoleEigenEnergies",
+    // epsilon for holes
+    indices.resize(rank_m * No);
+    std::iota(indices.begin(), indices.end(), 0);
+    auto epsi(new CTF::Tensor<double>(1, o, syms, *Cc4s::world, "epsi"));
+    epsi->write(indices.size(), indices.data(), &eps(0));
+    allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
+  )
+
+  IF_GIVEN("ParticleEigenEnergies",
+    // epsilon for particles
+    indices.resize(rank_m * Nv);
+    std::iota(indices.begin(), indices.end(), 0);
+    auto epsa(new CTF::Tensor<double>(1, v, syms, *Cc4s::world, "epsa"));
+    epsa->write(indices.size(), indices.data(), &eps(0) + No);
+    allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
+  )
+
+  IF_GIVEN("HartreeFockEnergy",
+    auto hfEnergy = new CTF::Scalar<double>();
+    (*hfEnergy)[""] = (ehf);
+    allocatedTensorArgument<double>("HartreeFockEnergy", hfEnergy);
+  )
 
 }

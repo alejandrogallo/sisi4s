@@ -48,12 +48,13 @@ void TensorAntisymmetrizer::run() {
   }
   }
 
-  // debug
+#ifdef DEBUG
   for (auto& copy: integralCopies) {
     double norm(frobeniusNorm(*copy.second));
     LOG(1, "TensorAntisymmetrizerNorm") << "|" << copy.first << "| = "
       << norm << std::endl;
   }
+#endif
 
   for (const auto &integral : infos) {
     bool antisymmetrized(false);
@@ -96,10 +97,12 @@ void TensorAntisymmetrizer::run() {
     }
   }
 
+#ifdef DEBUG
   for (auto& copy: integralCopies) {
     double norm(frobeniusNorm(*copy.second));
     LOG(1, "TensorAntisymmetrizerNorm") << "|" << copy.first << "| = "
       << norm << std::endl;
   }
+#endif
 
 }
