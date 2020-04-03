@@ -33,6 +33,7 @@
 #include <vector>
 #include <libint2.hpp>
 #include <algorithms/HartreeFockFromGaussian.hpp>
+#include <algorithms/OneBodyFromGaussian.hpp>
 #include <ctf.hpp>
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
@@ -93,9 +94,8 @@ struct ShellInfo {
   inline size_t operator[](const size_t g) const { return g % size; }
 };
 
-
 Eigen::MatrixXd
-getOneBodyIntegrals(
+getOneBodyIntegrals_(
   const libint2::BasisSet& shells,
   const libint2::Operator obtype,
   const std::vector<libint2::Atom>& atoms) {
@@ -143,7 +143,6 @@ getOneBodyIntegrals(
 
   return result;
 }
-
 
 Eigen::MatrixXd
 getTwoBodyFock(const libint2::BasisSet& shells, const Eigen::MatrixXd& D) {
@@ -236,9 +235,7 @@ void HartreeFockFromGaussian::run() {
   const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""))
                   , basisSet(getTextArgument("basisSet", "sto-3g"))
                   ;
-  double electronicConvergence(getRealArgument("energyDifference", 1e-4))
-       , enuc
-       ;
+  double electronicConvergence(getRealArgument("energyDifference", 1e-4));
   int numberOfElectrons(getIntegerArgument("numberOfElectrons", -1));
   unsigned int maxIterations(getIntegerArgument("maxIterations", 16))
              , i
@@ -298,16 +295,14 @@ void HartreeFockFromGaussian::run() {
       << std::endl;
   }
 
-  enuc = getNuclearRepulsionEnergy(atoms);
-  LOGGER(1) << "nuclear energy: " << enuc << std::endl;
 
   LOGGER(1) << "Calculating overlaps" << std::endl;
-  Eigen::MatrixXd S = getOneBodyIntegrals(
+  Eigen::MatrixXd S = getOneBodyIntegrals_(
     shells,
     libint2::Operator::overlap, atoms);
 
   LOGGER(1) << "Calculating kinetic integrals" << std::endl;
-  Eigen::MatrixXd T = getOneBodyIntegrals(
+  Eigen::MatrixXd T = getOneBodyIntegrals_(
     shells,
     libint2::Operator::kinetic,
     atoms);
@@ -315,7 +310,7 @@ void HartreeFockFromGaussian::run() {
 
 
   LOGGER(1) << "Compute nuclear repulsion integrals" << std::endl;
-  Eigen::MatrixXd V = getOneBodyIntegrals(
+  Eigen::MatrixXd V = getOneBodyIntegrals_(
     shells,
     libint2::Operator::nuclear,
     atoms);
@@ -432,7 +427,9 @@ void HartreeFockFromGaussian::run() {
     LOGGER(1) << "band " << e + 1 << " = " << eps(e,0) << std::endl;
   }
 
+  double enuc = getNuclearRepulsionEnergy(atoms);
   LOGGER(1) << "energy=" << ehf + enuc << std::endl;
+  LOGGER(1) << "nuclear energy: " << enuc << std::endl;
 
   int syms[] = {NS, NS}
     , o[]    = {(int)No}
