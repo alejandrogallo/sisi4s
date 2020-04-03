@@ -20,7 +20,8 @@ ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromRotatedCoulombIntegrals);
 template <typename V>
 struct IntegralProvider {
 
-  IntegralProvider(size_t no, size_t nv): No(no), Nv(nv), Np(no+nv) {}
+  IntegralProvider(size_t no, size_t nv, bool chemistNotation_)
+    : No(no), Nv(nv), Np(no+nv), chemistNotation(chemistNotation_) {}
 
   struct Limit {
     size_t lower, upper, size;
@@ -41,16 +42,21 @@ struct IntegralProvider {
   virtual V compute(Index P, Index Q, Index R, Index S) = 0;
 
   const size_t No, Nv, Np;
+  const bool chemistNotation = false;
 };
 
 struct VectorIntegralProvider: public IntegralProvider< std::vector<double> > {
 
   VectorIntegralProvider( size_t no
                         , size_t nv
+                        , bool chemistNotation_
                         , CTF::Tensor<double> &coeffs
                         , CTF::Tensor<double> &coulombIntegrals
-                        ) :IntegralProvider(no, nv)
+                        ) :IntegralProvider(no, nv, chemistNotation_)
   {
+    if (! chemistNotation_ )
+      throw EXCEPTION("Physics notation not supported for this provider");
+
     const int rank_m = int(Cc4s::world->rank == 0); // rank mask
 
     // read in the orbital coefficients
@@ -242,21 +248,31 @@ struct SlowVectorIntegralProvider: public VectorIntegralProvider {
 struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
   CtfIntegralProvider(size_t no
                     , size_t nv
+                    , bool chemistNotation_
                     , CTF::Tensor<double> &coefficients
                     , CTF::Tensor<double> &coulombIntegrals
-                    ):IntegralProvider(no, nv)
+                    ):IntegralProvider(no, nv, chemistNotation_)
                     , C(coefficients) , V(coulombIntegrals) {}
 
   CTF::Tensor<double> *compute() {
     if (VTransformed != nullptr) { return VTransformed; }
     LOGGER(1) << "computing main transformation" << std::endl;
     VTransformed = new CTF::Tensor<double>(true, V);
-    (*VTransformed)["pqrs"] = C["ns"]
-                            * C["lr"]
-                            * C["mq"]
-                            * C["kp"]
-                            * V["klmn"]
-                            ;
+    if (chemistNotation) {
+      (*VTransformed)["pqrs"] = C["ns"]
+                              * C["lr"]
+                              * C["mq"]
+                              * C["kp"]
+                              * V["klmn"]
+                              ;
+    } else {
+      (*VTransformed)["pqrs"] = C["ns"]
+                              * C["mr"]
+                              * C["lq"]
+                              * C["kp"]
+                              * V["klmn"]
+                              ;
+    }
     return VTransformed;
   }
 
@@ -393,6 +409,8 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
 
   LOGGER(1) << "Note: CoulombIntegrals have to be in chemist notation!"
             << std::endl;
+  LOGGER(1) << "Note: Phyiscs notation only implemented for ctf provider"
+            << std::endl;
   LOGGER(1) << "No: " << No << std::endl;
   LOGGER(1) << "Nv: " << Nv << std::endl;
 
@@ -413,13 +431,13 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
   LOGGER(1) << "Using engine: " << engineType << std::endl;
 
   if (engineType == EngineInfo::VECTOR_FAST) {
-    VectorIntegralProvider engine(No, Nv, *C, *V);
+    VectorIntegralProvider engine(No, Nv, chemistNotation, *C, *V);
     computeAndExport(*this, engine, integralInfos);
   } else if (engineType == EngineInfo::VECTOR_SLOW) {
-    SlowVectorIntegralProvider engine(No, Nv, *C, *V);
+    SlowVectorIntegralProvider engine(No, Nv, chemistNotation, *C, *V);
     computeAndExport(*this, engine, integralInfos);
   } else {
-    CtfIntegralProvider engine(No, Nv, *C, *V);
+    CtfIntegralProvider engine(No, Nv, chemistNotation, *C, *V);
     computeAndExport(*this, engine, integralInfos);
   }
 
