@@ -3,6 +3,7 @@
 CONFIG=gxx
 
 include config.${CONFIG}
+include config.mk
 include Objects
 
 ifneq ($(IS_CLEANING),TRUE)

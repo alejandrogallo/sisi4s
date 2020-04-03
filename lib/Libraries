@@ -55,9 +55,11 @@ LIBINT_COMMIT ?= v2.6.0
 ${LIBINT_LIB}: src/libint/configure
 	mkdir -p $(dir $@)
 	cd ${LIBINT_BUILD_PATH}/build && \
-	$(PWD)/src/libint/configure --with-max-am=${LIBINT_MAX_AM} \
+	$(PWD)/src/libint/configure \
+		--with-max-am=${LIBINT_MAX_AM} \
 		--prefix=$(PWD)/${LIBINT_BUILD_PATH} \
-		CXX=g++ CXXFLAGS="-std=c++11" && \
+		CXX=$(CXX) \
+		CXXFLAGS="-std=c++11" && \
 	$(MAKE) install
 
 src/libint/configure: src/libint
@@ -79,8 +81,10 @@ src/eigen:
 
 ${EIGEN_LIB}: src/eigen
 	mkdir -p $(EIGEN_BUILD_PATH)
-	cd $< ; mkdir -p build; cd build; \
-	cmake -DCMAKE_INSTALL_PREFIX=$(EIGEN_BUILD_PATH) ../ ; \
+	cd $< ; \
+	mkdir -p build/$(CONFIG); \
+	cd build/$(CONFIG); \
+	cmake -DCMAKE_INSTALL_PREFIX=$(EIGEN_BUILD_PATH) ../../ ; \
 	make install
 
 eigen: ${EIGEN_LIB}

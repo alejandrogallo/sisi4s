@@ -14,14 +14,4 @@ OPTIONS=-openmp -DINTEL_COMPILER -g
 OPTIMIZE=-O0
 
 # location of the Cyclops Tensor Framework library depends on the configuration
-CTF=lib/build/icc-local/ctf
-
-# additional include directories for header files
-INCLUDE=-I${CTF}/include
-
-# additional library paths and libraries to link to
-LIBS=-L${CTF}/lib -lctf -mkl -lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64
-
-# destination path for installation
-INSTALL=~/bin/cc4s/${CONFIG}
-
+CTF_PATH = lib/build/icc-local/ctf
