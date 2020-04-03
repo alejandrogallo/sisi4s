@@ -10,6 +10,7 @@
 #include <numeric>      // std::iota
 #define IF_GIVEN(_l, ...) if (isArgumentGiven(_l)) { __VA_ARGS__ }
 #define LOGGER(_l) LOG(_l, "HartreeFockFromCoulombIntegrals")
+#define LOGGER_IT(_l) LOG(_l, "HartreeFockFromCoulombIntegralsIt")
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromCoulombIntegrals);
@@ -150,7 +151,7 @@ void HartreeFockFromCoulombIntegrals::run() {
         << std::endl;
     }
 
-    LOGGER(1) <<
+    LOGGER_IT(1) <<
       iter              << "\t" <<
       ehf               << "\t" <<
       energyDifference  << "\t" <<

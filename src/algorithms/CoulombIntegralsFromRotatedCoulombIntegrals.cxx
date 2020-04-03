@@ -429,6 +429,7 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
                                     getTextArgument("engine", "ctf")));
 
   LOGGER(1) << "Using engine: " << engineType << std::endl;
+  LOGGER(1) << "Using chemistNotation?: " << chemistNotation << std::endl;
 
   if (engineType == EngineInfo::VECTOR_FAST) {
     VectorIntegralProvider engine(No, Nv, chemistNotation, *C, *V);
