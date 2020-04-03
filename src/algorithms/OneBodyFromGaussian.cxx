@@ -116,7 +116,8 @@ void OneBodyFromGaussian::run() {
          << YAML::Key << "kernel" << YAML::Value << kernel
          ;
 
-  double *data(&getOneBodyIntegrals(shells, op, atoms)(0));
+  auto result(getOneBodyIntegrals(shells, op, atoms));
+  double *data(&result(0));
   LOGGER(1) << "computation done" << std::endl;
   libint2::finalize();
 
