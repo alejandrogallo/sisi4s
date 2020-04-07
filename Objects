@@ -64,11 +64,6 @@ build/${CONFIG}/obj/algorithms/ApproximateParticleHoleCoulombVertex.o \
 build/${CONFIG}/obj/algorithms/SingleParticleOccupancies.o \
 build/${CONFIG}/obj/algorithms/PolarizabilityFromCoulombVertex.o \
 build/${CONFIG}/obj/algorithms/FiniteSizeCorrection.o \
-build/${CONFIG}/obj/algorithms/ThermalHolesAndParticles.o \
-build/${CONFIG}/obj/algorithms/ThermalPerturbation.o \
-build/${CONFIG}/obj/algorithms/ThermalMp2EnergyFromCoulombIntegrals.o \
-build/${CONFIG}/obj/algorithms/ThermalClusterDoublesAlgorithm.o \
-build/${CONFIG}/obj/algorithms/ThermalDirectRingCoupledClusterDoubles.o \
 build/${CONFIG}/obj/algorithms/PseudoInverse.o \
 build/${CONFIG}/obj/algorithms/Delete.o \
 build/${CONFIG}/obj/algorithms/PerturbativeTriples.o \
@@ -105,9 +100,18 @@ build/${CONFIG}/obj/algorithms/TensorAntisymmetrizer.o \
 build/${CONFIG}/obj/algorithms/FockMatrixFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/MeanCorrelationHoleDepth.o \
 build/${CONFIG}/obj/algorithms/TensorReduceijij.o \
+build/${CONFIG}/obj/algorithms/NwchemMovecsReader.o \
+
+ifeq (${THERMAL}, yes)
+build/${CONFIG}/obj/algorithms/ThermalHolesAndParticles.o \
+build/${CONFIG}/obj/algorithms/ThermalPerturbation.o \
+build/${CONFIG}/obj/algorithms/ThermalMp2EnergyFromCoulombIntegrals.o \
+build/${CONFIG}/obj/algorithms/ThermalClusterDoublesAlgorithm.o \
+build/${CONFIG}/obj/algorithms/ThermalDirectRingCoupledClusterDoubles.o \
+
+endif
 
 ifeq (${HF}, yes)
-
 OBJECTS += \
 build/${CONFIG}/obj/algorithms/OneBodyFromGaussian.o \
 build/${CONFIG}/obj/algorithms/HartreeFockFromGaussian.o \
@@ -128,8 +132,5 @@ build/${CONFIG}/obj/../tests/math/PermutationSign.o \
 build/${CONFIG}/obj/../tests/math/FockVector.o \
 build/${CONFIG}/obj/../tests/Test.o  \
 build/${CONFIG}/obj/../tests/algorithms/UccsdAmplitudesFromCoulombIntegrals.o  \
-
-#build/${CONFIG}/obj/../tests/util/LapackGeneralEigenSystem.o \
-# build/${CONFIG}/obj/test/math/EigenSystemDavidson.o \
 
 # vim:ft=make

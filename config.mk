@@ -1,7 +1,8 @@
 CONFIG ?= gxx
 include config.${CONFIG}
 
-HF = yes
+HF ?= yes
+THERMAL ?= no
 
 # destination path for installation
 INSTALL = ~/bin/cc4s/${CONFIG}
