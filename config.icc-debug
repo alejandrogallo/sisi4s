@@ -1,19 +1,16 @@
-# Configuration for intel without optimization for debugging
-# and faster compile times.
-
-# main target
-TARGET=Cc4s
+# vim:ft=make
+INTEL_COMPILER = yes
 
 # compiler and linker
-CXX=mpic++
+CXX = mpic++
 
 # general and language options (for preprocessing, compiling and linking)
-OPTIONS=-qopenmp -DINTEL_COMPILER -g -Qoption,cpp,--extended_float_types -DDEBUG
+OPTIONS = -qopenmp -DINTEL_COMPILER -g -Qoption,cpp,--extended_float_types -DDEBUG
 
 # optimization options (only for compiling and linking)
-OPTIMIZE=-O0
+OPTIMIZE = -O0
 
-# location of the Cyclops Tensor Framework library depends on the configuration
+# use the icc path for ctf
 CTF_PATH = lib/build/icc/ctf
 
 # additional library paths and libraries to link to

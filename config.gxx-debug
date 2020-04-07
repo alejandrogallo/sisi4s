@@ -1,13 +1,15 @@
-# main target
-TARGET=Cc4s
-
+# vim:ft=make
 # compiler and linker
-CXX=mpicxx
+CXX = mpicxx
 
 # general and language options (for preprocessing, compiling and linking)
-OPTIONS=-fopenmp -DDEBUG
+OPTIONS = -fopenmp -DDEBUG
 
 # optimization options (only for compiling and linking)
-OPTIMIZE=-O0 -g
+OPTIMIZE = -O0 -g
 
-LIBS_STATIC  += -lgfortran -lquadmath
+LIBS_STATIC += -lgfortran -lquadmath
+
+include etc/make/blas.mk
+include etc/make/scalapack.mk
+

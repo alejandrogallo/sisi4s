@@ -1,6 +1,4 @@
-# main target
-TARGET = Cc4s
-
+# vim:ft=make
 # compiler and linker
 CXX = mpicxx
 
@@ -11,3 +9,6 @@ OPTIONS = -fopenmp
 OPTIMIZE = -Ofast -march=native -flto
 
 LIBS_STATIC += -lgfortran -lquadmath
+
+include etc/make/blas.mk
+include etc/make/scalapack.mk
