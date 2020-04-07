@@ -161,7 +161,8 @@ void CoulombIntegralsFromGaussian::run() {
   {
     std::vector<int64_t> indices(rank_m * Np*Np*Np*Np);
     std::iota(indices.begin(), indices.end(), 0);
-    LOGGER(1) << "writing into ctf tensor" << std::endl;
+    LOGGER(1) << "writing " << indices.size() << " values "
+              << "into ctf tensor" << std::endl;
     Vklmn->write(indices.size(), indices.data(), engine.data());
   }
 
