@@ -1,10 +1,8 @@
 # default configuration, override with
 #   make all CONFIG=(icc|gxx|icc-debug|icc-local|icc-debug-local)
-CONFIG=gxx
-
-include config.${CONFIG}
 include config.mk
 include Objects
+
 
 ifneq ($(IS_CLEANING),TRUE)
 	# include created dependencies

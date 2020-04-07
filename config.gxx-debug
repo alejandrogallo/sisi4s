@@ -10,15 +10,4 @@ OPTIONS=-fopenmp -DDEBUG
 # optimization options (only for compiling and linking)
 OPTIMIZE=-O0 -g
 
-# BLAS and LAPACK library, expects BLAS_PATH to be set
-BLAS_LIB= -L${BLAS_PATH}/lib -lopenblas
-BLAS_INCLUDE=-I${BLAS_PATH}/include
-
-# ScaLAPACK libarary, expects SCALAPACK_PATH to be set
-SCALAPACK_LIB=-L${SCALAPACK_PATH}/lib -lscalapack
-
-INCLUDE += ${BLAS_INCLUDE}
-
-# additional library paths and libraries to link to
-LIBS += -Wl,-Bstatic ${SCALAPACK_LIB} ${BLAS_LIB} \
-       -lquadmath -Wl,-Bdynamic -lgfortran
+LIBS_STATIC  += -lgfortran -lquadmath

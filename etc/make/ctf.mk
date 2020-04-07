@@ -5,5 +5,4 @@ CTF_INCLUDE ?= -I${CTF_PATH}/include
 
 INCLUDE += ${CTF_INCLUDE}
 #LIBS    += -Wl,-Bstatic ${CTF_LIB}
-LIBS    += ${CTF_LIB}
-
+LIBS_STATIC  += ${CTF_LIB}

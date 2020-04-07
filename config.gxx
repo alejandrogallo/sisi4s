@@ -1,24 +1,13 @@
 # main target
-TARGET=Cc4s
+TARGET = Cc4s
 
 # compiler and linker
-CXX=mpicxx
+CXX = mpicxx
 
 # general and language options (for preprocessing, compiling and linking)
-OPTIONS=-fopenmp
+OPTIONS = -fopenmp
 
 # optimization options (only for compiling and linking)
-OPTIMIZE=-Ofast -march=native -flto
+OPTIMIZE = -Ofast -march=native -flto
 
-# BLAS and LAPACK library, expects BLAS_PATH to be set
-BLAS_LIB= -L${BLAS_PATH}/lib -lopenblas
-BLAS_INCLUDE=-I${BLAS_PATH}/include
-
-# ScaLAPACK libarary, expects SCALAPACK_PATH to be set
-SCALAPACK_LIB=-L${SCALAPACK_PATH}/lib -lscalapack
-
-# additional include directories for header files
-INCLUDE += ${BLAS_INCLUDE}
-
-# additional library paths and libraries to link to
-LIBS += ${SCALAPACK_LIB} -Wl,-Bstatic ${CTF_LIB} ${BLAS_LIB} -lgfortran -lquadmath -Wl,-Bdynamic
+LIBS_STATIC += -lgfortran -lquadmath
