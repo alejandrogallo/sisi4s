@@ -37,22 +37,52 @@ struct ShellInfo {
 };
 
 struct CoulombIntegralsProvider {
-  CoulombIntegralsProvider( const size_t Np_
-                          , const libint2::BasisSet& shells_
-                          , const Operator op_ = Operator::coulomb
-                          ):
-    Np(Np_), shells(shells_), op(op_) {}
+  CoulombIntegralsProvider
+    ( const size_t Np_
+    , const libint2::BasisSet& shells_
+    , const Operator op_ = Operator::coulomb
+    ): Np(Np_) , shells(shells_) , op(op_)
+   {
+
+   const size_t np(Cc4s::world->np), rank(Cc4s::world->rank);
+   const auto toCtfIdx([&](const size_t i) { return i * Np*Np*Np; });
+
+   const size_t chunks = shells.size() / np;
+   if (chunks == 0) throw EXCEPTION("Number of shells is less than nprocs");
+   firstShellIdx = rank * chunks;
+   lastShellIdx = (np - 1) == rank
+                ? shells.size() - 1
+                : (rank+1) * chunks - 1
+                ;
+   const ShellInfo first(shells, firstShellIdx), second(shells, lastShellIdx);
+   beginIndex = toCtfIdx(first.begin);
+   endIndex = toCtfIdx(second.end) - 1;
+   LOGGER(1) << "chunks       :" << chunks << std::endl;
+   LOGGER(1) << "firstShellIdx:" << firstShellIdx << std::endl;
+   LOGGER(1) << "lastShellIdx :" << lastShellIdx << std::endl;
+   LOGGER(1) << "beginIndex   :" << beginIndex << std::endl;
+   LOGGER(1) << "endIndex     :" << endIndex << std::endl;
+#ifdef DEBUG
+   std::cout << rank << "::firstShellIdx:" << firstShellIdx << std::endl;
+   std::cout << rank << "::lastShellIdx :" << lastShellIdx << std::endl;
+   std::cout << rank << "::beginIndex   :" << beginIndex << std::endl;
+   std::cout << rank << "::endIndex     :" << endIndex << std::endl;
+   std::cout << rank << "::DeltaIndex   :" << endIndex - beginIndex << std::endl;
+#endif
+  }
 
   void compute() {
-    // If already computed, return, op(op_)
     libint2::initialize();
 
-    const size_t NpNpNpNp(Np*Np*Np*Np);
-    LOGGER(1)
-      << "Allocating and computing Vklmn ("
-      << sizeof(double) * NpNpNpNp / std::pow(2, 30)
-      << " GB)" << std::endl;
-    Vklmn.resize(NpNpNpNp, 0.0);
+    const size_t NpNpNpNp(Np*Np*Np*Np)
+               , localSize(size())
+               ;
+    LOGGER(1) << "Np**4   :  " << NpNpNpNp << std::endl;
+    LOGGER(1) << " | local:  " << localSize << std::endl;
+    LOGGER(1) << "Allocating and computing Vklmn ("
+              << sizeof(double) * NpNpNpNp / 1024 / 1024 / 1024
+              << " GB)" << std::endl;
+    Vklmn.resize(localSize, 0.0);
 
     libint2::Engine engine(op, shells.max_nprim(), shells.max_l(), 0);
 
@@ -62,7 +92,7 @@ struct CoulombIntegralsProvider {
     // the outside loops will loop over the shells.
     // This will create a block of Vpqrs, where pqrs are contracted
     // gaussian indices belonging to their respective shells.
-    for (size_t _K(0); _K < shells.size(); ++_K) { // kappa
+    for (size_t _K(firstShellIdx); _K < lastShellIdx+1; ++_K) { // kappa
     for (size_t _L(0); _L < shells.size(); ++_L) { // lambda
     for (size_t _M(0); _M < shells.size(); ++_M) { // mu
     for (size_t _N(0); _N < shells.size(); ++_N) { // nu
@@ -75,18 +105,19 @@ struct CoulombIntegralsProvider {
       // compute integrals (K L , M N)
       engine.compute(shells[_K], shells[_L], shells[_M], shells[_N]);
 
+        //for (size_t k(K.begin), Inmlk = 0; k < K.end; ++k) {
         for (size_t k(K.begin), Inmlk = 0; k < K.end; ++k) {
         for (size_t l(L.begin); l < L.end; ++l) {
         for (size_t m(M.begin); m < M.end; ++m) {
         for (size_t n(N.begin); n < N.end; ++n, ++Inmlk) {
 
-          size_t bigI(
-            n +
-            m * Np +
-            l * Np*Np +
-            k * Np*Np*Np);
+          const size_t bigI( n
+                           + m * Np
+                           + l * Np*Np
+                           + k * Np*Np*Np
+                           );
 
-          Vklmn[bigI] += vsrqp[0][Inmlk];
+          Vklmn[bigI - beginIndex] += vsrqp[0][Inmlk];
 
         } // n
         } // m
@@ -103,13 +134,19 @@ struct CoulombIntegralsProvider {
   }
 
   double* data() {return Vklmn.data();}
+  size_t size() const { return end() - begin() + 1; }
+  size_t begin() const { return beginIndex; }
+  size_t end() const { return endIndex; }
 
   private:
   const size_t Np;
   const libint2::BasisSet& shells;
   const Operator op;
   std::vector<double> Vklmn;
+  size_t firstShellIdx, lastShellIdx, beginIndex, endIndex;
 };
+
+
 void CoulombIntegralsFromGaussian::run() {
 
   const std::vector<std::string> allArguments =
@@ -138,12 +175,14 @@ void CoulombIntegralsFromGaussian::run() {
     else                          return Operator::coulomb;
   }());
 
-  CoulombIntegralsProvider engine(Np, shells, op);
-
+  LOGGER(1) << "Np: " << Np << std::endl;
   LOGGER(1) << "kernel: " << kernel << std::endl;
   LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
+  LOGGER(1) << "basisSet: " << basisSet << std::endl;
+  LOGGER(1) << "#shells: " << shells.size() << std::endl;
 
-  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
+  CoulombIntegralsProvider engine(Np, shells, op);
+
   const std::vector<int> lens(4, Np);
   const std::vector<int> syms(4, NS);
   auto Vklmn(new CTF::Tensor<double>(4, lens.data(), syms.data(),
@@ -159,28 +198,32 @@ void CoulombIntegralsFromGaussian::run() {
   engine.compute();
   LOGGER(1) << "computation done" << std::endl;
   {
-    std::vector<int64_t> indices(rank_m * Np*Np*Np*Np);
-    std::iota(indices.begin(), indices.end(), 0);
+    std::vector<int64_t> indices(engine.size());
+    // important to start at engine.begin()
+    std::iota(indices.begin(), indices.end(), engine.begin());
+#ifdef DEBUG
+    std::cout << Cc4s::world->rank
+              << "::writing " << indices.size() << " values "
+              << "into ctf tensor" << std::endl;
+#endif
     LOGGER(1) << "writing " << indices.size() << " values "
               << "into ctf tensor" << std::endl;
     Vklmn->write(indices.size(), indices.data(), engine.data());
   }
 
-  LOGGER(1) << "Allocating CoulombIntegrals" << std::endl;
-
   if (chemistNotation) {
 
-    LOGGER(1) <<
-      "WARNING: this integral is in chemist notation, Vklmn = (kl|mn) = <km|ln>"
-      << std::endl;
+    LOGGER(1) << "WARNING: this integral is in chemist notation,"
+                 " Vklmn = (kl|mn) = <km|ln>" << std::endl;
     allocatedTensorArgument<double>("CoulombIntegrals", Vklmn);
 
   } else {
 
-    LOGGER(1) << "NOTE: this integral is in physicist notation" << std::endl;
     auto newV(new CTF::Tensor<double>(*Vklmn));
+    LOGGER(1) << "Converting chemist integral into physics" << std::endl;
 
     (*newV)["pqrs"] = (*Vklmn)["prqs"];
+    LOGGER(1) << "NOTE: this integral is in physicist notation" << std::endl;
     allocatedTensorArgument<double>("CoulombIntegrals", newV);
     delete Vklmn;
 
