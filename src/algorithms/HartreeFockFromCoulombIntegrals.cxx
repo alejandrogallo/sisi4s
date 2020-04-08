@@ -17,10 +17,9 @@ ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromCoulombIntegrals);
 
 Eigen::MatrixXd
 toEigenMatrix(CTF::Tensor<double> &ctf) {
-  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
   Eigen::MatrixXd result(ctf.lens[0], ctf.lens[1]);
 
-  const size_t size(rank_m * ctf.lens[0] * ctf.lens[1]);
+  const size_t size(ctf.lens[0] * ctf.lens[1]);
   std::vector<int64_t> indices(size);
   std::vector<double> values(size);
 
@@ -38,21 +37,29 @@ toEigenMatrix(CTF::Tensor<double> &ctf) {
 
 CTF::Tensor<double>
 toCtfMatrix(const Eigen::MatrixXd &m) {
-  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
   int syms[] = {NS, NS}, lens[] = {(int)m.rows(), (int)m.cols()};
-  std::vector<int64_t> indices(rank_m * m.rows() * m.cols());
+  LOGGER(1) << "converting into ctf vector" << std::endl;
+  const int64_t size(m.rows() * m.cols())
+              , r(Cc4s::world->rank)
+              , np(Cc4s::world->np)
+              , chunks(size / np)
+              , start(r * chunks)
+              , end((np-1) == r ? size : (r+1)*chunks);
+              ;
+  std::vector<int64_t> indices(end - start);
   CTF::Tensor<double> t(2, lens, syms, *Cc4s::world);
 
   //  make indices a range from 0 to indices.size()-1
-  std::iota(indices.begin(), indices.end(), 0);
-  t.write(indices.size(), indices.data(), &m(0));
+  std::iota(indices.begin(), indices.end(), start);
+  t.write(indices.size(), indices.data(), &m(0) + start);
+
   return t;
 }
 
 Eigen::MatrixXd
 getFockMatrix(const Eigen::MatrixXd &d, CTF::Tensor<double> &V) {
   auto D(toCtfMatrix(d));
-  CTF::Tensor<double> F(D);
+  CTF::Tensor<double> F(2, D.lens, D.sym, *Cc4s::world);
   F["pq"]  = ( 2.0) * D["kl"] * V["kplq"];
   F["pq"] += (-1.0) * D["kl"] * V["kpql"];
   return toEigenMatrix(F);
