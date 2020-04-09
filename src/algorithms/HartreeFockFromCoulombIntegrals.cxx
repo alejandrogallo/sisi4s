@@ -38,7 +38,7 @@ toEigenMatrix(CTF::Tensor<double> &ctf) {
 CTF::Tensor<double>
 toCtfMatrix(const Eigen::MatrixXd &m) {
   int syms[] = {NS, NS}, lens[] = {(int)m.rows(), (int)m.cols()};
-  LOGGER(1) << "converting into ctf vector" << std::endl;
+  LOGGER(2) << "converting into ctf vector" << std::endl;
   const int64_t size(m.rows() * m.cols())
               , r(Cc4s::world->rank)
               , np(Cc4s::world->np)
@@ -60,7 +60,9 @@ Eigen::MatrixXd
 getFockMatrix(const Eigen::MatrixXd &d, CTF::Tensor<double> &V) {
   auto D(toCtfMatrix(d));
   CTF::Tensor<double> F(2, D.lens, D.sym, *Cc4s::world);
+  LOGGER(1) << "Hartree" << std::endl;
   F["pq"]  = ( 2.0) * D["kl"] * V["kplq"];
+  LOGGER(1) << "Fock" << std::endl;
   F["pq"] += (-1.0) * D["kl"] * V["kpql"];
   return toEigenMatrix(F);
 }
@@ -126,6 +128,7 @@ void HartreeFockFromCoulombIntegrals::run() {
     LOGGER(2) << "calculating fock matrix" << std::endl;
     F += getFockMatrix(D, *V);
 
+    LOGGER(1) << "Diagonalize" << std::endl;
     // solve F C = e S C
     Eigen::GeneralizedSelfAdjointEigenSolver<Eigen::MatrixXd>
       gen_eig_solver(F, S);
