@@ -26,7 +26,7 @@ struct IntegralProvider {
   struct Limit {
     size_t lower, upper, size;
     Limit(size_t l, size_t h): lower(l), upper(h), size(h - l){}
-    inline const size_t operator[](const size_t& i) const { return i - lower; }
+    inline size_t operator[](const size_t& i) const { return i - lower; }
   };
   Limit indexToLimits(Index &i) {
     if      (i == Index::NO) return Limit(0 , No     );
@@ -257,7 +257,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
   CTF::Tensor<double> *compute() {
     if (VTransformed != nullptr) { return VTransformed; }
     LOGGER(1) << "computing main transformation" << std::endl;
-    VTransformed = new CTF::Tensor<double>(true, V);
+    VTransformed = new CTF::Tensor<double>(4, V.sym, V.lens, *Cc4s::world);
     if (chemistNotation) {
       (*VTransformed)["pqrs"] = C["ns"]
                               * C["lr"]
