@@ -171,7 +171,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           "#basis"     << "  " <<
           "R(energy)"  << "       " <<
           "I(energy)"  << "              " <<
-          "norm"       << "              " <<
+          //"norm"       << "              " <<
           "rms"        << "              " <<
           "Delta E"    << "    " <<
         std::endl;
@@ -407,7 +407,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
             std::setprecision(15)       << std::setw(23) <<
             this->eigenValues[k].real() << " "           <<
             this->eigenValues[k].imag() << " "           <<
-            rightNorm                   << " "           <<
+            //rightNorm                   << " "           <<
             rms                         << " "           <<
             std::abs(
               previousEigenvalues[k] - this->eigenValues[k]
