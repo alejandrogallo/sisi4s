@@ -68,6 +68,19 @@ getFockMatrix(const Eigen::MatrixXd &d, CTF::Tensor<double> &V) {
 }
 
 void HartreeFockFromCoulombIntegrals::run() {
+  checkArgumentsOrDie( { "h"
+                       , "CoulombIntegrals"
+                       , "No"
+                       , "Nv"
+                       , "maxIterations"
+                       , "initialOrbitalCoefficients"
+                       , "energyDifference"
+                       , "OverlapMatrix"
+                       , "OrbitalCoefficients"
+                       , "HartreeFockEnergy"
+                       , "HoleEigenEnergies"
+                       , "ParticleEigenEnergies"
+                       } );
 
   const auto ctfH(getTensorArgument<double>("h"));
   const auto H(toEigenMatrix(*ctfH));
@@ -90,25 +103,33 @@ void HartreeFockFromCoulombIntegrals::run() {
     S = toEigenMatrix(*getTensorArgument<double>("OverlapMatrix"));
   }
 
-  LOGGER(1)
-    << "mem:Fock "
-    << sizeof(double) * Np * Np / std::pow(2, 30.0)
-    << " GB"
-    << std::endl;
+  LOGGER(1) << "mem:Fock "
+            << sizeof(double) * Np * Np / std::pow(2, 30.0)
+            << " GB"
+            << std::endl;
 
   Eigen::MatrixXd D(Np, Np);
   Eigen::MatrixXd F(Np, Np);
   Eigen::MatrixXd D_last = D;
 
-  D *= 0.0;
 
   LOGGER(1) << "Setting initial density matrix" << std::endl;
-  for (unsigned i=0 ; i < Np ; i++) {
-  for (unsigned j=i ; j < i+1 ; j++) {
-    D(i,j) = 1;
+
+  IF_GIVEN("initialOrbitalCoefficients",
+    LOGGER(1) << "with initialOrbitalCoefficients" << std::endl;
+    const auto ic_ctf(getTensorArgument<double>("initialOrbitalCoefficients"));
+    const auto ic(toEigenMatrix(*ic_ctf));
+    const auto C_occ(ic.leftCols(No));
+    D = C_occ * C_occ.transpose();
+  ) else {
+    LOGGER(1) << "with whatever" << std::endl;
+    D *= 0.0;
+    for (unsigned i=0 ; i < Np ; i++) {
+    for (unsigned j=i ; j < i+1 ; j++) {
+      D(i,j) = 1;
+    }
+    }
   }
-  }
-  LOGGER(1) << "\tdone" << std::endl;
 
   unsigned int iter(0);
   double rmsd(0);
@@ -116,6 +137,7 @@ void HartreeFockFromCoulombIntegrals::run() {
   double ehf(0);
   double ehfLast(0);
   Eigen::MatrixXd eps, C;
+
 
   do {
 
