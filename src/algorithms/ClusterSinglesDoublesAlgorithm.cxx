@@ -176,7 +176,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   F e(0.0);
   std::streamsize ss = std::cout.precision();
   if (antisymmetrized) {
-    energy[""]  = ( + 0.25  ) * (*Tabij)["abkl"] * (*Vijab)["klab"];
+    energy[""] += ( + 0.25  ) * (*Tabij)["abkl"] * (*Vijab)["klab"];
     energy[""] += ( + 0.5  ) * (*Tai)["aj"] * (*Tai)["cl"] * (*Vijab)["jlac"];
     e = energy.get_val();
     // FIXME: imaginary part ignored
@@ -224,7 +224,15 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
 
   LOG(0, getCapitalizedAbbreviation()) << std::setprecision(10) <<
     "energy= " << e << std::setprecision(ss) << std::endl;
-
+  if ( isArgumentGiven("PairEnergy")) {
+    int oo[] = { Tabij->lens[2], Tabij->lens[2] };
+    int syms[] = { NS, NS};
+    auto pairEnergy(new Tensor<F>( 2, oo, syms, *Cc4s::world, "pairEnergies"));
+    (*Tabij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
+    (*pairEnergy)["ij"]  =   2.0 * (*Tabij)["abij"] * (*Vijab)["ijab"];
+    (*pairEnergy)["ij"] += (-1.0)* (*Tabij)["abij"] * (*Vijab)["ijba"];
+    allocatedTensorArgument<F>("PairEnergy", pairEnergy);
+  }
   return e;
 }
 
