@@ -219,8 +219,10 @@ void CoulombIntegralsFromGaussian::run() {
 
   } else {
 
-    auto newV(new CTF::Tensor<double>(*Vklmn));
+    LOGGER(1) << "Allocating phyisics notation integrals" << std::endl;
+    auto newV(new CTF::Tensor<double>(4, Vklmn->sym, Vklmn->lens, *Cc4s::world));
     LOGGER(1) << "Converting chemist integral into physics" << std::endl;
+    LOGGER(1) << "| PhysV[pqrs] = ChemV[prqs]; " << std::endl;
 
     (*newV)["pqrs"] = (*Vklmn)["prqs"];
     LOGGER(1) << "NOTE: this integral is in physicist notation" << std::endl;
