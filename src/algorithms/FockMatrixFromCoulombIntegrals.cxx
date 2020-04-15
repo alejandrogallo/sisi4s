@@ -21,10 +21,6 @@ ALGORITHM_REGISTRAR_DEFINITION(FockMatrixFromCoulombIntegrals);
 
 void FockMatrixFromCoulombIntegrals::run() {
 
-  const bool unrestricted(getIntegerArgument("unrestricted", 0) == 1);
-
-  LOGGER(0) << "unrestricted? " << unrestricted << std::endl;
-
   const auto phph(getTensorArgument<double>("PHPHCoulombIntegrals"));
   int No(phph->lens[1]), Nv(phph->lens[0]);
   std::vector<int> vv({Nv, Nv}), oo({No, No}), ov({No, Nv}), vo({Nv, No});
@@ -38,7 +34,7 @@ void FockMatrixFromCoulombIntegrals::run() {
   const auto hh(getTensorArgument<double>("HHMatrix"));
   const auto hhhh(getTensorArgument<double>("HHHHCoulombIntegrals"));
   (*fij)["ij"]  = (*hh)["ij"];
-  (*fij)["ij"] += (unrestricted ? 1.0 : 2.0)*(*hhhh)["ikjk"];
+  (*fij)["ij"] += (+2.0)*(*hhhh)["ikjk"];
   (*fij)["ij"] += (-1.0)*(*hhhh)["ikkj"];
   allocatedTensorArgument<double>("HHFockMatrix", fij);
 
@@ -47,7 +43,7 @@ void FockMatrixFromCoulombIntegrals::run() {
   const auto pp(getTensorArgument<double>("PPMatrix"));
   const auto phhp(getTensorArgument<double>("PHHPCoulombIntegrals"));
   (*fab)["ab"]  = (*pp)["ab"];
-  (*fab)["ab"] += (unrestricted ? 1.0 : 2.0)*(*phph)["akbk"];
+  (*fab)["ab"] += (+2.0)*(*phph)["akbk"];
   (*fab)["ab"] += (-1.0)*(*phhp)["akkb"];
   allocatedTensorArgument<double>("PPFockMatrix", fab);
 
@@ -56,7 +52,7 @@ void FockMatrixFromCoulombIntegrals::run() {
   const auto ph(getTensorArgument<double>("PHMatrix"));
   const auto phhh(getTensorArgument<double>("PHHHCoulombIntegrals"));
   (*fai)["ai"]  = (*ph)["ai"];
-  (*fai)["ai"] += (unrestricted ? 1.0 : 2.0)*(*phhh)["akik"];
+  (*fai)["ai"] += (+2.0)*(*phhh)["akik"];
   (*fai)["ai"] += (-1.0)*(*phhh)["akki"];
   allocatedTensorArgument<double>("PHFockMatrix", fai);
 
@@ -74,9 +70,9 @@ void FockMatrixFromCoulombIntegrals::run() {
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
 
   CTF::Scalar<double> energy;
-  energy[""]  = (unrestricted ?  1.0 :  2.0) * (*hh)["ii"];
-  energy[""] += (unrestricted ?  0.5 :  2.0) * (*hhhh)["ikik"];
-  energy[""] += (unrestricted ? -0.5 : -1.0) * (*hhhh)["ikki"];
+  energy[""]  = (+2.0) * (*hh)["ii"];
+  energy[""] += (+2.0) * (*hhhh)["ikik"];
+  energy[""] += (-1.0) * (*hhhh)["ikki"];
   const double dEnergy(energy.get_val());
 
   LOG(0, "FockMatrixFromCoulombIntegrals")
