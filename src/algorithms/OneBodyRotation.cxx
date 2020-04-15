@@ -20,7 +20,7 @@ void OneBodyRotation::run() {
   auto C(getTensorArgument("OrbitalCoefficients"));
   auto I(getTensorArgument("Data"));
   auto O(new CTF::Tensor<double>(*I));
-  const auto No(getIntegerArgument("No", 0)), Np(C->lens[0]);
+  const int No(getIntegerArgument("No", 0)), Np(C->lens[0]);
 
   LOGGER(0) << "No: " << No << std::endl;
   LOGGER(0) << "Np: " << Np << std::endl;
