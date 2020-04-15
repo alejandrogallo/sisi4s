@@ -220,7 +220,7 @@ void CoulombIntegralsFromGaussian::run() {
   } else {
 
     LOGGER(1) << "Allocating phyisics notation integrals" << std::endl;
-    auto newV(new CTF::Tensor<double>(4, Vklmn->sym, Vklmn->lens, *Cc4s::world));
+    auto newV(new CTF::Tensor<double>(4, Vklmn->lens, Vklmn->sym, *Cc4s::world));
     LOGGER(1) << "Converting chemist integral into physics" << std::endl;
     LOGGER(1) << "| PhysV[pqrs] = ChemV[prqs]; " << std::endl;
 

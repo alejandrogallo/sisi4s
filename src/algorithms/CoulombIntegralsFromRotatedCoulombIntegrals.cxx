@@ -257,7 +257,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
   CTF::Tensor<double> *compute() {
     if (VTransformed != nullptr) { return VTransformed; }
     LOGGER(1) << "computing main transformation" << std::endl;
-    VTransformed = new CTF::Tensor<double>(4, V.sym, V.lens, *Cc4s::world);
+    VTransformed = new CTF::Tensor<double>(4, V.lens, V.sym, *Cc4s::world);
     if (chemistNotation) {
       (*VTransformed)["pqrs"] = C["ns"]
                               * C["lr"]
