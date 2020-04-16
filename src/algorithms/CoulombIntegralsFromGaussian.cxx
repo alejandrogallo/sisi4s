@@ -175,6 +175,11 @@ void CoulombIntegralsFromGaussian::run() {
     else                          return Operator::coulomb;
   }());
 
+  LOGGER(1) << "libint          : " << LIBINT_VERSION << std::endl;
+  LOGGER(1) << "libint max_am   : " << LIBINT_MAX_AM << std::endl;
+  LOGGER(1) << "cgshell_ordering: " << LIBINT_CGSHELL_ORDERING << std::endl;
+  LOGGER(1) << "std ordering is : " << LIBINT_CGSHELL_ORDERING_STANDARD
+            << std::endl;
   LOGGER(1) << "Np: " << Np << std::endl;
   LOGGER(1) << "kernel: " << kernel << std::endl;
   LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
