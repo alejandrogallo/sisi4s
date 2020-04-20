@@ -31,7 +31,7 @@ namespace pars {
     , punct("[[:punct:]]") // punctuation
     , space("[[:space:]]") // space
     , xdigit("[[:xdigit:]]")  // hexadecimal digits (with upper and lower)
-    , realNumber("[-eE.+\\d]+") // real number TODO: improve
+    , realNumber("[-eE+\\d.]+") // real number TODO: improve
     ;
 
   const std::function<Str(Str)>

@@ -20,13 +20,13 @@ struct XyzParser {
   const
   std::string atom_numbers = digit + oneOrMore
             , sep = blank + oneOrMore // any number > 1 of spaces or tabs
-            , atom = upper + lower + optional // atom is Upper char and lower char
+            , atom = upper + lower + optional // atom is Upper + lower?
             , xyz_line = bof + blank + anyOf // spaces at the start allowed
                        + capture(atom) + sep // capture atom symbol
                        + capture(realNumber) + sep
                        + capture(realNumber) + sep
                        + capture(realNumber)
-                       + anyChar + anyOf + eof
+                       + blank + anyOf + eof
             ;
 
   Atom parseLine(const std::string &line) {
@@ -36,7 +36,7 @@ struct XyzParser {
     return { std::string(m[1])
            , { std::atof(std::string(m[2]).c_str())
              , std::atof(std::string(m[3]).c_str())
-             , std::atof(std::string(m[3]).c_str())
+             , std::atof(std::string(m[4]).c_str())
              }
            };
   }
@@ -56,7 +56,6 @@ struct XyzParser {
     for (int i(0); i<natoms; i++){
       std::getline(f, line);
       atoms.push_back(parseLine(line));
-      std::cout << atom[-1] << std::endl;
     }
 
     return atoms;

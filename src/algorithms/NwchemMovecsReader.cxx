@@ -10,6 +10,10 @@
 #include <set>
 #include <map>
 #include <util/Emitter.hpp>
+#include <util/Parsing.hpp>
+#include <util/XyzParser.hpp>
+#include <util/NwchemBasisParser.hpp>
+#include <regex>
 #define LOGGER(_l) LOG(_l, "NwchemMovecsReader")
 #define IF_GIVEN(_l, ...) if (isArgumentGiven(_l)) { __VA_ARGS__ }
 
@@ -32,8 +36,12 @@ std::vector<F> readFortranChunk(std::fstream &file) {
   return buffer;
 }
 
+
 void NwchemMovecsReader::run() {
-  const std::string fileName(getTextArgument("file"));
+  const std::string fileName(getTextArgument("file"))
+                  , xyz(getTextArgument("xyzStructureFile"))
+                  , basisFile(getTextArgument("basisFile"))
+                  ;
   const int No(getIntegerArgument("No"));
 
   LOGGER(0) << "NOTE: it only works now for restricted references" << std::endl;
@@ -45,6 +53,18 @@ void NwchemMovecsReader::run() {
   std::vector<size_t> nmo;
   std::vector<double> occupations, eigenvalues, mos;
   size_t iset = 0; // This allows to skip the first set, dont need this yet
+
+  nwchem::BasisSetParser().parseFile(basisFile);
+
+  const auto atoms(XyzParser().parseFile(xyz));
+  LOGGER(0) << "xyzStructureFile: " << xyz << std::endl;
+  LOGGER(0) << "#atoms: " << atoms.size() << std::endl;
+  for (const auto& a: atoms) {
+    LOGGER(0) << a.symbol     << ": "
+              << a.position.x << ", "
+              << a.position.y << ", "
+              << a.position.z << std::endl;
+  }
 
   readFortranChunk<char>(file); // convergence info
   readFortranChunk<char>(file); // scftype
