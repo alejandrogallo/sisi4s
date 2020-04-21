@@ -18,16 +18,40 @@ namespace nwchem {
     const std::vector<double> coefficients, exponents;
   };
 
+  namespace am {
+    enum AngularMomentum { S = 1, P = 3 , D = 5 , F = 7
+                         , G = 9, H = 11, I = 13, K = 15
+                         };
+    size_t toInt (const AngularMomentum &am) { return am; }
+    AngularMomentum fromString(const std::string &am) {
+      if (am == "S") return S; if (am == "P") return P;
+      if (am == "D") return D; if (am == "F") return F;
+      if (am == "G") return G; if (am == "H") return H;
+      if (am == "I") return I; if (am == "K") return K;
+      throw EXCEPTION("I don't anderstand symbol: " + am);
+    }
+  }
+
   struct Shell {
     const std::string atom;
-    const std::string symbol;
+    const am::AngularMomentum am;
     const ContractedGaussian g;
+    size_t size() const { return g.size(); }
   };
 
   struct Basis {
     const std::string atom;
     const std::string name;
     const std::vector<Shell> shells;
+    size_t size() const { return shells.size(); }
+    size_t nbf() const {
+      return
+      std::accumulate( shells.begin()
+                     , shells.end()
+                     , 0
+                     , [&](size_t i, const Shell &s){ return i + s.size(); }
+                     );
+    }
   };
 
   typedef std::vector<Basis> BasisSet;
@@ -67,28 +91,28 @@ namespace nwchem {
       std::string atom, shSymbol;
 
       auto addShellToBasis = [&]() {
-          shells.push_back( { atom, shSymbol, { coe, exp } } );
+          shells.push_back( { atom, am::fromString(shSymbol), { coe, exp } } );
           coe.resize(0); exp.resize(0);
       };
 
       while (std::getline(f, line)) {
 
         if (matches(line, shell_header)) {
+          if (coe.size() and exp.size()) { addShellToBasis(); }
           atom = std::string(match[1]);
           shSymbol = std::string(match[2]);
-          if (coe.size() and exp.size()) { addShellToBasis(); }
           continue;
         }
 
         if (matches(line, basis_end)) {
-          addShellToBasis();
+           addShellToBasis();
           return { atom, name, shells };
         }
 
         if (! matches(line, shell_content) ) throw EXCEPTION("in: " + line);
 
-        coe.push_back(std::atof(std::string(match[1]).c_str()));
-        exp.push_back(std::atof(std::string(match[2]).c_str()));
+        coe.push_back(std::atof(std::string(match[2]).c_str()));
+        exp.push_back(std::atof(std::string(match[1]).c_str()));
 
       }
 
