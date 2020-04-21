@@ -26,6 +26,7 @@ namespace nwchem {
 
   struct Basis {
     const std::string atom;
+    const std::string name;
     const std::vector<Shell> shells;
   };
 
