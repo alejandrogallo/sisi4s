@@ -17,21 +17,19 @@ struct Atom {
 };
 
 struct XyzParser {
-  const
-  std::string atom_numbers = digit + oneOrMore
-            , sep = blank + oneOrMore // any number > 1 of spaces or tabs
+  const Regex sep = blank + oneOrMore // any number > 1 of spaces or tabs
             , atom = upper + lower + optional // atom is Upper + lower?
             , xyz_line = bof + blank + anyOf // spaces at the start allowed
-                       + capture(atom) + sep // capture atom symbol
-                       + capture(realNumber) + sep
-                       + capture(realNumber) + sep
+                       + capture(atom.s) + sep.s // capture atom symbol
+                       + capture(realNumber) + sep.s
+                       + capture(realNumber) + sep.s
                        + capture(realNumber)
                        + blank + anyOf + eof
             ;
 
   Atom parseLine(const std::string &line) {
     std::smatch m;
-    std::regex_match(line, m, std::regex(xyz_line));
+    std::regex_match(line, m, xyz_line.r);
     if (m.size() == 0) { throw EXCEPTION("Line " + line + " is malformed"); }
     return { std::string(m[1])
            , { std::atof(std::string(m[2]).c_str())

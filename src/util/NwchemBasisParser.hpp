@@ -35,29 +35,31 @@ namespace nwchem {
 
     std::smatch match;
 
-    const
-    std::string spherical = oneOf({ "SPHERICAL" })
-              , emptyLine = bof + blank + anyOf + eof
-              , shell_symbol = oneOf({"S", "P", "D", "F", "G", "H", "I", "K"})
-              , comment = bof + "#" + print + anyOf
-              , sep = blank + oneOrMore // any number > 1 of spaces or tabs
-              , atom = upper + lower + optional
-              , shell_header = bof + capture(atom) + sep
-                             + capture(shell_symbol)
+    const Regex spherical = oneOf({ "SPHERICAL", "spherical" })
+              , no_line   = bof + blank + anyOf + eof
+              , comment   = bof + "#" + print + anyOf
+              , atom      = upper + lower + optional
+              , sep       = blank + oneOrMore
+              , shell_symbol  = oneOf({"S", "P", "D", "F", "G", "H", "I", "K"})
+              , shell_header  = bof + capture(atom.s) + sep.s
+                              + capture(shell_symbol.s)
               , shell_content = bof + blank + anyOf
-                              + capture(realNumber) + sep + capture(realNumber)
-              , basis_header = "basis" + sep + print + oneOrMore
-                             + sep + spherical
-              , basis_end = oneOf({ "end", "END" })
+                              + capture(realNumber) + sep.s
+                              + capture(realNumber)
+              , basis_token   = oneOf({ "basis", "BASIS" })
+              , basis_name    = "\"" + capture(print + oneOrMore) + "\""
+              , basis_header  = group(basis_token.s) + sep.s
+                              + basis_name.s + sep.s
+                              + group(spherical.s)
+              , basis_end     = bof + group(oneOf({ "end", "END" }))
               ;
 
-    bool matches(const std::string &t, const std::string &m) {
-      // creating a regex every time is not my bottleneck, so..
-      std::regex_match(t, match, std::regex(m));
+    bool matches(const std::string &t, const Regex &r) {
+      std::regex_match(t, match, r.r);
       return match.size() > 0;
     }
 
-    Basis parseBasis (std::fstream &f) {
+    Basis parseBasis (std::fstream &f, const std::string name) {
       std::string line;
       std::vector<Shell> shells;
       std::vector<double> coe, exp;
@@ -79,7 +81,7 @@ namespace nwchem {
 
         if (matches(line, basis_end)) {
           addShellToBasis();
-          return { atom, shells };
+          return { atom, name, shells };
         }
 
         if (! matches(line, shell_content) ) throw EXCEPTION("in: " + line);
@@ -102,12 +104,12 @@ namespace nwchem {
       while (std::getline(f, line)) {
 
         // ignore empty or comment lines
-        if ( matches(line, emptyLine) || matches(line, comment) ) continue;
+        if ( matches(line, no_line) || matches(line, comment) ) continue;
 
-        // We don't really care about the `basis "blasdf" SPHERICAL` header
+        // Parse basis whenever we find basis...
         if (matches(line, basis_header)) {
-          std::cout << line << std::endl;
-          bs.push_back(parseBasis(f));
+                                  // v-- name
+          bs.push_back(parseBasis(f, match[1].str()));
           continue;
         }
 

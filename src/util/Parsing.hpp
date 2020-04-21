@@ -34,9 +34,10 @@ namespace pars {
     , realNumber("[-eE+\\d.]+") // real number TODO: improve
     ;
 
-  const std::function<Str(Str)>
-    capture([](const Str& i) { return "(" + i + ")"; })
-    ;
+  const
+  std::function<Str(Str)> capture([](const Str& i) { return "(" + i + ")"; })
+                        , group([](const Str& i) { return "(?:" + i + ")"; })
+                        ;
 
   Str oneOf(const std::vector<Str> &v) {
     return std::accumulate
@@ -49,6 +50,13 @@ namespace pars {
       )
       ;
   }
+
+  struct Regex {
+    const std::string s;
+    const std::regex r;
+    Regex(const char* s_): s(s_), r(s_) {}
+    Regex(const std::string &s_): s(s_), r(s_) {}
+  };
 
 }
 
