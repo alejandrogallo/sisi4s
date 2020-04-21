@@ -54,7 +54,8 @@ void NwchemMovecsReader::run() {
   std::vector<double> occupations, eigenvalues, mos;
   size_t iset = 0; // This allows to skip the first set, dont need this yet
 
-  nwchem::BasisSetParser().parseFile(basisFile);
+  const auto basis(nwchem::BasisSetParser().parseFile(basisFile));
+  LOGGER(0) << "#basis in " << basisFile << ": " << basis.size() << std::endl;
 
   const auto atoms(XyzParser().parseFile(xyz));
   LOGGER(0) << "xyzStructureFile: " << xyz << std::endl;
@@ -121,10 +122,11 @@ void NwchemMovecsReader::run() {
 
   std::vector<int> pp(2, Np), syms(2, NS), o(1, No), v(1, Np - No);
   std::vector<int64_t> ids;
+  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
 
 
   IF_GIVEN("HoleEigenEnergies",
-    ids.resize(o[0]);
+    ids.resize(rank_m * o[0]);
     std::iota(ids.begin(), ids.end(), 0);
     auto epsi(new CTF::Tensor<double>(1, o.data(), syms.data(), *Cc4s::world));
     epsi->write(ids.size(), ids.data(), eigenvalues.data());
@@ -132,7 +134,7 @@ void NwchemMovecsReader::run() {
   )
 
   IF_GIVEN("ParticleEigenEnergies",
-    ids.resize(v[0]);
+    ids.resize(rank_m * v[0]);
     std::iota(ids.begin(), ids.end(), 0);
     auto epsa(new CTF::Tensor<double>(1, v.data(), syms.data(), *Cc4s::world));
     epsa->write(ids.size(), ids.data(), eigenvalues.data() + No);
@@ -140,7 +142,7 @@ void NwchemMovecsReader::run() {
   )
 
   IF_GIVEN("OccupationNumbers",
-    ids.resize(Np);
+    ids.resize(rank_m * Np);
     std::iota(ids.begin(), ids.end(), 0);
     auto os(new CTF::Tensor<double>(1, pp.data(), syms.data(), *Cc4s::world));
     os->write(ids.size(), ids.data(), occupations.data());
@@ -148,7 +150,7 @@ void NwchemMovecsReader::run() {
   )
 
   IF_GIVEN("OrbitalCoefficients",
-    ids.resize(Np*Np);
+    ids.resize(rank_m * Np*Np);
     std::iota(ids.begin(), ids.end(), 0);
     auto coef(new CTF::Tensor<double>(2, pp.data(), syms.data(), *Cc4s::world));
     coef->write(ids.size(), ids.data(), mos.data());
