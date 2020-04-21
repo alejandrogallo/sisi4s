@@ -16,12 +16,14 @@ namespace nwchem {
 
   struct ContractedGaussian {
     const std::vector<double> coefficients, exponents;
+    size_t size() const { return coefficients.size(); }
   };
 
   namespace am {
     enum AngularMomentum { S = 1, P = 3 , D = 5 , F = 7
                          , G = 9, H = 11, I = 13, K = 15
                          };
+    std::vector<AngularMomentum> all() { return { S, P, D, F, G, H, I, K }; }
     size_t toInt (const AngularMomentum &am) { return am; }
     AngularMomentum fromString(const std::string &am) {
       if (am == "S") return S; if (am == "P") return P;
