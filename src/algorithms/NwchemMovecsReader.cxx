@@ -212,6 +212,32 @@ void NwchemMovecsReader::run() {
     }
   }
 
+  for (const auto &p: transformation.reorder) {
+    const auto am = nwchem::am::toInt(p.first);
+    const auto& reorder = p.second;
+    const auto& Np = movec.Np;
+    if (reorder.size()) {
+      LOGGER(0) << "doing reorder of am: "  << am << std::endl;
+      LOGGER(0) << "You should have "  << am << " numbers" << std::endl;
+      assert(reorder.size() == am);
+      auto indicesVector(findShellIndices(basis, atoms, p.first));
+      // go through every state (column of mos)
+      for (size_t j(0); j<Np; j++) {
+      for (auto const& indices: indicesVector) {
+        assert(indices.size() == am);
+        // save a backup of the indices thunk to be settable
+        std::vector<double> backup(indices.size());
+        for (size_t ii(0); ii<am; ii++) backup[ii] = mos[indices[ii] + j*Np];
+      for (size_t ii(0); ii<am; ii++) {
+        assert(indices[ii] < Np);
+        mos[ indices[ii] + j * Np ] = backup[reorder[ii]];
+      }
+      }
+      }
+      LOGGER(0) << "done with "  << am << std::endl;
+    }
+  }
+
   /* TODO: reorder
   for (const auto &p: transformation.reorder) { ...  }
   */
