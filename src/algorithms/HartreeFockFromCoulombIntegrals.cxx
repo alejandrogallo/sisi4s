@@ -16,7 +16,7 @@ using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromCoulombIntegrals);
 
 Eigen::MatrixXd
-toEigenMatrix(CTF::Tensor<double> &ctf) {
+cc4s::toEigenMatrix(CTF::Tensor<double> &ctf) {
   Eigen::MatrixXd result(ctf.lens[0], ctf.lens[1]);
 
   const size_t size(ctf.lens[0] * ctf.lens[1]);
@@ -64,7 +64,7 @@ getFockMatrix(const Eigen::MatrixXd &d, CTF::Tensor<double> &V) {
   F["pq"]  = ( 2.0) * D["kl"] * V["kplq"];
   LOGGER(1) << "Fock" << std::endl;
   F["pq"] += (-1.0) * D["kl"] * V["kpql"];
-  return toEigenMatrix(F);
+  return cc4s::toEigenMatrix(F);
 }
 
 void HartreeFockFromCoulombIntegrals::run() {
@@ -83,7 +83,7 @@ void HartreeFockFromCoulombIntegrals::run() {
                        } );
 
   const auto ctfH(getTensorArgument<double>("h"));
-  const auto H(toEigenMatrix(*ctfH));
+  const auto H(cc4s::toEigenMatrix(*ctfH));
   const auto V(getTensorArgument<double>("CoulombIntegrals"));
   const unsigned int No(getIntegerArgument("No"));
   const size_t Nv(getIntegerArgument("Nv", V->lens[0] - No));
@@ -100,7 +100,7 @@ void HartreeFockFromCoulombIntegrals::run() {
   Eigen::MatrixXd S(Eigen::MatrixXd::Identity(Np, Np));
   if (isArgumentGiven("OverlapMatrix")) {
     LOGGER(1) << "Setting provided OverlapMatrix" << std::endl;
-    S = toEigenMatrix(*getTensorArgument<double>("OverlapMatrix"));
+    S = cc4s::toEigenMatrix(*getTensorArgument<double>("OverlapMatrix"));
   }
 
   LOGGER(1) << "mem:Fock "
@@ -118,7 +118,7 @@ void HartreeFockFromCoulombIntegrals::run() {
   IF_GIVEN("initialOrbitalCoefficients",
     LOGGER(1) << "with initialOrbitalCoefficients" << std::endl;
     const auto ic_ctf(getTensorArgument<double>("initialOrbitalCoefficients"));
-    const auto ic(toEigenMatrix(*ic_ctf));
+    const auto ic(cc4s::toEigenMatrix(*ic_ctf));
     const auto C_occ(ic.leftCols(No));
     D = C_occ * C_occ.transpose();
   ) else {

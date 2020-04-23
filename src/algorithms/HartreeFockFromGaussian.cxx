@@ -42,6 +42,7 @@
 #include <ctf.hpp>
 #include <numeric>      // std::iota
 #include <util/Emitter.hpp>
+#include <algorithms/HartreeFockFromCoulombIntegrals.hpp>
 #define LOGGER(_l) LOG(_l, "HartreeFockFromGaussian")
 #define IF_GIVEN(_l, ...) if (isArgumentGiven(_l)) { __VA_ARGS__ }
 
@@ -226,6 +227,7 @@ void HartreeFockFromGaussian::run() {
     , "numberOfElectrons"
     , "OrbitalCoefficients"
     , "OverlapMatrix"
+    , "initialOrbitalCoefficients"
     , "HartreeFockEnergy"
     , "HoleEigenEnergies"
     , "ParticleEigenEnergies"
@@ -337,12 +339,22 @@ void HartreeFockFromGaussian::run() {
   D *= 0.0;
 
   LOGGER(1) << "Setting initial density matrix" << std::endl;
-  for ( i=0 ; i < nBasisFunctions ; i++) {
-  for (unsigned j=i ; j < i+1 ; j++) {
-    D(i,j) = 1;
+
+  IF_GIVEN("initialOrbitalCoefficients",
+    LOGGER(1) << "with initialOrbitalCoefficients" << std::endl;
+    const auto ic_ctf(getTensorArgument<double>("initialOrbitalCoefficients"));
+    const auto ic(toEigenMatrix(*ic_ctf));
+    const auto C_occ(ic.leftCols(No));
+    D = C_occ * C_occ.transpose();
+  ) else {
+    LOGGER(1) << "with whatever" << std::endl;
+    D *= 0.0;
+    for (unsigned i=0 ; i < Np ; i++) {
+    for (unsigned j=i ; j < i+1 ; j++) {
+      D(i,j) = 1;
+    }
+    }
   }
-  }
-  LOGGER(1) << "\tdone" << std::endl;
 
   unsigned int iter(0);
   double rmsd(0);

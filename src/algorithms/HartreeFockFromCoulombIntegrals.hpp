@@ -2,6 +2,8 @@
 #define _HARTREE_FOCK_FROM_COULOMB_INTEGRALS_ALGO_DEFINED
 
 #include <algorithms/Algorithm.hpp>
+#include <Eigen/Dense>
+#include <ctf.hpp>
 
 namespace cc4s {
 
@@ -15,6 +17,9 @@ namespace cc4s {
     virtual void run();
 
   };
+
+  Eigen::MatrixXd toEigenMatrix(CTF::Tensor<double> &ctf);
+
 }
 
 #endif
