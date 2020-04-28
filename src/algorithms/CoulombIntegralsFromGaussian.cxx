@@ -8,7 +8,6 @@
 #include <util/Log.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
-#include <Eigen/Eigenvalues>
 #include <ctf.hpp>
 #include <numeric>
 #include <set>
@@ -41,7 +40,7 @@ struct CoulombIntegralsProvider {
     ( const size_t Np_
     , const libint2::BasisSet& shells_
     , const Operator op_ = Operator::coulomb
-    ): Np(Np_) , shells(shells_) , op(op_)
+    ) : Np(Np_), shells(shells_), op(op_)
    {
 
    const size_t np(Cc4s::world->np), rank(Cc4s::world->rank);
@@ -84,7 +83,11 @@ struct CoulombIntegralsProvider {
               << " GB)" << std::endl;
     Vklmn.resize(localSize, 0.0);
 
-    libint2::Engine engine(op, shells.max_nprim(), shells.max_l(), 0);
+    libint2::Engine engine( op
+			  , shells.max_nprim()
+			  , shells.max_l()
+			  , 0
+			  );
 
     // store shell by shell calculation in this buffer
     const auto& vsrqp = engine.results();
@@ -104,6 +107,8 @@ struct CoulombIntegralsProvider {
 
       // compute integrals (K L , M N)
       engine.compute(shells[_K], shells[_L], shells[_M], shells[_N]);
+
+      if (vsrqp[0] == nullptr) continue;
 
         //for (size_t k(K.begin), Inmlk = 0; k < K.end; ++k) {
         for (size_t k(K.begin), Inmlk = 0; k < K.end; ++k) {
