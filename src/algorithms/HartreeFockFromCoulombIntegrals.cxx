@@ -16,9 +16,9 @@
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromCoulombIntegrals);
 
-Eigen::MatrixXd
+MatrixColumnMajor
 cc4s::toEigenMatrix(CTF::Tensor<double> &ctf) {
-  Eigen::MatrixXd result(ctf.lens[0], ctf.lens[1]);
+  MatrixColumnMajor result(ctf.lens[0], ctf.lens[1]);
 
   const size_t size(ctf.lens[0] * ctf.lens[1]);
   std::vector<int64_t> indices(size);
@@ -36,8 +36,7 @@ cc4s::toEigenMatrix(CTF::Tensor<double> &ctf) {
   return result;
 }
 
-CTF::Tensor<double>
-toCtfMatrix(const Eigen::MatrixXd &m) {
+CTF::Tensor<double> toCtfMatrix(const MatrixColumnMajor &m) {
   int syms[] = {NS, NS}, lens[] = {(int)m.rows(), (int)m.cols()};
   LOGGER(2) << "converting into ctf vector" << std::endl;
   const int64_t size(m.rows() * m.cols())
@@ -57,8 +56,7 @@ toCtfMatrix(const Eigen::MatrixXd &m) {
   return t;
 }
 
-Eigen::MatrixXd
-getFockMatrix(const Eigen::MatrixXd &d, CTF::Tensor<double> &V) {
+MatrixColumnMajor getFockMatrix(const Eigen::MatrixXd &d, CTF::Tensor<double> &V) {
   auto D(toCtfMatrix(d));
   CTF::Tensor<double> F(2, D.lens, D.sym, *Cc4s::world);
   LOGGER(1) << "Hartree" << std::endl;
@@ -98,7 +96,7 @@ void HartreeFockFromCoulombIntegrals::run() {
   LOGGER(1) << "Nv: " << Nv << std::endl;
   LOGGER(1) << "Calculating overlaps" << std::endl;
 
-  Eigen::MatrixXd S(Eigen::MatrixXd::Identity(Np, Np));
+  MatrixColumnMajor S(MatrixColumnMajor::Identity(Np, Np));
   if (isArgumentGiven("OverlapMatrix")) {
     LOGGER(1) << "Setting provided OverlapMatrix" << std::endl;
     S = cc4s::toEigenMatrix(*getTensorArgument<double>("OverlapMatrix"));
