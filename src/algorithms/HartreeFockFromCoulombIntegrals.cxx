@@ -7,10 +7,11 @@
 #include <util/Log.hpp>
 #include <iostream>
 #include <ctf.hpp>
-#include <numeric>      // std::iota
+#include <numeric>
 #define IF_GIVEN(_l, ...) if (isArgumentGiven(_l)) { __VA_ARGS__ }
 #define LOGGER(_l) LOG(_l, "HartreeFockFromCoulombIntegrals")
 #define LOGGER_IT(_l) LOG(_l, "HartreeFockFromCoulombIntegralsIt")
+
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromCoulombIntegrals);
@@ -108,9 +109,7 @@ void HartreeFockFromCoulombIntegrals::run() {
             << " GB"
             << std::endl;
 
-  Eigen::MatrixXd D(Np, Np);
-  Eigen::MatrixXd F(Np, Np);
-  Eigen::MatrixXd D_last = D;
+  MatrixColumnMajor D(Np, Np), F(Np, Np), fockMatrix(Np, Np), D_last(D);
 
 
   LOGGER(1) << "Setting initial density matrix" << std::endl;
@@ -122,13 +121,12 @@ void HartreeFockFromCoulombIntegrals::run() {
     const auto C_occ(ic.leftCols(No));
     D = C_occ * C_occ.transpose();
   ) else {
-    LOGGER(1) << "with whatever" << std::endl;
-    D *= 0.0;
-    for (unsigned i=0 ; i < Np ; i++) {
-    for (unsigned j=i ; j < i+1 ; j++) {
-      D(i,j) = 1;
-    }
-    }
+    LOGGER(1) << "diagonalizing overlap matrix" << std::endl;
+    Eigen::SelfAdjointEigenSolver<MatrixColumnMajor> solver(S);
+    auto C(solver.eigenvectors());
+    auto C_occ(C.leftCols(No));
+    LOGGER(1) << "with eigenvectors" << std::endl;
+    D = C_occ * C_occ.transpose();
   }
 
   unsigned int iter(0);
@@ -136,23 +134,25 @@ void HartreeFockFromCoulombIntegrals::run() {
   double energyDifference(0);
   double ehf(0);
   double ehfLast(0);
-  Eigen::MatrixXd eps, C;
+  MatrixColumnMajor eps, C;
 
+  const auto updateHamiltonian = [&] { F = H;
+                                       fockMatrix = getFockMatrix(D, *V);
+                                       F += fockMatrix;
+                                     };
 
-  do {
+  const auto updateEnergy = [&] { ehf = 0.0;
+                                  for (size_t i=0 ; i < Np; i++)
+                                  for (size_t j=0 ; j < Np ; j++)
+                                    ehf += D(i,j) * (H(i,j) + F(i,j));
+                                  // update energy difference
+                                  energyDifference = ehf - ehfLast;
+                                };
 
-    ++iter;
-
-    ehfLast = ehf;
-    D_last = D;
-
-    F = H;
-    LOGGER(2) << "calculating fock matrix" << std::endl;
-    F += getFockMatrix(D, *V);
-
+  const auto updateDensity = [&] {
     LOGGER(1) << "Diagonalize" << std::endl;
     // solve F C = e S C
-    Eigen::GeneralizedSelfAdjointEigenSolver<Eigen::MatrixXd>
+    Eigen::GeneralizedSelfAdjointEigenSolver<MatrixColumnMajor>
       gen_eig_solver(F, S);
     eps = gen_eig_solver.eigenvalues();
 
@@ -163,19 +163,28 @@ void HartreeFockFromCoulombIntegrals::run() {
     auto C_occ(C.leftCols(No));
     D = C_occ * C_occ.transpose();
 
-    // Compute the current hartree fock energy for the current density matrix
-    ehf = 0.0;
-    for (unsigned i=0 ; i < Np; i++) {
-    for (unsigned j=0 ; j < Np ; j++) {
-      ehf += D(i,j) * (H(i,j) + F(i,j));
-    }
-    }
-
-    energyDifference = ehf - ehfLast;
     rmsd = (D - D_last).norm();
+  };
+
+  LOGGER(2) << "calculating initial fock matrix" << std::endl;
+  updateHamiltonian();
+  updateEnergy();
+  LOGGER(1) << "initial guess energy = " << ehf << std::endl;
+
+  do {
+
+    ++iter;
+
+    ehfLast = ehf;
+    D_last = D;
+
+    updateHamiltonian();
+    updateDensity();
+    updateEnergy();
+
 
     if (iter == 1) {
-      LOGGER(1) << std::setprecision(15) << std::setw(10) <<
+      LOGGER(1) << std::setprecision(16) << std::setw(10) <<
         "Iter"    << "\t" <<
         "E"       << "\t" <<
         "DeltaE"  << "\t" <<
@@ -191,11 +200,11 @@ void HartreeFockFromCoulombIntegrals::run() {
     std::endl;
 
 
-  } while (
-      ((fabs(energyDifference) > electronicConvergence) ||
-       (fabs(rmsd) > electronicConvergence))        &&
-      (iter < maxIterations)
-      );
+  } while ( (  (fabs(energyDifference) > electronicConvergence)
+            || (fabs(rmsd) > electronicConvergence)
+            )
+          && (iter < maxIterations)
+          );
 
   for (unsigned int e; e<eps.size(); e++) {
     LOGGER(1) << "band " << e + 1 << " = " << eps(e,0) << std::endl;
@@ -208,6 +217,15 @@ void HartreeFockFromCoulombIntegrals::run() {
   int syms[] = {NS, NS};
   int o[] = {(int)No}, v[] = {(int)Nv};
   std::vector<int64_t> indices;
+
+  IF_GIVEN("FockMatrix",
+    int pp[] = {(int)Np, (int)Np};
+    auto f(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "F"));
+    indices.resize(rank_m * Np * Np);
+    std::iota(indices.begin(), indices.end(), 0);
+    f->write(indices.size(), indices.data(), &fockMatrix(0));
+    allocatedTensorArgument<double>("FockMatrix", f);
+  )
 
   IF_GIVEN("OrbitalCoefficients",
     int pp[] = {(int)Np, (int)Np};

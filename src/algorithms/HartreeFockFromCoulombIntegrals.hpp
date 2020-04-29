@@ -7,6 +7,12 @@
 
 namespace cc4s {
 
+  using MatrixColumnMajor = Eigen::Matrix< double
+                                         , Eigen::Dynamic
+                                         , Eigen::Dynamic
+                                         , Eigen::ColMajor
+                                         >;
+
   class HartreeFockFromCoulombIntegrals: public Algorithm {
   public:
     ALGORITHM_REGISTRAR_DECLARATION(HartreeFockFromCoulombIntegrals);
@@ -18,7 +24,7 @@ namespace cc4s {
 
   };
 
-  Eigen::MatrixXd toEigenMatrix(CTF::Tensor<double> &ctf);
+  MatrixColumnMajor toEigenMatrix(CTF::Tensor<double> &ctf);
 
 }
 
