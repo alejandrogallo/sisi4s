@@ -58,8 +58,8 @@ std::vector< std::vector<size_t> > findShellIndices
 void NwchemMovecsReader::run() {
   std::vector<std::string> args;
   const std::string fileName(getTextArgument("file"))
-                  , xyz(getTextArgument("xyzStructureFile"))
-                  , basisFile(getTextArgument("basisFile"))
+                  , xyz(getTextArgument("xyzStructureFile", ""))
+                  , basisFile(getTextArgument("basisFile", ""))
                   ;
   const int No(getIntegerArgument("No"));
 
@@ -96,19 +96,25 @@ void NwchemMovecsReader::run() {
   LOGGER(0) << "file: " << fileName << std::endl;
   LOGGER(0) << "No: " << No << std::endl;
 
-  const auto basis(nwchem::BasisSetParser().parseFile(basisFile));
-  LOGGER(0) << "#basis in " << basisFile << ": " << basis.size() << std::endl;
+  nwchem::BasisSet basis;
+  if (basisFile.size()) {
+    basis = nwchem::BasisSetParser().parseFile(basisFile);
+    LOGGER(0) << "#basis in"
+              << basisFile << ": " << basis.size() << std::endl;
+  }
 
-  const auto structure(XyzParser().parseFile(xyz));
   std::vector<std::string> atoms;
-  for (const auto &a: structure) atoms.push_back(a.symbol);
-  LOGGER(0) << "xyzStructureFile: " << xyz << std::endl;
-  LOGGER(0) << "#atoms: " << structure.size() << std::endl;
-  for (const auto& a: structure) {
-    LOGGER(0) << a.symbol     << ": "
-              << a.position.x << ", "
-              << a.position.y << ", "
-              << a.position.z << std::endl;
+  if (xyz.size()) {
+    const auto structure(XyzParser().parseFile(xyz));
+    for (const auto &a: structure) atoms.push_back(a.symbol);
+    LOGGER(0) << "xyzStructureFile: " << xyz << std::endl;
+    LOGGER(0) << "#atoms: " << structure.size() << std::endl;
+    for (const auto& a: structure) {
+      LOGGER(0) << a.symbol     << ": "
+                << a.position.x << ", "
+                << a.position.y << ", "
+                << a.position.z << std::endl;
+    }
   }
 
   const nwchem::MovecReader movec(fileName);
