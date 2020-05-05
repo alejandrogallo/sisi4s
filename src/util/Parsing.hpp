@@ -39,17 +39,7 @@ namespace pars {
                         , group([](const Str& i) { return "(?:" + i + ")"; })
                         ;
 
-  Str oneOf(const std::vector<Str> &v) {
-    return std::accumulate
-      ( v.begin()
-      , v.end()
-      , std::string("")
-      , std::function<Str(Str, Str)>(
-          [](const Str &a, const Str &b){ return a.size() ? a + orOf + b : b; }
-          )
-      )
-      ;
-  }
+  Str oneOf(const std::vector<Str>&);
 
   struct Regex {
     const std::string s;
@@ -58,34 +48,8 @@ namespace pars {
     Regex(const std::string &s_): s(s_), r(s_) {}
   };
 
-  template <typename F> std::vector<F> parseVector(const std::string&);
-  template<>
-  std::vector<std::string> parseVector(const std::string& l) {
-    const Regex base = capture("[^,]" + oneOrMore);
-    std::smatch match;
-    std::string lcopy(l);
-    std::vector<std::string> result;
-    while(std::regex_search(lcopy, match, base.r)) {
-      result.push_back(match[1].str());
-      lcopy = match.suffix();
-    }
-    return result;
-  }
-  template<>
-  std::vector<double> parseVector(const std::string& l) {
-    std::vector<double> res;
-    for (const auto &s: parseVector<std::string>(l))
-      res.push_back(std::atof(s.c_str()));
-    return res;
-  }
-  template<typename F=int>
-  std::vector<F> parseVector(const std::string& l) {
-    std::vector<F> res;
-    for (const auto &s: parseVector<std::string>(l))
-      res.push_back(std::atoi(s.c_str()));
-    return res;
-  }
-
+  template <typename F>
+  std::vector<F> parseVector(const std::string&);
 
 }
 
