@@ -283,6 +283,12 @@ int main(int argumentCount, char **arguments) {
     try {
       if (Cc4s::options->dryRun) cc4s.dryRun();
       else cc4s.run();
+    } catch (const std::string &msg) {
+      LOG(0) << std::endl << msg << std::endl;
+      throw msg;
+    } catch (const char *msg) {
+      LOG(0) << std::endl << msg << std::endl;
+      throw msg;
     } catch (DetailedException *cause) {
       LOG(0) << std::endl << cause->getMessage() << std::endl;
     }
