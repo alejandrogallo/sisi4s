@@ -1,6 +1,7 @@
 #include <util/Parsing.hpp>
 #include <vector>
 #include <string>
+#include <numeric>
 
 namespace pars {
 

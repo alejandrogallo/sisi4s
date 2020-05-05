@@ -8,6 +8,7 @@
 #include <map>
 #include <util/Parsing.hpp>
 #include <regex>
+#include <numeric>
 
 
 namespace nwchem {

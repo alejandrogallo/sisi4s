@@ -1,5 +1,5 @@
 #include <nwchem/BasisParser.hpp>
-// nothing to see here
+#include <numeric>
 
 using namespace pars;
 using namespace nwchem;
