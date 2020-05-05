@@ -1,9 +1,11 @@
-#ifndef _MOVECS_PARSER_FOR_NWCHEM_HEADER__
-#define _MOVECS_PARSER_FOR_NWCHEM_HEADER__
+#ifndef _MOVECS_PARSER_HEADE
+#define _MOVECS_PARSER_HEADE
 
 #include <string>
 #include <vector>
+#include <vector>
 #include <fstream>
+#include <assert.h>
 #include <util/Log.hpp>
 #define _L(_l) LOG(_l, "MovecReader")
 
