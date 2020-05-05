@@ -16,8 +16,6 @@ namespace cc4s {
     virtual void run();
   };
 
-
-
 }
 
 #endif

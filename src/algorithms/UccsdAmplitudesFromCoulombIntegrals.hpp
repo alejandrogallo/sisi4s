@@ -1,6 +1,6 @@
 /*Copyright (c) 2017, Andreas Grueneis, Felix Hummel and Alejandro Gallo, all rights reserved.*/
-#ifndef MP2_EOM_DEFINED
-#define MP2_EOM_DEFINED
+#ifndef ___CLUSTERSINGLESDOUBLESALGORITHM_DEFINED_PEACE
+#define ___CLUSTERSINGLESDOUBLESALGORITHM_DEFINED_PEACE
 
 #include <algorithms/ClusterSinglesDoublesAlgorithm.hpp>
 #include <vector>

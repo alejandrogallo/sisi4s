@@ -9,14 +9,16 @@
 #include <util/Parsing.hpp>
 #include <regex>
 
-using namespace pars;
 
 struct Atom {
   const std::string symbol;
   const struct { double x, y, z; } position;
 };
 
+namespace pars {
+
 struct XyzParser {
+
   const Regex sep = blank + oneOrMore // any number > 1 of spaces or tabs
             , atom = upper + lower + optional // atom is Upper + lower?
             , xyz_line = bof + blank + anyOf // spaces at the start allowed
@@ -30,7 +32,7 @@ struct XyzParser {
   Atom parseLine(const std::string &line) {
     std::smatch m;
     std::regex_match(line, m, xyz_line.r);
-    if (m.size() == 0) { throw EXCEPTION("Line " + line + " is malformed"); }
+    if (m.size() == 0) { throw "Line " + line + " is malformed"; }
     return { std::string(m[1])
            , { std::atof(std::string(m[2]).c_str())
              , std::atof(std::string(m[3]).c_str())
@@ -43,7 +45,7 @@ struct XyzParser {
     std::fstream f(fileName);
     std::string line;
     std::vector<Atom> atoms;
-    if (!f.is_open()) throw EXCEPTION("File IO error: " + fileName);
+    if (!f.is_open()) throw "File IO error: " + fileName;
 
     std::getline(f, line); // Number of atoms
     const int natoms = std::atoi(line.c_str());
@@ -60,5 +62,7 @@ struct XyzParser {
   }
 
 };
+
+}
 
 #endif

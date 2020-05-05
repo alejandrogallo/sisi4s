@@ -9,8 +9,8 @@
 #include <numeric>
 #include <set>
 #include <map>
-#include <util/Emitter.hpp>
 #include <util/Parsing.hpp>
+#include <util/Emitter.hpp>
 #include <util/XyzParser.hpp>
 #include <nwchem/BasisParser.hpp>
 #include <nwchem/MovecsParser.hpp>
@@ -69,7 +69,7 @@ void NwchemMovecsReader::run() {
         std::make_pair< nwchem::am::AngularMomentum
                       , std::vector<double>
                       > ( nwchem::am::fromString(s)
-                        , parseVector<double>(
+                        , pars::parseVector<double>(
                             this->getTextArgument(s+ "Scaling", ""))
                         );
         };
@@ -79,7 +79,7 @@ void NwchemMovecsReader::run() {
         std::make_pair< nwchem::am::AngularMomentum
                       , std::vector<int>
                       > ( nwchem::am::fromString(s)
-                        , parseVector<int>(
+                        , pars::parseVector<int>(
                             this->getTextArgument(s+ "Reorder", ""))
                         );
         };
@@ -105,7 +105,7 @@ void NwchemMovecsReader::run() {
 
   std::vector<std::string> atoms;
   if (xyz.size()) {
-    const auto structure(XyzParser().parseFile(xyz));
+    const auto structure(pars::XyzParser().parseFile(xyz));
     for (const auto &a: structure) atoms.push_back(a.symbol);
     LOGGER(0) << "xyzStructureFile: " << xyz << std::endl;
     LOGGER(0) << "#atoms: " << structure.size() << std::endl;
