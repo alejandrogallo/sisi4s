@@ -26,6 +26,7 @@ const Regex spherical = oneOf({ "SPHERICAL", "spherical" })
           , shell_symbol  = oneOf({"S", "P", "D", "F", "G", "H", "I", "K"})
           , shell_header  = bof + capture(atom.s) + sep.s
                           + capture(shell_symbol.s)
+                          + blank + anyOf
           , shell_content = bof + blank + anyOf
                           + capture(realNumber) + sep.s
                           + capture(realNumber)
