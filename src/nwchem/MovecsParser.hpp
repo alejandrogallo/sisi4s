@@ -33,12 +33,18 @@ struct MovecReader {
   size_t iset = 0; // This allows to skip the first set, dont need this yet
   MovecReader(const std::string &fileName) {
     std::fstream file(fileName.c_str(), std::ios::binary | std::ios::in);
+    if (!file.good())    throw "File " + fileName + " not found";
+    if (!file.is_open()) throw "File IO error: " + fileName;
     readFortranChunk<char>(file); // convergence info
     readFortranChunk<char>(file); // scftype
     readFortranChunk<char>(file); // lentit
-    _L(0) << "title: " << readFortranChunk<char>(file).data() << std::endl;
+    { const auto _rfile(readFortranChunk<char>(file).data());
+      _L(0) << "title: " << _rfile << std::endl;
+    }
     readFortranChunk<char>(file).data(); // lenbas
-    _L(0) << "basis: " << readFortranChunk<char>(file).data() << std::endl;
+    { const auto _rbasis(readFortranChunk<char>(file).data());
+      _L(0) << "basis: " << _rbasis << std::endl;
+    }
 
     nsets = *readFortranChunk<int64_t>(file).data(); // nsets
     Np = *readFortranChunk<int64_t>(file).data();   // Np
@@ -82,6 +88,9 @@ struct MovecReader {
           mos[j + Np*i] = mos_buff[j];
       }
     }
+
+    file.close();
+
   }
 };
 

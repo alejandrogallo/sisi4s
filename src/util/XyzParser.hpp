@@ -45,6 +45,7 @@ struct XyzParser {
     std::fstream f(fileName);
     std::string line;
     std::vector<Atom> atoms;
+    if (!f.good()) throw "File " + fileName + " not found";
     if (!f.is_open()) throw "File IO error: " + fileName;
 
     std::getline(f, line); // Number of atoms
