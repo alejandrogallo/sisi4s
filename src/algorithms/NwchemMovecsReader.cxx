@@ -62,6 +62,11 @@ void NwchemMovecsReader::run() {
                   , basisFile(getTextArgument("basisFile", ""))
                   ;
   const int No(getIntegerArgument("No"));
+  std::map<std::string, std::string>
+    nwchemScalings = { {"DScaling", "1,1,1,-1,1"}
+                     , {"FScaling", "1,1,1,1,-1,1,-1"}
+                     , {"Gscaling", "1,1,1,1,1,-1,1,-1,1"}
+                     };
 
   // make <shell>Scaling
   const auto _s
@@ -70,7 +75,10 @@ void NwchemMovecsReader::run() {
                       , std::vector<double>
                       > ( nwchem::am::fromString(s)
                         , pars::parseVector<double>(
-                            this->getTextArgument(s+ "Scaling", ""))
+                            this->getTextArgument
+                              ( s + "Scaling"
+                              , nwchemScalings[s + "Scaling"]
+                              ))
                         );
         };
   // make <shell>Reorder
