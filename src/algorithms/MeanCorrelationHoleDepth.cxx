@@ -20,10 +20,14 @@ ALGORITHM_REGISTRAR_DEFINITION(MeanCorrelationHoleDepth);
 
 void MeanCorrelationHoleDepth::run() {
 
-  checkArgumentsOrDie({"PPHHDelta", "DoublesAmplitudes", "G"});
+  checkArgumentsOrDie({ "PPHHDelta"
+                      , "SinglesAmplitudes"
+                      , "DoublesAmplitudes"
+                      , "G"
+                      });
 
   const auto d(getTensorArgument<double>("PPHHDelta"));
-  const auto t(getTensorArgument<double>("DoublesAmplitudes"));
+  const auto T(getTensorArgument<double>("DoublesAmplitudes"));
   int No(d->lens[2]), Nv(d->lens[0]);
   std::vector<int> oo({No, No});
   std::vector<int> syms({NS, NS});
@@ -37,7 +41,16 @@ void MeanCorrelationHoleDepth::run() {
          << YAML::Key << "Nv" << YAML::Value << Nv
          ;
 
-  (*gij)["ij"] = (*d)["abij"] * (*t)["abij"];
+  (*gij)["ij"] = (*d)["abij"] * (*T)["abij"];
+
+  if (isArgumentGiven("SinglesAmplitudes")) {
+    const auto t(getTensorArgument<double>("SinglesAmplitudes"));
+    LOGGER(0) << "Using singles amplitudes" << std::endl;
+    (*gij)["ij"] += (*t)["ai"]
+                  * (*t)["bi"]
+                  * (*d)["abij"]
+                  ;
+  }
 
   allocatedTensorArgument<double>("G", gij);
 
