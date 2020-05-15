@@ -40,11 +40,32 @@ struct CoulombIntegralsProvider {
   CoulombIntegralsProvider( const libint2::BasisSet& shells_
                           , const Operator op_
                           , const Distribution d
-                          ) : Np(shells_.nbf()), shells(shells_), op(op_)
+                          , const size_t maxElementsWrite_
+                          )
+                          : Np(shells_.nbf())
+                          , shells(shells_)
+                          , op(op_)
+                          , maxElementsWrite(maxElementsWrite_)
+                          , maxShellNbf(2*shells.max_l() + 1)
+                          , maxShellElements(maxShellNbf * Np*Np*Np)
+                          , writesPerShell( maxShellElements
+                                          / maxElementsWrite + 1
+                                          )
   {
+
+    const auto toCtfIdx([&](const size_t i) { return i * Np*Np*Np; });
+
     // set mpiShells
     if (d == SIMPLE) doSimpleDistribution();
     else             doRoundRobinDistribution();
+
+    // How many writes will we make per shells is controlled by the
+    // ratio of maxShellElements / maxElementsWrite
+    LOGGER(1) << "writes per shell   : " << writesPerShell   << std::endl;
+    LOGGER(1) << "max shell l        : " << shells.max_l()   << std::endl;
+    LOGGER(1) << "max shell nbf      : " << maxShellNbf      << std::endl;
+    LOGGER(1) << "max shell elements : " << maxShellElements << std::endl;
+    LOGGER(1) << "max elem write     : " << maxElementsWrite << std::endl;
 
     const size_t np(Cc4s::world->np);
     // this we need to be able to tell every np how many times
@@ -61,7 +82,6 @@ struct CoulombIntegralsProvider {
       LOGGER(1) << "shells: {" << s.str() << "}" << std::endl;
     }
 
-    const auto toCtfIdx([&](const size_t i) { return i * Np*Np*Np; });
     // to store information about the shells
     std::vector<ShellInfo> _shells;
 
@@ -193,19 +213,99 @@ struct CoulombIntegralsProvider {
 
   }
 
-  std::vector<std::vector<double>>     &data() { return Vklmn; }
-  std::vector<std::vector<int64_t>> &indices() { return ctfIndices; }
-  // mpi max size of Vklmn and ctfIndices
-  // to be able to write Kosher with regard to mpi
-  size_t maxSize;
+  struct IndexRange {
+    size_t begin, end, size;
+    IndexRange(): begin(0), end(0), size(0) {};
+  };
+  std::vector<IndexRange> getWriteRangesForShell(size_t i) {
+
+    std::vector<IndexRange> r(writesPerShell);
+
+    if (i >= ctfIndices.size()) return r;
+    const auto& indices(ctfIndices[i]);
+
+    const size_t chunks = indices.size() / maxElementsWrite
+               , rest = indices.size() % maxElementsWrite
+               ;
+
+    size_t j(0);
+    for (j = 0; j < chunks; j++) {
+      r[j].begin  = maxElementsWrite * j;
+      r[j].end = maxElementsWrite * (j+1) - 1;
+      r[j].size = r[j].end - r[j].begin + 1;
+    }
+
+    if (rest != 0) {
+      r[j].begin  = maxElementsWrite * j;
+      r[j].end = r[j].begin + rest - 1;
+      r[j].size = r[j].end - r[j].begin + 1;
+    }
+
+    return std::move(r);
+
+  }
+
+  void write(CTF::Tensor<double> *t) {
+
+    // loop over engine.maxSize to ensure the same number of mpi calls
+    // on every rank
+    for (size_t i(0); i < maxSize; i++) {
+      int64_t* indices;
+      size_t N;
+      double* data;
+      if (i < ctfIndices.size()) {
+        N = ctfIndices[i].size();
+        indices = ctfIndices[i].data();
+        data = Vklmn[i].data();
+      } else {
+        N = 0;
+        indices = nullptr;
+        data = nullptr;
+      }
+  #ifdef DEBUG
+      std::cout << Cc4s::world->rank << "::"
+                << "writing " << N << " values "
+                << "into ctf tensor" << std::endl;
+  #endif
+      LOGGER(1) << "writing " << N << " values "
+                << "into ctf tensor" << std::endl;
+
+      // ip is an index pair
+      for (const auto &ip: getWriteRangesForShell(i)) {
+        #ifdef DEBUG
+        std::cout << Cc4s::world->rank << "::" << "\t|"
+                  << "writing " << ip.size << " values "
+                  << "into ctf tensor" << std::endl;
+        #endif
+        LOGGER(1) << "writing " << ip.size << " values "
+                  << "into ctf tensor" << std::endl;
+        t->write( ip.size
+                , N ? indices + ip.begin : nullptr
+                , N ? data    + ip.begin : nullptr
+                );
+      }
+
+    }
+  }
 
   private:
-  const size_t Np;
-  const libint2::BasisSet& shells;
-  const Operator op;
-  std::vector<size_t> mpiShells;
-  std::vector<std::vector<double>> Vklmn;
-  std::vector<std::vector<int64_t>> ctfIndices;
+
+    // mpi max size of Vklmn and ctfIndices
+    // to be able to write Kosher with regard to mpi
+    size_t maxSize;
+    const size_t Np;
+    const libint2::BasisSet& shells;
+    const Operator op;
+    std::vector<size_t> mpiShells;
+    std::vector<std::vector<double>> Vklmn;
+    std::vector<std::vector<int64_t>> ctfIndices;
+    // this is 2**26, it is roughly 500 MB of double precission fp numbers
+    const size_t maxElementsWrite;
+    // maximum number of primitives in the basis set
+    const size_t maxShellNbf;
+    const size_t maxShellElements;
+    const size_t writesPerShell;
+
 };
 
 
@@ -215,6 +315,7 @@ void CoulombIntegralsFromGaussian::run() {
                        , "basisSet"
                        , "kernel"
                        , "chemistNotation"
+                       , "maxElementsWrite"
                        , "shellDistribution"
                        , "CoulombIntegrals"
                        } );
@@ -258,13 +359,6 @@ void CoulombIntegralsFromGaussian::run() {
   LOGGER(1) << "basisSet: " << basisSet << std::endl;
   LOGGER(1) << "#shells: " << shells.size() << std::endl;
 
-  CoulombIntegralsProvider engine(shells, op, mpiDistribution);
-
-  const std::vector<int> lens(4, Np);
-  const std::vector<int> syms(4, NS);
-  auto Vklmn(new CTF::Tensor<double>(4, lens.data(), syms.data(),
-                                      *Cc4s::world, "V"));
-
   EMIT() << YAML::Key << "Np" << YAML::Value << Np
          << YAML::Key << "xyz" << YAML::Value << xyzStructureFile
          << YAML::Key << "basis-set" << YAML::Value << basisSet
@@ -272,33 +366,26 @@ void CoulombIntegralsFromGaussian::run() {
          << YAML::Key << "chemist-notation" << YAML::Value << chemistNotation
          ;
 
+  CoulombIntegralsProvider engine( shells
+                                 , op
+                                 , mpiDistribution
+                                 , getIntegerArgument( "maxElementsWrite"
+                                                     , 67108864
+                                                     )
+                                 );
+
+  const std::vector<int> lens(4, Np), syms(4, NS);
+  auto Vklmn(new CTF::Tensor<double>( 4
+                                    , lens.data()
+                                    , syms.data()
+                                    , *Cc4s::world, "V"
+                                    ));
+
+  LOGGER(1) << "computation begin" << std::endl;
   engine.compute();
   LOGGER(1) << "computation done" << std::endl;
-
-  // loop over engine.maxSize to ensure the same number of mpi calls
-  // on every rank
-  for (size_t i(0); i < engine.maxSize; i++) {
-    int64_t* indices;
-    size_t N;
-    double* data;
-    if (i < engine.indices().size()) {
-      N = engine.indices()[i].size();
-      indices = engine.indices()[i].data();
-      data = engine.data()[i].data();
-    } else {
-      N = 0;
-      indices = nullptr;
-      data = nullptr;
-    }
-#ifdef DEBUG
-    std::cout << Cc4s::world->rank << "::"
-              << "writing " << N << " values "
-              << "into ctf tensor" << std::endl;
-#endif
-    LOGGER(1) << "writing " << N << " values "
-              << "into ctf tensor" << std::endl;
-    Vklmn->write(N, indices, data);
-  }
+  engine.write(Vklmn);
+  LOGGER(1) << "writing done" << std::endl;
 
   if (chemistNotation) {
 
@@ -309,7 +396,11 @@ void CoulombIntegralsFromGaussian::run() {
   } else {
 
     LOGGER(1) << "Allocating phyisics notation integrals" << std::endl;
-    auto newV(new CTF::Tensor<double>(4, Vklmn->lens, Vklmn->sym, *Cc4s::world));
+    auto newV(new CTF::Tensor<double>( 4
+                                     , Vklmn->lens
+                                     , Vklmn->sym
+                                     , *Cc4s::world
+                                     ));
     LOGGER(1) << "Converting chemist integral into physics" << std::endl;
     LOGGER(1) << "| PhysV[pqrs] = ChemV[prqs]; " << std::endl;
 
