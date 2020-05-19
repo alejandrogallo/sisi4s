@@ -258,21 +258,40 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
     if (VTransformed != nullptr) { return VTransformed; }
     LOGGER(1) << "computing main transformation" << std::endl;
     VTransformed = new CTF::Tensor<double>(4, V.lens, V.sym, *Cc4s::world);
+    LOGGER(1) << "lens: "
+              << VTransformed->lens[0] << "," << VTransformed->lens[1] << ","
+              << VTransformed->lens[2] << "," << VTransformed->lens[3]
+              << std::endl;
+    LOGGER(1) << V.lens[0] * V.lens[1] * V.lens[2] * V.lens[3] * 7.45e-9
+              << "GB allocated" << std::endl;
     if (chemistNotation) {
+      (*VTransformed)["plmn"] = C["kp"] * V["klmn"];
+      (*VTransformed)["plqn"] = C["mq"] * (*VTransformed)["plmn"];
+      (*VTransformed)["prqn"] = C["lr"] * (*VTransformed)["plqn"];
+      (*VTransformed)["prqs"] = C["ns"] * (*VTransformed)["prqn"];
+      /* No bueno fuer groessere Tensoren
       (*VTransformed)["pqrs"] = C["ns"]
                               * C["lr"]
                               * C["mq"]
                               * C["kp"]
                               * V["klmn"]
                               ;
+      */
     } else {
-      (*VTransformed)["pqrs"] = C["ns"]
-                              * C["mr"]
-                              * C["lq"]
-                              * C["kp"]
-                              * V["klmn"]
-                              ;
+      (*VTransformed)["plmn"] = C["kp"] * V["klmn"];
+      (*VTransformed)["pqmn"] = C["lq"] * (*VTransformed)["plmn"];
+      (*VTransformed)["pqrn"] = C["mr"] * (*VTransformed)["pqmn"];
+      (*VTransformed)["pqrs"] = C["ns"] * (*VTransformed)["pqrn"];
+      /* This does not work for big tensors, what is going on?
+        (*VTransformed)["pqrs"] = C["ns"]
+                                * C["mr"]
+                                * C["lq"]
+                                * C["kp"]
+                                * V["klmn"]
+                                ;
+                              */
     }
+    LOGGER(1) << "main transformation done" << std::endl;
     return VTransformed;
   }
 
