@@ -35,6 +35,7 @@ const Regex spherical = oneOf({ "SPHERICAL", "spherical" })
           , basis_header  = group(basis_token.s) + sep.s
                           + basis_name.s + sep.s
                           + group(spherical.s)
+                          + blank + anyOf
           , basis_end     = bof + group(oneOf({ "end", "END" }))
           ;
 

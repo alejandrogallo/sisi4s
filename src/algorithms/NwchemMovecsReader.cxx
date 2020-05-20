@@ -65,8 +65,8 @@ void NwchemMovecsReader::run() {
   std::map<std::string, std::string>
     nwchemScalings = { {"DScaling", "1,1,1,-1,1"              }
                      , {"FScaling", "1,1,1,1,-1,1,-1"         }
-                     , {"Gscaling", "1,1,1,1,1,-1,1,-1,1"     }
-                     , {"Hscaling", "1,1,1,1,1,1,-1,1,-1,1,-1"}
+                     , {"GScaling", "1,1,1,1,1,-1,1,-1,1"     }
+                     , {"HScaling", "1,1,1,1,1,1,-1,1,-1,1,-1"}
                      };
 
   // make <shell>Scaling
