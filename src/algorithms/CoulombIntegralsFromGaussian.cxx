@@ -340,7 +340,7 @@ void CoulombIntegralsFromGaussian::run() {
   if (!structureFileStream.good()) throw "Bad file: " + xyzStructureFile;
   const auto atoms(libint2::read_dotxyz(structureFileStream));
   structureFileStream.close();
-  const libint2::BasisSet shells(basisSet, atoms);
+  const libint2::BasisSet shells(basisSet, atoms, true);
   const int Np(shells.nbf());
   const Operator
     op = [kernel]{ if      (kernel == "coulomb") return Operator::coulomb;

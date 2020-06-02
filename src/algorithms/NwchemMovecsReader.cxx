@@ -63,10 +63,11 @@ void NwchemMovecsReader::run() {
                   ;
   const int No(getIntegerArgument("No"));
   std::map<std::string, std::string>
-    nwchemScalings = { {"DScaling", "1,1,1,-1,1"              }
-                     , {"FScaling", "1,1,1,1,-1,1,-1"         }
-                     , {"GScaling", "1,1,1,1,1,-1,1,-1,1"     }
-                     , {"HScaling", "1,1,1,1,1,1,-1,1,-1,1,-1"}
+    nwchemScalings = { {"DScaling", "1,1,1,-1,1"                  }
+                     , {"FScaling", "1,1,1,1,-1,1,-1"             }
+                     , {"GScaling", "1,1,1,1,1,-1,1,-1,1"         }
+                     , {"HScaling", "1,1,1,1,1,1,-1,1,-1,1,-1"    }
+                     , {"IScaling", "1,1,1,1,1,1,1,-1,1,-1,1,-1,1"}
                      };
 
   // make <shell>Scaling
