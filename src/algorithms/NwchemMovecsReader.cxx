@@ -128,6 +128,7 @@ void NwchemMovecsReader::run() {
   }
 
   const nwchem::MovecReader movec(fileName);
+//  const nwchem::TmoleMosReader movec("mos");
   std::vector<double> mos(movec.Np * movec.Np);
   mos = movec.mos;
 
