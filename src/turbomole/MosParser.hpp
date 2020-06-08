@@ -42,6 +42,10 @@ struct MosParser {
     std::fstream file(fileName.c_str(), std::ios::binary | std::ios::in);
     std::vector<double> mos_buf;
     std::string s, e;
+    const auto fortranDoubleToDouble
+      = [](std::string &s) { std::replace(s.begin(), s.end(), 'D', 'e');
+                             return std::atof(s.c_str());
+                           };
     size_t buf_size;
     if (!file.good())    throw "File " + fileName + " not found";
     if (!file.is_open()) throw "File IO error: " + fileName;
@@ -61,38 +65,19 @@ struct MosParser {
         Nsaos.push_back(buf_size);
       }
 
-      if (std::regex_match(line, match, mosline1.r))
-      for (int i(1); i < match.size(); i++) {
+      if ( std::regex_match(line, match, mosline1.r)
+        || std::regex_match(line, match, mosline2.r)
+        || std::regex_match(line, match, mosline3.r)
+        || std::regex_match(line, match, mosline4.r)
+         )
+      for (size_t i(1); i < match.size(); i++) {
         s = std::string(match[i]);
-        std::replace( s.begin(), s.end(), 'D', 'e');
-        mos_buf.push_back(std::atof(s.c_str()));
-      }
-
-      if ( std::regex_match(line, match, mosline2.r))
-      for (int i(1); i < match.size(); i++) {
-        s = std::string(match[i]);
-        std::replace( s.begin(), s.end(), 'D', 'e');
-        mos_buf.push_back(std::atof(s.c_str()));
-      }
-
-      if ( std::regex_match(line, match, mosline3.r))
-      for (int i(1); i < match.size(); i++) {
-        s = std::string(match[i]);
-        std::replace( s.begin(), s.end(), 'D', 'e');
-        mos_buf.push_back(std::atof(s.c_str()));
-      }
-
-      if ( std::regex_match(line, match, mosline4.r))
-      for (int i(1); i < match.size(); i++) {
-        s = std::string(match[i]);
-        std::replace( s.begin(), s.end(), 'D', 'e');
-        mos_buf.push_back(std::atof(s.c_str()));
+        mos_buf.push_back(fortranDoubleToDouble(s));
       }
 
       if (mos_buf.size() > 0 && mos_buf.size() == buf_size) {
-        std::replace(e.begin(), e.end(), 'D', 'e');
-        eigenvalues.push_back(std::atof(e.c_str()));
-        for (int64_t i(0); i < mos_buf.size(); i++){
+        eigenvalues.push_back(fortranDoubleToDouble(e));
+        for (size_t i(0); i < mos_buf.size(); i++){
            mos.push_back(mos_buf[i]);
         }
         mos_buf.resize(0);
