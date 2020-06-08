@@ -10,11 +10,15 @@
 #include <set>
 #include <map>
 #include <util/Parsing.hpp>
+#include <util/AngularMomentum.hpp>
+#include <util/BasisSet.hpp>
 #include <util/Emitter.hpp>
 #include <util/XyzParser.hpp>
 #include <nwchem/BasisParser.hpp>
 #include <nwchem/MovecsParser.hpp>
+#include <turbomole/MosParser.hpp>
 #include <regex>
+#include <iterator>
 #define LOGGER(_l) LOG(_l, "NwchemMovecsReader")
 #define IF_GIVEN(_l, ...) if (isArgumentGiven(_l)) { __VA_ARGS__ }
 
@@ -24,9 +28,9 @@ ALGORITHM_REGISTRAR_DEFINITION(NwchemMovecsReader);
 
 
 std::vector< std::vector<size_t> > findShellIndices
-  ( const nwchem::BasisSet &bs
+  ( const BasisSet &bs
   , const std::vector<std::string> &atoms // atom names in our structure
-  , const nwchem::am::AngularMomentum &am
+  , const am::AngularMomentum &am
   ) {
   std::vector< std::vector<size_t> > indices;
   size_t atomBlock(0);
@@ -36,7 +40,7 @@ std::vector< std::vector<size_t> > findShellIndices
 
       // Basis b of atom a in the structure
       for (const auto &shell: b.shells) {
-        size_t nbf(nwchem::am::toInt(shell.am));
+        size_t nbf(am::toInt(shell.am));
         if (shell.am != am) { // e.g. we're looking for D and get S shell
           atomBlock += nbf;
           continue;
@@ -55,47 +59,113 @@ std::vector< std::vector<size_t> > findShellIndices
   return indices;
 }
 
+struct ShellParser {
+  const Regex shell_symbol = pars::oneOf({"S", "P", "D", "F", "G", "H", "I", "K"})
+            , atom = pars::upper + pars::lower + pars::optional
+            , sep = pars::blank + pars::oneOrMore
+            , shell = pars::blank + pars::anyOf
+                    // number of shells
+                    + pars::capture(pars::digit + pars::oneOrMore)
+                    // shell sybmol
+                    + pars::capture(shell_symbol.s)
+                    + pars::blank + pars::anyOf
+            , basis_line = pars::capture(atom.s) + sep.s
+                         + pars::capture(pars::group(shell.s)+ pars::oneOrMore)
+            ;
+  BasisSet parseString(const std::string &s) {
+    std::smatch basisMatch, shellMatch;
+    std::string S(s);
+    BasisSet bs;
+    while (std::regex_search(S, basisMatch, basis_line.r)) {
+      std::string atomSymbol = basisMatch[1].str()
+                , shellLine = basisMatch[2].str()
+                ;
+      std::cout << basisMatch[0].str() << std::endl;
+      std::cout << "shellLine: " << shellLine << std::endl;
+      std::vector<Shell> shells;
+      while (std::regex_search(shellLine, shellMatch, shell.r)) {
+        size_t nShells(std::atoi(shellMatch[1].str().c_str()));
+        std::cout << "nshells " << nShells << std::endl;
+        am::AngularMomentum am(am::fromString(shellMatch[2].str()));
+        for (size_t i(0); i < nShells; i++) {
+          shells.push_back({ atomSymbol, am, {} });
+        }
+        shellLine = shellMatch.suffix();
+      }
+      S = basisMatch.suffix();
+      bs.push_back({atomSymbol, "Unnamed", shells});
+    }
+    return bs;
+  }
+};
+
+std::map<std::string, std::map<std::string, std::string>>
+NwchemMovecsReader::DEFAULT_SCALINGS =
+  { { "nwchem", { {"DScaling", "1,1,1,-1,1"                  }
+                , {"FScaling", "1,1,1,1,-1,1,-1"             }
+                , {"GScaling", "1,1,1,1,1,-1,1,-1,1"         }
+                , {"HScaling", "1,1,1,1,1,1,-1,1,-1,1,-1"    }
+                , {"IScaling", "1,1,1,1,1,1,1,-1,1,-1,1,-1,1"}
+                }
+    }
+  , { "psi4", {} }
+  , { "turbomole", {} }
+  };
+
+std::map<std::string, std::map<std::string, std::string>>
+NwchemMovecsReader::DEFAULT_REORDER =
+  { { "nwchem", {} }
+  , { "psi4", {} }
+  , { "turbomole", { { "DReorder", "4,2,0,1,3" } } }
+  };
+
+std::vector<std::string>
+NwchemMovecsReader::BACKENDS = {"nwchem", "psi4", "turbomole"};
+
+
 void NwchemMovecsReader::run() {
   std::vector<std::string> args;
   const std::string fileName(getTextArgument("file"))
                   , xyz(getTextArgument("xyzStructureFile", ""))
                   , basisFile(getTextArgument("basisFile", ""))
+                  , shellsFile(getTextArgument("shellsFile", ""))
+                  , backend(getTextArgument("backend"))
                   ;
   const int No(getIntegerArgument("No"));
-  std::map<std::string, std::string>
-    nwchemScalings = { {"DScaling", "1,1,1,-1,1"                  }
-                     , {"FScaling", "1,1,1,1,-1,1,-1"             }
-                     , {"GScaling", "1,1,1,1,1,-1,1,-1,1"         }
-                     , {"HScaling", "1,1,1,1,1,1,-1,1,-1,1,-1"    }
-                     , {"IScaling", "1,1,1,1,1,1,1,-1,1,-1,1,-1,1"}
-                     };
+
+  if (std::find(BACKENDS.begin(), BACKENDS.end(), backend) == BACKENDS.end()) {
+    throw "Incorrect backend value: " + backend;
+  }
 
   // make <shell>Scaling
   const auto _s
     = [&](std::string s) { return
-        std::make_pair< nwchem::am::AngularMomentum
+        std::make_pair< am::AngularMomentum
                       , std::vector<double>
-                      > ( nwchem::am::fromString(s)
+                      > ( am::fromString(s)
                         , pars::parseVector<double>(
                             this->getTextArgument
                               ( s + "Scaling"
-                              , nwchemScalings[s + "Scaling"]
+                              , this->DEFAULT_SCALINGS[backend][s + "Scaling"]
                               ))
                         );
         };
   // make <shell>Reorder
   const auto _r
     = [&](std::string s) { return
-        std::make_pair< nwchem::am::AngularMomentum
+        std::make_pair< am::AngularMomentum
                       , std::vector<int>
-                      > ( nwchem::am::fromString(s)
+                      > ( am::fromString(s)
                         , pars::parseVector<int>(
-                            this->getTextArgument(s+ "Reorder", ""))
+                            this->getTextArgument
+                              ( s+ "Reorder"
+                              , this->DEFAULT_REORDER[backend][s + "Reorder"]
+                              ))
                         );
         };
   struct {
-    const std::map<nwchem::am::AngularMomentum, std::vector<double>> scaling;
-    const std::map<nwchem::am::AngularMomentum, std::vector<int>   > reorder;
+    const std::map<am::AngularMomentum, std::vector<double>> scaling;
+    const std::map<am::AngularMomentum, std::vector<int>   > reorder;
   } transformation = { { _s("S"), _s("P"), _s("D"), _s("F")
                        , _s("G"), _s("H"), _s("I"), _s("K") }
                      , { _r("S"), _r("P"), _r("D"), _r("F")
@@ -106,11 +176,20 @@ void NwchemMovecsReader::run() {
   LOGGER(0) << "file: " << fileName << std::endl;
   LOGGER(0) << "No: " << No << std::endl;
 
-  nwchem::BasisSet basis;
+  BasisSet basis;
   if (basisFile.size()) {
     basis = nwchem::BasisSetParser().parseFile(basisFile);
-    LOGGER(0) << "#basis in"
-              << basisFile << ": " << basis.size() << std::endl;
+    LOGGER(0) << "#basis in" << basisFile << ": " << basis.size() << std::endl;
+  }
+  if (shellsFile.size()) {
+    LOGGER(0) << "basis in '" << shellsFile << "'" << std::endl;
+    std::ifstream f(shellsFile);
+    const std::string contents(std::istreambuf_iterator<char>(f), {});
+    basis = ShellParser().parseString(contents);
+  }
+  for (const auto &b: basis) {
+    LOGGER(0) << ":: " << b.atom << " :name " << b.name << " "
+              << ":#shells" << b.shells.size() << std::endl;
   }
 
   std::vector<std::string> atoms;
@@ -133,7 +212,7 @@ void NwchemMovecsReader::run() {
   mos = movec.mos;
 
   for (const auto &p: transformation.scaling) {
-    const auto am = nwchem::am::toInt(p.first);
+    const auto am = am::toInt(p.first);
     const auto& scaling = p.second;
     const auto& Np = movec.Np;
     if (scaling.size()) {
@@ -156,7 +235,7 @@ void NwchemMovecsReader::run() {
   }
 
   for (const auto &p: transformation.reorder) {
-    const auto am = nwchem::am::toInt(p.first);
+    const auto am = am::toInt(p.first);
     const auto& reorder = p.second;
     const auto& Np = movec.Np;
     if (reorder.size()) {

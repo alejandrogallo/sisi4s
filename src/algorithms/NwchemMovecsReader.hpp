@@ -3,6 +3,8 @@
 
 #include <algorithms/Algorithm.hpp>
 #include <vector>
+#include <map>
+#include <string>
 
 namespace cc4s {
 
@@ -14,6 +16,12 @@ namespace cc4s {
     ): Algorithm(argumentList) {}
     ~NwchemMovecsReader() {}
     virtual void run();
+
+    static std::map<std::string, std::map<std::string, std::string>>
+      DEFAULT_SCALINGS, DEFAULT_REORDER;
+
+    static std::vector<std::string> BACKENDS;
+
   };
 
 }
