@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <algorithms/NwchemMovecsReader.hpp>
+#include <algorithms/MoReader.hpp>
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
 #include <fstream>
@@ -19,12 +19,12 @@
 #include <turbomole/MosParser.hpp>
 #include <regex>
 #include <iterator>
-#define LOGGER(_l) LOG(_l, "NwchemMovecsReader")
+#define LOGGER(_l) LOG(_l, "MoReader")
 #define IF_GIVEN(_l, ...) if (isArgumentGiven(_l)) { __VA_ARGS__ }
 
 using namespace cc4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(NwchemMovecsReader);
+ALGORITHM_REGISTRAR_DEFINITION(MoReader);
 
 
 std::vector< std::vector<size_t> > findShellIndices
@@ -100,7 +100,7 @@ struct ShellParser {
 };
 
 std::map<std::string, std::map<std::string, std::string>>
-NwchemMovecsReader::DEFAULT_SCALINGS =
+MoReader::DEFAULT_SCALINGS =
   { { "nwchem", { {"DScaling", "1,1,1,-1,1"                  }
                 , {"FScaling", "1,1,1,1,-1,1,-1"             }
                 , {"GScaling", "1,1,1,1,1,-1,1,-1,1"         }
@@ -113,17 +113,17 @@ NwchemMovecsReader::DEFAULT_SCALINGS =
   };
 
 std::map<std::string, std::map<std::string, std::string>>
-NwchemMovecsReader::DEFAULT_REORDER =
+MoReader::DEFAULT_REORDER =
   { { "nwchem", {} }
   , { "psi4", {} }
   , { "turbomole", { { "DReorder", "4,2,0,1,3" } } }
   };
 
 std::vector<std::string>
-NwchemMovecsReader::BACKENDS = {"nwchem", "psi4", "turbomole"};
+MoReader::BACKENDS = {"nwchem", "psi4", "turbomole"};
 
 
-void NwchemMovecsReader::run() {
+void MoReader::run() {
   std::vector<std::string> args;
   const std::string fileName(getTextArgument("file"))
                   , xyz(getTextArgument("xyzStructureFile", ""))
@@ -206,15 +206,26 @@ void NwchemMovecsReader::run() {
     }
   }
 
-  const nwchem::MovecReader movec(fileName);
-//  const nwchem::TmoleMosReader movec("mos");
-  std::vector<double> mos(movec.Np * movec.Np);
-  mos = movec.mos;
+  std::vector<double> mos, eigenvalues, occupations;
+  size_t Np;
+
+  if (backend == NWCHEM) {
+    const nwchem::MovecReader movec(fileName);
+    mos = movec.mos;
+    eigenvalues = movec.eigenvalues;
+    occupations = movec.occupations;
+    Np = movec.Np;
+  } else if (backend == TURBOMOLE) {
+    const tmole::MosParser movec(fileName);
+    mos = movec.mos;
+    eigenvalues = movec.eigenvalues;
+    occupations = movec.occupations;
+    Np = movec.Np;
+  }
 
   for (const auto &p: transformation.scaling) {
     const auto am = am::toInt(p.first);
     const auto& scaling = p.second;
-    const auto& Np = movec.Np;
     if (scaling.size()) {
       LOGGER(0) << "doing scaling of am: "  << am << std::endl;
       LOGGER(0) << "You should have "  << am << " numbers" << std::endl;
@@ -237,7 +248,6 @@ void NwchemMovecsReader::run() {
   for (const auto &p: transformation.reorder) {
     const auto am = am::toInt(p.first);
     const auto& reorder = p.second;
-    const auto& Np = movec.Np;
     if (reorder.size()) {
       LOGGER(0) << "doing reorder of am: "  << am << std::endl;
       LOGGER(0) << "You should have "  << am << " numbers" << std::endl;
@@ -260,7 +270,7 @@ void NwchemMovecsReader::run() {
     }
   }
 
-  std::vector<int> pp(2, movec.Np), syms(2, NS), o(1, No), v(1, movec.Np - No);
+  std::vector<int> pp(2, Np), syms(2, NS), o(1, No), v(1, Np - No);
   std::vector<int64_t> ids;
   const int rank_m = int(Cc4s::world->rank == 0); // rank mask
 
@@ -269,7 +279,7 @@ void NwchemMovecsReader::run() {
     ids.resize(rank_m * o[0]);
     std::iota(ids.begin(), ids.end(), 0);
     auto epsi(new CTF::Tensor<double>(1, o.data(), syms.data(), *Cc4s::world));
-    epsi->write(ids.size(), ids.data(), movec.eigenvalues.data());
+    epsi->write(ids.size(), ids.data(), eigenvalues.data());
     allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   )
 
@@ -277,20 +287,20 @@ void NwchemMovecsReader::run() {
     ids.resize(rank_m * v[0]);
     std::iota(ids.begin(), ids.end(), 0);
     auto epsa(new CTF::Tensor<double>(1, v.data(), syms.data(), *Cc4s::world));
-    epsa->write(ids.size(), ids.data(), movec.eigenvalues.data() + No);
+    epsa->write(ids.size(), ids.data(), eigenvalues.data() + No);
     allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
   )
 
   IF_GIVEN("OccupationNumbers",
-    ids.resize(rank_m * movec.Np);
+    ids.resize(rank_m * Np);
     std::iota(ids.begin(), ids.end(), 0);
     auto os(new CTF::Tensor<double>(1, pp.data(), syms.data(), *Cc4s::world));
-    os->write(ids.size(), ids.data(), movec.occupations.data());
+    os->write(ids.size(), ids.data(), occupations.data());
     allocatedTensorArgument<double>("OccupationNumbers", os);
   )
 
   if (isArgumentGiven("OrbitalCoefficients")) {
-    ids.resize(rank_m * movec.Np*movec.Np);
+    ids.resize(rank_m * Np*Np);
     std::iota(ids.begin(), ids.end(), 0);
     auto coef(new CTF::Tensor<double>(2, pp.data(), syms.data(), *Cc4s::world));
     coef->write(ids.size(), ids.data(), mos.data());

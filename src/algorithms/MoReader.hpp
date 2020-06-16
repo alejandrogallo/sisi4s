@@ -8,19 +8,20 @@
 
 namespace cc4s {
 
-  class NwchemMovecsReader: public Algorithm {
+  class MoReader: public Algorithm {
   public:
-    ALGORITHM_REGISTRAR_DECLARATION(NwchemMovecsReader);
-    NwchemMovecsReader(
+    ALGORITHM_REGISTRAR_DECLARATION(MoReader);
+    MoReader(
       std::vector<Argument> const &argumentList
     ): Algorithm(argumentList) {}
-    ~NwchemMovecsReader() {}
+    ~MoReader() {}
     virtual void run();
 
     static std::map<std::string, std::map<std::string, std::string>>
       DEFAULT_SCALINGS, DEFAULT_REORDER;
 
     static std::vector<std::string> BACKENDS;
+    const std::string PSI4 = "psi4", NWCHEM = "nwchem", TURBOMOLE ="turbomole";
 
   };
 
