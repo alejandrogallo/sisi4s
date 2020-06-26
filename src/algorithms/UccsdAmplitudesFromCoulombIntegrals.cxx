@@ -151,9 +151,12 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   Rabij->set_name("Rabij");
 
   if (iterationStep == 0){
-    LOG(1, getAbbreviation())
-      << "Set initial Rabij amplitudes to Vijab" << std::endl;
+    LOG(1, getAbbreviation()) << "Set initial Rabij amplitudes to Vijab\n";
     (*Rabij)["abij"] = (*Vijab)["ijab"];
+    if (Fia) {
+      LOG(1, getAbbreviation()) << "Set initial Rai amplitudes to fia\n";
+      (*Rai)["ai"] = (*Fia)["ia"];
+    }
     return residuum;
   }
 
