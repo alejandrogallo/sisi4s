@@ -6,6 +6,7 @@
 #include <ctf.hpp>
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
+#include <util/Emitter.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
@@ -74,6 +75,14 @@ void FockMatrixFromCoulombIntegrals::run() {
   energy[""] += (+2.0) * (*hhhh)["ikik"];
   energy[""] += (-1.0) * (*hhhh)["ikki"];
   const double dEnergy(energy.get_val());
+
+  EMIT() << YAML::Key << "energy"
+         << YAML::Value << dEnergy
+         << YAML::Key << "No"
+         << YAML::Value << No
+         << YAML::Key << "Nv"
+         << YAML::Value << Nv
+         ;
 
   LOG(0, "FockMatrixFromCoulombIntegrals")
     << "energy= " << dEnergy << std::endl;
