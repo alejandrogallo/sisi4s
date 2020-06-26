@@ -31,6 +31,7 @@ void UccsdAmplitudesFromCoulombIntegrals::run() {
   checkArgumentsOrDie(
     { "intermediates" // stanton intermediates
     , "antisymmetrize", "unrestricted"
+    , "mp2WithSingles"
     // Solver
     , "mixer", "maxIterations", "amplitudesConvergence", "energyConvergence"
     , "mixingRatio", "maxResidua"
@@ -153,7 +154,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   if (iterationStep == 0){
     LOG(1, getAbbreviation()) << "Set initial Rabij amplitudes to Vijab\n";
     (*Rabij)["abij"] = (*Vijab)["ijab"];
-    if (Fia) {
+    if (Fia && getIntegerArgument("mp2WithSingles", 1)) {
       LOG(1, getAbbreviation()) << "Set initial Rai amplitudes to fia\n";
       (*Rai)["ai"] = (*Fia)["ia"];
     }
