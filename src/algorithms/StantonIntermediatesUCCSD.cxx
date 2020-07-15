@@ -23,13 +23,9 @@ void StantonIntermediatesUCCSD<F>::checkInputs() {
     {"Vaijb", Vaijb}, {"Vabci", Vabci}, {"Vabij", Vabij}
   };
 
-  for (auto entry: inputTensors) {
-    if (! entry.second) {
-      std::string message("You need: ");
-      message.append(entry.first);
-      throw new EXCEPTION(message);
-    }
-  }
+  for (const auto &entry: inputTensors)
+    if (!entry.second)
+      throw new EXCEPTION("You need: " + entry.first);
 
 }
 
@@ -58,7 +54,7 @@ void StantonIntermediatesUCCSD<F>::calculateOneBodyIntermediates() {
   (*Fae)["ae"]  = (*Fab)["ae"];
   (*Fae)["aa"] += (-1.0) * (*Fab)["aa"];
   if (Fia) {
-    (*Fae)["aa"] += (-0.5) * (*Fia)["me"] * (*Tai)["am"];
+    (*Fae)["ae"] += (-0.5) * (*Fia)["me"] * (*Tai)["am"];
   }
   (*Fae)["ae"] += (*Tai)["fm"] * (*Viabc)["mafe"];
   (*Fae)["ae"] += ( - 0.5 ) * (*TildeTau_abij)["afmn"] * (*Vijab)["mnef"];

@@ -32,26 +32,26 @@ namespace cc4s {
 
     // tensor setters, it's more convenient to set them like so
     // than in a constructor, since there are so many tensors
-    void setTai(CTF::Tensor<F> *Tai_) { Tai = Tai_; }
-    void setTabij(CTF::Tensor<F> *Tabij_) { Tabij = Tabij_; }
-    void setVabcd(CTF::Tensor<F> *Vabcd_) { Vabcd = Vabcd_; }
-    void setViajb(CTF::Tensor<F> *Viajb_) { Viajb = Viajb_; }
-    void setVijab(CTF::Tensor<F> *Vijab_) { Vijab = Vijab_; }
-    void setVijkl(CTF::Tensor<F> *Vijkl_) { Vijkl = Vijkl_; }
-    void setVijka(CTF::Tensor<F> *Vijka_) { Vijka = Vijka_; }
-    void setViabc(CTF::Tensor<F> *Viabc_) { Viabc = Viabc_; }
-    void setViajk(CTF::Tensor<F> *Viajk_) { Viajk = Viajk_; }
-    void setVabic(CTF::Tensor<F> *Vabic_) { Vabic = Vabic_; }
-    void setVaibc(CTF::Tensor<F> *Vaibc_) { Vaibc = Vaibc_; }
-    void setVaibj(CTF::Tensor<F> *Vaibj_) { Vaibj = Vaibj_; }
-    void setViabj(CTF::Tensor<F> *Viabj_) { Viabj = Viabj_; }
-    void setVijak(CTF::Tensor<F> *Vijak_) { Vijak = Vijak_; }
-    void setVaijb(CTF::Tensor<F> *Vaijb_) { Vaijb = Vaijb_; }
-    void setVabci(CTF::Tensor<F> *Vabci_) { Vabci = Vabci_; }
-    void setVabij(CTF::Tensor<F> *Vabij_) { Vabij = Vabij_; }
-    void setFij(CTF::Tensor<F> *Fij_) { Fij = Fij_; }
-    void setFab(CTF::Tensor<F> *Fab_) { Fab = Fab_; }
-    void setFia(CTF::Tensor<F> *Fia_) { Fia = Fia_; }
+    void setTai(CTF::Tensor<F> *t) { Tai = t; }
+    void setTabij(CTF::Tensor<F> *t) { Tabij = t; }
+    void setVabcd(CTF::Tensor<F> *t) { Vabcd = t; }
+    void setViajb(CTF::Tensor<F> *t) { Viajb = t; }
+    void setVijab(CTF::Tensor<F> *t) { Vijab = t; }
+    void setVijkl(CTF::Tensor<F> *t) { Vijkl = t; }
+    void setVijka(CTF::Tensor<F> *t) { Vijka = t; }
+    void setViabc(CTF::Tensor<F> *t) { Viabc = t; }
+    void setViajk(CTF::Tensor<F> *t) { Viajk = t; }
+    void setVabic(CTF::Tensor<F> *t) { Vabic = t; }
+    void setVaibc(CTF::Tensor<F> *t) { Vaibc = t; }
+    void setVaibj(CTF::Tensor<F> *t) { Vaibj = t; }
+    void setViabj(CTF::Tensor<F> *t) { Viabj = t; }
+    void setVijak(CTF::Tensor<F> *t) { Vijak = t; }
+    void setVaijb(CTF::Tensor<F> *t) { Vaijb = t; }
+    void setVabci(CTF::Tensor<F> *t) { Vabci = t; }
+    void setVabij(CTF::Tensor<F> *t) { Vabij = t; }
+    void setFij(CTF::Tensor<F> *t) { Fij = t; }
+    void setFab(CTF::Tensor<F> *t) { Fab = t; }
+    void setFia(CTF::Tensor<F> *t) { Fia = t; }
 
   private:
 
