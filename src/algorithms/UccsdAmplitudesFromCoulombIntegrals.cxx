@@ -187,9 +187,10 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
    */
   auto Wai = H.getAI();
   (*Rai)["ai"]  = (*Wai)["ai"];
-  //These are the residum equations, we have to substract them from Wai
-  (*Rai)["bi"] += ( - 1.0  ) * (*Fab)["bc"] * (*Tai)["ci"];
-  (*Rai)["bi"] += ( + 1.0  ) * (*Fij)["ki"] * (*Tai)["bk"];
+  // These are the residum equations, we have to substract them from Wai
+  // NOTE: Notice that we're substracting only the diagonal of Fab and Fij
+  (*Rai)["bi"] += ( - 1.0  ) * (*Fab)["bb"] * (*Tai)["bi"];
+  (*Rai)["bi"] += ( + 1.0  ) * (*Fij)["ii"] * (*Tai)["bi"];
 
   /*
    * T2 equations:
@@ -201,10 +202,10 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   auto Wabij = H.getABIJ();
   (*Rabij)["abij"]  = (*Wabij)["abij"];
   //These are the residum equations, substract them from Wabij
-  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
-  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
-  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
-  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
+  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["ii"] * (*Tabij)["cdij"];
+  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["jj"] * (*Tabij)["cdji"];
+  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fab)["dd"] * (*Tabij)["dcij"];
+  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fab)["cc"] * (*Tabij)["cdij"];
 
   return residuum;
 
