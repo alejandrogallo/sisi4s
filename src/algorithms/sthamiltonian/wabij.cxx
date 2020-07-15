@@ -34,10 +34,10 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
     (*Wabij)["abij"] = (*intermediates->getRabij())["abij"];
 
     //These are the residum equations
-    (*Wabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
-    (*Wabij)["cdij"] += ( + 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
-    (*Wabij)["cdij"] += ( - 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
-    (*Wabij)["cdij"] += ( + 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
+    (*Wabij)["cdij"] += ( - 1.0  ) * (*Fij)["ii"] * (*Tabij)["cdij"];
+    (*Wabij)["cdij"] += ( + 1.0  ) * (*Fij)["jj"] * (*Tabij)["cdji"];
+    (*Wabij)["cdij"] += ( - 1.0  ) * (*Fab)["dd"] * (*Tabij)["dcij"];
+    (*Wabij)["cdij"] += ( + 1.0  ) * (*Fab)["cc"] * (*Tabij)["cdij"];
 
   } else {
 
