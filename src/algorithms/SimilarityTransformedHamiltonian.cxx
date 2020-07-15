@@ -1054,13 +1054,17 @@ SimilarityTransformedHamiltonian<F>::getAI() {
 
     auto intermediates = getStantonIntermediatesUCCSD();
     (*Wai)["bi"] = (*intermediates->getRai())["bi"];
-    (*Wai)["bi"] += (+ 1.0) * (*Fab)["bc"] * (*Tai)["ci"];
-    (*Wai)["bi"] += (- 1.0) * (*Fij)["ki"] * (*Tai)["bk"];
+    (*Wai)["bi"] += (+ 1.0) * (*Fab)["bb"] * (*Tai)["bi"];
+    (*Wai)["bi"] += (- 1.0) * (*Fij)["ii"] * (*Tai)["bi"];
 
   } else {
 
-    // Equations from Hirata
     if (Fia) {
+      /* in Hirata:
+       * [ + 1.0 ] * f ( p2 h1 )
+       * [ + 1.0 ] * Sum ( h3 p4 ) * f ( h3 p4 ) * t ( p4 p2 h3 h1 )
+       * [ - 1.0 ] * Sum ( h4 p3 ) * t ( p3 h1 ) * t ( p2 h4 ) * f ( h4 p3 )
+       */
       (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["ib"];
       (*Wai)["bi"] += ( + 1.0  ) * (*Fia)["kd"] * (*Tabij)["dbki"];
       (*Wai)["bi"] += ( - 1.0  ) * (*Tai)["ci"] * (*Tai)["bl"] * (*Fia)["lc"];
