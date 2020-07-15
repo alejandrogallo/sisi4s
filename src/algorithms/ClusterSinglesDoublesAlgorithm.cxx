@@ -180,10 +180,6 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     energy[""] += ( + 0.5  ) * (*Tai)["aj"] * (*Tai)["cl"] * (*Vijab)["jlac"];
     e = energy.get_val();
     // FIXME: imaginary part ignored
-    EMIT() << YAML::Key << "energy" << YAML::Value
-      << YAML::BeginMap
-      << YAML::Key << "value" << YAML::Value << std::real(e)
-      << YAML::EndMap;
   } else {
     // direct term
     energy[""] = 0.5 * spins * spins * (*Tabij)["abij"] * (*Vijab)["ijab"];
@@ -204,7 +200,6 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     e = dire + exce;
     EMIT() << YAML::Key << "energy" << YAML::Value
       << YAML::BeginMap
-      << YAML::Key << "value" << YAML::Value << std::real(e)
       << YAML::Key << "direct" << YAML::Value << std::real(dire)
       << YAML::Key << "exchange" << YAML::Value << std::real(exce)
       << YAML::Key << "singlet" << YAML::Value << std::real(0.25*dire - 0.5*exce)
@@ -220,7 +215,16 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     LOG(0, getCapitalizedAbbreviation())
       << "noncanonical=" << noncanonical << std::endl;
     e += noncanonical;
+    EMIT() << YAML::Key << "energy" << YAML::Value
+      << YAML::BeginMap
+      << YAML::Key << "noncanonical" << YAML::Value << std::real(noncanonical)
+      << YAML::EndMap;
   }
+
+  EMIT() << YAML::Key << "energy" << YAML::Value
+    << YAML::BeginMap
+    << YAML::Key << "value" << YAML::Value << std::real(e)
+    << YAML::EndMap;
 
   LOG(0, getCapitalizedAbbreviation()) << std::setprecision(10) <<
     "energy= " << e << std::setprecision(ss) << std::endl;
