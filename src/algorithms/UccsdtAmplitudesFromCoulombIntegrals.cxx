@@ -177,27 +177,21 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
   auto Wabij = H.getABIJ();
   (*Rabij)["abij"] += (*Wabij)["abij"];
   //These are the residum equations, substract them from Wabij
-  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
-  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
-  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
-  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
-
-  //Residum equations
-  //(*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
-  //(*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
-  //(*Rabij)["cdij"] += ( - 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
-  //(*Rabij)["cdij"] += ( + 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
+  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["ii"] * (*Tabij)["cdij"];
+  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["jj"] * (*Tabij)["cdji"];
+  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fab)["dd"] * (*Tabij)["dcij"];
+  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fab)["cc"] * (*Tabij)["cdij"];
 
   // T3 equations:
   auto Wabcijk = H.getABCIJK();
   (*Rabcijk)["abcijk"] += (*Wabcijk)["abcijk"];
   //These are the residum equations, substract them from Wabij
-  (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fij)["oi"] * (*Tabcijk)["defojk"];
-  (*Rabcijk)["defijk"] += ( - 1.0  ) * (*Fij)["oj"] * (*Tabcijk)["defoik"];
-  (*Rabcijk)["defijk"] += ( - 1.0  ) * (*Fij)["ok"] * (*Tabcijk)["defoji"];
-  (*Rabcijk)["defijk"] += ( - 1.0  ) * (*Fab)["fg"] * (*Tabcijk)["gdeijk"];
-  (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fab)["eg"] * (*Tabcijk)["gdfijk"];
-  (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fab)["dg"] * (*Tabcijk)["gfeijk"];
+  (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fij)["ii"] * (*Tabcijk)["defijk"];
+  (*Rabcijk)["defijk"] += ( - 1.0  ) * (*Fij)["jj"] * (*Tabcijk)["defjik"];
+  (*Rabcijk)["defijk"] += ( - 1.0  ) * (*Fij)["kk"] * (*Tabcijk)["defkji"];
+  (*Rabcijk)["defijk"] += ( - 1.0  ) * (*Fab)["ff"] * (*Tabcijk)["fdeijk"];
+  (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fab)["ee"] * (*Tabcijk)["edfijk"];
+  (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fab)["dd"] * (*Tabcijk)["dfeijk"];
 
   return residuum;
 
