@@ -12,6 +12,7 @@
 #include <set>
 #include <map>
 #include <util/Emitter.hpp>
+#include <math/MathFunctions.hpp>
 
 using namespace cc4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromRotatedCoulombIntegrals);
@@ -20,8 +21,9 @@ ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromRotatedCoulombIntegrals);
 template <typename V>
 struct IntegralProvider {
 
-  IntegralProvider(size_t no, size_t nv, bool chemistNotation_)
-    : No(no), Nv(nv), Np(no+nv), chemistNotation(chemistNotation_) {}
+  IntegralProvider(size_t no, size_t nv, bool chemistNotation_, bool unrestricted_)
+    : No(no), Nv(nv), Np(no+nv)
+    , chemistNotation(chemistNotation_), unrestricted(unrestricted_) {}
 
   struct Limit {
     size_t lower, upper, size;
@@ -43,6 +45,7 @@ struct IntegralProvider {
 
   const size_t No, Nv, Np;
   const bool chemistNotation = false;
+  const bool unrestricted = false;
 };
 
 struct VectorIntegralProvider: public IntegralProvider< std::vector<double> > {
@@ -50,13 +53,16 @@ struct VectorIntegralProvider: public IntegralProvider< std::vector<double> > {
   VectorIntegralProvider( size_t no
                         , size_t nv
                         , bool chemistNotation_
+                        , bool unrestricted_
                         , CTF::Tensor<double> &coeffs
                         , CTF::Tensor<double> &coulombIntegrals
-                        ) :IntegralProvider(no, nv, chemistNotation_)
+                        ) :IntegralProvider(no, nv, chemistNotation_, unrestricted_)
   {
     if (! chemistNotation_ )
       throw EXCEPTION("Physics notation not supported for this provider");
 
+    if ( unrestricted_)
+      throw EXCEPTION("Unrestricted not supported for this provider");
     const int rank_m = int(Cc4s::world->rank == 0); // rank mask
 
     // read in the orbital coefficients
@@ -249,22 +255,30 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
   CtfIntegralProvider(size_t no
                     , size_t nv
                     , bool chemistNotation_
+                    , bool unrestricted_
                     , CTF::Tensor<double> &coefficients
                     , CTF::Tensor<double> &coulombIntegrals
-                    ):IntegralProvider(no, nv, chemistNotation_)
-                    , C(coefficients) , V(coulombIntegrals) {}
+                    , CTF::Tensor<double> &spins
+                    ):IntegralProvider(no, nv, chemistNotation_, unrestricted_)
+                    , C(coefficients) , V(coulombIntegrals), S(spins) {}
+  ~CtfIntegralProvider() { delete VTransformed; }
 
   CTF::Tensor<double> *compute() {
     if (VTransformed != nullptr) { return VTransformed; }
     LOGGER(1) << "computing main transformation" << std::endl;
-    VTransformed = new CTF::Tensor<double>(4, V.lens, V.sym, *Cc4s::world);
-    LOGGER(1) << "lens: "
-              << VTransformed->lens[0] << "," << VTransformed->lens[1] << ","
-              << VTransformed->lens[2] << "," << VTransformed->lens[3]
-              << std::endl;
-    LOGGER(1) << V.lens[0] * V.lens[1] * V.lens[2] * V.lens[3] * 7.45e-9
-              << "GB allocated" << std::endl;
+
+
+//    LOGGER(1) << "lens: "
+//              << VTransformed->lens[0] << "," << VTransformed->lens[1] << ","
+//              << VTransformed->lens[2] << "," << VTransformed->lens[3]
+//              << std::endl;
+//    LOGGER(1) << V.lens[0] * V.lens[1] * V.lens[2] * V.lens[3] * 7.45e-9
+//              << "GB allocated" << std::endl;
+    LOGGER(1) << "basis Functions " << C.lens[0] << ", orbitals: " << C.lens[1] << std::endl;
+    std::vector<int> s(4, NS); std::vector<int> l(4, C.lens[0]);
+
     if (chemistNotation) {
+      VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
       (*VTransformed)["plmn"] = C["kp"] * V["klmn"];
       (*VTransformed)["plqn"] = C["mq"] * (*VTransformed)["plmn"];
       (*VTransformed)["prqn"] = C["lr"] * (*VTransformed)["plqn"];
@@ -278,18 +292,50 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
                               ;
       */
     } else {
-      (*VTransformed)["plmn"] = C["kp"] * V["klmn"];
-      (*VTransformed)["pqmn"] = C["lq"] * (*VTransformed)["plmn"];
-      (*VTransformed)["pqrn"] = C["mr"] * (*VTransformed)["pqmn"];
-      (*VTransformed)["pqrs"] = C["ns"] * (*VTransformed)["pqrn"];
-      /* This does not work for big tensors, what is going on?
-        (*VTransformed)["pqrs"] = C["ns"]
-                                * C["mr"]
-                                * C["lq"]
-                                * C["kp"]
-                                * V["klmn"]
-                                ;
-                              */
+        l[0] = C.lens[1];
+        auto VIntermedia1 = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+        (*VIntermedia1)["plmn"] = C["kp"] * V["klmn"];
+        l[1] = C.lens[1];
+        auto VIntermedia2 = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+        (*VIntermedia2)["pqmn"] = C["lq"] * (*VIntermedia1)["plmn"];
+        l[2] = C.lens[1]; delete VIntermedia1;
+        auto VIntermedia3 = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+        (*VIntermedia3)["pqrn"] = C["mr"] * (*VIntermedia2)["pqmn"];
+        l[3] = C.lens[1]; delete VIntermedia2;
+        VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+        (*VTransformed)["pqrs"] = C["ns"] * (*VIntermedia3)["pqrn"];
+        delete VIntermedia3;
+
+      if ( unrestricted == 1 ) {
+        LOGGER(1) << "unrestricted case\n";
+
+        // Construct a spin map which is either one or zero.
+        auto Sm = new CTF::Tensor<double>(2, l.data(), s.data(), *Cc4s::world);
+        (*Sm)["pq"] = S["p"]*S["q"];
+        CTF::Transform<real>(
+          std::function<void(real &)>(
+            [](real &s) { s = (s + 0.25) * 2.0; }
+        )
+        )(
+         (*Sm)["pq"]
+        );
+        auto Smap = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+        (*Smap)["pqrs"] = (*Sm)["pr"] * (*Sm)["qs"];
+
+        CTF::Bivar_Function<> fMultiply(&multiply<double>);
+        VTransformed->contract(
+          1.0, *VTransformed,"pqrs", *Smap,"pqrs", 0.0,"pqrs", fMultiply
+        );
+        LOGGER(1) << "Vpqrs build\n";
+      }
+//      else {
+//        VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+//
+//        (*VTransformed)["plmn"] = C["kp"] * V["klmn"];
+//        (*VTransformed)["pqmn"] = C["lq"] * (*VTransformed)["plmn"];
+//        (*VTransformed)["pqrn"] = C["mr"] * (*VTransformed)["pqmn"];
+//        (*VTransformed)["pqrs"] = C["ns"] * (*VTransformed)["pqrn"];
+//      }
     }
     LOGGER(1) << "main transformation done" << std::endl;
     return VTransformed;
@@ -319,8 +365,8 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
   }
 
   private:
-    CTF::Tensor<double> &C, &V;
-    CTF::Tensor<double>* VTransformed = nullptr;
+    CTF::Tensor<double> &C, &V, &S;
+    CTF::Tensor<double>* VTransformed = nullptr
 };
 
 CTF::Tensor<double>* stdVectorToTensor( const std::vector<double> v
@@ -391,18 +437,21 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
 
   std::vector<std::string> args( { "OrbitalCoefficients"
                                  , "CoulombIntegrals"
-                                 , "nelec"
-                                 , "No"
+                                 , "HoleEigenEnergies"
                                  , "chemistNotation"
                                  , "engine"
+                                 , "unrestricted"
+                                 , "Spins"
                                  } );
-
+  CTF::Tensor<double> *S;
   auto C(getTensorArgument("OrbitalCoefficients"));
   auto V(getTensorArgument("CoulombIntegrals"));
-  const int nelect(getIntegerArgument("nelec", -1));
-  const int No(getIntegerArgument("No", nelect/2));
-  const int Nv(V->lens[0] - No);
+  auto epsi(getTensorArgument("HoleEigenEnergies"));
+  const int No(epsi->lens[0]);
+  const int Nv(C->lens[1] - No);
   const bool chemistNotation(getIntegerArgument("chemistNotation", 1) == 1);
+  const bool unrestricted(getIntegerArgument("unrestricted", 0) == 1);
+  if (unrestricted) { S = getTensorArgument("Spins"); }
 
   std::vector<IntegralInfo> integralInfos =
     { {"HHHHCoulombIntegrals", {NO,NO,NO,NO}, "ijkl"}
@@ -451,13 +500,13 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
   LOGGER(1) << "Using chemistNotation?: " << chemistNotation << std::endl;
 
   if (engineType == EngineInfo::VECTOR_FAST) {
-    VectorIntegralProvider engine(No, Nv, chemistNotation, *C, *V);
+    VectorIntegralProvider engine(No, Nv, chemistNotation, unrestricted, *C, *V);
     computeAndExport(*this, engine, integralInfos);
   } else if (engineType == EngineInfo::VECTOR_SLOW) {
-    SlowVectorIntegralProvider engine(No, Nv, chemistNotation, *C, *V);
+    SlowVectorIntegralProvider engine(No, Nv, chemistNotation, unrestricted, *C, *V);
     computeAndExport(*this, engine, integralInfos);
   } else {
-    CtfIntegralProvider engine(No, Nv, chemistNotation, *C, *V);
+    CtfIntegralProvider engine(No, Nv, chemistNotation, unrestricted, *C, *V, *S);
     computeAndExport(*this, engine, integralInfos);
   }
 

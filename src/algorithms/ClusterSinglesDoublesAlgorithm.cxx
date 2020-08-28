@@ -230,7 +230,9 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     auto pairEnergy(new Tensor<F>( 2, oo, syms, *Cc4s::world, "pairEnergies"));
     (*pairEnergy)["ij"]  =   2.0  * (*Tabij)["abij"] * (*Vijab)["ijab"];
     (*pairEnergy)["ij"] += (-1.0) * (*Tabij)["abij"] * (*Vijab)["ijba"];
-    (*pairEnergy)["ij"] += (+1.0) * (*Tai)["ai"] * (*Tai)["bj"]
+    (*pairEnergy)["ij"] += (+2.0) * (*Tai)["ai"] * (*Tai)["bj"]
+                                  * (*Vijab)["ijab"];
+    (*pairEnergy)["ij"] += (-1.0) * (*Tai)["ai"] * (*Tai)["bj"]
                                   * (*Vijab)["ijba"];
     allocatedTensorArgument<F>("PairEnergy", pairEnergy);
   }

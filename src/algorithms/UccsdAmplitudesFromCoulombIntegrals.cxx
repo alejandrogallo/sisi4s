@@ -47,10 +47,13 @@ void UccsdAmplitudesFromCoulombIntegrals::run() {
     , "HPPHCoulombIntegrals" , "PHPPCoulombIntegrals" , "HHPHCoulombIntegrals"
     , "PPPHCoulombIntegrals" , "PHPHCoulombIntegrals" , "PHHPCoulombIntegrals"
     , "UccsdDoublesAmplitudes", "UccsdSinglesAmplitudes", "UccsdEnergy"
+    //
+    , "onlyPPL", "initialDoublesAmplitudes", "initialSinglesAmplitudes"
     };
   checkArgumentsOrDie(allArguments);
 
   usingIntermediates = getIntegerArgument("intermediates", 1) == 1;
+  onlyPpl = getIntegerArgument("onlyPPL", 0) == 1;
   if (! usingIntermediates ) {
     LOG(0, getAbbreviation()) <<
       "Not using Stanton et al. intermediates, the code will be much slower."
@@ -152,10 +155,17 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   Rabij->set_name("Rabij");
 
   if (iterationStep == 0){
-    LOG(1, getAbbreviation())
-      << "Set initial Rabij amplitudes to Vijab" << std::endl;
-    (*Rabij)["abij"] = (*Vijab)["ijab"];
-    return residuum;
+    if (onlyPpl) {
+      LOG(1, "Performing only Ppl contraction") << std::endl;
+      (*Rabij)["cdij"] += ( + 0.5  ) * (*Tabij)["efij"] * (*Vabcd)["cdef"];
+      (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Vabcd)["cdef"];
+      return residuum;
+    } else {
+      LOG(1, getAbbreviation())
+        << "Set initial Rabij amplitudes to Vijab" << std::endl;
+      (*Rabij)["abij"] = (*Vijab)["ijab"];
+      return residuum;
+     }
   }
 
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
@@ -181,6 +191,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   // The singles amplitude equations are simply taking the
   // Wai part of the \bar H and setting it to zero
   //
+
   auto Wai = H.getAI();
   (*Rai)["ai"]  = (*Wai)["ai"];
   //These are the residum equations, we have to substract them from Wai

@@ -2,6 +2,7 @@
 #include <util/Emitter.hpp>
 #include <util/Log.hpp>
 #include <Cc4s.hpp>
+#include <extern/Lapack.hpp>
 
 #include <math/IterativePseudoInverse.hpp>
 
@@ -11,6 +12,30 @@ using namespace CTF;
 using namespace cc4s;
 
 MIXER_REGISTRAR_DEFINITION(DiisMixer);
+
+std::vector<double> inverse(
+  std::vector<double> matrix, int N
+){
+  std::vector<double> column(N,0);
+  std::vector<int> ipiv(N);
+  std::vector<double> work(N);
+  column[0] = -1.0;
+
+  int one(1); int info;
+  dsysv_("U", &N, &one, matrix.data(), &N, ipiv.data(), column.data(), &N, work.data(), &N, &info);
+  if ( info != 0) throw "problem diagonalization\n";
+  return column;
+}
+
+std::vector<complex> inverse(
+  std::vector<complex> matrix, int N
+){
+  std::vector<complex> column(N);
+// TODO
+
+  return column;
+}
+
 
 template <typename F>
 DiisMixer<F>::DiisMixer(
@@ -39,13 +64,14 @@ DiisMixer<F>::DiisMixer(
   );
   CTF::Tensor<F> one(false, *B);
   one["ij"] += 1.0;
-  std::array<int,2> upperLeftBegin{{0,0}};
+  std::array<int,2> upperRightBegin{{0,1}};
+  std::array<int,2> upperLeftBegin{{1,0}};
   std::array<int,2> upperRightEnd{{1,N+1}};
   std::array<int,2> lowerLeftEnd{{N+1,1}};
   B->slice(
-    upperLeftBegin.data(), upperRightEnd.data(), 1.0,
+    upperRightBegin.data(), upperRightEnd.data(), 1.0,
     one,
-    upperLeftBegin.data(), upperRightEnd.data(), +1.0
+    upperRightBegin.data(), upperRightEnd.data(), -1.0
   );
   B->slice(
     upperLeftBegin.data(), lowerLeftEnd.data(), 1.0,
@@ -96,16 +122,17 @@ void DiisMixer<F>::append(
   }
   if (count < N) ++count;
 
+//  B->print();
   // now, pseudo-invert upper left corner of B and read out its first column
+  int dim(count+1);
   std::array<int,2> upperLeftBegin{{0, 0}};
   std::array<int,2> lowerRightEnd{{count+1, count+1}};
   std::array<int,2> firstColEnd{{count+1,1}};
   std::vector<F> column(count+1);
-  IterativePseudoInverse<F>(
-    B->slice(upperLeftBegin.data(), lowerRightEnd.data()), 1e-14
-  ).get().slice(
-    upperLeftBegin.data(), firstColEnd.data()
-  ).read_all(column.data());
+  std::vector<F> matrix(dim*dim);
+  B->slice(upperLeftBegin.data(), lowerRightEnd.data()).read_all(matrix.data());
+  column = inverse(matrix, dim);
+
   LOG(1, "DiisMixer") << "lambda" << "=" << column[0] << std::endl;
   EMIT() << YAML::Key << "mixing";
   EMIT() << YAML::Value << YAML::BeginMap;
@@ -142,6 +169,7 @@ template <typename F>
 PTR(const FockVector<F>) DiisMixer<F>::getResiduum() {
   return nextResiduum;
 }
+
 
 // instantiate
 template class DiisMixer<cc4s::Float64>;

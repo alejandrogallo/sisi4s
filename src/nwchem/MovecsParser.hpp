@@ -31,8 +31,8 @@ namespace nwchem {
 
 struct MovecReader {
   size_t nsets, Np;
-  std::vector<size_t> nmo;
-  std::vector<double> occupations, eigenvalues, mos;
+  std::vector<int64_t> nmo;
+  std::vector<std::vector<double>> occupations, eigenvalues, mos;
   size_t iset = 0; // This allows to skip the first set, dont need this yet
   MovecReader(const std::string &fileName) {
     std::fstream file(fileName.c_str(), std::ios::binary | std::ios::in);
@@ -55,15 +55,19 @@ struct MovecReader {
     _L(0) << "nsets: " << nsets << std::endl;
     _L(0) << "Np: " << Np << std::endl;
 
+    // resize occupations and such
+    occupations.resize(nsets);
+    eigenvalues.resize(nsets);
+    mos.resize(nsets);
+
     // read nmos
+    nmo = readFortranChunk<int64_t>(file);
     for (size_t i=0; i<nsets; i++) {
-      int64_t buf = *readFortranChunk<int64_t>(file).data();
-      nmo.push_back(buf);
-      _L(0) << "nmo[" << i << "]: " << nmo[0] << std::endl;
+      _L(0) << "nmo[" << i << "]: " << nmo[i] << std::endl;
     }
 
     // loop which reject MOs from the set
-    for (size_t i = 0; i < iset;  i++) {
+    for (size_t i = 0; i < iset; i++) {
       readFortranChunk<char>(file);
       readFortranChunk<char>(file);
       for (uint64_t j=0; j<nmo[i]; j++) { //do i = 1, nmo(jset) read(unitno)
@@ -74,21 +78,19 @@ struct MovecReader {
     for (size_t s(0); s < nsets; s++) { // do s = 1, nsets
 
       // Read occupation numbers
-      occupations = readFortranChunk<double>(file);
-      _L(0) << "#occupations read: " << occupations.size() << std::endl;
-      assert(occupations.size() == Np);
-
+        occupations[s] = readFortranChunk<double>(file);
+        _L(0) << "#occupations read: " << occupations[s].size() << std::endl;
+        assert(occupations[s].size() == Np);
       // Eigenvaluess [read(unitno) (evals(j), j=1,Np)]
-      eigenvalues = readFortranChunk<double>(file);
-      _L(0) << "#eigenvalues read: " <<  eigenvalues.size() << std::endl;
-      assert(eigenvalues.size() == Np);
-
-      mos.resize(Np * Np);
+      eigenvalues[s] = readFortranChunk<double>(file);
+      _L(0) << "#eigenvalues read: " <<  eigenvalues[s].size() << std::endl;
+      assert(eigenvalues[s].size() == Np);
+      mos[s].resize(Np * Np);
       for (size_t i(0); i < nmo[iset]; i++) { // do i = 1, nmo(iset)
         const std::vector<double> mos_buff(readFortranChunk<double>(file));
         assert(mos_buff.size() == Np);
         for (size_t j(0); j < mos_buff.size(); j++)
-          mos[j + Np*i] = mos_buff[j];
+          mos[s][j + Np*i] = mos_buff[j];
       }
     }
 
