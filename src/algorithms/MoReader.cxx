@@ -26,6 +26,15 @@ using namespace cc4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(MoReader);
 
+int frozenElement(std::string e) {
+  if      ( e == "H"  || e == "He" ) return 0;
+  else if ( e == "Li" || e == "Be" || e == "B"  || e == "C"
+         || e == "N"  || e == "O"  || e == "F"  || e == "Ne" ) return 2;
+  else if ( e == "Na" || e == "Mg" || e == "Al" || e == "Si"
+         || e == "P"  || e == "S"  || e == "Cl" || e == "Ar" ) return 10;
+  else throw "I am a quantum chemist. I dont know your crazy element: " + e;
+  return -1;
+}
 
 std::vector< std::vector<size_t> > findShellIndices
   ( const BasisSet &bs
@@ -101,22 +110,31 @@ struct ShellParser {
 
 std::map<std::string, std::map<std::string, std::string>>
 MoReader::DEFAULT_SCALINGS =
-  { { "nwchem", { {"DScaling", "1,1,1,-1,1"                  }
-                , {"FScaling", "1,1,1,1,-1,1,-1"             }
-                , {"GScaling", "1,1,1,1,1,-1,1,-1,1"         }
-                , {"HScaling", "1,1,1,1,1,1,-1,1,-1,1,-1"    }
-                , {"IScaling", "1,1,1,1,1,1,1,-1,1,-1,1,-1,1"}
-                }
+  { { "nwchem",    { {"DScaling",         "1,1,1,-1,1"          }
+                   , {"FScaling",       "1,1,1,1,-1,1,-1"       }
+                   , {"GScaling",     "1,1,1,1,1,-1,1,-1,1"     }
+                   , {"HScaling",   "1,1,1,1,1,1,-1,1,-1,1,-1"  }
+                   , {"IScaling", "1,1,1,1,1,1,1,-1,1,-1,1,-1,1"}
+                   }
     }
   , { "psi4", {} }
-  , { "turbomole", {} }
+  , { "turbomole", { {"FScaling",       "1, 1, 1, 1, 1, 1,-1"        }
+                   , {"GScaling",   " 1, 1, 1, 1,-1, 1,-1, 1, 1"     }
+                   , {"HScaling"," 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1"  }
+                   }
+    }
   };
 
 std::map<std::string, std::map<std::string, std::string>>
 MoReader::DEFAULT_REORDER =
   { { "nwchem", {} }
   , { "psi4", {} }
-  , { "turbomole", { { "DReorder", "4,2,0,1,3" } } }
+  , { "turbomole", { { "DReorder",        "3,2,0,1,4"      }
+                   , { "FReorder",      "6,3,2,0,1,4,5"    }
+                   , { "GReorder",    "7,6,3,2,0,1,4,5,8"  }
+                   , { "HReorder", "10,7,6,3,2,0,1,4,5,8,9"}
+                   }
+    }
   };
 
 std::vector<std::string>
@@ -131,7 +149,8 @@ void MoReader::run() {
                   , shellsFile(getTextArgument("shellsFile", ""))
                   , backend(getTextArgument("backend"))
                   ;
-  const int No(getIntegerArgument("No"));
+  bool frozenCore(getIntegerArgument("frozenCore", 0) == 1);
+
 
   if (std::find(BACKENDS.begin(), BACKENDS.end(), backend) == BACKENDS.end()) {
     throw "Incorrect backend value: " + backend;
@@ -174,7 +193,6 @@ void MoReader::run() {
 
   LOGGER(0) << "NOTE: it only works now for restricted references" << std::endl;
   LOGGER(0) << "file: " << fileName << std::endl;
-  LOGGER(0) << "No: " << No << std::endl;
 
   BasisSet basis;
   if (basisFile.size()) {
@@ -187,12 +205,14 @@ void MoReader::run() {
     const std::string contents(std::istreambuf_iterator<char>(f), {});
     basis = ShellParser().parseString(contents);
   }
+  if (!basis.size()) throw "Shell information not read properly.";
   for (const auto &b: basis) {
     LOGGER(0) << ":: " << b.atom << " :name " << b.name << " "
               << ":#shells" << b.shells.size() << std::endl;
   }
 
   std::vector<std::string> atoms;
+  int frozenElectrons(0);
   if (xyz.size()) {
     const auto structure(pars::XyzParser().parseFile(xyz));
     for (const auto &a: structure) atoms.push_back(a.symbol);
@@ -204,9 +224,18 @@ void MoReader::run() {
                 << a.position.y << ", "
                 << a.position.z << std::endl;
     }
+    if (frozenCore) {
+      for (const auto &a: structure){
+        LOGGER(0) << "atoms: " << a.symbol << std::endl;
+        frozenElectrons += frozenElement(a.symbol);
+      }
+      LOGGER(0) << "frozen: " << frozenElectrons << std::endl;
+    }
+
   }
 
-  std::vector<double> mos, eigenvalues, occupations;
+
+  std::vector<std::vector<double>> mos, eigenvalues, occupations;
   size_t Np;
 
   if (backend == NWCHEM) {
@@ -215,71 +244,153 @@ void MoReader::run() {
     eigenvalues = movec.eigenvalues;
     occupations = movec.occupations;
     Np = movec.Np;
-  } else if (backend == TURBOMOLE) {
+  }
+   /*
+  * else if (backend == TURBOMOLE) {
     const tmole::MosParser movec(fileName);
     mos = movec.mos;
     eigenvalues = movec.eigenvalues;
     occupations = movec.occupations;
     Np = movec.Np;
-  }
+  } */
 
-  for (const auto &p: transformation.scaling) {
-    const auto am = am::toInt(p.first);
-    const auto& scaling = p.second;
-    if (scaling.size()) {
-      LOGGER(0) << "doing scaling of am: "  << am << std::endl;
-      LOGGER(0) << "You should have "  << am << " numbers" << std::endl;
-      assert(scaling.size() == am);
-      auto indicesVector(findShellIndices(basis, atoms, p.first));
-      // go through every state (column of mos)
-      for (size_t j(0); j<Np; j++) {
-      for (auto const& indices: indicesVector) {
-        assert(indices.size() == am);
-      for (size_t ii(0); ii<am; ii++) {
-        assert(indices[ii] < Np);
-        mos[ indices[ii] + j * Np ] *= scaling[ii];
+  // For every spin channel, reorder and rescale the mos.
+  for (auto& _mos: mos) {
+
+    // do scaling
+    for (const auto &p: transformation.scaling) {
+      const auto am = am::toInt(p.first);
+      const auto& scaling = p.second;
+      if (scaling.size()) {
+        LOGGER(0) << "doing scaling of am: "  << am << std::endl;
+        LOGGER(0) << "You should have "  << am << " numbers" << std::endl;
+        assert(scaling.size() == am);
+        auto indicesVector(findShellIndices(basis, atoms, p.first));
+        // go through every state (column of mos)
+        for (size_t j(0); j<Np; j++) {
+        for (auto const& indices: indicesVector) {
+          assert(indices.size() == am);
+        for (size_t ii(0); ii<am; ii++) {
+          assert(indices[ii] < Np);
+          _mos[ indices[ii] + j * Np ] *= scaling[ii];
+        }
+        }
+        }
+        LOGGER(0) << "done with "  << am << std::endl;
       }
-      }
-      }
-      LOGGER(0) << "done with "  << am << std::endl;
     }
-  }
 
-  for (const auto &p: transformation.reorder) {
-    const auto am = am::toInt(p.first);
-    const auto& reorder = p.second;
-    if (reorder.size()) {
-      LOGGER(0) << "doing reorder of am: "  << am << std::endl;
-      LOGGER(0) << "You should have "  << am << " numbers" << std::endl;
-      assert(reorder.size() == am);
-      auto indicesVector(findShellIndices(basis, atoms, p.first));
-      // go through every state (column of mos)
-      for (size_t j(0); j<Np; j++) {
-      for (auto const& indices: indicesVector) {
-        assert(indices.size() == am);
-        // save a backup of the indices thunk to be settable
-        std::vector<double> backup(indices.size());
-        for (size_t ii(0); ii<am; ii++) backup[ii] = mos[indices[ii] + j*Np];
-      for (size_t ii(0); ii<am; ii++) {
-        assert(indices[ii] < Np);
-        mos[ indices[ii] + j * Np ] = backup[reorder[ii]];
+    // do reorder
+    for (const auto &p: transformation.reorder) {
+      const auto am = am::toInt(p.first);
+      const auto& reorder = p.second;
+      if (reorder.size()) {
+        LOGGER(0) << "doing reorder of am: "  << am << std::endl;
+        LOGGER(0) << "You should have "  << am << " numbers" << std::endl;
+        assert(reorder.size() == am);
+        auto indicesVector(findShellIndices(basis, atoms, p.first));
+        // go through every state (column of mos)
+        for (size_t j(0); j<Np; j++) {
+        for (auto const& indices: indicesVector) {
+          assert(indices.size() == am);
+          // save a backup of the indices thunk to be settable
+          std::vector<double> backup(indices.size());
+          for (size_t ii(0); ii<am; ii++) backup[ii] = _mos[indices[ii] + j*Np];
+        for (size_t ii(0); ii<am; ii++) {
+          assert(indices[ii] < Np);
+          _mos[ indices[ii] + j * Np ] = backup[reorder[ii]];
+        }
+        }
+        }
+        LOGGER(0) << "done with "  << am << std::endl;
       }
-      }
-      }
-      LOGGER(0) << "done with "  << am << std::endl;
     }
+
   }
 
-  std::vector<int> pp(2, Np), syms(2, NS), o(1, No), v(1, Np - No);
+  std::vector<int> pp(2, Np), syms(2, NS), o(1), v(1), p(1, Np);
+  size_t no(0); size_t nv(0);
   std::vector<int64_t> ids;
+  const bool unrestricted = mos.size() == 2;
   const int rank_m = int(Cc4s::world->rank == 0); // rank mask
 
+  std::vector<double> outMos, outEigenvalues, outOccupations, outSpins;
+  if (unrestricted) {
+    LOGGER(0) << "considering UNRESTRICTED system"  << std::endl;
+    size_t na(eigenvalues[0].size());
+    size_t nb(eigenvalues[1].size());
+    size_t npp(na+nb);
+
+    for (size_t b(0); b < occupations[0].size(); b++){
+      if ( b < frozenElectrons/2) continue;
+      auto occ(occupations[0][b]);
+      if ( occ < 0.5) continue;
+      no++;
+      outOccupations.push_back(occ);
+      outSpins.push_back(0.5);
+      outEigenvalues.push_back(eigenvalues[0][b]);
+      for ( size_t jj(0); jj < Np; jj++) outMos.push_back(mos[0][b*Np + jj]);
+    }
+
+    for (size_t b(0); b < occupations[1].size(); b++){
+      if ( b < frozenElectrons/2) continue;
+      auto occ(occupations[1][b]);
+      if ( occ < 0.5) continue;
+      no++;
+      outOccupations.push_back(occ);
+      outSpins.push_back(-0.5);
+      outEigenvalues.push_back(eigenvalues[1][b]);
+      for ( size_t jj(0); jj < Np; jj++) outMos.push_back(mos[1][b*Np + jj]);
+    }
+
+    for (size_t b(0); b < occupations[0].size(); b++){
+      if ( b < frozenElectrons/2) continue;
+      auto occ(occupations[0][b]);
+      if ( occ > 0.5) continue;
+      nv++;
+      outOccupations.push_back(occ);
+      outSpins.push_back(0.5);
+      outEigenvalues.push_back(eigenvalues[0][b]);
+      for ( size_t jj(0); jj < Np; jj++) outMos.push_back(mos[0][b*Np + jj]);
+    }
+
+    for (size_t b(0); b < occupations[1].size(); b++){
+      if ( b < frozenElectrons/2) continue;
+      auto occ(occupations[1][b]);
+      if ( occ > 0.5) continue;
+      nv++;
+      outOccupations.push_back(occ);
+      outSpins.push_back(-0.5);
+      outEigenvalues.push_back(eigenvalues[1][b]);
+      for ( size_t jj(0); jj < Np; jj++) outMos.push_back(mos[1][b*Np + jj]);
+    }
+
+    o[0] = no;
+    v[0] = nv;
+    p[0] = no+nv;
+    pp[1] = p[0];
+  } else {
+    LOGGER(0) << "considering RESTRICTED system"  << std::endl;
+    for (size_t ii(0); ii < occupations[0].size(); ii++){
+      if ( ii < frozenElectrons/2) continue;
+      auto occ(occupations[0][ii]);
+      if ( occ > 0.5) { no++;}
+      else { nv++;}
+      outEigenvalues.push_back(eigenvalues[0][ii]);
+      outOccupations.push_back(occ);
+      for ( size_t jj(0); jj < Np; jj++) outMos.push_back(mos[0][ii*Np + jj]);
+    }
+    o[0] = no;
+    v[0] = nv;
+    p[0] = no+nv;
+    pp[1] = p[0];
+  }
 
   IF_GIVEN("HoleEigenEnergies",
     ids.resize(rank_m * o[0]);
     std::iota(ids.begin(), ids.end(), 0);
     auto epsi(new CTF::Tensor<double>(1, o.data(), syms.data(), *Cc4s::world));
-    epsi->write(ids.size(), ids.data(), eigenvalues.data());
+    epsi->write(ids.size(), ids.data(), outEigenvalues.data());
     allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   )
 
@@ -287,23 +398,31 @@ void MoReader::run() {
     ids.resize(rank_m * v[0]);
     std::iota(ids.begin(), ids.end(), 0);
     auto epsa(new CTF::Tensor<double>(1, v.data(), syms.data(), *Cc4s::world));
-    epsa->write(ids.size(), ids.data(), eigenvalues.data() + No);
+    epsa->write(ids.size(), ids.data(), outEigenvalues.data() + o[0]);
     allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
   )
 
   IF_GIVEN("OccupationNumbers",
-    ids.resize(rank_m * Np);
+    ids.resize(rank_m * p[0]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto os(new CTF::Tensor<double>(1, pp.data(), syms.data(), *Cc4s::world));
-    os->write(ids.size(), ids.data(), occupations.data());
+    auto os(new CTF::Tensor<double>(1, p.data(), syms.data(), *Cc4s::world));
+    os->write(ids.size(), ids.data(), outOccupations.data());
     allocatedTensorArgument<double>("OccupationNumbers", os);
   )
+  if (unrestricted){
+    ids.resize(rank_m * p[0]);
+    std::iota(ids.begin(), ids.end(), 0);
+    auto spin(new CTF::Tensor<double>(1, p.data(), syms.data(), *Cc4s::world));
+    spin->write(ids.size(), ids.data(), outSpins.data());
+    allocatedTensorArgument<double>("Spins", spin);
+  }
+
 
   if (isArgumentGiven("OrbitalCoefficients")) {
-    ids.resize(rank_m * Np*Np);
+    ids.resize(rank_m * pp[0]*pp[1]);
     std::iota(ids.begin(), ids.end(), 0);
     auto coef(new CTF::Tensor<double>(2, pp.data(), syms.data(), *Cc4s::world));
-    coef->write(ids.size(), ids.data(), mos.data());
+    coef->write(ids.size(), ids.data(), outMos.data());
     allocatedTensorArgument<double>("OrbitalCoefficients", coef);
   }
 

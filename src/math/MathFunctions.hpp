@@ -71,6 +71,11 @@ namespace cc4s {
     return x / y;
   }
 
+  template <typename F=double>
+  inline F multiply(F const x, F const y) {
+    return x * y;
+  }
+
   template <typename F>
   inline double frobeniusNorm(CTF::Tensor<F> &t) {
     char *indices(new char[t.order+1]);

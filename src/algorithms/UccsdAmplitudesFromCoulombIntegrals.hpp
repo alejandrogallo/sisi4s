@@ -30,6 +30,7 @@ namespace cc4s {
     );
 
     bool usingIntermediates;
+    bool onlyPpl;
 
     virtual PTR(FockVector<complex>) getResiduum(
       const int iteration, const PTR(const FockVector<complex>) &amplitudes

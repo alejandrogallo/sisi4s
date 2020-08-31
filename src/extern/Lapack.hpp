@@ -40,7 +40,30 @@ extern "C" {
     cc4s::Float64 *rwork,
     int *info
   );
-
+  void dsyev_(
+    const char *jobz,
+    const char *uplo,
+    const int *n,
+    cc4s::Float64 *a,
+    const int *lda,
+    cc4s::Float64 *w,
+    cc4s::Float64 *work,
+    const int *lwork,
+    int *info
+  );
+  void dsysv_(
+    const char *uplo,
+    const int *n,
+    const int *m,
+    cc4s::Float64 *a,
+    const int *lda,
+    const int *ipiv,
+    cc4s::Float64 *b,
+    const int *ldb,
+    cc4s::Float64 *work,
+    const int *lwork,
+    const int *info
+  );
   void dgetrf_(
     const int *m,
     const int *n,
