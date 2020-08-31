@@ -39,9 +39,9 @@ A downTr(const A& a) { return permuteIndices(a, 2, 3); }
 // and string indices for ctf. It computes also IntegralInfos for
 // antisymmetry options
 struct IntegralInfo {
-  const std::string name;
-  const std::array<Index, 4> indices;
-  const std::string ids;
+  std::string name;
+  std::array<Index, 4> indices;
+  std::string ids;
   IntegralInfo(std::string n, std::array<Index, 4> i, std::string is):
     name(n), indices(i), ids(is){}
 
