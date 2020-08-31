@@ -1194,60 +1194,79 @@ SimilarityTransformedHamiltonian<F>::getABCI() {
   bool wabciIntermediates(false);
   if (wabciIntermediates) {
     LOG(1, getAbbreviation()) << "Building Wabci from Wabcd and Wia"
-                                         << std::endl;
+                              << std::endl;
     Tau_abij = getTauABIJ();
     Wabcd = getABCD();
     Wia = getIA();
     //--1
+    ST_DEBUG("Vabci")
     (*Wabci)["abci"]  = (*Vabci)["abci"];
     //--3
+    ST_DEBUG("Vaibj * Tai")
     (*Wabci)["abci"] += ( -1.0) * (*Vaibj)["amci"] * (*Tai)["bm"];
     (*Wabci)["abci"] += ( +1.0) * (*Vaibj)["bmci"] * (*Tai)["am"];
     //--6
+    ST_DEBUG("Vaibc * Tabij")
     (*Wabci)["abci"] += ( +1.0) * (*Vaibc)["amce"] * (*Tabij)["ebmi"];
     (*Wabci)["abci"] += ( -1.0) * (*Vaibc)["bmce"] * (*Tabij)["eami"];
     //--9
+    ST_DEBUG("Vijab * Tai * Tai")
     (*Wabci)["abci"] += ( -1.0) * (*Vijab)["mnce"] * (*Tai)["am"] * (*Tabij)["ebni"];
     (*Wabci)["abci"] += ( +1.0) * (*Vijab)["mnce"] * (*Tai)["bm"] * (*Tabij)["eani"];
     //--8
+    ST_DEBUG("Wia * Tabij")
     (*Wabci)["abci"] += ( -1.0) * (*Wia)["mc"] * (*Tabij)["abmi"];
     //--2-4-10-11
+    ST_DEBUG("Tia * Wabcd")
     (*Wabci)["abci"] += ( +1.0) * (*Tai)["ei"] * (*Wabcd)["abce"];
     //--7-5
+    ST_DEBUG("Vijak * τ_abij")
     (*Wabci)["abci"] += (  0.5 ) * (*Vijak)["nmci"] * (*Tau_abij)["abnm"];
   } else {
     LOG(1, getAbbreviation()) << "Building Wabci" << std::endl;
     // from [1] first line of diagram 10.76, page 333
     //--1
+    ST_DEBUG("Vabci")
     (*Wabci)["abci"]  = (*Vabci)["abci"];
     //--2
+    ST_DEBUG("Vabcd * Tai")
     (*Wabci)["abci"] += (*Vabcd)["abce"] * (*Tai)["ei"];
     //--3
+    ST_DEBUG("Vaibj * Tai")
     (*Wabci)["abci"] += ( -1.0) * (*Vaibj)["amci"] * (*Tai)["bm"];
     (*Wabci)["abci"] += ( +1.0) * (*Vaibj)["bmci"] * (*Tai)["am"];
     //--4
+    ST_DEBUG("Vaibc * Tai * Tai")
     (*Wabci)["abci"] += ( -1.0) * (*Vaibc)["amce"] * (*Tai)["bm"] * (*Tai)["ei"];
     (*Wabci)["abci"] += ( +1.0) * (*Vaibc)["bmce"] * (*Tai)["am"] * (*Tai)["ei"];
     //--5
+    ST_DEBUG("Vijak * Tai * Tai")
     (*Wabci)["abci"] += ( +1.0) * (*Vijak)["mnci"] * (*Tai)["am"] * (*Tai)["bn"];
     //--5.1 (non canonical)
     if (Fia) {
+      ST_DEBUG("Fia * Tabij")
       (*Wabci)["abci"] += ( -1.0) * (*Fia)["mc"] * (*Tabij)["abmi"];
     }
     //--6
+    ST_DEBUG("Vaibc * Tabij")
     (*Wabci)["abci"] +=          (*Vaibc)["amce"] * (*Tabij)["ebmi"];
     (*Wabci)["abci"] += (-1.0) * (*Vaibc)["bmce"] * (*Tabij)["eami"];
     //--7
+    ST_DEBUG("Vijak * Tabij")
     (*Wabci)["abci"] += (  0.5) * (*Vijak)["mnci"] * (*Tabij)["abmn"];
     //--8
-    (*Wabci)["abci"] += ( -1.0) * (*Vijab)["mnec"] * (*Tai)["em"] * (*Tabij)["abni"];
+    ST_DEBUG("Tabij * Vijab  * Tai")
+    (*Wabci)["abci"] += ( -1.0) * (*Tabij)["abni"] * (*Vijab)["mnec"] * (*Tai)["em"];
     //--9
-    (*Wabci)["abci"] += ( -1.0) * (*Vijab)["mnce"] * (*Tai)["am"] * (*Tabij)["ebni"];
-    (*Wabci)["abci"] += ( +1.0) * (*Vijab)["mnce"] * (*Tai)["bm"] * (*Tabij)["eani"];
+    ST_DEBUG("Vijab * Tai * Tabij")
+    (*Wabci)["abci"] += ( -1.0) * (*Tai)["am"] * (*Vijab)["mnce"] * (*Tabij)["ebni"];
+    (*Wabci)["abci"] += ( +1.0) * (*Tai)["bm"] * (*Vijab)["mnce"] * (*Tabij)["eani"];
     //--10
-    (*Wabci)["abci"] += (  0.5) * (*Vijab)["mnce"] * (*Tai)["ei"] * (*Tabij)["abmn"];
+    ST_DEBUG("Vijab * Tai * Tabij")
+    (*Wabci)["abci"] += (  0.5) * (*Tai)["ei"] * (*Vijab)["mnce"] * (*Tabij)["abmn"];
     //--11
-    (*Wabci)["abci"] +=           (*Vijab)["mnce"] * (*Tai)["am"] * (*Tai)["bn"] * (*Tai)["ei"];
+    ST_DEBUG("Vijab * Tai * Tai * Tai")
+    (*Wabci)["abci"] += (*Tai)["am"] * (*Tai)["bn"] * (*Tai)["ei"] * (*Vijab)["mnce"];
   }
 
   return Wabci;
