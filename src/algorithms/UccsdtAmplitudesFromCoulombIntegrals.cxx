@@ -148,7 +148,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
   auto Rabcijk(residuum->get(2));
   Rabcijk->set_name("Rabcijk");
 
-  if (iterationStep == 0){
+  if ((iterationStep == 0) && !isArgumentGiven("initialDoublesAmplitudes")){
     LOG(1, getAbbreviation())
       << "Set initial Rabij amplitudes to Vijab" << std::endl;
     (*Rabij)["abij"] = (*Vijab)["ijab"];
