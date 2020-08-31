@@ -366,7 +366,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
 
   private:
     CTF::Tensor<double> &C, &V, &S;
-    CTF::Tensor<double>* VTransformed = nullptr
+    CTF::Tensor<double>* VTransformed = nullptr;
 };
 
 CTF::Tensor<double>* stdVectorToTensor( const std::vector<double> v

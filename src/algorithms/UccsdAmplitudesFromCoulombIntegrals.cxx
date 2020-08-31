@@ -47,8 +47,7 @@ void UccsdAmplitudesFromCoulombIntegrals::run() {
     , "UccsdDoublesAmplitudes", "UccsdSinglesAmplitudes", "UccsdEnergy"
     //
     , "onlyPPL", "initialDoublesAmplitudes", "initialSinglesAmplitudes"
-    };
-  checkArgumentsOrDie(allArguments);
+    } );
 
   usingIntermediates = getIntegerArgument("intermediates", 1) == 1;
   onlyPpl = getIntegerArgument("onlyPPL", 0) == 1;
