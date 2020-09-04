@@ -27,10 +27,10 @@ std::vector<double> inverse(
   return column;
 }
 
-std::vector<complex> inverse(
-  std::vector<complex> matrix, int N
+std::vector<cc4s::complex> inverse(
+  std::vector<cc4s::complex> matrix, int N
 ){
-  std::vector<complex> column(N);
+  std::vector<cc4s::complex> column(N);
 // TODO
 
   return column;

@@ -312,9 +312,9 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
         // Construct a spin map which is either one or zero.
         auto Sm = new CTF::Tensor<double>(2, l.data(), s.data(), *Cc4s::world);
         (*Sm)["pq"] = S["p"]*S["q"];
-        CTF::Transform<real>(
-          std::function<void(real &)>(
-            [](real &s) { s = (s + 0.25) * 2.0; }
+        CTF::Transform<double>(
+          std::function<void(double &)>(
+            [](double &s) { s = (s + 0.25) * 2.0; }
         )
         )(
          (*Sm)["pq"]
