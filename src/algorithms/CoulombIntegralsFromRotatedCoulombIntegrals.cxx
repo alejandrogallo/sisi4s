@@ -326,6 +326,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
         VTransformed->contract(
           1.0, *VTransformed,"pqrs", *Smap,"pqrs", 0.0,"pqrs", fMultiply
         );
+        delete Smap;
         LOGGER(1) << "Vpqrs build\n";
       }
 //      else {

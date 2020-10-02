@@ -232,12 +232,15 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     int oo[] = { Tabij->lens[2], Tabij->lens[2] };
     int syms[] = { NS, NS};
     auto pairEnergy(new Tensor<F>( 2, oo, syms, *Cc4s::world, "pairEnergies"));
-    (*pairEnergy)["ij"]  =   2.0  * (*Tabij)["abij"] * (*Vijab)["ijab"];
-    (*pairEnergy)["ij"] += (-1.0) * (*Tabij)["abij"] * (*Vijab)["ijba"];
-    (*pairEnergy)["ij"] += (+2.0) * (*Tai)["ai"] * (*Tai)["bj"]
-                                  * (*Vijab)["ijab"];
-    (*pairEnergy)["ij"] += (-1.0) * (*Tai)["ai"] * (*Tai)["bj"]
-                                  * (*Vijab)["ijba"];
+    if (antisymmetrized) {
+      (*pairEnergy)["ij"]  = ( + 0.25 ) * (*Tabij)["abij"] * (*Vijab)["ijab"];
+      (*pairEnergy)["ij"] += ( + 0.5  ) * (*Tai)["ai"] * (*Tai)["bj"] * (*Vijab)["ijab"];
+    } else {
+      (*pairEnergy)["ij"]  =   2.0  * (*Tabij)["abij"] * (*Vijab)["ijab"];
+      (*pairEnergy)["ij"] += (-1.0) * (*Tabij)["abij"] * (*Vijab)["ijba"];
+      (*pairEnergy)["ij"] += (+2.0) * (*Tai)["ai"] * (*Tai)["bj"] * (*Vijab)["ijab"];
+      (*pairEnergy)["ij"] += (-1.0) * (*Tai)["ai"] * (*Tai)["bj"] * (*Vijab)["ijba"];
+    }
     allocatedTensorArgument<F>("PairEnergy", pairEnergy);
   }
   return e;
