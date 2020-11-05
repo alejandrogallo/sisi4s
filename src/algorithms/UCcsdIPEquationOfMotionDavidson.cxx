@@ -54,7 +54,10 @@ void UCcsdIPEquationOfMotionDavidson::run() {
   );
   int eigenStates(getIntegerArgument("eigenstates", 1));
   bool intermediates(getIntegerArgument("intermediates", 1));
-  double ediff(getRealArgument("ediff", 1e-4));
+  const
+  double energyConvergence(getRealArgument("energyConvergence", 1e-6))
+       , amplitudesConvergence(getRealArgument("amplitudesConvergence", 1e-6))
+       ;
   unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
   unsigned int minIterations(getIntegerArgument("minIterations", 1));
   std::vector<int> eigenvectorsIndices(
@@ -84,7 +87,7 @@ void UCcsdIPEquationOfMotionDavidson::run() {
 
   // Logging arguments
   LOG(0, "IPEomDavid") << "Max iterations " << maxIterations << std::endl;
-  LOG(0, "IPEomDavid") << "ediff " << ediff << std::endl;
+  LOG(0, "IPEomDavid") << "energyConvergence " << energyConvergence << std::endl;
   LOG(0, "IPEomDavid") << eigenStates << " eigen states" << std::endl;
   LOG(0, "IPEomDavid") << "No: " << No << std::endl;
   LOG(0, "IPEomDavid") << "Nv: " << Nv << std::endl;
@@ -293,7 +296,8 @@ void UCcsdIPEquationOfMotionDavidson::run() {
     &ipH,
     eigenStates,
     &P,
-    ediff,
+    amplitudesConvergence,
+    energyConvergence,
     maxBasisSize,
     maxIterations,
     minIterations

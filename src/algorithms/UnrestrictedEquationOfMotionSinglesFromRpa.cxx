@@ -59,7 +59,10 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
     RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange()
   );
   int eigenStates(getIntegerArgument("eigenstates", 1));
-  double ediff(getRealArgument("ediff", 1e-4));
+  const
+  double energyConvergence(getRealArgument("energyConvergence", 1e-6))
+       , amplitudesConvergence(getRealArgument("amplitudesConvergence", 1e-6))
+       ;
   bool intermediates(getIntegerArgument("intermediates", 1));
   unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
   unsigned int minIterations(getIntegerArgument("minIterations", 1));
@@ -90,7 +93,7 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
 
   // Logging arguments
   LOG(0, "RPAEomDavid") << "Max iterations " << maxIterations << std::endl;
-  LOG(0, "RPAEomDavid") << "ediff " << ediff << std::endl;
+  LOG(0, "RPAEomDavid") << "energyConvergence " << energyConvergence << std::endl;
   LOG(0, "RPAEomDavid") << eigenStates << " eigen states" << std::endl;
   LOG(0, "RPAEomDavid") << "No: " << No << std::endl;
   LOG(0, "RPAEomDavid") << "Nv: " << Nv << std::endl;
@@ -199,7 +202,8 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
     &rpaH,
     eigenStates,
     &P,
-    ediff,
+    amplitudesConvergence,
+    energyConvergence,
     maxBasisSize,
     maxIterations,
     minIterations

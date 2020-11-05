@@ -98,7 +98,8 @@ void CcsdEquationOfMotionDavidson::run() {
                                           , "printEigenvectorsDoubles"
                                           , "printEigenvectorsRange"
                                           // Davidson solver
-                                          , "ediff"
+                                          , "amplitudesConvergence"
+                                          , "energyConvergence"
                                           , "maxBasisSize"
                                           , "intermediates"
                                           , "eigenstates"
@@ -130,7 +131,10 @@ void CcsdEquationOfMotionDavidson::run() {
                  , getIntegerArgument("preconditionerSpinFlip", 1) == 1
                  };
 
-  const double ediff(getRealArgument("ediff", 1e-6));
+  const
+  double energyConvergence(getRealArgument("energyConvergence", 1e-6))
+       , amplitudesConvergence(getRealArgument("amplitudesConvergence", 1e-6))
+       ;
 
   const bool
     intermediates(getIntegerArgument("intermediates", 1))
@@ -185,7 +189,7 @@ void CcsdEquationOfMotionDavidson::run() {
 
   // Logging arguments
   LOGGER(0) << "max iter:  " << maxIterations << std::endl;
-  LOGGER(0) << "ediff:     " << ediff << std::endl;
+  LOGGER(0) << "energyConvergence:     " << energyConvergence << std::endl;
   LOGGER(0) << "nroots:    " << eigenStates << std::endl;
   LOGGER(0) << "No:        " << No << std::endl;
   LOGGER(0) << "Nv:        " << Nv << std::endl;
@@ -300,7 +304,8 @@ void CcsdEquationOfMotionDavidson::run() {
     eigenSystem(&H,
                 eigenStates,
                 &P,
-                ediff,
+                amplitudesConvergence,
+                energyConvergence,
                 maxBasisSize,
                 maxIterations,
                 minIterations);
