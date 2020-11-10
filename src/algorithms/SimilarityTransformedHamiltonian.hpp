@@ -55,6 +55,9 @@ namespace cc4s {
     SDFockVector<F> rightApplyHirata_CCSD_EA(SDFockVector<F>&);
     SDFockVector<F> rightApplyIntermediates_CCSD_EA(SDFockVector<F>&);
 
+    // Structure factor
+    CTF::Tensor<F> structureFactor(SDFockVector<F>&);
+
     // One body
     PTR(CTF::Tensor<F>) getIJ();
     PTR(CTF::Tensor<F>) getAB();
@@ -135,15 +138,19 @@ namespace cc4s {
     //
     // Resources that should be destroyed after the class gets destroyed
     //
-    // one body
-    PTR(CTF::Tensor<F>)  Wij, Wab, Wia, Wai;
-    // two body
-    PTR(CTF::Tensor<F>)  Wabij, Wijab, Wabcd, Wabci, Waibc,
-                         Wiabj, Wiajk, Wijka, Wijkl;
-    // three body
-    PTR(CTF::Tensor<F>) Wabcijk;
+    PTR(CTF::Tensor<F>)
+      // one body
+        Wij, Wab, Wia, Wai
 
-    PTR(CTF::Tensor<F>) Tau_abij;
+      // two body
+      , Wabij, Wijab, Wabcd, Wabci, Waibc, Wiabj, Wiajk, Wijka, Wijkl
+
+      // three body
+      , Wabcijk
+
+      // intermediate quantities
+      , Tau_abij
+      ;
 
 
     //
@@ -151,13 +158,19 @@ namespace cc4s {
     // Hamiltonian class gets destroyed
     //
     CTF::Tensor<F>
-      *Tai=nullptr, *Tabij=nullptr, *Tabcijk=nullptr, *Tabcdijkl=nullptr;
-    CTF::Tensor<F> *Fij, *Fab, *Fia=nullptr;
-    CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
-                   *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
-                   *Vabij;
-    // coulomb vertex
-    CTF::Tensor<F> *GammaGqr=nullptr;
+      // T amplitudes
+        *Tai=nullptr, *Tabij=nullptr, *Tabcijk=nullptr, *Tabcdijkl=nullptr
+
+      // Fock matrices
+      , *Fij, *Fab, *Fia=nullptr
+
+      // Coulomb integrals
+      , *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk, *Vabic, *Vaibc
+      , *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci, *Vabij
+
+      // coulomb vertex
+      , *GammaGqr=nullptr
+      ;
 
   };
 
