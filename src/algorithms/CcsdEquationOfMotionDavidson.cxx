@@ -120,6 +120,9 @@ void CcsdEquationOfMotionDavidson::run() {
                                           , "HPFockMatrix"
                                           , "HHFockMatrix"
                                           , "PPFockMatrix"
+                                          // structure factor
+                                          , "CoulombVertex"
+                                          , "structureFactorRange"
                                           };
   // possible integrals
   for (auto& i: requiredIntegrals) { allArguments.push_back(i.name); }
@@ -151,6 +154,7 @@ void CcsdEquationOfMotionDavidson::run() {
   std::vector<int> refreshIterations(argToRange("refreshIterations"))
                  , oneBodyRdmIndices(argToRange("oneBodyRdmRange"))
                  , eigenvectorsIndices(argToRange("printEigenvectorsRange"))
+                 , structureFactorIndices(argToRange("structureFactorRange"))
                  ;
 
   const unsigned
@@ -399,5 +403,30 @@ void CcsdEquationOfMotionDavidson::run() {
 
   }
   EMIT() << YAML::EndSeq;
+
+
+  if (structureFactorIndices.size()) {
+    auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
+    H.setGammaGqr(GammaGqr);
+    for (auto &index: eigenvectorsIndices) {
+      auto r(eigenSystem.getRightEigenVectors()[index-1]);
+      LOGGER(1) << "Getting S for " << index << std::endl;
+      auto S(H.structureFactor(r));
+      LOGGER(1) << "Got S for " << index << std::endl;
+      CTF::Scalar<F> energy;
+      energy[""] = S.S["G"] * S.S["G"];
+      const double value(std::real(energy.get_val()));
+      LOGGER(1) << "SF::energy "
+                << index
+                << " "
+                << S.energy
+                << " "
+                << value
+                << " "
+                << S.energy + value
+                << std::endl
+                ;
+    }
+  }
 
 }
