@@ -56,7 +56,8 @@ namespace cc4s {
     SDFockVector<F> rightApplyIntermediates_CCSD_EA(SDFockVector<F>&);
 
     // Structure factor
-    CTF::Tensor<F> structureFactor(SDFockVector<F>&);
+    struct StructureFactor { double energy; CTF::Tensor<F> S; };
+    StructureFactor structureFactor(SDFockVector<F>&);
 
     // One body
     PTR(CTF::Tensor<F>) getIJ();
@@ -107,7 +108,8 @@ namespace cc4s {
     STH& setVabij(CTF::Tensor<F> *t) { Vabij = t; return *this; }
 
     // coulomb bertex setter
-    STH& setGammaGqr(CTF::Tensor<F> *t) { GammaGqr = t; return *this; }
+    STH&
+    setGammaGqr(CTF::Tensor<cc4s::complex> *t) { GammaGqr = t; return *this; }
 
     STH& setRightApplyIntermediates(bool t) {
       useRightApplyIntermediates = t; return *this;}
@@ -167,9 +169,11 @@ namespace cc4s {
       // Coulomb integrals
       , *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk, *Vabic, *Vaibc
       , *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci, *Vabij
+      ;
 
-      // coulomb vertex
-      , *GammaGqr=nullptr
+    // coulomb vertex
+    CTF::Tensor<cc4s::complex>
+      *GammaGqr=nullptr
       ;
 
   };
