@@ -415,7 +415,21 @@ void CcsdEquationOfMotionDavidson::run() {
       LOGGER(1) << "Got S for " << index << std::endl;
       CTF::Scalar<F> energy;
       energy[""] = S.S["G"] * S.S["G"];
+      LOGGER(1) << "Calculate S[G] * S[G]" << std::endl;
       const double value(std::real(energy.get_val()));
+      const double braket(std::real(r.dot(r)));
+      LOGGER(1) << "SF::energy "
+                << "index"
+                << " "
+                << "S.energy"
+                << " "
+                << "value"
+                << " "
+                << "S.energy + value"
+                << " "
+                << "(S.energy + value) / r.dot(r)"
+                << std::endl
+                ;
       LOGGER(1) << "SF::energy "
                 << index
                 << " "
@@ -424,6 +438,8 @@ void CcsdEquationOfMotionDavidson::run() {
                 << value
                 << " "
                 << S.energy + value
+                << " "
+                << (S.energy + value) / braket
                 << std::endl
                 ;
     }
