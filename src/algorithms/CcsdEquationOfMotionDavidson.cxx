@@ -414,7 +414,7 @@ void CcsdEquationOfMotionDavidson::run() {
       auto S(H.structureFactor(r));
       LOGGER(1) << "Got S for " << index << std::endl;
       CTF::Scalar<F> energy;
-      energy[""] = S.S["G"] * S.S["G"];
+      energy[""] = S.S["G"];
       LOGGER(1) << "Calculate S[G] * S[G]" << std::endl;
       const double value(std::real(energy.get_val()));
       const double braket(std::real(r.dot(r)));

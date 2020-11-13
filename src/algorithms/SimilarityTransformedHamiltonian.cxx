@@ -2828,7 +2828,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
 
   // (one body part)
 
-  ST_DEBUG("WIJ")
+  ST_DEBUG("WIJ =============================================================")
   // WIJ =====================================================================
   energy[""] += ( - 1.0 ) * (*CRai)["bi"] * (*Fij)["ki"] * (*Rai)["bk"];
   //:with-V  S["G"] += ( + 1.0  ) * (*CRai)["bi"] * (*Tai)["cl"] * (*Vijka)["lmic"] * (*Rai)["bm"];
@@ -2850,7 +2850,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( + 1.0  ) * realCia["Gnc"] * (*Tai)["ci"] * realCia["Gmd"] * (*Tai)["dm"] * (*CRai)["bi"] * (*Rai)["bn"];
   S["G"] -= ( + 1.0  ) * imagCia["Gnc"] * (*Tai)["ci"] * imagCia["Gmd"] * (*Tai)["dm"] * (*CRai)["bi"] * (*Rai)["bn"];
 
-  ST_DEBUG("WAB")
+  ST_DEBUG("WAB =============================================================")
   // WAB =====================================================================
   energy[""] += ( + 1.0 ) * (*CRai)["bi"] * (*Fab)["bc"] * (*Rai)["ci"];
   //:with-V  S["G"] += ( + 1.0  ) * (*CRai)["bi"] * (*Tai)["cl"] * (*Viabc)["lbce"] * (*Rai)["ei"];
@@ -2872,7 +2872,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( + 1.0  ) * realCia["Gkf"] * (*Tai)["bk"] * (*CRai)["bi"] * (*Rai)["fi"] * (*Tai)["dm"] * realCia["Gmd"];
   S["G"] -= ( + 1.0  ) * imagCia["Gkf"] * (*Tai)["bk"] * (*CRai)["bi"] * (*Rai)["fi"] * (*Tai)["dm"] * imagCia["Gmd"];
 
-  ST_DEBUG("WIABJ")
+  ST_DEBUG("WIABJ ===========================================================")
   // WIABJ ===================================================================
   //:with-V  S["G"] += ( - 1.0 ) * (*CRai)["bi"] * (*Viajb)["kbid"] * (*Rai)["dk"];
     ST_DEBUG("Mark .")
@@ -2905,7 +2905,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( - 1.0  ) * (*CRai)["bi"] * (*Tai)["ci"] * (*Tai)["bl"] * realCia["Glf"] * realCia["Gmc"] * (*Rai)["fm"];
   S["G"] -= ( - 1.0  ) * (*CRai)["bi"] * (*Tai)["ci"] * (*Tai)["bl"] * imagCia["Glf"] * imagCia["Gmc"] * (*Rai)["fm"];
 
-  ST_DEBUG("WIA")
+  ST_DEBUG("WIA =============================================================")
   // WIA =====================================================================
   //:with-V  S["G"] += ( + 1.0  ) * (*CRai)["bi"] * (*Tai)["cl"] * (*Vijab)["lmcf"] * (*Rabij)["fbmi"];
     ST_DEBUG("Mark .")
@@ -2914,7 +2914,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( + 1.0  ) * realCia["Glf"] * (*Tai)["cl"] * realCia["Gmc"] * (*CRai)["bi"] * (*Rabij)["fbmi"];
   S["G"] -= ( + 1.0  ) * imagCia["Glf"] * (*Tai)["cl"] * imagCia["Gmc"] * (*CRai)["bi"] * (*Rabij)["fbmi"];
 
-  ST_DEBUG("WIJKA")
+  ST_DEBUG("WIJKA ===========================================================")
   // WIJKA ===================================================================
   //:with-V  S["G"] += ( + 0.5 ) * (*CRai)["bi"] * (*Vijka)["klie"] * (*Rabij)["ebkl"];
     ST_DEBUG("Mark .")
@@ -2929,7 +2929,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( + 0.5  ) * realCia["Glf"] * realCia["Gmc"] * (*Tai)["ci"] * (*CRai)["bi"] * (*Rabij)["fblm"];
   S["G"] -= ( + 0.5  ) * imagCia["Glf"] * imagCia["Gmc"] * (*Tai)["ci"] * (*CRai)["bi"] * (*Rabij)["fblm"];
 
-  ST_DEBUG("WIABC")
+  ST_DEBUG("WIABC ===========================================================")
   // WIABC ===================================================================
   //:with-V  S["G"] += ( + 0.5 ) * (*CRai)["bi"] * (*Viabc)["kbde"] * (*Rabij)["deki"];
     ST_DEBUG("Mark .")
@@ -2946,7 +2946,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
 
   // Contruct CR (two body part)
 
-  ST_DEBUG("WABCD")
+  ST_DEBUG("WABCD ===========================================================")
   // WABCD ===================================================================
   //:with-V  S["G"] += ( + 0.5 ) * (*CRabij)["cdij"] * (*Vabcd)["cdef"] * (*Rabij)["efij"];
     ST_DEBUG("Mark .")
@@ -2979,7 +2979,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( + 0.25) * realCia["Gmh"] * realCia["Gng"] * (*Tabij)["cdmn"] * (*CRabij)["cdij"] * (*Rabij)["ghij"];
   S["G"] -= ( + 0.25) * imagCia["Gmh"] * imagCia["Gng"] * (*Tabij)["cdmn"] * (*CRabij)["cdij"] * (*Rabij)["ghij"];
 
-  ST_DEBUG("WIJKL")
+  ST_DEBUG("WIJKL ===========================================================")
   // WIJKL ===================================================================
   //:with-V  S["G"] += ( + 0.5 ) * (*CRabij)["cdij"] * (*Vijkl)["mnij"] * (*Rabij)["cdmn"];
     ST_DEBUG("Mark .")
@@ -3012,7 +3012,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( + 0.5  ) * realCia["Gof"] * realCia["Gpe"] * (*Tai)["ei"] * (*Tai)["fj"] * (*CRabij)["cdij"] * (*Rabij)["cdop"];
   S["G"] -= ( + 0.5  ) * imagCia["Gof"] * imagCia["Gpe"] * (*Tai)["ei"] * (*Tai)["fj"] * (*CRabij)["cdij"] * (*Rabij)["cdop"];
 
-  ST_DEBUG("WAB")
+  ST_DEBUG("WAB   ===========================================================")
   // WAB   ===================================================================
   energy[""] += ( - 1.0 ) * (*Fab)["de"] * (*CRabij)["cdij"] * (*Rabij)["ecij"];
   energy[""] += ( + 1.0 ) * (*Fab)["ce"] * (*CRabij)["cdij"] * (*Rabij)["edij"];
@@ -3053,7 +3053,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( + 1.0  ) * realCia["Gmh"] * realCia["Gof"] * (*Tai)["cm"] * (*Tai)["fo"] * (*CRabij)["cdij"] * (*Rabij)["hdij"];
   S["G"] -= ( + 1.0  ) * imagCia["Gmh"] * imagCia["Gof"] * (*Tai)["cm"] * (*Tai)["fo"] * (*CRabij)["cdij"] * (*Rabij)["hdij"];
 
-  ST_DEBUG("WIJ")
+  ST_DEBUG("WIJ   ===========================================================")
   // WIJ   ===================================================================
   energy[""] += ( - 1.0 ) * (*CRabij)["cdij"] * (*Fij)["mi"] * (*Rabij)["cdmj"];
   energy[""] += ( + 1.0 ) * (*CRabij)["cdij"] * (*Fij)["mj"] * (*Rabij)["cdmi"];
@@ -3094,7 +3094,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( - 1.0  ) * realCia["Gof"] * realCia["Gpe"] * (*Tai)["ej"] * (*Tai)["fo"] * (*CRabij)["cdij"] * (*Rabij)["cdpi"];
   S["G"] -= ( - 1.0  ) * imagCia["Gof"] * imagCia["Gpe"] * (*Tai)["ej"] * (*Tai)["fo"] * (*CRabij)["cdij"] * (*Rabij)["cdpi"];
 
-  ST_DEBUG("WIABJ")
+  ST_DEBUG("WIABJ ===========================================================")
   // WIABJ ===================================================================
   //:with-V  S["G"] += ( + 1.0 ) * (*CRabij)["cdij"] * (*Viajb)["mdif"] * (*Rabij)["fcmj"];
     ST_DEBUG("Mark .")
@@ -3221,8 +3221,8 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( - 1.0 ) * realCia["Gnh"] * realCia["Goe"] * (*Tabij)["ecnj"] * (*CRabij)["cdij"] * (*Rabij)["hdoi"];
   S["G"] -= ( - 1.0 ) * imagCia["Gnh"] * imagCia["Goe"] * (*Tabij)["ecnj"] * (*CRabij)["cdij"] * (*Rabij)["hdoi"];
 
-  ST_DEBUG("3-1")
-  //TCREE_BODY_ONE ===========================================================
+  ST_DEBUG("THREE_BODY_ONE ==================================================")
+  // THREE_BODY_ONE ==========================================================
   //:with-V  S["G"] += ( + 1.0 ) * (*CRabij)["cdij"] * (*Tabij)["ecij"] * (*Viabc)["ndeg"] * (*Rai)["gn"];
     ST_DEBUG("Mark .")
   { auto Int(*Fab); Int["ed"] = (*CRabij)["cdij"] * (*Tabij)["ecij"];
@@ -3256,8 +3256,8 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( - 1.0  ) * Int["ec"] * (*Tai)["cn"] * imagCia["Gnh"] * imagCia["Goe"] * (*Rai)["ho"];
   }
 
-  ST_DEBUG("3-2")
-  //TCREE_BODY_TWO ===========================================================
+  ST_DEBUG("THREE_BODY_TWO ==================================================")
+  // THREE_BODY_TWO ==========================================================
   //:with-V  S["G"] += ( + 0.5 ) * (*CRabij)["cdij"] * (*Tabij)["edij"] * (*Vijab)["noeh"] * (*Rabij)["hcno"];
   ST_DEBUG("Mark .")
   S["G"] += ( + 0.5 ) * realCia["Gne"] * realCia["Goh"] * (*Rabij)["hcno"] * (*CRabij)["cdij"] * (*Tabij)["edij"];
@@ -3271,8 +3271,8 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( - 0.5 ) * realCia["Gnh"] * realCia["Goe"] * (*Rabij)["hdno"] * (*CRabij)["cdij"] * (*Tabij)["ecij"];
   S["G"] -= ( - 0.5 ) * imagCia["Gnh"] * imagCia["Goe"] * (*Rabij)["hdno"] * (*CRabij)["cdij"] * (*Tabij)["ecij"];
 
-  ST_DEBUG("3-3")
-  //TCREE_BODY_TCREE =========================================================
+  ST_DEBUG("THREE_BODY_THREE ================================================")
+  // THREE_BODY_TCREE ========================================================
   //:with-V  S["G"] += ( - 1.0 ) * (*CRabij)["cdij"] * (*Tabij)["cdmj"] * (*Vijka)["mnig"] * (*Rai)["gn"];
     ST_DEBUG("Mark .")
   S["G"] += ( - 1.0 ) * realCia["Gng"] * (*Rai)["gn"] * realCij["Gmi"] * (*CRabij)["cdij"] * (*Tabij)["cdmj"];
@@ -3298,8 +3298,8 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( + 1.0  ) * realCia["Gmh"] * (*Rai)["ho"] * realCia["Gof"] * (*Tai)["fj"] * (*CRabij)["cdij"] * (*Tabij)["cdmi"];
   S["G"] -= ( + 1.0  ) * imagCia["Gmh"] * (*Rai)["ho"] * imagCia["Gof"] * (*Tai)["fj"] * (*CRabij)["cdij"] * (*Tabij)["cdmi"];
 
-  ST_DEBUG("3-4")
-  //TCREE_BODY_FOUR ==========================================================
+  ST_DEBUG("THREE_BODY_FOUR =================================================")
+  // THREE_BODY_FOUR =========================================================
   //:with-V  S["G"] += ( - 0.5 ) * (*CRabij)["cdij"] * (*Tabij)["cdmi"] * (*Vijab)["mngh"] * (*Rabij)["ghnj"];
     ST_DEBUG("Mark .")
   S["G"] += ( - 0.5 ) * realCia["Gmg"] * realCia["Gnh"] * (*Rabij)["ghnj"] * (*CRabij)["cdij"] * (*Tabij)["cdmi"];
@@ -3313,7 +3313,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( + 0.5 ) * realCia["Gmh"] * realCia["Gng"] * (*Rabij)["ghni"] * (*CRabij)["cdij"] * (*Tabij)["cdmj"];
   S["G"] -= ( + 0.5 ) * imagCia["Gmh"] * imagCia["Gng"] * (*Rabij)["ghni"] * (*CRabij)["cdij"] * (*Tabij)["cdmj"];
 
-  ST_DEBUG("WIAJK")
+  ST_DEBUG("WIAJK ===========================================================")
   // WIAJK ===================================================================
   //--1
   //:with-V  S["G"] += ( - 1.0 ) * (*CRabij)["cdij"] * (*Viajk)["mdij"] * (*Rai)["cm"];
@@ -3507,7 +3507,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( + 1.0  ) * realCia["Gof"] * realCia["Gpe"] * (*Rai)["dp"] * (*Tai)["ei"] * (*Tai)["fj"] * (*Tai)["co"] * (*CRabij)["cdij"];
   S["G"] -= ( + 1.0  ) * imagCia["Gof"] * imagCia["Gpe"] * (*Rai)["dp"] * (*Tai)["ei"] * (*Tai)["fj"] * (*Tai)["co"] * (*CRabij)["cdij"];
 
-  ST_DEBUG("WABCI")
+  ST_DEBUG("WABCI ===========================================================")
   // WABCI ===================================================================
   //--1
   //:with-V  S["G"] += ( + 1.0 ) * (*CRabij)["cdij"] * (*Vabic)["cdie"] * (*Rai)["ej"];
@@ -3701,10 +3701,8 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   S["G"] -= ( - 1.0  ) * realCia["Gnh"] * realCia["Goe"] * (*Rai)["hi"] * (*Tai)["ej"] * (*Tai)["cn"] * (*Tai)["do"] * (*CRabij)["cdij"];
   S["G"] -= ( - 1.0  ) * imagCia["Gnh"] * imagCia["Goe"] * (*Rai)["hi"] * (*Tai)["ej"] * (*Tai)["cn"] * (*Tai)["do"] * (*CRabij)["cdij"];
 
-  // NON CANONICAL ORBITALS ==================================================
-
   if ( Fia ) {
-    ST_DEBUG("Fia")
+    ST_DEBUG("NON CANONICAL ORBITALS ========================================")
 
     energy[""] += ( + 1.0  ) * (*CRai)["bi"] * (*Fia)["kd"] * (*Rabij)["dbki"];
     energy[""] += ( - 1.0  ) * (*CRai)["bi"] * (*Fia)["kd"] * (*Tai)["di"] * (*Rai)["bk"];
