@@ -13,7 +13,7 @@ namespace cc4s {
        * \brief Constructor from a string, it will parse the string
        * automatically.
        */
-      RangeParser(std::string rawRange_) : rawRange(rawRange_) {
+      RangeParser(const std::string &rawRange_) : rawRange(rawRange_) {
         parse();
       }
       /**
@@ -28,7 +28,7 @@ namespace cc4s {
        * For example this method will map "2" into std::vector<int>{2}
        * and "2-3" into std::vector<int>{2,3}.
        */
-      std::vector<int> atomicRangeToRange(const std::string atomicRange) {
+      std::vector<int> atomicRangeToRange(const std::string &atomicRange) {
         std::vector<int> range;
         int low(0), high(0);
         int dash_pos(atomicRange.find("-"));
@@ -81,23 +81,15 @@ namespace cc4s {
         }
       }
 
-    int get_max() const {
-      auto max_it(std::max_element(parsedRange.begin(), parsedRange.end()));
-      return *max_it;
-    }
-
     protected:
       const std::string rawRange;
       std::vector<int> parsedRange;
   };
 
-  inline std::ostream &operator<<(
-    std::ostream &stream, const RangeParser &parser
-  ) {
-    for (auto i : parser.getRange()) {
-      stream << i << " ";
-    }
-    return stream << std::endl;
+  inline std::ostream
+  &operator<< ( std::ostream &stream , const RangeParser &parser) {
+    for (const auto &i: parser.getRange()) stream << i << " ";
+    return stream;
   }
 
 }
