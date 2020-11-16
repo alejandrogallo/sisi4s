@@ -122,6 +122,7 @@ void CcsdEquationOfMotionDavidson::run() {
                                           , "PPFockMatrix"
                                           // structure factor
                                           , "CoulombVertex"
+                                          , "GNorm"
                                           , "structureFactorRange"
                                           };
   // possible integrals
@@ -419,6 +420,21 @@ void CcsdEquationOfMotionDavidson::run() {
   // STRUCTURE FACTOR  =======================================================
   if (structureFactorIndices.size()) {
     auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
+    complex madelungC;
+    int64_t indices[] = {0};
+    GammaGqr->read(1, indices, &madelungC);
+    const double madelung(std::real(madelungC));
+    LOGGER(1) << "Madelung : complex : " << madelungC << std::endl;
+    LOGGER(1) << "Madelung : real    : " << madelung  << std::endl;
+    auto G(getTensorArgument<double>("GNorm"));
+    //
+    const double toS = 2 * std::sqrt(M_PI);
+    // this is sqrt{ 1/kernel } without constants
+    const double vMadelung = toS / std::sqrt(madelung);
+    CTF::Tensor<double> G(G);
+    G.write(1, indices, &vMadelung);
+
+    // set gamma in hamiltonian
     H.setGammaGqr(GammaGqr);
     for (auto &index: structureFactorIndices) {
       auto r(eigenSystem.getRightEigenVectors()[index-1]);
@@ -427,7 +443,7 @@ void CcsdEquationOfMotionDavidson::run() {
       LOGGER(1) << "Got S for " << index << std::endl;
       CTF::Scalar<F> energy;
       energy[""] = S.S["G"];
-      LOGGER(1) << "Calculate S[G] * S[G]" << std::endl;
+      LOGGER(1) << "Calculate Σ S[G]" << std::endl;
       const double value(std::real(energy.get_val()));
       const double braket(std::real(r.dot(r)));
       LOGGER(1) << "SF::energy "
@@ -454,6 +470,8 @@ void CcsdEquationOfMotionDavidson::run() {
                 << (S.energy + value) / braket
                 << std::endl
                 ;
+      // convert to real structure factor
+      S.S["G"] = (1/toS) * G["G"] * S.S["G"];
       _write_tensor("S-" + std::to_string(index) + ".tensor", "i", S.S);
     }
   }
