@@ -123,6 +123,7 @@ void CcsdEquationOfMotionDavidson::run() {
                                           // structure factor
                                           , "CoulombVertex"
                                           , "GNorm"
+                                          , "VG"
                                           , "structureFactorRange"
                                           };
   // possible integrals
@@ -426,13 +427,15 @@ void CcsdEquationOfMotionDavidson::run() {
     const double madelung(std::real(madelungC));
     LOGGER(1) << "Madelung : complex : " << madelungC << std::endl;
     LOGGER(1) << "Madelung : real    : " << madelung  << std::endl;
-    auto G(getTensorArgument<double>("GNorm"));
-    //
-    const double toS = 2 * std::sqrt(M_PI);
+    const auto G(getTensorArgument<double>("GNorm"));
+
     // this is sqrt{ 1/kernel } without constants
-    const double vMadelung = toS / std::sqrt(madelung);
-    CTF::Tensor<double> G(G);
-    G.write(1, indices, &vMadelung);
+    const double vMadelung = 1 / madelung;
+    CTF::Tensor<double> V(G);
+    V["G"] = (1.0 / 4.0 / M_PI) * (*G)["G"] * (*G)["G"];
+    V.write(1, indices, &vMadelung);
+
+    if (isArgumentGiven("VG")) allocatedTensorArgument("VG", &V);
 
     // set gamma in hamiltonian
     H.setGammaGqr(GammaGqr);
@@ -471,7 +474,7 @@ void CcsdEquationOfMotionDavidson::run() {
                 << std::endl
                 ;
       // convert to real structure factor
-      S.S["G"] = (1/toS) * G["G"] * S.S["G"];
+      S.S["G"] = V["G"] * S.S["G"];
       _write_tensor("S-" + std::to_string(index) + ".tensor", "i", S.S);
     }
   }
