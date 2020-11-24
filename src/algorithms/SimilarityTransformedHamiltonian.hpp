@@ -57,7 +57,15 @@ namespace cc4s {
 
     // Structure factor
     struct StructureFactor { double energy; CTF::Tensor<F> S; };
-    StructureFactor structureFactor(SDFockVector<F>&);
+    struct StructureFactorSettings { bool onlySingles
+                                   ; bool onlyDoubles
+                                   ; };
+    StructureFactor structureFactor( SDFockVector<F>& t
+                                   , const StructureFactorSettings &s
+                                       = { .onlySingles = false
+                                         , .onlyDoubles = false
+                                         }
+                                   );
 
     // One body
     PTR(CTF::Tensor<F>) getIJ();
