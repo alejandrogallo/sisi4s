@@ -430,7 +430,7 @@ void CcsdEquationOfMotionDavidson::run() {
     const auto G(getTensorArgument<double>("GNorm"));
 
     // this is sqrt{ 1/kernel } without constants
-    const double vMadelung = 1 / madelung;
+    const double vMadelung = 1 / madelung / madelung;
     CTF::Tensor<double> V(G);
     V["G"] = (1.0 / 4.0 / M_PI) * (*G)["G"] * (*G)["G"];
     V.write(1, indices, &vMadelung);
