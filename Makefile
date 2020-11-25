@@ -27,7 +27,7 @@ test:
 	bash test/test.sh -c $(CONFIG)
 
 unit-test: build/${CONFIG}/bin/Test
-unit-test: INCLUDE += -I.
+unit-test: CC4S_INCLUDE += -I.
 
 # generate documentation
 doc:
@@ -50,8 +50,8 @@ VERSION:=$(shell git describe --all --dirty --long)
 DATE:=$(shell git log -1 --format="%cd")
 COMPILER_VERSION:=$(shell ${CXX} --version | head -n 1)
 
-# add build environment specifics to INCLUDE and to OPTIONS
-INCLUDE+=-Isrc
+# add build environment specifics to CC4S_INCLUDE and to OPTIONS
+CC4S_INCLUDE+=-Isrc
 OPTIONS+= -std=c++11 -Wall -fmax-errors=3 \
 -D_POSIX_C_SOURCE=200112L \
 -D__STDC_LIMIT_MACROS -DFTN_UNDERSCORE=1 -DCC4S_VERSION=\"${VERSION}\" \
@@ -62,7 +62,7 @@ OPTIONS+= -std=c++11 -Wall -fmax-errors=3 \
 # create a dependency for object file
 build/${CONFIG}/obj/%.d: src/%.cxx
 	mkdir -p $(dir $@)
-	${CXX} -MM ${OPTIONS} ${INCLUDE} -c src/$*.cxx | \
+	${CXX} -MM ${OPTIONS} ${CC4S_INCLUDE} -c src/$*.cxx | \
 	  sed 's#[^ :]*\.o[ :]*#build/${CONFIG}/obj/$*.o $@: #g' > $@
 
 # keep dependency files
@@ -72,7 +72,7 @@ build/${CONFIG}/obj/%.d: src/%.cxx
 # compile a object file
 build/${CONFIG}/obj/%.o: build/${CONFIG}/obj/%.d
 	mkdir -p $(dir $@)
-	${CXX} ${OPTIONS} ${OPTIMIZE} ${INCLUDE} -c src/$*.cxx -o $@
+	${CXX} ${OPTIONS} ${OPTIMIZE} ${CC4S_INCLUDE} -c src/$*.cxx -o $@
 
 # keep object files
 .PRECIOUS: build/${CONFIG}/obj/%.o ${OBJECTS}
@@ -80,9 +80,9 @@ build/${CONFIG}/obj/%.o: build/${CONFIG}/obj/%.d
 # compile and link executable
 build/${CONFIG}/bin/%: build/${CONFIG}/obj/%.o ${OBJECTS}
 	mkdir -p $(dir $@)
-	${CXX} ${OPTIONS} ${OPTIMIZE} ${OBJECTS} build/${CONFIG}/obj/${TARGET}.o ${INCLUDE} ${LIBS} -o $@
+	${CXX} ${OPTIONS} ${OPTIMIZE} ${OBJECTS} build/${CONFIG}/obj/${TARGET}.o ${CC4S_INCLUDE} ${LIBS} -o $@
 
 # compile and link test executable
 build/${CONFIG}/bin/Test: ${OBJECTS} $(TESTS_OBJECTS)
 	mkdir -p $(dir $@)
-	${CXX} ${OPTIONS} ${OPTIMIZE} ${OBJECTS} $(TESTS_OBJECTS) ${INCLUDE} ${LIBS} -o $@
+	${CXX} ${OPTIONS} ${OPTIMIZE} ${OBJECTS} $(TESTS_OBJECTS) ${CC4S_INCLUDE} ${LIBS} -o $@

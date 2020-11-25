@@ -125,27 +125,34 @@ void CcsdEquationOfMotionDavidson::run() {
                                           , "GNorm"
                                           , "VG"
                                           , "structureFactorRange"
+                                          , "structureFactorOnlySingles"
+                                          , "structureFactorOnlyDoubles"
                                           };
   // possible integrals
   for (auto& i: requiredIntegrals) { allArguments.push_back(i.name); }
   checkArgumentsOrDie(allArguments);
 
   const struct { double sigma; bool random; bool spinFlip; }
-  precSettings = { getRealArgument("preconditionerRandomSigma", 0.01)
-                 , getIntegerArgument("preconditionerRandom", 0) == 1
-                 , getIntegerArgument("preconditionerSpinFlip", 1) == 1
-                 };
+    precSettings = { getRealArgument("preconditionerRandomSigma", 0.01)
+                   , getIntegerArgument("preconditionerRandom", 0) == 1
+                   , getIntegerArgument("preconditionerSpinFlip", 1) == 1
+                   };
 
   const
   double energyConvergence(getRealArgument("energyConvergence", 1e-6))
        , amplitudesConvergence(getRealArgument("amplitudesConvergence", 1e-6))
        ;
 
+  const typename SimilarityTransformedHamiltonian<F>::StructureFactorSettings
+    sfSettings = { getIntegerArgument("structureFactorOnlySingles", 0) == 1
+                 , getIntegerArgument("structureFactorOnlyDoubles", 0) == 1
+                 };
+
   const bool
     intermediates(getIntegerArgument("intermediates", 1))
   , refreshOnMaxBasisSize(getIntegerArgument("refreshOnMaxBasisSize", 0) == 1)
-  , printEigenvectorsDoubles(getIntegerArgument("printEigenvectorsDoubles", 1)
-                             == 1)
+  , printEigenvectorsDoubles
+      = getIntegerArgument("printEigenvectorsDoubles", 1) == 1
   ;
 
   const auto argToRange
@@ -442,7 +449,7 @@ void CcsdEquationOfMotionDavidson::run() {
     for (auto &index: structureFactorIndices) {
       auto r(eigenSystem.getRightEigenVectors()[index-1]);
       LOGGER(1) << "Getting S for " << index << std::endl;
-      auto S(H.structureFactor(r));
+      auto S(H.structureFactor(r, sfSettings));
       LOGGER(1) << "Got S for " << index << std::endl;
       CTF::Scalar<F> energy;
       energy[""] = S.S["G"];

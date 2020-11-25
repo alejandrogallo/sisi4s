@@ -2,6 +2,6 @@
 BLAS_LIB ?= -L${BLAS_PATH}/lib -lopenblas
 BLAS_INCLUDE ?=-I${BLAS_PATH}/include
 
-INCLUDE     += ${BLAS_INCLUDE}
+CC4S_INCLUDE     += ${BLAS_INCLUDE}
 LIBS_STATIC += ${BLAS_LIB}
 
