@@ -1,5 +1,5 @@
-#ifndef CCSD_EQUATION_OF_MOTION_DAVIDSON
-#define CCSD_EQUATION_OF_MOTION_DAVIDSON
+#ifndef __CCSD_EQUATION_OF_MOTION_DAVIDSON
+#define __CCSD_EQUATION_OF_MOTION_DAVIDSON
 
 #include <algorithms/Algorithm.hpp>
 #include <math/FockVector.hpp>

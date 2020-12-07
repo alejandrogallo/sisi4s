@@ -122,8 +122,7 @@ void CcsdEquationOfMotionDavidson::run() {
                                           , "PPFockMatrix"
                                           // structure factor
                                           , "CoulombVertex"
-                                          , "GNorm"
-                                          , "VG"
+                                          , "CoulombKernel"
                                           , "structureFactorRange"
                                           , "structureFactorOnlySingles"
                                           , "structureFactorOnlyDoubles"
@@ -428,21 +427,24 @@ void CcsdEquationOfMotionDavidson::run() {
   // STRUCTURE FACTOR  =======================================================
   if (structureFactorIndices.size()) {
     auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
+    auto V(getTensorArgument<double>("CoulombKernel"))
+       , Vp(getTensorArgument<double>("CoulombKernel"))
+       ;
+    CTF::Transform<double, double>([](double x, double &y) { y = 1/x; })
+      ((*V)["G"], (*Vp)["G"]);
     complex madelungC;
     int64_t indices[] = {0};
     GammaGqr->read(1, indices, &madelungC);
     const double madelung(std::real(madelungC));
     LOGGER(1) << "Madelung : complex : " << madelungC << std::endl;
     LOGGER(1) << "Madelung : real    : " << madelung  << std::endl;
-    const auto G(getTensorArgument<double>("GNorm"));
 
+    //const auto G(getTensorArgument<double>("GNorm"));
     // this is sqrt{ 1/kernel } without constants
-    const double vMadelung = 1 / madelung / madelung;
-    CTF::Tensor<double> V(G);
-    V["G"] = (1.0 / 4.0 / M_PI) * (*G)["G"] * (*G)["G"];
-    V.write(1, indices, &vMadelung);
-
-    if (isArgumentGiven("VG")) allocatedTensorArgument("VG", &V);
+    //const double vMadelung = 1 / madelung / madelung;
+    //CTF::Tensor<double> V(G);
+    //V["G"] = (1.0 / 4.0 / M_PI) * (*G)["G"] * (*G)["G"];
+    //V.write(1, indices, &vMadelung);
 
     // set gamma in hamiltonian
     H.setGammaGqr(GammaGqr);
@@ -481,7 +483,7 @@ void CcsdEquationOfMotionDavidson::run() {
                 << std::endl
                 ;
       // convert to real structure factor
-      S.S["G"] = V["G"] * S.S["G"];
+      S.S["G"] = (*Vp)["G"] * S.S["G"];
       _write_tensor("S-" + std::to_string(index) + ".tensor", "i", S.S);
     }
   }
