@@ -2777,7 +2777,10 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
           , Nv = Tai->lens[0]
           , syms[] = {NS}
           ;
+
+  // actual structure factor
   CTF::Tensor<F> S(1, &NG, syms, *Cc4s::world, "S");
+  // terms without V(G) will be collected here
   CTF::Scalar<F> energy;
 
   int aStart = Np - Nv

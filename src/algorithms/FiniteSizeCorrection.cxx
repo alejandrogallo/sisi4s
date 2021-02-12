@@ -812,14 +812,22 @@ void FiniteSizeCorrection::interpolation3D() {
     LOG(2,"interpolation3D") << "smallBZ basis vector: " << smallBZ[i] << std::endl;
   }
 
-  //integration in 3D
+  // integration in 3D
   double constantFactor(getRealArgument("constantFactor"));
-  LOG(0,"constantFactor") << constantFactor << std::endl;
-  //cutOffRadius is set to a big default value 100 to ensure
-  //the integration is over the whole G grid.
+  const int gridPointsInterpolation(getIntegerArgument("gridPointsInterpolation", 61));
+  // cutOffRadius is set to a big default value 100 to ensure
+  // the integration is over the whole G grid.
   double cutOffRadius(getRealArgument("cutOffRadius", 100));
-  int N0(61), N1(61), N2(61);
-//  int N0(11), N1(11), N2(11);
+  LOG(0,"interpolation3D") << "constantFactor: "
+                           << constantFactor << std::endl;
+  LOG(0,"interpolation3D") << "gridPointsInterpolation: "
+                           << gridPointsInterpolation << std::endl;
+  LOG(0,"interpolation3D") << "cutOffRadius: "
+                           << cutOffRadius << std::endl;
+  const int N0(gridPointsInterpolation)
+          , N1(gridPointsInterpolation)
+          , N2(gridPointsInterpolation)
+          ;
   inter3D = 0.;
   sum3D   = 0.;
   int countNO(0);
@@ -833,7 +841,10 @@ void FiniteSizeCorrection::interpolation3D() {
         sum3D += constantFactor/cartesianGrid[i].l/cartesianGrid[i].l
                  *cartesianGrid[i].s;
 
-//        LOG(0,"inter3Dsum3D") << cartesianGrid[i].l  << " "  << cartesianGrid[i].s << " " << constantFactor/cartesianGrid[i].l/cartesianGrid[i].l << std::endl;
+//        LOG(0,"inter3Dsum3D") << cartesianGrid[i].l  << " "
+//                              << cartesianGrid[i].s << " "
+//                              << constantFactor/cartesianGrid[i].l/cartesianGrid[i].l
+//                              < std::endl;
       }
     }
   }
