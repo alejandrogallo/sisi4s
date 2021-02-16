@@ -59,71 +59,73 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
         << "Considering only PPL diagrams" << std::endl;
 
     auto Vabcd(getTensorArgument("PPPPCoulombIntegrals"));
-    auto Vabci(getTensorArgument("PPPHCoulombIntegrals"));
+// IMPORTANT: we do not dress the coulomb integrals anymore
+//    auto Vabci(getTensorArgument("PPPHCoulombIntegrals"));
 
-    Tensor<> Xabcd(false, *Vabcd);
+//    Tensor<> Xabcd(false, *Vabcd);
     // Build Xabcd intermediate
-    Xabcd["abcd"]  = ( 1.0) * (*Vabcd)["abcd"];
-    Xabcd["abcd"] += (-1.0) * (*Vabci)["cdak"] * (*Tai)["bk"];
-    Xabcd["abcd"] += (-1.0) * (*Vabci)["dcbk"] * (*Tai)["ak"];
+//    Xabcd["abcd"]  = ( 1.0) * (*Vabcd)["abcd"];
+//    Xabcd["abcd"] += (-1.0) * (*Vabci)["cdak"] * (*Tai)["bk"];
+//    Xabcd["abcd"] += (-1.0) * (*Vabci)["dcbk"] * (*Tai)["ak"];
     Tensor<> Xabij(*Tabij);
     Xabij["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
     if (slicedPPL == 0) {
-      (*Rabij)["abij"]  = Xabcd["abcd"] * Xabij["cdij"];
+  //    (*Rabij)["abij"]  = Xabcd["abcd"] * Xabij["cdij"];
+      (*Rabij)["abij"]  = (*Vabcd)["abcd"] * Xabij["cdij"];
     }
-    else{
-      const int sliceCase(getIntegerArgument("sliceCase",0));
-      int Nv(Tai->lens[0]);
-      int No(Tai->lens[1]);
-      int Ns(slicedPPL);
-
-      // Case 1: abcd
-      LOG(1, "start sliced PPL, case") << sliceCase << std::endl;
-      if (sliceCase == 1){
-        LOG(0, "dims") << No << " " << Nv << " " << Ns << std::endl;
-        const int beginSlice[] = {0, 0, 0, 0};
-        const int endXabcd[] = {Ns, Ns, Ns, Ns}; 
-        auto slicedXabcd(Xabcd.slice(beginSlice, endXabcd));
-        const int endXabij[] = {Ns, Ns, No, No};
-        auto slicedXabij(Xabij.slice(beginSlice, endXabij));
-        auto slicedRabij(slicedXabij);
-        slicedRabij["abij"] = slicedXabcd["abcd"] * slicedXabij["cdij"];
-        Rabij->slice(beginSlice, endXabij, 0.0, slicedRabij, beginSlice, endXabij, 1.0);
-      }
-      // Case 2: abCD
-      else if (sliceCase == 2){
-        const int beginSlice[] = {0, 0, 0, 0};
-        const int endXabcd[] = {Ns, Ns, Nv, Nv};
-        auto slicedXabcd(Xabcd.slice(beginSlice, endXabcd));
-        const int endXabij[] = {Ns, Ns, No, No};
-        auto slicedRabij(Rabij->slice(beginSlice, endXabij));
-        slicedRabij["abij"] = slicedXabcd["abcd"] * Xabij["cdij"];
-        Rabij->slice( beginSlice, endXabij, 0.0, slicedRabij, beginSlice, endXabij, 1.0);
-      }
-      // Case 3: ABcd
-      else if (sliceCase == 3){
-        const int beginSlice[] = {0, 0, 0, 0};
-        const int endXabcd[] = {Nv, Nv, Ns, Ns};
-        auto slicedXabcd(Xabcd.slice(beginSlice, endXabcd));
-        const int endXabij[] = {Ns, Ns, No, No};
-        auto slicedXabij(Xabij.slice(beginSlice, endXabij));
-        (*Rabij)["abij"] = slicedXabcd["abcd"] * slicedXabij["cdij"];
-      }
-      else if (sliceCase == 4){
-        const int beginXabcd[] = {Ns, Ns, Ns, Ns};
-        const int endXabcd[] = {Nv, Nv, Nv, Nv};
-        auto slicedXabcd(Xabcd.slice(beginXabcd, endXabcd));
-        const int beginXabij[] = {Ns, Ns, 0, 0};
-        const int endXabij[] = {Nv, Nv, No, No};
-        auto slicedXabij(Xabij.slice(beginXabij, endXabij));
-        auto slicedRabij(Rabij->slice(beginXabij, endXabij));
-        slicedRabij["abij"] = slicedXabcd["abcd"] * slicedXabij["cdij"];
-        const int beginRabij[] = {0, 0, 0, 0};
-        const int endRabij[] = {slicedRabij.lens[0], slicedRabij.lens[0], No, No}; 
-        Rabij->slice( beginXabij, endXabij, 0.0, slicedRabij, beginRabij, endRabij, 1.0);
-      }
-
-    }
+//    else{
+//      const int sliceCase(getIntegerArgument("sliceCase",0));
+//      int Nv(Tai->lens[0]);
+//      int No(Tai->lens[1]);
+//      int Ns(slicedPPL);
+//
+//      // Case 1: abcd
+//      LOG(1, "start sliced PPL, case") << sliceCase << std::endl;
+//      if (sliceCase == 1){
+//        LOG(0, "dims") << No << " " << Nv << " " << Ns << std::endl;
+//        const int beginSlice[] = {0, 0, 0, 0};
+//        const int endXabcd[] = {Ns, Ns, Ns, Ns}; 
+//        auto slicedXabcd(Xabcd.slice(beginSlice, endXabcd));
+//        const int endXabij[] = {Ns, Ns, No, No};
+//        auto slicedXabij(Xabij.slice(beginSlice, endXabij));
+//        auto slicedRabij(slicedXabij);
+//        slicedRabij["abij"] = slicedXabcd["abcd"] * slicedXabij["cdij"];
+//        Rabij->slice(beginSlice, endXabij, 0.0, slicedRabij, beginSlice, endXabij, 1.0);
+//      }
+//      // Case 2: abCD
+//      else if (sliceCase == 2){
+//        const int beginSlice[] = {0, 0, 0, 0};
+//        const int endXabcd[] = {Ns, Ns, Nv, Nv};
+//        auto slicedXabcd(Xabcd.slice(beginSlice, endXabcd));
+//        const int endXabij[] = {Ns, Ns, No, No};
+//        auto slicedRabij(Rabij->slice(beginSlice, endXabij));
+//        slicedRabij["abij"] = slicedXabcd["abcd"] * Xabij["cdij"];
+//        Rabij->slice( beginSlice, endXabij, 0.0, slicedRabij, beginSlice, endXabij, 1.0);
+//      }
+//      // Case 3: ABcd
+//      else if (sliceCase == 3){
+//        const int beginSlice[] = {0, 0, 0, 0};
+//        const int endXabcd[] = {Nv, Nv, Ns, Ns};
+//        auto slicedXabcd(Xabcd.slice(beginSlice, endXabcd));
+//        const int endXabij[] = {Ns, Ns, No, No};
+//        auto slicedXabij(Xabij.slice(beginSlice, endXabij));
+//        (*Rabij)["abij"] = slicedXabcd["abcd"] * slicedXabij["cdij"];
+//      }
+//      else if (sliceCase == 4){
+//        const int beginXabcd[] = {Ns, Ns, Ns, Ns};
+//        const int endXabcd[] = {Nv, Nv, Nv, Nv};
+//        auto slicedXabcd(Xabcd.slice(beginXabcd, endXabcd));
+//        const int beginXabij[] = {Ns, Ns, 0, 0};
+//        const int endXabij[] = {Nv, Nv, No, No};
+//        auto slicedXabij(Xabij.slice(beginXabij, endXabij));
+//        auto slicedRabij(Rabij->slice(beginXabij, endXabij));
+//        slicedRabij["abij"] = slicedXabcd["abcd"] * slicedXabij["cdij"];
+//        const int beginRabij[] = {0, 0, 0, 0};
+//        const int endRabij[] = {slicedRabij.lens[0], slicedRabij.lens[0], No, No}; 
+//        Rabij->slice( beginXabij, endXabij, 0.0, slicedRabij, beginRabij, endRabij, 1.0);
+//      }
+//
+//    }
   } else {
     // For the rest iterations compute the CCSD amplitudes
 

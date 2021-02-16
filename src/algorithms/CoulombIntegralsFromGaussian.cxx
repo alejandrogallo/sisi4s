@@ -13,6 +13,8 @@
 #include <set>
 #include <map>
 #include <util/Emitter.hpp>
+#include <math/MathFunctions.hpp>
+
 #define LOGGER(_l) LOG(_l, "CoulombIntegralsFromGaussian")
 
 typedef libint2::Operator Operator;
@@ -213,6 +215,145 @@ struct CoulombIntegralsProvider {
 
   }
 
+  void computeHalfContract(size_t No, CTF::Tensor<double> *coeff) {
+    libint2::initialize();
+
+    size_t orbs(coeff->lens[1]);
+    LOGGER(1) << "dimensions: " << coeff->lens[0] << " " << coeff->lens[1] << std::endl;
+    if ( coeff->lens[0] != Np ) throw "dimension problems!";
+
+    std::vector<double> C(orbs*Np);
+    coeff->read_all(C.data());
+    const size_t NoNoNpNp(No*No*Np*Np);
+    LOGGER(1) << "No**2*Np**2   :  " << NoNoNpNp << std::endl;
+    LOGGER(1) << "Computing half transformed Vkimj ("
+              << (double) sizeof(double) * NoNoNpNp / 1024 / 1024 / 1024
+              << " GB)" << std::endl;
+    LOGGER(1) << "Largest buffer size for indiviual mpi rank: " <<
+                 (double) sizeof(double) * maxShellElements /1024/1024/1024 << " GB\n";
+    libint2::Engine engine( op
+                          , shells.max_nprim()
+                          , shells.max_l()
+                          , 0
+                          );
+
+    // store shell by shell calculation in this buffer
+    const auto& vsrqp = engine.results();
+    // store the values Vklmn values in pppp
+    // half-transform pppp -> pppo -> ppoo
+    std::vector<double> pppp(maxShellElements);
+    std::vector<double> pppo(maxShellNbf*Np*Np*No);
+    std::vector<double> ppoo(maxShellNbf*Np*No*No);
+    offset.resize(ctfIndices.size(),-1);
+    // the outside loops will loop over the shells.
+    // This will create a block of Vpqrs, where pqrs are contracted
+    // gaussian indices belonging to their respective shells.
+    int mpiShellIdx(-1);
+    for (const size_t _K: mpiShells) {
+      ++mpiShellIdx;
+      LOGGER(1) << "shell: " << mpiShells[mpiShellIdx]
+                << "    #: " << ctfIndices[mpiShellIdx].size()
+                << std::endl;
+      const ShellInfo K(shells, _K);
+      offset[mpiShellIdx] = K.begin*Np*No*No;
+//      std::cout << "offset " << K.begin*Np*No*No << std::endl;
+      Vklmn.push_back(std::vector<double>(K.size*Np*No*No, 0.));
+      std::fill(pppp.begin(), pppp.end(), 0.);
+      std::fill(pppo.begin(), pppo.end(), 0.);
+      std::fill(ppoo.begin(), ppoo.end(), 0.);
+//      Vklmn.push_back(std::vector<double>(ctfIndices[mpiShellIdx].size(), 0));
+    for (size_t _L(0); _L < shells.size(); ++_L         ) { // lambda
+    for (size_t _M(0); _M < shells.size(); ++_M         ) { // mu
+    for (size_t _N(0); _N < shells.size(); ++_N         ) { // nu
+      const ShellInfo L(shells, _L)
+                    , M(shells, _M)
+                    , N(shells, _N)
+                    ;
+
+      // compute integrals (K L , M N)
+      engine.compute(shells[_K], shells[_L], shells[_M], shells[_N]);
+
+      if (vsrqp[0] == nullptr) continue;
+
+      for (size_t k(K.begin), Inmlk = 0; k < K.end; ++k         ) {
+      for (size_t l(L.begin)           ; l < L.end; ++l         ) {
+      for (size_t m(M.begin)           ; m < M.end; ++m         ) {
+      for (size_t n(N.begin)           ; n < N.end; ++n, ++Inmlk) {
+
+        const size_t bigI( n
+                         + m * Np
+                         + l * Np*Np
+                         + k * Np*Np*Np
+                         )
+                   , idx(bigI - ctfIndices[mpiShellIdx].front())
+                   ;
+
+        pppp[idx] += vsrqp[0][Inmlk];
+
+      } // n
+      } // m
+      } // l
+      } // k
+
+    } // N
+    } // M
+    } // L
+      // Now we finished writing Vklmn, i.e. the AO Coulomb Matrix for the shell K
+      // We can now contract Vklmn.back() with the Orbital coefficient C_li C_nj
+
+
+      // contract:    V(klmi) = V(klmn) * C(ni);
+      for (size_t k(0); k < K.size; k++)
+      for (size_t l(0); l < Np;     l++)
+      for (size_t m(0); m < Np;     m++){
+        size_t offi(k*Np*Np*Np + l*Np*Np + m*Np);
+        size_t offo(k*Np*Np*No + l*Np*No + m*No);
+      for (size_t n(0); n < Np;     n++){
+      for (size_t i(0); i < No;     i++){
+        pppo[offo + i] += pppp[offi + n] * C[i*Np + n];
+      } // i
+      } // n
+      } // m
+
+      // rearrange pppo: V(klmi) -> V(kmil)
+      // this means: 1.) particle index l getting the fastest index
+      //             2.) chemists integral changes to physics notation
+      // we use pppp as a scratch array
+      for (size_t s(0); s < K.size*Np*No*Np; s++)  pppp[s] = pppo[s];
+      std::fill(pppo.begin(), pppo.end(), 0.);
+
+      for (size_t k(0); k < K.size; k++)
+      for (size_t m(0); m < Np;     m++)
+      for (size_t i(0); i < No;     i++)
+      for (size_t l(0); l < Np;     l++)
+        pppo[k*Np*No*Np + m*Np*No + i*Np + l] = pppp[k*Np*No*Np + l*Np*No + m*No + i];
+
+
+
+      // contract: V(kmij) = V(kmil) * C(lj)
+      for (size_t k(0); k < K.size; k++)
+      for (size_t m(0); m < Np;     m++)
+      for (size_t i(0); i < No;     i++){
+        size_t offi(k*Np*Np*No + m*Np*No + i*Np);
+        size_t offo(k*Np*No*No + m*No*No + i*No);
+      for (size_t l(0); l < Np;     l++){
+      for (size_t j(0); j < No;     j++){
+        ppoo[offo + j] += pppo[offi + l] * C[j*Np + l];
+      } // j
+      } // l
+      } // i
+
+      for (size_t s(0); s < K.size*Np*No*No; s++) Vklmn.back()[s] = ppoo[s];
+
+
+
+    } // K
+
+  libint2::finalize();
+
+  }
+
+
   struct IndexRange {
     size_t begin, end, size;
     IndexRange(): begin(0), end(0), size(0) {};
@@ -288,6 +429,41 @@ struct CoulombIntegralsProvider {
     }
   }
 
+  void readHalfContract(CTF::Tensor<double> *t) {
+    // loop over engine.maxSize to ensure the same number of mpi calls
+    // on every rank
+    // i.e. only one rank provide data for ctf->write.
+
+    size_t off(0); int i(0);
+    while (1) {
+      size_t N;
+      std::vector<int64_t> indices;
+      double *data;
+      size_t old(off);
+      if ( (Vklmn.size() > 0) && (offset[i] == off)  ) {
+        N = Vklmn[i].size();
+        data = Vklmn[i].data();
+        indices.resize(N);
+        std::iota(indices.begin(), indices.end(), off);
+        off += N;
+        i++;
+//        std::cout << "I am rank " << Cc4s::world->rank << " having offset " << off << std::endl;
+      }
+      else{
+        N = 0;
+      }
+//      if (N>0) std::cout << "reading " << N << "elements\n";
+      MPI_Allreduce(&off, &off, 1, MPI_INT64_T, MPI_MAX, Cc4s::world->comm);
+      if ( off == old) break;
+      t->write(N, N ? indices.data() : nullptr, N ? data : nullptr);
+//      std::cout << "I am rank " << Cc4s::world->rank << " writing " << N
+//                << " elements with offset " << off << std::endl;
+    }
+
+
+
+  }
+
   private:
 
     // mpi max size of Vklmn and ctfIndices
@@ -297,6 +473,7 @@ struct CoulombIntegralsProvider {
     const libint2::BasisSet& shells;
     const Operator op;
     std::vector<size_t> mpiShells;
+    std::vector<size_t> offset;
     std::vector<std::vector<double>> Vklmn;
     std::vector<std::vector<int64_t>> ctfIndices;
     // this is 2**26, it is roughly 500 MB of double precission fp numbers
@@ -318,6 +495,11 @@ void CoulombIntegralsFromGaussian::run() {
                        , "maxElementsWrite"
                        , "shellDistribution"
                        , "CoulombIntegrals"
+                       , "HHHHCoulombIntegrals"
+                       , "PPHHCoulombIntegrals"
+                       , "OrbitalCoefficients"
+                       , "HoleEigenEnergies"
+                       , "Spins"
                        } );
 
   const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""))
@@ -366,6 +548,7 @@ void CoulombIntegralsFromGaussian::run() {
          << YAML::Key << "chemist-notation" << YAML::Value << chemistNotation
          ;
 
+
   CoulombIntegralsProvider engine( shells
                                  , op
                                  , mpiDistribution
@@ -374,41 +557,145 @@ void CoulombIntegralsFromGaussian::run() {
                                                      )
                                  );
 
-  const std::vector<int> lens(4, Np), syms(4, NS);
-  auto Vklmn(new CTF::Tensor<double>( 4
-                                    , lens.data()
-                                    , syms.data()
-                                    , *Cc4s::world, "V"
-                                    ));
+  if (isArgumentGiven("CoulombIntegrals")){
 
-  LOGGER(1) << "computation begin" << std::endl;
-  engine.compute();
-  LOGGER(1) << "computation done" << std::endl;
-  engine.write(Vklmn);
-  LOGGER(1) << "writing done" << std::endl;
 
-  if (chemistNotation) {
+    const std::vector<int> lens(4, Np), syms(4, NS);
+    auto Vklmn(new CTF::Tensor<double>( 4
+                                      , lens.data()
+                                      , syms.data()
+                                      , *Cc4s::world, "V"
+                                      ));
 
-    LOGGER(1) << "WARNING: this integral is in chemist notation,"
-                 " Vklmn = (kl|mn) = <km|ln>" << std::endl;
-    allocatedTensorArgument<double>("CoulombIntegrals", Vklmn);
+    LOGGER(1) << "computation begin" << std::endl;
+    engine.compute();
+    LOGGER(1) << "computation done" << std::endl;
+    engine.write(Vklmn);
+    LOGGER(1) << "writing done" << std::endl;
 
-  } else {
+    if (chemistNotation) {
 
-    LOGGER(1) << "Allocating phyisics notation integrals" << std::endl;
-    auto newV(new CTF::Tensor<double>( 4
-                                     , Vklmn->lens
-                                     , Vklmn->sym
-                                     , *Cc4s::world
-                                     ));
-    LOGGER(1) << "Converting chemist integral into physics" << std::endl;
-    LOGGER(1) << "| PhysV[pqrs] = ChemV[prqs]; " << std::endl;
+      LOGGER(1) << "WARNING: this integral is in chemist notation,"
+                   " Vklmn = (kl|mn) = <km|ln>" << std::endl;
+      allocatedTensorArgument<double>("CoulombIntegrals", Vklmn);
 
-    (*newV)["pqrs"] = (*Vklmn)["prqs"];
-    LOGGER(1) << "NOTE: this integral is in physicist notation" << std::endl;
-    allocatedTensorArgument<double>("CoulombIntegrals", newV);
-    delete Vklmn;
+    } else {
 
+      LOGGER(1) << "Allocating phyisics notation integrals" << std::endl;
+      auto newV(new CTF::Tensor<double>( 4
+                                       , Vklmn->lens
+                                       , Vklmn->sym
+                                       , *Cc4s::world
+                                       ));
+      LOGGER(1) << "Converting chemist integral into physics" << std::endl;
+      LOGGER(1) << "| PhysV[pqrs] = ChemV[prqs]; " << std::endl;
+
+      (*newV)["pqrs"] = (*Vklmn)["prqs"];
+      LOGGER(1) << "NOTE: this integral is in physicist notation" << std::endl;
+      allocatedTensorArgument<double>("CoulombIntegrals", newV);
+      delete Vklmn;
+
+    }
+  }
+  else if (  isArgumentGiven("OrbitalCoefficients")
+          && isArgumentGiven("PPHHCoulombIntegrals")
+          && isArgumentGiven("HoleEigenEnergies")) {
+
+    auto epsi(getTensorArgument("HoleEigenEnergies"));
+    const size_t No(epsi->lens[0]);
+
+    auto C(getTensorArgument("OrbitalCoefficients"));
+    const size_t Nv(C->lens[1] - No);
+    std::vector<int> lens(4, Np), syms(4, NS);
+    lens[0] = No; lens[1] = No;
+    auto Vijkm(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Cc4s::world, "V"));
+
+    LOGGER(1) << "computation begin" << std::endl;
+    engine.computeHalfContract(No, C);
+    LOGGER(1) << "computation done" << std::endl;
+    engine.readHalfContract(Vijkm);
+    LOGGER(1) << "ctfread done" << std::endl;
+
+
+
+
+    lens[2] = No; lens[3] = No;
+    auto Vhhhh(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Cc4s::world, "Vhhhh"));
+    int sliceStart[] = {0, 0};
+    int sliceEnd[] = {Np, No};
+    auto Cocc(C->slice(sliceStart, sliceEnd));
+    (*Vhhhh)["klij"] = (*Vijkm)["klpq"] * Cocc["qi"] * Cocc["pj"];
+    if ( isArgumentGiven("Spins") ){
+      LOGGER(1) << "unrestricted case: Vhhhh\n";
+      auto S(getTensorArgument("Spins"));  
+      int sS[] = {0}; int sE[] = {No};
+      auto Socc(S->slice(sS, sE));
+      std::vector<int> l(2);
+      l[0] = No; l[1] = No;
+      auto Sm(new CTF::Tensor<double>(2, l.data(), syms.data(), *Cc4s::world, "Sm"));
+      (*Sm)["ij"] = Socc["i"]* Socc["j"];
+
+      CTF::Transform<double>(
+        std::function<void(double &)>(
+           [](double &s) { s = (s + 0.25) * 2.0; }
+        )
+      )(
+        (*Sm)["pq"]
+      );
+      auto Smap(new CTF::Tensor<double>(4, lens.data(), syms.data(), *Cc4s::world, "Smap"));
+      (*Smap)["ijkl"] = (*Sm)["ik"] * (*Sm)["jl"];
+      CTF::Bivar_Function<> fMultiply(&multiply<double>);
+      Vhhhh->contract(
+        1.0, *Vhhhh,"pqrs", *Smap,"pqrs", 0.0,"pqrs", fMultiply
+      );
+      delete Smap;
+      delete Sm;
+    }
+
+
+    sliceStart[1] = No; sliceEnd[1] = C->lens[1];
+    auto Cvirt(C->slice(sliceStart, sliceEnd));
+    lens[0] = Nv; lens[1] = Nv;
+    auto Vpphh(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Cc4s::world, "Vpphh"));
+    (*Vpphh)["abij"] = Cvirt["qa"] * (*Vijkm)["ijpq"] * Cvirt["pb"];
+    if ( isArgumentGiven("Spins") ){
+      LOGGER(1) << "unrestricted case: Vpphh\n";
+      auto S(getTensorArgument("Spins"));  
+      int sS[] = {0}; int sE[] = {No};
+      auto Socc(S->slice(sS, sE));
+      sS[0] = No; sE[0] = C->lens[1];
+      auto Svirt(S->slice(sS, sE));
+      std::vector<int> l(2);
+      l[0] = Nv; l[1] = No;
+      auto Sm(new CTF::Tensor<double>(2, l.data(), syms.data(), *Cc4s::world, "Sm"));
+      (*Sm)["ai"] = Svirt["a"]* Socc["i"];
+
+      CTF::Transform<double>(
+        std::function<void(double &)>(
+           [](double &s) { s = (s + 0.25) * 2.0; }
+        )
+      )(
+        (*Sm)["pq"]
+      );
+      auto Smap(new CTF::Tensor<double>(4, lens.data(), syms.data(), *Cc4s::world, "Smap"));
+      (*Smap)["abij"] = (*Sm)["ai"] * (*Sm)["bj"];
+      CTF::Bivar_Function<> fMultiply(&multiply<double>);
+      Vpphh->contract(
+        1.0, *Vpphh,"pqrs", *Smap,"pqrs", 0.0,"pqrs", fMultiply
+      );
+      delete Smap;
+      delete Sm;
+    }
+
+    if ( isArgumentGiven("HHHHCoulombIntegrals") ) {
+      allocatedTensorArgument<double>("HHHHCoulombIntegrals", Vhhhh);
+    }
+    allocatedTensorArgument<double>("PPHHCoulombIntegrals", Vpphh);
+
+  }
+  else {
+    throw "Output either CoulombIntegrals or \
+           PPHH && HHHH && OrbitalCoefficients && HoleEigenEnergies";
   }
 
 }

@@ -98,6 +98,33 @@ extern "C" {
     const int *workSize,
     int *info
   );
+  void dgemm_(
+    const char *transa,
+    const char *transb,
+    const int *m,
+    const int *n,
+    const int *k,
+    double *alpha,
+    const double *A,
+    const int *lda,
+    const double *B,
+    const int *ldb,
+    double *beta,
+    double *C,
+    const int *ldc
+  );
+  void dger_(
+    const int *M,
+    const int *N,
+    const double *alpha,
+    const double *X,
+    const int *incx,
+    const double *Y,
+    const int *incy,
+    double *A,
+    const int *lda
+  );
+
 };
 
 #endif

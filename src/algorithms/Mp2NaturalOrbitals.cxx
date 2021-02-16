@@ -97,7 +97,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &NvInt, DabMatrix.data(), &NvInt, w.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization\n";
+    if ( info != 0 ) throw "problem diagonalization (1), naturalOrbitals\n";
 
     //TRUNCATE (2)
     double occupationThreshold(getRealArgument("occupationThreshold",1e-16));
@@ -146,7 +146,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &NvInt, FabMatrix.data(), &NvInt, w.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization\n";
+    if ( info != 0 ) throw "problem diagonalization (4), naturalOrbitals\n";
 
     for (int64_t a(0); a < Nv; a++)
       LOG(2,"eVal") << w[a] << std::endl;
@@ -266,7 +266,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &Nalpha, Dalpha.data(), &Nalpha, walpha.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization\n";
+    if ( info != 0 ) throw "problem diagonalization (1) unatrualOrbitals\n";
 
     //TRUNCATE (2)
     double occupationThreshold(getRealArgument("occupationThreshold",1e-16));
@@ -313,7 +313,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &Nbeta, Dbeta.data(), &Nbeta, wbeta.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization\n";
+    if ( info != 0 ) throw "problem diagonalization (2), unatural orbitals\n";
 
     //TRUNCATE (2)
     if (isArgumentGiven("FnoBeta")){
@@ -360,7 +360,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &Nalpha, Falpha.data(), &Nalpha, walpha.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization\n";
+    if ( info != 0 ) throw "problem diagonalization, (4) unatural orbtials\n";
 
     for (int64_t a(0); a < Nalpha; a++)
       LOG(2,"Alpha eVal") << walpha[a] << std::endl;
@@ -385,7 +385,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &Nbeta, Fbeta.data(), &Nbeta, wbeta.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization\n";
+    if ( info != 0 ) throw "problem diagonalization, (4) unatural orbitals\n";
 
     for (int64_t a(0); a < Nbeta; a++)
       LOG(2,"Beta eVal") << wbeta[a] << std::endl;

@@ -23,7 +23,11 @@ std::vector<double> inverse(
 
   int one(1); int info;
   dsysv_("U", &N, &one, matrix.data(), &N, ipiv.data(), column.data(), &N, work.data(), &N, &info);
-  if ( info != 0) throw "problem diagonalization\n";
+  if ( info != 0) {
+    LOG(0) << "Problem diagonalization of matrix:\n";
+    for (auto i: matrix)  LOG(9) << i << std::endl;
+    throw "problem diagonalization\n";
+  }
   return column;
 }
 

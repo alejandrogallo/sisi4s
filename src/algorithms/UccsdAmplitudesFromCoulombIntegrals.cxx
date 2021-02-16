@@ -122,23 +122,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
                                                                 );
   }
 
-  // Get couloumb integrals
-  auto Vijkl(getTensorArgument<F>("HHHHCoulombIntegrals"))
-     , Vabcd(getTensorArgument<F>("PPPPCoulombIntegrals"))
-     , Vijka(getTensorArgument<F>("HHHPCoulombIntegrals"))
-     , Vijab(getTensorArgument<F>("HHPPCoulombIntegrals"))
-     , Viajk(getTensorArgument<F>("HPHHCoulombIntegrals"))
-     , Viajb(getTensorArgument<F>("HPHPCoulombIntegrals"))
-     , Viabc(getTensorArgument<F>("HPPPCoulombIntegrals"))
-     , Vabij(getTensorArgument<F>("PPHHCoulombIntegrals"))
-     , Vabic(getTensorArgument<F>("PPHPCoulombIntegrals"))
-     , Viabj(getTensorArgument<F>("HPPHCoulombIntegrals"))
-     , Vaibc(getTensorArgument<F>("PHPPCoulombIntegrals"))
-     , Vijak(getTensorArgument<F>("HHPHCoulombIntegrals"))
-     , Vabci(getTensorArgument<F>("PPPHCoulombIntegrals"))
-     , Vaibj(getTensorArgument<F>("PHPHCoulombIntegrals"))
-     , Vaijb(getTensorArgument<F>("PHHPCoulombIntegrals"))
-     ;
+  auto Vabij(getTensorArgument<F>("PPHHCoulombIntegrals"));
 
   // Read the amplitudes Tai and Tabij
   auto Tai(amplitudes->get(0))
@@ -156,6 +140,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
 
   if (iterationStep == 0){
     if (onlyPpl) {
+      auto Vabcd(getTensorArgument<F>("PPPPCoulombIntegrals"));
       LOG(1, "Performing only Ppl contraction") << std::endl;
       (*Rabij)["cdij"] += ( + 0.5  ) * (*Tabij)["efij"] * (*Vabcd)["cdef"];
       (*Rabij)["cdij"] += ( + 1.0  ) * (*Tai)["ei"] * (*Tai)["fj"] * (*Vabcd)["cdef"];
@@ -163,10 +148,28 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     } else {
       LOG(1, getAbbreviation())
         << "Set initial Rabij amplitudes to Vijab" << std::endl;
-      (*Rabij)["abij"] = (*Vijab)["ijab"];
+      (*Rabij)["abij"] = (*Vabij)["abij"];
       return residuum;
      }
   }
+
+  // Get couloumb integrals
+  auto Vijkl(getTensorArgument<F>("HHHHCoulombIntegrals"))
+     , Vabcd(getTensorArgument<F>("PPPPCoulombIntegrals"))
+     , Vijka(getTensorArgument<F>("HHHPCoulombIntegrals"))
+     , Viajk(getTensorArgument<F>("HPHHCoulombIntegrals"))
+     , Viajb(getTensorArgument<F>("HPHPCoulombIntegrals"))
+     , Viabc(getTensorArgument<F>("HPPPCoulombIntegrals"))
+     , Vabic(getTensorArgument<F>("PPHPCoulombIntegrals"))
+     , Viabj(getTensorArgument<F>("HPPHCoulombIntegrals"))
+     , Vaibc(getTensorArgument<F>("PHPPCoulombIntegrals"))
+     , Vijak(getTensorArgument<F>("HHPHCoulombIntegrals"))
+     , Vabci(getTensorArgument<F>("PPPHCoulombIntegrals"))
+     , Vaibj(getTensorArgument<F>("PHPHCoulombIntegrals"))
+     , Vaijb(getTensorArgument<F>("PHHPCoulombIntegrals"))
+     ;
+  auto Vijab(getTensorArgument<F>("HHPPCoulombIntegrals"));
+
 
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
 

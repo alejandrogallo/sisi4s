@@ -160,10 +160,11 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     auto oovv(std::array<int,4>{{ No, No, Nv, Nv }});
     Vijab = NEW(Tensor<F>,4,oovv.data());
     (*Vijab)["ijab"] = (*Vabij)["abij"];
-    if (antisymmetrized) {
+// IRAN: The integral is already antisymmetrized...dont do it again.
+//    if (antisymmetrized) {
       // oovv = h * vvoo
-      (*Vijab)["ijab"] += (-1.0) * (*Vabij)["baij"];
-    }
+//      (*Vijab)["ijab"] += (-1.0) * (*Vabij)["baij"];
+//    }
   }
 
   // allocate energy
