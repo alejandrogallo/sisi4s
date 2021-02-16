@@ -567,7 +567,7 @@ void FiniteSizeCorrection::interpolation3D() {
       << std::endl;
     cartesianGrid = new Momentum[(2*NG-1)];
     cartesianGrid[0] = Momentum(
-      cartesianMomenta[0], 0.5*structureFactors[0], VofG[0]
+      cartesianMomenta[0], structureFactors[0], VofG[0]
     );
     for (int g(1); g<NG; ++g) {
       cartesianGrid[g] = Momentum(
@@ -812,12 +812,22 @@ void FiniteSizeCorrection::interpolation3D() {
     LOG(2,"interpolation3D") << "smallBZ basis vector: " << smallBZ[i] << std::endl;
   }
 
-  //integration in 3D
+  // integration in 3D
   double constantFactor(getRealArgument("constantFactor"));
-  //cutOffRadius is set to a big default value 100 to ensure
-  //the integration is over the whole G grid.
+  const int gridPointsInterpolation(getIntegerArgument("gridPointsInterpolation", 61));
+  // cutOffRadius is set to a big default value 100 to ensure
+  // the integration is over the whole G grid.
   double cutOffRadius(getRealArgument("cutOffRadius", 100));
-  int N0(51), N1(51), N2(51);
+  LOG(0,"interpolation3D") << "constantFactor: "
+                           << constantFactor << std::endl;
+  LOG(0,"interpolation3D") << "gridPointsInterpolation: "
+                           << gridPointsInterpolation << std::endl;
+  LOG(0,"interpolation3D") << "cutOffRadius: "
+                           << cutOffRadius << std::endl;
+  const int N0(gridPointsInterpolation)
+          , N1(gridPointsInterpolation)
+          , N2(gridPointsInterpolation)
+          ;
   inter3D = 0.;
   sum3D   = 0.;
   int countNO(0);
@@ -827,8 +837,14 @@ void FiniteSizeCorrection::interpolation3D() {
     if (cartesianGrid[i].l < cutOffRadius) {
       gridWithinRadius.push_back(cartesianGrid[i].v);
       if (cartesianGrid[i].l > epsilon) {
+//        sum3D += cartesianGrid[i].vg
         sum3D += constantFactor/cartesianGrid[i].l/cartesianGrid[i].l
                  *cartesianGrid[i].s;
+
+//        LOG(0,"inter3Dsum3D") << cartesianGrid[i].l  << " "
+//                              << cartesianGrid[i].s << " "
+//                              << constantFactor/cartesianGrid[i].l/cartesianGrid[i].l
+//                              < std::endl;
       }
     }
   }
@@ -865,6 +881,7 @@ void FiniteSizeCorrection::interpolation3D() {
               if (g.length() > epsilon) {
 		interpol = interpolatedSG(directg[0], directg[1], directg[2]);
                 inter3D += interpol * constantFactor/g.length()/g.length();
+//                LOG(0,"inter3Dfun") << g.length()  << " "  << interpol << " " << constantFactor/g.length()/g.length() << std::endl;
 	      }
 	    }
           }
@@ -966,7 +983,7 @@ void FiniteSizeCorrection::calculateFiniteSizeCorrection() {
   double  sumSGVG(0.);
 
   // we assume the first entry of cartesianGrid corresponds to G=0
-  for (int d(1); d < NG; ++d) {
+  for (int d(0); d < NG; ++d) {
     sumSGVG += cartesianGrid[d].vg * cartesianGrid[d].s;
   }
 

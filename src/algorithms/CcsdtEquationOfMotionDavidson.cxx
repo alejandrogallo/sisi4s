@@ -59,7 +59,10 @@ void CcsdtEquationOfMotionDavidson::run() {
     RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange()
   );
   int eigenStates(getIntegerArgument("eigenStates", 1));
-  double ediff(getRealArgument("ediff", 1e-4));
+  const
+  double energyConvergence(getRealArgument("energyConvergence", 1e-6))
+       , amplitudesConvergence(getRealArgument("amplitudesConvergence", 1e-6))
+       ;
   bool intermediates(getIntegerArgument("intermediates", 1));
   unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
   unsigned int minIterations(getIntegerArgument("minIterations", 1));
@@ -87,7 +90,7 @@ void CcsdtEquationOfMotionDavidson::run() {
 
   // Logging arguments
   LOG(0, "CcsdtEomDavid") << "Max iterations " << maxIterations << std::endl;
-  LOG(0, "CcsdtEomDavid") << "ediff " << ediff << std::endl;
+  LOG(0, "CcsdtEomDavid") << "energyConvergence " << energyConvergence << std::endl;
   LOG(0, "CcsdtEomDavid") << eigenStates << " eigen states" << std::endl;
   LOG(0, "CcsdtEomDavid") << "No: " << No << std::endl;
   LOG(0, "CcsdtEomDavid") << "Nv: " << Nv << std::endl;
@@ -331,7 +334,8 @@ void CcsdtEquationOfMotionDavidson::run() {
     &H,
     eigenStates,
     &P,
-    ediff,
+    amplitudesConvergence,
+    energyConvergence,
     maxBasisSize,
     maxIterations,
     minIterations

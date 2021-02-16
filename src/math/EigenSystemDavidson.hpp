@@ -54,7 +54,8 @@ namespace cc4s {
       H *h_,
       const int eigenVectorsCount_,
       P *p_,
-      const double tolerance_,
+      const double toleranceVectors,
+      const double toleranceEnergy,
       const unsigned int maxBasisSize_,
       const unsigned int maxIterations_,
       const unsigned int minIterations_
@@ -62,7 +63,7 @@ namespace cc4s {
       h(h_),
       eigenVectorsCount(eigenVectorsCount_),
       p(p_),
-      tolerance(tolerance_),
+      tolerance({toleranceEnergy, toleranceVectors}),
       maxBasisSize(maxBasisSize_),
       maxIterations(maxIterations_),
       minIterations(minIterations_),
@@ -106,7 +107,7 @@ namespace cc4s {
     H *h;
     int eigenVectorsCount;
     P *p;
-    double tolerance = 1E-14;
+    const struct { double energy; double vectors; } tolerance;
     unsigned int maxBasisSize = 1000;
     unsigned int maxIterations = 1000;
     unsigned int minIterations = 1;
@@ -129,7 +130,8 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
       H *h_,
       const int eigenVectorsCount_,
       P *p_,
-      const double tolerance_,
+      const double toleranceVectors,
+      const double toleranceEnergy,
       const unsigned int maxBasisSize_,
       const unsigned int maxIterations_,
       const unsigned int minIterations_
@@ -137,7 +139,8 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
       h_,
       eigenVectorsCount_,
       p_,
-      tolerance_,
+      toleranceVectors,
+      toleranceEnergy,
       maxBasisSize_,
       maxIterations_,
       minIterations_
@@ -162,6 +165,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
 
       // begin convergence loop
       double rms;
+      double energyDifference;
       unsigned int iterationCount(0);
       do {
         LOG(1,"Davidson") << "iteration=" << (iterationCount+1) << std::endl;
@@ -331,6 +335,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
 
         // begin rightBasis extension loop for each k
         rms = 0.0;
+        energyDifference = 0.0;
         for (unsigned int k(0); k < this->eigenValues.size(); ++k) {
           // get estimated eigenvalue
           this->eigenValues[k] = reducedEigenSystem.getEigenValues()[k];
@@ -370,23 +375,22 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           }
 #endif
 
-          F rightNorm(
-            std::sqrt(this->rightEigenVectors[k].dot(this->rightEigenVectors[k]))
+          const F rightNorm(
+            std::sqrt(this->rightEigenVectors[k]
+                      .dot(this->rightEigenVectors[k]))
           );
 
-          F leftRightNorm(
+          const F leftRightNorm(
             std::sqrt(leftEigenVectors[k].dot(this->rightEigenVectors[k]))
           );
 
           // compute residuum
           V residuum( this->h->rightApply(this->rightEigenVectors[k]) );
-          residuum -=
-            this->rightEigenVectors[k] * Conversion<F, complex>::from(
-              //std::sqrt(eigenValues[k])
-              this->eigenValues[k]
-            );
-          rms += std::real(residuum.dot(residuum)) /
-            std::real(this->rightEigenVectors[k].dot(this->rightEigenVectors[k]));
+          const double kNorm = std::real(this->rightEigenVectors[k]
+                                         .dot(this->rightEigenVectors[k]));
+          residuum -= this->rightEigenVectors[k]
+                    * Conversion<F, complex>::from(this->eigenValues[k]);
+          rms += std::real(residuum.dot(residuum)) / kNorm;
 
 
           // compute correction using preconditioner
@@ -396,9 +400,10 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           for (unsigned int b(0); b < rightBasis.size(); ++b) {
             correction -= rightBasis[b] * rightBasis[b].dot(correction);
           }
-          F correction_norm(
-            std::sqrt(correction.dot(correction))
-          );
+          const F correction_norm(std::sqrt(correction.dot(correction)));
+          energyDifference += std::abs( previousEigenvalues[k]
+                                      - this->eigenValues[k]
+                                      );
 
           LOG(0,"DavidsonIt") <<
             iterationCount + 1          << " "           <<
@@ -409,9 +414,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
             this->eigenValues[k].imag() << " "           <<
             //rightNorm                   << " "           <<
             rms                         << " "           <<
-            std::abs(
-              previousEigenvalues[k] - this->eigenValues[k]
-            ) << " "           <<
+            energyDifference / this->eigenVectorsCount << " "           <<
           std::endl;
 
 #ifdef DEBUGG
@@ -429,16 +432,29 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
           correction *= 1.0 / correction_norm;
           rightBasis.push_back(correction);
         }
+
         ++iterationCount;
+
         // end rightBasis extension loop
-      } while (
-        iterationCount+1 <= this->minIterations    ||
-        (
-          rms >= this->eigenVectorsCount * this->tolerance &&
-          (this->refreshOnMaxBasisSize() ? true : (rightBasis.size() <= this->maxBasisSize))&&
-          iterationCount+1 <= this->maxIterations
-        )
-      );
+      }
+      while ( (iterationCount+1 <= this->minIterations)
+            || ( ( rms >= this->eigenVectorsCount * this->tolerance.vectors
+                 && ( this->refreshOnMaxBasisSize()
+                    ? true
+                    : (rightBasis.size() <= this->maxBasisSize)
+                    )
+                 && iterationCount+1 <= this->maxIterations
+                 )
+              && ( energyDifference / this->eigenVectorsCount
+                    >= this->tolerance.energy
+                 && ( this->refreshOnMaxBasisSize()
+                    ? true
+                    : (rightBasis.size() <= this->maxBasisSize)
+                    )
+                 && iterationCount+1 <= this->maxIterations
+                 )
+               )
+          );
       // end convergence loop
     }
 

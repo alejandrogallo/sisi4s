@@ -55,6 +55,18 @@ namespace cc4s {
     SDFockVector<F> rightApplyHirata_CCSD_EA(SDFockVector<F>&);
     SDFockVector<F> rightApplyIntermediates_CCSD_EA(SDFockVector<F>&);
 
+    // Structure factor
+    struct StructureFactor { double energy; CTF::Tensor<F> S; };
+    struct StructureFactorSettings { bool onlySingles
+                                   ; bool onlyDoubles
+                                   ; };
+    StructureFactor structureFactor( SDFockVector<F>& t
+                                   , const StructureFactorSettings &s
+                                       = { .onlySingles = false
+                                         , .onlyDoubles = false
+                                         }
+                                   );
+
     // One body
     PTR(CTF::Tensor<F>) getIJ();
     PTR(CTF::Tensor<F>) getAB();
@@ -104,7 +116,8 @@ namespace cc4s {
     STH& setVabij(CTF::Tensor<F> *t) { Vabij = t; return *this; }
 
     // coulomb bertex setter
-    STH& setGammaGqr(CTF::Tensor<F> *t) { GammaGqr = t; return *this; }
+    STH&
+    setGammaGqr(CTF::Tensor<cc4s::complex> *t) { GammaGqr = t; return *this; }
 
     STH& setRightApplyIntermediates(bool t) {
       useRightApplyIntermediates = t; return *this;}
@@ -135,15 +148,19 @@ namespace cc4s {
     //
     // Resources that should be destroyed after the class gets destroyed
     //
-    // one body
-    PTR(CTF::Tensor<F>)  Wij, Wab, Wia, Wai;
-    // two body
-    PTR(CTF::Tensor<F>)  Wabij, Wijab, Wabcd, Wabci, Waibc,
-                         Wiabj, Wiajk, Wijka, Wijkl;
-    // three body
-    PTR(CTF::Tensor<F>) Wabcijk;
+    PTR(CTF::Tensor<F>)
+      // one body
+        Wij, Wab, Wia, Wai
 
-    PTR(CTF::Tensor<F>) Tau_abij;
+      // two body
+      , Wabij, Wijab, Wabcd, Wabci, Waibc, Wiabj, Wiajk, Wijka, Wijkl
+
+      // three body
+      , Wabcijk
+
+      // intermediate quantities
+      , Tau_abij
+      ;
 
 
     //
@@ -151,13 +168,21 @@ namespace cc4s {
     // Hamiltonian class gets destroyed
     //
     CTF::Tensor<F>
-      *Tai=nullptr, *Tabij=nullptr, *Tabcijk=nullptr, *Tabcdijkl=nullptr;
-    CTF::Tensor<F> *Fij, *Fab, *Fia=nullptr;
-    CTF::Tensor<F> *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk,
-                   *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci,
-                   *Vabij;
+      // T amplitudes
+        *Tai=nullptr, *Tabij=nullptr, *Tabcijk=nullptr, *Tabcdijkl=nullptr
+
+      // Fock matrices
+      , *Fij, *Fab, *Fia=nullptr
+
+      // Coulomb integrals
+      , *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk, *Vabic, *Vaibc
+      , *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci, *Vabij
+      ;
+
     // coulomb vertex
-    CTF::Tensor<F> *GammaGqr=nullptr;
+    CTF::Tensor<cc4s::complex>
+      *GammaGqr=nullptr
+      ;
 
   };
 

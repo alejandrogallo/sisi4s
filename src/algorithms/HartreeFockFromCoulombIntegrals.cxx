@@ -79,6 +79,7 @@ void HartreeFockFromCoulombIntegrals::run() {
                        , "HartreeFockEnergy"
                        , "HoleEigenEnergies"
                        , "ParticleEigenEnergies"
+                       , "linearMixer"
                        } );
 
   const auto ctfH(getTensorArgument<double>("h"));
@@ -88,7 +89,9 @@ void HartreeFockFromCoulombIntegrals::run() {
   const size_t Nv(getIntegerArgument("Nv", V->lens[0] - No));
   const size_t Np(No+Nv);
   const unsigned int maxIterations(getIntegerArgument("maxIterations", 16));
-  const double electronicConvergence(getRealArgument("energyDifference", 1e-4));
+  const double electronicConvergence(getRealArgument("energyDifference", 1e-4))
+             , linearMixer(getRealArgument("linearMixer", 1.0))
+             ;
 
   LOGGER(1) << "maxIterations: " << maxIterations  << std::endl;
   LOGGER(1) << "ediff: " << electronicConvergence << std::endl;
@@ -160,6 +163,7 @@ void HartreeFockFromCoulombIntegrals::run() {
     // Computer the new density D = C(occ) . C(occ)T
     auto C_occ(C.leftCols(No));
     D = C_occ * C_occ.transpose();
+    D = linearMixer * D + (1 - linearMixer) * D_last;
 
     rmsd = (D - D_last).norm();
   };
