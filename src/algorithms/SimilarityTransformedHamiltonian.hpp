@@ -59,11 +59,15 @@ namespace cc4s {
     struct StructureFactor { double energy; CTF::Tensor<F> S; };
     struct StructureFactorSettings { bool onlySingles
                                    ; bool onlyDoubles
+                                   ; bool hartreeInOneBody
+                                   ; bool fockInOneBody
                                    ; };
     StructureFactor structureFactor( SDFockVector<F>& t
                                    , const StructureFactorSettings &s
                                        = { .onlySingles = false
                                          , .onlyDoubles = false
+                                         , .hartreeInOneBody = false
+                                         , .fockInOneBody = false
                                          }
                                    );
 
@@ -175,7 +179,8 @@ namespace cc4s {
       , *Fij, *Fab, *Fia=nullptr
 
       // Coulomb integrals
-      , *Vabcd, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk, *Vabic, *Vaibc
+      , *Vabcd=nullptr
+      , *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk, *Vabic, *Vaibc
       , *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci, *Vabij
       ;
 

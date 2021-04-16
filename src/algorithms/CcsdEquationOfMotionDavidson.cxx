@@ -126,6 +126,8 @@ void CcsdEquationOfMotionDavidson::run() {
                                           , "structureFactorRange"
                                           , "structureFactorOnlySingles"
                                           , "structureFactorOnlyDoubles"
+                                          , "structureFactorHartreeInOneBody"
+                                          , "structureFactorFockInOneBody"
                                           };
   // possible integrals
   for (auto& i: requiredIntegrals) { allArguments.push_back(i.name); }
@@ -145,6 +147,8 @@ void CcsdEquationOfMotionDavidson::run() {
   const typename SimilarityTransformedHamiltonian<F>::StructureFactorSettings
     sfSettings = { getIntegerArgument("structureFactorOnlySingles", 0) == 1
                  , getIntegerArgument("structureFactorOnlyDoubles", 0) == 1
+                 , getIntegerArgument("structureFactorHartreeInOneBody",0) == 1
+                 , getIntegerArgument("structureFactorFockInOneBody", 0) == 1
                  };
 
   const bool

@@ -67,8 +67,10 @@ template <typename F>
 SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApply_CCSD_IP(
   SDFockVector<F> &R
 ) {
-  return useRightApplyIntermediates ?
-    rightApplyIntermediates_CCSD_IP(R) : rightApplyHirata_CCSD_IP(R);
+  return useRightApplyIntermediates
+       ? rightApplyIntermediates_CCSD_IP(R)
+       : rightApplyHirata_CCSD_IP(R)
+       ;
 }
 
 
@@ -2834,16 +2836,24 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
      ;
 
   ST_DEBUG("H_{0} IJ ========================================================")
-  H0ij["ij"] += (-1.0) * realCij["Gkk"] * realCij["Gij"];
-  H0ij["ij"] += (-1.0) * imagCij["Gkk"] * imagCij["Gij"];
-  H0ij["ij"] += (+1.0) * realCij["Gik"] * realCij["Gkj"];
-  H0ij["ij"] += (+1.0) * imagCij["Gik"] * imagCij["Gkj"];
+  if (!s.hartreeInOneBody) {
+    H0ij["ij"] += (-1.0) * realCij["Gkk"] * realCij["Gij"];
+    H0ij["ij"] += (-1.0) * imagCij["Gkk"] * imagCij["Gij"];
+  }
+  if (!s.fockInOneBody) {
+    H0ij["ij"] += (+1.0) * realCij["Gik"] * realCij["Gkj"];
+    H0ij["ij"] += (+1.0) * imagCij["Gik"] * imagCij["Gkj"];
+  }
 
   ST_DEBUG("H_{0} AB ========================================================")
-  H0ab["ab"] += (-1.0) * realCij["Gkk"] * realCab["Gab"];
-  H0ab["ab"] += (-1.0) * imagCij["Gkk"] * imagCab["Gab"];
-  H0ab["ab"] += (+1.0) * realCia["Gkb"] * realCai["Gak"];
-  H0ab["ab"] += (+1.0) * imagCia["Gkb"] * imagCai["Gak"];
+  if (!s.hartreeInOneBody) {
+    H0ab["ab"] += (-1.0) * realCij["Gkk"] * realCab["Gab"];
+    H0ab["ab"] += (-1.0) * imagCij["Gkk"] * imagCab["Gab"];
+  }
+  if (!s.fockInOneBody) {
+    H0ab["ab"] += (+1.0) * realCia["Gkb"] * realCai["Gak"];
+    H0ab["ab"] += (+1.0) * imagCia["Gkb"] * imagCai["Gak"];
+  }
 
   S["G"]  = 0.0;
   energy[""] = 0.0;
@@ -2852,30 +2862,36 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
 
   ST_DEBUG("WIJ =============================================================")
   ST_DEBUG(".") if ( ! s.onlyDoubles ) {
-  energy[""] += ( - 1.0 ) * (*CRai)["bi"] * H0ij["ki"] * (*Rai)["bk"];
+    energy[""] += ( - 1.0 ) * (*CRai)["bi"] * H0ij["ki"] * (*Rai)["bk"];
 
-  ST_DEBUG("\tHartree  part from F")
-  S["G"] += (-1.0)
-          * realCij["Gll"] * realCij["Gki"]
-          * (*CRai)["bi"]
-          * (*Rai)["bk"]
-          ;
-  S["G"] += (-1.0)
-          * imagCij["Gll"] * imagCij["Gki"]
-          * (*CRai)["bi"]
-          * (*Rai)["bk"]
-          ;
-  ST_DEBUG("\tExchange part from F")
-  S["G"] += (+1.0)
-          * realCij["Gkl"] * realCij["Gli"]
-          * (*CRai)["bi"]
-          * (*Rai)["bk"]
-          ;
-  S["G"] += (+1.0)
-          * imagCij["Gkl"] * imagCij["Gli"]
-          * (*CRai)["bi"]
-          * (*Rai)["bk"]
-          ;
+    if (!s.hartreeInOneBody) {
+      ST_DEBUG("\tHartree  part from F")
+      S["G"] += (-1.0)
+              * realCij["Gll"] * realCij["Gki"]
+              * (*CRai)["bi"]
+              * (*Rai)["bk"]
+              ;
+      S["G"] += (-1.0)
+              * imagCij["Gll"] * imagCij["Gki"]
+              * (*CRai)["bi"]
+              * (*Rai)["bk"]
+              ;
+    }
+
+    if (!s.fockInOneBody) {
+      ST_DEBUG("\tExchange part from F")
+      S["G"] += (+1.0)
+              * realCij["Gkl"] * realCij["Gli"]
+              * (*CRai)["bi"]
+              * (*Rai)["bk"]
+              ;
+      S["G"] += (+1.0)
+              * imagCij["Gkl"] * imagCij["Gli"]
+              * (*CRai)["bi"]
+              * (*Rai)["bk"]
+              ;
+    }
+
   }
 
   //:with-V  S["G"] += ( + 1.0  ) * (*CRai)["bi"] * (*Tai)["cl"] * (*Vijka)["lmic"] * (*Rai)["bm"];
@@ -2902,29 +2918,35 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
 
   ST_DEBUG("WAB =============================================================")
   ST_DEBUG(".") if ( ! s.onlyDoubles ) {
-  energy[""] += ( + 1.0 ) * (*CRai)["bi"] * H0ab["bc"] * (*Rai)["ci"];
-  ST_DEBUG("\tHartree  part from F")
-  S["G"] += (+1.0)
-          * realCij["Gkk"] * realCab["Gbc"]
-          * (*CRai)["bi"]
-          * (*Rai)["ci"]
-          ;
-  S["G"] += (+1.0)
-          * imagCij["Gkk"] * imagCab["Gbc"]
-          * (*CRai)["bi"]
-          * (*Rai)["ci"]
-          ;
-  ST_DEBUG("\tExchange part from F")
-  S["G"] += (-1.0)
-          * realCia["Gkc"] * realCai["Gbk"]
-          * (*CRai)["bi"]
-          * (*Rai)["ci"]
-          ;
-  S["G"] += (-1.0)
-         * imagCia["Gkc"] * imagCai["Gbk"]
-         * (*CRai)["bi"]
-         * (*Rai)["ci"]
-         ;
+    energy[""] += ( + 1.0 ) * (*CRai)["bi"] * H0ab["bc"] * (*Rai)["ci"];
+    if (!s.hartreeInOneBody) {
+        ST_DEBUG("\tHartree  part from F")
+        S["G"] += (+1.0)
+                * realCij["Gkk"] * realCab["Gbc"]
+                * (*CRai)["bi"]
+                * (*Rai)["ci"]
+                ;
+        S["G"] += (+1.0)
+                * imagCij["Gkk"] * imagCab["Gbc"]
+                * (*CRai)["bi"]
+                * (*Rai)["ci"]
+                ;
+    }
+
+    if (!s.fockInOneBody) {
+      ST_DEBUG("\tExchange part from F")
+      S["G"] += (-1.0)
+              * realCia["Gkc"] * realCai["Gbk"]
+              * (*CRai)["bi"]
+              * (*Rai)["ci"]
+              ;
+      S["G"] += (-1.0)
+             * imagCia["Gkc"] * imagCai["Gbk"]
+             * (*CRai)["bi"]
+             * (*Rai)["ci"]
+             ;
+    }
+
   }
   //:with-V  S["G"] += ( + 1.0  ) * (*CRai)["bi"] * (*Tai)["cl"] * (*Viabc)["lbce"] * (*Rai)["ei"];
   ST_DEBUG(".") if ( ! s.onlyDoubles ) {
@@ -3105,47 +3127,57 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
 
   ST_DEBUG("WAB   ===========================================================")
   ST_DEBUG(".") if ( ! s.onlySingles ) {
-  energy[""] += ( - 1.0 ) * H0ab["de"] * (*CRabij)["cdij"] * (*Rabij)["ecij"];
-  energy[""] += ( + 1.0 ) * H0ab["ce"] * (*CRabij)["cdij"] * (*Rabij)["edij"];
-  // TODO: we can put all the exchange + hartree parts in a tensor
+    energy[""] += ( - 1.0 ) * H0ab["de"] * (*CRabij)["cdij"] * (*Rabij)["ecij"];
+    energy[""] += ( + 1.0 ) * H0ab["ce"] * (*CRabij)["cdij"] * (*Rabij)["edij"];
+    // TODO: we can put all the exchange + hartree parts in a tensor
 
-  ST_DEBUG("\tHartree  part from F")
-  S["G"] += (-1.0)
-          * realCij["Gkk"] * realCab["Gde"]
-          * (*CRabij)["cdij"] * (*Rabij)["ecij"]
-          ;
-  S["G"] += (-1.0)
-          * imagCij["Gkk"] * imagCab["Gde"]
-          * (*CRabij)["cdij"] * (*Rabij)["ecij"]
-          ;
-  ST_DEBUG("\tExchange part from F")
-  S["G"] += (+1.0)
-          * realCia["Gke"] * realCai["Gdk"]
-          * (*CRabij)["cdij"] * (*Rabij)["ecij"]
-          ;
-  S["G"] += (+1.0)
-          * imagCia["Gke"] * imagCai["Gdk"]
-          * (*CRabij)["cdij"] * (*Rabij)["ecij"]
-          ;
+    if (!s.hartreeInOneBody) {
+      ST_DEBUG("\tHartree  part from F")
+      S["G"] += (-1.0)
+              * realCij["Gkk"] * realCab["Gde"]
+              * (*CRabij)["cdij"] * (*Rabij)["ecij"]
+              ;
+      S["G"] += (-1.0)
+              * imagCij["Gkk"] * imagCab["Gde"]
+              * (*CRabij)["cdij"] * (*Rabij)["ecij"]
+              ;
+    }
 
-  ST_DEBUG("\tHartree  part from F")
-  S["G"] += (+1.0)
-          * realCij["Gkk"] * realCab["Gce"]
-          * (*CRabij)["cdij"] * (*Rabij)["edij"]
-          ;
-  S["G"] += (+1.0)
-          * imagCij["Gkk"] * imagCab["Gce"]
-          * (*CRabij)["cdij"] * (*Rabij)["edij"]
-          ;
-  ST_DEBUG("\tExchange part from F")
-  S["G"] += (-1.0)
-          * realCia["Gke"] * realCai["Gck"]
-          * (*CRabij)["cdij"] * (*Rabij)["edij"]
-          ;
-  S["G"] += (-1.0)
-          * imagCia["Gke"] * imagCai["Gck"]
-          * (*CRabij)["cdij"] * (*Rabij)["edij"]
-          ;
+    if (!s.fockInOneBody) {
+      ST_DEBUG("\tExchange part from F")
+      S["G"] += (+1.0)
+              * realCia["Gke"] * realCai["Gdk"]
+              * (*CRabij)["cdij"] * (*Rabij)["ecij"]
+              ;
+      S["G"] += (+1.0)
+              * imagCia["Gke"] * imagCai["Gdk"]
+              * (*CRabij)["cdij"] * (*Rabij)["ecij"]
+              ;
+    }
+
+    if (!s.hartreeInOneBody) {
+      ST_DEBUG("\tHartree  part from F")
+      S["G"] += (+1.0)
+              * realCij["Gkk"] * realCab["Gce"]
+              * (*CRabij)["cdij"] * (*Rabij)["edij"]
+              ;
+      S["G"] += (+1.0)
+              * imagCij["Gkk"] * imagCab["Gce"]
+              * (*CRabij)["cdij"] * (*Rabij)["edij"]
+              ;
+    }
+
+    if (!s.fockInOneBody) {
+      ST_DEBUG("\tExchange part from F")
+      S["G"] += (-1.0)
+              * realCia["Gke"] * realCai["Gck"]
+              * (*CRabij)["cdij"] * (*Rabij)["edij"]
+              ;
+      S["G"] += (-1.0)
+              * imagCia["Gke"] * imagCai["Gck"]
+              * (*CRabij)["cdij"] * (*Rabij)["edij"]
+              ;
+    }
 
   }
   //:with-V  S["G"] += ( - 1.0  ) * (*CRabij)["cdij"] * (*Tai)["en"] * (*Viabc)["ndeg"] * (*Rabij)["gcij"];
@@ -3193,54 +3225,64 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
 
   ST_DEBUG("WIJ   ===========================================================")
   ST_DEBUG(".") if ( ! s.onlySingles ) {
-  energy[""] += ( - 1.0 ) * (*CRabij)["cdij"] * H0ij["mi"] * (*Rabij)["cdmj"];
-  energy[""] += ( + 1.0 ) * (*CRabij)["cdij"] * H0ij["mj"] * (*Rabij)["cdmi"];
+    energy[""] += ( - 1.0 ) * (*CRabij)["cdij"] * H0ij["mi"] * (*Rabij)["cdmj"];
+    energy[""] += ( + 1.0 ) * (*CRabij)["cdij"] * H0ij["mj"] * (*Rabij)["cdmi"];
 
-  ST_DEBUG("\tHartree  part from F")
-  S["G"] += (-1.0)
-          * realCij["Gkk"] * realCij["Gmi"]
-          * (*CRabij)["cdij"]
-          * (*Rabij)["cdmj"]
-          ;
-  S["G"] += (-1.0)
-          * imagCij["Gkk"] * imagCij["Gmi"]
-          * (*CRabij)["cdij"]
-          * (*Rabij)["cdmj"]
-          ;
-  ST_DEBUG("\tExchange part from F")
-  S["G"] += (+1.0)
-          * realCij["Gmk"] * realCij["Gki"]
-          * (*CRabij)["cdij"]
-          * (*Rabij)["cdmj"]
-          ;
-  S["G"] += (+1.0)
-          * imagCij["Gmk"] * imagCij["Gki"]
-          * (*CRabij)["cdij"]
-          * (*Rabij)["cdmj"]
-          ;
+    if (!s.hartreeInOneBody) {
+      ST_DEBUG("\tHartree  part from F")
+      S["G"] += (-1.0)
+              * realCij["Gkk"] * realCij["Gmi"]
+              * (*CRabij)["cdij"]
+              * (*Rabij)["cdmj"]
+              ;
+      S["G"] += (-1.0)
+              * imagCij["Gkk"] * imagCij["Gmi"]
+              * (*CRabij)["cdij"]
+              * (*Rabij)["cdmj"]
+              ;
+    }
 
-  ST_DEBUG("\tHartree  part from F")
-  S["G"] += (+1.0)
-          * realCij["Gkk"] * realCij["Gmj"]
-          * (*CRabij)["cdij"]
-          * (*Rabij)["cdmi"]
-          ;
-  S["G"] += (+1.0)
-          * imagCij["Gkk"] * imagCij["Gmj"]
-          * (*CRabij)["cdij"]
-          * (*Rabij)["cdmi"]
-          ;
-  ST_DEBUG("\tExchange part from F")
-  S["G"] += (-1.0)
-          * realCij["Gmk"] * realCij["Gkj"]
-          * (*CRabij)["cdij"]
-          * (*Rabij)["cdmi"]
-          ;
-  S["G"] += (-1.0)
-          * imagCij["Gmk"] * imagCij["Gkj"]
-          * (*CRabij)["cdij"]
-          * (*Rabij)["cdmi"]
-          ;
+    if (!s.fockInOneBody) {
+      ST_DEBUG("\tExchange part from F")
+      S["G"] += (+1.0)
+              * realCij["Gmk"] * realCij["Gki"]
+              * (*CRabij)["cdij"]
+              * (*Rabij)["cdmj"]
+              ;
+      S["G"] += (+1.0)
+              * imagCij["Gmk"] * imagCij["Gki"]
+              * (*CRabij)["cdij"]
+              * (*Rabij)["cdmj"]
+              ;
+    }
+
+    if (!s.hartreeInOneBody) {
+      ST_DEBUG("\tHartree  part from F")
+      S["G"] += (+1.0)
+              * realCij["Gkk"] * realCij["Gmj"]
+              * (*CRabij)["cdij"]
+              * (*Rabij)["cdmi"]
+              ;
+      S["G"] += (+1.0)
+              * imagCij["Gkk"] * imagCij["Gmj"]
+              * (*CRabij)["cdij"]
+              * (*Rabij)["cdmi"]
+              ;
+    }
+
+    if (!s.fockInOneBody) {
+      ST_DEBUG("\tExchange part from F")
+      S["G"] += (-1.0)
+              * realCij["Gmk"] * realCij["Gkj"]
+              * (*CRabij)["cdij"]
+              * (*Rabij)["cdmi"]
+              ;
+      S["G"] += (-1.0)
+              * imagCij["Gmk"] * imagCij["Gkj"]
+              * (*CRabij)["cdij"]
+              * (*Rabij)["cdmi"]
+              ;
+    }
 
   }
   //:with-V  S["G"] += ( + 1.0  ) * (*CRabij)["cdij"] * (*Tai)["en"] * (*Vijka)["noie"] * (*Rabij)["cdoj"];
