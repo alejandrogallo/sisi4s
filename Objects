@@ -91,7 +91,6 @@ build/${CONFIG}/obj/algorithms/UrpaAmplitudesFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/UccsdAmplitudesFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/UccsdtAmplitudesFromCoulombIntegrals.o \
 build/${CONFIG}/obj/algorithms/Mp2ImaginaryFrequencyGrid.o \
-build/${CONFIG}/obj/algorithms/RpaApxEnergy.o \
 build/${CONFIG}/obj/algorithms/LaplaceTransform.o \
 build/${CONFIG}/obj/algorithms/BasisSetExtrapolation.o \
 build/${CONFIG}/obj/algorithms/RandomOrbitals.o \
@@ -113,15 +112,6 @@ build/${CONFIG}/obj/algorithms/Mp2NaturalOrbitals.o \
 build/${CONFIG}/obj/algorithms/ParenthesisTriples.o \
 build/${CONFIG}/obj/algorithms/UPerturbativeTriples.o \
 
-
-ifeq (${THERMAL}, yes)
-build/${CONFIG}/obj/algorithms/ThermalHolesAndParticles.o \
-build/${CONFIG}/obj/algorithms/ThermalPerturbation.o \
-build/${CONFIG}/obj/algorithms/ThermalMp2EnergyFromCoulombIntegrals.o \
-build/${CONFIG}/obj/algorithms/ThermalClusterDoublesAlgorithm.o \
-build/${CONFIG}/obj/algorithms/ThermalDirectRingCoupledClusterDoubles.o \
-
-endif
 
 ifeq (${HF}, yes)
 OBJECTS += \
