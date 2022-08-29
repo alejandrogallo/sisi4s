@@ -26,6 +26,8 @@ Options::Options(int argumentCount, char **arguments) {
       logFile = arguments[++i];
     } else if (argument == "--dry-run" || argument == "-dryRun") {
       dryRun = true;
+    } else if (argument == "--hummel") {
+      hummel = true;
     }
   }
 }

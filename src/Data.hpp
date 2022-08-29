@@ -8,7 +8,7 @@
 #include <string>
 #include <map>
 #include <vector>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 // TODO: find out why Exception must be included after string,map and ctf
 #include <util/Exception.hpp>
 

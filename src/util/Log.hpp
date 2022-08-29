@@ -101,6 +101,9 @@ namespace cc4s {
 #define OUT() \
   if (cc4s::Log::getRank() != 0) { \
   } else std::cout
+#define WARN() \
+  if (cc4s::Log::getRank() != 0) { \
+  } else std::cout << "WARNING: "
 #define NEW_FILE(NAME) \
   if (cc4s::Log::getRank() != 0) { \
   } else std::ofstream(NAME, std::ofstream::out)

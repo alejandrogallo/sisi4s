@@ -4,7 +4,7 @@
 
 #include <util/Time.hpp>
 
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <Options.hpp>
 
 namespace cc4s {

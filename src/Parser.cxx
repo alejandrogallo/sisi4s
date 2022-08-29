@@ -4,12 +4,83 @@
 #include <util/Exception.hpp>
 #include <fstream>
 #include <locale>
+#include <yaml-cpp/yaml.h>
 
 using namespace cc4s;
 
-// TODO: create ParseException
+///////////////////////////////////////////////////////////////////////////////
+// YAML Parser ////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
-Parser::Parser(
+InputFileParser<InputFileFormat::YAML>::InputFileParser(
+  std::string const& fileName_
+): fileName(fileName_) {};
+
+InputFileParser<InputFileFormat::YAML>::~InputFileParser() {}
+
+std::vector<Algorithm *>
+InputFileParser<InputFileFormat::YAML>::parse() {
+  const YAML::Node nodes = YAML::LoadFile(fileName);
+  std::vector<Algorithm *> algorithms;
+
+  for (const YAML::Node& node: nodes) {
+    std::string name = node["name"].as<std::string>();
+    std::cout << name << std::endl;
+    std::vector<Argument> arguments;
+
+    for (auto const& _inout: {"in", "out"}) {
+      YAML::Node const inout = node[_inout];
+      for (YAML::const_iterator it = inout.begin(); it != inout.end(); ++it) {
+        std::string
+          key = it->first.as<std::string>(),
+          valueName;
+        try {
+          int value = it->second.as<int>();
+          valueName = (new IntegerData(value))->getName();
+        } catch (YAML::TypedBadConversion<int> const c) {
+
+          try {
+            double value = it->second.as<double>();
+            valueName = (new RealData(value))->getName();
+          } catch (YAML::TypedBadConversion<double> const c) {
+
+            try {
+              std::string value = it->second.as<std::string>();
+              std::cout << "value: " <<  value << "\n";
+              if (value.substr(0, 1) == "$") {
+                const std::string symbolName = value.substr(1);
+                Data *data(Data::get(symbolName));
+                std::cout << "DATA " << symbolName << std::endl;
+                valueName = data
+                          ? data->getName()
+                          : (new Data(symbolName))->getName();
+              } else {
+                valueName = (new TextData(value))->getName();
+              }
+            } catch (YAML::TypedBadConversion<std::string> const c) {
+              throw c;
+            }
+
+          }
+
+        }
+
+        arguments.push_back(Argument(key, valueName));
+      }
+    }
+
+    Algorithm *algorithm(AlgorithmFactory::create(name, arguments));
+    algorithms.push_back(algorithm);
+  }
+  return algorithms;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Hummel Parser //////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+InputFileParser<InputFileFormat::HUMMEL>::InputFileParser(
   std::string const &fileName
 ): stream(new std::ifstream(fileName.c_str()), fileName) {
   std::ifstream *fileStream(dynamic_cast<std::ifstream *>(stream.getStream()));
@@ -20,10 +91,9 @@ Parser::Parser(
   }
 }
 
-Parser::~Parser() {
-}
+InputFileParser<InputFileFormat::HUMMEL>::~InputFileParser() {}
 
-std::vector<Algorithm *> Parser::parse() {
+std::vector<Algorithm *> InputFileParser<InputFileFormat::HUMMEL>::parse() {
   std::vector<Algorithm *> algorithms;
   skipIrrelevantCharacters();
   while (stream.peek() > 0) {
@@ -33,7 +103,7 @@ std::vector<Algorithm *> Parser::parse() {
   return algorithms;
 }
 
-Algorithm *Parser::parseAlgorithm() {
+Algorithm* InputFileParser<InputFileFormat::HUMMEL>::parseAlgorithm() {
   int line(stream.getLine()), column(stream.getColumn());
   // an algorithm starts with the name
   std::string algorithmName(parseSymbolName());
@@ -60,7 +130,7 @@ Algorithm *Parser::parseAlgorithm() {
   return algorithm;
 }
 
-std::vector<Argument> Parser::parseArguments() {
+std::vector<Argument> InputFileParser<InputFileFormat::HUMMEL>::parseArguments() {
   std::vector<Argument> arguments;
   expectCharacter('[');
   skipIrrelevantCharacters();
@@ -72,12 +142,12 @@ std::vector<Argument> Parser::parseArguments() {
   return arguments;
 }
 
-Argument Parser::parseArgument() {
+Argument InputFileParser<InputFileFormat::HUMMEL>::parseArgument() {
   if (stream.peek() == '(') return parseExplicitlyNamedArgument();
   else return parseImplicitlyNamedArgument();
 }
 
-Argument Parser::parseImplicitlyNamedArgument() {
+Argument InputFileParser<InputFileFormat::HUMMEL>::parseImplicitlyNamedArgument() {
   // TODO: store debug info for later reference in case of errors
   std::string argumentName(parseSymbolName());
   Data *data(Data::get(argumentName));
@@ -85,7 +155,7 @@ Argument Parser::parseImplicitlyNamedArgument() {
   return Argument(argumentName, argumentName);
 }
 
-Argument Parser::parseExplicitlyNamedArgument() {
+Argument InputFileParser<InputFileFormat::HUMMEL>::parseExplicitlyNamedArgument() {
   // TODO: store debug info for later reference in case of errors
   // first character must be '('
   stream.get();
@@ -98,7 +168,7 @@ Argument Parser::parseExplicitlyNamedArgument() {
   return Argument(argumentName, dataName);
 }
 
-std::string Parser::parseData() {
+std::string InputFileParser<InputFileFormat::HUMMEL>::parseData() {
   char character(stream.peek());
   if (isalpha(character)) {
     return parseSymbol()->getName();
@@ -114,7 +184,7 @@ std::string Parser::parseData() {
   }
 }
 
-std::string Parser::parseSymbolName() {
+std::string InputFileParser<InputFileFormat::HUMMEL>::parseSymbolName() {
   std::stringstream sStream;
   // the first character is expected to be an alphabetic character
   sStream.put(stream.get());
@@ -125,13 +195,13 @@ std::string Parser::parseSymbolName() {
   return sStream.str();
 }
 
-Data *Parser::parseSymbol() {
+Data *InputFileParser<InputFileFormat::HUMMEL>::parseSymbol() {
   std::string symbolName(parseSymbolName());
   Data *data(Data::get(symbolName));
   return data ? data : new Data(symbolName);
 }
 
-TextData *Parser::parseText() {
+TextData *InputFileParser<InputFileFormat::HUMMEL>::parseText() {
   std::stringstream sStream;
   // TODO: parse escape sequences
   // the first character is expected to be a double quote '"'
@@ -144,7 +214,7 @@ TextData *Parser::parseText() {
   return new TextData(sStream.str());
 }
 
-NumericData *Parser::parseNumber() {
+NumericData *InputFileParser<InputFileFormat::HUMMEL>::parseNumber() {
   // the first character can be a sign
   int64_t sign(1);
   switch (stream.peek()) {
@@ -169,7 +239,7 @@ NumericData *Parser::parseNumber() {
   else return new IntegerData(sign * integer);
 }
 
-RealData *Parser::parseReal(
+RealData *InputFileParser<InputFileFormat::HUMMEL>::parseReal(
   const int64_t sign, const int64_t integerPart
 ) {
   // the first character is expected to be the decimal point
@@ -185,7 +255,7 @@ RealData *Parser::parseReal(
   );
 }
 
-void Parser::skipIrrelevantCharacters() {
+void InputFileParser<InputFileFormat::HUMMEL>::skipIrrelevantCharacters() {
   skipWhiteSpaceCharacters();
   while (stream.peek() == '%') {
     skipComment();
@@ -193,16 +263,16 @@ void Parser::skipIrrelevantCharacters() {
   }
 }
 
-void Parser::skipComment() {
+void InputFileParser<InputFileFormat::HUMMEL>::skipComment() {
   char c;
   while ((c = stream.get()) > 0 && c != '\n');
 }
 
-void Parser::skipWhiteSpaceCharacters() {
+void InputFileParser<InputFileFormat::HUMMEL>::skipWhiteSpaceCharacters() {
   while (isspace(stream.peek())) stream.get();
 }
 
-void Parser::expectCharacter(char const expectedCharacter) {
+void InputFileParser<InputFileFormat::HUMMEL>::expectCharacter(char const expectedCharacter) {
   char character(stream.peek());
   if (character != expectedCharacter) {
     std::stringstream sStream;

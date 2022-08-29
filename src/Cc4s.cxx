@@ -30,8 +30,14 @@ void Cc4s::run() {
   EMIT() << YAML::BeginMap;
   printBanner();
   listHosts();
-  Parser parser(options->file);
-  std::vector<Algorithm *> algorithms(parser.parse());
+  std::vector<Algorithm *> algorithms;
+  if (options->hummel) {
+    InputFileParser<InputFileFormat::HUMMEL> parser(options->file);
+    algorithms = parser.parse();
+  } else {
+    InputFileParser<InputFileFormat::YAML> parser(options->file);
+    algorithms = parser.parse();
+  }
   LOG(0, "root") <<
     "execution plan read, steps=" << algorithms.size() << std::endl;
   EMIT() <<
@@ -102,7 +108,7 @@ void Cc4s::dryRun() {
   LOG(0, "root") <<
     "DRY RUN - nothing will be calculated" << std::endl;
   OUT() << std::endl;
-  Parser parser(options->file);
+  InputFileParser<InputFileFormat::YAML> parser(options->file);
   std::vector<Algorithm *> algorithms(parser.parse());
   LOG(0, "root") <<
     "execution plan read, steps=" << algorithms.size() << std::endl;

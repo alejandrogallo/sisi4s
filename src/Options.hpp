@@ -12,6 +12,7 @@ namespace cc4s {
     bool dryRun;
 
     const int DEFAULT_LOG_LEVEL = 1;
+    bool hummel;
 
     Options(int argumentCount, char **arguments);
   };
