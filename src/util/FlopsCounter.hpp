@@ -1,7 +1,7 @@
 #ifndef FLOPS_COUNTER_DEFINED
 #define FLOPS_COUNTER_DEFINED
 
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
   class FlopsCounter {

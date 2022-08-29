@@ -6,7 +6,7 @@
 #include <util/CtfMachineTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 using namespace cc4s;
 using namespace tcc;

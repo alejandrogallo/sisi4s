@@ -6,7 +6,7 @@
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
 #include <iostream>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <numeric>
 #define IF_GIVEN(_l, ...) if (isArgumentGiven(_l)) { __VA_ARGS__ }
 #define LOGGER(_l) LOG(_l, "HartreeFockFromCoulombIntegrals")

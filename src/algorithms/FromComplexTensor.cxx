@@ -1,6 +1,6 @@
 #include <algorithms/FromComplexTensor.hpp>
 #include <math/ComplexTensor.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 using namespace CTF;
 using namespace cc4s;

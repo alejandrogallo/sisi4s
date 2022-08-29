@@ -13,7 +13,7 @@
 #include <util/Exception.hpp>
 #include <util/SharedPointer.hpp>
 #include <Cc4s.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <iostream>
 // FIXME: use common way for math constants
 #define _USE_MATH_DEFINES

@@ -6,7 +6,7 @@
 #include <Cc4s.hpp>
 #include <fstream>
 #include <iomanip>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 using namespace CTF;
 using namespace cc4s;

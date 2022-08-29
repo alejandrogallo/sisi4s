@@ -20,7 +20,7 @@ he equations in this file are taken from the following sources
 #include <util/SharedPointer.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <Options.hpp>
 #include <Cc4s.hpp>
 #include <array>

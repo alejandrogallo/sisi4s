@@ -4,7 +4,7 @@
 #include <math/Complex.hpp>
 #include <tcc/DryTensor.hpp>
 
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <random>
 
 namespace cc4s {

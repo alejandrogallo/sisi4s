@@ -3,7 +3,7 @@
 #define COULOMB_VERTEX_READER_DEFINED
 
 #include <algorithms/Algorithm.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <cstdint>
 #include <fstream>
 

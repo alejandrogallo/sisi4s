@@ -1,5 +1,5 @@
 #include <algorithms/TensorSum.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 using namespace CTF;
 using namespace cc4s;

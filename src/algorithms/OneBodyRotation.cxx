@@ -3,7 +3,7 @@
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
 #include <iostream>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <util/Emitter.hpp>
 
 using namespace cc4s;

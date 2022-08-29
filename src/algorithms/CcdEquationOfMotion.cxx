@@ -5,7 +5,7 @@
 #include <math/RandomTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <Cc4s.hpp>
 
 using namespace cc4s;

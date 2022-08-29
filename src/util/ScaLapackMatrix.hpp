@@ -3,7 +3,7 @@
 #define SCA_LAPACK_MATRIX_DEFINED
 
 #include <util/BlacsWorld.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
   class ScaLapackDescriptor {

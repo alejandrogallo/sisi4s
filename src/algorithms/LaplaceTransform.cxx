@@ -3,7 +3,7 @@
 #include <math/ComplexTensor.hpp>
 #include <util/LapackMatrix.hpp>
 #include <util/Log.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 using namespace CTF;
 using namespace cc4s;

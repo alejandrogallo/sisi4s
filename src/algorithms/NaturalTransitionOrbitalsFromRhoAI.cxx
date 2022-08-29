@@ -9,7 +9,7 @@
 #include <numeric>      // std::iota
 #include <algorithm>
 
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 using namespace CTF;
 using namespace cc4s;

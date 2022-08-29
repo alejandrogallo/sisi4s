@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <util/SharedPointer.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <util/Log.hpp>
 #include <math/FockVector.hpp>
 

@@ -6,7 +6,7 @@
 #include <math/Complex.hpp>
 #include <math/RegularizedAlternatingLeastSquares.hpp>
 #include <tcc/DryTensor.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
   /**

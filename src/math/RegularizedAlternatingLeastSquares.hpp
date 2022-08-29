@@ -5,7 +5,7 @@
 #include <math/Complex.hpp>
 #include <tcc/DryTensor.hpp>
 #include <util/Log.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
   class AlternatingLeastSquaresRegularizationEstimator {

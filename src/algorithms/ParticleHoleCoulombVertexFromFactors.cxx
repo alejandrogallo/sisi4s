@@ -5,7 +5,7 @@
 #include <util/CtfMachineTensor.hpp>
 #include <util/Log.hpp>
 #include <Cc4s.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 #include <vector>
 #include <string>

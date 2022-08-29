@@ -3,7 +3,7 @@
 
 #include <math/Complex.hpp>
 #include <cstring>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
   class BinaryTensorHeaderBase {

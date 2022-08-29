@@ -4,7 +4,7 @@
 #include "mpi.h"
 #include <math/Complex.hpp>
 #include <math/Vector.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
   // base template for type traits

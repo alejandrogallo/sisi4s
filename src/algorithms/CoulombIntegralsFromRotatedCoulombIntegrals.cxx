@@ -2,12 +2,12 @@
 #include <vector>
 #include <algorithm>
 #include <algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <numeric>
 #include <set>
 #include <map>

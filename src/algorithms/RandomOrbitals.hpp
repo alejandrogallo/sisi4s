@@ -3,7 +3,7 @@
 #define RANDOM_ORBITALS_DEFINED
 
 #include <algorithms/Algorithm.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
   class RandomOrbitals: public Algorithm {

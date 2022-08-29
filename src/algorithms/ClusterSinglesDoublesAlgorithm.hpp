@@ -7,7 +7,7 @@
 #include <tcc/DryTensor.hpp>
 #include <util/SharedPointer.hpp>
 
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 #include <string>
 #include <initializer_list>

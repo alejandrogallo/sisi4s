@@ -2,7 +2,7 @@
 #define COMPLEX_TENSOR_DEFINED
 
 #include <math/Complex.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
   /**

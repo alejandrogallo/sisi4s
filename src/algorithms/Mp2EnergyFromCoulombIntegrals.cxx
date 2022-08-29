@@ -5,7 +5,7 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Cc4s.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <Options.hpp>
 
 using namespace CTF;

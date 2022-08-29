@@ -1,7 +1,7 @@
 #include <libint2.hpp>
 #include <string>
 #include <algorithms/NuclearRepulsionEnergy.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
 #include <iostream>

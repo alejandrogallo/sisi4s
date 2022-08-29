@@ -5,7 +5,7 @@
 #include <algorithms/Algorithm.hpp>
 #include <util/SharedPointer.hpp>
 #include <string>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <tcc/DryTensor.hpp>
 
 namespace cc4s {

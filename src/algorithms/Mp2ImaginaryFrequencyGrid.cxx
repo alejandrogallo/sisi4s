@@ -3,7 +3,7 @@
 #include <tcc/DryTensor.hpp>
 #include <util/Log.hpp>
 
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <algorithm>
 
 using namespace cc4s;

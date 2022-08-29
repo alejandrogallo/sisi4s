@@ -3,7 +3,7 @@
 #define SLICED_CTF_TENSOR_DEFINED
 
 #include <math/Permutation.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <initializer_list>
 #include <vector>
 #include <string>

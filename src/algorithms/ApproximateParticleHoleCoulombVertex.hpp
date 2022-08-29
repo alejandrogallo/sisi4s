@@ -3,7 +3,7 @@
 #define APPROXIMATE_PARTICLE_HOLE_COULOMB_VERTEX_DEFINED
 
 #include <algorithms/Algorithm.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
   /* @WIKI

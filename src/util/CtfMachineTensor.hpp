@@ -4,7 +4,7 @@
 
 #include <tcc/MachineTensor.hpp>
 #include <Cc4s.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <string>
 #include <memory>
 

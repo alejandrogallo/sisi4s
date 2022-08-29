@@ -2,7 +2,7 @@
 #include <algorithms/PseudoInverse.hpp>
 #include <math/PseudoInverseHermitianSvd.hpp>
 #include <util/Log.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 using namespace cc4s;
 using namespace CTF;

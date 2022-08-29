@@ -3,7 +3,7 @@
 
 #include <algorithms/Algorithm.hpp>
 #include <Eigen/Dense>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
 

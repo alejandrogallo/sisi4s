@@ -3,7 +3,7 @@
 
 #include <util/SharedPointer.hpp>
 #include <math/Complex.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
 

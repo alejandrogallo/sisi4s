@@ -1,7 +1,7 @@
 #include <algorithms/StantonIntermediatesUCCSD.hpp>
 #include <vector>
 #include <map>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <string>
 #include <util/Exception.hpp>
 #include <util/SharedPointer.hpp>

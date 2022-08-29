@@ -7,7 +7,7 @@
 #include <tcc/DryTensor.hpp>
 #include <math/Vector.hpp>
 #include <util/SharedPointer.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <util/MpiCommunicator.hpp>
 #include <math/PseudoInverseSvd.hpp>
 

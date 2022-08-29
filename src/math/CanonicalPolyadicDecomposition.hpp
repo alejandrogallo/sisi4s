@@ -2,7 +2,7 @@
 #define CANONICAL_POLYADIC_DECOMPOSITION_DEFINED
 
 #include <tcc/DryTensor.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 namespace cc4s {
   /**

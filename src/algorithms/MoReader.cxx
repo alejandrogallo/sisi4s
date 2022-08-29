@@ -5,7 +5,7 @@
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
 #include <fstream>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <numeric>
 #include <set>
 #include <map>

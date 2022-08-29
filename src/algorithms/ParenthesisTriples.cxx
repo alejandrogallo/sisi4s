@@ -3,7 +3,7 @@
 #include <util/SharedPointer.hpp>
 #include <util/BinaryTensorFormat.hpp>
 #include <Cc4s.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <fstream>
 #include <extern/Lapack.hpp>
 #include <math/ComplexTensor.hpp>
@@ -219,7 +219,7 @@ inline void permuteMoveTwo(
 {
   const int64_t blockSize=50;
   #pragma omp parallel for
-  for (int64_t k(0); k< Nv; k++){
+  for (int64_t k = (0); k< Nv; k++){
     for (int64_t j(0); j<Nv; j+=blockSize){
       int64_t incj = j+blockSize < Nv ? blockSize : Nv-j;
       for (int64_t i(0); i< Nv; i+=blockSize){
@@ -239,7 +239,7 @@ inline void fullPermutationZero(
 {
   const int64_t blockSize=16;
   #pragma omp parallel for
-  for (int64_t k(0); k< Nv; k+=blockSize){
+  for (int64_t k = (0); k< Nv; k+=blockSize){
     int64_t inck = k+blockSize < Nv ? blockSize : Nv-k;
     for (int64_t j(0); j<Nv; j+=blockSize){
       int64_t incj = j+blockSize < Nv ? blockSize : Nv-j;
@@ -267,7 +267,7 @@ inline void fullPermutationOne(
 {
   const int64_t blockSize=16;
   #pragma omp parallel for
-  for (int64_t k(0); k< Nv; k+=blockSize){
+  for (int64_t k = (0); k< Nv; k+=blockSize){
     int64_t inck = k+blockSize < Nv ? blockSize : Nv-k;
     for (int64_t j(0); j<Nv; j+=blockSize){
       int64_t incj = j+blockSize < Nv ? blockSize : Nv-j;
@@ -292,7 +292,7 @@ inline void fullPermutationTwo(
 {
   const int64_t blockSize=16;
   #pragma omp parallel for
-  for (int64_t k(0); k< Nv; k+=blockSize){
+  for (int64_t k = (0); k< Nv; k+=blockSize){
     int64_t inck = k+blockSize < Nv ? blockSize : Nv-k;
     for (int64_t j(0); j<Nv; j+=blockSize){
       int64_t incj = j+blockSize < Nv ? blockSize : Nv-j;
@@ -326,7 +326,7 @@ void ParenthesisTriples::doublesContribution(
   if (holeDiagram){
     // t[bali] * V[lcjk] = F[bac] -> T[abl](i) * V[lcjk] = F[abc]           H0
     #pragma omp parallel for
-    for ( int64_t l(0); l < No; l++){
+    for ( int64_t l = (0); l < No; l++){
       for ( int64_t b(0); b < Nv; b++){
         for ( int64_t a(0); a < Nv; a++){
           scratchV[a + Nv*b + Nv*Nv*l] = Tabij[b + Nv*a + Nv*Nv*l + i*No*Nv*Nv];
@@ -354,7 +354,7 @@ void ParenthesisTriples::doublesContribution(
     );
     // t[cblj] * V[laki] = F[cba] -> V[laki] * T[bcl](j) = F[abc]           H4
     #pragma omp parallel for
-    for ( int64_t l(0); l < No; l++){
+    for ( int64_t l = (0); l < No; l++){
       for ( int64_t b(0); b < Nv; b++){
         for ( int64_t a(0); a < Nv; a++){
           scratchV[a + Nv*b + Nv*Nv*l] = Tabij[b + Nv*a + Nv*Nv*l + j*No*Nv*Nv];
@@ -736,7 +736,7 @@ void ParenthesisTriples::run(){
     {
       Timer singlesTimer(&singlesTime);
       #pragma omp parallel for
-      for (int64_t i(0); i < NvCube; i++)
+      for (int64_t i = (0); i < NvCube; i++)
         Zabc[i] = Tabc[i];
       singlesContribution(ijk, scratch, Zabc);
     }

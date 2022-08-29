@@ -34,12 +34,12 @@
 #include <libint2.hpp>
 #include <algorithms/HartreeFockFromGaussian.hpp>
 #include <algorithms/OneBodyFromGaussian.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
 #include <iostream>
 #include <Eigen/Eigenvalues>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <numeric>      // std::iota
 #include <util/Emitter.hpp>
 #include <algorithms/HartreeFockFromCoulombIntegrals.hpp>

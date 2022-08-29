@@ -4,7 +4,7 @@
 #include <tcc/DryTensor.hpp>
 #include <util/Log.hpp>
 #include <Cc4s.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 
 using namespace CTF;
 using namespace cc4s;

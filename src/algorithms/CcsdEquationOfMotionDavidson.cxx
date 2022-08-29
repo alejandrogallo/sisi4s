@@ -11,7 +11,7 @@
 #include <util/TensorIo.hpp>
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <Cc4s.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Emitter.hpp>

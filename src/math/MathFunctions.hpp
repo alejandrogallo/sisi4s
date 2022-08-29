@@ -4,7 +4,7 @@
 #include <math/Complex.hpp>
 #include <cmath>
 #include <string>
-#include <ctf.hpp>
+#include <util/CTF.hpp>
 #include <util/Log.hpp>
 
 namespace cc4s {
