@@ -97,6 +97,7 @@ cc3s_SOURCES =                                                   \
 ./algorithms/CcsdDiagrammaticDecomposition.cxx                   \
 ./algorithms/GenerateRandomTensor.cxx                            \
 ./algorithms/GenerateRandomComplexMatrix.cxx                     \
+./algorithms/UegVertexGenerator.cxx                              \
 ./algorithms/Exit.cxx
 
 ## FOR LIBINT2
@@ -114,12 +115,10 @@ cc3s_LDADD = $(CTF_LDFLAGS) $(YAML_LDFLAGS) $(BLAS_LIBS) -lscalapack -lquadmath 
 
 ## ./algorithms/UPerturbativeTriples.cxx                            \
 ## ./algorithms/DoublesAmplitudesFromVertex.cxx                     \
-## ./algorithms/ParticleHoleCoulombVertexFromFactors.cxx            \
 ## ./algorithms/ComplexTensorSum.cxx                                \
 ## ./algorithms/RandomOrbitals.cxx                                  \
 
 ## ./algorithms/TensorContraction.cxx                               \
-## ./algorithms/CoulombVertexFromFactors.cxx                        \
 ## ./algorithms/ApproximateParticleHoleCoulombVertex.cxx            \
 
 ## ./algorithms/PerturbativeTriples.cxx                             \
@@ -140,3 +139,9 @@ cc3s_LDADD = $(CTF_LDFLAGS) $(YAML_LDFLAGS) $(BLAS_LIBS) -lscalapack -lquadmath 
 ## ./algorithms/CoulombVertexSingularVectors.cxx                    \
 ## ./algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx \
 ## ./algorithms/ClusterSinglesDoublesTriplesAlgorithm.cxx           \
+
+##
+## These are the only algorithms using Tcc
+##
+## ./algorithms/CoulombVertexFromFactors.cxx                        \
+## ./algorithms/ParticleHoleCoulombVertexFromFactors.cxx            \

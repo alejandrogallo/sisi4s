@@ -17,19 +17,16 @@
 #define UEG_VERTEX_GENERATOR_DEFINED
 
 #include <algorithms/Algorithm.hpp>
-#include <tcc/TensorExpression.hpp>
-#include <Complex.hpp>
-#include <Integer.hpp>
-#include <TensorSet.hpp>
 
 
 namespace cc4s {
-  using ivec  = array<Integer<>,3>;
-  using dvec  = array<Real<>,4>;
+  using ivec  = array<int,3>;
+  using dvec  = array<double,4>;
 
   class UegVertexGenerator: public Algorithm {
   public:
     ALGORITHM_REGISTRAR_DECLARATION(UegVertexGenerator)
+    ~UegVertexGenerator();
     UegVertexGenerator(std::vector<Argument> const &argumentList);
     void run();
 
@@ -37,12 +34,12 @@ namespace cc4s {
     void run();
 
   protected:
-    Real<> evalMadelung(double volume);
-    Real<> Vijji(const dvec a, const dvec b, const Real<> v);
+    double evalMadelung(double volume);
+    double Vijji(const dvec a, const dvec b, const double v);
 
     bool halfGrid;
-    Natural<> No, Nv, NF;
-    Real<> rs, madelung;
+    size_t No, Nv, NF;
+    double rs, madelung;
   };
 }
 
