@@ -1,0 +1,118 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/4alex/FTODDUMP.kpt1.ecut300.bands2.ecgw150.POSCAR.0.74"
+    unrestricted: 1
+  out:
+    CoulombVertex: $FullCoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombVertexSingularVectors
+  in:
+    FullCoulombVertex: $FullCoulombVertex
+    fieldVariables: 100
+    reduction: 0.5
+  out:
+    CoulombVertexSingularVectors: $CoulombVertexSingularVectors
+    CoulombVertexSingularValues: $CoulombVertexSingularValues
+
+
+- name: TensorWriter
+  in:
+    Data: $CoulombVertexSingularValues
+  out:
+    {}
+
+
+- name: ApproximateCoulombVertex
+  in:
+    FullCoulombVertex: $FullCoulombVertex
+    CoulombVertexSingularVectors: $CoulombVertexSingularVectors
+  out:
+    CoulombVertex: $CoulombVertex
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: DrccdEnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    maxIterations: 32
+    unrestricted: 1
+  out:
+    DrccdEnergy: $DrccdEnergy
+    DrccdDoublesAmplitudes: $DrccdDoublesAmplitudes
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdEnergy
+  out:
+    {}
+
+
+- name: DrccdEquationOfMotion
+  in:
+    DrccdDoublesAmplitudes: $DrccdDoublesAmplitudes
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    fullDiagonalization: 1
+    maxIterations: 10
+    unrestricted: 1
+  out:
+    SimlarityTransformedHamiltonian22: $SimlarityTransformedHamiltonian22
+    SimlarityTransformedHamiltonian20: $SimlarityTransformedHamiltonian20
+    EnergyDenominators: $EnergyDenominators
+
+
+- name: TensorWriter
+  in:
+    Data: $SimlarityTransformedHamiltonian22
+    rowIndexOrder: "ijkl"
+    columnIndexOrder: "mnop"
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $SimlarityTransformedHamiltonian20
+    columnIndexOrder: "ijkl"
+    rowIndexOrder: ""
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $ParticleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $HoleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $EnergyDenominators
+  out:
+    {}
+
+# end of automatic translation

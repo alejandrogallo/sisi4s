@@ -1,0 +1,66 @@
+
+- name: GenerateRandomComplexMatrix
+  in:
+    m: 1
+    n: 1
+  out:
+    Result: $A
+
+
+- name: FromComplexTensor
+  in:
+    A: $A
+  out:
+    RealA: $RealA
+    imagA: $ImagA
+
+
+- name: TensorContraction
+  in:
+    A: $RealA
+    AIndex: "ij"
+    B: $RealA
+    BIndex: "ij"
+    ResultIndex: "ij"
+  out:
+    Result: $RealA
+
+
+- name: TensorContraction
+  in:
+    A: $ImagA
+    AIndex: "ij"
+    B: $ImagA
+    BIndex: "ij"
+    ResultIndex: "ij"
+  out:
+    Result: $ImagA
+
+
+- name: TensorSum
+  in:
+    A: $RealA
+    AFactor: 1.0
+    AIndex: "ij"
+    B: $ImagA
+    BFactor: 1.0
+    BIndex: "ij"
+    ResultIndex: "ij"
+  out:
+    Result: $RealA
+
+
+- name: TensorNorm
+  in:
+    A: $RealA
+  out:
+    Norm: $Norm
+
+
+- name: ComplexTensorNorm
+  in:
+    A: $A
+  out:
+    ComplexNorm: $ComplexNorm
+
+# end of automatic translation

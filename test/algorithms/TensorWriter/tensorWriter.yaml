@@ -1,0 +1,95 @@
+
+- name: GenerateRandomMatrix
+  in:
+    m: 2
+    n: 3
+  out:
+    Result: $A
+
+
+- name: GenerateRandomMatrix
+  in:
+    m: 3
+    n: 3
+  out:
+    Result: $B
+
+
+- name: GenerateRandomMatrix
+  in:
+    m: 2
+    n: 3
+  out:
+    Result: $C
+
+
+- name: TensorWriter
+  in:
+    Data: $B
+    file: "C.bin"
+    mode: "binary"
+  out:
+    {}
+
+
+- name: TensorContraction
+  in:
+    A: $A
+    AIndex: "ik"
+    B: $B
+    BIndex: "kj"
+    ResultIndex: "ij"
+  out:
+    Result: $C
+
+
+- name: TensorNorm
+  in:
+    A: $C
+  out:
+    Norm: $Norm
+
+
+- name: TensorWriter
+  in:
+    Data: $C
+    file: "CColumnMajor.dat"
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $C
+    rowIndexOrder: "i"
+    columnIndexOrder: "j"
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $C
+    rowIndexOrder: "ji"
+    file: "CRowMajor.dat"
+  out:
+    {}
+
+
+- name: GenerateRandomMatrix
+  in:
+    m: 4
+    n: 4
+  out:
+    Result: $AA
+
+
+- name: TensorWriter
+  in:
+    Data: $AA
+    file: "AA.bin"
+    mode: "binary"
+  out:
+    {}
+
+# end of automatic translation

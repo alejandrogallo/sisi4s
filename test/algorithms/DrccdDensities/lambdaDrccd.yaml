@@ -1,0 +1,130 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+    unrestricted: 1
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+
+
+- name: DrccdEnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    maxIterations: 64
+    unrestricted: 1
+  out:
+    DrccdEnergy: $DrccdEnergy
+    DrccdDoublesAmplitudes: $DrccdDoublesAmplitudes
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdEnergy
+  out:
+    {}
+
+
+- name: DrccdDensities
+  in:
+    DrccdDoublesAmplitudes: $DrccdDoublesAmplitudes
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    maxIterations: 64
+    unrestricted: 1
+  out:
+    DrccdLambdaDoublesAmplitudes: $DrccdLambdaDoublesAmplitudes
+    DrccdOneBodyHHDensity: $DrccdOneBodyHHDensity
+    DrccdOneBodyPPDensity: $DrccdOneBodyPPDensity
+    DrccdHoleOccupancies: $DrccdHoleOccupancies
+    DrccdParticleOccupancies: $DrccdParticleOccupancies
+    DrccdOneBodyCoulombHoleEnergies: $DrccdOneBodyCoulombHoleEnergies
+    DrccdOneBodyCoulombParticleEnergies: $DrccdOneBodyCoulombParticleEnergies
+    DrccdOneBodyHoleEnergies: $DrccdOneBodyHoleEnergies
+    DrccdOneBodyParticleEnergies: $DrccdOneBodyParticleEnergies
+    DrccdTwoBodyPPHHDensiy: $DrccdTwoBodyPPHHDensiy
+    DrccdCoulombExpectationValue: $DrccdCoulombExpectationValue
+
+
+- name: TensorWriter
+  in:
+    Data: $HoleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $ParticleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdHoleOccupancies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdParticleOccupancies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdOneBodyHoleEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdOneBodyParticleEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdOneBodyCoulombHoleEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdOneBodyCoulombParticleEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdCoulombExpectationValue
+  out:
+    {}
+
+# end of automatic translation

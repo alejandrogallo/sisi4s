@@ -1,0 +1,19 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: SliceCoulombVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+
+# end of automatic translation

@@ -1,0 +1,82 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $FullCoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: SliceCoulombVertex
+  in:
+    CoulombVertex: $FullCoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    ParticleHoleCoulombVertex: $FullParticleHoleCoulombVertex
+
+
+- name: ParticleHoleCoulombIntegrals
+  in:
+    ParticleHoleCoulombVertex: $FullParticleHoleCoulombVertex
+  out:
+    PPHHCoulombIntegrals: $FullPPHHCoulombIntegrals
+
+
+- name: Mp2EnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $FullPPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    Mp2Energy: $FullMp2Energy
+
+
+- name: TensorWriter
+  in:
+    Data: $FullMp2Energy
+  out:
+    {}
+
+
+- name: ParticleHoleCoulombVertexSingularVectors
+  in:
+    FullParticleHoleCoulombVertex: $FullParticleHoleCoulombVertex
+    fieldVariables: 8
+    reduction: 0.5
+  out:
+    ParticleHoleCoulombVertexSingularVectors: $ParticleHoleCoulombVertexSingularVectors
+
+
+- name: ApproximateParticleHoleCoulombVertex
+  in:
+    FullParticleHoleCoulombVertex: $FullParticleHoleCoulombVertex
+    ParticleHoleCoulombVertexSingularVectors: $ParticleHoleCoulombVertexSingularVectors
+  out:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+
+
+- name: ParticleHoleCoulombIntegrals
+  in:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: Mp2EnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    Mp2Energy: $Mp2Energy
+
+
+- name: TensorWriter
+  in:
+    Data: $Mp2Energy
+  out:
+    {}
+
+# end of automatic translation

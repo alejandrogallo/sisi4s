@@ -1,0 +1,86 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/h2_ftoddumps/FTODDUMP.kpt1.ecut300.bands4.ecgw150.POSCAR.0.7"
+    unrestricted: 1
+  out:
+    CoulombVertex: $FullCoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombVertexSingularVectors
+  in:
+    FullCoulombVertex: $FullCoulombVertex
+    fieldVariables: 100
+    reduction: 0.5
+  out:
+    CoulombVertexSingularVectors: $CoulombVertexSingularVectors
+    CoulombVertexSingularValues: $CoulombVertexSingularValues
+
+
+- name: TensorWriter
+  in:
+    Data: $CoulombVertexSingularValues
+  out:
+    {}
+
+
+- name: ApproximateCoulombVertex
+  in:
+    FullCoulombVertex: $FullCoulombVertex
+    CoulombVertexSingularVectors: $CoulombVertexSingularVectors
+  out:
+    CoulombVertex: $CoulombVertex
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: ThermalEquationOfMotion
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    unrestricted: 1
+  out:
+    VacuumHamiltonianDiagonal: $VacuumHamiltonianDiagonal
+    DoublesHamiltonianDiagonal: $DoublesHamiltonianDiagonal
+    VacuumBasis: $VacuumBasis
+    DoublesBasis: $DoublesBasis
+
+
+- name: TensorWriter
+  in:
+    Data: $HoleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $ParticleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $VacuumHamiltonianDiagonal
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $DoublesHamiltonianDiagonal
+  out:
+    {}
+
+# end of automatic translation

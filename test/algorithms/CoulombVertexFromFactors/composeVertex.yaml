@@ -1,0 +1,53 @@
+
+- name: ComplexTensorReader
+  in:
+    mode: "binary"
+    file: "../../resources/FactorOrbitals.bin"
+  out:
+    Data: $FactorOrbitals
+
+
+- name: ComplexTensorReader
+  in:
+    mode: "binary"
+    file: "../../resources/CoulombFactors.bin"
+  out:
+    Data: $CoulombFactors
+
+
+- name: ComplexTensorReader
+  in:
+    mode: "binary"
+    file: "../../resources/ComposedCoulombVertex.bin"
+  out:
+    Data: $ComposedCoulombVertex
+
+
+- name: CoulombVertexFromFactors
+  in:
+    FactorOrbitals: $FactorOrbitals
+    CoulombFactors: $CoulombFactors
+  out:
+    CoulombVertex: $CoulombVertex
+
+
+- name: ComplexTensorSum
+  in:
+    A: $ComposedCoulombVertex
+    AFactor: +1.0
+    AIndex: "Fqr"
+    B: $CoulombVertex
+    BFactor: -1.0
+    BIndex: "Fqr"
+    ResultIndex: "Fqr"
+  out:
+    Result: $ComposedCoulombVertex
+
+
+- name: ComplexTensorNorm
+  in:
+    A: $ComposedCoulombVertex
+  out:
+    Norm: $Norm
+
+# end of automatic translation

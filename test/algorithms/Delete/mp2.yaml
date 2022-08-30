@@ -1,0 +1,58 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: Delete
+  in:
+    Data: $PPHHCoulombIntegrals
+  out:
+    {}
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: Delete
+  in:
+    Data: $CoulombVertex
+  out:
+    {}
+
+
+- name: Mp2EnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    Mp2Energy: $Mp2Energy
+
+
+- name: TensorWriter
+  in:
+    Data: $Mp2Energy
+  out:
+    {}
+
+# end of automatic translation

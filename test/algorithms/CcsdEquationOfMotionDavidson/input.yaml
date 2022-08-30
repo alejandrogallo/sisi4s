@@ -1,0 +1,114 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/h2_ftodumps/FTODDUMP.kpt1.ecut300.bands4.ecgw150.POSCAR.0.7"
+    unrestricted: 1
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    antisymmetrize: 1
+  out:
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+
+
+- name: UccsdAmplitudesFromCoulombIntegrals
+  in:
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    maxIterations: 12
+    antisymmetrize: 1
+    unrestricted: 1
+    intermediates: 1
+    mixingRatio: 1.0
+  out:
+    UccsdEnergy: $UccsdEnergy
+    UccsdSinglesAmplitudes: $UccsdSinglesAmplitudes
+    UccsdDoublesAmplitudes: $UccsdDoublesAmplitudes
+
+
+- name: CcsdEquationOfMotionDavidson
+  in:
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    SinglesAmplitudes: $UccsdSinglesAmplitudes
+    DoublesAmplitudes: $UccsdDoublesAmplitudes
+    eigenstates: 7
+    preconditionerRandom: 1
+    preconditionerRandomSigma: 0.9
+    oneBodyRdmRange: "1-2"
+    intermediates: 1
+    CISD: 0
+    printTensors: 1
+  out:
+    SinglesHamiltonianDiagonal: $SinglesHamiltonianDiagonal
+    DoublesHamiltonianDiagonal: $DoublesHamiltonianDiagonal
+
+
+- name: TensorWriter
+  in:
+    Data: $SinglesHamiltonianDiagonal
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $DoublesHamiltonianDiagonal
+  out:
+    {}
+
+# end of automatic translation

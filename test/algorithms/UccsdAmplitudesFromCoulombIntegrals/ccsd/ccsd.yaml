@@ -1,0 +1,49 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../../resources/h2_ftodumps/FTODDUMP.kpt1.ecut300.bands19.ecgw150.POSCAR.0.7"
+    unrestricted: 0
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+
+
+- name: CcsdEnergyFromCoulombIntegrals
+  in:
+    CoulombVertex: $CoulombVertex
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 10
+    integralsSliceFactor: 1
+  out:
+    CcsdEnergy: $CcsdEnergy
+    CcsdSinglesAmplitudes: $CcsdSinglesAmplitudes
+    CcsdDoublesAmplitudes: $CcsdDoublesAmplitudes
+
+
+- name: TensorWriter
+  in:
+    Data: $CcsdEnergy
+  out:
+    {}
+
+# end of automatic translation

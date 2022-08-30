@@ -1,0 +1,70 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombVertexDecomposition
+  in:
+    CoulombVertex: $CoulombVertex
+    rankSize: 66
+    rankFactor: 2.0
+    maxIterations: 64
+    mixer: "DiisMixer"
+    MaxResidua: 4
+    ansatz: "pseudoInverse"
+    writeSubIterations: 1
+  out:
+    FactorOrbitals: $FactorOrbitals
+    OutgoingFactorOrbitals: $OutgoingFactorOrbitals
+    CoulombFactors: $CoulombFactors
+    ComposedCoulombVertex: $ComposedCoulombVertex
+
+
+- name: ComplexTensorWriter
+  in:
+    mode: "binary"
+    file: "../../resources/FactorOrbitals.bin"
+    Data: $FactorOrbitals
+  out:
+    {}
+
+
+- name: ComplexTensorWriter
+  in:
+    mode: "binary"
+    file: "../../resources/CoulombFactors.bin"
+    Data: $CoulombFactors
+  out:
+    {}
+
+
+- name: ComplexTensorWriter
+  in:
+    mode: "binary"
+    file: "../../resources/ComposedCoulombVertex.bin"
+    Data: $ComposedCoulombVertex
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    file: "../../resources/HoleEigenEnergies.dat"
+    Data: $HoleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    file: "../../resources/ParticleEigenEnergies.dat"
+    Data: $ParticleEigenEnergies
+  out:
+    {}
+
+# end of automatic translation

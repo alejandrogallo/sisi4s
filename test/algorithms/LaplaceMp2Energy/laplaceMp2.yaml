@@ -1,0 +1,82 @@
+
+- name: ComplexTensorReader
+  in:
+    mode: "binary"
+    file: "../../resources/FactorOrbitals.bin"
+  out:
+    Data: $FactorOrbitals
+
+
+- name: ComplexTensorReader
+  in:
+    mode: "binary"
+    file: "../../resources/CoulombFactors.bin"
+  out:
+    Data: $CoulombFactors
+
+
+- name: TensorReader
+  in:
+    file: "../../resources/HoleEigenEnergies.dat"
+  out:
+    Data: $HoleEigenEnergies
+
+
+- name: TensorReader
+  in:
+    file: "../../resources/ParticleEigenEnergies.dat"
+  out:
+    Data: $ParticleEigenEnergies
+
+
+- name: TensorReader
+  in:
+    file: "../../resources/ChemicalPotential.dat"
+  out:
+    Data: $ChemicalPotential
+
+
+- name: TensorReader
+  in:
+    file: "../../resources/ImaginaryTimePoints.dat"
+  out:
+    Data: $ImaginaryTimePoints
+
+
+- name: TensorReader
+  in:
+    file: "../../resources/ImaginaryTimeWeights.dat"
+  out:
+    Data: $ImaginaryTimeWeights
+
+
+- name: ComplexTensorReader
+  in:
+    mode: "binary"
+    file: "../../resources/ComposedCoulombVertex.bin"
+  out:
+    Data: $ComposedCoulombVertex
+
+
+- name: LaplaceMp2Energy
+  in:
+    FactorOrbitals: $FactorOrbitals
+    CoulombFactors: $CoulombFactors
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    ChemicalPotential: $ChemicalPotential
+    ImaginaryTimePoints: $ImaginaryTimePoints
+    ImaginaryTimeWeights: $ImaginaryTimeWeights
+    CoulombVertex: $ComposedCoulombVertex
+    samples: 12960000
+  out:
+    Mp2Energy: $Mp2Energy
+
+
+- name: TensorWriter
+  in:
+    Data: $Mp2Energy
+  out:
+    {}
+
+# end of automatic translation

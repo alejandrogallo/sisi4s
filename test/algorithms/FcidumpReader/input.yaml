@@ -1,0 +1,226 @@
+
+- name: FcidumpReader
+  in:
+    file: "FCIDUMP.out"
+    ph: $ph
+    hp: $hp
+    hh: $hh
+    pp: $pp
+    hhhh: $hhhh
+    hhhp: $hhhp
+    hhph: $hhph
+    hhpp: $hhpp
+    hphh: $hphh
+    hphp: $hphp
+    hpph: $hpph
+    hppp: $hppp
+    phhh: $phhh
+    phhp: $phhp
+    phph: $phph
+    phpp: $phpp
+    pphh: $pphh
+    pphp: $pphp
+    ppph: $ppph
+    pppp: $pppp
+  out:
+    hh: $FockIJ
+    ph: $FockAI
+    hp: $FockIA
+    pp: $FockAB
+    hhhh: $HHHHCoulombIntegrals
+    hhhp: $HHHPCoulombIntegrals
+    hhph: $HHPHCoulombIntegrals
+    hhpp: $HHPPCoulombIntegrals
+    hphh: $HPHHCoulombIntegrals
+    hphp: $HPHPCoulombIntegrals
+    hpph: $HPPHCoulombIntegrals
+    hppp: $HPPPCoulombIntegrals
+    phhh: $PHHHCoulombIntegrals
+    phhp: $PHHPCoulombIntegrals
+    phph: $PHPHCoulombIntegrals
+    phpp: $PHPPCoulombIntegrals
+    pphh: $PPHHCoulombIntegrals
+    pphp: $PPHPCoulombIntegrals
+    ppph: $PPPHCoulombIntegrals
+    pppp: $PPPPCoulombIntegrals
+
+
+- name: TensorWriter
+  in:
+    Data: $FockIJ
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $FockAB
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $FockAI
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $FockIA
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $HHHHCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $HHHPCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $HHPHCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $HHPPCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $HPHHCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $HPHPCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $HPPHCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $HPPPCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $PHHHCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $PHHPCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $PHPHCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $PHPPCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $PPHHCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $PPHPCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $PPPHCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $PPPPCoulombIntegrals
+  out:
+    {}
+
+
+- name: TensorReader
+  in:
+    file: "ParticleEigenEnergies.dat"
+  out:
+    Data: $ParticleEigenEnergies
+
+
+- name: TensorReader
+  in:
+    file: "HoleEigenEnergies.dat"
+  out:
+    Data: $HoleEigenEnergies
+
+
+- name: CcsdEnergyFromCoulombIntegralsReference
+  in:
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 100
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+  out:
+    CcsdEnergy: $CcsdEnergy
+
+# end of automatic translation

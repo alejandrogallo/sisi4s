@@ -1,0 +1,71 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/4alex/FTODDUMP.kpt1.ecut300.bands2.ecgw150.POSCAR.0.74"
+    unrestricted: 1
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+
+
+- name: CcdEnergyFromCoulombIntegrals
+  in:
+    CoulombVertex: $CoulombVertex
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 32
+    unrestricted: 1
+  out:
+    CcdEnergy: $CcdEnergy
+    CcdSinglesAmplitudes: $CcdSinglesAmplitudes
+    CcdDoublesAmplitudes: $CcdDoublesAmplitudes
+
+
+- name: CcdEquationOfMotion
+  in:
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    CcdEnergy: $CcdEnergy
+    CcdSinglesAmplitudes: $CcdSinglesAmplitudes
+    CcdDoublesAmplitudes: $CcdDoublesAmplitudes
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    unrestricted: 1
+  out:
+    SimlarityTransformedHamiltonianSD: $SimlarityTransformedHamiltonianSD
+
+
+- name: TensorWriter
+  in:
+    Data: $SimlarityTransformedHamiltonianSD
+    rowIndexOrder: "i"
+    columnIndexOrder: "j"
+  out:
+    {}
+
+# end of automatic translation

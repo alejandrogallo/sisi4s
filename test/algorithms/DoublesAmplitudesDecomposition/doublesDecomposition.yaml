@@ -1,0 +1,97 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+
+
+- name: CcsdEnergyFromCoulombIntegrals
+  in:
+    CoulombVertex: $CoulombVertex
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 16
+    mixingRatio: 1.556329220888963
+  out:
+    CcsdEnergy: $CcsdEnergy
+    CcsdSinglesAmplitudes: $CcsdSinglesAmplitudes
+    CcsdDoublesAmplitudes: $CcsdDoublesAmplitudes
+
+
+- name: TensorWriter
+  in:
+    Data: $CcsdEnergy
+  out:
+    {}
+
+
+- name: DoublesAmplitudesDecomposition
+  in:
+    DoublesAmplitudes: $CcsdDoublesAmplitudes
+    reduction: 2
+  out:
+    DoublesAmplitudesVertex: $DoublesAmplitudesVertex
+    DoublesAmplitudesEigenValues: $DoublesAmplitudesEigenValues
+
+
+- name: TensorWriter
+  in:
+    Data: $DoublesAmplitudesEigenValues
+  out:
+    {}
+
+
+- name: ComplexTensorWriter
+  in:
+    Data: $DoublesAmplitudesVertex
+  out:
+    {}
+
+
+- name: DoublesAmplitudesFromVertex
+  in:
+    DoublesAmplitudesVertex: $DoublesAmplitudesVertex
+  out:
+    DoublesAmplitudes: $DoublesAmplitudes
+
+
+- name: CcsdEnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    startingSinglesAmplitudes: $CcsdSinglesAmplitudes
+    startingDoublesAmplitudes: $DoublesAmplitudes
+    maxIterations: 0
+  out:
+    CcsdEnergy: $ComposedCcsdEnergy
+
+
+- name: TensorWriter
+  in:
+    Data: $ComposedCcsdEnergy
+  out:
+    {}
+
+# end of automatic translation

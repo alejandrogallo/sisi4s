@@ -1,0 +1,45 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: SliceCoulombVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+
+
+- name: ParticleHoleCoulombIntegrals
+  in:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: DrccdEnergyFromCoulombVertex
+  in:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    maxIterations: 64
+  out:
+    DrccdEnergy: $DrccdEnergy
+    DrccdDoublesAmplitudes: $DrccdDoublesAmplitudes
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdEnergy
+  out:
+    {}
+
+# end of automatic translation

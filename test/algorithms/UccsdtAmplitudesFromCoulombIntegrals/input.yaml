@@ -1,0 +1,135 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/h2_ftodumps/FTODDUMP.kpt1.ecut300.bands19.ecgw150.POSCAR.0.7"
+    unrestricted: 1
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    antisymmetrize: 1
+  out:
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+
+
+- name: UccsdAmplitudesFromCoulombIntegrals
+  in:
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    maxIterations: 3
+    unrestricted: 1
+    antisymmetrize: 1
+    mixer: "DiisMixer"
+  out:
+    UccsdEnergy: $UccsdEnergy
+    UccsdSinglesAmplitudes: $UccsdSinglesAmplitudes
+    UccsdDoublesAmplitudes: $UccsdDoublesAmplitudes
+
+
+- name: TensorWriter
+  in:
+    Data: $UccsdEnergy
+  out:
+    {}
+
+
+- name: UccsdtAmplitudesFromCoulombIntegrals
+  in:
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    intialDoublesAmplitudes: $UccsdDoublesAmplitudes
+    intialSinglesAmplitudes: $UccsdSinglesAmplitudes
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    maxIterations: 3
+    unrestricted: 1
+    antisymmetrize: 1
+    intermediates: 1
+    mixer: "DiisMixer"
+  out:
+    UccsdtEnergy: $UccsdtEnergy
+    UccsdtSinglesAmplitudes: $UccsdtSinglesAmplitudes
+    UccsdtDoublesAmplitudes: $UccsdtDoublesAmplitudes
+    UccsdtTriplesAmplitudes: $UccsdtTriplesAmplitudes
+
+
+- name: TensorGetMax
+  in:
+    Tensor: $UccsdtSinglesAmplitudes
+  out:
+    {}
+
+
+- name: TensorGetMax
+  in:
+    Tensor: $UccsdtDoublesAmplitudes
+  out:
+    {}
+
+
+- name: TensorGetMax
+  in:
+    Tensor: $UccsdtTriplesAmplitudes
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $UccsdtEnergy
+  out:
+    {}
+
+# end of automatic translation

@@ -1,0 +1,82 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    complex: 1
+  out:
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
+
+
+- name: CcsdEnergyFromCoulombIntegrals
+  in:
+    CoulombVertex: $CoulombVertex
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 24
+  out:
+    CcsdEnergy: $CcsdEnergy
+    CcsdSinglesAmplitudes: $CcsdSinglesAmplitudes
+    CcsdDoublesAmplitudes: $CcsdDoublesAmplitudes
+
+
+- name: TensorReader
+  in:
+    file: "../../resources/CoulombKernel.dat"
+  out:
+    Data: $CoulombKernel
+
+
+- name: TensorReader
+  in:
+    file: "../../resources/Momenta.dat"
+  out:
+    Data: $Momenta
+
+
+- name: TensorReader
+  in:
+    file: "../../resources/CoulombVertexSingularVectors.bin"
+    mode: "binary"
+  out:
+    Data: $CoulombVertexSingularVectors
+
+
+- name: FiniteSizeCorrection
+  in:
+    CoulombVertex: $CoulombVertex
+    CoulombVertexSingularVectors: $CoulombVertexSingularVectors
+    CoulombKernel: $CoulombKernel
+    Momenta: $Momenta
+    SinglesAmplitudes: $CcsdSinglesAmplitudes
+    DoublesAmplitudes: $CcsdDoublesAmplitudes
+    volume: 136.99
+    constantFactor: 0.002351
+  out:
+    CorrectedEnergy: $CorrectedEnergy
+    StructureFactor: $StructureFactor
+
+# end of automatic translation

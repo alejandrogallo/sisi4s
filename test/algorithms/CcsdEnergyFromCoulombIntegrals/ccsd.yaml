@@ -1,0 +1,55 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    complex: 0
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
+
+
+- name: CcsdEnergyFromCoulombIntegrals
+  in:
+    CoulombVertex: $CoulombVertex
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 24
+    integralsSliceFactor: 1
+    mixer: "DiisMixer"
+    maxResidua: 4
+  out:
+    CcsdEnergy: $CcsdEnergy
+    CcsdSinglesAmplitudes: $CcsdSinglesAmplitudes
+    CcsdDoublesAmplitudes: $CcsdDoublesAmplitudes
+
+
+- name: TensorWriter
+  in:
+    Data: $CcsdEnergy
+  out:
+    {}
+
+# end of automatic translation

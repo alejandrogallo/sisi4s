@@ -1,0 +1,42 @@
+
+- name: GenerateRandomMatrix
+  in:
+    m: 3
+    n: 2
+  out:
+    Result: $A
+
+
+- name: TensorWriter
+  in:
+    Data: $A
+    rowIndexOrder: "i"
+    columnIndexOrder: "j"
+  out:
+    {}
+
+
+- name: PartitionTensor
+  in:
+    A: $A
+    dimension: 1
+    prefix: "A"
+  out:
+    A0: $A0
+    A1: $A1
+
+
+- name: TensorWriter
+  in:
+    Data: $A0
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $A1
+  out:
+    {}
+
+# end of automatic translation

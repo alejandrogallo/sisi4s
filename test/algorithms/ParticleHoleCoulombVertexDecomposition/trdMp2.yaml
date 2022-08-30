@@ -1,0 +1,42 @@
+
+- name: ParticleHoleCoulombVertexReader
+  in:
+    file: "../../resources/ParticleHoleCoulombVertex.bin"
+  out:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: ParticleHoleCoulombVertexDecomposition
+  in:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    rank: 370
+    maxIterations: 32
+    realFactorOrbitals: 0
+    epsilonStep: 4
+  out:
+    HoleFactorOrbitals: $HoleFactorOrbitals
+    ParticleFactorOrbitals: $ParticleFactorOrbitals
+    ParticleHoleCoulombFactors: $ParticleHoleCoulombFactors
+    ComposedParticleHoleCoulombVertex: $ComposedParticleHoleCoulombVertex
+
+
+- name: ParticleHoleCoulombIntegrals
+  in:
+    ParticleHoleCoulombVertex: $ComposedParticleHoleCoulombVertex
+  out:
+    ParticleHoleCoulombIntegrals: $ParticleHoleCoulombIntegrals
+
+
+- name: Mp2EnergyFromCoulombIntegrals
+  in:
+    ParticleHoleCoulombIntegrals: $ParticleHoleCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    Mp2Energy: $Mp2Energy
+
+# end of automatic translation

@@ -1,0 +1,16 @@
+
+- name: GenerateRandomComplexMatrix
+  in:
+    m: 100
+    n: 100
+  out:
+    Result: $A
+
+
+- name: PseudoInverse
+  in:
+    A: $A
+  out:
+    InverseA: $InverseA
+
+# end of automatic translation

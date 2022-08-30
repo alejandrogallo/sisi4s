@@ -1,0 +1,28 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $FullCoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombVertexSingularVectors
+  in:
+    FullCoulombVertex: $FullCoulombVertex
+    fieldVariablesSize: 8
+    fieldVariablesRank: 0.25
+  out:
+    CoulombVertexSingularVectors: $CoulombVertexSingularVectors
+    CoulombVertexSingularValues: $CoulombVertexSingularValues
+
+
+- name: ApproximateCoulombVertex
+  in:
+    FullCoulombVertex: $FullCoulombVertex
+    CoulombVertexSingularVectors: $CoulombVertexSingularVectors
+  out:
+    CoulombVertex: $CoulombVertex
+
+# end of automatic translation

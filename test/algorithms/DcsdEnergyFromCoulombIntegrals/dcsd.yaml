@@ -1,0 +1,114 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+
+
+- name: DcsdEnergyFromCoulombIntegrals
+  in:
+    CoulombVertex: $CoulombVertex
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 32
+  out:
+    DcsdEnergy: $DcsdEnergy
+    DcsdSinglesAmplitudes: $DcsdSinglesAmplitudes
+    DcsdDoublesAmplitudes: $DcsdDoublesAmplitudes
+
+
+- name: TensorWriter
+  in:
+    Data: $DcsdEnergy
+  out:
+    {}
+
+
+- name: DcsdEnergyFromCoulombIntegrals
+  in:
+    CoulombVertex: $CoulombVertex
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 32
+    integralsSliceSize: 13
+  out:
+    DcsdEnergy: $DcsdEnergySlice
+    DcsdSinglesAmplitudes: $DcsdSinglesAmplitudesSlice
+    DcsdDoublesAmplitudes: $DcsdDoublesAmplitudesSlice
+
+
+- name: TensorWriter
+  in:
+    Data: $DcsdEnergySlice
+  out:
+    {}
+
+
+- name: CoulombVertexDecomposition
+  in:
+    CoulombVertex: $CoulombVertex
+    rank: 99
+    rankFactor: 3.0
+    maxIterations: 64
+    mixer: "LinearMixer"
+    mixingRatio: 0.8
+  out:
+    FactorOrbitals: $FactorOrbitals
+    CoulombFactors: $CoulombFactors
+    ComposedCoulombVertex: $ComposedCoulombVertex
+
+
+- name: DcsdEnergyFromCoulombIntegrals
+  in:
+    CoulombVertex: $CoulombVertex
+    FactorOrbitals: $FactorOrbitals
+    CoulombFactors: $CoulombFactors
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 32
+    integralsSliceSize: 13
+    factorsSliceSize: 33
+  out:
+    DcsdEnergy: $DcsdEnergyFactors
+    DcsdSinglesAmplitudes: $DcsdSinglesAmplitudesFactors
+    DcsdDoublesAmplitudes: $DcsdDoublesAmplitudesFactors
+
+
+- name: TensorWriter
+  in:
+    Data: $DcsdEnergyFactors
+  out:
+    {}
+
+# end of automatic translation

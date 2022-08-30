@@ -1,0 +1,52 @@
+
+- name: ParticleHoleCoulombVertexReader
+  in:
+    file: "../../resources/ParticleHoleCoulombVertex.bin"
+  out:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: ParticleHoleCoulombIntegrals
+  in:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: DrccdEnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    linearized: 1
+    maxIterations: 12
+    mixingRatio: 0.83
+  out:
+    DrccdEnergy: $DrccdEnergy
+    DrccdDoublesAmplitudes: $DrccdDoublesAmplitudes
+
+
+- name: SingleParticleOccupancies
+  in:
+    DoublesAmplitudes: $DrccdDoublesAmplitudes
+  out:
+    HoleOccupancies: $HoleOccupancies
+    ParticleOccupancies: $ParticleOccupancies
+
+
+- name: TensorWriter
+  in:
+    Data: $HoleOccupancies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $ParticleOccupancies
+  out:
+    {}
+
+# end of automatic translation

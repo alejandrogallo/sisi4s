@@ -1,0 +1,128 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: DrccdEnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    maxIterations: 32
+    linearized: 0
+  out:
+    DrccdEnergy: $DrccdEnergy
+
+
+- name: TensorWriter
+  in:
+    Data: $DrccdEnergy
+  out:
+    {}
+
+
+- name: ThermalHolesAndParticles
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    Temperature: 0.026
+    Electrons: 8
+  out:
+    ChemicalPotential: $ChemicalPotential
+    ThermalHoleEigenEnergies: $ThermalHoleEigenEnergies
+    ThermalParticleEigenEnergies: $ThermalParticleEigenEnergies
+    ThermalHoleOccupancies: $ThermalHoleOccupancies
+    ThermalParticleOccupancies: $ThermalParticleOccupancies
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalHoleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalParticleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalHoleOccupancies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalParticleOccupancies
+  out:
+    {}
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $ThermalHoleEigenEnergies
+    ParticleEigenEnergies: $ThermalParticleEigenEnergies
+  out:
+    PPHHCoulombIntegrals: $ThermalPPHHCoulombIntegrals
+
+
+- name: ThermalMp2EnergyFromCoulombIntegrals
+  in:
+    ThermalPPHHCoulombIntegrals: $ThermalPPHHCoulombIntegrals
+    ThermalHoleEigenEnergies: $ThermalHoleEigenEnergies
+    ThermalParticleEigenEnergies: $ThermalParticleEigenEnergies
+    ThermalHoleOccupancies: $ThermalHoleOccupancies
+    ThermalParticleOccupancies: $ThermalParticleOccupancies
+    Temperature: 0.026
+  out:
+    ThermalMp2Energy: $ThermalMp2Energy
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalMp2Energy
+  out:
+    {}
+
+
+- name: ThermalDirectRingCoupledClusterDoubles
+  in:
+    ThermalPPHHCoulombIntegrals: $ThermalPPHHCoulombIntegrals
+    ThermalHoleEigenEnergies: $ThermalHoleEigenEnergies
+    ThermalParticleEigenEnergies: $ThermalParticleEigenEnergies
+    ThermalHoleOccupancies: $ThermalHoleOccupancies
+    ThermalParticleOccupancies: $ThermalParticleOccupancies
+    Temperature: 0.026
+    recursionLength: 20
+  out:
+    ThermalDrccdEnergy: $ThermalDrccdEnergy
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalDrccdEnergy
+  out:
+    {}
+
+# end of automatic translation

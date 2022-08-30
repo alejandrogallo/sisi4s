@@ -1,0 +1,122 @@
+
+- name: TensorReader
+  in:
+    file: "CoulombKernel.dat"
+  out:
+    Data: $CoulombKernel
+
+
+- name: TensorReader
+  in:
+    file: "Momenta.dat"
+  out:
+    Data: $Momenta
+
+
+- name: ParticleHoleCoulombVertexReader
+  in:
+    file: "../FTODDUMPIA.enc.500.nbno.256"
+  out:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: ParticleHoleCoulombIntegrals
+  in:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: Mp2EnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+  out:
+    Mp2Energy: $Mp2Energy
+    Mp2DoublesAmplitudes: $Mp2DoublesAmplitudes
+
+
+- name: TensorReader
+  in:
+    {}
+  out:
+    Data: $CoulombKernel
+
+
+- name: TensorReader
+  in:
+    {}
+  out:
+    Data: $Momenta
+
+
+- name: FiniteSizeCorrection
+  in:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    CoulombKernel: $CoulombKernel
+    DoublesAmplitudes: $Mp2DoublesAmplitudes
+    Momenta: $Momenta
+    kpoints: 1
+    volume: 44.80
+    constantFactor: 0.10231237963
+    FiniteSize: 1
+  out:
+    CorrectedEnergy: $CorrectedEnergy
+    StructureFactor: $StructureFactor
+    StructureFactors: $StructureFactors
+    StructureFactort: $StructureFactort
+
+
+- name: BasisSetExtrapolation
+  in:
+    Momenta: $Momenta
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+    CoulombKernel: $CoulombKernel
+    calculateQGG: 1
+  out:
+    QGGs: $QGGs
+    QGGt: $QGGt
+
+
+- name: ComplexTensorWriter
+  in:
+    Data: $QGGs
+  out:
+    {}
+
+
+- name: ComplexTensorWriter
+  in:
+    Data: $QGGt
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $StructureFactor
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $StructureFactors
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $StructureFactort
+  out:
+    {}
+
+# end of automatic translation

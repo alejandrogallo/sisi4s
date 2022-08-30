@@ -1,0 +1,59 @@
+
+- name: TensorReader
+  in:
+    file: "CoulombKernel.dat"
+  out:
+    Data: $CoulombKernel
+
+
+- name: TensorReader
+  in:
+    file: "StructureFactors.dat"
+  out:
+    Data: $StructureFactor
+
+
+- name: ComplexTensorReader
+  in:
+    file: "QGGs.dat"
+  out:
+    Data: $QGG
+
+
+- name: BasisSetExtrapolation
+  in:
+    StructureFactor: $StructureFactor
+    CoulombKernel: $CoulombKernel
+    fitF12: 1
+    minG: 1.5
+    maxG: 2.0
+    volume: 44.80
+    gamma: 0.268477
+    QGG: $QGG
+  out:
+    NewSF: $NewSF
+    gammaout: $gammaout
+    f12EnergyCorrection: $f12EnergyCorrection
+
+
+- name: TensorWriter
+  in:
+    Data: $NewSF
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $gammaout
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $f12EnergyCorrection
+  out:
+    {}
+
+# end of automatic translation

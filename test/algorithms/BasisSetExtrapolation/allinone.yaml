@@ -1,0 +1,184 @@
+
+- name: TensorReader
+  in:
+    file: "CoulombKernel.dat"
+  out:
+    Data: $CoulombKernel
+
+
+- name: TensorReader
+  in:
+    file: "Momenta.dat"
+  out:
+    Data: $Momenta
+
+
+- name: ParticleHoleCoulombVertexReader
+  in:
+    file: "../FTODDUMPIA.enc.450.nbno.528"
+  out:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: ParticleHoleCoulombIntegrals
+  in:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: Mp2EnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+  out:
+    Mp2Energy: $Mp2Energy
+    Mp2DoublesAmplitudes: $Mp2DoublesAmplitudes
+
+
+- name: TensorReader
+  in:
+    {}
+  out:
+    Data: $CoulombKernel
+
+
+- name: TensorReader
+  in:
+    {}
+  out:
+    Data: $Momenta
+
+
+- name: FiniteSizeCorrection
+  in:
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    CoulombKernel: $CoulombKernel
+    DoublesAmplitudes: $Mp2DoublesAmplitudes
+    Momenta: $Momenta
+    kpoints: 1
+    volume: 45.38
+    constantFactor: 0.10099430195
+    FiniteSize: 1
+  out:
+    CorrectedEnergy: $CorrectedEnergy
+    StructureFactor: $StructureFactor
+    StructureFactors: $StructureFactors
+    StructureFactort: $StructureFactort
+
+
+- name: BasisSetExtrapolation
+  in:
+    Momenta: $Momenta
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    ParticleHoleCoulombVertex: $ParticleHoleCoulombVertex
+    CoulombKernel: $CoulombKernel
+    calculateQGG: 1
+  out:
+    QGGs: $QGGs
+    QGGt: $QGGt
+
+
+- name: TensorWriter
+  in:
+    Data: $StructureFactor
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $StructureFactors
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $StructureFactort
+  out:
+    {}
+
+
+- name: BasisSetExtrapolation
+  in:
+    StructureFactor: $StructureFactors
+    CoulombKernel: $CoulombKernel
+    fitF12: 2
+    minG: 1.0
+    maxG: 1.5
+    volume: 45.38
+    gamma: 0.268477
+    QGG: $QGGs
+  out:
+    FittedSF: $FittedSFs
+    gammaout: $gammaouts
+    f12EnergyCorrection: $f12CorrectionSinglet
+    absoluteG: $absoluteG
+
+
+- name: BasisSetExtrapolation
+  in:
+    StructureFactor: $StructureFactort
+    CoulombKernel: $CoulombKernel
+    fitF12: 2
+    minG: 1.0
+    maxG: 1.5
+    volume: 45.38
+    gamma: 0.268477
+    QGG: $QGGt
+  out:
+    FittedSF: $FittedSFt
+    gammaout: $gammaoutt
+    f12EnergyCorrection: $f12CorrectionTriplet
+    absoluteG: $absoluteG
+
+
+- name: TensorWriter
+  in:
+    Data: $FittedSFs
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $gammaouts
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $FittedSFt
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $gammaoutt
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $f12CorrectionSinglet
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $f12CorrectionTriplet
+  out:
+    {}
+
+# end of automatic translation

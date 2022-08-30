@@ -1,0 +1,89 @@
+
+- name: GenerateRandomComplexMatrix
+  in:
+    m: 100
+    n: 100
+  out:
+    Result: $A
+
+
+- name: ComplexTensorWriter
+  in:
+    Data: $A
+    rowIndexOrder: "i"
+    columnIndexOrder: "j"
+  out:
+    {}
+
+
+- name: ComplexTensorReader
+  in:
+    file: "A.dat"
+  out:
+    Data: $B
+
+
+- name: GenerateRandomComplexMatrix
+  in:
+    m: 100
+    n: 100
+  out:
+    Result: $Result
+
+
+- name: ComplexTensorSum
+  in:
+    A: $A
+    AFactor: 1.0
+    AIndex: "ij"
+    B: $B
+    BFactor: -1.0
+    BIndex: "ij"
+  out:
+    Result: $Result
+    ResultIndex: "ij"
+
+
+- name: ComplexTensorNorm
+  in:
+    A: $Result
+  out:
+    Norm: $Norm
+
+
+- name: ComplexTensorWriter
+  in:
+    Data: $A
+    mode: "binary"
+  out:
+    {}
+
+
+- name: ComplexTensorReader
+  in:
+    file: "A.bin"
+    mode: "binary"
+  out:
+    Data: $B
+
+
+- name: ComplexTensorSum
+  in:
+    A: $A
+    AFactor: 1.0
+    AIndex: "ij"
+    B: $B
+    BFactor: -1.0
+    BIndex: "ij"
+  out:
+    Result: $Result
+    ResultIndex: "ij"
+
+
+- name: ComplexTensorNorm
+  in:
+    A: $Result
+  out:
+    Norm: $Norm
+
+# end of automatic translation

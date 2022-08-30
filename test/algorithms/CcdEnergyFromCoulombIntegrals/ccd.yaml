@@ -1,0 +1,102 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+
+
+- name: CcdEnergyFromCoulombIntegrals
+  in:
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 32
+  out:
+    CcdEnergy: $CcdEnergy
+    CcdDoublesAmplitudes: $CcdDoublesAmplitudes
+
+
+- name: TensorWriter
+  in:
+    Data: $CcdEnergy
+  out:
+    {}
+
+
+- name: CcdEnergyFromCoulombIntegrals
+  in:
+    CoulombVertex: $CoulombVertex
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 32
+    integralsSliceSize: 13
+  out:
+    CcdEnergy: $CcdEnergySlice
+    CcdDoublesAmplitudes: $CcdDoublesAmplitudesSlice
+
+
+- name: TensorWriter
+  in:
+    Data: $CcdEnergySlice
+  out:
+    {}
+
+
+- name: CoulombVertexDecomposition
+  in:
+    CoulombVertex: $CoulombVertex
+    rank: 99
+    rankFactor: 3.0
+    maxIterations: 64
+    mixer: "LinearMixer"
+    mixingRatio: 0.8
+  out:
+    FactorOrbitals: $FactorOrbitals
+    CoulombFactors: $CoulombFactors
+    ComposedCoulombVertex: $ComposedCoulombVertex
+
+
+- name: CcdEnergyFromCoulombIntegrals
+  in:
+    FactorOrbitals: $FactorOrbitals
+    CoulombFactors: $CoulombFactors
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HoleEigenEnergies: $HoleEigenEnergies
+    maxIterations: 32
+    factorsSliceSize: 33
+  out:
+    CcdEnergy: $CcdEnergyFactors
+    CcdDoublesAmplitudes: $CcdDoublesAmplitudesFactors
+
+
+- name: TensorWriter
+  in:
+    Data: $CcdEnergyFactors
+  out:
+    {}
+
+# end of automatic translation

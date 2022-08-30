@@ -1,73 +1,24 @@
-{ compiler, pkgs ? import <nixpkgs> {} }:
+{ compiler ? "gcc"
+, pkgs ? import <nixpkgs> {} 
+, mkl ? false
+, cuda ? false
+, docs ? true
+}:
 
 let
-  make-config = {CXX, BLAS_PATH}:
-    pkgs.writeText "config.mk"
-    ''
-    include Cc4s.mk
-    include Extern.mk
 
-    # setup openmpi cxx
-    OMPI_CXX = ${CXX}
-    export OMPI_CXX
+  unfree-pkgs = import <nixpkgs> {
+    config.allowUnfree = true;
+  };
 
-    # compiler and linker
-    CXX = mpicxx
+  openblas = import ./openblas.nix { inherit pkgs; }; 
 
-    # blas path
-    BLAS_PATH = ${BLAS_PATH}
+  mkl-pkg = import ./mkl.nix { pkgs = unfree-pkgs; };
+  cuda-pkg = if cuda then (import ./cuda.nix { pkgs = unfree-pkgs; }) else {};
 
-    # general and language options (for preprocessing, compiling and linking)
-    CXXFLAGS += \
-    -fopenmp -std=c++11 \
-    -Wall -pedantic --all-warnings -fmax-errors=3 \
-    -Wno-vla \
-    -Wno-int-in-bool-context
-
-    # optimization options (only for compiling and linking)
-    CXXFLAGS += -O0 -g -march=native -fno-lto
-
-    CTF_CONFIG_FLAGS = CXX=$(CXX) \
-                       AR=gcc-ar \
-                       CXXFLAGS="-O0 -g --std=c++11 -march=native -fno-lto" \
-                       LIBS="-L$(BLAS_PATH)" \
-                       --no-dynamic \
-                       --without-scalapack
-
-    LDFLAGS += \
-    -Wl,-Bstatic \
-    $(STATIC_LIBS) \
-    -lquadmath \
-    -Wl,-Bdynamic \
-    -L$(BLAS_PATH) \
-    -lopenblas \
-    $(DYNAMIC_LIBS) \
-    '';
 in
 
-
 pkgs.mkShell rec {
-
-  buildInputs = with pkgs; [
-    autoconf
-    automake
-    binutils
-    cmake
-    coreutils
-    emacs
-    gdb
-    gfortran
-    git
-    vim
-    gnumake
-    libtool
-    openblas
-    openmpi
-    openssh
-    pkg-config
-    python3
-    scalapack
-  ];
 
   compiler-pkg
     = if compiler    == "gcc11" then pkgs.gcc11
@@ -76,36 +27,78 @@ pkgs.mkShell rec {
     else if compiler == "gcc8" then pkgs.gcc8
     else if compiler == "gcc7" then pkgs.gcc7
     else if compiler == "gcc6" then pkgs.gcc6
+    else if compiler == "gcc49" then pkgs.gcc49
+    else if compiler == "clang13" then pkgs.clang_13
+    else if compiler == "clang12" then pkgs.clang_12
+    else if compiler == "clang11" then pkgs.clang_11
+    else if compiler == "clang10" then pkgs.clang_10
     else if compiler == "clang9" then pkgs.clang_9
+    else if compiler == "clang8" then pkgs.clang_8
+    else if compiler == "clang7" then pkgs.clang_7
+    else if compiler == "clang6" then pkgs.clang_6
+    else if compiler == "clang5" then pkgs.clang_5
     else pkgs.gcc;
 
+  docInputs = with pkgs; [
+    emacs
+    emacsPackages.ox-rst
+    emacsPackages.htmlize
 
-  BLAS_PATH = "${pkgs.openblas}";
-  SCALAPACK_PATH = "${pkgs.scalapack}";
-  GFORTRAN_LIB_PATH = "${pkgs.gfortran.cc.lib}";
+    python3
+    python3Packages.breathe
+
+    doxygen
+    sphinx
+
+    graphviz
+  ];
+
+
+  buildInputs
+    = with pkgs; [
+
+        coreutils
+        git vim
+
+        openmpi
+        llvmPackages.openmp
+
+        binutils
+        emacs
+        gfortran
+
+        cmake
+
+        # for libint
+        gmpxx.out
+        gmpxx.dev
+        boost
+
+        gnumake
+        libtool
+        autoconf
+        automake
+        pkg-config
+      ]
+    ++ (if mkl then mkl-pkg.buildInputs else openblas.buildInputs)
+    ++ (if docs then docInputs else [])
+    ;
 
   CXX = "${compiler-pkg}/bin/c++";
   CC = "${compiler-pkg}/bin/cc";
   LD = "${compiler-pkg}/bin/ld";
 
-  config = make-config { inherit CXX; inherit BLAS_PATH; };
-
-  shellHook = ''
-    export LD_LIBRARY_PATH=${pkgs.gfortran.cc.lib}/lib:$LD_LIBRARY_PATH
-
+  shellHook
+    =
+    ''
     export OMPI_CXX=${CXX}
     export OMPI_CC=${CC}
     CXX=${CXX}
     CC=${CC}
     LD=${LD}
-
-    type -a mpicxx
-    mpicxx --version
-
-    export CONFIG=nix-${compiler}
-    echo creating etc/config/nix-${compiler}.mk
-    ln -fs ${config} etc/config/nix-${compiler}.mk
-  '';
-
+    ''
+    + (if mkl then mkl-pkg.shellHook else openblas.shellHook)
+    + (if cuda then cuda-pkg.shellHook else "")
+    ;
 
 }

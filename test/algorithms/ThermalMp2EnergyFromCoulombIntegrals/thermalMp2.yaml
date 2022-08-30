@@ -1,0 +1,106 @@
+
+- name: CoulombVertexReader
+  in:
+    file: "../../resources/CoulombVertex.bin"
+  out:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+
+
+- name: Mp2EnergyFromCoulombIntegrals
+  in:
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+  out:
+    Mp2Energy: $Mp2Energy
+
+
+- name: TensorWriter
+  in:
+    Data: $Mp2Energy
+  out:
+    {}
+
+
+- name: ThermalHolesAndParticles
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    Temperature: 28
+    Electrons: 8
+  out:
+    ChemicalPotential: $ChemicalPotential
+    ThermalHoleEigenEnergies: $ThermalHoleEigenEnergies
+    ThermalParticleEigenEnergies: $ThermalParticleEigenEnergies
+    ThermalHoleOccupancies: $ThermalHoleOccupancies
+    ThermalParticleOccupancies: $ThermalParticleOccupancies
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalHoleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalParticleEigenEnergies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalHoleOccupancies
+  out:
+    {}
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalParticleOccupancies
+  out:
+    {}
+
+
+- name: CoulombIntegralsFromVertex
+  in:
+    CoulombVertex: $CoulombVertex
+    HoleEigenEnergies: $ThermalHoleEigenEnergies
+    ParticleEigenEnergies: $ThermalParticleEigenEnergies
+  out:
+    PPHHCoulombIntegrals: $ThermalPPHHCoulombIntegrals
+
+
+- name: ThermalMp2EnergyFromCoulombIntegrals
+  in:
+    ThermalPPHHCoulombIntegrals: $ThermalPPHHCoulombIntegrals
+    ThermalHoleEigenEnergies: $ThermalHoleEigenEnergies
+    ThermalParticleEigenEnergies: $ThermalParticleEigenEnergies
+    ThermalHoleOccupancies: $ThermalHoleOccupancies
+    ThermalParticleOccupancies: $ThermalParticleOccupancies
+    Temperature: 28
+  out:
+    ThermalMp2Energy: $ThermalMp2Energy
+
+
+- name: TensorWriter
+  in:
+    Data: $ThermalMp2Energy
+  out:
+    {}
+
+# end of automatic translation
