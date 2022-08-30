@@ -72,7 +72,8 @@ pkgs.mkShell rec {
         # for libint
         gmpxx.out
         gmpxx.dev
-        boost
+        boost.out
+        boost.dev
 
         gnumake
         libtool
@@ -96,6 +97,8 @@ pkgs.mkShell rec {
     CXX=${CXX}
     CC=${CC}
     LD=${LD}
+    export BOOST_PATH="${pkgs.boost.out}"
+    export BOOST_CPATH="${pkgs.boost.dev}"
     ''
     + (if mkl then mkl-pkg.shellHook else openblas.shellHook)
     + (if cuda then cuda-pkg.shellHook else "")
