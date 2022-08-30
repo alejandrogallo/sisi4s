@@ -71,7 +71,6 @@ cc3s_SOURCES =                                                   \
 ./algorithms/ComplexTensorReader.cxx                             \
 ./algorithms/FcidumpReader.cxx                                   \
 ./algorithms/FcidumpWriter.cxx                                   \
-./algorithms/DrccdEquationOfMotion.cxx                           \
 ./algorithms/SliceCoulombVertex.cxx                              \
 ./algorithms/ComplexTensorWriter.cxx                             \
 ./algorithms/TensorUnrestricter.cxx                              \
@@ -113,14 +112,9 @@ cc3s_LDADD = $(CTF_LDFLAGS) $(YAML_LDFLAGS) $(BLAS_LIBS) -lscalapack -lquadmath 
 
 
 
-## ./algorithms/LaplaceMp2Energy.cxx                                \
-## ./algorithms/LaplaceTransform.cxx                                \
-## ./algorithms/CcdEquationOfMotion.cxx                             \
 ## ./algorithms/UPerturbativeTriples.cxx                            \
 ## ./algorithms/DoublesAmplitudesFromVertex.cxx                     \
 ## ./algorithms/ParticleHoleCoulombVertexFromFactors.cxx            \
-## ./algorithms/DrccdDensities.cxx                                  \
-## ./algorithms/Mp2EquationOfMotion.cxx                             \
 ## ./algorithms/ComplexTensorSum.cxx                                \
 ## ./algorithms/RandomOrbitals.cxx                                  \
 

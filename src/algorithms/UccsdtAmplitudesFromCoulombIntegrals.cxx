@@ -1,8 +1,6 @@
 #include <algorithms/UccsdtAmplitudesFromCoulombIntegrals.hpp>
 #include <algorithms/SimilarityTransformedHamiltonian.hpp>
 #include <unistd.h>
-#include <tcc/Tcc.hpp>
-#include <tcc/DryMachineTensor.hpp>
 #include <math/MathFunctions.hpp>
 #include <math/ComplexTensor.hpp>
 #include <math/RandomTensor.hpp>
@@ -13,7 +11,6 @@
 #include <Cc4s.hpp>
 
 using namespace cc4s;
-using namespace tcc;
 
 #ifdef DEBUG
 #define LDEBUG(msg) LOG(1, getAbbreviation()) << __LINE__ << ":" << msg << std::endl;
