@@ -214,7 +214,7 @@ namespace cc4s {
           0.0, result.getIndices(i).c_str(), fConj
         );
       }
-      return std::move(result);
+      return result;
     }
 
     /**
@@ -437,7 +437,7 @@ namespace cc4s {
   ) {
     FockVector<F> result(a);
     result += b;
-    return std::move(result);
+    return result;
   }
   /**
    * \brief Returns the sum of two FockVectors a and b, where
@@ -448,7 +448,7 @@ namespace cc4s {
     FockVector<F> &&a, const FockVector<F> &b
   ) {
     a += b;
-    return std::move(a);
+    return a;
   }
   /**
    * \brief Returns the sum of two FockVectors a and b, where
@@ -459,7 +459,7 @@ namespace cc4s {
     FockVector<F> &a, const FockVector<F> &&b
   ) {
     b += a;
-    return std::move(b);
+    return b;
   }
 
   /**
@@ -472,7 +472,7 @@ namespace cc4s {
   ) {
     FockVector<F> result(a);
     result -= b;
-    return std::move(result);
+    return result;
   }
   /**
    * \brief Returns the difference between two FockVectors a and b, where
@@ -483,7 +483,7 @@ namespace cc4s {
     FockVector<F> &&a, const FockVector<F> &b
   ) {
     a -= b;
-    return std::move(a);
+    return a;
   }
   /**
    * \brief Returns the difference between two FockVectors a and b, where
@@ -496,7 +496,7 @@ namespace cc4s {
     b -= a;
     // TODO: directly invoke sum to prevent extra multiplication by -1
     b *= F(-1);
-    return std::move(b);
+    return b;
   }
 
   /**
@@ -507,7 +507,7 @@ namespace cc4s {
   inline FockVector<F> operator *(const FockVector<F> &a, const F s) {
     FockVector<F> result(a);
     result *= s;
-    return std::move(result);
+    return result;
   }
   /**
    * \brief Returns the scalar multiple of the FockVector a
@@ -517,7 +517,7 @@ namespace cc4s {
   template <typename F>
   inline FockVector<F> &&operator *(FockVector<F> &&a, const F s) {
     a *= s;
-    return std::move(a);
+    return a;
   }
 
   /**
@@ -528,7 +528,7 @@ namespace cc4s {
   inline FockVector<F> operator *(const F s, const FockVector<F> &a) {
     FockVector<F> result(a);
     result *= s;
-    return std::move(result);
+    return result;
   }
   /**
    * \brief Returns the scalar multiple of the FockVector a
@@ -538,7 +538,7 @@ namespace cc4s {
   template <typename F>
   inline FockVector<F> &&operator *(const F s, FockVector<F> &&a) {
     a *= s;
-    return std::move(a);
+    return a;
   }
 
   /**
