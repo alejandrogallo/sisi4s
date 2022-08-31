@@ -118,7 +118,6 @@ cc3s_LDADD = $(CTF_LDFLAGS) $(YAML_LDFLAGS) $(BLAS_LIBS) -lscalapack $(LIBINT_LI
 ## ./algorithms/UPerturbativeTriples.cxx                            \
 ## ./algorithms/DoublesAmplitudesFromVertex.cxx                     \
 ## ./algorithms/ComplexTensorSum.cxx                                \
-## ./algorithms/RandomOrbitals.cxx                                  \
 
 ## ./algorithms/TensorContraction.cxx                               \
 ## ./algorithms/ApproximateParticleHoleCoulombVertex.cxx            \
