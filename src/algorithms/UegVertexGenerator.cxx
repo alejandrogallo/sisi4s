@@ -54,7 +54,7 @@ double UegVertexGenerator::Vijji(const dvec a, const dvec b, const double v){
 
 
 
-ALGORITHM_REGISTRAR_DEFINITION(UegVertexGenerator)
+ALGORITHM_REGISTRAR_DEFINITION(UegVertexGenerator);
 
 UegVertexGenerator::UegVertexGenerator(
     std::vector<Argument> const &argumentList

@@ -172,7 +172,7 @@ namespace cc4s {
    */
   #define ALGORITHM_REGISTRAR_DECLARATION(NAME) \
     virtual std::string getName() { return #NAME; } \
-    static AlgorithmRegistrar<NAME> registrar_;
+    static AlgorithmRegistrar<NAME> registrar_
   /**
    * \brief Auxiliary macro defining the algorithm registrar for
    * the algorithm type of the given name. This macro is to be
@@ -180,7 +180,7 @@ namespace cc4s {
    * Note that name is a symbol name not a string.
    */
   #define ALGORITHM_REGISTRAR_DEFINITION(NAME) \
-    AlgorithmRegistrar<NAME> NAME::registrar_(#NAME);
+    AlgorithmRegistrar<NAME> NAME::registrar_(#NAME)
 }
 
 #endif

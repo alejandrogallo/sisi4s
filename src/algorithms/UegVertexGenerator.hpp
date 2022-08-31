@@ -25,7 +25,7 @@ namespace cc4s {
 
   class UegVertexGenerator: public Algorithm {
   public:
-    ALGORITHM_REGISTRAR_DECLARATION(UegVertexGenerator)
+    ALGORITHM_REGISTRAR_DECLARATION(UegVertexGenerator);
     ~UegVertexGenerator();
     UegVertexGenerator(std::vector<Argument> const &argumentList);
     void run();

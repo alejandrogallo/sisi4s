@@ -32,10 +32,10 @@ void Cc4s::run() {
   listHosts();
   std::vector<Algorithm *> algorithms;
   if (options->hummel) {
-    InputFileParser<InputFileFormat::HUMMEL> parser(options->file);
+    InputFileParser<InputFileFormat::HUMMEL> parser(options->inFile);
     algorithms = parser.parse();
   } else {
-    InputFileParser<InputFileFormat::YAML> parser(options->file);
+    InputFileParser<InputFileFormat::YAML> parser(options->inFile);
     algorithms = parser.parse();
   }
   LOG(0, "root") <<
@@ -108,7 +108,7 @@ void Cc4s::dryRun() {
   LOG(0, "root") <<
     "DRY RUN - nothing will be calculated" << std::endl;
   OUT() << std::endl;
-  InputFileParser<InputFileFormat::YAML> parser(options->file);
+  InputFileParser<InputFileFormat::YAML> parser(options->inFile);
   std::vector<Algorithm *> algorithms(parser.parse());
   LOG(0, "root") <<
     "execution plan read, steps=" << algorithms.size() << std::endl;
@@ -141,12 +141,16 @@ void Cc4s::printBanner() {
   std::stringstream buildDate;
   buildDate << __DATE__ << " " << __TIME__;
 
-  OUT() << "                __ __      " << std::endl
-        << "     __________/ // / _____" << std::endl
-        << "    / ___/ ___/ // /_/ ___/" << std::endl
-        << "   / /__/ /__/__  __(__  ) " << std::endl
-        << "   \\___/\\___/  /_/ /____/  " << std::endl
-        << "  Coupled Cluster for Solids" << std::endl << std::endl;
+  OUT() <<
+    (" ____    __ __    ____     ____      " "\n"
+     "/\\  _`\\ /\\ \\\\ \\  /\\  _`\\  /\\  _`\\    " "\n"
+     "\\ \\,\\L\\_\\ \\ \\\\ \\ \\ \\ \\/\\_\\\\ \\ \\/\\_\\  " "\n"
+     " \\/_\\__ \\\\ \\ \\\\ \\_\\ \\ \\/_/_\\ \\ \\/_/_ " "\n"
+     "   /\\ \\L\\ \\ \\__ ,__\\ \\ \\L\\ \\\\ \\ \\L\\ \\" "\n"
+     "   \\ `\\____\\/_/\\_\\_/\\ \\____/ \\ \\____/" "\n"
+     "    \\/_____/  \\/_/   \\/___/   \\/___/ " "\n"
+     "\n");
+
   LOG(0, "root") << "version=" << CC4S_VERSION <<
     ", date=" << CC4S_DATE << std::endl;
   LOG(0, "root") << "build date=" << buildDate.str() << std::endl;
@@ -273,10 +277,11 @@ int main(int argumentCount, char **arguments) {
 
   Cc4s::world = new World(argumentCount, arguments);
   Cc4s::options = new Options(argumentCount, arguments);
+  Cc4s::options->parse();
   Log::setRank(Cc4s::world->rank);
   Log::setFileName(Cc4s::options->logFile);
   Log::setLogLevel(Cc4s::options->logLevel);
-  Emitter::setFileName(Cc4s::options->yamlFile);
+  Emitter::setFileName(Cc4s::options->yamlOutFile);
   Emitter::setRank(Cc4s::world->rank);
 
   Cc4s cc4s;

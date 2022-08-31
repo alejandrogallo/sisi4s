@@ -6,29 +6,34 @@
 
 using namespace cc4s;
 
-Options::Options(int argumentCount, char **arguments) {
-  file = "calculation.cc4s";
+Options::Options(int argc_, char **argv_)
+  : inFile("cc4s.in")
+  , logFile("cc4s.log")
+  , yamlOutFile("cc4s.out.yaml")
+  , app{"S4CC: Coupled Cluster For Solids"}
+  , argc(argc_)
+  , argv(argv_)
+  , dryRun(false)
+  , hummel(false)
+  {
   logLevel = DEFAULT_LOG_LEVEL;
-  logFile = "cc4s.log";
-  yamlFile = "cc4s.yaml";
-  dryRun = false;
-  for (int i(0); i < argumentCount; ++i) {
-    std::string argument(arguments[i]);
-    // deprecated: old options
-    if (argument == "-i" || argument == "-file") {
-      file = arguments[++i];
-    } else if (argument == "--log-level" || argument == "-logLevel") {
-      std::stringstream stream(arguments[++i]);
-      stream >> logLevel;
-    } else if (argument == "--yaml") {
-      yamlFile = arguments[++i];
-    } else if (argument == "-o" || argument == "-logFile") {
-      logFile = arguments[++i];
-    } else if (argument == "--dry-run" || argument == "-dryRun") {
-      dryRun = true;
-    } else if (argument == "--hummel") {
-      hummel = true;
-    }
-  }
+  app.add_option("-i,--in", inFile, "Input file path")
+     ->default_val(inFile);
+  app.add_option("-o,--out", yamlOutFile, "Output yaml file")
+     ->default_val(yamlOutFile);
+  app.add_option("-l,--log", logFile, "Output log file")
+     ->default_val(logFile);
+  app.add_option("--dry", dryRun, "Do a dry run pass")
+     ->default_val(dryRun);
+  app.add_option("--log-level", logLevel, "Log level")
+     ->default_val(logLevel);
+  app.add_option("--hummel", hummel,
+                 "Interpret the input file in the old cc4s DSL")
+     ->default_val(hummel);
+}
+
+int Options::parse() {
+  CLI11_PARSE(app, argc, argv);
+  return 0;
 }
 

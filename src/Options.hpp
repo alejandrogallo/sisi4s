@@ -3,18 +3,23 @@
 #define OPTIONS_DEFINED
 
 #include <string>
+#include <extern/CLI11.hpp>
 
 namespace cc4s {
   struct Options {
 
     int logLevel;
-    std::string yamlFile, logFile, file;
+    std::string inFile, logFile, yamlOutFile;
     bool dryRun;
+    int argc;
+    char** argv;
 
     const int DEFAULT_LOG_LEVEL = 1;
     bool hummel;
+    CLI::App app;
 
-    Options(int argumentCount, char **arguments);
+    Options(int argc, char **argv);
+    int parse();
   };
 }
 
