@@ -68,6 +68,7 @@ pkgs.mkShell rec {
         gfortran
 
         cmake
+        gdb
 
         # for libint
         gmpxx.out

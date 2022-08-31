@@ -36,11 +36,11 @@ AC_ARG_WITH(libint,
             [BUILD_LIBINT=YES])
 
 dnl EIGEN WITH OPTION
-AC_ARG_WITH(libint,
-            [AS_HELP_STRING([--with-libint],
+AC_ARG_WITH(eigen,
+            [AS_HELP_STRING([--with-eigen],
                             [prefix for libint includes and libraries] )],
             [EIGEN_PATH="`readlink -f $withval`";
-             EIGEN_CPATH="`readlink -f $withval`/include";
+             EIGEN_CPATH="`readlink -f $withval`/include/eigen3";
              BUILD_EIGEN=NO],
             [BUILD_EIGEN=YES])
 
@@ -67,19 +67,15 @@ AC_ARG_ENABLE([cuda],
                               [Build with cuda])],
                               [WITH_CUDA=yes],
                               [WITH_CUDA=no])
-AC_ARG_VAR([NVCC], [Path to the nvidia cuda compiler.])
-AC_ARG_VAR([CUDA_LDFLAGS], [LDFLAGS to find libraries -lcuda, -lcudart, -lcublas.])
-AC_ARG_VAR([CUDA_CXXFLAGS], [CXXFLAGS to find the CUDA headers])
+AC_ARG_VAR([NVCC],
+           [Path to the nvidia cuda compiler.])
+AC_ARG_VAR([CUDA_LDFLAGS],
+           [LDFLAGS to find libraries -lcuda, -lcudart, -lcublas.])
+AC_ARG_VAR([CUDA_CXXFLAGS],
+           [CXXFLAGS to find the CUDA headers])
 
 
 dnl -----------------------------------------------------------------------
-AM_CONDITIONAL([WITH_BUILD_CTF], [test x${BUILD_CTF} = xYES])
-AM_CONDITIONAL([WITH_BUILD_LIBINT], [test x${BUILD_LIBINT} = xYES])
-AM_CONDITIONAL([WITH_BUILD_YAML], [test xYES = xYES])
-AM_CONDITIONAL([WITH_BUILD_EIGEN], [test xYES = xYES])
-AC_SUBST(LIBCTF_PATH)
-AC_SUBST(LIBCTF_CPATH)
-AC_SUBST(LIBCTF_LD_LIBRARY_PATH)
 
 dnl -----------------------------------------------------------------------
 AC_MSG_NOTICE([
@@ -168,6 +164,10 @@ AC_COMPILE_IFELSE(
 dnl -----------------------------------------------------------------------
 dnl CHECK CTF
 dnl -----------------------------------------------------------------------
+AM_CONDITIONAL([WITH_BUILD_CTF], [test x${BUILD_CTF} = xYES])
+AC_SUBST(LIBCTF_PATH)
+AC_SUBST(LIBCTF_CPATH)
+AC_SUBST(LIBCTF_LD_LIBRARY_PATH)
 if test xYES = x${BUILD_CTF}; then
   AC_MSG_WARN([
                In order to build ctf, type make ctf in the build directory
@@ -183,6 +183,7 @@ fi
 dnl -----------------------------------------------------------------------
 dnl CHECK LIBINT
 dnl -----------------------------------------------------------------------
+AM_CONDITIONAL([WITH_BUILD_LIBINT], [test x${BUILD_LIBINT} = xYES])
 if test xYES = x${BUILD_LIBINT}; then
   AC_MSG_WARN([
                In order to build libint, type make libint in the build directory
@@ -190,14 +191,17 @@ if test xYES = x${BUILD_LIBINT}; then
 else
   CPPFLAGS="$CPPFLAGS -I${LIBINT_CPATH}"
   LDFLAGS="$LDFLAGS -L${LIBINT_LD_LIBRARY_PATH} -lint2"
-  AC_CHECK_HEADER([libint2/libint2.hpp],
+  LIBINT_LIB="-L${LIBINT_LD_LIBRARY_PATH} -lint2"
+  AC_SUBST(LIBINT_LIB)
+  AC_CHECK_HEADER([libint2.h],
                   [],
-                  [AC_MSG_ERROR([no libint2/libint2.hpp header found])])
+                  [AC_MSG_ERROR([no libint2.hpp header found in $CPPFLAGS])])
 fi
 
 dnl -----------------------------------------------------------------------
 dnl CHECK EIGEN
 dnl -----------------------------------------------------------------------
+AM_CONDITIONAL([WITH_BUILD_EIGEN], [test x${BUILD_EIGEN} = xYES])
 if test xYES = x${BUILD_EIGEN}; then
   AC_MSG_WARN([
                In order to build libint, type make libint in the build directory
@@ -206,12 +210,13 @@ else
   CPPFLAGS="$CPPFLAGS -I${EIGEN_CPATH}"
   AC_CHECK_HEADER([Eigen/Core],
                   [],
-                  [AC_MSG_ERROR([No Eigen/Core header available])])
+                  [AC_MSG_ERROR([No Eigen/Core header available with $EIGEN_CPATH])])
 fi
 
 dnl -----------------------------------------------------------------------
 dnl CHECK YAMLCPP
 dnl -----------------------------------------------------------------------
+AM_CONDITIONAL([WITH_BUILD_YAML], [test x${BUILD_YAMLCPP} = xYES])
 if test xYES = x${BUILD_YAMLCPP}; then
   AC_MSG_WARN([
                In order to build yamlcpp, type make yamlcpp in the build directory

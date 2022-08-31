@@ -179,7 +179,7 @@ void UegVertexGenerator::run() {
 
   OUT() << "System Information:\n";
   OUT() << std::setprecision(3) << "  rs " << rs
-        << ", No " << No << ", Nv" << Nv << "\n";
+        << ", No " << No << ", Nv " << Nv << "\n";
   OUT() << std::setprecision(10) << "  Volume " << v
         << ", madelung " << madelung << "\n";
   OUT() << "  HOMO " << energies[No-1] << ", LUMO " << energies[No] << "\n";
@@ -188,16 +188,14 @@ void UegVertexGenerator::run() {
 
   // Prepare eigenEnergies
   const int
-    pp[] = {(int)Np, (int)Np},
-    oo[] = {(int)No, (int)No},
-    vv[] = {(int)Nv, (int)Nv};
-  auto epsi = new CTF::Tensor<double>(1, oo, syms, *Cc4s::world, "epsi"),
-       epsa = new CTF::Tensor<double>(1, vv, syms, *Cc4s::world, "epsa");
+    o[] = {(int)No}, _v[] = {(int)Nv};
+  auto epsi = new CTF::Tensor<double>(1, o, syms, *Cc4s::world, "epsi"),
+       epsa = new CTF::Tensor<double>(1, _v, syms, *Cc4s::world, "epsa");
 
-
-  allocatedTensorArgument< cc4s::complex >("CoulombVertex", coulombVertex);
+  allocatedTensorArgument<cc4s::complex>("CoulombVertex", coulombVertex);
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
+
 
 
   // if we are in a dryRun there is nothing more to do

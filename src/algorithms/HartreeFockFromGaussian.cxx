@@ -471,6 +471,7 @@ void HartreeFockFromGaussian::run() {
     allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   )
 
+
   IF_GIVEN("ParticleEigenEnergies",
     // epsilon for particles
     indices.resize(rank_m * Nv);

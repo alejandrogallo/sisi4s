@@ -98,6 +98,7 @@ cc3s_SOURCES =                                                   \
 ./algorithms/GenerateRandomTensor.cxx                            \
 ./algorithms/GenerateRandomComplexMatrix.cxx                     \
 ./algorithms/UegVertexGenerator.cxx                              \
+./algorithms/CoulombIntegralsFromVertex.cxx                      \
 ./algorithms/Exit.cxx
 
 ## FOR LIBINT2
@@ -109,7 +110,7 @@ cc3s_SOURCES +=                                                  \
 
 
 
-cc3s_LDADD = $(CTF_LDFLAGS) $(YAML_LDFLAGS) $(BLAS_LIBS) -lscalapack -lquadmath $(LIBINT_LIB)
+cc3s_LDADD = $(CTF_LDFLAGS) $(YAML_LDFLAGS) $(BLAS_LIBS) -lscalapack -lquadmath $(LIBINT_LIB) -llapack -lgfortran
 
 
 
@@ -124,7 +125,6 @@ cc3s_LDADD = $(CTF_LDFLAGS) $(YAML_LDFLAGS) $(BLAS_LIBS) -lscalapack -lquadmath 
 ## ./algorithms/PerturbativeTriples.cxx                             \
 ## ./algorithms/CoulombVertexDecomposition.cxx                      \
 ## ./algorithms/ParticleHoleCoulombVertexDecomposition.cxx          \
-## ./algorithms/CoulombIntegralsFromVertex.cxx                      \
 ## ./algorithms/DoublesAmplitudesDecomposition.cxx                  \
 ## ./algorithms/CcsdPerturbativeTriplesComplex.cxx                  \
 ## ./algorithms/CcsdEquationOfMotionDavidson.cxx                    \

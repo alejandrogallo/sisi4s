@@ -25,7 +25,6 @@ InputFileParser<InputFileFormat::YAML>::parse() {
 
   for (const YAML::Node& node: nodes) {
     std::string name = node["name"].as<std::string>();
-    std::cout << name << std::endl;
     std::vector<Argument> arguments;
 
     for (auto const& _inout: {"in", "out"}) {
@@ -46,11 +45,9 @@ InputFileParser<InputFileFormat::YAML>::parse() {
 
             try {
               std::string value = it->second.as<std::string>();
-              std::cout << "value: " <<  value << "\n";
               if (value.substr(0, 1) == "$") {
-                const std::string symbolName = value.substr(1);
+                const std::string symbolName = value;
                 Data *data(Data::get(symbolName));
-                std::cout << "DATA " << symbolName << std::endl;
                 valueName = data
                           ? data->getName()
                           : (new Data(symbolName))->getName();
