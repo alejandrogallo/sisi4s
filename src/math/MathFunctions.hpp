@@ -76,12 +76,6 @@ namespace cc4s {
   }
 
   /**
-   * \brief Calculate the sign of a permutation of strings, e.g.
-   * sign("abcd", "bacd") = -1
-   */
-  int permutationSign(const std::string &original, const std::string &permuted);
-
-  /**
    * \brief Apply a permutation operator and antisymmetrize accordingly, e.g.
    *  antiSymmetrize(X, "abcd", "abdc") is replaced by
    *  -1 X["abcd"] = X["abcd"] + sign(abcd -> abdc) X["abdc"]
