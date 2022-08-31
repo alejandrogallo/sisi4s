@@ -4,7 +4,7 @@
 #include <math/CanonicalPolyadicDecomposition.hpp>
 #include <math/RandomTensor.hpp>
 #include <math/MathFunctions.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/Log.hpp>
 // FIXME: only used by MP2 functions which need to be factored.
 #include <math/ComplexTensor.hpp>

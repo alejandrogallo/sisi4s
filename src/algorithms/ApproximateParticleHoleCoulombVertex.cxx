@@ -1,5 +1,5 @@
 #include <algorithms/ApproximateParticleHoleCoulombVertex.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/Exception.hpp>
 #include <util/Log.hpp>
 #include <Cc4s.hpp>

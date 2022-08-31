@@ -2,7 +2,7 @@
 
 #include <math/Complex.hpp>
 #include <math/ComplexTensor.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <math/MathFunctions.hpp>
 #include <math/Vector.hpp>
 #include <math/Interpolation.hpp>

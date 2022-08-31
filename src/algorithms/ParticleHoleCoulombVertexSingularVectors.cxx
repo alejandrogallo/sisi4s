@@ -1,7 +1,7 @@
 #include <algorithms/ParticleHoleCoulombVertexSingularVectors.hpp>
 #include <math/MathFunctions.hpp>
 #include <math/ComplexTensor.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/BlacsWorld.hpp>
 #include <util/ScaLapackMatrix.hpp>
 #include <util/ScaLapackHermitianEigenSystemDc.hpp>

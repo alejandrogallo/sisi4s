@@ -4,7 +4,7 @@
 
 #include <algorithms/Algorithm.hpp>
 #include <math/FockVector.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/SharedPointer.hpp>
 
 #include <util/CTF.hpp>

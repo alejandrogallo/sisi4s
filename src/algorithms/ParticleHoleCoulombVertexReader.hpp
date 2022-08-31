@@ -3,7 +3,7 @@
 #define PARTICLE_HOLE_COULOMB_VERTEX_READER_DEFINED
 
 #include <algorithms/Algorithm.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/CTF.hpp>
 #include <cstdint>
 #include <fstream>

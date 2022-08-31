@@ -16,7 +16,7 @@ he equations in this file are taken from the following sources
 #include <math/MathFunctions.hpp>
 #include <math/ComplexTensor.hpp>
 #include <mixers/Mixer.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>

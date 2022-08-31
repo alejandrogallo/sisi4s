@@ -36,7 +36,7 @@ cc3s_SOURCES =                                                   \
 ./mixers/LinearMixer.cxx                                         \
 ./mixers/DiisMixer.cxx                                           \
 ./mixers/Mixer.cxx                                               \
-./tcc/DryTensor.cxx                                              \
+./DryTensor.cxx                                                  \
 ./algorithms/Algorithm.cxx                                       \
 ./Parser.cxx                                                     \
 ./math/CanonicalPolyadicDecomposition.cxx                        \

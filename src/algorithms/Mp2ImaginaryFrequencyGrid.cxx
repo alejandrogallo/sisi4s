@@ -1,6 +1,6 @@
 #include <algorithms/Mp2ImaginaryFrequencyGrid.hpp>
 #include <math/MathFunctions.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/Log.hpp>
 
 #include <util/CTF.hpp>

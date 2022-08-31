@@ -4,7 +4,7 @@
 #include <math/ComplexTensor.hpp>
 #include <Cc4s.hpp>
 #include <util/Log.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <math/Vector.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/CTF.hpp>

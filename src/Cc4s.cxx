@@ -4,7 +4,7 @@
 #include <Parser.hpp>
 #include <algorithms/Algorithm.hpp>
 #include <util/Timer.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/FlopsCounter.hpp>
 #include <util/MpiCommunicator.hpp>
 #include <util/Log.hpp>

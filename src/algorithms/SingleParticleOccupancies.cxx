@@ -1,6 +1,6 @@
 #include <algorithms/SingleParticleOccupancies.hpp>
 #include <math/MathFunctions.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/CTF.hpp>
 
 using namespace CTF;

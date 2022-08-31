@@ -1,7 +1,7 @@
 #include <algorithms/Mp2NaturalOrbitals.hpp>
 //#include <math/MathFunctions.hpp>
 //#include <math/ComplexTensor.hpp>
-//#include <tcc/DryTensor.hpp>
+//#include <DryTensor.hpp>
 #include <algorithm>
 #include <numeric>
 #include <extern/Lapack.hpp>

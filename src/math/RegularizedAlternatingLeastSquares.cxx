@@ -4,7 +4,7 @@
 #include <math/CanonicalPolyadicDecomposition.hpp>
 #include <math/MathFunctions.hpp>
 #include <math/PseudoInverseSvd.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/Exception.hpp>
 #include <util/Log.hpp>
 

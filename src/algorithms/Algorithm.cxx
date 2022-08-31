@@ -3,7 +3,7 @@
 #include <algorithms/Algorithm.hpp>
 #include <Data.hpp>
 #include <math/Complex.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/Exception.hpp>
 #include <util/Log.hpp>
 #include <iostream>

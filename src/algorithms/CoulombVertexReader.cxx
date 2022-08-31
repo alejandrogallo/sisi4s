@@ -1,7 +1,7 @@
 #include <algorithms/CoulombVertexReader.hpp>
 #include <math/ComplexTensor.hpp>
 #include <math/MathFunctions.hpp>
-#include <tcc/DryTensor.hpp>
+#include <DryTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Cc4s.hpp>
