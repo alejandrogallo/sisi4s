@@ -89,6 +89,7 @@ cc3s_SOURCES =                                                   \
 ./algorithms/FiniteSizeCorrection.cxx                            \
 ./algorithms/TensorAntisymmetrizer.cxx                           \
 ./algorithms/UccsdAmplitudesFromCoulombIntegrals.cxx             \
+./algorithms/CcsdEquationOfMotionDavidson.cxx                    \
 ./algorithms/UCcsdIPEquationOfMotionDavidson.cxx                 \
 ./algorithms/UCcsdEAEquationOfMotionDavidson.cxx                 \
 ./algorithms/CcsdEnergyFromCoulombIntegrals.cxx                  \
@@ -127,7 +128,6 @@ cc3s_LDADD = $(CTF_LDFLAGS) $(YAML_LDFLAGS) $(BLAS_LIBS) -lscalapack -lquadmath 
 ## ./algorithms/ParticleHoleCoulombVertexDecomposition.cxx          \
 ## ./algorithms/DoublesAmplitudesDecomposition.cxx                  \
 ## ./algorithms/CcsdPerturbativeTriplesComplex.cxx                  \
-## ./algorithms/CcsdEquationOfMotionDavidson.cxx                    \
 ## ./algorithms/ComplexTensorContraction.cxx                        \
 ## ./algorithms/ParenthesisTriples.cxx                              \
 ## ./algorithms/FromComplexTensor.cxx                               \
