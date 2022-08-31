@@ -98,24 +98,6 @@ namespace cc4s {
     Scanner *scanner;
   };
 
-#ifndef INTEL_COMPILER
-  // quadruple precision float
-  template <>
-  class NumberScanner<Float128> {
-    public:
-    NumberScanner(Scanner *scanner_): scanner(scanner_) {
-    }
-    Float128 nextNumber() {
-      scanner->refillBuffer();
-      return scanReal(&scanner->pos);
-    }
-    static Float128 scanReal(char **position) {
-      return strtoflt128(*position, position);
-    }
-  protected:
-    Scanner *scanner;
-  };
-#endif
 
   // complex numbers
   template <typename Real>

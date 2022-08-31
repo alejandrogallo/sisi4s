@@ -12,7 +12,6 @@ namespace cc4s {
   // define explicit size complex types
   typedef Complex<Float32> Complex32;
   typedef Complex<Float64> Complex64;
-  typedef Complex<Float128> Complex128;
 
   // define complex field over machine supported reals as default complex type
   typedef Complex<real> complex;
@@ -65,15 +64,6 @@ namespace cc4s {
     }
   };
 
-#ifdef INTEL_COMPILER
-    // TODO: implement for intel
-#else
-  inline std::ostream &operator <<(
-    std::ostream &stream, const Complex128 z
-  ) {
-    return stream << '(' << std::real(z) << ',' << std::imag(z) << ')';
-  }
-#endif
 }
 
 #endif

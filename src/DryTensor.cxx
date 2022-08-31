@@ -87,11 +87,3 @@ template
 DryScalar<Complex64>::DryScalar(
   const Complex64 value, SourceLocation const &location
 );
-template
-DryScalar<Float128>::DryScalar(
-  const Float128 value, SourceLocation const &location
-);
-template
-DryScalar<Complex128>::DryScalar(
-  const Complex128 value, SourceLocation const &location
-);

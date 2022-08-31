@@ -28,13 +28,6 @@ void TensorWriter::run() {
   case 64:
     write<Float64>(dataName);
     break;
-  case 128:
-#ifndef INTEL_COMPILER
-    write<Float128>(dataName);
-#else
-    throw new EXCEPTION("Quadruple precision not supported for Intel");
-#endif
-    break;
   }
 }
 

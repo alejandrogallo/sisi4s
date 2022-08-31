@@ -2,7 +2,6 @@
 #define FLOAT_DEFINED
 
 #ifndef INTEL_COMPILER
-#include <quadmath.h>
 #include <ostream>
 #endif
 
@@ -27,20 +26,9 @@ namespace cc4s {
     typedef double type;
   };
 
-  template <>
-  class FloatTypes<128> {
-  public:
-#ifdef INTEL_COMPILER
-    typedef _Quad type;
-#else
-    typedef __float128 type;
-#endif
-  };
-
   // define explicit size float types
   typedef FloatTypes<32>::type Float32;
   typedef FloatTypes<64>::type Float64;
-  typedef FloatTypes<128>::type Float128;
 
   // define machine supported float as real type
   typedef FloatTypes<
@@ -48,18 +36,6 @@ namespace cc4s {
       MACHINE_FLOAT_BIT_SIZE : DEFAULT_FLOAT_BIT_SIZE
   >::type real;
 
-// define stream output for quadruple precision numbers
-#ifdef INTEL_COMPILER
-    // TODO: implement for intel
-#else
-  inline std::ostream &operator <<(
-    std::ostream &stream, const Float128 x
-  ) {
-    char buffer[1024];
-    quadmath_snprintf(buffer, sizeof(buffer), "%*.36Qe", x);
-    return stream << buffer;
-  }
-#endif
 }
 #endif
 

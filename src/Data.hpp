@@ -41,16 +41,6 @@ namespace cc4s {
   public:
     static std::string getName() { return "complex"; }
   };
-  template <>
-  class TypeTraits<Float128> {
-  public:
-    static std::string getName() { return "qreal"; }
-  };
-  template <>
-  class TypeTraits<Complex128> {
-  public:
-    static std::string getName() { return "qcomplex"; }
-  };
 
   class Data {
   public:

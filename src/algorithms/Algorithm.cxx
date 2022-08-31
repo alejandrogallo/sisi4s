@@ -216,25 +216,6 @@ DryTensor<Complex64> *Algorithm::getTensorArgument<
   Complex64, DryTensor<Complex64>
 >(std::string const &);
 
-#ifndef INTEL_COMPILER
-template
-CTF::Tensor<Float128> *Algorithm::getTensorArgument<
-  Float128, CTF::Tensor<Float128>
->(std::string const &);
-template
-CTF::Tensor<Complex128> *Algorithm::getTensorArgument<
-  Complex128, CTF::Tensor<Complex128>
->(std::string const &);
-template
-DryTensor<Float128> *Algorithm::getTensorArgument<
-  Float128, DryTensor<Float128>
->(std::string const &);
-template
-DryTensor<Complex128> *Algorithm::getTensorArgument<
-  Complex128, DryTensor<Complex128>
->(std::string const &);
-#endif
-
 
 /**
  * \brief Traits for retrieving the Scalar, Vector and Matrix tensor type.
@@ -317,25 +298,6 @@ template
 DryTensor<Complex64> *Algorithm::getTensorArgumentFromReal<
   Complex64, DryTensor<Complex64>
 >(RealData *);
-
-#ifndef INTEL_COMPILER
-template
-CTF::Tensor<Float128> *Algorithm::getTensorArgumentFromReal<
-  Float128, CTF::Tensor<Float128>
->(RealData *);
-template
-CTF::Tensor<Complex128> *Algorithm::getTensorArgumentFromReal<
-  Complex128, CTF::Tensor<Complex128>
->(RealData *);
-template
-DryTensor<Float128> *Algorithm::getTensorArgumentFromReal<
-  Float128, DryTensor<Float128>
->(RealData *);
-template
-DryTensor<Complex128> *Algorithm::getTensorArgumentFromReal<
-  Complex128, DryTensor<Complex128>
->(RealData *);
-#endif
 
 template <typename F, typename T>
 void Algorithm::allocatedTensorArgument(
@@ -420,25 +382,6 @@ template
 void Algorithm::allocatedTensorArgument<
   Complex64, DryScalar<Complex64>
 >(std::string const &name, DryScalar<Complex64> *tensor);
-
-#ifndef INTEL_COMPILER
-template
-void Algorithm::allocatedTensorArgument<
-  Float128, CTF::Tensor<Float128>
->(std::string const &name, CTF::Tensor<Float128> *tensor);
-template
-void Algorithm::allocatedTensorArgument<
-  Complex128, CTF::Tensor<Complex128>
->(std::string const &name, CTF::Tensor<Complex128> *tensor);
-template
-void Algorithm::allocatedTensorArgument<
-  Float128, DryTensor<Float128>
->(std::string const &name, DryTensor<Float128> *tensor);
-template
-void Algorithm::allocatedTensorArgument<
-  Complex128, DryTensor<Complex128>
->(std::string const &name, DryTensor<Complex128> *tensor);
-#endif
 
 
 void Algorithm::setRealArgument(std::string const &name, const real value) {

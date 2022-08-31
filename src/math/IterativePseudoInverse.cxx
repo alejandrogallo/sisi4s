@@ -138,15 +138,8 @@ Tensor<F> &IterativePseudoInverse<F>::get() {
 template
 class IterativePseudoInverse<cc4s::Float64>;
 
-// not yet there...
-//template
-//class IterativePseudoInverse<cc4s::Float128>;
-
 template
 class IterativePseudoInverse<cc4s::Complex64>;
-
-//template
-//class IterativePseudoInverse<cc4s::Complex128>;
 
 template <typename F>
 void IterativePseudoInverse<F>::generateHilbertMatrix(Tensor<F> &m) {
