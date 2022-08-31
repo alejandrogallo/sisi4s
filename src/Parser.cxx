@@ -46,7 +46,7 @@ InputFileParser<InputFileFormat::YAML>::parse() {
             try {
               std::string value = it->second.as<std::string>();
               if (value.substr(0, 1) == "$") {
-                const std::string symbolName = value;
+                const std::string symbolName = value.substr(1);
                 Data *data(Data::get(symbolName));
                 valueName = data
                           ? data->getName()
