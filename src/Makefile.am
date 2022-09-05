@@ -59,7 +59,6 @@ cc3s_SOURCES =                                                   \
 ./algorithms/TensorWriter.cxx                                    \
 ./algorithms/ParticleHoleCoulombVertexSingularVectors.cxx        \
 ./algorithms/NaturalTransitionOrbitalsFromRhoAI.cxx              \
-./algorithms/Mp2ImaginaryFrequencyGrid.cxx                       \
 ./algorithms/ComplexTensorNorm.cxx                               \
 ./algorithms/GenerateRandomMatrix.cxx                            \
 ./algorithms/TensorSlicer.cxx                                    \
@@ -132,9 +131,6 @@ cc3s_LDADD = $(CTF_LDFLAGS) $(YAML_LDFLAGS) $(BLAS_LIBS) -lscalapack $(LIBINT_LI
 ## ./algorithms/FromComplexTensor.cxx                               \
 ## ./algorithms/SingleParticleOccupancies.cxx                       \
 ## ./algorithms/DrccdEnergyFromCoulombIntegrals.cxx                 \
-## ./algorithms/PolarizabilityFromCoulombVertex.cxx                 \
-## ./algorithms/PartitionTensor.cxx                                 \
-## ./algorithms/Mp2EnergyFromCoulombIntegrals.cxx                   \
 ## ./algorithms/CoulombVertexSingularVectors.cxx                    \
 ## ./algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx \
 ## ./algorithms/ClusterSinglesDoublesTriplesAlgorithm.cxx           \
