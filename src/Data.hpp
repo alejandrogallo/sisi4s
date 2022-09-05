@@ -20,27 +20,17 @@ namespace cc4s {
    */
   template <typename F>
   class TypeTraits;
-
-  template <>
-  class TypeTraits<bool> {
-  public:
-    static std::string getName() { return "boolean"; }
+#define _MAKE_TRAIT(_type, _name)                 \
+  template <>                                     \
+  class TypeTraits<_type> {                       \
+  public:                                         \
+  static std::string getName() { return _name; }  \
   };
-  template <>
-  class TypeTraits<int64_t> {
-  public:
-    static std::string getName() { return "integer"; }
-  };
-  template <>
-  class TypeTraits<Float64> {
-  public:
-    static std::string getName() { return "real"; }
-  };
-  template <>
-  class TypeTraits<Complex64> {
-  public:
-    static std::string getName() { return "complex"; }
-  };
+  _MAKE_TRAIT(bool, "boolean")
+  _MAKE_TRAIT(int64_t, "integer")
+  _MAKE_TRAIT(Float64, "real")
+  _MAKE_TRAIT(Complex64, "complex")
+#undef _MAKE_TRAIT
 
   class Data {
   public:

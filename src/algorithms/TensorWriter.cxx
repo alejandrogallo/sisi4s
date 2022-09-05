@@ -2,7 +2,7 @@
 #include <algorithms/TensorWriter.hpp>
 #include <util/TensorIo.hpp>
 #include <util/Log.hpp>
-#include <fstream> 
+#include <fstream>
 #include <iomanip>
 #include <util/CTF.hpp>
 #include <util/Emitter.hpp>
