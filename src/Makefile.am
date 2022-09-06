@@ -110,7 +110,9 @@ cc3s_SOURCES +=                                                  \
 
 
 
-cc3s_LDADD = $(CTF_LDFLAGS) $(YAML_LDFLAGS) $(BLAS_LIBS) -lscalapack $(LIBINT_LIB) -llapack -lgfortran
+cc3s_LDADD = $(CTF_LDFLAGS) \
+             $(YAML_LDFLAGS) \
+             $(LIBINT_LIB)
 
 
 

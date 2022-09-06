@@ -11,6 +11,25 @@ AC_CONFIG_MACRO_DIRS([./etc/m4])
 AC_CONFIG_AUX_DIR([./etc/autotools])
 AM_INIT_AUTOMAKE([foreign -Wall])
 
+dnl -----------------------------------------------------------------------
+dnl External dependencies
+dnl -----------------------------------------------------------------------
+EXTERNAL_DEPENDENCIES=""
+AC_SUBST([EXTERNAL_DEPENDENCIES])
+
+EXTERN_BUILD_PATH="${ac_pwd}/extern/build/"
+EXTERN_SRC_PATH="${ac_pwd}/extern/src/"
+AC_SUBST([EXTERN_BUILD_PATH])
+AC_SUBST([EXTERN_SRC_PATH])
+
+CTF_COMMIT="53ae5daad851bf3b198ebe1fa761c13b12291116"
+YAML_COMMIT="c9460110e072df84b7dee3eb651f2ec5df75fb18"
+LIBINT_COMMIT="v2.6.0"
+EIGEN_BRANCH="3.3.7"
+AC_SUBST([CTF_COMMIT])
+AC_SUBST([YAML_COMMIT])
+AC_SUBST([LIBINT_COMMIT])
+AC_SUBST([EIGEN_BRANCH])
 
 dnl -----------------------------------------------------------------------
 dnl Configure switches
@@ -22,8 +41,10 @@ AC_ARG_WITH(ctf,
             [LIBCTF_PATH="`readlink -f $withval`";
              LIBCTF_CPATH="`readlink -f $withval`/include";
              LIBCTF_LD_LIBRARY_PATH="`readlink -f $withval`/lib";
+             LIBS="${LIBS} -L${LIBCTF_LD_LIBRARY_PATH} -lctf"
              BUILD_CTF=NO],
-            [BUILD_CTF=YES])
+            [BUILD_CTF=YES
+             EXTERNAL_DEPENDENCIES="ctf ${EXTERNAL_DEPENDENCIES}"])
 
 dnl LIBINT WITH OPTION
 AC_ARG_WITH(libint,
@@ -32,8 +53,10 @@ AC_ARG_WITH(libint,
             [LIBINT_PATH="`readlink -f $withval`";
              LIBINT_CPATH="`readlink -f $withval`/include";
              LIBINT_LD_LIBRARY_PATH="`readlink -f $withval`/lib";
+             LIBS="${LIBS} -L${LIBINT_LD_LIBRARY_PATH} -lint2"
              BUILD_LIBINT=NO],
-            [BUILD_LIBINT=YES])
+            [BUILD_LIBINT=YES
+             EXTERNAL_DEPENDENCIES="libint ${EXTERNAL_DEPENDENCIES}"])
 
 dnl EIGEN WITH OPTION
 AC_ARG_WITH(eigen,
@@ -42,7 +65,8 @@ AC_ARG_WITH(eigen,
             [EIGEN_PATH="`readlink -f $withval`";
              EIGEN_CPATH="`readlink -f $withval`/include/eigen3";
              BUILD_EIGEN=NO],
-            [BUILD_EIGEN=YES])
+            [BUILD_EIGEN=YES
+             EXTERNAL_DEPENDENCIES="eigen ${EXTERNAL_DEPENDENCIES}"])
 
 dnl LIBYAML WITH OPTION
 AC_ARG_WITH(yamlcpp,
@@ -51,8 +75,9 @@ AC_ARG_WITH(yamlcpp,
             [YAMLCPP_PATH="`readlink -f $withval`";
              YAMLCPP_CPATH="`readlink -f $withval`/include";
              YAMLCPP_LD_LIBRARY_PATH="`readlink -f $withval`/lib";
-             BUILD_YAMLCPP=NO],
-            [BUILD_YAMLCPP=YES])
+             BUILD_YAML=NO],
+            [BUILD_YAML=YES
+             EXTERNAL_DEPENDENCIES="yamlcpp ${EXTERNAL_DEPENDENCIES}"])
 
 AC_ARG_WITH([clang-check],
             [AS_HELP_STRING([--with-clang-check],
@@ -97,12 +122,13 @@ AX_COMPILER_VENDOR
 CXX="${MPICXX}"
 
 AM_PROG_AR
-AC_PROG_CPP           dnl sets variable CPP
-AC_PROG_RANLIB        dnl sets variable RANLIB
-AC_PROG_INSTALL       dnl sets variables INSTALL, INSTALL_DATA, INSTALL_PROGRAM
-AC_PROG_LN_S          dnl sets variable LN_S
-AC_PROG_MAKE_SET      dnl set $(MAKE) if needed
-AC_PROG_RANLIB        dnl set variable RANLIB
+AC_PROG_CPP              dnl sets variable CPP
+AC_PROG_RANLIB           dnl sets variable RANLIB
+AC_PROG_INSTALL          dnl sets variables INSTALL, INSTALL_DATA,
+                         dnl                INSTALL_PROGRAM
+AC_PROG_LN_S             dnl sets variable LN_S
+AC_PROG_MAKE_SET         dnl set $(MAKE) if needed
+AC_PROG_RANLIB           dnl set variable RANLIB
 AC_CHECK_TOOL([AR],[ar]) dnl set variable AR to appropriate `ar' program
 
 dnl -----------------------------------------------------------------------
@@ -113,8 +139,11 @@ CXXFLAGS="${CXXFLAGS} ${OPENMP_CXXFLAGS}"
 LDFLAGS="${LDFLAGS} ${OPENMP_CXXFLAGS}"
 
 dnl -----------------------------------------------------------------------
-AX_BLAS([], [AC_MSG_FAILURE([Could not find BLAS library.])])
-AX_LAPACK([], [AC_MSG_FAILURE([Could not find LAPACK library.])])
+AX_BLAS([LIBS="${LIBS} ${BLAS_LIBS}"],
+        [AC_MSG_FAILURE([Could not find BLAS library.])])
+AX_LAPACK([LIBS="${LIBS} ${LAPACK_LIBS}"],
+          [AC_MSG_FAILURE([Could not find LAPACK library.])])
+LIBS="${LIBS} -lscalapack -lgfortran"
 
 dnl -----------------------------------------------------------------------
 dnl CXX checks
@@ -165,16 +194,8 @@ dnl -----------------------------------------------------------------------
 dnl CHECK CTF
 dnl -----------------------------------------------------------------------
 AM_CONDITIONAL([WITH_BUILD_CTF], [test x${BUILD_CTF} = xYES])
-AC_SUBST(LIBCTF_PATH)
-AC_SUBST(LIBCTF_CPATH)
-AC_SUBST(LIBCTF_LD_LIBRARY_PATH)
-if test xYES = x${BUILD_CTF}; then
-  AC_MSG_WARN([
-               In order to build ctf, type make ctf in the build directory
-               ])
-else
+if test xNO = x${BUILD_CTF}; then
   CPPFLAGS="$CPPFLAGS -I${LIBCTF_CPATH}"
-  LDFLAGS="$LDFLAGS -L${LIBCTF_LD_LIBRARY_PATH} -lctf"
   AC_CHECK_HEADER([ctf.hpp],
                   [],
                   [AC_MSG_ERROR([no ctf.hpp])])
@@ -184,15 +205,12 @@ dnl -----------------------------------------------------------------------
 dnl CHECK LIBINT
 dnl -----------------------------------------------------------------------
 AM_CONDITIONAL([WITH_BUILD_LIBINT], [test x${BUILD_LIBINT} = xYES])
-if test xYES = x${BUILD_LIBINT}; then
-  AC_MSG_WARN([
-               In order to build libint, type make libint in the build directory
-               ])
-else
+LIBINT_MAX_AM=4
+AC_ARG_VAR([LIBINT_MAX_AM],
+           [Maximum angular momentum for libint. Default: 4],)
+if test xNO = x${BUILD_LIBINT}; then
   CPPFLAGS="$CPPFLAGS -I${LIBINT_CPATH}"
-  LDFLAGS="$LDFLAGS -L${LIBINT_LD_LIBRARY_PATH} -lint2"
-  LIBINT_LIB="-L${LIBINT_LD_LIBRARY_PATH} -lint2"
-  AC_SUBST(LIBINT_LIB)
+  #LDFLAGS="$LDFLAGS -L${LIBINT_LD_LIBRARY_PATH} -lint2"
   AC_CHECK_HEADER([libint2.h],
                   [],
                   [AC_MSG_ERROR([no libint2.hpp header found in $CPPFLAGS])])
@@ -202,11 +220,7 @@ dnl -----------------------------------------------------------------------
 dnl CHECK EIGEN
 dnl -----------------------------------------------------------------------
 AM_CONDITIONAL([WITH_BUILD_EIGEN], [test x${BUILD_EIGEN} = xYES])
-if test xYES = x${BUILD_EIGEN}; then
-  AC_MSG_WARN([
-               In order to build libint, type make libint in the build directory
-               ])
-else
+if test xNO = x${BUILD_EIGEN}; then
   CPPFLAGS="$CPPFLAGS -I${EIGEN_CPATH}"
   AC_CHECK_HEADER([Eigen/Core],
                   [],
@@ -216,14 +230,10 @@ fi
 dnl -----------------------------------------------------------------------
 dnl CHECK YAMLCPP
 dnl -----------------------------------------------------------------------
-AM_CONDITIONAL([WITH_BUILD_YAML], [test x${BUILD_YAMLCPP} = xYES])
-if test xYES = x${BUILD_YAMLCPP}; then
-  AC_MSG_WARN([
-               In order to build yamlcpp, type make yamlcpp in the build directory
-               ])
-else
+AM_CONDITIONAL([WITH_BUILD_YAML], [test x${BUILD_YAML} = xYES])
+if test xNO = x${BUILD_YAML}; then
   CPPFLAGS="$CPPFLAGS -I${YAMLCPP_CPATH}"
-  LDFLAGS="$LDFLAGS -L${YAMLCPP_LD_LIBRARY_PATH} -lyaml-cpp"
+  #LDFLAGS="$LDFLAGS -L${YAMLCPP_LD_LIBRARY_PATH} -lyaml-cpp"
   AC_CHECK_HEADER([yaml-cpp/yaml.h],
                   [],
                   [AC_MSG_ERROR([no yaml-cpp/yaml.h header found])])
@@ -259,14 +269,28 @@ AC_CONFIG_HEADERS([config.h])
 AC_MSG_RESULT([
                        AUTOMATIC CONFIGURATION
                        -----------------------
-                       Vendor   = $ax_cv_cxx_compiler_vendor
-                       CXX      = $CXX
-                       MPICXX   = $MPICXX
-                       CXXFLAGS = $CXXFLAGS
-                       CPPFLAGS = $CPPFLAGS
-                       LDFLAGS  = $LDFLAGS
-                       BLAS = ${BLAS_LIBS}
-                       LIBS = ${LIBS}
+                       Vendor  =  $ax_cv_cxx_compiler_vendor
+                       CXX=$CXX
+                       MPICXX=$MPICXX
+                       CXXFLAGS=$CXXFLAGS
+                       CPPFLAGS=$CPPFLAGS
+                       LDFLAGS=$LDFLAGS
+                       BLAS_LIBS=${BLAS_LIBS}
+                       LIBS=${LIBS}
 ])
+
+if test -n "${EXTERNAL_DEPENDENCIES}"; then
+  AC_MSG_RESULT([
+                 In order to build the project you need first to
+                 make the dependencies by doing
+
+                   make extern
+
+                 or alternatively
+                 ])
+  for extern in ${EXTERNAL_DEPENDENCIES}; do
+  AC_MSG_RESULT([                 - make $extern])
+  done
+fi
 
 AC_OUTPUT

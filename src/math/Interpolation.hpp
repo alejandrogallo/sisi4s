@@ -93,11 +93,6 @@ namespace cc4s {
     int N;
     F *xv, *yv, *y2d;
   };
-  template <typename F=double>
-  inline std::ostream &operator << (std::ostream &stream, cc4s::Inter3D<F> const &v) {
-    stream << v << std::endl;
-    return stream;
-  }
 }
 
 #endif
