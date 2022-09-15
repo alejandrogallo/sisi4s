@@ -3,13 +3,13 @@
 #include <math/Complex.hpp>
 #include <util/TensorIo.hpp>
 #include <util/Log.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <fstream>
 #include <util/CTF.hpp>
 #include <util/Emitter.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorReader);
 
@@ -26,7 +26,7 @@ void ComplexTensorReader::run() {
 
   // make sure all processes start reading the file at the same time in case
   // it has been modified before
-  MPI_Barrier(Cc4s::world->comm);
+  MPI_Barrier(Sisi4s::world->comm);
 
   std::string mode(getTextArgument("mode", "text"));
   Tensor<complex> *A;

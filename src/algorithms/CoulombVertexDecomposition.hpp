@@ -8,7 +8,7 @@
 #include <math/RegularizedAlternatingLeastSquares.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Decomposes the Coulomb vertex \f$\Gamma_{rG}^q\f$
    * into the factor orbitals \f$\Pi_{qR}\f$

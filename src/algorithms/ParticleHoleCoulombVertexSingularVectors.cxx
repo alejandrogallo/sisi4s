@@ -6,12 +6,12 @@
 #include <util/ScaLapackMatrix.hpp>
 #include <util/ScaLapackHermitianEigenSystemDc.hpp>
 #include <util/Log.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 #include <memory>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 using std::shared_ptr;
 using std::make_shared;
 

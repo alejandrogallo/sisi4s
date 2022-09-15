@@ -8,9 +8,9 @@
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 #ifdef DEBUG
 #define LDEBUG(msg) LOG(1, getAbbreviation()) << __LINE__ << ":" << msg << std::endl;
@@ -40,12 +40,12 @@ PTR(FockVector<double>) UccsdtAmplitudesFromCoulombIntegrals::getResiduum(
     getResiduumSth<double>(iterationStep, amplitudes);
 }
 
-PTR(FockVector<cc4s::complex>) UccsdtAmplitudesFromCoulombIntegrals::getResiduum(
-  const int iterationStep, const PTR(const FockVector<cc4s::complex>) &amplitudes
+PTR(FockVector<sisi4s::complex>) UccsdtAmplitudesFromCoulombIntegrals::getResiduum(
+  const int iterationStep, const PTR(const FockVector<sisi4s::complex>) &amplitudes
 ) {
   return getIntegerArgument("hirataEquations", 0) == 1      ?
-    getResiduumTemplate<cc4s::complex>(iterationStep, amplitudes) :
-    getResiduumSth<cc4s::complex>(iterationStep, amplitudes);
+    getResiduumTemplate<sisi4s::complex>(iterationStep, amplitudes) :
+    getResiduumSth<sisi4s::complex>(iterationStep, amplitudes);
 }
 
 template <typename F>
@@ -90,10 +90,10 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
   int oo[] = {No, No};
   int syms[] = {NS, NS};
   CTF::Tensor<F> *Fab(
-    new CTF::Tensor<F>(2, vv, syms, *Cc4s::world, "Fab")
+    new CTF::Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab")
   );
   CTF::Tensor<F> *Fij(
-    new CTF::Tensor<F>(2, oo, syms, *Cc4s::world, "Fij")
+    new CTF::Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij")
   );
   CTF::Tensor<F> *Fia;
 
@@ -230,10 +230,10 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   int oo[] = {No, No};
   int syms[] = {NS, NS};
   CTF::Tensor<F> *Fab(
-    new CTF::Tensor<F>(2, vv, syms, *Cc4s::world, "Fab")
+    new CTF::Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab")
   );
   CTF::Tensor<F> *Fij(
-    new CTF::Tensor<F>(2, oo, syms, *Cc4s::world, "Fij")
+    new CTF::Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij")
   );
   CTF::Tensor<F> *Fia;
 

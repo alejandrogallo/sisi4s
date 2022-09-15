@@ -2,7 +2,7 @@
 #define __UTIL_INTEGRALS_DEFINED
 #include <vector>
 #include <array>
-namespace cc4s {
+namespace sisi4s {
 
 // general enum for calculating different parts of the integrals
 enum Index { NO, NV, NP };

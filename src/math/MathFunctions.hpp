@@ -7,7 +7,7 @@
 #include <util/CTF.hpp>
 #include <util/Log.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   // constants
   template <typename F=double>
   constexpr F Pi() {
@@ -69,7 +69,7 @@ namespace cc4s {
     char *indices(new char[t.order+1]);
     for (int index(0); index < t.order; ++index) indices[index] = 'a' + index;
     indices[t.order] = 0;
-    CTF::Bivar_Function<F> fRealDot(&cc4s::realDot<F>);
+    CTF::Bivar_Function<F> fRealDot(&sisi4s::realDot<F>);
     CTF::Scalar<F> s(*t.wrld);
     s.contract(1.0, t,indices, t,indices, 0.0,"", fRealDot);
     return std::sqrt(std::real(s.get_val()));

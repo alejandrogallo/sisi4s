@@ -5,9 +5,9 @@
 #include <string>
 #include <util/Exception.hpp>
 #include <util/SharedPointer.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 template <typename F>
 void StantonIntermediatesUCCSD<F>::checkInputs() {
@@ -41,9 +41,9 @@ void StantonIntermediatesUCCSD<F>::calculateOneBodyIntermediates() {
   int vv[] = {Nv, Nv}, oo[] = {No, No}, ov[] = {No, Nv};
   int syms[] = {NS, NS};
 
-  Fae = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Fae");
-  Fmi = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Fmi");
-  Fme = NEW(CTF::Tensor<F>, 2, ov, syms, *Cc4s::world, "Fme");
+  Fae = NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "Fae");
+  Fmi = NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "Fmi");
+  Fme = NEW(CTF::Tensor<F>, 2, ov, syms, *Sisi4s::world, "Fme");
 
   // Equation (9)
   TildeTau_abij = NEW(CTF::Tensor<F>, *Tabij);
@@ -123,7 +123,7 @@ StantonIntermediatesUCCSD<F>::getRai(){
   int vo[] = {Nv, No};
   int syms[] = {NS, NS};
 
-  Rai = NEW(CTF::Tensor<F>, 2, vo, syms, *Cc4s::world, "Rai");
+  Rai = NEW(CTF::Tensor<F>, 2, vo, syms, *Sisi4s::world, "Rai");
 
   // T1 equations:
   (*Rai)["ai"] = (*Tai)["ei"] * (*Fae)["ae"];
@@ -209,5 +209,5 @@ StantonIntermediatesUCCSD<F>::getRabij(){
 }
 
 // instantiate
-template class StantonIntermediatesUCCSD<cc4s::complex>;
+template class StantonIntermediatesUCCSD<sisi4s::complex>;
 template class StantonIntermediatesUCCSD<double>;

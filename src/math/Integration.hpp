@@ -4,7 +4,7 @@
 #include <math/MathFunctions.hpp>
 #include <iostream>
 #include <string>
-namespace cc4s {
+namespace sisi4s {
   template<typename Method, typename F, typename Float>
 
   double integrate(F f, Float a, Float b, int steps, Method m){

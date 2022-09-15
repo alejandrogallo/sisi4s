@@ -4,7 +4,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   class ComplexTensorContraction: public Algorithm {
   public:
     ALGORITHM_REGISTRAR_DECLARATION(ComplexTensorContraction);

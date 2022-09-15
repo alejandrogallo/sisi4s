@@ -6,7 +6,7 @@
 #include <util/ScaLapackSingularValueDecomposition.hpp>
 #include <util/Log.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
 
@@ -63,18 +63,18 @@ Matrix<F> &PseudoInverseSvd<F>::get() {
 
 // instantiate
 template
-PseudoInverseSvd<cc4s::Float64>::PseudoInverseSvd(
-  Tensor<cc4s::Float64> &matrix, double epsilon
+PseudoInverseSvd<sisi4s::Float64>::PseudoInverseSvd(
+  Tensor<sisi4s::Float64> &matrix, double epsilon
 );
 template
-Matrix<cc4s::Float64> &PseudoInverseSvd<cc4s::Float64>::get();
+Matrix<sisi4s::Float64> &PseudoInverseSvd<sisi4s::Float64>::get();
 
 template
-PseudoInverseSvd<cc4s::Complex64>::PseudoInverseSvd(
-  Tensor<cc4s::Complex64> &matrix, double epsilon
+PseudoInverseSvd<sisi4s::Complex64>::PseudoInverseSvd(
+  Tensor<sisi4s::Complex64> &matrix, double epsilon
 );
 template
-Matrix<cc4s::Complex64> &PseudoInverseSvd<cc4s::Complex64>::get();
+Matrix<sisi4s::Complex64> &PseudoInverseSvd<sisi4s::Complex64>::get();
 
 
 template <typename F>
@@ -92,15 +92,15 @@ DryMatrix<F> &DryPseudoInverseSvd<F>::get() {
 
 // instantiate
 template
-DryPseudoInverseSvd<cc4s::Float64>::DryPseudoInverseSvd(
-  DryTensor<cc4s::Float64> const &matrix
+DryPseudoInverseSvd<sisi4s::Float64>::DryPseudoInverseSvd(
+  DryTensor<sisi4s::Float64> const &matrix
 );
 template
-DryMatrix<cc4s::Float64> &DryPseudoInverseSvd<cc4s::Float64>::get();
+DryMatrix<sisi4s::Float64> &DryPseudoInverseSvd<sisi4s::Float64>::get();
 
 template
-DryPseudoInverseSvd<cc4s::Complex64>::DryPseudoInverseSvd(
-  DryTensor<cc4s::Complex64> const &matrix
+DryPseudoInverseSvd<sisi4s::Complex64>::DryPseudoInverseSvd(
+  DryTensor<sisi4s::Complex64> const &matrix
 );
 template
-DryMatrix<cc4s::Complex64> &DryPseudoInverseSvd<cc4s::Complex64>::get();
+DryMatrix<sisi4s::Complex64> &DryPseudoInverseSvd<sisi4s::Complex64>::get();

@@ -4,7 +4,7 @@
 #include <math/MathFunctions.hpp>
 #include <iostream>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename F=double, int D=3>
   class Vector {
   public:
@@ -105,7 +105,7 @@ namespace cc4s {
     F dot(Vector<F,D> const &v) const {
       F sum(0);
       for (int d(0); d<D; ++d) {
-        sum += cc4s::dot(coordinate[d], v.coordinate[d]);
+        sum += sisi4s::dot(coordinate[d], v.coordinate[d]);
       }
       return sum;
     }
@@ -176,7 +176,7 @@ namespace cc4s {
   }
 
   template <typename F=double, int D=3>
-  inline std::ostream &operator << (std::ostream &stream, cc4s::Vector<F,D> const &v) {
+  inline std::ostream &operator << (std::ostream &stream, sisi4s::Vector<F,D> const &v) {
     for (int d(0); d<D-1; ++d) {
       stream << v.coordinate[d] << ",";
     }

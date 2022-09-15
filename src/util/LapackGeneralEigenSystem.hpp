@@ -10,7 +10,7 @@
 
 #include <vector>
 
-namespace cc4s {
+namespace sisi4s {
   // base template
   template <typename F=double>
   class LapackGeneralEigenSystem;

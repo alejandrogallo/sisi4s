@@ -2,7 +2,7 @@
 
 #include <mixers/Mixer.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 template <typename F>
 Mixer<F>::Mixer(Algorithm *algorithm_): algorithm(algorithm_) {
@@ -13,8 +13,8 @@ Mixer<F>::~Mixer() {
 }
 
 // instantiate
-template class Mixer<cc4s::Float64>;
-template class Mixer<cc4s::Complex64>;
+template class Mixer<sisi4s::Float64>;
+template class Mixer<sisi4s::Complex64>;
 
 
 template <typename F>
@@ -24,6 +24,6 @@ std::map<
 > *MixerFactory<F>::mixerMap;
 
 // instantiate
-template class MixerFactory<cc4s::Float64>;
-template class MixerFactory<cc4s::Complex64>;
+template class MixerFactory<sisi4s::Float64>;
+template class MixerFactory<sisi4s::Complex64>;
 

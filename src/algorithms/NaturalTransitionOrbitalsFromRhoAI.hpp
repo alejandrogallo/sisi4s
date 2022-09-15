@@ -6,7 +6,7 @@
 #include <vector>
 #include <math/Complex.hpp>
 
-namespace cc4s {
+namespace sisi4s {
 
   struct NaturalTransitionOrbitalsFromRhoAI: public Algorithm {
     ALGORITHM_REGISTRAR_DECLARATION(NaturalTransitionOrbitalsFromRhoAI);

@@ -6,7 +6,7 @@
 #include <tcc/MachineTensor.hpp>
 #include <memory>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Caclulates the Coulomb vertex \f$\Gamma^q_{rF}\f$ from the given
    * given factor orbitals \f$\Pi^R_r\f$ and Coulomb factors \f$\Lambda^R_F\f$.

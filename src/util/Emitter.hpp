@@ -7,7 +7,7 @@
 #include <string>
 #include <yaml-cpp/yaml.h>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Class with static members offering control over yaml emitting.
    * Entries are emitted with the macro EMIT.
@@ -29,11 +29,11 @@ namespace cc4s {
 }
 
 #define EMIT(...) \
-  if (cc4s::Emitter::getRank() != 0) { \
-  } else cc4s::Emitter::getEmitter()
+  if (sisi4s::Emitter::getRank() != 0) { \
+  } else sisi4s::Emitter::getEmitter()
 #define EMIT_FLUSH(...) \
-  if (cc4s::Emitter::getRank() != 0) { \
-  } else cc4s::Emitter::flush()
+  if (sisi4s::Emitter::getRank() != 0) { \
+  } else sisi4s::Emitter::flush()
 
 
 #endif

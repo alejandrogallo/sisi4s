@@ -5,7 +5,7 @@
 #include <util/BlacsWorld.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   class ScaLapackDescriptor {
   public:
     ScaLapackDescriptor(BlacsWorld *blacsWorld, int lens_[2], int blockSize);

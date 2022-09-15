@@ -4,14 +4,14 @@
 #include <tcc/DryMachineTensor.hpp>
 #include <util/CtfMachineTensor.hpp>
 #include <util/Log.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 
 #include <vector>
 #include <string>
 #include <memory>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace tcc;
 using std::make_shared;
 
@@ -45,7 +45,7 @@ void CoulombVertexFromFactors::run(const bool dryRun) {
   T *ctfLambdaFR( getTensorArgument<complex, T>("CoulombFactors") );
 
   // for now: create tcc::Tensors from them
-  // later there will only be tcc::Tensors objects stored in cc4s
+  // later there will only be tcc::Tensors objects stored in sisi4s
   auto PirR( tcc->createTensor(MT::create(*ctfPirR)) );
   auto LambdaFR( tcc->createTensor(MT::create(*ctfLambdaFR)) );
  
@@ -64,7 +64,7 @@ void CoulombVertexFromFactors::run(const bool dryRun) {
   operation->execute();
 
   // for now: duplicate result
-  // later Gamma will already be the object stored in cc4s
+  // later Gamma will already be the object stored in sisi4s
   allocatedTensorArgument<complex, T>(
     "CoulombVertex", new T(GammaFqr->template getMachineTensor<MT>()->tensor)
   );

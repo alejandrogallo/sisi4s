@@ -2,10 +2,10 @@
 #include <util/SharedPointer.hpp>
 #include <util/Emitter.hpp>
 #include <util/Log.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 MIXER_REGISTRAR_DEFINITION(LinearMixer);
 
@@ -57,6 +57,6 @@ PTR(const FockVector<F>) LinearMixer<F>::getResiduum() {
 }
 
 // instantiate
-template class LinearMixer<cc4s::Float64>;
-template class LinearMixer<cc4s::Complex64>;
+template class LinearMixer<sisi4s::Float64>;
+template class LinearMixer<sisi4s::Complex64>;
 

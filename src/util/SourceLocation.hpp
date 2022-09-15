@@ -6,7 +6,7 @@
 #include <sstream>
 #include <ostream>
 
-namespace cc4s {
+namespace sisi4s {
   class SourceLocation;
   std::ostream &operator <<(std::ostream &stream, SourceLocation const &l);
 

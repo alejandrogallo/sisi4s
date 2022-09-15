@@ -2,12 +2,12 @@
 #define RANDOM_TENSOR_DEFINED
 
 #include <math/Complex.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 #include <complex>
 #include <random>
 
-namespace cc4s {
+namespace sisi4s {
   template <
     typename Distribution, typename RandomEngine
   >
@@ -40,7 +40,7 @@ namespace cc4s {
   class DefaultRandomEngine: public std::mt19937 {
   public:
     DefaultRandomEngine() {
-      seed(Cc4s::world->rank);
+      seed(Sisi4s::world->rank);
     }
   };
 

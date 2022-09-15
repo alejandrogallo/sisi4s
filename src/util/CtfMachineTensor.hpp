@@ -3,12 +3,12 @@
 #define CTF_MACHINE_TENSOR_DEFINED
 
 #include <tcc/MachineTensor.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 #include <string>
 #include <memory>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename F=double>
   class CtfMachineTensorFactory;
 
@@ -216,7 +216,7 @@ namespace cc4s {
     }
 
     static std::shared_ptr<CtfMachineTensorFactory<F>> create(
-      CTF::World *world = Cc4s::world
+      CTF::World *world = Sisi4s::world
     ) {
       return std::make_shared<CtfMachineTensorFactory<F>>(
         world, ProtectedToken()

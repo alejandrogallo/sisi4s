@@ -8,11 +8,11 @@
 #include <util/TensorIo.hpp>
 #include <util/Exception.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/SharedPointer.hpp>
 
 
-using namespace cc4s;
+using namespace sisi4s;
 
 template <typename F>
 void filterOutSpinFlipEntries(CTF::Tensor<F> &t){
@@ -85,9 +85,9 @@ public:
 };
 
 template<>
-double EomDiagonalValueComparator<cc4s::complex>::computeDifference(
-    const cc4s::complex &a,
-    const cc4s::complex &b
+double EomDiagonalValueComparator<sisi4s::complex>::computeDifference(
+    const sisi4s::complex &a,
+    const sisi4s::complex &b
   ) {
   double diff(b.imag() + b.real() - a.imag() - a.real());
   return diff;
@@ -192,7 +192,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
     localLowestElementIndices[i] = localElements[i].first;
     localLowestElementValues[i] = localElements[i].second;
   }
-  MpiCommunicator communicator(*Cc4s::world);
+  MpiCommunicator communicator(*Sisi4s::world);
   std::vector<size_t> lowestElementIndices;
   std::vector<F> lowestElementValues;
   // get local lowest (indices or values) into a vector
@@ -320,7 +320,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
 template <typename F>
 SDTFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
-  const cc4s::complex lambda, SDTFockVector<F> &residuum
+  const sisi4s::complex lambda, SDTFockVector<F> &residuum
 ) {
   // Cast ccsdt into ccsd
   V w(residuum);
@@ -334,7 +334,7 @@ CcsdPreconditioner<F>::getCorrection(
 template <typename F>
 SFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
-  const cc4s::complex lambda, SFockVector<F> &residuum
+  const sisi4s::complex lambda, SFockVector<F> &residuum
 ) {
   // Cast s into sd
   SDFockVector<F> w(residuum);
@@ -348,7 +348,7 @@ CcsdPreconditioner<F>::getCorrection(
 template <typename F>
 SDFockVector<F>
 CcsdPreconditioner<F>::getCorrection(
-  const cc4s::complex lambda, SDFockVector<F> &residuum
+  const sisi4s::complex lambda, SDFockVector<F> &residuum
 ) {
   SDFockVector<F> w(*diagonalH);
 
@@ -399,8 +399,8 @@ void EACcsdPreconditioner<F>::calculateDiagonal(){
   auto& Fab = this->Fab;
 
   this->diagonalH = NEW(SDFockVector<F>, std::vector<PTR(CTF::Tensor<F>)>({
-        NEW(CTF::Tensor<F>, 1, v.data(), ns.data(), *Cc4s::world, "Da"),
-        NEW(CTF::Tensor<F>, 3, vvo.data(), nss.data(), *Cc4s::world, "Dabi")
+        NEW(CTF::Tensor<F>, 1, v.data(), ns.data(), *Sisi4s::world, "Da"),
+        NEW(CTF::Tensor<F>, 3, vvo.data(), nss.data(), *Sisi4s::world, "Dabi")
       }
     ),
     std::vector<std::string>({"a", "abi"})
@@ -445,7 +445,7 @@ EACcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
     localLowestElementIndices[i] = localElements[i].first;
     localLowestElementValues[i] = localElements[i].second;
   }
-  MpiCommunicator communicator(*Cc4s::world);
+  MpiCommunicator communicator(*Sisi4s::world);
   std::vector<size_t> lowestElementIndices;
   std::vector<F> lowestElementValues;
   communicator.gather(localLowestElementIndices, lowestElementIndices);
@@ -532,7 +532,7 @@ EACcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
 template <typename F>
 SDFockVector<F>
 EACcsdPreconditioner<F>::getCorrection(
-  const cc4s::complex lambda, SDFockVector<F> &residuum
+  const sisi4s::complex lambda, SDFockVector<F> &residuum
 ) {
   SDFockVector<F> w(*this->diagonalH);
 
@@ -580,8 +580,8 @@ void IPCcsdPreconditioner<F>::calculateDiagonal(){
   auto& Fab = this->Fab;
 
   this->diagonalH = NEW(SDFockVector<F>, std::vector<PTR(CTF::Tensor<F>)>({
-        NEW(CTF::Tensor<F>, 1, o.data(), ns.data(), *Cc4s::world, "Di"),
-        NEW(CTF::Tensor<F>, 3, voo.data(), nss.data(), *Cc4s::world, "Daij")
+        NEW(CTF::Tensor<F>, 1, o.data(), ns.data(), *Sisi4s::world, "Di"),
+        NEW(CTF::Tensor<F>, 3, voo.data(), nss.data(), *Sisi4s::world, "Daij")
       }
     ),
     std::vector<std::string>({"i", "aij"})
@@ -626,7 +626,7 @@ IPCcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
     localLowestElementIndices[i] = localElements[i].first;
     localLowestElementValues[i] = localElements[i].second;
   }
-  MpiCommunicator communicator(*Cc4s::world);
+  MpiCommunicator communicator(*Sisi4s::world);
   std::vector<size_t> lowestElementIndices;
   std::vector<F> lowestElementValues;
   communicator.gather(localLowestElementIndices, lowestElementIndices);
@@ -713,7 +713,7 @@ IPCcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
 template <typename F>
 SDFockVector<F>
 IPCcsdPreconditioner<F>::getCorrection(
-  const cc4s::complex lambda, SDFockVector<F> &residuum
+  const sisi4s::complex lambda, SDFockVector<F> &residuum
 ) {
   SDFockVector<F> w(*this->diagonalH);
 
@@ -753,10 +753,10 @@ IPCcsdPreconditioner<F>::getCorrection(
 
 // instantiate
 template class CcsdPreconditioner<double>;
-template class CcsdPreconditioner<cc4s::complex>;
+template class CcsdPreconditioner<sisi4s::complex>;
 
 template class IPCcsdPreconditioner<double>;
-template class IPCcsdPreconditioner<cc4s::complex>;
+template class IPCcsdPreconditioner<sisi4s::complex>;
 
 template class EACcsdPreconditioner<double>;
-template class EACcsdPreconditioner<cc4s::complex>;
+template class EACcsdPreconditioner<sisi4s::complex>;

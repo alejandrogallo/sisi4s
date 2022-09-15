@@ -1,7 +1,7 @@
 #ifndef RANGE_PARSER_DEFINED
 #define RANGE_PARSER_DEFINED
 
-namespace cc4s {
+namespace sisi4s {
 
   /**
    * \brief Class to parse a string of comma separated range delimiters.

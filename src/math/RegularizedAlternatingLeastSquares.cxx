@@ -9,10 +9,10 @@
 #include <util/Log.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 template <typename F=double>
-void cc4s::fitAlternatingLeastSquaresFactor(
+void sisi4s::fitAlternatingLeastSquaresFactor(
   Tensor<F> &T, char const *indicesT,
   Tensor<F> &B, char const idxB, Tensor<F> &C, char const idxC,
   Tensor<F> &A, char const idxA
@@ -44,13 +44,13 @@ void cc4s::fitAlternatingLeastSquaresFactor(
 
 // instantiate
 template
-void cc4s::fitAlternatingLeastSquaresFactor(
+void sisi4s::fitAlternatingLeastSquaresFactor(
   Tensor<double> &T, char const *indicesT,
   Tensor<double> &B, char const idxB, Tensor<double> &C, char const idxC,
   Tensor<double> &A, char const idxA
 );
 template
-void cc4s::fitAlternatingLeastSquaresFactor(
+void sisi4s::fitAlternatingLeastSquaresFactor(
   Tensor<complex> &T, char const *indicesT,
   Tensor<complex> &B, char const idxB, Tensor<complex> &C, char const idxC,
   Tensor<complex> &A, char const idxA
@@ -58,7 +58,7 @@ void cc4s::fitAlternatingLeastSquaresFactor(
 
 
 template <typename F=double>
-void cc4s::fitRegularizedAlternatingLeastSquaresFactor(
+void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
   Tensor<F> &T, char const *indicesT,
   Tensor<F> &B, char const idxB, Tensor<F> &C, char const idxC,
   Tensor<F> &A, char const idxA,
@@ -104,14 +104,14 @@ void cc4s::fitRegularizedAlternatingLeastSquaresFactor(
 
 // instantiate
 template
-void cc4s::fitRegularizedAlternatingLeastSquaresFactor(
+void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
   Tensor<double> &T, char const *indicesT,
   Tensor<double> &B, char const idxB, Tensor<double> &C, char const idxC,
   Tensor<double> &A, char const idxA,
   AlternatingLeastSquaresRegularizationEstimator *regularizationEstimatorA
 );
 template
-void cc4s::fitRegularizedAlternatingLeastSquaresFactor(
+void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
   Tensor<complex> &T, char const *indicesT,
   Tensor<complex> &B, char const idxB, Tensor<complex> &C, char const idxC,
   Tensor<complex> &A, char const idxA,
@@ -120,7 +120,7 @@ void cc4s::fitRegularizedAlternatingLeastSquaresFactor(
 
 
 template <typename F=double>
-void cc4s::dryFitRegularizedAlternatingLeastSquaresFactor(
+void sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor(
   DryTensor<F> &T, char const *indicesT,
   DryTensor<F> &B, char const idxB, DryTensor<F> &C, char const idxC,
   DryTensor<F> &A, char const idxA
@@ -144,13 +144,13 @@ void cc4s::dryFitRegularizedAlternatingLeastSquaresFactor(
 
 // instantiate
 template
-void cc4s::dryFitRegularizedAlternatingLeastSquaresFactor(
+void sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor(
   DryTensor<double> &T, char const *indicesT,
   DryTensor<double> &B, char const idxB, DryTensor<double> &C, char const idxC,
   DryTensor<double> &A, char const idxA
 );
 template
-void cc4s::dryFitRegularizedAlternatingLeastSquaresFactor(
+void sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor(
   DryTensor<complex> &T, char const *indicesT,
   DryTensor<complex> &B, char const idxB, DryTensor<complex> &C, char const idxC,
   DryTensor<complex> &A, char const idxA

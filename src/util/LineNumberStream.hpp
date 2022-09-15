@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Wrapper for an input stream providing tracking of the current
    * line and the current column during stream reading.

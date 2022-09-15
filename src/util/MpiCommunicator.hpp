@@ -6,7 +6,7 @@
 #include <math/Vector.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   // base template for type traits
   template <typename F>
   class MpiTypeTraits;

@@ -6,7 +6,7 @@
 #include <map>
 #include <string>
 
-namespace cc4s {
+namespace sisi4s {
 
   class MoReader: public Algorithm {
   public:

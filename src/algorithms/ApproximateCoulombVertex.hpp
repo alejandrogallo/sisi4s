@@ -5,7 +5,7 @@
 #include <algorithms/Algorithm.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /* @WIKI
    * \brief Approximates the Coulomb vertex $\tilde\Gamma^q_{rG}$
    * using the given set of left singular vectors $U^F_G$ associated to the

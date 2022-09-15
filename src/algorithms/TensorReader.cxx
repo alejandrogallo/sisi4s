@@ -5,7 +5,7 @@
 
 #include <util/TensorIo.hpp>
 #include <util/Log.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 #include <util/Emitter.hpp>
 #include <algorithms/TensorReader.hpp>
@@ -14,7 +14,7 @@
 template<typename F>
 using Tensor = CTF::Tensor<F>;
 
-namespace cc4s {
+namespace sisi4s {
 
   ALGORITHM_REGISTRAR_DEFINITION(TensorReader);
 
@@ -29,7 +29,7 @@ namespace cc4s {
 
     // make sure all processes start reading the file at the same time in case
     // it has been modified before
-    MPI_Barrier(Cc4s::world->comm);
+    MPI_Barrier(Sisi4s::world->comm);
 
     int64_t precision(getIntegerArgument("precision", 64));
     switch (precision) {
@@ -66,4 +66,4 @@ namespace cc4s {
     return A;
   }
 
-}  // namespace cc4s
+}  // namespace sisi4s

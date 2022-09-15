@@ -4,7 +4,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Evaluates
    * \f$\langle\Psi|\hat N_p|\Psi\rangle/\langle\Psi|\Psi\rangle\f$

@@ -4,10 +4,10 @@
 #include <DryTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombIntegrals);
@@ -42,11 +42,11 @@ void ParticleHoleCoulombIntegrals::run() {
   int syms[] = { NS, NS, NS, NS };
   Tensor<> *Vabij(
     isArgumentGiven("PPHHCoulombIntegrals") ?
-    new Tensor<>(4, vvoo, syms, *Cc4s::world, "Vabij") : nullptr
+    new Tensor<>(4, vvoo, syms, *Sisi4s::world, "Vabij") : nullptr
   );
   Tensor<> *Vijab(
     isArgumentGiven("HHPPCoulombIntegrals") ?
-    new Tensor<>(4, oovv, syms, *Cc4s::world, "Vijab") : nullptr
+    new Tensor<>(4, oovv, syms, *Sisi4s::world, "Vijab") : nullptr
   );
   if (Vabij) {
     allocatedTensorArgument("PPHHCoulombIntegrals", Vabij);

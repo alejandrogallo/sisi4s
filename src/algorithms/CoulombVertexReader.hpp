@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <fstream>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Reads the Coulomb vertex \f$\Gamma_{pG}^q\f$ and the occupied and
    * virtual orbital energies \f$\varepsilon_i, \varepsilon_a\f$ from binary

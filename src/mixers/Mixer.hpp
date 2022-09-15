@@ -9,7 +9,7 @@
 
 #include <string>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename F>
   class Mixer {
   public:
@@ -111,7 +111,7 @@ namespace cc4s {
   /**
    * \brief Class to be statically instantiated by a mixer to register
    * it in the MixerFactory. Registered mixers can be instantiated
-   * from the cc4s control language.
+   * from the sisi4s control language.
    */
   template <typename F, typename MixerType>
   class MixerRegistrar: protected MixerFactory<F> {

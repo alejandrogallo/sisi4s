@@ -8,7 +8,7 @@
 #include <util/Log.hpp>
 #include <memory>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 using std::make_shared;
 
@@ -62,18 +62,18 @@ Matrix<F> &PseudoInverseHermitianSvd<F>::get() {
 
 // instantiate
 template
-PseudoInverseHermitianSvd<cc4s::Float64>::PseudoInverseHermitianSvd(
-  Matrix<cc4s::Float64> &matrix, double epsilon
+PseudoInverseHermitianSvd<sisi4s::Float64>::PseudoInverseHermitianSvd(
+  Matrix<sisi4s::Float64> &matrix, double epsilon
 );
 template
-Matrix<cc4s::Float64> &PseudoInverseHermitianSvd<cc4s::Float64>::get();
+Matrix<sisi4s::Float64> &PseudoInverseHermitianSvd<sisi4s::Float64>::get();
 
 template
-PseudoInverseHermitianSvd<cc4s::Complex64>::PseudoInverseHermitianSvd(
-  Matrix<cc4s::Complex64> &matrix, double epsilon
+PseudoInverseHermitianSvd<sisi4s::Complex64>::PseudoInverseHermitianSvd(
+  Matrix<sisi4s::Complex64> &matrix, double epsilon
 );
 template
-Matrix<cc4s::Complex64> &PseudoInverseHermitianSvd<cc4s::Complex64>::get();
+Matrix<sisi4s::Complex64> &PseudoInverseHermitianSvd<sisi4s::Complex64>::get();
 
 
 template <typename F>
@@ -91,16 +91,16 @@ DryMatrix<F> &DryPseudoInverseHermitianSvd<F>::get() {
 
 // instantiate
 template
-DryPseudoInverseHermitianSvd<cc4s::Float64>::DryPseudoInverseHermitianSvd(
-  DryMatrix<cc4s::Float64> const &matrix
+DryPseudoInverseHermitianSvd<sisi4s::Float64>::DryPseudoInverseHermitianSvd(
+  DryMatrix<sisi4s::Float64> const &matrix
 );
 template
-DryMatrix<cc4s::Float64> &DryPseudoInverseHermitianSvd<cc4s::Float64>::get();
+DryMatrix<sisi4s::Float64> &DryPseudoInverseHermitianSvd<sisi4s::Float64>::get();
 
 template
-DryPseudoInverseHermitianSvd<cc4s::Complex64>::DryPseudoInverseHermitianSvd(
-  DryMatrix<cc4s::Complex64> const &matrix
+DryPseudoInverseHermitianSvd<sisi4s::Complex64>::DryPseudoInverseHermitianSvd(
+  DryMatrix<sisi4s::Complex64> const &matrix
 );
 template
-DryMatrix<cc4s::Complex64> &DryPseudoInverseHermitianSvd<cc4s::Complex64>::get();
+DryMatrix<sisi4s::Complex64> &DryPseudoInverseHermitianSvd<sisi4s::Complex64>::get();
 

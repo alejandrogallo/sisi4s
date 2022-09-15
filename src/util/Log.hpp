@@ -9,7 +9,7 @@
 #include <streambuf>
 #include <fstream>
 
-namespace cc4s {
+namespace sisi4s {
   class LogBuffer: public std::streambuf {
   public:
     LogBuffer(
@@ -99,22 +99,22 @@ namespace cc4s {
  * rvalue.
  */
 #define OUT() \
-  if (cc4s::Log::getRank() != 0) { \
+  if (sisi4s::Log::getRank() != 0) { \
   } else std::cout
 #define WARN() \
-  if (cc4s::Log::getRank() != 0) { \
+  if (sisi4s::Log::getRank() != 0) { \
   } else std::cout << "WARNING: "
 #define NEW_FILE(NAME) \
-  if (cc4s::Log::getRank() != 0) { \
+  if (sisi4s::Log::getRank() != 0) { \
   } else std::ofstream(NAME, std::ofstream::out)
 #define FILE(NAME) \
-  if (cc4s::Log::getRank() != 0) { \
+  if (sisi4s::Log::getRank() != 0) { \
   } else std::ofstream(NAME, std::ofstream::app)
 #define LOG(...) \
-  if (cc4s::Log::getRank() != 0) { \
-  } else cc4s::Log::getLogStream().prepare(0, __FILE__, __VA_ARGS__)
+  if (sisi4s::Log::getRank() != 0) { \
+  } else sisi4s::Log::getLogStream().prepare(0, __FILE__, __VA_ARGS__)
 #define LOG_RANK(...) \
-  cc4s::Log::getLogStream().prepare(cc4s::Log::getRank(), __FILE__, __VA_ARGS__)
+  sisi4s::Log::getLogStream().prepare(sisi4s::Log::getRank(), __FILE__, __VA_ARGS__)
 
 #endif
 

@@ -5,7 +5,7 @@
 #include <sstream>
 #include <string>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 LogStream::LogStream(
   std::string const &logFileName,
@@ -47,7 +47,7 @@ std::ostream &LogStream::prepare(
 }
 
 int Log::rank(-1);
-std::string Log::fileName("cc4s.log");
+std::string Log::fileName("sisi4s.log");
 int Log::logLevel(0);
 LogStream *Log::logStream(nullptr);
 

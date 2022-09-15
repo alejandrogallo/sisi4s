@@ -12,14 +12,14 @@
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/SharedPointer.hpp>
 
 #include <algorithm>
 #include <utility>
 #include <limits>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UCcsdEAEquationOfMotionDavidson);
 
@@ -102,7 +102,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("HHPHCoulombIntegrals")
   );
   CTF::Tensor<F> cVijak(
-    pVijak->order, pVijak->lens, pVijak->sym, *Cc4s::world,
+    pVijak->order, pVijak->lens, pVijak->sym, *Sisi4s::world,
     pVijak->get_name()
   );
   CTF::Tensor<F> *Vijak(&cVijak);
@@ -113,7 +113,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("PHPHCoulombIntegrals")
   );
   CTF::Tensor<F> cVaibj(
-    pVaibj->order, pVaibj->lens, pVaibj->sym, *Cc4s::world,
+    pVaibj->order, pVaibj->lens, pVaibj->sym, *Sisi4s::world,
     pVaibj->get_name()
   );
   CTF::Tensor<F> *Vaibj(&cVaibj);
@@ -124,7 +124,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("PPPHCoulombIntegrals")
   );
   CTF::Tensor<F> cVabci(
-    pVabci->order, pVabci->lens, pVabci->sym, *Cc4s::world,
+    pVabci->order, pVabci->lens, pVabci->sym, *Sisi4s::world,
     pVabci->get_name()
   );
   CTF::Tensor<F> *Vabci(&cVabci);
@@ -135,7 +135,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("PPHPCoulombIntegrals")
   );
   CTF::Tensor<F> cVabic(
-    pVabic->order, pVabic->lens, pVabic->sym, *Cc4s::world,
+    pVabic->order, pVabic->lens, pVabic->sym, *Sisi4s::world,
     pVabic->get_name()
   );
   CTF::Tensor<F> *Vabic(&cVabic);
@@ -145,7 +145,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("PPPPCoulombIntegrals")
   );
   CTF::Tensor<F> cVabcd(
-    pVabcd->order, pVabcd->lens, pVabcd->sym, *Cc4s::world,
+    pVabcd->order, pVabcd->lens, pVabcd->sym, *Sisi4s::world,
     pVabcd->get_name()
   );
   CTF::Tensor<F> *Vabcd(&cVabcd);
@@ -155,7 +155,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("HPPPCoulombIntegrals")
   );
   CTF::Tensor<F> cViabc(
-    pViabc->order, pViabc->lens, pViabc->sym, *Cc4s::world,
+    pViabc->order, pViabc->lens, pViabc->sym, *Sisi4s::world,
     pViabc->get_name()
   );
   CTF::Tensor<F> *Viabc(&cViabc);
@@ -166,7 +166,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("HPHPCoulombIntegrals")
   );
   CTF::Tensor<F> cViajb(
-    pViajb->order, pViajb->lens, pViajb->sym, *Cc4s::world,
+    pViajb->order, pViajb->lens, pViajb->sym, *Sisi4s::world,
     pViajb->get_name()
   );
   CTF::Tensor<F> *Viajb(&cViajb);
@@ -177,7 +177,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("PHPPCoulombIntegrals")
   );
   CTF::Tensor<F> cVaibc(
-    pVaibc->order, pVaibc->lens, pVaibc->sym, *Cc4s::world,
+    pVaibc->order, pVaibc->lens, pVaibc->sym, *Sisi4s::world,
     pVaibc->get_name()
   );
   CTF::Tensor<F> *Vaibc(&cVaibc);
@@ -188,7 +188,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("HPHHCoulombIntegrals")
   );
   CTF::Tensor<F> cViajk(
-    pViajk->order, pViajk->lens, pViajk->sym, *Cc4s::world,
+    pViajk->order, pViajk->lens, pViajk->sym, *Sisi4s::world,
     pViajk->get_name()
   );
   CTF::Tensor<F> *Viajk(&cViajk);
@@ -199,7 +199,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("HHPPCoulombIntegrals")
   );
   CTF::Tensor<F> cVijab(
-    pVijab->order, pVijab->lens, pVijab->sym, *Cc4s::world,
+    pVijab->order, pVijab->lens, pVijab->sym, *Sisi4s::world,
     pVijab->get_name()
   );
   CTF::Tensor<F> *Vijab(&cVijab);
@@ -210,7 +210,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("HHHPCoulombIntegrals")
   );
   CTF::Tensor<F> cVijka(
-    pVijka->order, pVijka->lens, pVijka->sym, *Cc4s::world,
+    pVijka->order, pVijka->lens, pVijka->sym, *Sisi4s::world,
     pVijka->get_name()
   );
   CTF::Tensor<F> *Vijka(&cVijka);
@@ -222,7 +222,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("HPPHCoulombIntegrals")
   );
   CTF::Tensor<F> cViabj(
-    pViabj->order, pViabj->lens, pViabj->sym, *Cc4s::world,
+    pViabj->order, pViabj->lens, pViabj->sym, *Sisi4s::world,
     pViabj->get_name()
   );
   CTF::Tensor<F> *Viabj(&cViabj);
@@ -233,7 +233,7 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     getTensorArgument<double, CTF::Tensor<double> >("PHHPCoulombIntegrals")
   );
   CTF::Tensor<F> cVaijb(
-    pVaijb->order, pVaijb->lens, pVaijb->sym, *Cc4s::world,
+    pVaijb->order, pVaijb->lens, pVaijb->sym, *Sisi4s::world,
     pVaijb->get_name()
   );
   CTF::Tensor<F> *Vaijb(&cVaijb);
@@ -241,9 +241,9 @@ void UCcsdEAEquationOfMotionDavidson::run() {
 
 
   // HF terms
-  CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms2, *Cc4s::world, "Fab"));
-  CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms2, *Cc4s::world, "Fij"));
-  CTF::Tensor<F> *Fia(new CTF::Tensor<F>(2, ov, syms2, *Cc4s::world, "Fia"));
+  CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab"));
+  CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij"));
+  CTF::Tensor<F> *Fia(new CTF::Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia"));
 
   if (
     isArgumentGiven("HPFockMatrix") &&
@@ -283,8 +283,8 @@ void UCcsdEAEquationOfMotionDavidson::run() {
     );
   }
 
-  CTF::Tensor<F> Tai(2, vo, syms2, *Cc4s::world, "Tai");
-  CTF::Tensor<F> Tabij(4, vvoo, syms4, *Cc4s::world, "Tabij");
+  CTF::Tensor<F> Tai(2, vo, syms2, *Sisi4s::world, "Tai");
+  CTF::Tensor<F> Tabij(4, vvoo, syms4, *Sisi4s::world, "Tabij");
   toComplexTensor(
     (*getTensorArgument<double, CTF::Tensor<double> >("SinglesAmplitudes")),
     Tai

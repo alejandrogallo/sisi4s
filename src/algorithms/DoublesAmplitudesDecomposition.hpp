@@ -5,7 +5,7 @@
 #include <algorithms/Algorithm.hpp>
 #include <memory>
 
-namespace cc4s {
+namespace sisi4s {
   class DoublesAmplitudesDecomposition: public Algorithm {
   public:
     ALGORITHM_REGISTRAR_DECLARATION(DoublesAmplitudesDecomposition);

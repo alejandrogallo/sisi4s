@@ -7,7 +7,7 @@
 #include <math/Complex.hpp>
 #include <util/SharedPointer.hpp>
 
-namespace cc4s {
+namespace sisi4s {
 
   /**
    * \brief Implements the diagonal preconditionar for the davidson method

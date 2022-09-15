@@ -7,7 +7,7 @@
 #include <util/Log.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   class AlternatingLeastSquaresRegularizationEstimator {
   public:
     AlternatingLeastSquaresRegularizationEstimator(): swampingThreshold(0.0) {

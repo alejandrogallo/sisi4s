@@ -4,7 +4,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   class ComplexTensorSum: public Algorithm {
   public:
     ALGORITHM_REGISTRAR_DECLARATION(ComplexTensorSum);

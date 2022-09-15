@@ -8,7 +8,7 @@
 #include <sstream>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   class Argument {
   public:
     Argument(
@@ -83,7 +83,7 @@ namespace cc4s {
     // typing, allocating and setting output arguments
     /**
      * \brief Specifies the location of an output tensor data.
-     * \param[in] argumentName The argument name as specified in the cc4s file
+     * \param[in] argumentName The argument name as specified in the sisi4s file
      * \param[in] tensor The reference of the tensor data allocated by the
      * caller and later freed by the system if not needed any further.
      * \note
@@ -149,7 +149,7 @@ namespace cc4s {
   /**
    * \brief Class to be statically instantiated by an algorithm to register
    * it in the AlgorithmFactory. Registered algorithms can be instantiated
-   * from the cc4s control language.
+   * from the sisi4s control language.
    */
   template <typename AlgorithmType>
   class AlgorithmRegistrar: protected AlgorithmFactory {

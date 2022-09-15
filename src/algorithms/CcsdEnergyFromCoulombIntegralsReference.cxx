@@ -5,12 +5,12 @@
 #include <DryTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 #include <array>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdEnergyFromCoulombIntegralsReference);
 
@@ -290,8 +290,8 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
   return residuum;
 }
 
-PTR(FockVector<cc4s::complex>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
-  const int i, const PTR(const FockVector<cc4s::complex>) &amplitudes
+PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
+  const int i, const PTR(const FockVector<sisi4s::complex>) &amplitudes
 ) {
   throw new EXCEPTION("This is not implemented");
 }

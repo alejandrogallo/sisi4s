@@ -1,4 +1,4 @@
-/* Copyright 2021 cc4s.org
+/* Copyright 2021 sisi4s.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@
 
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 double UegVertexGenerator::evalMadelung(const double v){
   double kappa = pow(v,-1.0/3.0);
@@ -174,7 +174,7 @@ void UegVertexGenerator::run() {
     = new CTF::Tensor<complex>(3,
                               coulombVertexLens,
                               syms,
-                              *Cc4s::world,
+                              *Sisi4s::world,
                               "CoulombVertex");
 
   OUT() << "System Information:\n";
@@ -189,23 +189,23 @@ void UegVertexGenerator::run() {
   // Prepare eigenEnergies
   const int
     o[] = {(int)No}, _v[] = {(int)Nv};
-  auto epsi = new CTF::Tensor<double>(1, o, syms, *Cc4s::world, "epsi"),
-       epsa = new CTF::Tensor<double>(1, _v, syms, *Cc4s::world, "epsa");
+  auto epsi = new CTF::Tensor<double>(1, o, syms, *Sisi4s::world, "epsi"),
+       epsa = new CTF::Tensor<double>(1, _v, syms, *Sisi4s::world, "epsa");
 
-  allocatedTensorArgument<cc4s::complex>("CoulombVertex", coulombVertex);
+  allocatedTensorArgument<sisi4s::complex>("CoulombVertex", coulombVertex);
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
 
 
 
   // if we are in a dryRun there is nothing more to do
-  // if (Cc4s::dryRun) return result;
+  // if (Sisi4s::dryRun) return result;
 
-  size_t np = Cc4s::world->np;
-  size_t rank = Cc4s::world->rank;
+  size_t np = Sisi4s::world->np;
+  size_t rank = Sisi4s::world->rank;
   //only rank 0 writes the data to the tensor
   std::vector<size_t> idx;
-  if (!Cc4s::world->rank){
+  if (!Sisi4s::world->rank){
     idx.resize(energies.size());
     std::iota(idx.begin(), idx.end(), 0);
   }

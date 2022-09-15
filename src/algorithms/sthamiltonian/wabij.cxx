@@ -8,7 +8,7 @@
 #define ST_DEBUG(msg)
 #endif
 
-using namespace cc4s;
+using namespace sisi4s;
 
 template <typename F>
 PTR(CTF::Tensor<F>)
@@ -19,7 +19,7 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
 
   int syms[] = {NS, NS, NS, NS};
   int vvoo[] = {Nv,Nv,No,No};
-  Wabij = NEW(CTF::Tensor<F>, 4, vvoo, syms, *Cc4s::world, "Wabij");
+  Wabij = NEW(CTF::Tensor<F>, 4, vvoo, syms, *Sisi4s::world, "Wabij");
 
   if (dressing == Dressing(CCSD)) {
     (*Wabij)["abij"] = 0.0;
@@ -179,7 +179,7 @@ SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
 
   int syms[] = {NS, NS, NS, NS};
   int vvoo[] = {Nv,Nv,No,No};
-  Wabij = NEW(CTF::Tensor<F>, 4, vvoo, syms, *Cc4s::world, "Wabij");
+  Wabij = NEW(CTF::Tensor<F>, 4, vvoo, syms, *Sisi4s::world, "Wabij");
 
   if (dressing == Dressing(RPA)) {
     (*Wabij)["abij"] = 0.0;
@@ -235,5 +235,5 @@ SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
 }
 
 // instantiate
-template class SimilarityTransformedHamiltonian<cc4s::complex>;
+template class SimilarityTransformedHamiltonian<sisi4s::complex>;
 template class SimilarityTransformedHamiltonian<double>;

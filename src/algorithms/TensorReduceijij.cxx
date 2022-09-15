@@ -1,9 +1,9 @@
 #include <algorithms/TensorReduceijij.hpp>
 #include <util/Log.hpp>
 #include <iostream>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorReduceijij);
 
@@ -15,7 +15,7 @@ void TensorReduceijij::run() {
   const int Ni(T->lens[0]), Nj(T->lens[1]);
   const std::vector<int> syms({NS, NS}), lens({Ni, Nj});
 
-  auto t(new CTF::Tensor<double>(2, lens.data(), syms.data(), *Cc4s::world));
+  auto t(new CTF::Tensor<double>(2, lens.data(), syms.data(), *Sisi4s::world));
 
   (*t)["ij"] = (*T)["ijij"];
 

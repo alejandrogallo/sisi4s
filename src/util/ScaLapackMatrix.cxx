@@ -4,7 +4,7 @@
 #include <math/Complex.hpp>
 #include <util/Log.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ScaLapackDescriptor::ScaLapackDescriptor(
   BlacsWorld *blacsWorld,
@@ -49,9 +49,9 @@ ScaLapackMatrix<F>::ScaLapackMatrix(
 
 // instantiate
 template
-ScaLapackMatrix<cc4s::Float64>::ScaLapackMatrix(ScaLapackMatrix<cc4s::Float64> &A);
+ScaLapackMatrix<sisi4s::Float64>::ScaLapackMatrix(ScaLapackMatrix<sisi4s::Float64> &A);
 template
-ScaLapackMatrix<cc4s::Complex64>::ScaLapackMatrix(ScaLapackMatrix<cc4s::Complex64> &A);
+ScaLapackMatrix<sisi4s::Complex64>::ScaLapackMatrix(ScaLapackMatrix<sisi4s::Complex64> &A);
 
 
 template <typename F>
@@ -78,11 +78,11 @@ ScaLapackMatrix<F>::ScaLapackMatrix(
 
 // instantiate
 template
-ScaLapackMatrix<cc4s::Float64>::ScaLapackMatrix(
-  CTF::Matrix<cc4s::Float64> &A, BlacsWorld *blacsWorld, int blockSize
+ScaLapackMatrix<sisi4s::Float64>::ScaLapackMatrix(
+  CTF::Matrix<sisi4s::Float64> &A, BlacsWorld *blacsWorld, int blockSize
 );
 template
-ScaLapackMatrix<cc4s::Complex64>::ScaLapackMatrix(
+ScaLapackMatrix<sisi4s::Complex64>::ScaLapackMatrix(
   CTF::Matrix<Complex64> &A, BlacsWorld *blacsWorld, int blockSize
 );
 

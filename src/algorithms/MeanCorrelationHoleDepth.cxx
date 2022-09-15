@@ -4,7 +4,7 @@
 #include <math/MathFunctions.hpp>
 #include <algorithm>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Integrals.hpp>
@@ -14,7 +14,7 @@
 #include <numeric>
 #define LOGGER(_l) LOG(_l, "MeanCorrelationHoleDepth")
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(MeanCorrelationHoleDepth);
 
@@ -31,7 +31,7 @@ void MeanCorrelationHoleDepth::run() {
   int No(d->lens[2]), Nv(d->lens[0]);
   std::vector<int> oo({No, No});
   std::vector<int> syms({NS, NS});
-  auto gij(new CTF::Tensor<double>(2, oo.data(), syms.data(), *Cc4s::world));
+  auto gij(new CTF::Tensor<double>(2, oo.data(), syms.data(), *Sisi4s::world));
 
   LOGGER(0) << "Exporting G" << std::endl;
   LOGGER(0) << "No: " << No << std::endl;

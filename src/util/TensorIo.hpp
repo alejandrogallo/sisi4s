@@ -4,7 +4,7 @@
 #include <util/Scanner.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   class TensorIo {
   public:
     template <typename F=real, typename T=CTF::Tensor<F>>

@@ -5,7 +5,7 @@
 #include <algorithms/Algorithm.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /* @WIKI
    * \brief Approximates the particle-hole Coulomb vertex $\tilde\Gamma^a_{iG}$
    * using the given set of left singular vectors $U^F_G$ associated to the

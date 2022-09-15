@@ -6,7 +6,7 @@
 #include <math/Permutation.hpp>
 #include <util/SlicedCtfTensor.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Caclulates perturbative triples correction
    */

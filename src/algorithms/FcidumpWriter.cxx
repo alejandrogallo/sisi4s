@@ -2,7 +2,7 @@
 #include <algorithms/FcidumpWriter.hpp>
 #include <util/CTF.hpp>
 #include <util/Log.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Exception.hpp>
 #include <util/Integrals.hpp>
 #include <fstream>
@@ -11,7 +11,7 @@
 #include <numeric>
 #include <ostream>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(FcidumpWriter);
 

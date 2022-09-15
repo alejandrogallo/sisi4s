@@ -2,7 +2,7 @@
 #include <util/Log.hpp>
 #include <iostream>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorGetMax);
 

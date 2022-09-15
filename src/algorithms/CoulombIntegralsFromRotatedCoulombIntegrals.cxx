@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
@@ -14,7 +14,7 @@
 #include <util/Emitter.hpp>
 #include <math/MathFunctions.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromRotatedCoulombIntegrals);
 #define LOGGER(_l) LOG(_l, "CoulombIntegralsFromRotatedCoulombIntegrals")
 
@@ -63,7 +63,7 @@ struct VectorIntegralProvider: public IntegralProvider< std::vector<double> > {
 
     if ( unrestricted_)
       throw EXCEPTION("Unrestricted not supported for this provider");
-    const int rank_m = int(Cc4s::world->rank == 0); // rank mask
+    const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
 
     // read in the orbital coefficients
     C.resize(rank_m * Np*Np);
@@ -278,7 +278,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
     std::vector<int> s(4, NS); std::vector<int> l(4, C.lens[0]);
 
     if (chemistNotation) {
-      VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+      VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
       (*VTransformed)["plmn"] = C["kp"] * V["klmn"];
       (*VTransformed)["plqn"] = C["mq"] * (*VTransformed)["plmn"];
       (*VTransformed)["prqn"] = C["lr"] * (*VTransformed)["plqn"];
@@ -293,16 +293,16 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
       */
     } else {
         l[0] = C.lens[1];
-        auto VIntermedia1 = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+        auto VIntermedia1 = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
         (*VIntermedia1)["plmn"] = C["kp"] * V["klmn"];
         l[1] = C.lens[1];
-        auto VIntermedia2 = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+        auto VIntermedia2 = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
         (*VIntermedia2)["pqmn"] = C["lq"] * (*VIntermedia1)["plmn"];
         l[2] = C.lens[1]; delete VIntermedia1;
-        auto VIntermedia3 = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+        auto VIntermedia3 = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
         (*VIntermedia3)["pqrn"] = C["mr"] * (*VIntermedia2)["pqmn"];
         l[3] = C.lens[1]; delete VIntermedia2;
-        VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+        VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
         (*VTransformed)["pqrs"] = C["ns"] * (*VIntermedia3)["pqrn"];
         delete VIntermedia3;
 
@@ -310,7 +310,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
         LOGGER(1) << "unrestricted case\n";
 
         // Construct a spin map which is either one or zero.
-        auto Sm = new CTF::Tensor<double>(2, l.data(), s.data(), *Cc4s::world);
+        auto Sm = new CTF::Tensor<double>(2, l.data(), s.data(), *Sisi4s::world);
         (*Sm)["pq"] = S["p"]*S["q"];
         CTF::Transform<double>(
           std::function<void(double &)>(
@@ -319,7 +319,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
         )(
          (*Sm)["pq"]
         );
-        auto Smap = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+        auto Smap = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
         (*Smap)["pqrs"] = (*Sm)["pr"] * (*Sm)["qs"];
 
         CTF::Bivar_Function<> fMultiply(&multiply<double>);
@@ -330,7 +330,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
         LOGGER(1) << "Vpqrs build\n";
       }
 //      else {
-//        VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Cc4s::world);
+//        VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
 //
 //        (*VTransformed)["plmn"] = C["kp"] * V["klmn"];
 //        (*VTransformed)["pqmn"] = C["lq"] * (*VTransformed)["plmn"];
@@ -376,10 +376,10 @@ CTF::Tensor<double>* stdVectorToTensor( const std::vector<double> v
   auto result(new CTF::Tensor<double>( lens.size()
                                      , lens.data()
                                      , syms.data()
-                                     , *Cc4s::world
+                                     , *Sisi4s::world
                                      , "T"
                                      ));
-  std::vector<int64_t> indices(int(Cc4s::world->rank == 0) * v.size());
+  std::vector<int64_t> indices(int(Sisi4s::world->rank == 0) * v.size());
   std::iota(indices.begin(), indices.end(), 0);
   result->write(indices.size(), indices.data(), v.data());
   return result;

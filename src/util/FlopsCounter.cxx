@@ -1,6 +1,6 @@
 #include <util/FlopsCounter.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 FlopsCounter::FlopsCounter(
   int64_t *flops_, MPI_Comm comm_

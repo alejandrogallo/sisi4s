@@ -5,7 +5,7 @@
 #include <vector>
 #include <math/Complex.hpp>
 
-namespace cc4s {
+namespace sisi4s {
 
   class CoulombIntegralsFromGaussian: public Algorithm {
   public:

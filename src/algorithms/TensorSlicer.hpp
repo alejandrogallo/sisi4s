@@ -3,7 +3,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   struct TensorSlicer: public Algorithm {
     ALGORITHM_REGISTRAR_DECLARATION(TensorSlicer);
     TensorSlicer(std::vector<Argument> const &argumentList)

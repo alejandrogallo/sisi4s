@@ -1,24 +1,24 @@
 AUTOMAKE_OPTIONS = subdir-objects
-include $(top_srcdir)/Cc3s.mk
+include $(top_srcdir)/SiSi4S.mk
 
 AM_CXXFLAGS = $(CTF_CPPFLAGS) \
               -fmax-errors=1 \
               -D_POSIX_C_SOURCE=200112L     \
               -D__STDC_LIMIT_MACROS         \
               -DFTN_UNDERSCORE=1            \
-              -DCC4S_VERSION=\"cc3s\" \
-              "-DCC4S_DATE=\"${DATE}\""     \
+              -DSISI4S_VERSION=\"sisi4s\" \
+              "-DSISI4S_DATE=\"${DATE}\""     \
               "-DCOMPILER_VERSION=\"${COMPILER_VERSION}\"" \
-              "-DCC4S_MPI_VERSION=\"${CC4S_MPI_VERSION}\""
+              "-DSISI4S_MPI_VERSION=\"${SISI4S_MPI_VERSION}\""
 
 
-bin_PROGRAMS = cc3s
+bin_PROGRAMS = sisi4s
 
-cc3s_CPPFLAGS = $(CTF_CPPFLAGS) $(YAML_CPPFLAGS) $(LIBINT_CPPFLAGS) $(EIGEN_CPPFLAGS)
+sisi4s_CPPFLAGS = $(CTF_CPPFLAGS) $(YAML_CPPFLAGS) $(LIBINT_CPPFLAGS) $(EIGEN_CPPFLAGS)
 
-cc3s_SOURCES =                                                   \
+sisi4s_SOURCES =                                                 \
 ./Data.cxx                                                       \
-./Cc4s.cxx                                                       \
+./Sisi4s.cxx                                                     \
 ./turbomole/MosParser.cxx                                        \
 ./Options.cxx                                                    \
 ./util/BlacsWorld.cxx                                            \
@@ -102,7 +102,7 @@ cc3s_SOURCES =                                                   \
 ./algorithms/Exit.cxx
 
 ## FOR LIBINT2
-cc3s_SOURCES +=                                                  \
+sisi4s_SOURCES +=                                                  \
 ./algorithms/HartreeFockFromGaussian.cxx                         \
 ./algorithms/OneBodyFromGaussian.cxx                             \
 ./algorithms/NuclearRepulsionEnergy.cxx                          \
@@ -110,9 +110,9 @@ cc3s_SOURCES +=                                                  \
 
 
 
-cc3s_LDADD = $(CTF_LDFLAGS) \
-             $(YAML_LDFLAGS) \
-             $(LIBINT_LIB)
+sisi4s_LDADD = $(CTF_LDFLAGS) \
+               $(YAML_LDFLAGS) \
+               $(LIBINT_LIB)
 
 
 

@@ -6,11 +6,11 @@
 #include <DryTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdPerturbativeTriples);
 
@@ -22,10 +22,10 @@ CcsdPerturbativeTriples::CcsdPerturbativeTriples(
 CcsdPerturbativeTriples::~CcsdPerturbativeTriples() {
 }
 
-namespace cc4s {
+namespace sisi4s {
   template <int N>
   inline std::string operator *(
-    const std::string &s, const cc4s::Permutation<N> &pi
+    const std::string &s, const sisi4s::Permutation<N> &pi
   ) {
     std::string sPi(s);
     for (int i(0); i < N; ++i) sPi[i] = s[pi(i)];
@@ -152,7 +152,7 @@ void CcsdPerturbativeTriples::run() {
   // true if the permutation Pi leaves the current indices i,j,k invariant
   bool givesDistinctIndexPermutation[Permutation<3>::ORDER];
 
-  Scalar<> energy(*Cc4s::world);
+  Scalar<> energy(*Sisi4s::world);
   energy[""] = 0.0;
   // indices i,j,k as map with 3 elements i(0),...,i(2)
   Map<3> i;

@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename F=double>
   class SlicedCtfTensor {
   public:

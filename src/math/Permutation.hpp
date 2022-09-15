@@ -4,7 +4,7 @@
 #include <iostream>
 #include <initializer_list>
 
-namespace cc4s {
+namespace sisi4s {
   template <int N>
   class Map {
   public:

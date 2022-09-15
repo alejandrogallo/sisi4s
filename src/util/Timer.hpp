@@ -3,7 +3,7 @@
 
 #include <util/Time.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * Timer class providing timing functionality.
    * The object can be created in a scope whose lifetime

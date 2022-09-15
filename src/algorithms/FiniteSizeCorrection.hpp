@@ -5,7 +5,7 @@
 #include <algorithms/Algorithm.hpp>
 #include <math/Interpolation.hpp>
 #include <math/Vector.hpp>
-namespace cc4s {
+namespace sisi4s {
   class FiniteSizeCorrection: public Algorithm {
   public:
     ALGORITHM_REGISTRAR_DECLARATION(FiniteSizeCorrection);
@@ -47,15 +47,15 @@ namespace cc4s {
     void constructFibonacciGrid(double R, int N);
     void interpolation3D();
     bool IsInSmallBZ(
-      Vector<double> point, double scale, std::vector<cc4s::Vector<double>> smallBZ
+      Vector<double> point, double scale, std::vector<sisi4s::Vector<double>> smallBZ
     );
-    double SGxVG(cc4s::Inter1D<double> Int1d, double x);
+    double SGxVG(sisi4s::Inter1D<double> Int1d, double x);
     double integrate(
-      cc4s::Inter1D<double> Int1d,
+      sisi4s::Inter1D<double> Int1d,
       double start, double end, int steps
       );
     double simpson(
-      cc4s::Inter1D<double> Int1d,
+      sisi4s::Inter1D<double> Int1d,
       double x, double h
       );
     void calculateFiniteSizeCorrection();

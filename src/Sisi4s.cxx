@@ -1,6 +1,6 @@
 /*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <Parser.hpp>
 #include <algorithms/Algorithm.hpp>
 #include <util/Timer.hpp>
@@ -17,21 +17,27 @@
 // TODO: to be removed from the main class
 #include <math/MathFunctions.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
-Cc4s::Cc4s() {
+Sisi4s::Sisi4s() {
 }
 
-Cc4s::~Cc4s() {
+Sisi4s::~Sisi4s() {
 }
 
-void Cc4s::run() {
+void Sisi4s::run() {
   EMIT() << YAML::BeginMap;
   printBanner();
   listHosts();
   std::vector<Algorithm *> algorithms;
-  if (options->hummel) {
+  if (options->cc4s) {
+    LOG(0, "root")
+      << "WARNING: "
+      << "You are using the old cc4s input language, which is deprecated\n"
+      << "Consider converting your input file to the yaml DSL using the"
+      << " cc4s-to-yaml.py tool found in your package source."
+      << "\n";
     InputFileParser<InputFileFormat::HUMMEL> parser(options->inFile);
     algorithms = parser.parse();
   } else {
@@ -102,7 +108,7 @@ void Cc4s::run() {
   EMIT() << YAML::EndMap;
 }
 
-void Cc4s::dryRun() {
+void Sisi4s::dryRun() {
   EMIT() << YAML::BeginMap;
   printBanner();
   LOG(0, "root") <<
@@ -137,7 +143,7 @@ void Cc4s::dryRun() {
 }
 
 
-void Cc4s::printBanner() {
+void Sisi4s::printBanner() {
   std::stringstream buildDate;
   buildDate << __DATE__ << " " << __TIME__;
 
@@ -151,21 +157,21 @@ void Cc4s::printBanner() {
      "    \\/_____/  \\/_/   \\/___/   \\/___/ " "\n"
      "\n");
 
-  LOG(0, "root") << "version=" << CC4S_VERSION <<
-    ", date=" << CC4S_DATE << std::endl;
+  LOG(0, "root") << "version=" << SISI4S_VERSION <<
+    ", date=" << SISI4S_DATE << std::endl;
   LOG(0, "root") << "build date=" << buildDate.str() << std::endl;
   LOG(0, "root") << "compiler=" << COMPILER_VERSION << std::endl;
-  LOG(0, "root") << "total processes=" << Cc4s::world->np << std::endl;
+  LOG(0, "root") << "total processes=" << Sisi4s::world->np << std::endl;
   OUT() << std::endl;
 
   EMIT()
-    << YAML::Key << "version" << YAML::Value << CC4S_VERSION
+    << YAML::Key << "version" << YAML::Value << SISI4S_VERSION
     << YAML::Key << "build-date" << YAML::Value << buildDate.str()
     << YAML::Key << "compiler" << YAML::Value << COMPILER_VERSION
-    << YAML::Key << "total-processes" << Cc4s::world->np;
+    << YAML::Key << "total-processes" << Sisi4s::world->np;
 }
 
-void Cc4s::printStatistics() {
+void Sisi4s::printStatistics() {
   std::string fieldName;
   int64_t peakVirtualSize, peakPhysicalSize;
   // assuming LINUX
@@ -205,7 +211,7 @@ void Cc4s::printStatistics() {
     << YAML::Comment("GB");
 }
 
-bool Cc4s::isDebugged() {
+bool Sisi4s::isDebugged() {
   // assuming LINUX
   std::ifstream statusStream("/proc/self/status", std::ios_base::in);
   std::string line;
@@ -224,7 +230,7 @@ bool Cc4s::isDebugged() {
   return false;
 }
 
-void Cc4s::listHosts() {
+void Sisi4s::listHosts() {
   char ownName[MPI_MAX_PROCESSOR_NAME];
   int nameLength;
   MPI_Get_processor_name(ownName, &nameLength);
@@ -268,32 +274,32 @@ void Cc4s::listHosts() {
 }
 
 
-World *Cc4s::world;
-Options *Cc4s::options;
+World *Sisi4s::world;
+Options *Sisi4s::options;
 
 
 int main(int argumentCount, char **arguments) {
   MPI_Init(&argumentCount, &arguments);
 
-  Cc4s::world = new World(argumentCount, arguments);
-  Cc4s::options = new Options(argumentCount, arguments);
-  Cc4s::options->parse();
-  Log::setRank(Cc4s::world->rank);
-  Log::setFileName(Cc4s::options->logFile);
-  Log::setLogLevel(Cc4s::options->logLevel);
-  Emitter::setFileName(Cc4s::options->yamlOutFile);
-  Emitter::setRank(Cc4s::world->rank);
+  Sisi4s::world = new World(argumentCount, arguments);
+  Sisi4s::options = new Options(argumentCount, arguments);
+  Sisi4s::options->parse();
+  Log::setRank(Sisi4s::world->rank);
+  Log::setFileName(Sisi4s::options->logFile);
+  Log::setLogLevel(Sisi4s::options->logLevel);
+  Emitter::setFileName(Sisi4s::options->yamlOutFile);
+  Emitter::setRank(Sisi4s::world->rank);
 
-  Cc4s cc4s;
-  if (Cc4s::isDebugged()) {
+  Sisi4s sisi4s;
+  if (Sisi4s::isDebugged()) {
     // run without try-catch in debugger to allow tracing throwing code
-    if (Cc4s::options->dryRun) cc4s.dryRun();
-    else cc4s.run();
+    if (Sisi4s::options->dryRun) sisi4s.dryRun();
+    else sisi4s.run();
   } else {
     // without debugger: catch and write exception cause
     try {
-      if (Cc4s::options->dryRun) cc4s.dryRun();
-      else cc4s.run();
+      if (Sisi4s::options->dryRun) sisi4s.dryRun();
+      else sisi4s.run();
     } catch (const std::string &msg) {
       LOG(0) << std::endl << msg << std::endl;
       throw msg;

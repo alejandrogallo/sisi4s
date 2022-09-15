@@ -4,7 +4,7 @@
 #include <libint2.hpp>
 #include <algorithms/CoulombIntegralsFromGaussian.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
@@ -19,7 +19,7 @@
 
 typedef libint2::Operator Operator;
 
-using namespace cc4s;
+using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromGaussian);
 
 // struct for storing information about the shell ends in the for loops
@@ -69,7 +69,7 @@ struct CoulombIntegralsProvider {
     LOGGER(1) << "max shell elements : " << maxShellElements << std::endl;
     LOGGER(1) << "max elem write     : " << maxElementsWrite << std::endl;
 
-    const size_t np(Cc4s::world->np);
+    const size_t np(Sisi4s::world->np);
     // this we need to be able to tell every np how many times
     // it should perform an mpi operation in the case it is necessary
     maxSize = (shells.size() < np)
@@ -110,7 +110,7 @@ struct CoulombIntegralsProvider {
   }
 
   void doRoundRobinDistribution() {
-    const size_t np(Cc4s::world->np), rank(Cc4s::world->rank);
+    const size_t np(Sisi4s::world->np), rank(Sisi4s::world->rank);
 
     for (size_t s(0); s < shells.size(); s++)
       if (s % np == rank)
@@ -119,8 +119,8 @@ struct CoulombIntegralsProvider {
   }
 
   void doSimpleDistribution() {
-    const size_t np   = Cc4s::world->np
-               , rank = Cc4s::world->rank
+    const size_t np   = Sisi4s::world->np
+               , rank = Sisi4s::world->rank
                , np_eff = std::min(np, shells.size())
                , chunks = shells.size() / np_eff
                , firstShellIdx = rank * chunks
@@ -404,7 +404,7 @@ struct CoulombIntegralsProvider {
         data = nullptr;
       }
   #ifdef DEBUG
-      std::cout << Cc4s::world->rank << "::"
+      std::cout << Sisi4s::world->rank << "::"
                 << "writing " << N << " values "
                 << "into ctf tensor" << std::endl;
   #endif
@@ -414,7 +414,7 @@ struct CoulombIntegralsProvider {
       // ip is an index pair
       for (const auto &ip: getWriteRangesForShell(i)) {
         #ifdef DEBUG
-        std::cout << Cc4s::world->rank << "::" << "\t|"
+        std::cout << Sisi4s::world->rank << "::" << "\t|"
                   << "writing " << ip.size << " values "
                   << "into ctf tensor" << std::endl;
         #endif
@@ -447,16 +447,16 @@ struct CoulombIntegralsProvider {
         std::iota(indices.begin(), indices.end(), off);
         off += N;
         i++;
-//        std::cout << "I am rank " << Cc4s::world->rank << " having offset " << off << std::endl;
+//        std::cout << "I am rank " << Sisi4s::world->rank << " having offset " << off << std::endl;
       }
       else{
         N = 0;
       }
 //      if (N>0) std::cout << "reading " << N << "elements\n";
-      MPI_Allreduce(&off, &off, 1, MPI_INT64_T, MPI_MAX, Cc4s::world->comm);
+      MPI_Allreduce(&off, &off, 1, MPI_INT64_T, MPI_MAX, Sisi4s::world->comm);
       if ( off == old) break;
       t->write(N, N ? indices.data() : nullptr, N ? data : nullptr);
-//      std::cout << "I am rank " << Cc4s::world->rank << " writing " << N
+//      std::cout << "I am rank " << Sisi4s::world->rank << " writing " << N
 //                << " elements with offset " << off << std::endl;
     }
 
@@ -564,7 +564,7 @@ void CoulombIntegralsFromGaussian::run() {
     auto Vklmn(new CTF::Tensor<double>( 4
                                       , lens.data()
                                       , syms.data()
-                                      , *Cc4s::world, "V"
+                                      , *Sisi4s::world, "V"
                                       ));
 
     LOGGER(1) << "computation begin" << std::endl;
@@ -585,7 +585,7 @@ void CoulombIntegralsFromGaussian::run() {
       auto newV(new CTF::Tensor<double>( 4
                                        , Vklmn->lens
                                        , Vklmn->sym
-                                       , *Cc4s::world
+                                       , *Sisi4s::world
                                        ));
       LOGGER(1) << "Converting chemist integral into physics" << std::endl;
       LOGGER(1) << "| PhysV[pqrs] = ChemV[prqs]; " << std::endl;
@@ -608,7 +608,7 @@ void CoulombIntegralsFromGaussian::run() {
     const size_t Nv(C->lens[1] - No);
     std::vector<int> lens(4, Np), syms(4, NS);
     lens[0] = No; lens[1] = No;
-    auto Vijkm(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Cc4s::world, "V"));
+    auto Vijkm(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Sisi4s::world, "V"));
 
     LOGGER(1) << "computation begin" << std::endl;
     engine.computeHalfContract(No, C);
@@ -620,7 +620,7 @@ void CoulombIntegralsFromGaussian::run() {
 
 
     lens[2] = No; lens[3] = No;
-    auto Vhhhh(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Cc4s::world, "Vhhhh"));
+    auto Vhhhh(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Sisi4s::world, "Vhhhh"));
     int sliceStart[] = {0, 0};
     int sliceEnd[] = {Np, No};
     auto Cocc(C->slice(sliceStart, sliceEnd));
@@ -632,7 +632,7 @@ void CoulombIntegralsFromGaussian::run() {
       auto Socc(S->slice(sS, sE));
       std::vector<int> l(2);
       l[0] = No; l[1] = No;
-      auto Sm(new CTF::Tensor<double>(2, l.data(), syms.data(), *Cc4s::world, "Sm"));
+      auto Sm(new CTF::Tensor<double>(2, l.data(), syms.data(), *Sisi4s::world, "Sm"));
       (*Sm)["ij"] = Socc["i"]* Socc["j"];
 
       CTF::Transform<double>(
@@ -642,7 +642,7 @@ void CoulombIntegralsFromGaussian::run() {
       )(
         (*Sm)["pq"]
       );
-      auto Smap(new CTF::Tensor<double>(4, lens.data(), syms.data(), *Cc4s::world, "Smap"));
+      auto Smap(new CTF::Tensor<double>(4, lens.data(), syms.data(), *Sisi4s::world, "Smap"));
       (*Smap)["ijkl"] = (*Sm)["ik"] * (*Sm)["jl"];
       CTF::Bivar_Function<> fMultiply(&multiply<double>);
       Vhhhh->contract(
@@ -656,7 +656,7 @@ void CoulombIntegralsFromGaussian::run() {
     sliceStart[1] = No; sliceEnd[1] = C->lens[1];
     auto Cvirt(C->slice(sliceStart, sliceEnd));
     lens[0] = Nv; lens[1] = Nv;
-    auto Vpphh(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Cc4s::world, "Vpphh"));
+    auto Vpphh(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Sisi4s::world, "Vpphh"));
     (*Vpphh)["abij"] = Cvirt["qa"] * (*Vijkm)["ijpq"] * Cvirt["pb"];
     if ( isArgumentGiven("Spins") ){
       LOGGER(1) << "unrestricted case: Vpphh\n";
@@ -667,7 +667,7 @@ void CoulombIntegralsFromGaussian::run() {
       auto Svirt(S->slice(sS, sE));
       std::vector<int> l(2);
       l[0] = Nv; l[1] = No;
-      auto Sm(new CTF::Tensor<double>(2, l.data(), syms.data(), *Cc4s::world, "Sm"));
+      auto Sm(new CTF::Tensor<double>(2, l.data(), syms.data(), *Sisi4s::world, "Sm"));
       (*Sm)["ai"] = Svirt["a"]* Socc["i"];
 
       CTF::Transform<double>(
@@ -677,7 +677,7 @@ void CoulombIntegralsFromGaussian::run() {
       )(
         (*Sm)["pq"]
       );
-      auto Smap(new CTF::Tensor<double>(4, lens.data(), syms.data(), *Cc4s::world, "Smap"));
+      auto Smap(new CTF::Tensor<double>(4, lens.data(), syms.data(), *Sisi4s::world, "Smap"));
       (*Smap)["abij"] = (*Sm)["ai"] * (*Sm)["bj"];
       CTF::Bivar_Function<> fMultiply(&multiply<double>);
       Vpphh->contract(

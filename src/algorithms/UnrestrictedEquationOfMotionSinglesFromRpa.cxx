@@ -12,14 +12,14 @@
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/SharedPointer.hpp>
 
 #include <algorithm>
 #include <utility>
 #include <limits>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UnrestrictedEquationOfMotionSinglesFromRpa);
 
@@ -106,16 +106,16 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
     getTensorArgument<double, CTF::Tensor<double> >("HHPPCoulombIntegrals")
   );
   CTF::Tensor<F> cVijab(
-    pVijab->order, pVijab->lens, pVijab->sym, *Cc4s::world,
+    pVijab->order, pVijab->lens, pVijab->sym, *Sisi4s::world,
     pVijab->get_name()
   );
   CTF::Tensor<F> *Vijab(&cVijab);
   toComplexTensor(*pVijab, *Vijab);
 
   // HF terms
-  CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms2, *Cc4s::world, "Fab"));
-  CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms2, *Cc4s::world, "Fij"));
-  CTF::Tensor<F> *Fia(new CTF::Tensor<F>(2, ov, syms2, *Cc4s::world, "Fia"));
+  CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab"));
+  CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij"));
+  CTF::Tensor<F> *Fia(new CTF::Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia"));
 
   if (
     isArgumentGiven("HPFockMatrix") &&
@@ -155,8 +155,8 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
     );
   }
 
-  CTF::Tensor<F> Tai(2, vo, syms2, *Cc4s::world, "Tai");
-  CTF::Tensor<F> Tabij(4, vvoo, syms4, *Cc4s::world, "Tabij");
+  CTF::Tensor<F> Tai(2, vo, syms2, *Sisi4s::world, "Tai");
+  CTF::Tensor<F> Tabij(4, vvoo, syms4, *Sisi4s::world, "Tabij");
   toComplexTensor(
     (*getTensorArgument<double, CTF::Tensor<double> >("SinglesAmplitudes")),
     Tai

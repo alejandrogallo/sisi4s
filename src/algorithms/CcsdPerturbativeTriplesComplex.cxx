@@ -6,11 +6,11 @@
 #include <DryTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdPerturbativeTriplesComplex);
 
@@ -22,10 +22,10 @@ CcsdPerturbativeTriplesComplex::CcsdPerturbativeTriplesComplex(
 CcsdPerturbativeTriplesComplex::~CcsdPerturbativeTriplesComplex() {
 }
 
-namespace cc4s {
+namespace sisi4s {
   template <int N>
   inline std::string operator *(
-    const std::string &s, const cc4s::Permutation<N> &pi
+    const std::string &s, const sisi4s::Permutation<N> &pi
   ) {
     std::string sPi(s);
     for (int i(0); i < N; ++i) sPi[i] = s[pi(i)];
@@ -181,7 +181,7 @@ F CcsdPerturbativeTriplesComplex::Calculator<F>::calculate() {
   // false if permutation Pi leaves current values of indices i,j,k invariant
   bool givesDistinctIndexPermutation[Permutation<3>::ORDER];
 
-  Scalar<F> energy(*Cc4s::world);
+  Scalar<F> energy(*Sisi4s::world);
   energy[""] = 0.0;
   // indices i,j,k as map with 3 elements i(0),...,i(2)
   Map<3> i;
@@ -292,7 +292,7 @@ CcsdPerturbativeTriplesComplex::CoulombVertex<double,Dummy>::CoulombVertex(
 }
 
 template <int Dummy>
-CcsdPerturbativeTriplesComplex::CoulombVertex<cc4s::complex,Dummy>::CoulombVertex(
+CcsdPerturbativeTriplesComplex::CoulombVertex<sisi4s::complex,Dummy>::CoulombVertex(
   Tensor<complex> *GammaFab_,
   Tensor<complex> *GammaFai_
 ):
@@ -312,7 +312,7 @@ CcsdPerturbativeTriplesComplex::CoulombVertex<double,Dummy>::~CoulombVertex() {
 }
 
 template <int Dummy>
-CcsdPerturbativeTriplesComplex::CoulombVertex<cc4s::complex,Dummy>::~CoulombVertex() {
+CcsdPerturbativeTriplesComplex::CoulombVertex<sisi4s::complex,Dummy>::~CoulombVertex() {
   delete conjGammaFab;
   delete GammaFai;
 }
@@ -333,7 +333,7 @@ getDoublesParticleContribution(
 
 template <int Dummy>
 void
-CcsdPerturbativeTriplesComplex::CoulombVertex<cc4s::complex,Dummy>::
+CcsdPerturbativeTriplesComplex::CoulombVertex<sisi4s::complex,Dummy>::
 getDoublesParticleContribution(
   SlicedCtfTensor<complex> &Tabij, const Map<3> &i, Tensor<complex> &DVabc
 ) {

@@ -22,7 +22,7 @@ he equations in this file are taken from the following sources
 #include <util/Exception.hpp>
 #include <util/CTF.hpp>
 #include <Options.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <array>
 #include <initializer_list>
 
@@ -34,7 +34,7 @@ he equations in this file are taken from the following sources
 #define ST_DEBUG(msg)
 #endif
 
-using namespace cc4s;
+using namespace sisi4s;
 
 template <typename F>
 PTR(CTF::Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
@@ -462,20 +462,20 @@ SFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(
   int lens[] = {NS, NS, NS, NS};
 
   if (!Wiabj) {
-    Wiabj = NEW(CTF::Tensor<F>, 4, ovvo, lens, *Cc4s::world, "Wiabj");
+    Wiabj = NEW(CTF::Tensor<F>, 4, ovvo, lens, *Sisi4s::world, "Wiabj");
     ST_DEBUG("build Wiabj")
     (*Wiabj)["iabj"] = (*Tabij)["camj"] * (*Vijab)["micb"];
   }
 
   if (!Wab) {
-    Wab = NEW(CTF::Tensor<F>, 2, vv, lens2, *Cc4s::world, "Wab");
+    Wab = NEW(CTF::Tensor<F>, 2, vv, lens2, *Sisi4s::world, "Wab");
     ST_DEBUG("build Wab")
     (*Wab)["ab"]  = (*Fab)["ab"];
     (*Wab)["ab"] += (- 0.5) * (*Vijab)["mnbe"] * (*Tabij)["aemn"];
   }
 
   if (!Wij) {
-    Wij = NEW(CTF::Tensor<F>, 2, oo, lens2, *Cc4s::world, "Wij");
+    Wij = NEW(CTF::Tensor<F>, 2, oo, lens2, *Sisi4s::world, "Wij");
     ST_DEBUG("build Wij")
     (*Wij)["ij"]  = (*Fij)["ij"];
     (*Wij)["ij"] += (  0.5) * (*Vijab)["imef"] * (*Tabij)["efjm"];
@@ -1044,7 +1044,7 @@ SimilarityTransformedHamiltonian<F>::getAI() {
   int syms[] = {NS, NS};
   int ov[] = {Nv, No};
 
-  Wai = NEW(CTF::Tensor<F>, 2, ov, syms, *Cc4s::world, "Wai");
+  Wai = NEW(CTF::Tensor<F>, 2, ov, syms, *Sisi4s::world, "Wai");
 
   (*Wai)["bi"] = 0.0;
   if (dressing == Dressing(CCSD)) {
@@ -1102,7 +1102,7 @@ SimilarityTransformedHamiltonian<F>::getAI_RPA() {
 
   int syms[] = {NS, NS};
   int ov[] = {Nv, No};
-  CTF::Tensor<F> InitFai(2, ov, syms, *Cc4s::world, "InitFai");
+  CTF::Tensor<F> InitFai(2, ov, syms, *Sisi4s::world, "InitFai");
 
   Wai = NEW(CTF::Tensor<F>, InitFai);
 
@@ -1142,7 +1142,7 @@ SimilarityTransformedHamiltonian<F>::getIA() {
 
   int syms[] = {NS, NS};
   int ov[] = {No, Nv};
-  CTF::Tensor<F> InitFia(2, ov, syms, *Cc4s::world, "InitFia");
+  CTF::Tensor<F> InitFia(2, ov, syms, *Sisi4s::world, "InitFia");
 
   Wia = NEW(CTF::Tensor<F>,  InitFia);
 
@@ -2781,7 +2781,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
           ;
 
   // actual structure factor
-  CTF::Tensor<F> S(1, &NG, syms, *Cc4s::world, "S");
+  CTF::Tensor<F> S(1, &NG, syms, *Sisi4s::world, "S");
   // terms without V(G) will be collected here
   CTF::Scalar<F> energy;
 
@@ -2827,8 +2827,8 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
                     , Rai( R.get(0) )
                     , Rabij( R.get(1) )
                     ;
-  cc4s::conjugate(*CRai);
-  cc4s::conjugate(*CRabij);
+  sisi4s::conjugate(*CRai);
+  sisi4s::conjugate(*CRabij);
 
   CTF::Tensor<F>
        H0ij(Fij)
@@ -4061,6 +4061,6 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
 
 // instantiate
 template
-class SimilarityTransformedHamiltonian<cc4s::complex>;
+class SimilarityTransformedHamiltonian<sisi4s::complex>;
 template
 class SimilarityTransformedHamiltonian<double>;

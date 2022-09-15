@@ -3,7 +3,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
 
   class NuclearRepulsionEnergy: public Algorithm {
   public:

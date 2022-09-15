@@ -36,7 +36,7 @@
 
 
 
-void cc4s::fromComplexTensor(
+void sisi4s::fromComplexTensor(
   CTF::Tensor<complex> &C,
   CTF::Tensor<double> &R, CTF::Tensor<double> &I
 ) {
@@ -50,7 +50,7 @@ void cc4s::fromComplexTensor(
   );
 }
 
-void cc4s::fromComplexTensor(
+void sisi4s::fromComplexTensor(
   CTF::Tensor<double> &C,
   CTF::Tensor<double> &R, CTF::Tensor<double> &I
 ) {
@@ -60,7 +60,7 @@ void cc4s::fromComplexTensor(
   I[indices] = 0.0;
 }
 
-void cc4s::fromComplexTensor(
+void sisi4s::fromComplexTensor(
   CTF::Tensor<complex> &C,
   CTF::Tensor<double> &R
 ) {
@@ -73,7 +73,7 @@ void cc4s::fromComplexTensor(
   );
 }
 
-void cc4s::toComplexTensor(
+void sisi4s::toComplexTensor(
   CTF::Tensor<double> &R, CTF::Tensor<double> &I,
   CTF::Tensor<complex> &C
 ) {
@@ -95,7 +95,7 @@ void cc4s::toComplexTensor(
   );
 }
 
-void cc4s::toComplexTensor(
+void sisi4s::toComplexTensor(
   CTF::Tensor<double> &R,
   CTF::Tensor<complex> &C
 ) {
@@ -117,7 +117,7 @@ void cc4s::toComplexTensor(
   );
 }
 
-void cc4s::toComplexTensor(
+void sisi4s::toComplexTensor(
   CTF::Tensor<double> &R,
   CTF::Tensor<double> &C
 ) {
@@ -126,7 +126,7 @@ void cc4s::toComplexTensor(
   C[indices] = R[indices];
 }
 
-void cc4s::conjugate(
+void sisi4s::conjugate(
   CTF::Tensor<complex> &C
 ) {
   Indices(C);
@@ -139,7 +139,7 @@ void cc4s::conjugate(
   );
 }
 
-void cc4s::conjugate(
+void sisi4s::conjugate(
   CTF::Tensor<double> &C
 ) {
   // ;-)

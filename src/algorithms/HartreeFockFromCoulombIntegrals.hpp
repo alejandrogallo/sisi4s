@@ -5,7 +5,7 @@
 #include <Eigen/Dense>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
 
   using MatrixColumnMajor = Eigen::Matrix< double
                                          , Eigen::Dynamic

@@ -3,7 +3,7 @@
 
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   class FlopsCounter {
   public:
     FlopsCounter(int64_t *flops, MPI_Comm comm=MPI_COMM_SELF);

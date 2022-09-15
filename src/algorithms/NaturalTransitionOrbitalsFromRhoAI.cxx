@@ -12,7 +12,7 @@
 #include <util/CTF.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 
 ALGORITHM_REGISTRAR_DEFINITION(NaturalTransitionOrbitalsFromRhoAI);
@@ -20,7 +20,7 @@ ALGORITHM_REGISTRAR_DEFINITION(NaturalTransitionOrbitalsFromRhoAI);
 void
 NaturalTransitionOrbitalsFromRhoAI::run() {
   if (getIntegerArgument("complex", 1) == 1) {
-    run<cc4s::complex>();
+    run<sisi4s::complex>();
   } else {
     throw new EXCEPTION("No real version of the algo available");
   }
@@ -71,7 +71,7 @@ NaturalTransitionOrbitalsFromRhoAI::buildTransformations(CTF::Tensor<F> &rho, co
   // get the right eigenvectors
   LapackMatrix<complex> rightEigenVectors(solver.getRightEigenVectors());
   CTF::Tensor<F> *rEigenVecs =
-    new CTF::Tensor<F>(2, nn, rho.sym, *Cc4s::world, "r");
+    new CTF::Tensor<F>(2, nn, rho.sym, *Sisi4s::world, "r");
   CTF::Tensor<F> *overlapMatrix =
     new CTF::Tensor<F>(*rEigenVecs);
 
@@ -102,7 +102,7 @@ NaturalTransitionOrbitalsFromRhoAI::buildTransformations(CTF::Tensor<F> &rho, co
 
   std::vector<complex> lambdas(solver.getEigenValues());
   CTF::Tensor<F> *lambdasTensor =
-    new CTF::Tensor<F>(1, nn, rho.sym, *Cc4s::world, "lambdas");
+    new CTF::Tensor<F>(1, nn, rho.sym, *Sisi4s::world, "lambdas");
   indices.resize(n);
   std::iota(indices.begin(), indices.end(), 0);
   lambdasTensor->write(indices.size(), indices.data(), lambdas.data());
@@ -119,8 +119,8 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   LOG(0, "NaturalTransitionOrbitalsFromRhoAI") << "No: " << No << std::endl;
   LOG(0, "NaturalTransitionOrbitalsFromRhoAI") << "Nv: " << Nv << std::endl;
 
-  auto I = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "I");
-  auto A = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "A");
+  auto I = NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "I");
+  auto A = NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "A");
 
   auto RhoAIConj = NEW(CTF::Tensor<F>, RhoAI);
   conjugate(*RhoAIConj);

@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 
-namespace cc4s {
+namespace sisi4s {
   class DryMemory {
   public:
     typedef std::pair<int64_t, SourceLocation> ExtendingResource;

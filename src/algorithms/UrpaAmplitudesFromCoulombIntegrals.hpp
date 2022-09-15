@@ -7,7 +7,7 @@
 #include <memory>
 #include <string>
 
-namespace cc4s {
+namespace sisi4s {
   class UrpaAmplitudesFromCoulombIntegrals: public ClusterSinglesDoublesAlgorithm {
   public:
     ALGORITHM_REGISTRAR_DECLARATION(UrpaAmplitudesFromCoulombIntegrals);

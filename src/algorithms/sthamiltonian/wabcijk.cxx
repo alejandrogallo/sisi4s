@@ -8,7 +8,7 @@
 #define ST_DEBUG(msg)
 #endif
 
-using namespace cc4s;
+using namespace sisi4s;
 
 template <typename F>
 PTR(CTF::Tensor<F>)
@@ -18,7 +18,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   const int syms[]   = {NS,NS,NS,NS,NS,NS};
   const int vvvooo[] = {Nv,Nv,Nv,No,No,No};
 
-  Wabcijk = NEW(CTF::Tensor<F>,  6, vvvooo, syms, *Cc4s::world, "Wabcijk");
+  Wabcijk = NEW(CTF::Tensor<F>,  6, vvvooo, syms, *Sisi4s::world, "Wabcijk");
 
   //Triples
   (*Wabcijk)["defijk"] = 0.0;
@@ -459,5 +459,5 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
 }
 
 // instantiate
-template class SimilarityTransformedHamiltonian<cc4s::complex>;
+template class SimilarityTransformedHamiltonian<sisi4s::complex>;
 template class SimilarityTransformedHamiltonian<double>;

@@ -4,7 +4,7 @@
 #include <libint2.hpp>
 #include <algorithms/OneBodyFromGaussian.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
@@ -16,7 +16,7 @@
 #include <util/Emitter.hpp>
 #define LOGGER(_l) LOG(_l, "OneBodyFromGaussian")
 
-using namespace cc4s;
+using namespace sisi4s;
 
 using RowMajor = Eigen::Matrix< double
                               , Eigen::Dynamic
@@ -118,10 +118,10 @@ void OneBodyFromGaussian::run() {
   LOGGER(1) << "computation done" << std::endl;
   libint2::finalize();
 
-  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
+  const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
   const std::vector<int> lens(2, Np);
   const std::vector<int> syms(2, NS);
-  auto Opq(new CTF::Tensor<double>(2, lens.data(), syms.data(), *Cc4s::world));
+  auto Opq(new CTF::Tensor<double>(2, lens.data(), syms.data(), *Sisi4s::world));
 
   {
     std::vector<int64_t> indices(rank_m * Np*Np);

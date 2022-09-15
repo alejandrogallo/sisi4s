@@ -8,7 +8,7 @@
 #include <DryTensor.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Decomposes the particle hole Coulomb vertex \f$\Gamma_{iG}^a\f$
    * into the occupied factor orbitals \f$\Pi_{iR}\f$,

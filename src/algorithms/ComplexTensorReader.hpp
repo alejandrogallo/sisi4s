@@ -5,7 +5,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
 
 class ComplexTensorReader: public Algorithm {
  public:
@@ -18,6 +18,6 @@ class ComplexTensorReader: public Algorithm {
   virtual void run();
 };
 
-}  // namespace cc4s
+}  // namespace sisi4s
 
 #endif  //  SRC_ALGORITHMS_COMPLEXTENSORREADER_HPP_

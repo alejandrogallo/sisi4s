@@ -6,7 +6,7 @@
 
 #include <util/SharedPointer.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename F>
   class LinearMixer: public Mixer<F> {
   public:

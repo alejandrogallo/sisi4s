@@ -3,10 +3,10 @@
 #include <DryTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(DoublesAmplitudesFromVertex);
@@ -30,7 +30,7 @@ void DoublesAmplitudesFromVertex::run() {
   // allocate amplitudes
   int syms[] = { NS, NS, NS, NS };
   int vvoo[] = { Nv, Nv, No, No };
-  Tensor<> *Tabij(new Tensor<>(4, vvoo, syms, *Cc4s::world, "Tabij"));
+  Tensor<> *Tabij(new Tensor<>(4, vvoo, syms, *Sisi4s::world, "Tabij"));
 
   // split YLai into real and imaginary parts
   Tensor<> realYLai(3, YLai->lens, YLai->sym, *YLai->wrld, "realYLai");

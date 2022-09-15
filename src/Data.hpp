@@ -12,9 +12,9 @@
 // TODO: find out why Exception must be included after string,map and ctf
 #include <util/Exception.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
-   * Traits class for tensor element types used in cc4s.
+   * Traits class for tensor element types used in sisi4s.
    * It provides type specific information such as type name to
    * be displayed to the user.
    */

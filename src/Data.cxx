@@ -3,7 +3,7 @@
 #include <Data.hpp>
 #include <sstream>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 Data::Data(std::string const &name_): name(name_), stage(MENTIONED) {
   std::stringstream sStream;

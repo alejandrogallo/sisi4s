@@ -1,12 +1,12 @@
 #include <vector>
 #include <algorithms/OneBodyRotation.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <iostream>
 #include <util/CTF.hpp>
 #include <util/Emitter.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(OneBodyRotation);
 #define LOGGER(_l) LOG(_l, "OneBodyRotation")
 

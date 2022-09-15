@@ -1,7 +1,7 @@
 #include <algorithms/FcidumpReader.hpp>
 #include <util/CTF.hpp>
 #include <util/Log.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Exception.hpp>
 #include <util/Integrals.hpp>
 #include <fstream>
@@ -9,7 +9,7 @@
 #include <algorithm>
 #include <numeric>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(FcidumpReader);
 
@@ -171,11 +171,11 @@ struct IntegralParser {
   }
 
   CTF::Tensor<double>* allocateTensor() {
-    const int rank_m = int(Cc4s::world->rank == 0); // rank mask
+    const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
     auto t(new CTF::Tensor<double>(lens.size(),
                                    lens.data(),
                                    syms.data(),
-                                   *Cc4s::world));
+                                   *Sisi4s::world));
     t->write(rank_m * indices.size(), indices.data(), values.data());
     return t;
   }

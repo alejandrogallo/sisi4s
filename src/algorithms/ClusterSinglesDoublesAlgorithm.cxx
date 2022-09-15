@@ -9,13 +9,13 @@
 #include <util/Exception.hpp>
 #include <util/CTF.hpp>
 #include <Options.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <array>
 
 #include <initializer_list>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 ClusterSinglesDoublesAlgorithm::ClusterSinglesDoublesAlgorithm(
   std::vector<Argument> const &argumentList
@@ -232,7 +232,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   if ( isArgumentGiven("PairEnergy")) {
     int oo[] = { Tabij->lens[2], Tabij->lens[2] };
     int syms[] = { NS, NS};
-    auto pairEnergy(new Tensor<F>( 2, oo, syms, *Cc4s::world, "pairEnergies"));
+    auto pairEnergy(new Tensor<F>( 2, oo, syms, *Sisi4s::world, "pairEnergies"));
     if (antisymmetrized) {
       (*pairEnergy)["ij"]  = ( + 0.25 ) * (*Tabij)["abij"] * (*Vijab)["ijab"];
       (*pairEnergy)["ij"] += ( + 0.5  ) * (*Tai)["ai"] * (*Tai)["bj"] * (*Vijab)["ijab"];
@@ -271,7 +271,7 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
       std::vector<int> syms(lens.size(), NS);
       amplitudeTensors.push_back(
         NEW(CTF::Tensor<F>,
-          lens.size(), lens.data(), syms.data(), *Cc4s::world, "T"
+          lens.size(), lens.data(), syms.data(), *Sisi4s::world, "T"
         )
       );
     }
@@ -387,7 +387,7 @@ void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
 
 template <typename F>
 void ClusterSinglesDoublesAlgorithm::dryAmplitudesFromResiduum(
-  cc4s::DryTensor<F> &R
+  sisi4s::DryTensor<F> &R
 ) {
   // Build D
   DryTensor<F> D(R, SOURCE_LOCATION);
@@ -396,12 +396,12 @@ void ClusterSinglesDoublesAlgorithm::dryAmplitudesFromResiduum(
 // instantiate
 template
 void ClusterSinglesDoublesAlgorithm::dryAmplitudesFromResiduum(
-  cc4s::DryTensor<double> &R
+  sisi4s::DryTensor<double> &R
 );
 
 template
 void ClusterSinglesDoublesAlgorithm::dryAmplitudesFromResiduum(
-  cc4s::DryTensor<complex> &R
+  sisi4s::DryTensor<complex> &R
 );
 
 
@@ -487,8 +487,8 @@ Tensor<double> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
   return Vxycd;
 }
 
-Tensor<cc4s::complex> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
-  const PTR(const FockVector<cc4s::complex>) &amplitudes,
+Tensor<sisi4s::complex> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
+  const PTR(const FockVector<sisi4s::complex>) &amplitudes,
   int a, int b, int integralsSliceSize
 ) {
   // Read the amplitudes Tai
@@ -496,7 +496,7 @@ Tensor<cc4s::complex> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegr
   Tai->set_name("Tai");
 
   // Read the Coulomb vertex GammaGqr
-  auto GammaGqr( getTensorArgument<cc4s::complex>("CoulombVertex"));
+  auto GammaGqr( getTensorArgument<sisi4s::complex>("CoulombVertex"));
   GammaGqr->set_name("GammaGqr");
 
   // Compute No,Nv,NG,Np
@@ -655,7 +655,7 @@ Tensor<double> *
   Tensor<complex> XRSij(4, RRoo, syms, *PirR->wrld, "XRSij");
   XRSij["RSij"] = XRaij["Rdij"] * rightPiaR["dS"];
 
-  Univar_Function<complex> fConj(&cc4s::conj<complex>);
+  Univar_Function<complex> fConj(&sisi4s::conj<complex>);
   Tensor<complex> conjLeftLambdaGR(false, leftLambdaGR);
   conjLeftLambdaGR.set_name("ConjLeftLambdaGR");
   conjLeftLambdaGR.sum(1.0, leftLambdaGR,"GR", 0.0,"GR", fConj);
@@ -724,7 +724,7 @@ Tensor<double> *
   return Fabij;
 }
 
-Tensor<cc4s::complex> *
+Tensor<sisi4s::complex> *
   ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors
 (
   const PTR(const FockVector<complex>) &amplitudes,
@@ -763,7 +763,7 @@ Tensor<cc4s::complex> *
   int RR[] = { Rx, Ry };
   int syms[] = { NS, NS, NS, NS };
 
-  Univar_Function<complex> fConj(&cc4s::conj<complex>);
+  Univar_Function<complex> fConj(&sisi4s::conj<complex>);
 
   Tensor<complex> VRS(2, RR, syms, *PirR->wrld, "VRS");
 

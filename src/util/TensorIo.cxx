@@ -3,13 +3,13 @@
 #include <util/BinaryTensorFormat.hpp>
 #include <util/Scanner.hpp>
 #include <util/Log.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <fstream>
 #include <iomanip>
 #include <util/CTF.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 template <typename F, typename T>
 T *TensorIo::readBinary(std::string const &fileName) {
@@ -17,7 +17,7 @@ T *TensorIo::readBinary(std::string const &fileName) {
   MPI_File file;
   int mpiError(
     MPI_File_open(
-      Cc4s::world->comm, fileName.c_str(), MPI_MODE_RDONLY,
+      Sisi4s::world->comm, fileName.c_str(), MPI_MODE_RDONLY,
       MPI_INFO_NULL, &file
     )
   );
@@ -77,7 +77,7 @@ T *TensorIo::readText(
     ++storedIndex;
   }
 
-  T *B(new T(order, storedLens, syms, *Cc4s::world, name.c_str()));
+  T *B(new T(order, storedLens, syms, *Sisi4s::world, name.c_str()));
 
   int64_t indexCount(1);
   for (int dim(0); dim < B->order; ++dim) {
@@ -100,7 +100,7 @@ T *TensorIo::readText(
       values[i] = numberScanner.nextNumber();
     }
     // wait until all processes finished reading this buffer
-    MPI_Barrier(Cc4s::world->comm);
+    MPI_Barrier(Sisi4s::world->comm);
     LOG(1, "TensorReader") << "writing " << elementsCount << " values to tensor..." << std::endl;
     B->write(localElementsCount, indices, values);
     index += elementsCount;
@@ -260,7 +260,7 @@ T *TensorIo::readBinaryHeader(MPI_File &file, int64_t &offset) {
   }
 
   // allocate tensor
-  return new T(header.order, lens, syms, *Cc4s::world);
+  return new T(header.order, lens, syms, *Sisi4s::world);
 }
 
 

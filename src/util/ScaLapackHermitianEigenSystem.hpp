@@ -6,7 +6,7 @@
 #include <util/ScaLapackMatrix.hpp>
 #include <extern/ScaLapack.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   // base template
   template <typename F=double>
   class ScaLapackHermitianEigenSystem;

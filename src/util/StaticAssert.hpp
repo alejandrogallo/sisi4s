@@ -4,7 +4,7 @@
 
 #include <math/Complex.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename T>
   class StaticAssert {
   public:

@@ -5,7 +5,7 @@
 #include <algorithms/Algorithm.hpp>
 #include <array>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Caclulates the Coulomb Integrals \f$V_{ij}^{ab}, V_{bj}^{ai},
    * V_{kl}^{ij}, V_{cd}^{ab}, V_{ka}^{ij}, V_{ci}^{ab}\f$ (if given) from the

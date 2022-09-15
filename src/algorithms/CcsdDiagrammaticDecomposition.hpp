@@ -7,7 +7,7 @@
 #include <vector>
 #include <string>
 
-namespace cc4s {
+namespace sisi4s {
   class CcsdDiagrammaticDecomposition: public Algorithm {
   public:
     ALGORITHM_REGISTRAR_DECLARATION(CcsdDiagrammaticDecomposition);

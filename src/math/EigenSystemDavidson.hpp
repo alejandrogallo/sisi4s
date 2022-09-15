@@ -12,7 +12,7 @@
 #include <algorithm>
 #include <memory>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename H, typename P, typename V>
   class EigenSystemDavidson {
   public:
@@ -463,7 +463,7 @@ class EigenSystemDavidsonMono: public EigenSystemDavidson<H,P,V> {
 
 
 
-} // namespace cc4s
+} // namespace sisi4s
 
 #endif
 

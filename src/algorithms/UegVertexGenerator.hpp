@@ -1,4 +1,4 @@
-/* Copyright 2021 cc4s.org
+/* Copyright 2021 sisi4s.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 #include <algorithms/Algorithm.hpp>
 
 
-namespace cc4s {
+namespace sisi4s {
   using ivec  = array<int,3>;
   using dvec  = array<double,4>;
 

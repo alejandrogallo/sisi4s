@@ -10,7 +10,7 @@
 #define DEFAULT_FLOAT_BIT_SIZE 64
 #define MACHINE_FLOAT_BIT_SIZE 64
 
-namespace cc4s {
+namespace sisi4s {
   template <int FloatSize>
   class FloatTypes;
 

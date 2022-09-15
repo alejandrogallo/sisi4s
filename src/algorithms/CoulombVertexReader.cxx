@@ -4,14 +4,14 @@
 #include <DryTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 #include <fstream>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
-char const *CoulombVertexReader::Header::MAGIC = "cc4sFTOD";
+char const *CoulombVertexReader::Header::MAGIC = "sisi4sFTOD";
 char const *CoulombVertexReader::Chunk::REALS_MAGIC = "FTODreal";
 char const *CoulombVertexReader::Chunk::IMAGS_MAGIC = "FTODimag";
 char const *CoulombVertexReader::Chunk::EPSILONS_MAGIC = "FTODepsi";
@@ -33,7 +33,7 @@ void CoulombVertexReader::run() {
   MPI_File file;
   int mpiError(
     MPI_File_open(
-      Cc4s::world->comm, fileName.c_str(), MPI_MODE_RDONLY,
+      Sisi4s::world->comm, fileName.c_str(), MPI_MODE_RDONLY,
       MPI_INFO_NULL, &file
     )
   );
@@ -58,10 +58,10 @@ void CoulombVertexReader::run() {
   // Allocate output tensors
   int vertexLens[] = { NG, Np, Np };
   int vertexSyms[] = { NS, NS, NS };
-  Tensor<> *epsi(new Vector<>(No, *Cc4s::world, "epsi"));
-  Tensor<> *epsa(new Vector<>(Nv, *Cc4s::world, "epsa"));
+  Tensor<> *epsi(new Vector<>(No, *Sisi4s::world, "epsi"));
+  Tensor<> *epsa(new Vector<>(Nv, *Sisi4s::world, "epsa"));
   Tensor<complex> *GammaGqr(
-    new Tensor<complex>(3, vertexLens, vertexSyms, *Cc4s::world, "GammaGqr")
+    new Tensor<complex>(3, vertexLens, vertexSyms, *Sisi4s::world, "GammaGqr")
   );
 
   // Enter the allocated data (and by that type the output data to tensors)
@@ -71,10 +71,10 @@ void CoulombVertexReader::run() {
 
   // Real and imaginary parts are read in seperately
   Tensor<> realGammaGqr(
-    3, vertexLens, vertexSyms, *Cc4s::world, "RealGammaGqr"
+    3, vertexLens, vertexSyms, *Sisi4s::world, "RealGammaGqr"
   );
   Tensor<> imagGammaGqr(
-    3, vertexLens, vertexSyms, *Cc4s::world, "ImagGammaGqr"
+    3, vertexLens, vertexSyms, *Sisi4s::world, "ImagGammaGqr"
   );
 
   int64_t offset(sizeof(header));
@@ -170,7 +170,7 @@ void CoulombVertexReader::unrestrictVertex() {
     GammaGqr->lens[0], 2*GammaGqr->lens[1], 2*GammaGqr->lens[2]
   };
   auto uGammaGqr(
-    new Tensor<complex>(3, vertexLens, GammaGqr->sym, *Cc4s::world, "uGammaGqr")
+    new Tensor<complex>(3, vertexLens, GammaGqr->sym, *Sisi4s::world, "uGammaGqr")
   );
 
   int *upUnrestrictedStates(new int[GammaGqr->lens[1]]);
@@ -203,7 +203,7 @@ void CoulombVertexReader::unrestrictEigenEnergies(const std::string &name) {
   int lens[] = { 2*eps->lens[0] };
   auto uEps(
     new Tensor<>(
-      1, lens, eps->sym, *Cc4s::world, ("u" + name + "EigenEnergies").c_str()
+      1, lens, eps->sym, *Sisi4s::world, ("u" + name + "EigenEnergies").c_str()
     )
   );
 

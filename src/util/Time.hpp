@@ -8,7 +8,7 @@
 #include <sstream>
 #include <cmath>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * The Time class manages time intervals and their manipulation in terms
    * of seconds and nanoseconds. It is a wrapper of the timespec class of

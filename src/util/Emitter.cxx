@@ -4,10 +4,10 @@
 #include <fstream>
 #include <string>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 int Emitter::rank(-1);
-std::string Emitter::fileName("cc4s.yaml");
+std::string Emitter::fileName("sisi4s.yaml");
 PTR(std::ofstream) Emitter::yamlFile;
 PTR(YAML::Emitter) Emitter::yamlEmitter;
 

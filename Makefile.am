@@ -1,4 +1,4 @@
-include Cc3s.mk
+include SiSi4S.mk
 
 SUBDIRS = src
 

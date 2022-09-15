@@ -7,11 +7,11 @@
 #include <iostream>
 
 #define EXCEPTION(message) \
-  cc4s::DetailedException((message), __FILE__, __LINE__)
+  sisi4s::DetailedException((message), __FILE__, __LINE__)
 #define Assert(condition, message) \
   if (!(condition)) throw new EXCEPTION(message);
 
-namespace cc4s{
+namespace sisi4s{
   class Exception {
   public:
     virtual std::string getMessage() = 0;

@@ -4,7 +4,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Caclulates perturbative triples correction
    */

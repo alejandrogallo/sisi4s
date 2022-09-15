@@ -5,7 +5,7 @@
 #include <string>
 #include <extern/CLI11.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   struct Options {
 
     int logLevel;
@@ -15,7 +15,7 @@ namespace cc4s {
     char** argv;
 
     const int DEFAULT_LOG_LEVEL = 1;
-    bool hummel;
+    bool cc4s;
     CLI::App app;
 
     Options(int argc, char **argv);

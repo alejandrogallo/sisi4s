@@ -1,7 +1,7 @@
 #include <mixers/DiisMixer.hpp>
 #include <util/Emitter.hpp>
 #include <util/Log.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <extern/Lapack.hpp>
 
 #include <math/IterativePseudoInverse.hpp>
@@ -9,7 +9,7 @@
 #include <array>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 MIXER_REGISTRAR_DEFINITION(DiisMixer);
 
@@ -31,10 +31,10 @@ std::vector<double> inverse(
   return column;
 }
 
-std::vector<cc4s::complex> inverse(
-  std::vector<cc4s::complex> matrix, int N
+std::vector<sisi4s::complex> inverse(
+  std::vector<sisi4s::complex> matrix, int N
 ){
-  std::vector<cc4s::complex> column(N);
+  std::vector<sisi4s::complex> column(N);
 // TODO
 
   return column;
@@ -64,7 +64,7 @@ DiisMixer<F>::DiisMixer(
   std::array<int,2> lens{{N+1, N+1}};
   std::array<int,2> syms{{NS, NS}};
   B = NEW(CTF::Tensor<F>,
-    lens.size(), lens.data(), syms.data(), *Cc4s::world, "B"
+    lens.size(), lens.data(), syms.data(), *Sisi4s::world, "B"
   );
   CTF::Tensor<F> one(false, *B);
   one["ij"] += 1.0;
@@ -100,7 +100,7 @@ void DiisMixer<F>::append(
   const int N(residua.size());
   std::array<int,2> lens{{1, 1}};
   std::array<int,2> syms{{NS, NS}};
-  CTF::Tensor<F> one(lens.size(), lens.data(), syms.data(), *Cc4s::world, "1");
+  CTF::Tensor<F> one(lens.size(), lens.data(), syms.data(), *Sisi4s::world, "1");
   one["ij"] += 1.0;
   for (int i(0); i < N; ++i) {
     if (residua[i]) {
@@ -176,6 +176,6 @@ PTR(const FockVector<F>) DiisMixer<F>::getResiduum() {
 
 
 // instantiate
-template class DiisMixer<cc4s::Float64>;
-template class DiisMixer<cc4s::Complex64>;
+template class DiisMixer<sisi4s::Float64>;
+template class DiisMixer<sisi4s::Complex64>;
 

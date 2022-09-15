@@ -6,11 +6,11 @@
 #include <util/ScaLapackMatrix.hpp>
 #include <util/ScaLapackHermitianEigenSystemDc.hpp>
 #include <util/Log.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 using std::make_shared;
 
 ALGORITHM_REGISTRAR_DEFINITION(DoublesAmplitudesDecomposition);

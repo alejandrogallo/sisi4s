@@ -9,7 +9,7 @@
  * some portable very-long period random number generators.
  * computers in physics.  8(1): 117-121.
  **/
-namespace cc4s {
+namespace sisi4s {
   class RandomGenerator {
   public:
     RandomGenerator(

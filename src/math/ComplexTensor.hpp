@@ -4,7 +4,7 @@
 #include <math/Complex.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Decomposes the tensor of complex elements into
    * two tensors containing the real and imaginary parts,

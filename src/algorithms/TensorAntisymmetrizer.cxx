@@ -4,7 +4,7 @@
 #include <math/MathFunctions.hpp>
 #include <algorithm>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Integrals.hpp>
@@ -14,7 +14,7 @@
 #include <map>
 #include <set>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorAntisymmetrizer);
 

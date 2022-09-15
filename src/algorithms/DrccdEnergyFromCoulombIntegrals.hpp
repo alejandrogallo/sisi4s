@@ -6,7 +6,7 @@
 
 #include <util/SharedPointer.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   // this algorithm is now based on the ClusterSinglesDoublesAlgorithm
   // inheriting its iteration and slicing functionality.
   // Only the abstract (left out) methods getAbbreviation and iterate have

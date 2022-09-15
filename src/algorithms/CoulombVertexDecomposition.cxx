@@ -10,7 +10,7 @@
 #include <util/Log.hpp>
 #include <limits>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexDecomposition);
@@ -285,15 +285,15 @@ void CoulombVertexDecomposition::dryFit(
 void CoulombVertexDecomposition::normalizePi(
   Tensor<complex> &Pi
 ) {
-  Bivar_Function<complex> fDot(&cc4s::dot<complex>);
+  Bivar_Function<complex> fDot(&sisi4s::dot<complex>);
   CTF::Vector<complex> norm(Pi.lens[0], *Pi.wrld);
   // norm["q"] = Pi["qR"] * conj(Pi["qR"])
   norm.contract(1.0, Pi,"qR", Pi,"qR", 0.0,"q", fDot);
   Tensor<complex> quotient(Pi);
-  Univar_Function<complex> fSqrt(&cc4s::sqrt<complex>);
+  Univar_Function<complex> fSqrt(&sisi4s::sqrt<complex>);
   // quotient["qR"] = sqrt(norm["q"])
   quotient.sum(1.0, norm,"q", 0.0,"qR", fSqrt);
-  Bivar_Function<complex> fDivide(&cc4s::divide<complex>);
+  Bivar_Function<complex> fDivide(&sisi4s::divide<complex>);
   // Pi["qR"] = Pi["qR"] / quotient["qR"]
   Pi.contract(1.0, Pi,"qR", quotient,"qR", 0.0,"qR", fDivide);
 }
@@ -301,7 +301,7 @@ void CoulombVertexDecomposition::normalizePi(
 void CoulombVertexDecomposition::realizePi(
   Tensor<complex> &Pi
 ) {
-  Univar_Function<complex> fConj(&cc4s::conj<complex>);
+  Univar_Function<complex> fConj(&sisi4s::conj<complex>);
   Tensor<complex> conjX(Pi);
   // conjX["qR"] = conj(Pi["qR"])
   conjX.sum(1.0, Pi,"qR", 0.0,"qR", fConj);
@@ -376,7 +376,7 @@ void CoulombVertexDecomposition::computeOutgoingPi() {
   );
 
   if (ansatz == HERMITIAN) {
-    Univar_Function<complex> fConj(&cc4s::conj<complex>);
+    Univar_Function<complex> fConj(&sisi4s::conj<complex>);
     PiqR->sum(1.0, *PirR,"qR", 0.0,"qR",fConj);
   } else if (ansatz == SYMMETRIC) {
     (*PiqR)["qR"] = (*PirR)["qR"];

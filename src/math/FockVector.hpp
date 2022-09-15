@@ -6,7 +6,7 @@
 #include <util/SharedPointer.hpp>
 #include <util/Exception.hpp>
 #include <math/MathFunctions.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 
 #include <vector>
 #include <string>
@@ -15,7 +15,7 @@
 
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename F=double>
   /**
    * \brief Represents the direct sum of CTF::Tensors and provides the
@@ -208,7 +208,7 @@ namespace cc4s {
         result.componentIndices.push_back(
           getIndices(i).substr(order, 2*order) + getIndices(i).substr(0, order)
         );
-        CTF::Univar_Function<F> fConj(cc4s::conj<F>);
+        CTF::Univar_Function<F> fConj(sisi4s::conj<F>);
         result.get(i)->sum(
           1.0, *get(i), getIndices(i).c_str(),
           0.0, result.getIndices(i).c_str(), fConj
@@ -244,7 +244,7 @@ namespace cc4s {
       CTF::Scalar<F> result;
       for (size_t i(0); i < componentTensors.size(); ++i) {
         const char *indices(getIndices(i).c_str());
-        CTF::Bivar_Function<F> fDot(&cc4s::dot<F>);
+        CTF::Bivar_Function<F> fDot(&sisi4s::dot<F>);
         // add to result
         result.contract(
           1.0, *get(i), indices, *a.get(i), indices,
@@ -585,7 +585,7 @@ namespace cc4s {
           pindices.substr(0, i) + hindices.substr(0, i)
         );
         this->componentTensors.push_back(
-          NEW(CTF::Tensor<F>, 2*i, dims.data(), syms.data(), *Cc4s::world)
+          NEW(CTF::Tensor<F>, 2*i, dims.data(), syms.data(), *Sisi4s::world)
         );
       }
       this->buildIndexTranslation();
@@ -736,7 +736,7 @@ namespace cc4s {
       int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
       int syms[6] = {NS,NS,NS,NS,NS,NS};
       this->componentTensors[2] = NEW(
-        CTF::Tensor<F>, 6, vvvooo, syms, *Cc4s::world
+        CTF::Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
       );
       (*this->get(2))["abcijk"] = 0.0;
 
@@ -759,7 +759,7 @@ namespace cc4s {
       int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
       int syms[6] = {NS,NS,NS,NS,NS,NS};
       this->componentTensors[2] = NEW(
-        CTF::Tensor<F>, 6, vvvooo, syms, *Cc4s::world
+        CTF::Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
       );
       (*this->get(2))["abcijk"] = 0.0;
 
@@ -782,7 +782,7 @@ namespace cc4s {
       int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
       int syms[6] = {NS,NS,NS,NS,NS,NS};
       this->componentTensors[2] = NEW(
-        CTF::Tensor<F>, 6, vvvooo, syms, *Cc4s::world
+        CTF::Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
       );
       (*this->get(2))["abcijk"] = 0.0;
 
@@ -806,7 +806,7 @@ namespace cc4s {
       int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
       int syms[6] = {NS,NS,NS,NS,NS,NS};
       this->componentTensors[2] = NEW(
-        CTF::Tensor<F>, 6, vvvooo, syms, *Cc4s::world
+        CTF::Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
       );
       (*this->get(2))["abcijk"] = 0.0;
 

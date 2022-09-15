@@ -4,7 +4,7 @@
 #include <util/Log.hpp>
 #include <util/CTF.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(PseudoInverse);

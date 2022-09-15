@@ -6,7 +6,7 @@
 #include <tcc/MachineTensor.hpp>
 #include <memory>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Caclulates the particle hole Coulomb vertex \f$\Gamma^a_{iF}\f$
    * from the given given particle factors orbitals \f$\Pi^R_a\f$,

@@ -6,7 +6,7 @@
 #include <math/Vector.hpp>
 #include <vector>
 
-namespace cc4s {
+namespace sisi4s {
   class BasisSetExtrapolation: public Algorithm {
   public:
     ALGORITHM_REGISTRAR_DECLARATION(BasisSetExtrapolation);

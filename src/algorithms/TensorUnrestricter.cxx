@@ -3,14 +3,14 @@
 #include <vector>
 #include <algorithm>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <iostream>
 #include <util/CTF.hpp>
 #include <numeric>
 #include <map>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorUnrestricter);
 
@@ -31,7 +31,7 @@ unrestrictTensor(CTF::Tensor<double> &tensor) {
   std::for_each(lens.begin(), lens.end(), [](int& i) {i *= 2;});
 
   auto result(new CTF::Tensor<double>(
-    tensor.order, lens.data(), syms.data(), *Cc4s::world,
+    tensor.order, lens.data(), syms.data(), *Sisi4s::world,
     ("u" + std::string(tensor.name)).c_str() ));
 
   // vector of vectors of int

@@ -6,10 +6,10 @@
 #include <util/Log.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 template <typename F=double>
-void cc4s::composeCanonicalPolyadicDecompositionTensors(
+void sisi4s::composeCanonicalPolyadicDecompositionTensors(
   Tensor<F> &A, Tensor<F> &B, Tensor<F> &C,
   Tensor<F> &T
 ) {
@@ -51,19 +51,19 @@ void cc4s::composeCanonicalPolyadicDecompositionTensors(
 
 // instantiate
 template
-void cc4s::composeCanonicalPolyadicDecompositionTensors(
+void sisi4s::composeCanonicalPolyadicDecompositionTensors(
   Tensor<double> &A, Tensor<double> &B, Tensor<double> &C,
   Tensor<double> &T
 );
 template
-void cc4s::composeCanonicalPolyadicDecompositionTensors(
+void sisi4s::composeCanonicalPolyadicDecompositionTensors(
   Tensor<complex> &A, Tensor<complex> &B, Tensor<complex> &C,
   Tensor<complex> &T
 );
 
 
 template <typename F=double>
-void cc4s::dryComposeCanonicalPolyadicDecompositionTensors(
+void sisi4s::dryComposeCanonicalPolyadicDecompositionTensors(
   DryTensor<F> &A, DryTensor<F> &B, DryTensor<F> &C,
   DryTensor<F> &T
 ) {
@@ -99,19 +99,19 @@ void cc4s::dryComposeCanonicalPolyadicDecompositionTensors(
 
 // instantiate
 template
-void cc4s::dryComposeCanonicalPolyadicDecompositionTensors(
+void sisi4s::dryComposeCanonicalPolyadicDecompositionTensors(
   DryTensor<double> &A, DryTensor<double> &B, DryTensor<double> &C,
   DryTensor<double> &T
 );
 template
-void cc4s::dryComposeCanonicalPolyadicDecompositionTensors(
+void sisi4s::dryComposeCanonicalPolyadicDecompositionTensors(
   DryTensor<complex> &A, DryTensor<complex> &B, DryTensor<complex> &C,
   DryTensor<complex> &T
 );
 
 
 template <typename F=double>
-void cc4s::contractWithCanonicalPolyadicDecompositionTensors(
+void sisi4s::contractWithCanonicalPolyadicDecompositionTensors(
   Tensor<F> &T, char const *indicesT,
   Tensor<F> &B, char const idxB,
   Tensor<F> &C, char const idxC,
@@ -163,14 +163,14 @@ void cc4s::contractWithCanonicalPolyadicDecompositionTensors(
 
 // instantiate
 template
-void cc4s::contractWithCanonicalPolyadicDecompositionTensors(
+void sisi4s::contractWithCanonicalPolyadicDecompositionTensors(
   Tensor<double> &T, char const *indicesT,
   Tensor<double> &conjB, char const idxB,
   Tensor<double> &conjC, char const idxC,
   Tensor<double> &A, char const idxA
 );
 template
-void cc4s::contractWithCanonicalPolyadicDecompositionTensors(
+void sisi4s::contractWithCanonicalPolyadicDecompositionTensors(
   Tensor<complex> &T, char const *indicesT,
   Tensor<complex> &conjB, char const idxB,
   Tensor<complex> &conjC, char const idxC,
@@ -179,7 +179,7 @@ void cc4s::contractWithCanonicalPolyadicDecompositionTensors(
 
 
 template <typename F=double>
-void cc4s::dryContractWithCanonicalPolyadicDecompositionTensors(
+void sisi4s::dryContractWithCanonicalPolyadicDecompositionTensors(
   DryTensor<F> &T, char const *indicesT,
   DryTensor<F> &B, char const idxB,
   DryTensor<F> &C, char const idxC,
@@ -219,14 +219,14 @@ void cc4s::dryContractWithCanonicalPolyadicDecompositionTensors(
 
 // instantiate
 template
-void cc4s::dryContractWithCanonicalPolyadicDecompositionTensors(
+void sisi4s::dryContractWithCanonicalPolyadicDecompositionTensors(
   DryTensor<double> &T, char const *indicesT,
   DryTensor<double> &conjB, char const idxB,
   DryTensor<double> &conjC, char const idxC,
   DryTensor<double> &A, char const idxA
 );
 template
-void cc4s::dryContractWithCanonicalPolyadicDecompositionTensors(
+void sisi4s::dryContractWithCanonicalPolyadicDecompositionTensors(
   DryTensor<complex> &T, char const *indicesT,
   DryTensor<complex> &conjB, char const idxB,
   DryTensor<complex> &conjC, char const idxC,

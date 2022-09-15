@@ -4,7 +4,7 @@
 #include <math/Float.hpp>
 #include <complex>
 
-namespace cc4s {
+namespace sisi4s {
   // use standard library complex number support
   template <typename Real>
   using Complex = std::complex<Real>;

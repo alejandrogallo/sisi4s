@@ -7,13 +7,13 @@
 #include <extern/Lapack.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 #include <iostream>
 //#include <Options.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(Mp2NaturalOrbitals);
 
@@ -126,7 +126,7 @@ void Mp2NaturalOrbitals::run() {
     for (int64_t a(0); a < Nv; a++)
       LOG(2,"occ") << w[a] << std::endl;
 
-    const int rank_m = int(Cc4s::world->rank == 0); //rank mask
+    const int rank_m = int(Sisi4s::world->rank == 0); //rank mask
     std::vector<int64_t> index;
     index.resize(rank_m * Nv);
     std::iota(index.begin(), index.end(), 0);
@@ -407,7 +407,7 @@ void Mp2NaturalOrbitals::run() {
 
 
     // construct combined ParticleEigenEnergies
-    const int rank_m = int(Cc4s::world->rank == 0); //rank mask
+    const int rank_m = int(Sisi4s::world->rank == 0); //rank mask
     std::vector<int64_t> index;
     index.resize(rank_m * Nv);
     std::iota(index.begin(), index.end(), 0);

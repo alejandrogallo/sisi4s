@@ -7,7 +7,7 @@
 #include <util/CTF.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(DrccdEnergyFromCoulombIntegrals);
 
@@ -25,10 +25,10 @@ PTR(FockVector<double>) DrccdEnergyFromCoulombIntegrals::getResiduum(
   return getResiduum<double>(iteration, amplitudes);
 }
 
-PTR(FockVector<cc4s::complex>) DrccdEnergyFromCoulombIntegrals::getResiduum(
-  const int iteration, const PTR(const FockVector<cc4s::complex>) &amplitudes
+PTR(FockVector<sisi4s::complex>) DrccdEnergyFromCoulombIntegrals::getResiduum(
+  const int iteration, const PTR(const FockVector<sisi4s::complex>) &amplitudes
 ) {
-  return getResiduum<cc4s::complex>(iteration, amplitudes);
+  return getResiduum<sisi4s::complex>(iteration, amplitudes);
 }
 
 template <typename F>

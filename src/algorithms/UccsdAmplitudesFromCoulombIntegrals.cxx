@@ -8,9 +8,9 @@
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UccsdAmplitudesFromCoulombIntegrals);
 
@@ -63,7 +63,7 @@ void UccsdAmplitudesFromCoulombIntegrals::run() {
   ClusterSinglesDoublesAlgorithm::run();
 }
 
-PTR(FockVector<cc4s::complex>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
+PTR(FockVector<sisi4s::complex>) UccsdAmplitudesFromCoulombIntegrals::getResiduum(
   const int iterationStep, const PTR(const FockVector<complex>) &amplitudes
 ) {
   if (iterationStep == 0){
@@ -112,8 +112,8 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
             ;
     // TODO: replace with unique_ptr and give away the hamiltonian one
     // such pointer
-    Fab = new CTF::Tensor<F>(2, vv, syms, *Cc4s::world, "Fab");
-    Fij = new CTF::Tensor<F>(2, oo, syms, *Cc4s::world, "Fij");
+    Fab = new CTF::Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab");
+    Fij = new CTF::Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij");
     CTF::Transform<double, F>([](double eps, F &f) { f = eps; })( (*epsi)["i"]
                                                                 , (*Fij)["ii"]
                                                                 );

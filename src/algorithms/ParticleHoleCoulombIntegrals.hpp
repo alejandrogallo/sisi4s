@@ -4,7 +4,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Caclulates the Coulomb Integrals \f$V_{ij}^{ab} from the Particle Hole
    * Coulomb Vertex \f$\Gamma_{iG}^a\f$ and stores them in a CTF Tensor Vabij

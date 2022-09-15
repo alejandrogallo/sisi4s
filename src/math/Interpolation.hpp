@@ -7,7 +7,7 @@
 
 // TODO: unify interpolation routines
 
-namespace cc4s {
+namespace sisi4s {
   template<typename F=double>
   class Inter1D{
   public:

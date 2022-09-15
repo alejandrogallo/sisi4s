@@ -2,10 +2,10 @@
 #include <util/Log.hpp>
 #include <iostream>
 #include <sstream>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Parsing.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorSlicer);
 

@@ -1,6 +1,6 @@
 #include <util/Timer.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 /**
  * \brief Constructor of a Timer object starting the measurement.

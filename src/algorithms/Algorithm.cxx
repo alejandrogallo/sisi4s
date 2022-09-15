@@ -11,7 +11,7 @@
 #include <vector>
 #include <list>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 Algorithm::Algorithm(std::vector<Argument> const &argumentList) {
   for (auto arg(argumentList.begin()); arg != argumentList.end(); ++arg) {
@@ -114,7 +114,7 @@ int64_t Algorithm::getIntegerArgument(
   return isArgumentGiven(name) ? getIntegerArgument(name) : defaultValue;
 }
 
-cc4s::real Algorithm::getRealArgument(std::string const &name) {
+sisi4s::real Algorithm::getRealArgument(std::string const &name) {
   Data *data(getArgumentData(name));
   RealData *realData(dynamic_cast<RealData *>(data));
   if (realData) return realData->value;
@@ -127,12 +127,12 @@ cc4s::real Algorithm::getRealArgument(std::string const &name) {
     << "Excpected Real, found " << data->getTypeName() << ".";
   throw new EXCEPTION(sstream.str());
 }
-cc4s::real Algorithm::getRealArgument(
+sisi4s::real Algorithm::getRealArgument(
   const std::string &name, const real defaultValue
 ) {
   return isArgumentGiven(name) ? getRealArgument(name) : defaultValue;
 }
-cc4s::real Algorithm::getRealArgumentFromInteger(IntegerData *integerData ) {
+sisi4s::real Algorithm::getRealArgumentFromInteger(IntegerData *integerData ) {
   real value(integerData->value);
   if (int64_t(value) != integerData->value) {
     LOG(0, "root") << "Warning: loss of precision in conversion from integer to real."
@@ -140,7 +140,7 @@ cc4s::real Algorithm::getRealArgumentFromInteger(IntegerData *integerData ) {
   }
   return value;
 }
-cc4s::real Algorithm::getRealArgumentFromTensor(TensorData<real> *data) {
+sisi4s::real Algorithm::getRealArgumentFromTensor(TensorData<real> *data) {
   Assert(
     data->value->order == 0,
     "Scalar expected in conversion from tensor to real."
@@ -177,11 +177,11 @@ template
 void Algorithm::allocateContainerArgument< int64_t, std::vector<int64_t> >(
   std::string const &name, std::vector<int64_t> *container);
 template
-void Algorithm::allocateContainerArgument< cc4s::real, std::vector<cc4s::real> >(
-  std::string const &name, std::vector<cc4s::real> *container);
+void Algorithm::allocateContainerArgument< sisi4s::real, std::vector<sisi4s::real> >(
+  std::string const &name, std::vector<sisi4s::real> *container);
 template
-void Algorithm::allocateContainerArgument< cc4s::complex, std::vector<cc4s::complex> >(
-  std::string const &name, std::vector<cc4s::complex> *container);
+void Algorithm::allocateContainerArgument< sisi4s::complex, std::vector<sisi4s::complex> >(
+  std::string const &name, std::vector<sisi4s::complex> *container);
 
 
 template <typename F, typename T>
@@ -318,16 +318,16 @@ void Algorithm::allocatedTensorArgument<
 // TODO: remove specialized tensors (matrix, vector, scalar)
 template
 void Algorithm::allocatedTensorArgument<
-  cc4s::real, CTF::Matrix<cc4s::real>
+  sisi4s::real, CTF::Matrix<sisi4s::real>
 >(std::string const &name, CTF::Matrix<real> *tensor);
 template
 void Algorithm::allocatedTensorArgument<
-  cc4s::real, CTF::Vector<cc4s::real>
->(std::string const &name, CTF::Vector<cc4s::real> *tensor);
+  sisi4s::real, CTF::Vector<sisi4s::real>
+>(std::string const &name, CTF::Vector<sisi4s::real> *tensor);
 template
 void Algorithm::allocatedTensorArgument<
-  cc4s::real, CTF::Scalar<cc4s::real>
->(std::string const &name, CTF::Scalar<cc4s::real> *tensor);
+  sisi4s::real, CTF::Scalar<sisi4s::real>
+>(std::string const &name, CTF::Scalar<sisi4s::real> *tensor);
 
 template
 void Algorithm::allocatedTensorArgument<
@@ -336,16 +336,16 @@ void Algorithm::allocatedTensorArgument<
 // TODO: remove specialized tensors (matrix, vector, scalar)
 template
 void Algorithm::allocatedTensorArgument<
-  cc4s::complex, CTF::Matrix<cc4s::complex>
->(std::string const &name, CTF::Matrix<cc4s::complex> *tensor);
+  sisi4s::complex, CTF::Matrix<sisi4s::complex>
+>(std::string const &name, CTF::Matrix<sisi4s::complex> *tensor);
 template
 void Algorithm::allocatedTensorArgument<
-  cc4s::complex, CTF::Vector<cc4s::complex>
->(std::string const &name, CTF::Vector<cc4s::complex> *tensor);
+  sisi4s::complex, CTF::Vector<sisi4s::complex>
+>(std::string const &name, CTF::Vector<sisi4s::complex> *tensor);
 template
 void Algorithm::allocatedTensorArgument<
-  cc4s::complex, CTF::Scalar<cc4s::complex>
->(std::string const &name, CTF::Scalar<cc4s::complex> *tensor);
+  sisi4s::complex, CTF::Scalar<sisi4s::complex>
+>(std::string const &name, CTF::Scalar<sisi4s::complex> *tensor);
 
 template
 void Algorithm::allocatedTensorArgument<

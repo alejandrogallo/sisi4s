@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <algorithms/MoReader.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <fstream>
 #include <util/CTF.hpp>
@@ -22,7 +22,7 @@
 #define LOGGER(_l) LOG(_l, "MoReader")
 #define IF_GIVEN(_l, ...) if (isArgumentGiven(_l)) { __VA_ARGS__ }
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(MoReader);
 
@@ -312,7 +312,7 @@ void MoReader::run() {
   size_t no(0); size_t nv(0);
   std::vector<int64_t> ids;
   const bool unrestricted = mos.size() == 2;
-  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
+  const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
 
   std::vector<double> outMos, outEigenvalues, outOccupations, outSpins;
   if (unrestricted) {
@@ -389,7 +389,7 @@ void MoReader::run() {
   IF_GIVEN("HoleEigenEnergies",
     ids.resize(rank_m * o[0]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto epsi(new CTF::Tensor<double>(1, o.data(), syms.data(), *Cc4s::world));
+    auto epsi(new CTF::Tensor<double>(1, o.data(), syms.data(), *Sisi4s::world));
     epsi->write(ids.size(), ids.data(), outEigenvalues.data());
     allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   )
@@ -397,7 +397,7 @@ void MoReader::run() {
   IF_GIVEN("ParticleEigenEnergies",
     ids.resize(rank_m * v[0]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto epsa(new CTF::Tensor<double>(1, v.data(), syms.data(), *Cc4s::world));
+    auto epsa(new CTF::Tensor<double>(1, v.data(), syms.data(), *Sisi4s::world));
     epsa->write(ids.size(), ids.data(), outEigenvalues.data() + o[0]);
     allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
   )
@@ -405,14 +405,14 @@ void MoReader::run() {
   IF_GIVEN("OccupationNumbers",
     ids.resize(rank_m * p[0]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto os(new CTF::Tensor<double>(1, p.data(), syms.data(), *Cc4s::world));
+    auto os(new CTF::Tensor<double>(1, p.data(), syms.data(), *Sisi4s::world));
     os->write(ids.size(), ids.data(), outOccupations.data());
     allocatedTensorArgument<double>("OccupationNumbers", os);
   )
   if (unrestricted){
     ids.resize(rank_m * p[0]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto spin(new CTF::Tensor<double>(1, p.data(), syms.data(), *Cc4s::world));
+    auto spin(new CTF::Tensor<double>(1, p.data(), syms.data(), *Sisi4s::world));
     spin->write(ids.size(), ids.data(), outSpins.data());
     allocatedTensorArgument<double>("Spins", spin);
   }
@@ -421,7 +421,7 @@ void MoReader::run() {
   if (isArgumentGiven("OrbitalCoefficients")) {
     ids.resize(rank_m * pp[0]*pp[1]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto coef(new CTF::Tensor<double>(2, pp.data(), syms.data(), *Cc4s::world));
+    auto coef(new CTF::Tensor<double>(2, pp.data(), syms.data(), *Sisi4s::world));
     coef->write(ids.size(), ids.data(), outMos.data());
     allocatedTensorArgument<double>("OrbitalCoefficients", coef);
   }

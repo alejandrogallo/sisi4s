@@ -3,11 +3,11 @@
 #include <DryTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(PerturbativeTriples);
 
@@ -77,7 +77,7 @@ void PerturbativeTriples::runInMemory() {
   Zabij["abij"] += (+1.0) * Tabcijk["abcikl"] * (*Vijka)["lkjc"];
   Zabij["abij"] += (+1.0) * Tabcijk["abclki"] * (*Vijka)["kljc"];
 
-  Scalar<> energy(*Cc4s::world);
+  Scalar<> energy(*Sisi4s::world);
   double e, triplese;
   double ccsde(getRealArgument("CcsdEnergy"));
 
@@ -147,7 +147,7 @@ void PerturbativeTriples::runPiecuch() {
     );
   }
 
-  Scalar<> energy(*Cc4s::world);
+  Scalar<> energy(*Sisi4s::world);
   double e, triplese;
   double ccsde(getRealArgument("CcsdEnergy"));
 
@@ -209,7 +209,7 @@ void PerturbativeTriples::run() {
     1.0, Tabcijk,"abcijk", SVabcijk,"abcijk", 0.0,"abcijk", fDivide
   );
 
-  Scalar<> energy(*Cc4s::world);
+  Scalar<> energy(*Sisi4s::world);
   energy[""]  = DVabcijk["abcijk"] * Tabcijk["abcijk"];
   energy[""] += DVabcijk["bacjik"] * Tabcijk["abcijk"];
   energy[""] += DVabcijk["acbikj"] * Tabcijk["abcijk"];

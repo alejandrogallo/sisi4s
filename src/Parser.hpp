@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-namespace cc4s {
+namespace sisi4s {
 
   enum InputFileFormat {
     YAML,
@@ -15,20 +15,20 @@ namespace cc4s {
   };
 
   /**
-   * \brief Parser for cc4s files specifying the calculation plan, i.e.
+   * \brief Parser for sisi4s files specifying the calculation plan, i.e.
    * which algorithms to use in which order.
    */
   template <InputFileFormat fmt>
   class InputFileParser {
 
     /**
-     * \brief Creates a new interpreter for a cc4s file of the given name.
+     * \brief Creates a new interpreter for a sisi4s file of the given name.
      * Upon creation the file will be openend but not yet read.
      */
     InputFileParser(std::string const& fileName);
 
     /**
-     * \brief Parses the cc4s algorithms contained in the stream.
+     * \brief Parses the sisi4s algorithms contained in the stream.
      * This method must be called with the same stream content on all processes.
      */
     virtual std::vector<Algorithm*> parse() = 0;

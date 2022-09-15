@@ -8,7 +8,7 @@
 
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename F>
   class DiisMixer: public Mixer<F> {
   public:

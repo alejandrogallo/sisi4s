@@ -1,0 +1,87 @@
+
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      WITH_CURRENT_SHELL: "nix-shell --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
+      WITH_SHELL: "nix-shell ../../shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
+
+
+    strategy:
+      matrix:
+        compiler:
+          - gcc11
+          - gcc10
+          - gcc9
+          - gcc8
+          - gcc7
+          - gcc6
+          - clang13
+          - clang12
+          - clang11
+          - clang10
+          - clang9
+          - clang8
+          - clang7
+          - clang6
+          - clang5
+        cuda:
+          - false
+
+    steps:
+    - uses: actions/checkout@v2.3.4
+
+    - name: Install Nix
+      uses: cachix/install-nix-action@v15
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Install nix dependencies
+      run: $WITH_CURRENT_SHELL 'env'
+
+    - name: Make configure script
+      run: $WITH_CURRENT_SHELL 'autoreconf -sfiv'
+
+    - name: Configure (${{matrix.compiler}})
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL '../../configure'
+
+    - name: CTF (${{matrix.compiler}})
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make ctf'
+
+    - name: LIBINT (${{matrix.compiler}})
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make libint'
+
+    - name: EIGEN (${{matrix.compiler}})
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make eigen'
+
+    - name: YAML (${{matrix.compiler}})
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make yaml'
+
+    - name: Make main (${{matrix.compiler}})
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make'

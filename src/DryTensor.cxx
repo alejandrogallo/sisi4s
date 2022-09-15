@@ -4,7 +4,7 @@
 
 #include <array>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 int64_t DryMemory::currentTotalSize = 0, DryMemory::maxTotalSize = 0;
 std::vector<DryMemory::ExtendingResource> DryMemory::extendingResources;

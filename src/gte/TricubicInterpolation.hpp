@@ -8,7 +8,7 @@
 #ifndef TRICUBIC_INTERPOLATION_H
 #define TRICUBIC_INTERPOLATION_H
 
-// different assert routines in cc4s
+// different assert routines in sisi4s
 #include <util/Exception.hpp>
 
 

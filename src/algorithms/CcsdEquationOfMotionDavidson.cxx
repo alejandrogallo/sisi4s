@@ -12,7 +12,7 @@
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Emitter.hpp>
 
@@ -20,7 +20,7 @@
 #include <utility>
 #include <limits>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdEquationOfMotionDavidson);
 #define LOGGER(_l) LOG(_l, "CcsdEomDavid")
@@ -47,7 +47,7 @@ struct SzOperator: public SpinOperator<F> {
     if (this->Sij) return this->Sij;
     LOG(0, "SzOperator") << "Calculating Sz_ij" << std::endl;
     int oo[] = {this->No, this->No}, syms[] = {NS, NS};
-    this->Sij = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Szij");
+    this->Sij = NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "Szij");
     (*this->Sij)["ii"] = 0.5;
     return this->Sij;
   }
@@ -55,7 +55,7 @@ struct SzOperator: public SpinOperator<F> {
     if (this->Sab) return this->Sab;
     LOG(0, "SzOperator") << "Calculating Sz_ab" << std::endl;
     int vv[] = {this->Nv, this->Nv},  syms[] = {NS, NS};
-    this->Sab = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Szab");
+    this->Sab = NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "Szab");
     (*this->Sab)["aa"] = 0.5;
     return this->Sab;
   }
@@ -230,9 +230,9 @@ void CcsdEquationOfMotionDavidson::run() {
   }
 
   // set up Fock matrix elements
-  auto Fab(NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Fab"));
-  auto Fij(NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Fij"));
-  auto Fia(NEW(CTF::Tensor<F>, 2, ov, syms, *Cc4s::world, "Fia"));
+  auto Fab(NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "Fab"));
+  auto Fij(NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "Fij"));
+  auto Fia(NEW(CTF::Tensor<F>, 2, ov, syms, *Sisi4s::world, "Fia"));
 
   if (  isArgumentGiven("HPFockMatrix")
      && isArgumentGiven("HHFockMatrix")
@@ -271,8 +271,8 @@ void CcsdEquationOfMotionDavidson::run() {
     );
   }
 
-  CTF::Tensor<F> Tai(2, vo, syms, *Cc4s::world, "Tai");
-  CTF::Tensor<F> Tabij(4, vvoo, syms, *Cc4s::world, "Tabij");
+  CTF::Tensor<F> Tai(2, vo, syms, *Sisi4s::world, "Tai");
+  CTF::Tensor<F> Tabij(4, vvoo, syms, *Sisi4s::world, "Tabij");
   toComplexTensor(
     (*getTensorArgument<double, CTF::Tensor<double> >("SinglesAmplitudes")),
     Tai

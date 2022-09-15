@@ -4,7 +4,7 @@
 #include <math/MathFunctions.hpp>
 #include <algorithm>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/Emitter.hpp>
 #include <util/SharedPointer.hpp>
@@ -16,7 +16,7 @@
 #include <set>
 #define LOGGER(_l) LOG(_l, "FockMatrixFromCoulombIntegrals")
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(FockMatrixFromCoulombIntegrals);
 
@@ -31,7 +31,7 @@ void FockMatrixFromCoulombIntegrals::run() {
   LOGGER(0) << "Nv: " << Nv << std::endl;
 
   // ij: HH HHHH
-  auto fij(new CTF::Tensor<double>(2, oo.data(), syms.data(), *Cc4s::world));
+  auto fij(new CTF::Tensor<double>(2, oo.data(), syms.data(), *Sisi4s::world));
   const auto hh(getTensorArgument<double>("HHMatrix"));
   const auto hhhh(getTensorArgument<double>("HHHHCoulombIntegrals"));
   (*fij)["ij"]  = (*hh)["ij"];
@@ -40,7 +40,7 @@ void FockMatrixFromCoulombIntegrals::run() {
   allocatedTensorArgument<double>("HHFockMatrix", fij);
 
   // ab: PP PHPH PHHP
-  auto fab(new CTF::Tensor<double>(2, vv.data(), syms.data(), *Cc4s::world));
+  auto fab(new CTF::Tensor<double>(2, vv.data(), syms.data(), *Sisi4s::world));
   const auto pp(getTensorArgument<double>("PPMatrix"));
   const auto phhp(getTensorArgument<double>("PHHPCoulombIntegrals"));
   (*fab)["ab"]  = (*pp)["ab"];
@@ -49,7 +49,7 @@ void FockMatrixFromCoulombIntegrals::run() {
   allocatedTensorArgument<double>("PPFockMatrix", fab);
 
   // ai: PH PHHH
-  auto fai(new CTF::Tensor<double>(2, vo.data(), syms.data(), *Cc4s::world));
+  auto fai(new CTF::Tensor<double>(2, vo.data(), syms.data(), *Sisi4s::world));
   const auto ph(getTensorArgument<double>("PHMatrix"));
   const auto phhh(getTensorArgument<double>("PHHHCoulombIntegrals"));
   (*fai)["ai"]  = (*ph)["ai"];
@@ -58,15 +58,15 @@ void FockMatrixFromCoulombIntegrals::run() {
   allocatedTensorArgument<double>("PHFockMatrix", fai);
 
   // ia: HP HHPH HHHP
-  auto fia(new CTF::Tensor<double>(2, ov.data(), syms.data(), *Cc4s::world));
+  auto fia(new CTF::Tensor<double>(2, ov.data(), syms.data(), *Sisi4s::world));
   (*fia)["ia"] = (*fai)["ai"];
   allocatedTensorArgument<double>("HPFockMatrix", fia);
 
-  auto epsi(new CTF::Tensor<double>(1, oo.data(), syms.data(), *Cc4s::world));
+  auto epsi(new CTF::Tensor<double>(1, oo.data(), syms.data(), *Sisi4s::world));
   (*epsi)["i"] = (*fij)["ii"];
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
 
-  auto epsa(new CTF::Tensor<double>(1, vv.data(), syms.data(), *Cc4s::world));
+  auto epsa(new CTF::Tensor<double>(1, vv.data(), syms.data(), *Sisi4s::world));
   (*epsa)["a"] = (*fab)["aa"];
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
 

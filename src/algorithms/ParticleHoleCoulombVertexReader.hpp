@@ -8,7 +8,7 @@
 #include <cstdint>
 #include <fstream>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Reads the particle-hole Coulomb vertex \f$\Gamma_{iG}^a\f$ and
    * the occupied and

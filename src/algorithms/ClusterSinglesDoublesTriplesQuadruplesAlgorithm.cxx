@@ -8,12 +8,12 @@
 #include <util/Exception.hpp>
 #include <util/CTF.hpp>
 #include <Options.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 
 #include <initializer_list>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 
 ClusterSinglesDoublesTriplesQuadruplesAlgorithm::~ClusterSinglesDoublesTriplesQuadruplesAlgorithm() {

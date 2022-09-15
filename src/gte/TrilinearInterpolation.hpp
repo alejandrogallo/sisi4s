@@ -8,7 +8,7 @@
 #ifndef TRILINEAR_INTERPOLATION_H
 #define TRILINEAR_INTERPOLATION_H
 
-// different assert routines in cc4s
+// different assert routines in sisi4s
 #include <util/Exception.hpp>
 
 // The interpolator is for uniformly spaced(x,y z)-values.  The input samples

@@ -4,7 +4,7 @@
 #include <DryTensor.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Calculates \f$T_{ijk}=A_{iR}B_{jR}C_{kR}\f$ with minimal memory
    * footprint.

@@ -7,7 +7,7 @@
 #include <util/Log.hpp>
 #include <math/FockVector.hpp>
 
-namespace cc4s {
+namespace sisi4s {
 
   template<typename F>
   class OneBodyReducedDensityMatrix {
@@ -30,7 +30,7 @@ namespace cc4s {
       const int No(R.get(0)->lens[1]);
       const int oo[] = {No, No};
       const int syms[] = {NS, NS};
-      Rij = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Rij");
+      Rij = NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "Rij");
       auto Rconj = CTF::Tensor<F>(*Rij);
       // TODO: Conjugate R
       conjugate(Rconj);
@@ -44,7 +44,7 @@ namespace cc4s {
       const int Nv(R.get(0)->lens[0]);
       const int vv[] = {Nv, Nv};
       const int syms[] = {NS, NS};
-      Rab = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Rab");
+      Rab = NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "Rab");
       auto Rconj = CTF::Tensor<F>(*Rab);
       conjugate(Rconj);
       (*Rab)["ab"] = (*R.get(0))["ai"] * (*R.get(0))["bi"];
@@ -99,7 +99,7 @@ namespace cc4s {
       const int No(Tai->lens[1]);
       const int oo[] = {No, No};
       const int syms[] = {NS, NS};
-      Rij = NEW(CTF::Tensor<F>, 2, oo, syms, *Cc4s::world, "Rij");
+      Rij = NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "Rij");
 
       (*Rij)["ij"]  = 0;
       (*Rij)["ij"] += (*L->get(0))["je"] * (*R->get(0))["ei"];
@@ -116,7 +116,7 @@ namespace cc4s {
       const int Nv(Tai->lens[0]);
       const int vv[] = {Nv, Nv};
       const int syms[] = {NS, NS};
-      Rab = NEW(CTF::Tensor<F>, 2, vv, syms, *Cc4s::world, "Rab");
+      Rab = NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "Rab");
 
       (*Rab)["ab"]  = 0;
       (*Rab)["ab"] += (-1.0) * (*L->get(0))["ka"] * (*R->get(0))["bk"];
@@ -135,7 +135,7 @@ namespace cc4s {
       const int ov[] = {No, Nv};
       const int syms[] = {NS, NS};
 
-      Ria = NEW(CTF::Tensor<F>, 2, ov, syms, *Cc4s::world, "Ria");
+      Ria = NEW(CTF::Tensor<F>, 2, ov, syms, *Sisi4s::world, "Ria");
 
       (*Ria)["ia"]  = 0;
       // this is 0 because r0 is 0

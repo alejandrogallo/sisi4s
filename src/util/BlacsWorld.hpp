@@ -2,7 +2,7 @@
 #ifndef BLACS_WORLD_DEFINED
 #define BLACS_WORLD_DEFINED
 
-namespace cc4s {
+namespace sisi4s {
   class BlacsWorld {
   public:
     BlacsWorld(int rank, int processes, int processRows = -1);

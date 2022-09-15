@@ -2,12 +2,12 @@
 #include <string>
 #include <algorithms/NuclearRepulsionEnergy.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <iostream>
 #include <util/Emitter.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(NuclearRepulsionEnergy);
 #define LOGGER(_l) LOG(_l, "NuclearRepulsionEnergy")
 

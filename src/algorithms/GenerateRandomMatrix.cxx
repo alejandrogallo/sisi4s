@@ -1,11 +1,11 @@
 #include <algorithms/GenerateRandomMatrix.hpp>
 #include <math/Complex.hpp>
 #include <math/RandomTensor.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 
 ALGORITHM_REGISTRAR_DEFINITION(GenerateRandomMatrix);
@@ -32,7 +32,7 @@ void GenerateRandomMatrix::run() {
   } else if (symmetry == "hollow") {
     sym = SH;
   }
-  Matrix<> *C(new Matrix<>(m, n, sym, *Cc4s::world, "C"));
+  Matrix<> *C(new Matrix<>(m, n, sym, *Sisi4s::world, "C"));
   DefaultRandomEngine random;
   std::normal_distribution<double> normalDistribution(0.0, 1.0);
   setRandomTensor(*C, normalDistribution, random);

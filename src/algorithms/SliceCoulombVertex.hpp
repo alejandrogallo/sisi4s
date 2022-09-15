@@ -4,7 +4,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Slices the particle hole part \f$\Gamma^{aG}_i\f$ from
    * the full Coulomb vertex \f$\Gamma^{qG}_r\f$.

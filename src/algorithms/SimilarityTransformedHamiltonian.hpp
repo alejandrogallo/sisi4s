@@ -7,7 +7,7 @@
 #include <util/SharedPointer.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
 
   template <typename F=complex>
   class SimilarityTransformedHamiltonian {
@@ -121,7 +121,7 @@ namespace cc4s {
 
     // coulomb bertex setter
     STH&
-    setGammaGqr(CTF::Tensor<cc4s::complex> *t) { GammaGqr = t; return *this; }
+    setGammaGqr(CTF::Tensor<sisi4s::complex> *t) { GammaGqr = t; return *this; }
 
     STH& setRightApplyIntermediates(bool t) {
       useRightApplyIntermediates = t; return *this;}
@@ -185,7 +185,7 @@ namespace cc4s {
       ;
 
     // coulomb vertex
-    CTF::Tensor<cc4s::complex>
+    CTF::Tensor<sisi4s::complex>
       *GammaGqr=nullptr
       ;
 

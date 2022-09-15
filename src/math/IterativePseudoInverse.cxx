@@ -8,7 +8,7 @@
 #include <array>
 #include <limits>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
 
@@ -136,10 +136,10 @@ Tensor<F> &IterativePseudoInverse<F>::get() {
 
 // instantiate
 template
-class IterativePseudoInverse<cc4s::Float64>;
+class IterativePseudoInverse<sisi4s::Float64>;
 
 template
-class IterativePseudoInverse<cc4s::Complex64>;
+class IterativePseudoInverse<sisi4s::Complex64>;
 
 template <typename F>
 void IterativePseudoInverse<F>::generateHilbertMatrix(Tensor<F> &m) {
@@ -193,9 +193,9 @@ void IterativePseudoInverse<F>::test(World *world) {
 
 // instantiate
 template
-void IterativePseudoInverse<cc4s::Float64>::test(World *world);
+void IterativePseudoInverse<sisi4s::Float64>::test(World *world);
 template
-void IterativePseudoInverse<cc4s::Complex64>::test(World *world);
+void IterativePseudoInverse<sisi4s::Complex64>::test(World *world);
 
 
 template <typename F>
@@ -226,8 +226,8 @@ DryTensor<F> &DryIterativePseudoInverse<F>::get() {
 
 // instantiate
 template
-class DryIterativePseudoInverse<cc4s::Float64>;
+class DryIterativePseudoInverse<sisi4s::Float64>;
 
 template
-class DryIterativePseudoInverse<cc4s::Complex64>;
+class DryIterativePseudoInverse<sisi4s::Complex64>;
 

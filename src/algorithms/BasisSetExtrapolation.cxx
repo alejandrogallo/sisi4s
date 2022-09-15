@@ -2,7 +2,7 @@
 
 #include <math/Complex.hpp>
 #include <math/ComplexTensor.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <DryTensor.hpp>
 #include <math/Vector.hpp>
@@ -11,7 +11,7 @@
 #include <util/MpiCommunicator.hpp>
 #include <math/PseudoInverseSvd.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(BasisSetExtrapolation);
@@ -118,10 +118,10 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
   // determine if we are using full or half mesh
 
   auto momenta(NEW(Tensor<>, getTensorArgument<>("Momenta")));
-  cc4s::Vector<> *cartesianMomenta(new cc4s::Vector<>[NF]);
+  sisi4s::Vector<> *cartesianMomenta(new sisi4s::Vector<>[NF]);
   momenta->read_all(&cartesianMomenta[0][0]);
 
-  cc4s::Vector<> check_grid;
+  sisi4s::Vector<> check_grid;
   for (int g(0); g < NF; ++g){
     check_grid+=cartesianMomenta[g];
   }
@@ -452,7 +452,7 @@ void BasisSetExtrapolation::fitF12(int type, real minG, real maxG){
   setRealArgument("gammaout",gamma);
   allocatedTensorArgument<>("FittedSF",fittedSF);
 // evaluate energy correction term E = v(G)*Q(G,G')*f12(G')
-  Scalar<> f12EnergyCorrection(*Cc4s::world);
+  Scalar<> f12EnergyCorrection(*Sisi4s::world);
   f12EnergyCorrection[""] = (*coulombKernel)["G"] * (*fittedSF)["G"];
   setRealArgument("f12EnergyCorrection",f12EnergyCorrection);
 

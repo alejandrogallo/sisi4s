@@ -12,7 +12,7 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <util/SharedPointer.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 #include <iostream>
 // FIXME: use common way for math constants
@@ -21,7 +21,7 @@
 #include <vector>
 #include <sstream>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(FiniteSizeCorrection);
@@ -78,18 +78,18 @@ void FiniteSizeCorrection::dryRun() {
 
 class FiniteSizeCorrection::Momentum {
   public:
-  cc4s::Vector<> v;
+  sisi4s::Vector<> v;
   double s;
   double l;
   double vg;
   Momentum(): s(0.0), l(0.0), vg(0.) {
   }
   Momentum(
-    cc4s::Vector<> v_, double s_=0., double vg_=0.
+    sisi4s::Vector<> v_, double s_=0., double vg_=0.
   ): v(v_), s(s_), l(v_.length()), vg(vg_) {
   }
   double locate(Momentum *m, int const n) {
-    cc4s::Vector<> u(v);
+    sisi4s::Vector<> u(v);
     //if (v[3] < 0.) u= v*(-1.);
     for (int d(0); d < n; ++d) {
       if (u.approximately(m[d].v)) {
@@ -310,7 +310,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
     CTF::Vector<> *realSGs(new CTF::Vector<>(NG, *GammaGai->wrld, "realSGs"));
     (*realSGs)["G"] = (0.5) * (*realSGd)["G"] + (0.5) * (*realSGx)["G"];
     allocatedTensorArgument<>("StructureFactors",realSGs);
-    Scalar <> senergy(*Cc4s::world);
+    Scalar <> senergy(*Sisi4s::world);
     senergy[""] = (*realVG)["G"] * (*realSGs)["G"];
     double _senergy(senergy.get_val());
     LOG(0,"Singlet energy:") << _senergy << std::endl;
@@ -321,7 +321,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
     CTF::Vector<> *realSGt(new CTF::Vector<>(NG, *GammaGai->wrld, "realSGt"));
     (*realSGt)["G"] = (1.5) * (*realSGd)["G"] + (-1.5) * (*realSGx)["G"];
     allocatedTensorArgument<>("StructureFactort",realSGt);
-    Scalar <> tenergy(*Cc4s::world);
+    Scalar <> tenergy(*Sisi4s::world);
     tenergy[""] = (*realVG)["G"] * (*realSGt)["G"];
     double _tenergy(tenergy.get_val());
     LOG(0,"Triplet energy:") << _tenergy << std::endl;
@@ -543,7 +543,7 @@ void FiniteSizeCorrection::constructFibonacciGrid(double R, int N) {
 void FiniteSizeCorrection::interpolation3D() {
   Tensor<> *momenta(getTensorArgument<>("Momenta"));
   //  int NG(momenta->lens[1]);
-  cc4s::Vector<> *cartesianMomenta(new cc4s::Vector<>[NG]);
+  sisi4s::Vector<> *cartesianMomenta(new sisi4s::Vector<>[NG]);
   momenta->read_all(&cartesianMomenta[0][0]);
 
   // FIXME: give direct or reciprocal grid and calaculate all properties,
@@ -553,7 +553,7 @@ void FiniteSizeCorrection::interpolation3D() {
   // G vectors. If it is full and symmetric, the length of the sum
   // should be equal to 0. But in case where the grid is not symmetric,
   // this method will fail.
-  cc4s::Vector<> check_grid;
+  sisi4s::Vector<> check_grid;
   for (int g(0); g < NG; ++g){
     check_grid+=cartesianMomenta[g];
   }
@@ -595,7 +595,7 @@ void FiniteSizeCorrection::interpolation3D() {
   std::sort(cartesianGrid, &cartesianGrid[NG], Momentum::sortByLength);
 
   // get the 3 unit vectors;
-  cc4s::Vector<> a(cartesianGrid[1].v);
+  sisi4s::Vector<> a(cartesianGrid[1].v);
 
   // GC is the shortest vector.
   if (isArgumentGiven("shortestGvector")) {
@@ -611,12 +611,12 @@ void FiniteSizeCorrection::interpolation3D() {
   int j=2;
   //a and b should not be parallel;
   while ((a.cross(cartesianGrid[j].v)).length() < epsilon) ++j;
-  cc4s::Vector<> b(cartesianGrid[j].v);
+  sisi4s::Vector<> b(cartesianGrid[j].v);
   LOG(2, "GridSearch") << "b2=#" << j << std::endl;
   ++j;
   //a, b and c should not be on the same plane;
   while (abs((a.cross(b)).dot(cartesianGrid[j].v)) < epsilon) ++j;
-  cc4s::Vector<> c(cartesianGrid[j].v);
+  sisi4s::Vector<> c(cartesianGrid[j].v);
   LOG(2, "GridSearch") << "b3=#" << j << std::endl;
 
   // print the basis vectors
@@ -850,13 +850,13 @@ void FiniteSizeCorrection::interpolation3D() {
   }
 
   MpiCommunicator communicator(
-    Cc4s::world->rank, Cc4s::world->np, Cc4s::world->comm
+    Sisi4s::world->rank, Sisi4s::world->np, Sisi4s::world->comm
   );
   communicator.barrier();
   for (int t0(-N0); t0 <= N0; ++t0) {
     for (int t1(-N1); t1 <= N1; ++t1) {
       for (int t2(-N2); t2 <= N2; ++t2) {
-        if ((std::abs(t0+t1+t2)) % Cc4s::world->np == Cc4s::world->rank) {
+        if ((std::abs(t0+t1+t2)) % Sisi4s::world->np == Sisi4s::world->rank) {
           Vector<double> directg;
           Vector<double> ga(((a/double(N0))*double(t0)));
           Vector<double> gb(((b/double(N1))*double(t1)));
@@ -938,7 +938,7 @@ bool FiniteSizeCorrection::IsInSmallBZ(
 }
 
 double FiniteSizeCorrection::integrate(
-  cc4s::Inter1D<double> Int1d,
+  sisi4s::Inter1D<double> Int1d,
   double start, double end, int steps
 ){
   double s = 0;
@@ -949,20 +949,20 @@ double FiniteSizeCorrection::integrate(
 }
 
 double FiniteSizeCorrection::simpson(
-  cc4s::Inter1D<double> Int1d,
+  sisi4s::Inter1D<double> Int1d,
   double x, double h
 ){
   return (SGxVG(Int1d, x) + 4*SGxVG(Int1d, x+h/2.) + SGxVG(Int1d, x+h))/6.;
 }
 
 double FiniteSizeCorrection::SGxVG(
-  cc4s::Inter1D<double> Int1d, double x
+  sisi4s::Inter1D<double> Int1d, double x
 ){
   return (x > 0. && x<GC) ? (cos(x/GC*M_PI)+1)*1./2/x/x*Int1d.getValue(x)*x*x : 0.;
 }
 
 void FiniteSizeCorrection::calculateFiniteSizeCorrection() {
-  cc4s::Inter1D<double> Int1d(
+  sisi4s::Inter1D<double> Int1d(
     GLengths.size(), GLengths.data(), averageSGs.data()
   );
   Int1d.cubicSpline(0., 0., "M");

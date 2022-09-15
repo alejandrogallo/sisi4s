@@ -13,7 +13,7 @@
 #include <string>
 #include <initializer_list>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Contains all the necessary tools for an algorithm with
    * singles, doubles and triples amplitudes.

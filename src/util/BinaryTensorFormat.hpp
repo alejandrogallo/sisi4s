@@ -5,7 +5,7 @@
 #include <cstring>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   class BinaryTensorHeaderBase {
   public:
     char magic[4];

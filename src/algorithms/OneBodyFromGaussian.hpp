@@ -7,7 +7,7 @@
 #include <libint2.hpp>
 #include <Eigen/Eigen>
 
-namespace cc4s {
+namespace sisi4s {
 
   class OneBodyFromGaussian: public Algorithm {
   public:

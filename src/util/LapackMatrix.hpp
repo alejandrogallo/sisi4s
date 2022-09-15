@@ -7,7 +7,7 @@
 #include <sstream>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename F=real>
   class LapackMatrix {
   public:

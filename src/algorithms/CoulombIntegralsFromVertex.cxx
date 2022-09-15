@@ -5,11 +5,11 @@
 #include <DryTensor.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 #include <util/Emitter.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromVertex);
@@ -191,70 +191,70 @@ void CoulombIntegralsFromVertex::calculateRealIntegrals() {
   }
   Tensor<> *Vaibj(
     isArgumentGiven("PHPHCoulombIntegrals") ?
-    new Tensor<>(4, vovo.data(), syms.data(), *Cc4s::world, "Vaibj") : nullptr
+    new Tensor<>(4, vovo.data(), syms.data(), *Sisi4s::world, "Vaibj") : nullptr
   );
   Tensor<> *Vabij(
     isArgumentGiven("PPHHCoulombIntegrals") ?
-    new Tensor<>(4, vvoo.data(), syms.data(), *Cc4s::world, "Vabij") : nullptr
+    new Tensor<>(4, vvoo.data(), syms.data(), *Sisi4s::world, "Vabij") : nullptr
   );
   Tensor<> *Vijkl(
     isArgumentGiven("HHHHCoulombIntegrals") ?
-    new Tensor<>(4, oooo.data(), syms.data(), *Cc4s::world, "Vijkl") : nullptr
+    new Tensor<>(4, oooo.data(), syms.data(), *Sisi4s::world, "Vijkl") : nullptr
   );
   Tensor<> *Vijka(
     isArgumentGiven("HHHPCoulombIntegrals") ?
-    new Tensor<>(4, ooov.data(), syms.data(), *Cc4s::world, "Vijka") : nullptr
+    new Tensor<>(4, ooov.data(), syms.data(), *Sisi4s::world, "Vijka") : nullptr
   );
   Tensor<> *Vabcd(
     isArgumentGiven("PPPPCoulombIntegrals") ?
-    new Tensor<>(4, vvvv.data(), syms.data(), *Cc4s::world, "Vabcd") : nullptr
+    new Tensor<>(4, vvvv.data(), syms.data(), *Sisi4s::world, "Vabcd") : nullptr
   );
   Tensor<> *Vabci(
     isArgumentGiven("PPPHCoulombIntegrals") ?
-    new Tensor<>(4, vvvo.data(), syms.data(), *Cc4s::world, "Vabci") : nullptr
+    new Tensor<>(4, vvvo.data(), syms.data(), *Sisi4s::world, "Vabci") : nullptr
   );
 
 
   // Initialization of tensors created from already existing ones
   Tensor<> *Vaijk(
     isArgumentGiven("PHHHCoulombIntegrals") ?
-    new Tensor<>(4, vooo.data(), syms.data(), *Cc4s::world, "Vaijk") : nullptr
+    new Tensor<>(4, vooo.data(), syms.data(), *Sisi4s::world, "Vaijk") : nullptr
   );
   Tensor<> *Vijab(
     isArgumentGiven("HHPPCoulombIntegrals") ?
-    new Tensor<>(4, oovv.data(), syms.data(), *Cc4s::world, "Vijab") : nullptr
+    new Tensor<>(4, oovv.data(), syms.data(), *Sisi4s::world, "Vijab") : nullptr
   );
   Tensor<> *Vaijb(
     isArgumentGiven("PHHPCoulombIntegrals") ?
-    new Tensor<>(4, voov.data(), syms.data(), *Cc4s::world, "Vaijb") : nullptr
+    new Tensor<>(4, voov.data(), syms.data(), *Sisi4s::world, "Vaijb") : nullptr
   );
   Tensor<> *Viajk(
     isArgumentGiven("HPHHCoulombIntegrals") ?
-    new Tensor<>(4, ovoo.data(), syms.data(), *Cc4s::world, "Viajk") : nullptr
+    new Tensor<>(4, ovoo.data(), syms.data(), *Sisi4s::world, "Viajk") : nullptr
   );
   Tensor<> *Viajb(
     isArgumentGiven("HPHPCoulombIntegrals") ?
-    new Tensor<>(4, ovov.data(), syms.data(), *Cc4s::world, "Viajb") : nullptr
+    new Tensor<>(4, ovov.data(), syms.data(), *Sisi4s::world, "Viajb") : nullptr
   );
   Tensor<> *Viabc(
     isArgumentGiven("HPPPCoulombIntegrals") ?
-    new Tensor<>(4, ovvv.data(), syms.data(), *Cc4s::world, "Viabc") : nullptr
+    new Tensor<>(4, ovvv.data(), syms.data(), *Sisi4s::world, "Viabc") : nullptr
   );
   Tensor<> *Vabic(
     isArgumentGiven("PPHPCoulombIntegrals") ?
-    new Tensor<>(4, vvov.data(), syms.data(), *Cc4s::world, "Vabic") : nullptr
+    new Tensor<>(4, vvov.data(), syms.data(), *Sisi4s::world, "Vabic") : nullptr
   );
   Tensor<> *Viabj(
     isArgumentGiven("HPPHCoulombIntegrals") ?
-    new Tensor<>(4, ovvo.data(), syms.data(), *Cc4s::world, "Viabj") : nullptr
+    new Tensor<>(4, ovvo.data(), syms.data(), *Sisi4s::world, "Viabj") : nullptr
   );
   Tensor<> *Vijak(
     isArgumentGiven("HHPHCoulombIntegrals") ?
-    new Tensor<>(4, oovo.data(), syms.data(), *Cc4s::world, "Vijak") : nullptr
+    new Tensor<>(4, oovo.data(), syms.data(), *Sisi4s::world, "Vijak") : nullptr
   );
   Tensor<> *Vaibc(
     isArgumentGiven("PHPPCoulombIntegrals") ?
-    new Tensor<>(4, vovv.data(), syms.data(), *Cc4s::world, "Vijak") : nullptr
+    new Tensor<>(4, vovv.data(), syms.data(), *Sisi4s::world, "Vijak") : nullptr
   );
 
 
@@ -546,57 +546,57 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
 
   Tensor<complex> *Vabij(
     isArgumentGiven("PPHHCoulombIntegrals") ?
-      new Tensor<complex>(4, vvoo.data(), syms.data(), *Cc4s::world, "Vabij") :
+      new Tensor<complex>(4, vvoo.data(), syms.data(), *Sisi4s::world, "Vabij") :
       nullptr
   );
 
   Tensor<complex> *Vijab(
     // TODO: HHPP is always conj(Permute(PPHH))
     isArgumentGiven("HHPPCoulombIntegrals") ?
-      new Tensor<complex>(4, oovv.data(), syms.data(), *Cc4s::world, "Vijab") :
+      new Tensor<complex>(4, oovv.data(), syms.data(), *Sisi4s::world, "Vijab") :
       nullptr
   );
 
   Tensor<complex> *Vaijb(
     isArgumentGiven("PHHPCoulombIntegrals") ?
-      new Tensor<complex>(4, voov.data(), syms.data(), *Cc4s::world, "Vaijb") :
+      new Tensor<complex>(4, voov.data(), syms.data(), *Sisi4s::world, "Vaijb") :
       nullptr
   );
 
   Tensor<complex> *Vaibj(
     isArgumentGiven("PHPHCoulombIntegrals") ?
-      new Tensor<complex>(4, vovo.data(), syms.data(), *Cc4s::world, "Vaibj") :
+      new Tensor<complex>(4, vovo.data(), syms.data(), *Sisi4s::world, "Vaibj") :
       nullptr
   );
 
   Tensor<complex> *Vijkl(
     isArgumentGiven("HHHHCoulombIntegrals") ?
-      new Tensor<complex>(4, oooo.data(), syms.data(), *Cc4s::world, "Vijkl") :
+      new Tensor<complex>(4, oooo.data(), syms.data(), *Sisi4s::world, "Vijkl") :
       nullptr
   );
 
   Tensor<complex> *Vijka(
     isArgumentGiven("HHHPCoulombIntegrals") ?
-      new Tensor<complex>(4, ooov.data(), syms.data(), *Cc4s::world, "Vijka") :
+      new Tensor<complex>(4, ooov.data(), syms.data(), *Sisi4s::world, "Vijka") :
       nullptr
   );
 
   Tensor<complex> *Vaijk(
     // TODO: PHHH is always conj(Permute(HHHP))
     isArgumentGiven("PHHHCoulombIntegrals") ?
-      new Tensor<complex>(4, vooo.data(), syms.data(), *Cc4s::world, "Vaijk") :
+      new Tensor<complex>(4, vooo.data(), syms.data(), *Sisi4s::world, "Vaijk") :
       nullptr
   );
 
   Tensor<complex> *Vabcd(
     isArgumentGiven("PPPPCoulombIntegrals") ?
-      new Tensor<complex>(4, vvvv.data(), syms.data(), *Cc4s::world, "Vabcd") :
+      new Tensor<complex>(4, vvvv.data(), syms.data(), *Sisi4s::world, "Vabcd") :
       nullptr
   );
 
   Tensor<complex> *Vaibc(
     isArgumentGiven("PHPPCoulombIntegrals") ?
-      new Tensor<complex>(4, vovv.data(), syms.data(), *Cc4s::world, "Vaibc") :
+      new Tensor<complex>(4, vovv.data(), syms.data(), *Sisi4s::world, "Vaibc") :
       nullptr
   );
 
@@ -606,37 +606,37 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
 
   Tensor<complex> *Vabic(
     isArgumentGiven("PPHPCoulombIntegrals") ?
-    new Tensor<complex>(4, vvov.data(), syms.data(), *Cc4s::world, "Vabic"):
+    new Tensor<complex>(4, vvov.data(), syms.data(), *Sisi4s::world, "Vabic"):
     nullptr
   );
   Tensor<complex> *Vabci(
     isArgumentGiven("PPPHCoulombIntegrals") ?
-    new Tensor<complex>(4, vvvo.data(), syms.data(), *Cc4s::world, "Vabci"):
+    new Tensor<complex>(4, vvvo.data(), syms.data(), *Sisi4s::world, "Vabci"):
     nullptr
   );
   Tensor<complex> *Vijak(
     isArgumentGiven("HHPHCoulombIntegrals") ?
-    new Tensor<complex>(4, oovo.data(), syms.data(), *Cc4s::world, "Vijak"):
+    new Tensor<complex>(4, oovo.data(), syms.data(), *Sisi4s::world, "Vijak"):
     nullptr
   );
   Tensor<complex> *Viajk(
     isArgumentGiven("HPHHCoulombIntegrals") ?
-    new Tensor<complex>(4, ovoo.data(), syms.data(), *Cc4s::world, "Viajk"):
+    new Tensor<complex>(4, ovoo.data(), syms.data(), *Sisi4s::world, "Viajk"):
     nullptr
   );
   Tensor<complex> *Viajb(
     isArgumentGiven("HPHPCoulombIntegrals") ?
-    new Tensor<complex>(4, ovov.data(), syms.data(), *Cc4s::world, "Viajb"):
+    new Tensor<complex>(4, ovov.data(), syms.data(), *Sisi4s::world, "Viajb"):
     nullptr
   );
   Tensor<complex> *Viabj(
     isArgumentGiven("HPPHCoulombIntegrals") ?
-    new Tensor<complex>(4, ovvo.data(), syms.data(), *Cc4s::world, "Viabj"):
+    new Tensor<complex>(4, ovvo.data(), syms.data(), *Sisi4s::world, "Viabj"):
     nullptr
   );
   Tensor<complex> *Viabc(
     isArgumentGiven("HPPPCoulombIntegrals") ?
-    new Tensor<complex>(4, ovvv.data(), syms.data(), *Cc4s::world, "Viabc"):
+    new Tensor<complex>(4, ovvv.data(), syms.data(), *Sisi4s::world, "Viabc"):
     nullptr
   );
 

@@ -12,7 +12,7 @@
 #include <string>
 #include <initializer_list>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Contains all the necessary tools for an algorithm with
    * singles and doubles amplitudes. It calculates the energy from the amplitudes
@@ -100,7 +100,7 @@ namespace cc4s {
      * \param[in] R residuum tensor.
      **/
     template <typename F>
-    void dryAmplitudesFromResiduum(cc4s::DryTensor<F> &R);
+    void dryAmplitudesFromResiduum(sisi4s::DryTensor<F> &R);
 
     template <typename F>
     PTR(FockVector<F>) createAmplitudes(

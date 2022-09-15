@@ -7,7 +7,7 @@
 #include <util/CTF.hpp>
 #include <random>
 
-namespace cc4s {
+namespace sisi4s {
   template <typename F>
   class PseudoInverseSvd {
   public:

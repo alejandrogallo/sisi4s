@@ -10,7 +10,7 @@
 #include <istream>
 #include <cstring>
 
-namespace cc4s {
+namespace sisi4s {
   class Scanner {
   protected:
     static unsigned int constexpr BUFFER_SIZE = 128*1024*1024;

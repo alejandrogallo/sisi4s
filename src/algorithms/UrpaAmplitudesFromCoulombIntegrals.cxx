@@ -8,13 +8,13 @@
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
 #include <util/CTF.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UrpaAmplitudesFromCoulombIntegrals);
 
-PTR(FockVector<cc4s::complex>)
+PTR(FockVector<sisi4s::complex>)
 UrpaAmplitudesFromCoulombIntegrals::getResiduum(
   const int iterationStep,
   const PTR(const FockVector<complex>) &amplitudes
@@ -53,8 +53,8 @@ PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   int vv[] = {Nv, Nv};
   int oo[] = {No, No};
   int syms[] = {NS, NS};
-  CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms, *Cc4s::world, "Fab"));
-  CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms, *Cc4s::world, "Fij"));
+  CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab"));
+  CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij"));
   CTF::Tensor<F> *Fia;
 
   if (

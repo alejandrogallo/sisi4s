@@ -3,7 +3,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   struct TensorReduceijij: public Algorithm {
     ALGORITHM_REGISTRAR_DECLARATION(TensorReduceijij);
     TensorReduceijij(

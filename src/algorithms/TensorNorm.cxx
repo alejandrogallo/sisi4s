@@ -4,7 +4,7 @@
 #include <util/CTF.hpp>
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorNorm);

@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <algorithms/HartreeFockFromCoulombIntegrals.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <iostream>
 #include <util/CTF.hpp>
@@ -13,11 +13,11 @@
 #define LOGGER_IT(_l) LOG(_l, "HartreeFockFromCoulombIntegralsIt")
 
 
-using namespace cc4s;
+using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromCoulombIntegrals);
 
 MatrixColumnMajor
-cc4s::toEigenMatrix(CTF::Tensor<double> &ctf) {
+sisi4s::toEigenMatrix(CTF::Tensor<double> &ctf) {
   MatrixColumnMajor result(ctf.lens[0], ctf.lens[1]);
 
   const size_t size(ctf.lens[0] * ctf.lens[1]);
@@ -40,14 +40,14 @@ CTF::Tensor<double> toCtfMatrix(const MatrixColumnMajor &m) {
   int syms[] = {NS, NS}, lens[] = {(int)m.rows(), (int)m.cols()};
   LOGGER(2) << "converting into ctf vector" << std::endl;
   const int64_t size(m.rows() * m.cols())
-              , r(Cc4s::world->rank)
-              , np(Cc4s::world->np)
+              , r(Sisi4s::world->rank)
+              , np(Sisi4s::world->np)
               , chunks(size / np)
               , start(r * chunks)
               , end((np-1) == r ? size : (r+1)*chunks);
               ;
   std::vector<int64_t> indices(end - start);
-  CTF::Tensor<double> t(2, lens, syms, *Cc4s::world);
+  CTF::Tensor<double> t(2, lens, syms, *Sisi4s::world);
 
   //  make indices a range from 0 to indices.size()-1
   std::iota(indices.begin(), indices.end(), start);
@@ -58,12 +58,12 @@ CTF::Tensor<double> toCtfMatrix(const MatrixColumnMajor &m) {
 
 MatrixColumnMajor getFockMatrix(const Eigen::MatrixXd &d, CTF::Tensor<double> &V) {
   auto D(toCtfMatrix(d));
-  CTF::Tensor<double> F(2, D.lens, D.sym, *Cc4s::world);
+  CTF::Tensor<double> F(2, D.lens, D.sym, *Sisi4s::world);
   LOGGER(1) << "Hartree" << std::endl;
   F["pq"]  = ( 2.0) * D["kl"] * V["kplq"];
   LOGGER(1) << "Fock" << std::endl;
   F["pq"] += (-1.0) * D["kl"] * V["kpql"];
-  return cc4s::toEigenMatrix(F);
+  return sisi4s::toEigenMatrix(F);
 }
 
 void HartreeFockFromCoulombIntegrals::run() {
@@ -83,7 +83,7 @@ void HartreeFockFromCoulombIntegrals::run() {
                        } );
 
   const auto ctfH(getTensorArgument<double>("h"));
-  const auto H(cc4s::toEigenMatrix(*ctfH));
+  const auto H(sisi4s::toEigenMatrix(*ctfH));
   const auto V(getTensorArgument<double>("CoulombIntegrals"));
   const unsigned int No(getIntegerArgument("No"));
   const size_t Nv(getIntegerArgument("Nv", V->lens[0] - No));
@@ -102,7 +102,7 @@ void HartreeFockFromCoulombIntegrals::run() {
   MatrixColumnMajor S(MatrixColumnMajor::Identity(Np, Np));
   if (isArgumentGiven("OverlapMatrix")) {
     LOGGER(1) << "Setting provided OverlapMatrix" << std::endl;
-    S = cc4s::toEigenMatrix(*getTensorArgument<double>("OverlapMatrix"));
+    S = sisi4s::toEigenMatrix(*getTensorArgument<double>("OverlapMatrix"));
   }
 
   LOGGER(1) << "mem:Fock "
@@ -118,7 +118,7 @@ void HartreeFockFromCoulombIntegrals::run() {
   IF_GIVEN("initialOrbitalCoefficients",
     LOGGER(1) << "with initialOrbitalCoefficients" << std::endl;
     const auto ic_ctf(getTensorArgument<double>("initialOrbitalCoefficients"));
-    const auto ic(cc4s::toEigenMatrix(*ic_ctf));
+    const auto ic(sisi4s::toEigenMatrix(*ic_ctf));
     const auto C_occ(ic.leftCols(No));
     D = C_occ * C_occ.transpose();
   ) else {
@@ -215,14 +215,14 @@ void HartreeFockFromCoulombIntegrals::run() {
   LOGGER(1) << "energy=" << ehf << std::endl;
 
   // export stuff
-  const int rank_m = int(Cc4s::world->rank == 0); // rank mask
+  const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
   int syms[] = {NS, NS};
   int o[] = {(int)No}, v[] = {(int)Nv};
   std::vector<int64_t> indices;
 
   IF_GIVEN("FockMatrix",
     int pp[] = {(int)Np, (int)Np};
-    auto f(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "F"));
+    auto f(new CTF::Tensor<double>(2, pp, syms, *Sisi4s::world, "F"));
     indices.resize(rank_m * Np * Np);
     std::iota(indices.begin(), indices.end(), 0);
     f->write(indices.size(), indices.data(), &fockMatrix(0));
@@ -231,7 +231,7 @@ void HartreeFockFromCoulombIntegrals::run() {
 
   IF_GIVEN("OrbitalCoefficients",
     int pp[] = {(int)Np, (int)Np};
-    auto ctfcs(new CTF::Tensor<double>(2, pp, syms, *Cc4s::world, "C"));
+    auto ctfcs(new CTF::Tensor<double>(2, pp, syms, *Sisi4s::world, "C"));
     indices.resize(rank_m * Np * Np);
     std::iota(indices.begin(), indices.end(), 0);
     ctfcs->write(indices.size(), indices.data(), &C(0));
@@ -242,7 +242,7 @@ void HartreeFockFromCoulombIntegrals::run() {
     // epsilon for holes
     indices.resize(rank_m * No);
     std::iota(indices.begin(), indices.end(), 0);
-    auto epsi(new CTF::Tensor<double>(1, o, syms, *Cc4s::world, "epsi"));
+    auto epsi(new CTF::Tensor<double>(1, o, syms, *Sisi4s::world, "epsi"));
     epsi->write(indices.size(), indices.data(), &eps(0));
     allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   )
@@ -251,7 +251,7 @@ void HartreeFockFromCoulombIntegrals::run() {
     // epsilon for particles
     indices.resize(rank_m * Nv);
     std::iota(indices.begin(), indices.end(), 0);
-    auto epsa(new CTF::Tensor<double>(1, v, syms, *Cc4s::world, "epsa"));
+    auto epsa(new CTF::Tensor<double>(1, v, syms, *Sisi4s::world, "epsa"));
     epsa->write(indices.size(), indices.data(), &eps(0) + No);
     allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
   )

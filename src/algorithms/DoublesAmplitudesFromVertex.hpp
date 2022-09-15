@@ -4,7 +4,7 @@
 
 #include <algorithms/Algorithm.hpp>
 
-namespace cc4s {
+namespace sisi4s {
   /**
    * \brief Caclulates the doubles amplitudes \f$T_{ij}^{ab}\f$
    * from the doubles amplitudes Vertex \f$Y^a_{iL}\f$.

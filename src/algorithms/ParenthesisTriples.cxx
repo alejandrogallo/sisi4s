@@ -2,7 +2,7 @@
 #include <util/Log.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/BinaryTensorFormat.hpp>
-#include <Cc4s.hpp>
+#include <Sisi4s.hpp>
 #include <util/CTF.hpp>
 #include <fstream>
 #include <extern/Lapack.hpp>
@@ -13,7 +13,7 @@
 
 
 using namespace CTF;
-using namespace cc4s;
+using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParenthesisTriples);
 
@@ -757,7 +757,7 @@ void ParenthesisTriples::run(){
   LOG(0,"doubles Time") << doublesSeconds << std::endl;
   LOG(0,"energy  Time") << energySeconds << std::endl;
   LOG(0,"singles Time") << singlesSeconds << std::endl;
-  Scalar<double> ctfEnergy(*Cc4s::world);
+  Scalar<double> ctfEnergy(*Sisi4s::world);
   ctfEnergy[""] = energy;
   //ctfEnergy.set_val(energy);  // ctfBug
   setRealArgument("Energy", ctfEnergy);

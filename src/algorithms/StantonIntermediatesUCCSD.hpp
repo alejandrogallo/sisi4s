@@ -5,7 +5,7 @@
 #include <math/Complex.hpp>
 #include <util/CTF.hpp>
 
-namespace cc4s {
+namespace sisi4s {
 
 /*
  * This is the code version of:

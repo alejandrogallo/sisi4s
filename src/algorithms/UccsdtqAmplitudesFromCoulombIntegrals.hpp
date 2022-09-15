@@ -8,7 +8,7 @@
 #include <memory>
 #include <string>
 
-namespace cc4s {
+namespace sisi4s {
   class UccsdtqAmplitudesFromCoulombIntegrals:
     public ClusterSinglesDoublesTriplesQuadruplesAlgorithm {
   public:

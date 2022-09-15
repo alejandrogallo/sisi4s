@@ -12,15 +12,15 @@ extern "C" {
     const char *jobvLeft,
     const char *jobvRight,
     const int *n,
-    cc4s::Float64 *a,
+    sisi4s::Float64 *a,
     const int *lda,
-    cc4s::Float64 *wReal,
-    cc4s::Float64 *wImag,
-    cc4s::Float64 *vLeft,
+    sisi4s::Float64 *wReal,
+    sisi4s::Float64 *wImag,
+    sisi4s::Float64 *vLeft,
     const int *ldvLeft,
-    cc4s::Float64 *vRight,
+    sisi4s::Float64 *vRight,
     const int *ldvRight,
-    cc4s::Float64 *work,
+    sisi4s::Float64 *work,
     const int *workSize,
     int *info
   );
@@ -28,26 +28,26 @@ extern "C" {
     const char *jobvLeft,
     const char *jobvRight,
     const int *n,
-    const cc4s::Complex64 *a,
+    const sisi4s::Complex64 *a,
     const int *lda,
-    cc4s::Complex64 *w,
-    cc4s::Complex64 *vLeft,
+    sisi4s::Complex64 *w,
+    sisi4s::Complex64 *vLeft,
     const int *ldvLeft,
-    cc4s::Complex64 *vRight,
+    sisi4s::Complex64 *vRight,
     const int *ldvRight,
-    cc4s::Complex64 *work,
+    sisi4s::Complex64 *work,
     const int *workSize,
-    cc4s::Float64 *rwork,
+    sisi4s::Float64 *rwork,
     int *info
   );
   void dsyev_(
     const char *jobz,
     const char *uplo,
     const int *n,
-    cc4s::Float64 *a,
+    sisi4s::Float64 *a,
     const int *lda,
-    cc4s::Float64 *w,
-    cc4s::Float64 *work,
+    sisi4s::Float64 *w,
+    sisi4s::Float64 *work,
     const int *lwork,
     int *info
   );
@@ -55,19 +55,19 @@ extern "C" {
     const char *uplo,
     const int *n,
     const int *m,
-    cc4s::Float64 *a,
+    sisi4s::Float64 *a,
     const int *lda,
     const int *ipiv,
-    cc4s::Float64 *b,
+    sisi4s::Float64 *b,
     const int *ldb,
-    cc4s::Float64 *work,
+    sisi4s::Float64 *work,
     const int *lwork,
     const int *info
   );
   void dgetrf_(
     const int *m,
     const int *n,
-    cc4s::Float64 *a,
+    sisi4s::Float64 *a,
     const int *lda,
     const int *rowPermutation,
     int *info
@@ -75,26 +75,26 @@ extern "C" {
   void zgetrf_(
     const int *m,
     const int *n,
-    cc4s::Complex64 *a,
+    sisi4s::Complex64 *a,
     const int *lda,
     const int *rowPermutation,
     int *info
   );
   void dgetri_(
     const int *n,
-    cc4s::Float64 *a,
+    sisi4s::Float64 *a,
     const int *lda,
     const int *rowPermutation,
-    cc4s::Float64 *work,
+    sisi4s::Float64 *work,
     const int *workSize,
     int *info
   );
   void zgetri_(
     const int *n,
-    cc4s::Complex64 *a,
+    sisi4s::Complex64 *a,
     const int *lda,
     const int *rowPermutation,
-    cc4s::Complex64 *work,
+    sisi4s::Complex64 *work,
     const int *workSize,
     int *info
   );
