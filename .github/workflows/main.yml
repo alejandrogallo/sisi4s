@@ -11,8 +11,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      WITH_CURRENT_SHELL: "nix-shell --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
-      WITH_SHELL: "nix-shell ../../shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
+      WITH_CURRENT_SHELL: "nix-shell etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
+      WITH_SHELL: "nix-shell ../../etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
 
 
     strategy:
@@ -47,8 +47,8 @@ jobs:
     - name: Install nix dependencies
       run: $WITH_CURRENT_SHELL 'env'
 
-    - name: Make configure script
-      run: $WITH_CURRENT_SHELL 'autoreconf -sfiv'
+    - name: Bootstraping
+      run: $WITH_CURRENT_SHELL './bootstrap.sh'
 
     - name: Configure (${{matrix.compiler}})
       run: |
@@ -79,6 +79,12 @@ jobs:
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
         $WITH_SHELL 'make yaml'
+
+    - name: Extern (${{matrix.compiler}})
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make extern'
 
     - name: Make main (${{matrix.compiler}})
       run: |
