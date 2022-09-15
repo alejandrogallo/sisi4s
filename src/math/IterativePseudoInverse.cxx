@@ -17,8 +17,9 @@ IterativePseudoInverse<F>::IterativePseudoInverse(
   Tensor<F> const &matrix_, F accuracy
 ):
   matrix(matrix_),
-  square(
-    2, std::array<int,2>{{matrix_.lens[0], matrix_.lens[0]}}.data(),
+  square(2,
+         std::array<int,2>{{(int)matrix_.lens[0],
+                            (int)matrix_.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix_.wrld
   ),
   inverse(
@@ -27,8 +28,9 @@ IterativePseudoInverse<F>::IterativePseudoInverse(
   ),
   alpha()
 {
-  Tensor<F> conjugate(
-    2, std::array<int,2>{{matrix.lens[1], matrix.lens[0]}}.data(),
+  Tensor<F> conjugate(2,
+                      std::array<int,2>{{(int)matrix.lens[1],
+                                         (int)matrix.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix.wrld
   );
   Univar_Function<F> fConj(&conj<F>);
@@ -61,14 +63,16 @@ IterativePseudoInverse<F>::IterativePseudoInverse(
 template <typename F>
 void IterativePseudoInverse<F>::iterate(F accuracy) {
   Scalar<F> s;
-  Tensor<F> conjugate(
-    2, std::array<int,2>{{matrix.lens[1], matrix.lens[0]}}.data(),
+  Tensor<F> conjugate(2,
+                      std::array<int,2>{{(int)matrix.lens[1],
+                                         (int)matrix.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix.wrld
   );
   Univar_Function<F> fConj(&conj<F>);
   conjugate.sum(1.0,matrix,"ij", 0.0,"ji",fConj);
-  Tensor<F> sqr(
-    2, std::array<int,2>{{matrix.lens[0], matrix.lens[0]}}.data(),
+  Tensor<F> sqr(2,
+                std::array<int,2>{{(int)matrix.lens[0],
+                                     (int)matrix.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix.wrld
   );
   F remainder(1.0), minRemainder(std::numeric_limits<F>::infinity());
@@ -136,10 +140,10 @@ Tensor<F> &IterativePseudoInverse<F>::get() {
 
 // instantiate
 template
-class IterativePseudoInverse<sisi4s::Float64>;
+class sisi4s::IterativePseudoInverse<sisi4s::Float64>;
 
 template
-class IterativePseudoInverse<sisi4s::Complex64>;
+class sisi4s::IterativePseudoInverse<sisi4s::Complex64>;
 
 template <typename F>
 void IterativePseudoInverse<F>::generateHilbertMatrix(Tensor<F> &m) {
@@ -193,9 +197,9 @@ void IterativePseudoInverse<F>::test(World *world) {
 
 // instantiate
 template
-void IterativePseudoInverse<sisi4s::Float64>::test(World *world);
+void sisi4s::IterativePseudoInverse<sisi4s::Float64>::test(World *world);
 template
-void IterativePseudoInverse<sisi4s::Complex64>::test(World *world);
+void sisi4s::IterativePseudoInverse<sisi4s::Complex64>::test(World *world);
 
 
 template <typename F>
@@ -226,8 +230,8 @@ DryTensor<F> &DryIterativePseudoInverse<F>::get() {
 
 // instantiate
 template
-class DryIterativePseudoInverse<sisi4s::Float64>;
+class sisi4s::DryIterativePseudoInverse<sisi4s::Float64>;
 
 template
-class DryIterativePseudoInverse<sisi4s::Complex64>;
+class sisi4s::DryIterativePseudoInverse<sisi4s::Complex64>;
 

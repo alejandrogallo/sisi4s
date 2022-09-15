@@ -57,6 +57,6 @@ PTR(const FockVector<F>) LinearMixer<F>::getResiduum() {
 }
 
 // instantiate
-template class LinearMixer<sisi4s::Float64>;
-template class LinearMixer<sisi4s::Complex64>;
+template class sisi4s::LinearMixer<sisi4s::Float64>;
+template class sisi4s::LinearMixer<sisi4s::Complex64>;
 
