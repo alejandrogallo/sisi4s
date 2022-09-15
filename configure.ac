@@ -261,6 +261,8 @@ dnl -----------------------------------------------------------------------
 AC_CONFIG_FILES([
                  Makefile
                  src/Makefile
+                 docs/Makefile
+                 docs/Doxyfile
                  .dir-locals.el
                ])
 AC_CONFIG_HEADERS([config.h])
