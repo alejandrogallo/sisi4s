@@ -77,7 +77,7 @@ InputFileParser<InputFileFormat::YAML>::parse() {
 // Hummel Parser //////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-InputFileParser<InputFileFormat::HUMMEL>::InputFileParser(
+InputFileParser<InputFileFormat::CC4S>::InputFileParser(
   std::string const &fileName
 ): stream(new std::ifstream(fileName.c_str()), fileName) {
   std::ifstream *fileStream(dynamic_cast<std::ifstream *>(stream.getStream()));
@@ -88,9 +88,9 @@ InputFileParser<InputFileFormat::HUMMEL>::InputFileParser(
   }
 }
 
-InputFileParser<InputFileFormat::HUMMEL>::~InputFileParser() {}
+InputFileParser<InputFileFormat::CC4S>::~InputFileParser() {}
 
-std::vector<Algorithm *> InputFileParser<InputFileFormat::HUMMEL>::parse() {
+std::vector<Algorithm *> InputFileParser<InputFileFormat::CC4S>::parse() {
   std::vector<Algorithm *> algorithms;
   skipIrrelevantCharacters();
   while (stream.peek() > 0) {
@@ -100,7 +100,7 @@ std::vector<Algorithm *> InputFileParser<InputFileFormat::HUMMEL>::parse() {
   return algorithms;
 }
 
-Algorithm* InputFileParser<InputFileFormat::HUMMEL>::parseAlgorithm() {
+Algorithm* InputFileParser<InputFileFormat::CC4S>::parseAlgorithm() {
   int line(stream.getLine()), column(stream.getColumn());
   // an algorithm starts with the name
   std::string algorithmName(parseSymbolName());
@@ -127,7 +127,7 @@ Algorithm* InputFileParser<InputFileFormat::HUMMEL>::parseAlgorithm() {
   return algorithm;
 }
 
-std::vector<Argument> InputFileParser<InputFileFormat::HUMMEL>::parseArguments() {
+std::vector<Argument> InputFileParser<InputFileFormat::CC4S>::parseArguments() {
   std::vector<Argument> arguments;
   expectCharacter('[');
   skipIrrelevantCharacters();
@@ -139,12 +139,12 @@ std::vector<Argument> InputFileParser<InputFileFormat::HUMMEL>::parseArguments()
   return arguments;
 }
 
-Argument InputFileParser<InputFileFormat::HUMMEL>::parseArgument() {
+Argument InputFileParser<InputFileFormat::CC4S>::parseArgument() {
   if (stream.peek() == '(') return parseExplicitlyNamedArgument();
   else return parseImplicitlyNamedArgument();
 }
 
-Argument InputFileParser<InputFileFormat::HUMMEL>::parseImplicitlyNamedArgument() {
+Argument InputFileParser<InputFileFormat::CC4S>::parseImplicitlyNamedArgument() {
   // TODO: store debug info for later reference in case of errors
   std::string argumentName(parseSymbolName());
   Data *data(Data::get(argumentName));
@@ -152,7 +152,7 @@ Argument InputFileParser<InputFileFormat::HUMMEL>::parseImplicitlyNamedArgument(
   return Argument(argumentName, argumentName);
 }
 
-Argument InputFileParser<InputFileFormat::HUMMEL>::parseExplicitlyNamedArgument() {
+Argument InputFileParser<InputFileFormat::CC4S>::parseExplicitlyNamedArgument() {
   // TODO: store debug info for later reference in case of errors
   // first character must be '('
   stream.get();
@@ -165,7 +165,7 @@ Argument InputFileParser<InputFileFormat::HUMMEL>::parseExplicitlyNamedArgument(
   return Argument(argumentName, dataName);
 }
 
-std::string InputFileParser<InputFileFormat::HUMMEL>::parseData() {
+std::string InputFileParser<InputFileFormat::CC4S>::parseData() {
   char character(stream.peek());
   if (isalpha(character)) {
     return parseSymbol()->getName();
@@ -181,7 +181,7 @@ std::string InputFileParser<InputFileFormat::HUMMEL>::parseData() {
   }
 }
 
-std::string InputFileParser<InputFileFormat::HUMMEL>::parseSymbolName() {
+std::string InputFileParser<InputFileFormat::CC4S>::parseSymbolName() {
   std::stringstream sStream;
   // the first character is expected to be an alphabetic character
   sStream.put(stream.get());
@@ -192,13 +192,13 @@ std::string InputFileParser<InputFileFormat::HUMMEL>::parseSymbolName() {
   return sStream.str();
 }
 
-Data *InputFileParser<InputFileFormat::HUMMEL>::parseSymbol() {
+Data *InputFileParser<InputFileFormat::CC4S>::parseSymbol() {
   std::string symbolName(parseSymbolName());
   Data *data(Data::get(symbolName));
   return data ? data : new Data(symbolName);
 }
 
-TextData *InputFileParser<InputFileFormat::HUMMEL>::parseText() {
+TextData *InputFileParser<InputFileFormat::CC4S>::parseText() {
   std::stringstream sStream;
   // TODO: parse escape sequences
   // the first character is expected to be a double quote '"'
@@ -211,7 +211,7 @@ TextData *InputFileParser<InputFileFormat::HUMMEL>::parseText() {
   return new TextData(sStream.str());
 }
 
-NumericData *InputFileParser<InputFileFormat::HUMMEL>::parseNumber() {
+NumericData *InputFileParser<InputFileFormat::CC4S>::parseNumber() {
   // the first character can be a sign
   int64_t sign(1);
   switch (stream.peek()) {
@@ -236,7 +236,7 @@ NumericData *InputFileParser<InputFileFormat::HUMMEL>::parseNumber() {
   else return new IntegerData(sign * integer);
 }
 
-RealData *InputFileParser<InputFileFormat::HUMMEL>::parseReal(
+RealData *InputFileParser<InputFileFormat::CC4S>::parseReal(
   const int64_t sign, const int64_t integerPart
 ) {
   // the first character is expected to be the decimal point
@@ -252,7 +252,7 @@ RealData *InputFileParser<InputFileFormat::HUMMEL>::parseReal(
   );
 }
 
-void InputFileParser<InputFileFormat::HUMMEL>::skipIrrelevantCharacters() {
+void InputFileParser<InputFileFormat::CC4S>::skipIrrelevantCharacters() {
   skipWhiteSpaceCharacters();
   while (stream.peek() == '%') {
     skipComment();
@@ -260,16 +260,16 @@ void InputFileParser<InputFileFormat::HUMMEL>::skipIrrelevantCharacters() {
   }
 }
 
-void InputFileParser<InputFileFormat::HUMMEL>::skipComment() {
+void InputFileParser<InputFileFormat::CC4S>::skipComment() {
   char c;
   while ((c = stream.get()) > 0 && c != '\n');
 }
 
-void InputFileParser<InputFileFormat::HUMMEL>::skipWhiteSpaceCharacters() {
+void InputFileParser<InputFileFormat::CC4S>::skipWhiteSpaceCharacters() {
   while (isspace(stream.peek())) stream.get();
 }
 
-void InputFileParser<InputFileFormat::HUMMEL>::expectCharacter(char const expectedCharacter) {
+void InputFileParser<InputFileFormat::CC4S>::expectCharacter(char const expectedCharacter) {
   char character(stream.peek());
   if (character != expectedCharacter) {
     std::stringstream sStream;

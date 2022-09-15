@@ -38,7 +38,7 @@ void Sisi4s::run() {
       << "Consider converting your input file to the yaml DSL using the"
       << " cc4s-to-yaml.py tool found in your package source."
       << "\n";
-    InputFileParser<InputFileFormat::HUMMEL> parser(options->inFile);
+    InputFileParser<InputFileFormat::CC4S> parser(options->inFile);
     algorithms = parser.parse();
   } else {
     InputFileParser<InputFileFormat::YAML> parser(options->inFile);

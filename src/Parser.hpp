@@ -11,7 +11,7 @@ namespace sisi4s {
 
   enum InputFileFormat {
     YAML,
-    HUMMEL
+    CC4S
   };
 
   /**
@@ -45,7 +45,7 @@ namespace sisi4s {
   };
 
   template<>
-  class InputFileParser<InputFileFormat::HUMMEL> {
+  class InputFileParser<InputFileFormat::CC4S> {
   public:
 
     InputFileParser(std::string const &fileName);
