@@ -1,5 +1,5 @@
 { compiler ? "gcc"
-, pkgs ? import <nixpkgs> {} 
+, pkgs ? import <nixpkgs> {}
 , mkl ? false
 , cuda ? false
 , docs ? true
@@ -11,7 +11,7 @@ let
     config.allowUnfree = true;
   };
 
-  openblas = import ./openblas.nix { inherit pkgs; }; 
+  openblas = import ./openblas.nix { inherit pkgs; };
 
   mkl-pkg = import ./mkl.nix { pkgs = unfree-pkgs; };
   cuda-pkg = if cuda then (import ./cuda.nix { pkgs = unfree-pkgs; }) else {};

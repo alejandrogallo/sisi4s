@@ -1,5 +1,5 @@
-EMACS = emacs -q --batch --load $(top_srcdir)/config.el
-EMACS_HTML = $(EMACS) --load $(top_srcdir)/etc/emacs/html.el
+EMACS = emacs -q --batch --load config.el
+EMACS_HTML = $(EMACS)
 
 define tangle
 $(EMACS) $(1) --eval '(org-babel-tangle)'

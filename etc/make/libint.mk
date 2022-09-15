@@ -16,6 +16,7 @@ ${LIBINT_STATIC_LIB}: $(LIBINT_CONFIGURE)
 	$< \
 		--with-max-am=${LIBINT_MAX_AM} \
 		--prefix=$(abspath ${LIBINT_BUILD_PATH}) \
+		--with-boost=${BOOST_CPATH} \
 		CXX="$(CXX)" \
 		CXXFLAGS="-std=c++11" && \
 	$(MAKE) install

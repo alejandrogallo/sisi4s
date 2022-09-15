@@ -263,6 +263,9 @@ AC_CONFIG_FILES([
                  src/Makefile
                  docs/Makefile
                  docs/Doxyfile
+                 docs/config.el
+                 docs/conf.py
+                 docs/manual.org:docs/manual.org
                  .dir-locals.el
                ])
 AC_CONFIG_HEADERS([config.h])
