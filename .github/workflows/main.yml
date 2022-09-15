@@ -74,11 +74,11 @@ jobs:
         cd build/${{matrix.compiler}}
         $WITH_SHELL 'make eigen'
 
-    - name: YAML (${{matrix.compiler}})
+    - name: YAMLCPP (${{matrix.compiler}})
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make yaml'
+        $WITH_SHELL 'make yamlcpp'
 
     - name: Extern (${{matrix.compiler}})
       run: |
