@@ -30,6 +30,7 @@
  *
  */
 #include <string>
+#include <system_error>
 #include <vector>
 #include <libint2.hpp>
 #include <algorithms/HartreeFockFromGaussian.hpp>
