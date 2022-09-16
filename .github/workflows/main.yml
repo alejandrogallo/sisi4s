@@ -96,7 +96,6 @@ jobs:
     runs-on: ubuntu-latest
     # needs: build
     env:
-      WITH_CURRENT_SHELL: "nix-shell etc/env/nix/shell.nix --argstr compiler gcc10 --run"
       WITH_SHELL: "nix-shell ../etc/env/nix/shell.nix --argstr compiler gcc10 --run"
     steps:
     - uses: actions/checkout@v2.3.4
@@ -107,29 +106,29 @@ jobs:
 
     - name: Configure
       run: |
-        ${WITH_CURRENT_SHELL} './bootstrap.sh'
-        ${WITH_CURRENT_SHELL} './configure'
-        ${WITH_CURRENT_SHELL} 'emacs --version'
-        ${WITH_CURRENT_SHELL} 'python --version'
-        ${WITH_CURRENT_SHELL} 'sphinx-build --version'
+        mkdir -p build && cd build
+        ${WITH_SHELL} '../bootstrap.sh'
+        ${WITH_SHELL} '../configure --enable-docs'
+        ${WITH_SHELL} 'emacs --version'
+        ${WITH_SHELL} 'python --version'
+        ${WITH_SHELL} 'sphinx-build --version'
 
     - name: doxygen
       run: |
-        cd docs
-        ${WITH_SHELL} 'make doxygen'
+        mkdir -p build && cd build
+        ${WITH_SHELL} 'make -C docs doxygen'
 
     - name: sphinx
       run: |
-        cd docs
-        ${WITH_SHELL} 'make sphinx'
+        mkdir -p build && cd build
+        ${WITH_SHELL} 'make -C docs sphinx'
 
     - name: nojekyll
       run: |
-        cd docs/build
-        touch .nojekyll
+        touch build/docs/build/.nojekyll
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
          branch: gh-pages
-         folder: ./docs/build
+         folder: ./build/docs/build
