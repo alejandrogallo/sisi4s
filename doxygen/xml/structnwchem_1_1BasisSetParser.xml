@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structnwchem_1_1BasisSetParser" kind="struct" language="C++" prot="public">
+    <compoundname>nwchem::BasisSetParser</compoundname>
+    <includes refid="BasisParser_8hpp" local="no">BasisParser.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" prot="public" static="no" mutable="no">
+        <type>std::smatch</type>
+        <definition>std::smatch nwchem::BasisSetParser::match</definition>
+        <argsstring></argsstring>
+        <name>match</name>
+        <qualifiedname>nwchem::BasisSetParser::match</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.hpp" line="21" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.hpp" bodystart="21" bodyend="-1"/>
+        <referencedby refid="structnwchem_1_1BasisSetParser_1a897f82a03eca6f0768e6fee1da071dc5" compoundref="BasisParser_8cxx" startline="67" endline="70">matches</referencedby>
+        <referencedby refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" compoundref="BasisParser_8cxx" startline="31" endline="65">parseBasis</referencedby>
+        <referencedby refid="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" compoundref="BasisParser_8cxx" startline="72" endline="96">parseFile</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structnwchem_1_1BasisSetParser_1a897f82a03eca6f0768e6fee1da071dc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BasisSetParser::matches</definition>
+        <argsstring>(const std::string &amp;t, const Regex &amp;r)</argsstring>
+        <name>matches</name>
+        <qualifiedname>nwchem::BasisSetParser::matches</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structpars_1_1Regex" kindref="compound">Regex</ref> &amp;</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.hpp" line="22" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.cxx" bodystart="67" bodyend="70"/>
+        <references refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" compoundref="BasisParser_8hpp" startline="21">match</references>
+        <references refid="structpars_1_1Regex_1a79e1cba281b5ea7efe06b5de947037ff" compoundref="Parsing_8hpp" startline="46">pars::Regex::r</references>
+        <referencedby refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" compoundref="BasisParser_8cxx" startline="31" endline="65">parseBasis</referencedby>
+        <referencedby refid="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" compoundref="BasisParser_8cxx" startline="72" endline="96">parseFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structBasis" kindref="compound">Basis</ref></type>
+        <definition>Basis BasisSetParser::parseBasis</definition>
+        <argsstring>(std::fstream &amp;f, const std::string name)</argsstring>
+        <name>parseBasis</name>
+        <qualifiedname>nwchem::BasisSetParser::parseBasis</qualifiedname>
+        <param>
+          <type>std::fstream &amp;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>const std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.hpp" line="23" column="11" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.cxx" bodystart="31" bodyend="65"/>
+        <references refid="BasisParser_8cxx_1a156ca0deea9c63546408e182a101a2ac" compoundref="BasisParser_8cxx" startline="13">atom</references>
+        <references refid="BasisParser_8cxx_1a3a10a95689662bca17ffae75d2d89e4d" compoundref="BasisParser_8cxx" startline="28">basis_end</references>
+        <references refid="namespaceam_1ac6b40085587bff5481ac689700436e24" compoundref="AngularMomentum_8cxx" startline="8" endline="14">am::fromString</references>
+        <references refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" compoundref="BasisParser_8hpp" startline="21">match</references>
+        <references refid="structnwchem_1_1BasisSetParser_1a897f82a03eca6f0768e6fee1da071dc5" compoundref="BasisParser_8cxx" startline="67" endline="70">matches</references>
+        <references refid="BasisParser_8cxx_1aae3bb147b0ca5e918a953b1e1475134d" compoundref="BasisParser_8cxx" startline="19">shell_content</references>
+        <references refid="BasisParser_8cxx_1a1c02838e49034aa87346b4b4d9a3f770" compoundref="BasisParser_8cxx" startline="16">shell_header</references>
+        <referencedby refid="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" compoundref="BasisParser_8cxx" startline="72" endline="96">parseFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">BasisSet</ref></type>
+        <definition>BasisSet BasisSetParser::parseFile</definition>
+        <argsstring>(const std::string &amp;fileName)</argsstring>
+        <name>parseFile</name>
+        <qualifiedname>nwchem::BasisSetParser::parseFile</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.hpp" line="24" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.cxx" bodystart="72" bodyend="96"/>
+        <references refid="BasisParser_8cxx_1a0c3fb5f0d169dea12886e9608370234d" compoundref="BasisParser_8cxx" startline="24">basis_header</references>
+        <references refid="BasisParser_8cxx_1aaa89c7043faa998d89436713fc8350cb" compoundref="BasisParser_8cxx" startline="12">comment</references>
+        <references refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" compoundref="BasisParser_8hpp" startline="21">match</references>
+        <references refid="structnwchem_1_1BasisSetParser_1a897f82a03eca6f0768e6fee1da071dc5" compoundref="BasisParser_8cxx" startline="67" endline="70">matches</references>
+        <references refid="BasisParser_8cxx_1a1049798b7b6e5d559b5a967cf0de11f5" compoundref="BasisParser_8cxx" startline="11">no_line</references>
+        <references refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" compoundref="BasisParser_8cxx" startline="31" endline="65">parseBasis</references>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">CLI::detail::str</references>
+        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="144" endline="429">sisi4s::MoReader::run</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>nwchem::BasisSetParser</label>
+        <link refid="structnwchem_1_1BasisSetParser"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.hpp" line="20" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.hpp" bodystart="20" bodyend="25"/>
+    <listofallmembers>
+      <member refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" prot="public" virt="non-virtual"><scope>nwchem::BasisSetParser</scope><name>match</name></member>
+      <member refid="structnwchem_1_1BasisSetParser_1a897f82a03eca6f0768e6fee1da071dc5" prot="public" virt="non-virtual"><scope>nwchem::BasisSetParser</scope><name>matches</name></member>
+      <member refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" prot="public" virt="non-virtual"><scope>nwchem::BasisSetParser</scope><name>parseBasis</name></member>
+      <member refid="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" prot="public" virt="non-virtual"><scope>nwchem::BasisSetParser</scope><name>parseFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,628 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1OptionBase" kind="class" language="C++" prot="public">
+    <compoundname>CLI::OptionBase</compoundname>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename CRTP</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCLI_1_1OptionBase_1abef5ad3ecd8fa2fbade042837cae7404" prot="private" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend CLI::OptionBase&lt; CRTP &gt;::App</definition>
+        <argsstring></argsstring>
+        <name>App</name>
+        <qualifiedname>CLI::OptionBase::App</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3953" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3953" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classCLI_1_1OptionBase_1ad0d8bd0637023f7d87a8e95315e8fb21" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string CLI::OptionBase&lt; CRTP &gt;::group_</definition>
+        <argsstring></argsstring>
+        <name>group_</name>
+        <qualifiedname>CLI::OptionBase::group_</qualifiedname>
+        <initializer>= std::string(&quot;Options&quot;)</initializer>
+        <briefdescription>
+<para>The group membership. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3957" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3957" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1OptionBase_1abad838fd3da11f840a40536a279912ac" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::required_</definition>
+        <argsstring></argsstring>
+        <name>required_</name>
+        <qualifiedname>CLI::OptionBase::required_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>True if this is a required option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3960" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3960" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1App_1a3b564aa8c90f25152f5379c661ab82b1" compoundref="CLI11_8hpp" startline="7747" endline="7844">CLI::App::_parse_positional</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1OptionBase_1a616d0aa1bd4e540733e24f88bc17cd3a" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::ignore_case_</definition>
+        <argsstring></argsstring>
+        <name>ignore_case_</name>
+        <qualifiedname>CLI::OptionBase::ignore_case_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Ignore the case when matching (option, not value) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3963" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3963" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1OptionBase_1adafc24528125977c500b9b0c7b5068bf" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::ignore_underscore_</definition>
+        <argsstring></argsstring>
+        <name>ignore_underscore_</name>
+        <qualifiedname>CLI::OptionBase::ignore_underscore_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Ignore underscores when matching (option, not value) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3966" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3966" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1OptionBase_1a86801bb8560b37e40ea60815871a22ee" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::configurable_</definition>
+        <argsstring></argsstring>
+        <name>configurable_</name>
+        <qualifiedname>CLI::OptionBase::configurable_</qualifiedname>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>Allow this option to be given in a configuration file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3969" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3969" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1OptionBase_1ab62f608c0957e32ccf56f2834aa574c1" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::disable_flag_override_</definition>
+        <argsstring></argsstring>
+        <name>disable_flag_override_</name>
+        <qualifiedname>CLI::OptionBase::disable_flag_override_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Disable overriding flag values with &apos;=value&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3972" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3972" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1OptionBase_1ac4164d93e2b8e59b2de24dad04a9f34b" prot="protected" static="no" mutable="no">
+        <type>char</type>
+        <definition>char CLI::OptionBase&lt; CRTP &gt;::delimiter_</definition>
+        <argsstring></argsstring>
+        <name>delimiter_</name>
+        <qualifiedname>CLI::OptionBase::delimiter_</qualifiedname>
+        <initializer>{&apos;\0&apos;}</initializer>
+        <briefdescription>
+<para>Specify a delimiter character for vector arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3975" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3975" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1OptionBase_1a23aca05ffa9c2d3fbba10b5434cdba64" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::always_capture_default_</definition>
+        <argsstring></argsstring>
+        <name>always_capture_default_</name>
+        <qualifiedname>CLI::OptionBase::always_capture_default_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Automatically capture default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3978" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3978" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1OptionBase_1a2c5483d3c992baad97beed3de2b82b05" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2b" kindref="member">MultiOptionPolicy</ref></type>
+        <definition>MultiOptionPolicy CLI::OptionBase&lt; CRTP &gt;::multi_option_policy_</definition>
+        <argsstring></argsstring>
+        <name>multi_option_policy_</name>
+        <qualifiedname>CLI::OptionBase::multi_option_policy_</qualifiedname>
+        <initializer>{<ref refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2ba8ce61dd2505effd96f937fa743b6491f" kindref="member">MultiOptionPolicy::Throw</ref>}</initializer>
+        <briefdescription>
+<para>Policy for handling multiple arguments beyond the expected Max. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3981" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3981" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1aeccfd835475420d963f2fff446c32003" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CLI::OptionBase&lt; CRTP &gt;::copy_to</definition>
+        <argsstring>(T *other) const</argsstring>
+        <name>copy_to</name>
+        <qualifiedname>CLI::OptionBase::copy_to</qualifiedname>
+        <param>
+          <type>T *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy the contents to another similar class (one based on <ref refid="classCLI_1_1OptionBase" kindref="compound">OptionBase</ref>) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3984" column="22" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3984" bodyend="3994"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a17077e6cf3e228a4978fb4be525bc80d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::group</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>group</name>
+        <qualifiedname>CLI::OptionBase::group</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Changes the group membership. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4000" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4000" bodyend="4006"/>
+        <references refid="namespaceCLI_1_1detail_1ac75f9ea4aa9649b9b3890bdcbc64b75a" compoundref="CLI11_8hpp" startline="360" endline="363">CLI::detail::valid_alias_name_string</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1af18d4c8d8c2392b6947db9179110289a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::required</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>required</name>
+        <qualifiedname>CLI::OptionBase::required</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Set the option as required. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4009" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4009" bodyend="4012"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a083eb9ce01d6f8a59f6cfea0cece2e05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::mandatory</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>mandatory</name>
+        <qualifiedname>CLI::OptionBase::mandatory</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Support Plumbum term. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4015" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4015" bodyend="4015"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1ac5ee05409ef6e5369e78ecf127bb0e7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::always_capture_default</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>always_capture_default</name>
+        <qualifiedname>CLI::OptionBase::always_capture_default</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4017" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4017" bodyend="4020"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1ad824d0f4f973675beece17d6b5ad9d00" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; CLI::OptionBase&lt; CRTP &gt;::get_group</definition>
+        <argsstring>() const</argsstring>
+        <name>get_group</name>
+        <qualifiedname>CLI::OptionBase::get_group</qualifiedname>
+        <briefdescription>
+<para>Get the group of this option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4025" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4025" bodyend="4025"/>
+        <referencedby refid="classCLI_1_1App_1af0d7e22ac4f12250818bce3e22e8d569" compoundref="CLI11_8hpp" startline="7024" endline="7035">CLI::App::get_groups</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1ad48dd6b9432babc0037d6726230221f0" compoundref="CLI11_8hpp" startline="8816" endline="8838">CLI::Formatter::make_groups</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1aab5f07a6d3154ace0be4d9dbf85f795b" compoundref="CLI11_8hpp" startline="8806" endline="8814">CLI::Formatter::make_positionals</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1aa902dee6da6d7f5b083b1c7d5f9c1308" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::get_required</definition>
+        <argsstring>() const</argsstring>
+        <name>get_required</name>
+        <qualifiedname>CLI::OptionBase::get_required</qualifiedname>
+        <briefdescription>
+<para>True if this is a required option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4028" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4028" bodyend="4028"/>
+        <referencedby refid="classCLI_1_1App_1a6e3eedf148351dabd1868bd7e63d24bc" compoundref="CLI11_8hpp" startline="7720" endline="7731">CLI::App::_count_remaining_positionals</referencedby>
+        <referencedby refid="classCLI_1_1App_1a4e0c00ce18bbfca1ae890a653bbd2b93" compoundref="CLI11_8hpp" startline="7339" endline="7465">CLI::App::_process_requirements</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1afd69c393a40e9b1212f3552a1f48a414" compoundref="CLI11_8hpp" startline="9052" endline="9062">CLI::Formatter::make_option_usage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a12d180bda82c466cfbcd5fbeac27e956" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::get_ignore_case</definition>
+        <argsstring>() const</argsstring>
+        <name>get_ignore_case</name>
+        <qualifiedname>CLI::OptionBase::get_ignore_case</qualifiedname>
+        <briefdescription>
+<para>The status of ignore case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4031" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4031" bodyend="4031"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a321ce55e69252d0b01426480a8c6c894" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::get_ignore_underscore</definition>
+        <argsstring>() const</argsstring>
+        <name>get_ignore_underscore</name>
+        <qualifiedname>CLI::OptionBase::get_ignore_underscore</qualifiedname>
+        <briefdescription>
+<para>The status of ignore_underscore. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4034" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4034" bodyend="4034"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a148499af929ff2498d1ef3567fc18dfc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::get_configurable</definition>
+        <argsstring>() const</argsstring>
+        <name>get_configurable</name>
+        <qualifiedname>CLI::OptionBase::get_configurable</qualifiedname>
+        <briefdescription>
+<para>The status of configurable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4037" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4037" bodyend="4037"/>
+        <referencedby refid="classCLI_1_1App_1a1f7a70f4bc4c375a7de10073a5de709d" compoundref="CLI11_8hpp" startline="7603" endline="7673">CLI::App::_parse_single_config</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a07c4e6b7c4a7c3af4e147613d5e39aa0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::get_disable_flag_override</definition>
+        <argsstring>() const</argsstring>
+        <name>get_disable_flag_override</name>
+        <qualifiedname>CLI::OptionBase::get_disable_flag_override</qualifiedname>
+        <briefdescription>
+<para>The status of configurable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4040" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4040" bodyend="4040"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1ad3057f1f7bdd0473d86aad54a0e36064" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>char</type>
+        <definition>char CLI::OptionBase&lt; CRTP &gt;::get_delimiter</definition>
+        <argsstring>() const</argsstring>
+        <name>get_delimiter</name>
+        <qualifiedname>CLI::OptionBase::get_delimiter</qualifiedname>
+        <briefdescription>
+<para>Get the current delimiter char. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4043" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4043" bodyend="4043"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1acf913635549804e222cd309294cdba7a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::OptionBase&lt; CRTP &gt;::get_always_capture_default</definition>
+        <argsstring>() const</argsstring>
+        <name>get_always_capture_default</name>
+        <qualifiedname>CLI::OptionBase::get_always_capture_default</qualifiedname>
+        <briefdescription>
+<para>Return true if this will automatically capture the default value for help printing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4046" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4046" bodyend="4046"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a67ade2fd6f98b5a77c45b18c3d8ae639" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2b" kindref="member">MultiOptionPolicy</ref></type>
+        <definition>MultiOptionPolicy CLI::OptionBase&lt; CRTP &gt;::get_multi_option_policy</definition>
+        <argsstring>() const</argsstring>
+        <name>get_multi_option_policy</name>
+        <qualifiedname>CLI::OptionBase::get_multi_option_policy</qualifiedname>
+        <briefdescription>
+<para>The status of the multi option policy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4049" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4049" bodyend="4049"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1abf721b86beb0f957a4d85ad4f6e72c20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::take_last</definition>
+        <argsstring>()</argsstring>
+        <name>take_last</name>
+        <qualifiedname>CLI::OptionBase::take_last</qualifiedname>
+        <briefdescription>
+<para>Set the multi option policy to take last. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4054" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4054" bodyend="4058"/>
+        <references refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2ba91a7975e6be6ac082721192c7eb98891">CLI::TakeLast</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a5727e47f4541f99986503b086f1da735" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::take_first</definition>
+        <argsstring>()</argsstring>
+        <name>take_first</name>
+        <qualifiedname>CLI::OptionBase::take_first</qualifiedname>
+        <briefdescription>
+<para>Set the multi option policy to take last. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4061" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4061" bodyend="4065"/>
+        <references refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2ba59a97fc8d11b2b3f89acfe1c3ac891df">CLI::TakeFirst</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a0edb237c89d77253e079e4d6c7f86e8c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::take_all</definition>
+        <argsstring>()</argsstring>
+        <name>take_all</name>
+        <qualifiedname>CLI::OptionBase::take_all</qualifiedname>
+        <briefdescription>
+<para>Set the multi option policy to take all arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4068" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4068" bodyend="4072"/>
+        <references refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2ba571fa4972dd227b4097ab6a774ca1263">CLI::TakeAll</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a1c353d2455f0fc251fa8d0e98b66ea93" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::join</definition>
+        <argsstring>()</argsstring>
+        <name>join</name>
+        <qualifiedname>CLI::OptionBase::join</qualifiedname>
+        <briefdescription>
+<para>Set the multi option policy to join. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4075" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4075" bodyend="4079"/>
+        <references refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2baa286d9991c6a547ae25a5f5216164b8f">CLI::Join</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a2f9160afa4b72e8425bffd043be92ea6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::join</definition>
+        <argsstring>(char delim)</argsstring>
+        <name>join</name>
+        <qualifiedname>CLI::OptionBase::join</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>delim</declname>
+        </param>
+        <briefdescription>
+<para>Set the multi option policy to join with a specific delimiter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4082" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4082" bodyend="4087"/>
+        <references refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2baa286d9991c6a547ae25a5f5216164b8f">CLI::Join</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a618d6a4f8137bec3272a04d848106046" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::configurable</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>configurable</name>
+        <qualifiedname>CLI::OptionBase::configurable</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Allow in a configuration file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4090" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4090" bodyend="4093"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1OptionBase_1a620c2f57aca00ad2ad1fe8870143fcc1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CRTP *</type>
+        <definition>CRTP * CLI::OptionBase&lt; CRTP &gt;::delimiter</definition>
+        <argsstring>(char value=&apos;\0&apos;)</argsstring>
+        <name>delimiter</name>
+        <qualifiedname>CLI::OptionBase::delimiter</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>value</declname>
+          <defval>&apos;\0&apos;</defval>
+        </param>
+        <briefdescription>
+<para>Allow in a configuration file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4096" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4096" bodyend="4099"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This is the CRTP base class for <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> and <ref refid="classCLI_1_1OptionDefaults" kindref="compound">OptionDefaults</ref>. It was designed this way to share parts of the class; an <ref refid="classCLI_1_1OptionDefaults" kindref="compound">OptionDefaults</ref> can copy to an <ref refid="classCLI_1_1Option" kindref="compound">Option</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>CLI::Option</label>
+        <link refid="classCLI_1_1Option"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CLI::OptionBase&lt; CRTP &gt;</label>
+        <link refid="classCLI_1_1OptionBase"/>
+      </node>
+      <node id="5">
+        <label>CLI::OptionDefaults</label>
+        <link refid="classCLI_1_1OptionDefaults"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CLI::OptionBase&lt; Option &gt;</label>
+        <link refid="classCLI_1_1OptionBase"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; Option &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CLI::OptionBase&lt; OptionDefaults &gt;</label>
+        <link refid="classCLI_1_1OptionBase"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; OptionDefaults &gt;</edgelabel>
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::OptionBase&lt; CRTP &gt;</label>
+        <link refid="classCLI_1_1OptionBase"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3952" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3952" bodyend="4100"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1OptionBase_1ac5ee05409ef6e5369e78ecf127bb0e7f" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>always_capture_default</name></member>
+      <member refid="classCLI_1_1OptionBase_1a23aca05ffa9c2d3fbba10b5434cdba64" prot="protected" virt="non-virtual"><scope>CLI::OptionBase</scope><name>always_capture_default_</name></member>
+      <member refid="classCLI_1_1OptionBase_1abef5ad3ecd8fa2fbade042837cae7404" prot="private" virt="non-virtual"><scope>CLI::OptionBase</scope><name>App</name></member>
+      <member refid="classCLI_1_1OptionBase_1a618d6a4f8137bec3272a04d848106046" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>configurable</name></member>
+      <member refid="classCLI_1_1OptionBase_1a86801bb8560b37e40ea60815871a22ee" prot="protected" virt="non-virtual"><scope>CLI::OptionBase</scope><name>configurable_</name></member>
+      <member refid="classCLI_1_1OptionBase_1aeccfd835475420d963f2fff446c32003" prot="protected" virt="non-virtual"><scope>CLI::OptionBase</scope><name>copy_to</name></member>
+      <member refid="classCLI_1_1OptionBase_1a620c2f57aca00ad2ad1fe8870143fcc1" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>delimiter</name></member>
+      <member refid="classCLI_1_1OptionBase_1ac4164d93e2b8e59b2de24dad04a9f34b" prot="protected" virt="non-virtual"><scope>CLI::OptionBase</scope><name>delimiter_</name></member>
+      <member refid="classCLI_1_1OptionBase_1ab62f608c0957e32ccf56f2834aa574c1" prot="protected" virt="non-virtual"><scope>CLI::OptionBase</scope><name>disable_flag_override_</name></member>
+      <member refid="classCLI_1_1OptionBase_1acf913635549804e222cd309294cdba7a" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>get_always_capture_default</name></member>
+      <member refid="classCLI_1_1OptionBase_1a148499af929ff2498d1ef3567fc18dfc" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>get_configurable</name></member>
+      <member refid="classCLI_1_1OptionBase_1ad3057f1f7bdd0473d86aad54a0e36064" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>get_delimiter</name></member>
+      <member refid="classCLI_1_1OptionBase_1a07c4e6b7c4a7c3af4e147613d5e39aa0" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>get_disable_flag_override</name></member>
+      <member refid="classCLI_1_1OptionBase_1ad824d0f4f973675beece17d6b5ad9d00" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>get_group</name></member>
+      <member refid="classCLI_1_1OptionBase_1a12d180bda82c466cfbcd5fbeac27e956" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>get_ignore_case</name></member>
+      <member refid="classCLI_1_1OptionBase_1a321ce55e69252d0b01426480a8c6c894" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>get_ignore_underscore</name></member>
+      <member refid="classCLI_1_1OptionBase_1a67ade2fd6f98b5a77c45b18c3d8ae639" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>get_multi_option_policy</name></member>
+      <member refid="classCLI_1_1OptionBase_1aa902dee6da6d7f5b083b1c7d5f9c1308" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>get_required</name></member>
+      <member refid="classCLI_1_1OptionBase_1a17077e6cf3e228a4978fb4be525bc80d" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>group</name></member>
+      <member refid="classCLI_1_1OptionBase_1ad0d8bd0637023f7d87a8e95315e8fb21" prot="protected" virt="non-virtual"><scope>CLI::OptionBase</scope><name>group_</name></member>
+      <member refid="classCLI_1_1OptionBase_1a616d0aa1bd4e540733e24f88bc17cd3a" prot="protected" virt="non-virtual"><scope>CLI::OptionBase</scope><name>ignore_case_</name></member>
+      <member refid="classCLI_1_1OptionBase_1adafc24528125977c500b9b0c7b5068bf" prot="protected" virt="non-virtual"><scope>CLI::OptionBase</scope><name>ignore_underscore_</name></member>
+      <member refid="classCLI_1_1OptionBase_1a1c353d2455f0fc251fa8d0e98b66ea93" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>join</name></member>
+      <member refid="classCLI_1_1OptionBase_1a2f9160afa4b72e8425bffd043be92ea6" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>join</name></member>
+      <member refid="classCLI_1_1OptionBase_1a083eb9ce01d6f8a59f6cfea0cece2e05" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>mandatory</name></member>
+      <member refid="classCLI_1_1OptionBase_1a2c5483d3c992baad97beed3de2b82b05" prot="protected" virt="non-virtual"><scope>CLI::OptionBase</scope><name>multi_option_policy_</name></member>
+      <member refid="classCLI_1_1OptionBase_1af18d4c8d8c2392b6947db9179110289a" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>required</name></member>
+      <member refid="classCLI_1_1OptionBase_1abad838fd3da11f840a40536a279912ac" prot="protected" virt="non-virtual"><scope>CLI::OptionBase</scope><name>required_</name></member>
+      <member refid="classCLI_1_1OptionBase_1a0edb237c89d77253e079e4d6c7f86e8c" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>take_all</name></member>
+      <member refid="classCLI_1_1OptionBase_1a5727e47f4541f99986503b086f1da735" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>take_first</name></member>
+      <member refid="classCLI_1_1OptionBase_1abf721b86beb0f957a4d85ad4f6e72c20" prot="public" virt="non-virtual"><scope>CLI::OptionBase</scope><name>take_last</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

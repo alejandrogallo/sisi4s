@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1Log" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::Log</compoundname>
+    <includes refid="Log_8hpp" local="no">Log.hpp</includes>
+      <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1Log_1aee467261ef90f843e835c90753538a10" prot="protected" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int Log::rank</definition>
+        <argsstring></argsstring>
+        <name>rank</name>
+        <qualifiedname>sisi4s::Log::rank</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="86" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" bodystart="86" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Log_1a3b9a1f9dbead15c2485684ef6e503a08" compoundref="Log_8cxx" startline="58" endline="60">getRank</referencedby>
+        <referencedby refid="classsisi4s_1_1Log_1aaa38a78a397ea02b283caa4dacca90e0" compoundref="Log_8cxx" startline="54" endline="56">setRank</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Log_1ae7a6cf08cf1a2eee41904c8de750a022" prot="protected" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Log::fileName</definition>
+        <argsstring></argsstring>
+        <name>fileName</name>
+        <qualifiedname>sisi4s::Log::fileName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="87" column="24" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" bodystart="87" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Log_1ae99120aa94980f5965ec5dd7213a7bd3" compoundref="Log_8cxx" startline="66" endline="68">getFileName</referencedby>
+        <referencedby refid="classsisi4s_1_1Log_1a2b90ecc681dbe2e5cd0fcceaf6fd1dce" compoundref="Log_8cxx" startline="78" endline="83">getLogStream</referencedby>
+        <referencedby refid="classsisi4s_1_1Log_1a01a3b96d6c41bc8c2e23724a1f3f2326" compoundref="Log_8cxx" startline="62" endline="64">setFileName</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Log_1a6a7a99c905bb0c3cb1fc433f22a52ae1" prot="protected" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int Log::logLevel</definition>
+        <argsstring></argsstring>
+        <name>logLevel</name>
+        <qualifiedname>sisi4s::Log::logLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="88" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" bodystart="88" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Log_1a4248bbbda989d21944dc0a75d7dc0d6f" compoundref="Log_8cxx" startline="74" endline="76">getLogLevel</referencedby>
+        <referencedby refid="classsisi4s_1_1Log_1a2b90ecc681dbe2e5cd0fcceaf6fd1dce" compoundref="Log_8cxx" startline="78" endline="83">getLogStream</referencedby>
+        <referencedby refid="classsisi4s_1_1Log_1ac56f4fbed34ddc6d8abc0452078b9b7b" compoundref="Log_8cxx" startline="70" endline="72">setLogLevel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Log_1a1480b3a9d98c3a054a8035a31b629bdf" prot="protected" static="yes" mutable="no">
+        <type><ref refid="classsisi4s_1_1LogStream" kindref="compound">LogStream</ref> *</type>
+        <definition>LogStream * Log::logStream</definition>
+        <argsstring></argsstring>
+        <name>logStream</name>
+        <qualifiedname>sisi4s::Log::logStream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="89" column="22" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" bodystart="89" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Log_1a2b90ecc681dbe2e5cd0fcceaf6fd1dce" compoundref="Log_8cxx" startline="78" endline="83">getLogStream</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsisi4s_1_1Log_1aaa38a78a397ea02b283caa4dacca90e0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Log::setRank</definition>
+        <argsstring>(const int rank)</argsstring>
+        <name>setRank</name>
+        <qualifiedname>sisi4s::Log::setRank</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>rank</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="76" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.cxx" bodystart="54" bodyend="56"/>
+        <references refid="classsisi4s_1_1Log_1aee467261ef90f843e835c90753538a10" compoundref="Log_8hpp" startline="86">rank</references>
+        <referencedby refid="Sisi4s_8cxx_1a599af1d1867ff8a4fa0cf7be6fe311c8" compoundref="Sisi4s_8cxx" startline="281" endline="317">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Log_1a3b9a1f9dbead15c2485684ef6e503a08" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Log::getRank</definition>
+        <argsstring>()</argsstring>
+        <name>getRank</name>
+        <qualifiedname>sisi4s::Log::getRank</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="77" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.cxx" bodystart="58" bodyend="60"/>
+        <references refid="classsisi4s_1_1Log_1aee467261ef90f843e835c90753538a10" compoundref="Log_8hpp" startline="86">rank</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Log_1a01a3b96d6c41bc8c2e23724a1f3f2326" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Log::setFileName</definition>
+        <argsstring>(const std::string &amp;fileName)</argsstring>
+        <name>setFileName</name>
+        <qualifiedname>sisi4s::Log::setFileName</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="78" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.cxx" bodystart="62" bodyend="64"/>
+        <references refid="classsisi4s_1_1Log_1ae7a6cf08cf1a2eee41904c8de750a022" compoundref="Log_8hpp" startline="87">fileName</references>
+        <referencedby refid="Sisi4s_8cxx_1a599af1d1867ff8a4fa0cf7be6fe311c8" compoundref="Sisi4s_8cxx" startline="281" endline="317">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Log_1ae99120aa94980f5965ec5dd7213a7bd3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string Log::getFileName</definition>
+        <argsstring>()</argsstring>
+        <name>getFileName</name>
+        <qualifiedname>sisi4s::Log::getFileName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="79" column="24" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.cxx" bodystart="66" bodyend="68"/>
+        <references refid="classsisi4s_1_1Log_1ae7a6cf08cf1a2eee41904c8de750a022" compoundref="Log_8hpp" startline="87">fileName</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Log_1ac56f4fbed34ddc6d8abc0452078b9b7b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Log::setLogLevel</definition>
+        <argsstring>(const int logLevel)</argsstring>
+        <name>setLogLevel</name>
+        <qualifiedname>sisi4s::Log::setLogLevel</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>logLevel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="80" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.cxx" bodystart="70" bodyend="72"/>
+        <references refid="classsisi4s_1_1Log_1a6a7a99c905bb0c3cb1fc433f22a52ae1" compoundref="Log_8hpp" startline="88">logLevel</references>
+        <referencedby refid="Sisi4s_8cxx_1a599af1d1867ff8a4fa0cf7be6fe311c8" compoundref="Sisi4s_8cxx" startline="281" endline="317">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Log_1a4248bbbda989d21944dc0a75d7dc0d6f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Log::getLogLevel</definition>
+        <argsstring>()</argsstring>
+        <name>getLogLevel</name>
+        <qualifiedname>sisi4s::Log::getLogLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="81" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.cxx" bodystart="74" bodyend="76"/>
+        <references refid="classsisi4s_1_1Log_1a6a7a99c905bb0c3cb1fc433f22a52ae1" compoundref="Log_8hpp" startline="88">logLevel</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Log_1a2b90ecc681dbe2e5cd0fcceaf6fd1dce" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1LogStream" kindref="compound">LogStream</ref> &amp;</type>
+        <definition>LogStream &amp; Log::getLogStream</definition>
+        <argsstring>()</argsstring>
+        <name>getLogStream</name>
+        <qualifiedname>sisi4s::Log::getLogStream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="83" column="22" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.cxx" bodystart="78" bodyend="83"/>
+        <references refid="classsisi4s_1_1Log_1ae7a6cf08cf1a2eee41904c8de750a022" compoundref="Log_8hpp" startline="87">fileName</references>
+        <references refid="classsisi4s_1_1Log_1a6a7a99c905bb0c3cb1fc433f22a52ae1" compoundref="Log_8hpp" startline="88">logLevel</references>
+        <references refid="classsisi4s_1_1Log_1a1480b3a9d98c3a054a8035a31b629bdf" compoundref="Log_8hpp" startline="89">logStream</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class with static members offering control over logging. <ref refid="classsisi4s_1_1Log" kindref="compound">Log</ref> entries are created with the macro LOG. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::Log</label>
+        <link refid="classsisi4s_1_1Log"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>#logStream</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>sisi4s::LogBuffer</label>
+        <link refid="classsisi4s_1_1LogBuffer"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::LogStream</label>
+        <link refid="classsisi4s_1_1LogStream"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>#logBuffer</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>#startTime</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>sisi4s::Time</label>
+        <link refid="classsisi4s_1_1Time"/>
+        <childnode refid="7" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::ostream</label>
+      </node>
+      <node id="5">
+        <label>std::streambuf</label>
+      </node>
+      <node id="7">
+        <label>timespec</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" line="74" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Log.hpp" bodystart="74" bodyend="90"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Log_1ae7a6cf08cf1a2eee41904c8de750a022" prot="protected" virt="non-virtual"><scope>sisi4s::Log</scope><name>fileName</name></member>
+      <member refid="classsisi4s_1_1Log_1ae99120aa94980f5965ec5dd7213a7bd3" prot="public" virt="non-virtual"><scope>sisi4s::Log</scope><name>getFileName</name></member>
+      <member refid="classsisi4s_1_1Log_1a4248bbbda989d21944dc0a75d7dc0d6f" prot="public" virt="non-virtual"><scope>sisi4s::Log</scope><name>getLogLevel</name></member>
+      <member refid="classsisi4s_1_1Log_1a2b90ecc681dbe2e5cd0fcceaf6fd1dce" prot="public" virt="non-virtual"><scope>sisi4s::Log</scope><name>getLogStream</name></member>
+      <member refid="classsisi4s_1_1Log_1a3b9a1f9dbead15c2485684ef6e503a08" prot="public" virt="non-virtual"><scope>sisi4s::Log</scope><name>getRank</name></member>
+      <member refid="classsisi4s_1_1Log_1a6a7a99c905bb0c3cb1fc433f22a52ae1" prot="protected" virt="non-virtual"><scope>sisi4s::Log</scope><name>logLevel</name></member>
+      <member refid="classsisi4s_1_1Log_1a1480b3a9d98c3a054a8035a31b629bdf" prot="protected" virt="non-virtual"><scope>sisi4s::Log</scope><name>logStream</name></member>
+      <member refid="classsisi4s_1_1Log_1aee467261ef90f843e835c90753538a10" prot="protected" virt="non-virtual"><scope>sisi4s::Log</scope><name>rank</name></member>
+      <member refid="classsisi4s_1_1Log_1a01a3b96d6c41bc8c2e23724a1f3f2326" prot="public" virt="non-virtual"><scope>sisi4s::Log</scope><name>setFileName</name></member>
+      <member refid="classsisi4s_1_1Log_1ac56f4fbed34ddc6d8abc0452078b9b7b" prot="public" virt="non-virtual"><scope>sisi4s::Log</scope><name>setLogLevel</name></member>
+      <member refid="classsisi4s_1_1Log_1aaa38a78a397ea02b283caa4dacca90e0" prot="public" virt="non-virtual"><scope>sisi4s::Log</scope><name>setRank</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

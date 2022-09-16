@@ -1,0 +1,836 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::ParticleHoleCoulombVertexDecomposition</compoundname>
+    <basecompoundref refid="classsisi4s_1_1Algorithm" prot="public" virt="non-virtual">sisi4s::Algorithm</basecompoundref>
+    <includes refid="ParticleHoleCoulombVertexDecomposition_8hpp" local="no">ParticleHoleCoulombVertexDecomposition.hpp</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab944a46b221e8abf9c9a528d3ffd7de0" prot="public" static="yes" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">AlgorithmRegistrar</ref>&lt; <ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition" kindref="compound">ParticleHoleCoulombVertexDecomposition</ref> &gt;</type>
+        <definition>AlgorithmRegistrar&lt; ParticleHoleCoulombVertexDecomposition &gt; ParticleHoleCoulombVertexDecomposition::registrar_</definition>
+        <argsstring></argsstring>
+        <name>registrar_</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::registrar_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="22" column="72" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1a12b71eef8adbe3fa289fb551999a17" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>int64_t constexpr</type>
+        <definition>int64_t constexpr sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_MAX_ITERATIONS</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_MAX_ITERATIONS</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_MAX_ITERATIONS</qualifiedname>
+        <initializer>= 32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="94" column="30" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="94" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a517a7b5783deb0b871c86bffe3fd8f11" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>double constexpr</type>
+        <definition>double constexpr sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_DELTA</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_DELTA</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_DELTA</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="95" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="95" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1aa5cb6f175ae21403518fe835f1d9a6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>int constexpr</type>
+        <definition>int constexpr sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_EPSILON_STEP</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_EPSILON_STEP</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_EPSILON_STEP</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="96" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="96" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a7c12c7f9ab42a82adf84b3af8a1d0938" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>double constexpr</type>
+        <definition>double constexpr sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_SWAMPING_THRESHOLD</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_SWAMPING_THRESHOLD</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_SWAMPING_THRESHOLD</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="97" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="97" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a820111c7abb4e62898a958bde85f965e" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>double constexpr</type>
+        <definition>double constexpr sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_REGULARIZATION_FRICTION</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_REGULARIZATION_FRICTION</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_REGULARIZATION_FRICTION</qualifiedname>
+        <initializer>= 0.125</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="98" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="98" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad8b15c278e2631f0b29f06c150526399" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>bool constexpr</type>
+        <definition>bool constexpr sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_REAL_FACTOR_ORBITALS</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_REAL_FACTOR_ORBITALS</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_REAL_FACTOR_ORBITALS</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="99" column="27" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="99" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a53ed86b0c77aa9a460be64776bca1862" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>bool constexpr</type>
+        <definition>bool constexpr sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_NORMALIZED_FACTOR_ORBITALS</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_NORMALIZED_FACTOR_ORBITALS</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::DEFAULT_NORMALIZED_FACTOR_ORBITALS</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="100" column="27" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="100" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a131f9285ac30dc0dbec1ecb496ae989e" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t sisi4s::ParticleHoleCoulombVertexDecomposition::rank</definition>
+        <argsstring></argsstring>
+        <name>rank</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::rank</qualifiedname>
+        <briefdescription>
+<para>The rank <formula id="16">$N_R$</formula> of the tensor rank decomposition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="33" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="33" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ac42c46a7311c80653b0348c91a283236" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double sisi4s::ParticleHoleCoulombVertexDecomposition::Delta</definition>
+        <argsstring></argsstring>
+        <name>Delta</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::Delta</qualifiedname>
+        <briefdescription>
+<para>The Frobenius norm of the difference between <formula id="33">$\Gamma^a_{iG}$</formula> and its decomposition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="39" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abcd33f3408c67ad5008858a493c5eb82" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sisi4s::ParticleHoleCoulombVertexDecomposition::epsilonStep</definition>
+        <argsstring></argsstring>
+        <name>epsilonStep</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::epsilonStep</qualifiedname>
+        <briefdescription>
+<para>The number of steps between two evaluations of the error in the MP2 energy of the decomposition. A value below 1 results in no evaluations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="46" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="46" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a33f6baa440b743a3967455714c3be369" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::ParticleHoleCoulombVertexDecomposition::realFactorOrbitals</definition>
+        <argsstring></argsstring>
+        <name>realFactorOrbitals</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::realFactorOrbitals</qualifiedname>
+        <briefdescription>
+<para>Whether the factor orbitals <formula id="40">$\Pi_{aR},\Pi_{iR}$</formula> are required to be real. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="52" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="52" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aad4247483449c8135d1358d7b6e3d8be" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::ParticleHoleCoulombVertexDecomposition::normalizedFactorOrbitals</definition>
+        <argsstring></argsstring>
+        <name>normalizedFactorOrbitals</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::normalizedFactorOrbitals</qualifiedname>
+        <briefdescription>
+<para>Whether the factor orbitals <formula id="40">$\Pi_{aR},\Pi_{iR}$</formula> are required to be normalized, i.e. <formula id="18">${\Pi^\ast}^{qR}\Pi_{qR} = \delta{qq}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="58" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="58" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aeff64071606b820d65ea980b6419f8d0" prot="public" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::ParticleHoleCoulombVertexDecomposition::GammaGai</definition>
+        <argsstring></argsstring>
+        <name>GammaGai</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::GammaGai</qualifiedname>
+        <briefdescription>
+<para>The Coulomb vertex <formula id="33">$\Gamma^a_{iG}$</formula> restricted to a particle and a hole index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="64" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="64" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1d7aed53263c884eccb9c64c0cfcfd0a" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="192" endline="215">dryFit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a8c1279c2b043117ce665aeb7af7c5e26" prot="public" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::ParticleHoleCoulombVertexDecomposition::Gamma0Gai</definition>
+        <argsstring></argsstring>
+        <name>Gamma0Gai</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::Gamma0Gai</qualifiedname>
+        <briefdescription>
+<para>The fit <formula id="41">${\Pi^\ast}^{aR}\Pi_{iR}\Lambda_{GR}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="68" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="68" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1d7aed53263c884eccb9c64c0cfcfd0a" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="192" endline="215">dryFit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa1e2c268f0caa1a362d7da3a3528944" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="247" endline="252">evaluateMp2Error</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a60d43bb2eabab45890118a3e14caf755" prot="public" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::ParticleHoleCoulombVertexDecomposition::PiiR</definition>
+        <argsstring></argsstring>
+        <name>PiiR</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::PiiR</qualifiedname>
+        <briefdescription>
+<para>The factor orbitals for occupied states <formula id="38">$\Pi_{iR}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="72" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="72" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1d7aed53263c884eccb9c64c0cfcfd0a" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="192" endline="215">dryFit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a337919c0838370e3a43de55b9147377d" prot="public" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::ParticleHoleCoulombVertexDecomposition::PiaR</definition>
+        <argsstring></argsstring>
+        <name>PiaR</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::PiaR</qualifiedname>
+        <briefdescription>
+<para>The conjugated factor orbitals for virtual states <formula id="42">${\Pi^\ast}^{aR}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="77" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="77" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1d7aed53263c884eccb9c64c0cfcfd0a" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="192" endline="215">dryFit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad59fd2f50ce56aa0d97256fc887faba3" prot="public" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::ParticleHoleCoulombVertexDecomposition::LambdaGR</definition>
+        <argsstring></argsstring>
+        <name>LambdaGR</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::LambdaGR</qualifiedname>
+        <briefdescription>
+<para>The Coulomb factors <formula id="14">$\Lambda_{GR}$</formula> in the particle/hole decomposition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="82" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="82" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1d7aed53263c884eccb9c64c0cfcfd0a" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="192" endline="215">dryFit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a400d438fb8925bda39491d3807fa98a7" prot="public" static="no" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator" kindref="compound">AlternatingLeastSquaresRegularizationEstimator</ref> *</type>
+        <definition>AlternatingLeastSquaresRegularizationEstimator* sisi4s::ParticleHoleCoulombVertexDecomposition::regularizationEstimatorPiiR</definition>
+        <argsstring></argsstring>
+        <name>regularizationEstimatorPiiR</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::regularizationEstimatorPiiR</qualifiedname>
+        <briefdescription>
+<para>Estimators for the regularization parameter during the alternating least squares fits. They estimate the regularization parameter <formula id="23">$\lambda$</formula> in each iteration from the swamping factor in the previous iteration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="91" column="7" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="91" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a84140e538a853e50a1fb38c90329e790" prot="public" static="no" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator" kindref="compound">AlternatingLeastSquaresRegularizationEstimator</ref> *</type>
+        <definition>AlternatingLeastSquaresRegularizationEstimator * sisi4s::ParticleHoleCoulombVertexDecomposition::regularizationEstimatorPiaR</definition>
+        <argsstring></argsstring>
+        <name>regularizationEstimatorPiaR</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::regularizationEstimatorPiaR</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="91" column="35" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="91" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a52bd7200e776c3a6b9a12b0d7a4a0100" prot="public" static="no" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator" kindref="compound">AlternatingLeastSquaresRegularizationEstimator</ref> *</type>
+        <definition>AlternatingLeastSquaresRegularizationEstimator * sisi4s::ParticleHoleCoulombVertexDecomposition::regularizationEstimatorLambdaGR</definition>
+        <argsstring></argsstring>
+        <name>regularizationEstimatorLambdaGR</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::regularizationEstimatorLambdaGR</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="92" column="7" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="92" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab9a61b1b17494de51d4b8c6a65fac806" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double sisi4s::ParticleHoleCoulombVertexDecomposition::mp2Energy</definition>
+        <argsstring></argsstring>
+        <name>mp2Energy</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::mp2Energy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="103" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="103" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa1e2c268f0caa1a362d7da3a3528944" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="247" endline="252">evaluateMp2Error</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa0549ccf15e5fe66eaeff0582be1d68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string sisi4s::ParticleHoleCoulombVertexDecomposition::getName</definition>
+        <argsstring>()</argsstring>
+        <name>getName</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::getName</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1ad88a11462d7efa2cd6ee1dd2884d7a68">getName</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="22" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab95941d5a1249ae3da6fcbb89fb3fd6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ParticleHoleCoulombVertexDecomposition::ParticleHoleCoulombVertexDecomposition</definition>
+        <argsstring>(std::vector&lt; Argument &gt; const &amp;argumentList)</argsstring>
+        <name>ParticleHoleCoulombVertexDecomposition</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::ParticleHoleCoulombVertexDecomposition</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref> &gt; const &amp;</type>
+          <declname>argumentList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="23" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a48c88eb2e101c9a0cb400473ecb2bf6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>ParticleHoleCoulombVertexDecomposition::~ParticleHoleCoulombVertexDecomposition</definition>
+        <argsstring>()</argsstring>
+        <name>~ParticleHoleCoulombVertexDecomposition</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::~ParticleHoleCoulombVertexDecomposition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="26" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="26" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ParticleHoleCoulombVertexDecomposition::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::run</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1aacd7ce50628f515d50d178213db8b320">run</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="27" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="30" bodyend="110"/>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a517a7b5783deb0b871c86bffe3fd8f11" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="95">DEFAULT_DELTA</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1aa5cb6f175ae21403518fe835f1d9a6" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="96">DEFAULT_EPSILON_STEP</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1a12b71eef8adbe3fa289fb551999a17" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="94">DEFAULT_MAX_ITERATIONS</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a53ed86b0c77aa9a460be64776bca1862" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="100">DEFAULT_NORMALIZED_FACTOR_ORBITALS</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad8b15c278e2631f0b29f06c150526399" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="99">DEFAULT_REAL_FACTOR_ORBITALS</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a820111c7abb4e62898a958bde85f965e" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="98">DEFAULT_REGULARIZATION_FRICTION</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a7c12c7f9ab42a82adf84b3af8a1d0938" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="97">DEFAULT_SWAMPING_THRESHOLD</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ac42c46a7311c80653b0348c91a283236" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="39">Delta</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abcd33f3408c67ad5008858a493c5eb82" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="46">epsilonStep</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a2d64bea9206ccbf8349e7d515f9a7f5b" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="254" endline="296">evaluateMp2</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa1e2c268f0caa1a362d7da3a3528944" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="247" endline="252">evaluateMp2Error</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a8c1279c2b043117ce665aeb7af7c5e26" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="68">Gamma0Gai</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aeff64071606b820d65ea980b6419f8d0" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="64">GammaGai</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" compoundref="Algorithm_8cxx" startline="117" endline="129">sisi4s::Algorithm::getRealArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad59fd2f50ce56aa0d97256fc887faba3" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="82">LambdaGR</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab9a61b1b17494de51d4b8c6a65fac806" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="103">mp2Energy</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aad4247483449c8135d1358d7b6e3d8be" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="58">normalizedFactorOrbitals</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaae154aa2544a2f07d611709210edf7e" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="218" endline="234">normalizePi</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a337919c0838370e3a43de55b9147377d" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="77">PiaR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a60d43bb2eabab45890118a3e14caf755" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="72">PiiR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a131f9285ac30dc0dbec1ecb496ae989e" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="33">rank</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a33f6baa440b743a3967455714c3be369" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="52">realFactorOrbitals</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abb36b166b6e1c02e32edcc08f155e06f" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="236" endline="245">realizePi</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a52bd7200e776c3a6b9a12b0d7a4a0100" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="92">regularizationEstimatorLambdaGR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a84140e538a853e50a1fb38c90329e790" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="91">regularizationEstimatorPiaR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a400d438fb8925bda39491d3807fa98a7" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="91">regularizationEstimatorPiiR</references>
+        <references refid="namespacesisi4s_1ad79e22ef8ca23c70e5d0edcd8dd1532c" compoundref="RandomTensor_8hpp" startline="53" endline="64">sisi4s::setRandomTensor</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ParticleHoleCoulombVertexDecomposition::dryRun</definition>
+        <argsstring>()</argsstring>
+        <name>dryRun</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::dryRun</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de">dryRun</reimplements>
+        <briefdescription>
+<para>The dryRun estimates resource consumption, especially memory and processor time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="28" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="112" bodyend="158"/>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1aa5cb6f175ae21403518fe835f1d9a6" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="96">DEFAULT_EPSILON_STEP</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a53ed86b0c77aa9a460be64776bca1862" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="100">DEFAULT_NORMALIZED_FACTOR_ORBITALS</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad8b15c278e2631f0b29f06c150526399" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="99">DEFAULT_REAL_FACTOR_ORBITALS</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a9ce049a099bb195ef13e8965457d1bce" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="299" endline="323">dryEvaluateMp2</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1d7aed53263c884eccb9c64c0cfcfd0a" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="192" endline="215">dryFit</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abcd33f3408c67ad5008858a493c5eb82" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="46">epsilonStep</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a8c1279c2b043117ce665aeb7af7c5e26" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="68">Gamma0Gai</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aeff64071606b820d65ea980b6419f8d0" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="64">GammaGai</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" compoundref="Algorithm_8cxx" startline="188" endline="200">sisi4s::Algorithm::getTensorArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad59fd2f50ce56aa0d97256fc887faba3" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="82">LambdaGR</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aad4247483449c8135d1358d7b6e3d8be" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="58">normalizedFactorOrbitals</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a337919c0838370e3a43de55b9147377d" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="77">PiaR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a60d43bb2eabab45890118a3e14caf755" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="72">PiiR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a131f9285ac30dc0dbec1ecb496ae989e" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="33">rank</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a33f6baa440b743a3967455714c3be369" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="52">realFactorOrbitals</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParticleHoleCoulombVertexDecomposition::fit</definition>
+        <argsstring>(int64_t iterationsCount)</argsstring>
+        <name>fit</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::fit</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>iterationsCount</declname>
+        </param>
+        <briefdescription>
+<para>Performs one iteration in fitting the factor orbitals and the Coulomb factors according to the given algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="109" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="161" bodyend="190"/>
+        <references refid="namespacesisi4s_1a73e63f2894299063b2902d0f4f67fe27">sisi4s::composeCanonicalPolyadicDecompositionTensors</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ac42c46a7311c80653b0348c91a283236" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="39">Delta</references>
+        <references refid="namespacesisi4s_1abf3c4be1dfed55e71db97d40eff3ce87">sisi4s::fitRegularizedAlternatingLeastSquaresFactor</references>
+        <references refid="namespacesisi4s_1a072b9097a4466552d4ee05cea48af554" compoundref="MathFunctions_8hpp" startline="68" endline="76">sisi4s::frobeniusNorm</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a8c1279c2b043117ce665aeb7af7c5e26" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="68">Gamma0Gai</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aeff64071606b820d65ea980b6419f8d0" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="64">GammaGai</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad59fd2f50ce56aa0d97256fc887faba3" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="82">LambdaGR</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aad4247483449c8135d1358d7b6e3d8be" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="58">normalizedFactorOrbitals</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaae154aa2544a2f07d611709210edf7e" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="218" endline="234">normalizePi</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a337919c0838370e3a43de55b9147377d" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="77">PiaR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a60d43bb2eabab45890118a3e14caf755" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="72">PiiR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a33f6baa440b743a3967455714c3be369" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="52">realFactorOrbitals</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abb36b166b6e1c02e32edcc08f155e06f" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="236" endline="245">realizePi</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a52bd7200e776c3a6b9a12b0d7a4a0100" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="92">regularizationEstimatorLambdaGR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a84140e538a853e50a1fb38c90329e790" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="91">regularizationEstimatorPiaR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a400d438fb8925bda39491d3807fa98a7" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="91">regularizationEstimatorPiiR</references>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1d7aed53263c884eccb9c64c0cfcfd0a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParticleHoleCoulombVertexDecomposition::dryFit</definition>
+        <argsstring>(DryTensor&lt; complex &gt; *GammaGai, DryTensor&lt; complex &gt; *PiaR, DryTensor&lt; complex &gt; *PiiR, DryTensor&lt; complex &gt; *LambdaGR, DryTensor&lt; complex &gt; *Gamma0Gai)</argsstring>
+        <name>dryFit</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::dryFit</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+          <declname>GammaGai</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+          <declname>PiaR</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+          <declname>PiiR</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+          <declname>LambdaGR</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+          <declname>Gamma0Gai</declname>
+        </param>
+        <briefdescription>
+<para>Performs a dry run of one iteration in fitting the factor orbitals and the Coulomb factors according to the given algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="114" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="192" bodyend="215"/>
+        <references refid="namespacesisi4s_1abfc549a8ae34264be9b654324c1ae036" compoundref="CanonicalPolyadicDecomposition_8cxx" startline="70" endline="102">sisi4s::dryComposeCanonicalPolyadicDecompositionTensors</references>
+        <references refid="namespacesisi4s_1a7e043fcaaf8e99a86eb9920cf43cc228" compoundref="RegularizedAlternatingLeastSquares_8cxx" startline="123" endline="143">sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a8c1279c2b043117ce665aeb7af7c5e26" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="68">Gamma0Gai</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aeff64071606b820d65ea980b6419f8d0" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="64">GammaGai</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad59fd2f50ce56aa0d97256fc887faba3" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="82">LambdaGR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a337919c0838370e3a43de55b9147377d" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="77">PiaR</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a60d43bb2eabab45890118a3e14caf755" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="72">PiiR</references>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaae154aa2544a2f07d611709210edf7e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParticleHoleCoulombVertexDecomposition::normalizePi</definition>
+        <argsstring>(CTF::Tensor&lt; complex &gt; &amp;Pi)</argsstring>
+        <name>normalizePi</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::normalizePi</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <declname>Pi</declname>
+        </param>
+        <briefdescription>
+<para>Normalizes the given factor orbitals, such that <formula id="24">${\Pi^\ast}^{qR}\Pi_{qR} = \delta_{qq}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="124" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="218" bodyend="234"/>
+        <references refid="namespacesisi4s_1a072b9097a4466552d4ee05cea48af554" compoundref="MathFunctions_8hpp" startline="68" endline="76">sisi4s::frobeniusNorm</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" compoundref="MathFunctions_8hpp" startline="13" endline="15">sisi4s::Pi</references>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abb36b166b6e1c02e32edcc08f155e06f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParticleHoleCoulombVertexDecomposition::realizePi</definition>
+        <argsstring>(CTF::Tensor&lt; complex &gt; &amp;Pi)</argsstring>
+        <name>realizePi</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::realizePi</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <declname>Pi</declname>
+        </param>
+        <briefdescription>
+<para>Discards the imaginary part of the given factor orbitals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="128" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="236" bodyend="245"/>
+        <references refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" compoundref="MathFunctions_8hpp" startline="13" endline="15">sisi4s::Pi</references>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa1e2c268f0caa1a362d7da3a3528944" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParticleHoleCoulombVertexDecomposition::evaluateMp2Error</definition>
+        <argsstring>()</argsstring>
+        <name>evaluateMp2Error</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::evaluateMp2Error</qualifiedname>
+        <briefdescription>
+<para>Evaluates and prints the error of the MP2 energy between the current decomposition and the full MP2 energy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="134" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="247" bodyend="252"/>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a2d64bea9206ccbf8349e7d515f9a7f5b" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="254" endline="296">evaluateMp2</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a8c1279c2b043117ce665aeb7af7c5e26" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="68">Gamma0Gai</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab9a61b1b17494de51d4b8c6a65fac806" compoundref="ParticleHoleCoulombVertexDecomposition_8hpp" startline="103">mp2Energy</references>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a2d64bea9206ccbf8349e7d515f9a7f5b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ParticleHoleCoulombVertexDecomposition::evaluateMp2</definition>
+        <argsstring>(CTF::Tensor&lt; complex &gt; &amp;Gamma)</argsstring>
+        <name>evaluateMp2</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::evaluateMp2</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <declname>Gamma</declname>
+        </param>
+        <briefdescription>
+<para>Evaluates the MP2 energy for the given Coulomb vertex. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="138" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="254" bodyend="296"/>
+        <references refid="namespacesisi4s_1a77d868359a18a73cfe184f25fad2f59b" compoundref="ComplexTensor_8cxx" startline="39" endline="51">sisi4s::fromComplexTensor</references>
+        <references refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" compoundref="Algorithm_8cxx" startline="188" endline="200">sisi4s::Algorithm::getTensorArgument</references>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa1e2c268f0caa1a362d7da3a3528944" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="247" endline="252">evaluateMp2Error</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a9ce049a099bb195ef13e8965457d1bce" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParticleHoleCoulombVertexDecomposition::dryEvaluateMp2</definition>
+        <argsstring>(DryTensor&lt; complex &gt; &amp;Gamma)</argsstring>
+        <name>dryEvaluateMp2</name>
+        <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::dryEvaluateMp2</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <declname>Gamma</declname>
+        </param>
+        <briefdescription>
+<para>Performs a dry run of evaluating the MP2 energy for the given Coulomb vertex. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="143" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.cxx" bodystart="299" bodyend="323"/>
+        <references refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" compoundref="Algorithm_8cxx" startline="188" endline="200">sisi4s::Algorithm::getTensorArgument</references>
+        <references refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" compoundref="DryTensor_8hpp" startline="92">sisi4s::DryTensor&lt; F &gt;::lens</references>
+        <references refid="classsisi4s_1_1DryTensor_1a49c8005b841ac6617f2352643ae26193" compoundref="DryTensor_8hpp" startline="92">sisi4s::DryTensor&lt; F &gt;::syms</references>
+        <references refid="classsisi4s_1_1DryTensor_1a018bdb94ca9e6db40cb89eb2ad59ab02" compoundref="DryTensor_8hpp" startline="74" endline="74">sisi4s::DryTensor&lt; F &gt;::use</references>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="112" endline="158">dryRun</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Decomposes the particle hole Coulomb vertex <formula id="37">$\Gamma_{iG}^a$</formula> into the occupied factor orbitals <formula id="38">$\Pi_{iR}$</formula>, the virtual factor orbitals <formula id="39">$\Pi_{aR}$</formula>, and the Coulom factors <formula id="14">$\Lambda_{GR}$</formula>. The decomposition is done with a regularized alternating least squares (RALS) algorithm, requiring only a few dozen steps for sufficient convergence. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::ParticleHoleCoulombVertexDecomposition</label>
+        <link refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ParticleHoleCoulombVertexDecomposition &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+        <childnode refid="5" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ParticleHoleCoulombVertexDecomposition &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="4">
+        <label>sisi4s::AlgorithmFactory</label>
+        <link refid="classsisi4s_1_1AlgorithmFactory"/>
+      </node>
+      <node id="5">
+        <label>sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>sisi4s::AlternatingLeastSquaresRegularizationEstimator</label>
+        <link refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::ParticleHoleCoulombVertexDecomposition</label>
+        <link refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+registrar_</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>+regularizationEstimatorLambdaGR</edgelabel>
+          <edgelabel>+regularizationEstimatorPiaR</edgelabel>
+          <edgelabel>+regularizationEstimatorPiiR</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" line="20" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp" bodystart="20" bodyend="144"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>Algorithm</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>allocateContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>allocatedTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>arguments</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>checkArgumentsOrDie</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a517a7b5783deb0b871c86bffe3fd8f11" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>DEFAULT_DELTA</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1aa5cb6f175ae21403518fe835f1d9a6" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>DEFAULT_EPSILON_STEP</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1a12b71eef8adbe3fa289fb551999a17" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>DEFAULT_MAX_ITERATIONS</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a53ed86b0c77aa9a460be64776bca1862" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>DEFAULT_NORMALIZED_FACTOR_ORBITALS</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad8b15c278e2631f0b29f06c150526399" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>DEFAULT_REAL_FACTOR_ORBITALS</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a820111c7abb4e62898a958bde85f965e" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>DEFAULT_REGULARIZATION_FRICTION</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a7c12c7f9ab42a82adf84b3af8a1d0938" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>DEFAULT_SWAMPING_THRESHOLD</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ac42c46a7311c80653b0348c91a283236" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>Delta</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a9ce049a099bb195ef13e8965457d1bce" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>dryEvaluateMp2</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1d7aed53263c884eccb9c64c0cfcfd0a" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>dryFit</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" prot="public" virt="virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>dryRun</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abcd33f3408c67ad5008858a493c5eb82" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>epsilonStep</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a2d64bea9206ccbf8349e7d515f9a7f5b" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>evaluateMp2</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa1e2c268f0caa1a362d7da3a3528944" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>evaluateMp2Error</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>fit</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a8c1279c2b043117ce665aeb7af7c5e26" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>Gamma0Gai</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aeff64071606b820d65ea980b6419f8d0" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>GammaGai</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getArgumentData</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a407d54400b4b652a5b1b8d79b9c57175" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getGivenArgumentNames</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a98c473d7c36973fb5dbd29b6dce3f09e" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa0549ccf15e5fe66eaeff0582be1d68" prot="public" virt="virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getName</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aedbdee78ab6ed424c34121218b6cdf68" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getRealArgumentFromInteger</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getRealArgumentFromTensor</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getTensorArgumentFromReal</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad59fd2f50ce56aa0d97256fc887faba3" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>LambdaGR</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab9a61b1b17494de51d4b8c6a65fac806" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>mp2Energy</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aad4247483449c8135d1358d7b6e3d8be" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>normalizedFactorOrbitals</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaae154aa2544a2f07d611709210edf7e" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>normalizePi</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab95941d5a1249ae3da6fcbb89fb3fd6e" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>ParticleHoleCoulombVertexDecomposition</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a337919c0838370e3a43de55b9147377d" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>PiaR</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a60d43bb2eabab45890118a3e14caf755" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>PiiR</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a131f9285ac30dc0dbec1ecb496ae989e" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>rank</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a33f6baa440b743a3967455714c3be369" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>realFactorOrbitals</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abb36b166b6e1c02e32edcc08f155e06f" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>realizePi</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab944a46b221e8abf9c9a528d3ffd7de0" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>registrar_</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a52bd7200e776c3a6b9a12b0d7a4a0100" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>regularizationEstimatorLambdaGR</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a84140e538a853e50a1fb38c90329e790" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>regularizationEstimatorPiaR</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a400d438fb8925bda39491d3807fa98a7" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>regularizationEstimatorPiiR</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" prot="public" virt="virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>setIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>setRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" prot="public" virt="virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>~Algorithm</name></member>
+      <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a48c88eb2e101c9a0cb400473ecb2bf6f" prot="public" virt="virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>~ParticleHoleCoulombVertexDecomposition</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

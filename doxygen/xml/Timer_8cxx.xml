@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Timer_8cxx" kind="file" language="C++">
+    <compoundname>Timer.cxx</compoundname>
+    <includes refid="Timer_8hpp" local="no">util/Timer.hpp</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Timer.cxx</label>
+        <link refid="Timer_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>util/Timer.hpp</label>
+        <link refid="Timer_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>cmath</label>
+      </node>
+      <node id="5">
+        <label>cstdint</label>
+      </node>
+      <node id="4">
+        <label>ctime</label>
+      </node>
+      <node id="7">
+        <label>iomanip</label>
+      </node>
+      <node id="6">
+        <label>ostream</label>
+      </node>
+      <node id="8">
+        <label>sstream</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Timer_8hpp" kindref="compound">util/Timer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="classsisi4s_1_1Timer_1aa35f206fa23e01ed790802ebc5575c5b" refkind="member"><highlight class="normal">Timer::Timer(<ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/>*time_):<sp/>time(time_),<sp/>start(<ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref>::getCurrentRealTime())<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1Timer_1a14fa469c4c295c5fa6e66a4ad1092146" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Timer_1a14fa469c4c295c5fa6e66a4ad1092146" kindref="member">Timer::~Timer</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/>end(<ref refid="classsisi4s_1_1Time_1ab133fcb3422dbde9d68f5a5155c5127c" kindref="member">Time::getCurrentRealTime</ref>());</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>*<ref refid="classsisi4s_1_1Timer_1a886ed86e350f5eb7b68d5de8d774b587" kindref="member">time</ref><sp/>+=<sp/>end<sp/>-<sp/><ref refid="classsisi4s_1_1Timer_1a5e9e3b4ed80d69b5a69b32fb4605c329" kindref="member">start</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.cxx"/>
+  </compounddef>
+</doxygen>

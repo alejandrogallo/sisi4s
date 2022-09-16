@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="FiniteSizeCorrection_8hpp" kind="file" language="C++">
+    <compoundname>FiniteSizeCorrection.hpp</compoundname>
+    <includes refid="Algorithm_8hpp" local="no">algorithms/Algorithm.hpp</includes>
+    <includes refid="Interpolation_8hpp" local="no">math/Interpolation.hpp</includes>
+    <includes refid="Vector_8hpp" local="no">math/Vector.hpp</includes>
+    <includedby refid="FiniteSizeCorrection_8cxx" local="no">FiniteSizeCorrection.cxx</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>FiniteSizeCorrection.hpp</label>
+        <link refid="FiniteSizeCorrection_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>math/Interpolation.hpp</label>
+        <link refid="Interpolation_8hpp"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>math/Vector.hpp</label>
+        <link refid="Vector_8hpp"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>cmath</label>
+      </node>
+      <node id="18">
+        <label>complex</label>
+      </node>
+      <node id="7">
+        <label>cstdint</label>
+      </node>
+      <node id="22">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="6">
+        <label>ctime</label>
+      </node>
+      <node id="15">
+        <label>fstream</label>
+      </node>
+      <node id="9">
+        <label>iomanip</label>
+      </node>
+      <node id="13">
+        <label>iostream</label>
+      </node>
+      <node id="19">
+        <label>map</label>
+      </node>
+      <node id="8">
+        <label>ostream</label>
+      </node>
+      <node id="10">
+        <label>sstream</label>
+      </node>
+      <node id="14">
+        <label>streambuf</label>
+      </node>
+      <node id="12">
+        <label>string</label>
+      </node>
+      <node id="20">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>FiniteSizeCorrection.cxx</label>
+        <link refid="FiniteSizeCorrection_8cxx"/>
+      </node>
+      <node id="1">
+        <label>FiniteSizeCorrection.hpp</label>
+        <link refid="FiniteSizeCorrection_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1FiniteSizeCorrection" prot="public">sisi4s::FiniteSizeCorrection</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2016,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FINITE_SIZE_CORRECTION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FINITE_SIZE_CORRECTION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Algorithm_8hpp" kindref="compound">algorithms/Algorithm.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Interpolation_8hpp" kindref="compound">math/Interpolation.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Vector_8hpp" kindref="compound">math/Vector.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="9" refid="classsisi4s_1_1FiniteSizeCorrection" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1FiniteSizeCorrection" kindref="compound">FiniteSizeCorrection</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11" refid="classsisi4s_1_1FiniteSizeCorrection_1af274871c99f48406060dae040b683597" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" kindref="member">ALGORITHM_REGISTRAR_DECLARATION</ref>(<ref refid="classsisi4s_1_1FiniteSizeCorrection" kindref="compound">FiniteSizeCorrection</ref>);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a49d3758a730b919104d2d4c45f7d89a3" kindref="member">FiniteSizeCorrection</ref>(</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a359868e0dc350ae8eb584d2fbf6b58b9" kindref="member">~FiniteSizeCorrection</ref>();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a8a7b438545c815dc93309d16208128de" kindref="member">run</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1ac7e57c7cbc1fa709a2e23b177676f566" kindref="member">dryRun</ref>();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="27" refid="classsisi4s_1_1FiniteSizeCorrection_1ac4259a8834b9fd0996e9905a4a4c93a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1ac4259a8834b9fd0996e9905a4a4c93a2" kindref="member">NG</ref>;</highlight></codeline>
+<codeline lineno="28" refid="classsisi4s_1_1FiniteSizeCorrection_1a0183e40d0c45804bed455771a6b2f583" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a0183e40d0c45804bed455771a6b2f583" kindref="member">DEFAULT_NUM_FIBONACCI</ref><sp/>=<sp/>128;</highlight></codeline>
+<codeline lineno="29" refid="classsisi4s_1_1FiniteSizeCorrection_1aff5b228d981afbaa9c83aa5430e70b9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1aff5b228d981afbaa9c83aa5430e70b9d" kindref="member">GLengths</ref>;</highlight></codeline>
+<codeline lineno="30" refid="classsisi4s_1_1FiniteSizeCorrection_1a7f21fa46115ceffd8e205ea2c3f8c706" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a7f21fa46115ceffd8e205ea2c3f8c706" kindref="member">averageSGs</ref>;</highlight></codeline>
+<codeline lineno="31" refid="classsisi4s_1_1FiniteSizeCorrection_1acb4a2d84298739a8bcad2937d7ebf6bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1acb4a2d84298739a8bcad2937d7ebf6bb" kindref="member">meanErrorSG</ref>;</highlight></codeline>
+<codeline lineno="32" refid="classsisi4s_1_1FiniteSizeCorrection_1a2d43f73135f2e57a449fd065a6a6c960" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a2d43f73135f2e57a449fd065a6a6c960" kindref="member">structureFactors</ref>;</highlight></codeline>
+<codeline lineno="33" refid="classsisi4s_1_1FiniteSizeCorrection_1a44840efaf12698bdbf9c22c648564656" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a44840efaf12698bdbf9c22c648564656" kindref="member">VofG</ref>;</highlight></codeline>
+<codeline lineno="34" refid="classsisi4s_1_1FiniteSizeCorrection_1a48841ae1b52308fb0d55c2e0c77a58e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a48841ae1b52308fb0d55c2e0c77a58e8" kindref="member">GC</ref>;</highlight></codeline>
+<codeline lineno="35" refid="classsisi4s_1_1FiniteSizeCorrection_1ab08a52965354202703ac3372c1cc63af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1ab08a52965354202703ac3372c1cc63af" kindref="member">inter3D</ref>;</highlight></codeline>
+<codeline lineno="36" refid="classsisi4s_1_1FiniteSizeCorrection_1ad0f40dfd289d147867e1c682a7c8c0ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1ad0f40dfd289d147867e1c682a7c8c0ed" kindref="member">sum3D</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classFiniteSizeCorrection_1_1Momentum" kindref="compound">Momentum</ref>;</highlight></codeline>
+<codeline lineno="38" refid="classsisi4s_1_1FiniteSizeCorrection_1a2b291585932615723bc227b7b649481c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classFiniteSizeCorrection_1_1Momentum" kindref="compound">Momentum</ref><sp/>*<ref refid="classsisi4s_1_1FiniteSizeCorrection_1a2b291585932615723bc227b7b649481c" kindref="member">fibonacciGrid</ref>;</highlight></codeline>
+<codeline lineno="39" refid="classsisi4s_1_1FiniteSizeCorrection_1aa90205ef2a30f792951481f3f04e03fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classFiniteSizeCorrection_1_1Momentum" kindref="compound">Momentum</ref><sp/>*<ref refid="classsisi4s_1_1FiniteSizeCorrection_1aa90205ef2a30f792951481f3f04e03fb" kindref="member">cartesianGrid</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a577d15a51e965510c8afcaedbf02202a" kindref="member">readFromFile</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" kindref="member">calculateRealStructureFactor</ref>();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>template<sp/>&lt;typename<sp/>F&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>F<sp/>calculateStructureFactor(CTF::Tensor&lt;F&gt;<sp/>&amp;Vabij);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" kindref="member">calculateComplexStructureFactor</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1abe853aa5dccd41090fc1d8282937d60a" kindref="member">constructFibonacciGrid</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>R,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" kindref="member">interpolation3D</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a5debe508e1f3f2713edc13d922058da1" kindref="member">IsInSmallBZ</ref>(</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Vector" kindref="compound">Vector&lt;double&gt;</ref><sp/>point,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale,<sp/>std::vector&lt;<ref refid="classsisi4s_1_1Vector" kindref="compound">sisi4s::Vector&lt;double&gt;</ref>&gt;<sp/>smallBZ</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a0b0230201e4d274b939c205e3f0464f5" kindref="member">SGxVG</ref>(<ref refid="classsisi4s_1_1Inter1D" kindref="compound">sisi4s::Inter1D&lt;double&gt;</ref><sp/>Int1d,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1aa51e7e10b5bd2964732bc007fa28d8ad" kindref="member">integrate</ref>(</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D" kindref="compound">sisi4s::Inter1D&lt;double&gt;</ref><sp/>Int1d,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>start,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>end,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>steps</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a8e228d06ce5699114b77698c9c0ddbee" kindref="member">simpson</ref>(</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D" kindref="compound">sisi4s::Inter1D&lt;double&gt;</ref><sp/>Int1d,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>h</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" kindref="member">calculateFiniteSizeCorrection</ref>();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1ab03fab436020be68b42a07d07b0eb3ca" kindref="member">dryCalculateStructureFactor</ref>();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a200f4c2590c7f573670d778ce6d4dc71" kindref="member">dryInterpolation3D</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a100128dd8d514f54d7897e858ac0b8cf" kindref="member">dryCalculateFiniteSizeCorrection</ref>();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="classsisi4s_1_1FiniteSizeCorrection_1ab839fb917065569bd80e7161ae7301f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1ab839fb917065569bd80e7161ae7301f2" kindref="member">extrapolation</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minG,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxG,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>basisSetExtrapolation);</highlight></codeline>
+<codeline lineno="68" refid="classsisi4s_1_1FiniteSizeCorrection_1a438c6ea49a285946d34aa4006095bbe5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1a438c6ea49a285946d34aa4006095bbe5" kindref="member">simplestWindow</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Gmin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Gmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a25e8787ff64678a6ca83bada4a649ed5" kindref="member">G</ref>);</highlight></codeline>
+<codeline lineno="69" refid="classsisi4s_1_1FiniteSizeCorrection_1ae57b495d6def659cba4bb194ee436f89" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1ae57b495d6def659cba4bb194ee436f89" kindref="member">integrateSimplestWindow</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Gmin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Gmax);</highlight></codeline>
+<codeline lineno="70" refid="classsisi4s_1_1FiniteSizeCorrection_1aaac37f82140fd1c0b0413f0a533e6be7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1aaac37f82140fd1c0b0413f0a533e6be7" kindref="member">leastSquareFit</ref>(std::vector&lt;double&gt;<sp/>fitabsG,<sp/>std::vector&lt;double&gt;<sp/>fitSF);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="classsisi4s_1_1FiniteSizeCorrection_1adf93ff1b8a947984f67f6e2f27d7a62c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FiniteSizeCorrection_1adf93ff1b8a947984f67f6e2f27d7a62c" kindref="member">basisSetCompleteness</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp"/>
+  </compounddef>
+</doxygen>

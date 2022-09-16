@@ -1,0 +1,715 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Lapack_8hpp" kind="file" language="C++">
+    <compoundname>Lapack.hpp</compoundname>
+    <includes refid="Float_8hpp" local="no">math/Float.hpp</includes>
+    <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
+    <includedby refid="DiisMixer_8cxx" local="no">DiisMixer.cxx</includedby>
+    <includedby refid="LapackGeneralEigenSystem_8hpp" local="no">LapackGeneralEigenSystem.hpp</includedby>
+    <includedby refid="LapackInverse_8hpp" local="no">LapackInverse.hpp</includedby>
+    <includedby refid="Mp2NaturalOrbitals_8cxx" local="no">Mp2NaturalOrbitals.cxx</includedby>
+    <includedby refid="ParenthesisTriples_8cxx" local="no">ParenthesisTriples.cxx</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Lapack.hpp</label>
+        <link refid="Lapack_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>complex</label>
+      </node>
+      <node id="3">
+        <label>ostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>CcsdEquationOfMotionDavidson.cxx</label>
+        <link refid="CcsdEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="6">
+        <label>CcsdtEquationOfMotionDavidson.cxx</label>
+        <link refid="CcsdtEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="12">
+        <label>Mp2NaturalOrbitals.cxx</label>
+        <link refid="Mp2NaturalOrbitals_8cxx"/>
+      </node>
+      <node id="10">
+        <label>NaturalTransitionOrbitalsFromRhoAI.cxx</label>
+        <link refid="NaturalTransitionOrbitalsFromRhoAI_8cxx"/>
+      </node>
+      <node id="13">
+        <label>ParenthesisTriples.cxx</label>
+        <link refid="ParenthesisTriples_8cxx"/>
+      </node>
+      <node id="7">
+        <label>UCcsdEAEquationOfMotionDavidson.cxx</label>
+        <link refid="UCcsdEAEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="8">
+        <label>UCcsdIPEquationOfMotionDavidson.cxx</label>
+        <link refid="UCcsdIPEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="9">
+        <label>UnrestrictedEquationOfMotionSinglesFromRpa.cxx</label>
+        <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx"/>
+      </node>
+      <node id="1">
+        <label>Lapack.hpp</label>
+        <link refid="Lapack_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EigenSystemDavidson.hpp</label>
+        <link refid="EigenSystemDavidson_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DiisMixer.cxx</label>
+        <link refid="DiisMixer_8cxx"/>
+      </node>
+      <node id="3">
+        <label>LapackGeneralEigenSystem.hpp</label>
+        <link refid="LapackGeneralEigenSystem_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>LapackInverse.hpp</label>
+        <link refid="LapackInverse_8hpp"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="Lapack_8hpp_1a4d8fc02ca066b465ea806785b848ae35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dgeev_</definition>
+        <argsstring>(const char *jobvLeft, const char *jobvRight, const int *n, sisi4s::Float64 *a, const int *lda, sisi4s::Float64 *wReal, sisi4s::Float64 *wImag, sisi4s::Float64 *vLeft, const int *ldvLeft, sisi4s::Float64 *vRight, const int *ldvRight, sisi4s::Float64 *work, const int *workSize, int *info)</argsstring>
+        <name>dgeev_</name>
+        <param>
+          <type>const char *</type>
+          <declname>jobvLeft</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>jobvRight</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>wReal</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>wImag</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>vLeft</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ldvLeft</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>vRight</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ldvRight</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>workSize</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" line="11" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" declline="11" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="Lapack_8hpp_1aa5156a837dc04850959f7eec5f83e01c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void zgeev_</definition>
+        <argsstring>(const char *jobvLeft, const char *jobvRight, const int *n, const sisi4s::Complex64 *a, const int *lda, sisi4s::Complex64 *w, sisi4s::Complex64 *vLeft, const int *ldvLeft, sisi4s::Complex64 *vRight, const int *ldvRight, sisi4s::Complex64 *work, const int *workSize, sisi4s::Float64 *rwork, int *info)</argsstring>
+        <name>zgeev_</name>
+        <param>
+          <type>const char *</type>
+          <declname>jobvLeft</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>jobvRight</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref> *</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref> *</type>
+          <declname>vLeft</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ldvLeft</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref> *</type>
+          <declname>vRight</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ldvRight</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref> *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>workSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>rwork</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" line="27" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" declline="27" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a8542e1b930fbedc3a8986ff0dc240c18" compoundref="LapackGeneralEigenSystem_8hpp" startline="118" endline="192">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::LapackGeneralEigenSystem</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="Lapack_8hpp_1a5dd7884f39150c29793947da3b7a78f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dsyev_</definition>
+        <argsstring>(const char *jobz, const char *uplo, const int *n, sisi4s::Float64 *a, const int *lda, sisi4s::Float64 *w, sisi4s::Float64 *work, const int *lwork, int *info)</argsstring>
+        <name>dsyev_</name>
+        <param>
+          <type>const char *</type>
+          <declname>jobz</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>uplo</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lwork</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" line="43" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" declline="43" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="36" endline="470">sisi4s::Mp2NaturalOrbitals::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="Lapack_8hpp_1aaacdf33c1d8272c5fd148b2e002c12a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dsysv_</definition>
+        <argsstring>(const char *uplo, const int *n, const int *m, sisi4s::Float64 *a, const int *lda, const int *ipiv, sisi4s::Float64 *b, const int *ldb, sisi4s::Float64 *work, const int *lwork, const int *info)</argsstring>
+        <name>dsysv_</name>
+        <param>
+          <type>const char *</type>
+          <declname>uplo</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ipiv</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ldb</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lwork</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" line="54" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" declline="54" declcolumn="8"/>
+        <referencedby refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" compoundref="DiisMixer_8cxx" startline="16" endline="32">inverse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="Lapack_8hpp_1a60541bc3a66c8c7b18d491ad9c6e6a4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dgetrf_</definition>
+        <argsstring>(const int *m, const int *n, sisi4s::Float64 *a, const int *lda, const int *rowPermutation, int *info)</argsstring>
+        <name>dgetrf_</name>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>rowPermutation</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" line="67" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" declline="67" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="Lapack_8hpp_1ab79f66e7f576fe063fb09995dc467c00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void zgetrf_</definition>
+        <argsstring>(const int *m, const int *n, sisi4s::Complex64 *a, const int *lda, const int *rowPermutation, int *info)</argsstring>
+        <name>zgetrf_</name>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>rowPermutation</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" line="75" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" declline="75" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1LapackInverse_3_01Complex64_01_4_1ac46c62694eacb361ccae04d2adcebfb7" compoundref="LapackInverse_8hpp" startline="23" endline="56">sisi4s::LapackInverse&lt; Complex64 &gt;::LapackInverse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="Lapack_8hpp_1a42c0fcb1633b24fa62233af66495e9aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dgetri_</definition>
+        <argsstring>(const int *n, sisi4s::Float64 *a, const int *lda, const int *rowPermutation, sisi4s::Float64 *work, const int *workSize, int *info)</argsstring>
+        <name>dgetri_</name>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>rowPermutation</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref> *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>workSize</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" line="83" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" declline="83" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="Lapack_8hpp_1a44b3584500939d1adaabb3c0fc0487f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void zgetri_</definition>
+        <argsstring>(const int *n, sisi4s::Complex64 *a, const int *lda, const int *rowPermutation, sisi4s::Complex64 *work, const int *workSize, int *info)</argsstring>
+        <name>zgetri_</name>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>rowPermutation</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref> *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>workSize</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" line="92" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" declline="92" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1LapackInverse_3_01Complex64_01_4_1ac46c62694eacb361ccae04d2adcebfb7" compoundref="LapackInverse_8hpp" startline="23" endline="56">sisi4s::LapackInverse&lt; Complex64 &gt;::LapackInverse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="Lapack_8hpp_1a5b048540159b635db2de24c5c90c0f71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dger_</definition>
+        <argsstring>(const int *M, const int *N, const double *alpha, const double *X, const int *incx, const double *Y, const int *incy, double *A, const int *lda)</argsstring>
+        <name>dger_</name>
+        <param>
+          <type>const int *</type>
+          <declname>M</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>N</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>incx</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>Y</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>incy</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lda</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" line="116" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp" declline="116" declcolumn="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2018,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LAPACK_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LAPACK_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Float_8hpp" kindref="compound">math/Float.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>use<sp/>define<sp/>for<sp/>name<sp/>mangling:<sp/>underscore<sp/>or<sp/>not</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="11" refid="Lapack_8hpp_1a4d8fc02ca066b465ea806785b848ae35" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Lapack_8hpp_1a4d8fc02ca066b465ea806785b848ae35" kindref="member">dgeev_</ref>(</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobvLeft,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobvRight,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*a,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lda,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*wReal,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*wImag,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*vLeft,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ldvLeft,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*vRight,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ldvRight,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*work,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*workSize,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="27" refid="Lapack_8hpp_1aa5156a837dc04850959f7eec5f83e01c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Lapack_8hpp_1aa5156a837dc04850959f7eec5f83e01c" kindref="member">zgeev_</ref>(</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobvLeft,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobvRight,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref><sp/>*a,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lda,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref><sp/>*w,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref><sp/>*vLeft,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ldvLeft,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref><sp/>*vRight,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ldvRight,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref><sp/>*work,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*workSize,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*rwork,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="43" refid="Lapack_8hpp_1a5dd7884f39150c29793947da3b7a78f4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Lapack_8hpp_1a5dd7884f39150c29793947da3b7a78f4" kindref="member">dsyev_</ref>(</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobz,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*uplo,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*a,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lda,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*w,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*work,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lwork,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="54" refid="Lapack_8hpp_1aaacdf33c1d8272c5fd148b2e002c12a6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Lapack_8hpp_1aaacdf33c1d8272c5fd148b2e002c12a6" kindref="member">dsysv_</ref>(</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*uplo,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*a,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lda,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ipiv,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*b,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ldb,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*work,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lwork,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="67" refid="Lapack_8hpp_1a60541bc3a66c8c7b18d491ad9c6e6a4e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Lapack_8hpp_1a60541bc3a66c8c7b18d491ad9c6e6a4e" kindref="member">dgetrf_</ref>(</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*a,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lda,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*rowPermutation,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="75" refid="Lapack_8hpp_1ab79f66e7f576fe063fb09995dc467c00" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Lapack_8hpp_1ab79f66e7f576fe063fb09995dc467c00" kindref="member">zgetrf_</ref>(</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref><sp/>*a,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lda,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*rowPermutation,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="83" refid="Lapack_8hpp_1a42c0fcb1633b24fa62233af66495e9aa" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Lapack_8hpp_1a42c0fcb1633b24fa62233af66495e9aa" kindref="member">dgetri_</ref>(</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*a,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lda,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*rowPermutation,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">sisi4s::Float64</ref><sp/>*work,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*workSize,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="92" refid="Lapack_8hpp_1a44b3584500939d1adaabb3c0fc0487f1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Lapack_8hpp_1a44b3584500939d1adaabb3c0fc0487f1" kindref="member">zgetri_</ref>(</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref><sp/>*a,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lda,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*rowPermutation,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">sisi4s::Complex64</ref><sp/>*work,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*workSize,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>dgemm_(</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>const<sp/>char<sp/>*transa,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>const<sp/>char<sp/>*transb,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>const<sp/>int<sp/>*m,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>const<sp/>int<sp/>*n,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>const<sp/>int<sp/>*k,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>double<sp/>*alpha,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>const<sp/>double<sp/>*A,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>const<sp/>int<sp/>*lda,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>const<sp/>double<sp/>*B,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>const<sp/>int<sp/>*ldb,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>double<sp/>*beta,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>double<sp/>*C,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>const<sp/>int<sp/>*ldc</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="Lapack_8hpp_1a5b048540159b635db2de24c5c90c0f71" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Lapack_8hpp_1a5b048540159b635db2de24c5c90c0f71" kindref="member">dger_</ref>(</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*M,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*N,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*<ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*X,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*incx,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*Y,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*incy,</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*A,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lda</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Lapack.hpp"/>
+  </compounddef>
+</doxygen>

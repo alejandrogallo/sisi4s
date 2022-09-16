@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1Mixer" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>sisi4s::Mixer</compoundname>
+    <derivedcompoundref refid="classsisi4s_1_1DiisMixer" prot="public" virt="non-virtual">sisi4s::DiisMixer&lt; F &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classsisi4s_1_1LinearMixer" prot="public" virt="non-virtual">sisi4s::LinearMixer&lt; F &gt;</derivedcompoundref>
+    <includes refid="Mixer_8hpp" local="no">Mixer.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" prot="public" static="no" mutable="no">
+        <type><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref> *</type>
+        <definition>Algorithm* sisi4s::Mixer&lt; F &gt;::algorithm</definition>
+        <argsstring></argsstring>
+        <name>algorithm</name>
+        <qualifiedname>sisi4s::Mixer::algorithm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" line="53" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" bodystart="53" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1DiisMixer_1ae6af3fd3aa23a5891216897f380e76d3" compoundref="DiisMixer_8cxx" startline="45" endline="85">sisi4s::DiisMixer&lt; F &gt;::DiisMixer</referencedby>
+        <referencedby refid="classsisi4s_1_1LinearMixer_1a79213d070c61edbeaaddae7e7859bb19" compoundref="LinearMixer_8cxx" startline="13" endline="25">sisi4s::LinearMixer&lt; F &gt;::LinearMixer</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1Mixer_1a2ec5f3a84f2c48df9281c9d37a76207a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Mixer::Mixer</definition>
+        <argsstring>(Algorithm *algorithm)</argsstring>
+        <name>Mixer</name>
+        <qualifiedname>sisi4s::Mixer::Mixer</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref> *</type>
+          <declname>algorithm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" line="16" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.cxx" bodystart="8" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Mixer_1a85026e8a94b704a13e65445b80fc7821" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>Mixer::~Mixer</definition>
+        <argsstring>()</argsstring>
+        <name>~Mixer</name>
+        <qualifiedname>sisi4s::Mixer::~Mixer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" line="17" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.cxx" bodystart="12" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Mixer_1acc2c6554aafc2460847d197f1868a6d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string sisi4s::Mixer&lt; F &gt;::getName</definition>
+        <argsstring>()=0</argsstring>
+        <name>getName</name>
+        <qualifiedname>sisi4s::Mixer::getName</qualifiedname>
+        <reimplementedby refid="classsisi4s_1_1DiisMixer_1a965678ad86f97c6978d64f206c6618b2">getName</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1LinearMixer_1a6ae502dab8ab8552de2eacab4165225c">getName</reimplementedby>
+        <briefdescription>
+<para>Returns the name of the implenting mixer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" line="22" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Mixer_1a0ae97a54c9153b371b48986ac4227237" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void sisi4s::Mixer&lt; F &gt;::append</definition>
+        <argsstring>(const std::shared_ptr&lt; FockVector&lt; F &gt; &gt; &amp;A, const std::shared_ptr&lt; FockVector&lt; F &gt; &gt; &amp;R)=0</argsstring>
+        <name>append</name>
+        <qualifiedname>sisi4s::Mixer::append</qualifiedname>
+        <reimplementedby refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a">append</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1LinearMixer_1ab77b6f3b939579fb5ea595c79cca2235">append</reimplementedby>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; F &gt; &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; F &gt; &gt; &amp;</type>
+          <declname>R</declname>
+        </param>
+        <briefdescription>
+<para>Appends the given pair (A,R) of FockVectors to the mixer, where R is the residuum when using the amplitudes A. The mixer may use the given amplitudes and residua to provide an estimated amplitude with a lower expected residuum. A and R are not expected to change upon return. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" line="31" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Mixer_1aa68d5ab21cadfc03cec2f2ef8f0b8552" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; const <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; F &gt; &gt;</type>
+        <definition>virtual std::shared_ptr&lt; const FockVector&lt; F &gt; &gt; sisi4s::Mixer&lt; F &gt;::get</definition>
+        <argsstring>()=0</argsstring>
+        <name>get</name>
+        <qualifiedname>sisi4s::Mixer::get</qualifiedname>
+        <reimplementedby refid="classsisi4s_1_1DiisMixer_1afaccc8b03ebe58b5138aa64f5875ebea">get</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1LinearMixer_1a0fab9bf69d0470207ba58970517d587b">get</reimplementedby>
+        <briefdescription>
+<para>Returns the current best estimate of the amplitudes according to previously given pairs of amplitudes and residua. Requires one or more previous calls to append. The returned FockVectors must not be changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" line="42" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Mixer_1a8b258c724a7297925db03548ed8668ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; const <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; F &gt; &gt;</type>
+        <definition>virtual std::shared_ptr&lt; const FockVector&lt; F &gt; &gt; sisi4s::Mixer&lt; F &gt;::getResiduum</definition>
+        <argsstring>()=0</argsstring>
+        <name>getResiduum</name>
+        <qualifiedname>sisi4s::Mixer::getResiduum</qualifiedname>
+        <reimplementedby refid="classsisi4s_1_1DiisMixer_1a321ce7d54ba7b64a85832546e8bc65ab">getResiduum</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1LinearMixer_1a40b684bebe91b4ba310c5c2df9f4a4f6">getResiduum</reimplementedby>
+        <briefdescription>
+<para>Returns the estimated residuum of the current best estimate of the amplitdues according to previously given pairs of amplitudes and residua. Requires one or more previous calls to append. The returned FockVectors must not be changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" line="51" column="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::DiisMixer&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1DiisMixer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sisi4s::LinearMixer&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1LinearMixer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::Mixer&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1Mixer"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::Mixer&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1Mixer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+algorithm</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" line="14" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" bodystart="14" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" prot="public" virt="non-virtual"><scope>sisi4s::Mixer</scope><name>algorithm</name></member>
+      <member refid="classsisi4s_1_1Mixer_1a0ae97a54c9153b371b48986ac4227237" prot="public" virt="pure-virtual"><scope>sisi4s::Mixer</scope><name>append</name></member>
+      <member refid="classsisi4s_1_1Mixer_1aa68d5ab21cadfc03cec2f2ef8f0b8552" prot="public" virt="pure-virtual"><scope>sisi4s::Mixer</scope><name>get</name></member>
+      <member refid="classsisi4s_1_1Mixer_1acc2c6554aafc2460847d197f1868a6d0" prot="public" virt="pure-virtual"><scope>sisi4s::Mixer</scope><name>getName</name></member>
+      <member refid="classsisi4s_1_1Mixer_1a8b258c724a7297925db03548ed8668ef" prot="public" virt="pure-virtual"><scope>sisi4s::Mixer</scope><name>getResiduum</name></member>
+      <member refid="classsisi4s_1_1Mixer_1a2ec5f3a84f2c48df9281c9d37a76207a" prot="public" virt="non-virtual"><scope>sisi4s::Mixer</scope><name>Mixer</name></member>
+      <member refid="classsisi4s_1_1Mixer_1a85026e8a94b704a13e65445b80fc7821" prot="public" virt="virtual"><scope>sisi4s::Mixer</scope><name>~Mixer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Permutation_8hpp" kind="file" language="C++">
+    <compoundname>Permutation.hpp</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">initializer_list</includes>
+    <includedby refid="CcsdPerturbativeTriples_8cxx" local="no">CcsdPerturbativeTriples.cxx</includedby>
+    <includedby refid="CcsdPerturbativeTriples_8hpp" local="no">CcsdPerturbativeTriples.hpp</includedby>
+    <includedby refid="CcsdPerturbativeTriplesComplex_8cxx" local="no">CcsdPerturbativeTriplesComplex.cxx</includedby>
+    <includedby refid="CcsdPerturbativeTriplesComplex_8hpp" local="no">CcsdPerturbativeTriplesComplex.hpp</includedby>
+    <includedby refid="SlicedCtfTensor_8hpp" local="no">SlicedCtfTensor.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Permutation.hpp</label>
+        <link refid="Permutation_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>initializer_list</label>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>CcsdPerturbativeTriples.cxx</label>
+        <link refid="CcsdPerturbativeTriples_8cxx"/>
+      </node>
+      <node id="3">
+        <label>CcsdPerturbativeTriples.hpp</label>
+        <link refid="CcsdPerturbativeTriples_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CcsdPerturbativeTriplesComplex.cxx</label>
+        <link refid="CcsdPerturbativeTriplesComplex_8cxx"/>
+      </node>
+      <node id="5">
+        <label>CcsdPerturbativeTriplesComplex.hpp</label>
+        <link refid="CcsdPerturbativeTriplesComplex_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Permutation.hpp</label>
+        <link refid="Permutation_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>SlicedCtfTensor.hpp</label>
+        <link refid="SlicedCtfTensor_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1Map" prot="public">sisi4s::Map</innerclass>
+    <innerclass refid="classsisi4s_1_1Permutation" prot="public">sisi4s::Permutation</innerclass>
+    <innerclass refid="classsisi4s_1_1Permutation_3_011_01_4" prot="public">sisi4s::Permutation&lt; 1 &gt;</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>PERMUTATION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PERMUTATION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;initializer_list&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="9" refid="classsisi4s_1_1Map" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Map" kindref="compound">Map</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11" refid="classsisi4s_1_1Map_1aefe5ec7e2dfe11ee33b3cb84d5004617" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Map_1aefe5ec7e2dfe11ee33b3cb84d5004617" kindref="member">Map</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="13" refid="classsisi4s_1_1Map_1a2f1592886cdb071c433e0f9ddab03623" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Map_1a2f1592886cdb071c433e0f9ddab03623" kindref="member">Map</ref>(std::initializer_list&lt;int&gt;<sp/>images_)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::copy(images_.begin(),<sp/>images_.end(),<sp/><ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16" refid="classsisi4s_1_1Map_1a9208fddf11da3501cf8a440e9844c8ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Map_1a9208fddf11da3501cf8a440e9844c8ef" kindref="member">Map</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map</ref><sp/>&amp;p)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/><ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[i]<sp/>=<sp/>p.<ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[i];</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="classsisi4s_1_1Map_1a9d80b1a6a802d9c5c41ac71f448422f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map_1a9d80b1a6a802d9c5c41ac71f448422f2" kindref="member">operator ()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[i];</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23" refid="classsisi4s_1_1Map_1ac7c6b50e7c00d470bdbd16915947a618" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;<ref refid="classsisi4s_1_1Map_1a9d80b1a6a802d9c5c41ac71f448422f2" kindref="member">operator ()</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[i];</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="classsisi4s_1_1Map_1a372a33e2d2050626cacec19326abbafa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map_1a372a33e2d2050626cacec19326abbafa" kindref="member">operator ==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map</ref><sp/>&amp;m)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[i]<sp/>!=<sp/>m.<ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[i])<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[N];</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="36" refid="namespacesisi4s_1afd3719c004eaad74f542dc971e045475" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::ostream<sp/>&amp;<ref refid="namespacesisi4s_1a824dfb7d6773baaa4dfc79467ad83a59" kindref="member">operator &lt;&lt;</ref>(std::ostream<sp/>&amp;stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map&lt;N&gt;</ref><sp/>&amp;f)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>stream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N-1;<sp/>++i)<sp/>stream<sp/>&lt;&lt;<sp/>f(i)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>stream<sp/>&lt;&lt;<sp/>f(N-1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Permutation;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>Permutation&lt;N&gt;<sp/><ref refid="namespacesisi4s_1a3e0e5db8049adce93ba9fc38d7aaeb7f" kindref="member">operator *</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Permutation&lt;N&gt;<sp/>&amp;,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Permutation&lt;N&gt;<sp/>&amp;);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>Permutation&lt;N&gt;<sp/><ref refid="namespacesisi4s_1a351c85c35185894c78151d022c3747ab" kindref="member">operator /</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Permutation&lt;N&gt;<sp/>&amp;,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Permutation&lt;N&gt;<sp/>&amp;);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>Permutation&lt;N&gt;<sp/><ref refid="namespacesisi4s_1a351c85c35185894c78151d022c3747ab" kindref="member">operator /</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Permutation&lt;N&gt;<sp/>&amp;);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="55" refid="classsisi4s_1_1Permutation" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map</ref>&lt;N&gt;<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="57" refid="classsisi4s_1_1Permutation_1aa155018e22082de05f6f29bb11a4f3cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Permutation_1aa155018e22082de05f6f29bb11a4f3cd" kindref="member">Permutation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int64_t<sp/>p)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref>&lt;N-1&gt;<sp/>subPermutation(p/N);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>p%N;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[i]<sp/>=<sp/>subPermutation.images[i]<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[p%N]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(++i;<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[i]<sp/>=<sp/>subPermutation.images[i-1]<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="classsisi4s_1_1Permutation_1a14c55ad470ef27dc0945b00b7a864b95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation_1a14c55ad470ef27dc0945b00b7a864b95" kindref="member">invariantElementsCount</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count(0);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>count<sp/>+=<sp/>this-&gt;<ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[i]<sp/>==<sp/>i;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>count;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="classsisi4s_1_1Permutation_1a1a808e3fd038179f2b5dc38947984cbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>int64_t<sp/><ref refid="classsisi4s_1_1Permutation_1a1a808e3fd038179f2b5dc38947984cbe" kindref="member">ORDER</ref><sp/>=<sp/>N<sp/>*<sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref>&lt;N-1&gt;<ref refid="classsisi4s_1_1Permutation_1a1a808e3fd038179f2b5dc38947984cbe" kindref="member">::ORDER</ref>;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>*&lt;N&gt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref><sp/>&amp;,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref><sp/>&amp;);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>/&lt;N&gt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref><sp/>&amp;,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref><sp/>&amp;);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>/&lt;N&gt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref><sp/>&amp;);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
+<codeline lineno="85" refid="classsisi4s_1_1Permutation_3_011_01_4" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref>&lt;1&gt;:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map</ref>&lt;1&gt;<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="87" refid="classsisi4s_1_1Permutation_3_011_01_4_1a39733c5b06c8b35e8f30c3f4eecf5e64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Permutation_3_011_01_4_1a39733c5b06c8b35e8f30c3f4eecf5e64" kindref="member">Permutation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int64_t<sp/>p)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" kindref="member">images</ref>[0]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90" refid="classsisi4s_1_1Permutation_3_011_01_4_1a4356a721aee6706cece49979798440b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>int64_t<sp/><ref refid="classsisi4s_1_1Permutation_1a1a808e3fd038179f2b5dc38947984cbe" kindref="member">ORDER</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>sigma<sp/>after<sp/>tau</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="95" refid="classsisi4s_1_1Permutation_1a9b7b36e592e41092911f8fe405a4412c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/><ref refid="namespacesisi4s_1a3e0e5db8049adce93ba9fc38d7aaeb7f" kindref="member">operator *</ref>(</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/>&amp;sigma,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/>&amp;tau</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/>pi;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>pi(i)<sp/>=<sp/>sigma(tau(i));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pi;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>general<sp/>map<sp/>f<sp/>after<sp/>tau</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="105" refid="namespacesisi4s_1af0d408589ec6ad3a0635dea02dffec54" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map&lt;N&gt;</ref><sp/><ref refid="namespacesisi4s_1a3e0e5db8049adce93ba9fc38d7aaeb7f" kindref="member">operator *</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map&lt;N&gt;</ref><sp/>&amp;f,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/>&amp;tau)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map&lt;N&gt;</ref><sp/>g;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>g(i)<sp/>=<sp/>f(tau(i));</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>g;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>inverse<sp/>of<sp/>a<sp/>permutation<sp/>tau</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="113" refid="classsisi4s_1_1Permutation_1a67047a494fa8dbccc3ef080a62300b51" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/><ref refid="namespacesisi4s_1a351c85c35185894c78151d022c3747ab" kindref="member">operator /</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/>&amp;tau)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/>tauInverse;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>tauInverse(tau(i))<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tauInverse;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>sigma<sp/>after<sp/>inverse<sp/>of<sp/>tau</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="121" refid="classsisi4s_1_1Permutation_1aacab7da4b025ac47d6f4e6a11155e35d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/><ref refid="namespacesisi4s_1a351c85c35185894c78151d022c3747ab" kindref="member">operator /</ref>(</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/>&amp;sigma,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/>&amp;tau</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;N&gt;</ref><sp/>pi;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>pi(tau(i))<sp/>=<sp/>sigma(i);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pi;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="BlacsWorld_8hpp" kind="file" language="C++">
+    <compoundname>BlacsWorld.hpp</compoundname>
+    <includedby refid="BlacsWorld_8cxx" local="no">BlacsWorld.cxx</includedby>
+    <includedby refid="CoulombVertexSingularVectors_8cxx" local="no">CoulombVertexSingularVectors.cxx</includedby>
+    <includedby refid="DoublesAmplitudesDecomposition_8cxx" local="no">DoublesAmplitudesDecomposition.cxx</includedby>
+    <includedby refid="ParticleHoleCoulombVertexSingularVectors_8cxx" local="no">ParticleHoleCoulombVertexSingularVectors.cxx</includedby>
+    <includedby refid="PseudoInverseHermitianSvd_8cxx" local="no">PseudoInverseHermitianSvd.cxx</includedby>
+    <includedby refid="PseudoInverseSvd_8cxx" local="no">PseudoInverseSvd.cxx</includedby>
+    <includedby refid="ScaLapackMatrix_8hpp" local="no">ScaLapackMatrix.hpp</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>CoulombVertexSingularVectors.cxx</label>
+        <link refid="CoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="4">
+        <label>DoublesAmplitudesDecomposition.cxx</label>
+        <link refid="DoublesAmplitudesDecomposition_8cxx"/>
+      </node>
+      <node id="5">
+        <label>ParticleHoleCoulombVertexSingularVectors.cxx</label>
+        <link refid="ParticleHoleCoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="6">
+        <label>PseudoInverseHermitianSvd.cxx</label>
+        <link refid="PseudoInverseHermitianSvd_8cxx"/>
+      </node>
+      <node id="7">
+        <label>PseudoInverseSvd.cxx</label>
+        <link refid="PseudoInverseSvd_8cxx"/>
+      </node>
+      <node id="2">
+        <label>BlacsWorld.cxx</label>
+        <link refid="BlacsWorld_8cxx"/>
+      </node>
+      <node id="1">
+        <label>BlacsWorld.hpp</label>
+        <link refid="BlacsWorld_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>ScaLapackHermitianEigenSystem.hpp</label>
+        <link refid="ScaLapackHermitianEigenSystem_8hpp"/>
+      </node>
+      <node id="10">
+        <label>ScaLapackHermitianEigenSystemDc.hpp</label>
+        <link refid="ScaLapackHermitianEigenSystemDc_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>ScaLapackMatrix.cxx</label>
+        <link refid="ScaLapackMatrix_8cxx"/>
+      </node>
+      <node id="8">
+        <label>ScaLapackMatrix.hpp</label>
+        <link refid="ScaLapackMatrix_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>ScaLapackSingularValueDecomposition.hpp</label>
+        <link refid="ScaLapackSingularValueDecomposition_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1BlacsWorld" prot="public">sisi4s::BlacsWorld</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2016,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>BLACS_WORLD_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLACS_WORLD_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="6" refid="classsisi4s_1_1BlacsWorld" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a720328f15e7797f099bb8554720a2164" kindref="member">BlacsWorld</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a09531efa21e3611efe5ba40ed398df5c" kindref="member">rank</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>processes,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>processRows<sp/>=<sp/>-1);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld_1ac926df5a02d94ef079f265dd64f3cb1e" kindref="member">~BlacsWorld</ref>();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a932972e47385c0df0f9e9f10da7e46da" kindref="member">barrier</ref>();</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classsisi4s_1_1BlacsWorld_1a09531efa21e3611efe5ba40ed398df5c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a09531efa21e3611efe5ba40ed398df5c" kindref="member">rank</ref>;</highlight></codeline>
+<codeline lineno="13" refid="classsisi4s_1_1BlacsWorld_1a1993d2fcc74c966cd9f40441edf4b0c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a1993d2fcc74c966cd9f40441edf4b0c3" kindref="member">context</ref>;</highlight></codeline>
+<codeline lineno="14" refid="classsisi4s_1_1BlacsWorld_1a1c0057db4593cc4e4bedeb468c85dafb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[2],<sp/><ref refid="classsisi4s_1_1BlacsWorld_1a1c0057db4593cc4e4bedeb468c85dafb" kindref="member">firstElement</ref>[2];</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BlacsWorld.hpp"/>
+  </compounddef>
+</doxygen>

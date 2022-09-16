@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1Time" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::Time</compoundname>
+    <basecompoundref prot="protected" virt="non-virtual">timespec</basecompoundref>
+    <includes refid="Time_8hpp" local="no">Time.hpp</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t sisi4s::Time::FRACTIONS</definition>
+        <argsstring></argsstring>
+        <name>FRACTIONS</name>
+        <qualifiedname>sisi4s::Time::FRACTIONS</qualifiedname>
+        <initializer>= 1000000000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="19" column="30" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="19" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Time_1acde8b004fc350d2767365a72a31e3c47" compoundref="Time_8hpp" startline="39" endline="41">getFractionalSeconds</referencedby>
+        <referencedby refid="namespacesisi4s_1af367ad2673f0d194941471c8c23d70a5" compoundref="Time_8hpp" startline="84" endline="87">sisi4s::operator*</referencedby>
+        <referencedby refid="classsisi4s_1_1Time_1a4b20fc998cedc6bdf77cc9d905319d68" compoundref="Time_8hpp" startline="43" endline="52">operator+=</referencedby>
+        <referencedby refid="classsisi4s_1_1Time_1aade39a0acac16865f1b8e752c6859003" compoundref="Time_8hpp" startline="54" endline="63">operator-=</referencedby>
+        <referencedby refid="classsisi4s_1_1LogStream_1abc6d2d4b5786d75d42084300050a82f2" compoundref="Log_8cxx" startline="24" endline="47">sisi4s::LogStream::prepare</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Time_1a6cf1cef47e10cc59c5da149659b32a5e" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int sisi4s::Time::FRACTION_DIGITS</definition>
+        <argsstring></argsstring>
+        <name>FRACTION_DIGITS</name>
+        <qualifiedname>sisi4s::Time::FRACTION_DIGITS</qualifiedname>
+        <initializer>= 9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="20" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="20" bodyend="-1"/>
+        <referencedby refid="namespacesisi4s_1af0b04a8d66de62bc764d8bec46070280" compoundref="Time_8hpp" startline="89" endline="95">sisi4s::operator&lt;&lt;</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1Time_1a1fe453201aaef43e32265cb23d0c30c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::Time::Time</definition>
+        <argsstring>()</argsstring>
+        <name>Time</name>
+        <qualifiedname>sisi4s::Time::Time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="22" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Time_1adee0bd889c5538f65f4d4ff18b7f61e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::Time::Time</definition>
+        <argsstring>(int64_t seconds, int64_t nanoSeconds)</argsstring>
+        <name>Time</name>
+        <qualifiedname>sisi4s::Time::Time</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>seconds</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>nanoSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="26" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Time_1a68fbbb4d639afab1c0a2c976e55a18ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::Time::Time</definition>
+        <argsstring>(Time const &amp;t)</argsstring>
+        <name>Time</name>
+        <qualifiedname>sisi4s::Time::Time</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref> const &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="30" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="30" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Time_1a8b0e7f1e475a376cf6c0436a05639de1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t sisi4s::Time::getSeconds</definition>
+        <argsstring>() const</argsstring>
+        <name>getSeconds</name>
+        <qualifiedname>sisi4s::Time::getSeconds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="33" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="33" bodyend="35"/>
+        <referencedby refid="namespacesisi4s_1af0b04a8d66de62bc764d8bec46070280" compoundref="Time_8hpp" startline="89" endline="95">sisi4s::operator&lt;&lt;</referencedby>
+        <referencedby refid="classsisi4s_1_1LogStream_1abc6d2d4b5786d75d42084300050a82f2" compoundref="Log_8cxx" startline="24" endline="47">sisi4s::LogStream::prepare</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Time_1a1dd6ec8247d71c7dc892e7e262ac104f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t sisi4s::Time::getFractions</definition>
+        <argsstring>() const</argsstring>
+        <name>getFractions</name>
+        <qualifiedname>sisi4s::Time::getFractions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="36" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="36" bodyend="38"/>
+        <referencedby refid="namespacesisi4s_1af0b04a8d66de62bc764d8bec46070280" compoundref="Time_8hpp" startline="89" endline="95">sisi4s::operator&lt;&lt;</referencedby>
+        <referencedby refid="classsisi4s_1_1LogStream_1abc6d2d4b5786d75d42084300050a82f2" compoundref="Log_8cxx" startline="24" endline="47">sisi4s::LogStream::prepare</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Time_1acde8b004fc350d2767365a72a31e3c47" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double sisi4s::Time::getFractionalSeconds</definition>
+        <argsstring>() const</argsstring>
+        <name>getFractionalSeconds</name>
+        <qualifiedname>sisi4s::Time::getFractionalSeconds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="39" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="39" bodyend="41"/>
+        <references refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" compoundref="Time_8hpp" startline="19">FRACTIONS</references>
+        <referencedby refid="namespacesisi4s_1af367ad2673f0d194941471c8c23d70a5" compoundref="Time_8hpp" startline="84" endline="87">sisi4s::operator*</referencedby>
+        <referencedby refid="classsisi4s_1_1ParenthesisTriples_1a13c648b58b994e20cb35843b25b23312" compoundref="ParenthesisTriples_8cxx" startline="549" endline="765">sisi4s::ParenthesisTriples::run</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="29" endline="109">sisi4s::Sisi4s::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Time_1a4b20fc998cedc6bdf77cc9d905319d68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref> &amp;</type>
+        <definition>Time &amp; sisi4s::Time::operator+=</definition>
+        <argsstring>(Time const &amp;t)</argsstring>
+        <name>operator+=</name>
+        <qualifiedname>sisi4s::Time::operator+=</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref> const &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="43" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="43" bodyend="52"/>
+        <references refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" compoundref="Time_8hpp" startline="19">FRACTIONS</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Time_1aade39a0acac16865f1b8e752c6859003" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref> &amp;</type>
+        <definition>Time &amp; sisi4s::Time::operator-=</definition>
+        <argsstring>(Time const &amp;t)</argsstring>
+        <name>operator-=</name>
+        <qualifiedname>sisi4s::Time::operator-=</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref> const &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="54" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="54" bodyend="63"/>
+        <references refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" compoundref="Time_8hpp" startline="19">FRACTIONS</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsisi4s_1_1Time_1ab133fcb3422dbde9d68f5a5155c5127c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref></type>
+        <definition>static Time sisi4s::Time::getCurrentRealTime</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentRealTime</name>
+        <qualifiedname>sisi4s::Time::getCurrentRealTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="65" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="65" bodyend="69"/>
+        <referencedby refid="classsisi4s_1_1Timer_1a14fa469c4c295c5fa6e66a4ad1092146" compoundref="Timer_8cxx" startline="19" endline="22">sisi4s::Timer::~Timer</referencedby>
+        <referencedby refid="classsisi4s_1_1LogStream_1abc6d2d4b5786d75d42084300050a82f2" compoundref="Log_8cxx" startline="24" endline="47">sisi4s::LogStream::prepare</referencedby>
+        <referencedby refid="classsisi4s_1_1CcsdPerturbativeTriples_1ad094260a4c533e1734768a72b3ae0161" compoundref="CcsdPerturbativeTriples_8cxx" startline="126" endline="239">sisi4s::CcsdPerturbativeTriples::run</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref> class manages time intervals and their manipulation in terms of seconds and nanoseconds. It is a wrapper of the timespec class of ctime. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>sisi4s::Time</label>
+        <link refid="classsisi4s_1_1Time"/>
+        <childnode refid="2" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>timespec</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::Time</label>
+        <link refid="classsisi4s_1_1Time"/>
+        <childnode refid="2" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>timespec</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" line="17" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp" bodystart="17" bodyend="70"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Time_1a6cf1cef47e10cc59c5da149659b32a5e" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>FRACTION_DIGITS</name></member>
+      <member refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>FRACTIONS</name></member>
+      <member refid="classsisi4s_1_1Time_1ab133fcb3422dbde9d68f5a5155c5127c" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>getCurrentRealTime</name></member>
+      <member refid="classsisi4s_1_1Time_1acde8b004fc350d2767365a72a31e3c47" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>getFractionalSeconds</name></member>
+      <member refid="classsisi4s_1_1Time_1a1dd6ec8247d71c7dc892e7e262ac104f" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>getFractions</name></member>
+      <member refid="classsisi4s_1_1Time_1a8b0e7f1e475a376cf6c0436a05639de1" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>getSeconds</name></member>
+      <member refid="classsisi4s_1_1Time_1a4b20fc998cedc6bdf77cc9d905319d68" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>operator+=</name></member>
+      <member refid="classsisi4s_1_1Time_1aade39a0acac16865f1b8e752c6859003" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>operator-=</name></member>
+      <member refid="classsisi4s_1_1Time_1a1fe453201aaef43e32265cb23d0c30c9" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>Time</name></member>
+      <member refid="classsisi4s_1_1Time_1adee0bd889c5538f65f4d4ff18b7f61e6" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>Time</name></member>
+      <member refid="classsisi4s_1_1Time_1a68fbbb4d639afab1c0a2c976e55a18ee" prot="public" virt="non-virtual"><scope>sisi4s::Time</scope><name>Time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

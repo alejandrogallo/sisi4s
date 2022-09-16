@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="FlopsCounter_8cxx" kind="file" language="C++">
+    <compoundname>FlopsCounter.cxx</compoundname>
+    <includes refid="FlopsCounter_8hpp" local="no">util/FlopsCounter.hpp</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>FlopsCounter.cxx</label>
+        <link refid="FlopsCounter_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>util/FlopsCounter.hpp</label>
+        <link refid="FlopsCounter_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ctf.hpp</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="FlopsCounter_8hpp" kindref="compound">util/FlopsCounter.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="classsisi4s_1_1FlopsCounter_1ae3c7abb5eab002a891f7e654affa2fc0" refkind="member"><highlight class="normal">FlopsCounter::FlopsCounter(</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>int64_t<sp/>*flops_,<sp/>MPI_Comm<sp/>comm_</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">):<sp/>flops(flops_),<sp/>comm(comm_)<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="classsisi4s_1_1FlopsCounter_1af6712c8a7dc80e6e7d71c5587c388d95" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1FlopsCounter_1af6712c8a7dc80e6e7d71c5587c388d95" kindref="member">FlopsCounter::~FlopsCounter</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>*<ref refid="classsisi4s_1_1FlopsCounter_1a09f5f226f85412521df4a06e761697dc" kindref="member">flops</ref><sp/>=<sp/><ref refid="classsisi4s_1_1FlopsCounter_1adbfb0f7c01df02ce461065003c7b64a0" kindref="member">counter</ref>.count(<ref refid="classsisi4s_1_1FlopsCounter_1a473cdac098ec911c055d597d9fba89e6" kindref="member">comm</ref>);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.cxx"/>
+  </compounddef>
+</doxygen>

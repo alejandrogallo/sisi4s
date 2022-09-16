@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="AngularMomentum_8hpp" kind="file" language="C++">
+    <compoundname>AngularMomentum.hpp</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="no">string</includes>
+    <includedby refid="AngularMomentum_8cxx" local="no">AngularMomentum.cxx</includedby>
+    <includedby refid="BasisParser_8cxx" local="no">BasisParser.cxx</includedby>
+    <includedby refid="BasisParser_8hpp" local="no">BasisParser.hpp</includedby>
+    <includedby refid="BasisSet_8hpp" local="no">BasisSet.hpp</includedby>
+    <includedby refid="MoReader_8cxx" local="no">MoReader.cxx</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>AngularMomentum.hpp</label>
+        <link refid="AngularMomentum_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>MoReader.cxx</label>
+        <link refid="MoReader_8cxx"/>
+      </node>
+      <node id="3">
+        <label>BasisParser.cxx</label>
+        <link refid="BasisParser_8cxx"/>
+      </node>
+      <node id="4">
+        <label>BasisParser.hpp</label>
+        <link refid="BasisParser_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>AngularMomentum.cxx</label>
+        <link refid="AngularMomentum_8cxx"/>
+      </node>
+      <node id="1">
+        <label>AngularMomentum.hpp</label>
+        <link refid="AngularMomentum_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>BasisSet.cxx</label>
+        <link refid="BasisSet_8cxx"/>
+      </node>
+      <node id="6">
+        <label>BasisSet.hpp</label>
+        <link refid="BasisSet_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespaceam">am</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_ANGULAR_MOMENTUM_HEADER_ALE_YEAH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_ANGULAR_MOMENTUM_HEADER_ALE_YEAH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="namespaceam" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceam" kindref="compound">am</ref><sp/>{</highlight></codeline>
+<codeline lineno="8" refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408" kindref="member">AngularMomentum</ref><sp/>{<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a3376046bb91bb0e6c548a5d9b7a4e31e" kindref="member">S</ref><sp/>=<sp/>1,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref><sp/>=<sp/>3<sp/>,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a63b52edf34a3f352a74a7e8ccc95750d" kindref="member">D</ref><sp/>=<sp/>5<sp/>,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>=<sp/>7</highlight></codeline>
+<codeline lineno="9" refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a25e8787ff64678a6ca83bada4a649ed5" kindref="member">G</ref><sp/>=<sp/>9,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a2ee765cd9bdcdbec52e323808a758ebc" kindref="member">H</ref><sp/>=<sp/>11,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ab8ed521c3bf0c49835954ac0e7655425" kindref="member">I</ref><sp/>=<sp/>13,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408aa4b003a0a471bcce11f0a0f622366799" kindref="member">K</ref><sp/>=<sp/>15</highlight></codeline>
+<codeline lineno="10" refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408aa4b003a0a471bcce11f0a0f622366799" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>std::vector&lt;AngularMomentum&gt;<sp/><ref refid="namespaceam_1a2f2d806c34a2f9c8a28ac23d1eb26193" kindref="member">all</ref>();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a04e47e5931d5d6e94c7052151abe8650" kindref="member">toInt</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408" kindref="member">AngularMomentum</ref><sp/>&amp;);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408" kindref="member">AngularMomentum</ref><sp/><ref refid="namespaceam_1ac6b40085587bff5481ac689700436e24" kindref="member">fromString</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/AngularMomentum.hpp"/>
+  </compounddef>
+</doxygen>

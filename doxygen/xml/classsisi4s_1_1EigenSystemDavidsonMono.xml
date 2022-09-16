@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1EigenSystemDavidsonMono" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::EigenSystemDavidsonMono</compoundname>
+    <basecompoundref refid="classsisi4s_1_1EigenSystemDavidson" prot="public" virt="non-virtual">sisi4s::EigenSystemDavidson&lt; H, P, V &gt;</basecompoundref>
+    <includes refid="EigenSystemDavidson_8hpp" local="no">EigenSystemDavidson.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename H</type>
+      </param>
+      <param>
+        <type>typename P</type>
+      </param>
+      <param>
+        <type>typename V</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classsisi4s_1_1EigenSystemDavidsonMono_1aaa82f628c4a1b94f4de1b20afcc587c6" prot="public" static="no">
+        <type>V::FieldType</type>
+        <definition>typedef V::FieldType sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;::F</definition>
+        <argsstring></argsstring>
+        <name>F</name>
+        <qualifiedname>sisi4s::EigenSystemDavidsonMono::F</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/EigenSystemDavidson.hpp" line="127" column="35" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/EigenSystemDavidson.hpp" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1EigenSystemDavidsonMono_1a622fbf996569d0926d8a2d9265a27d47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;::EigenSystemDavidsonMono</definition>
+        <argsstring>(H *h_, const int eigenVectorsCount_, P *p_, const double toleranceVectors, const double toleranceEnergy, const unsigned int maxBasisSize_, const unsigned int maxIterations_, const unsigned int minIterations_)</argsstring>
+        <name>EigenSystemDavidsonMono</name>
+        <qualifiedname>sisi4s::EigenSystemDavidsonMono::EigenSystemDavidsonMono</qualifiedname>
+        <param>
+          <type>H *</type>
+          <declname>h_</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>eigenVectorsCount_</declname>
+        </param>
+        <param>
+          <type>P *</type>
+          <declname>p_</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>toleranceVectors</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>toleranceEnergy</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>maxBasisSize_</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>maxIterations_</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>minIterations_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/EigenSystemDavidson.hpp" line="129" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/EigenSystemDavidson.hpp" bodystart="129" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1EigenSystemDavidsonMono_1ae374662234b193df4dbfadedbce69beb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>sisi4s::EigenSystemDavidsonMono::run</qualifiedname>
+        <reimplements refid="classsisi4s_1_1EigenSystemDavidson_1af48c5082ff0bf3459cab3a08ce66377f">run</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/EigenSystemDavidson.hpp" line="149" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/EigenSystemDavidson.hpp" bodystart="149" bodyend="459"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="namespacesisi4s_1abc3ea35f1434b9c5021b9195449d1f9b" compoundref="MathFunctions_8hpp" startline="34" endline="36">sisi4s::conj</references>
+        <references refid="namespacesisi4s_1a92d239b67d4a13717f4e7f93ad9591f2" compoundref="MathFunctions_8hpp" startline="45" endline="47">sisi4s::dot</references>
+        <references refid="classsisi4s_1_1EigenSystemDavidson_1af846dd05a47badd3bcd9163526426533" compoundref="EigenSystemDavidson_8hpp" startline="116">sisi4s::EigenSystemDavidson&lt; H, P, V &gt;::eigenValues</references>
+        <references refid="classsisi4s_1_1EigenSystemDavidson_1a8fa2603fb7e877f8c2199b3a4f0c988d" compoundref="EigenSystemDavidson_8hpp" startline="108">sisi4s::EigenSystemDavidson&lt; H, P, V &gt;::eigenVectorsCount</references>
+        <references refid="Log_8hpp_1ae553676326b69ce508ea4c6f9134093b" compoundref="Log_8hpp" startline="110">FILE</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1a5b733258c657d65b923dd8831dcf65f1" compoundref="LapackMatrix_8hpp" startline="77" endline="77">sisi4s::LapackMatrix&lt; F &gt;::getColumns</references>
+        <references refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1aa58704d675805ce30607c8dc2d11e52d" compoundref="LapackGeneralEigenSystem_8hpp" startline="197" endline="199">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::getEigenValues</references>
+        <references refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a67faaf207be53fbcaaed625b551697b7" compoundref="LapackGeneralEigenSystem_8hpp" startline="208" endline="213">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::getLeftEigenVectors</references>
+        <references refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a4bb537adfb22439f531c3631f7a92e39" compoundref="LapackGeneralEigenSystem_8hpp" startline="201" endline="206">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::getRightEigenVectors</references>
+        <references refid="classsisi4s_1_1EigenSystemDavidson_1acfeb357e5da75c148fd8f3dd2752d929" compoundref="EigenSystemDavidson_8hpp" startline="107">sisi4s::EigenSystemDavidson&lt; H, P, V &gt;::h</references>
+        <references refid="classsisi4s_1_1EigenSystemDavidson_1a68c3b529d29778f68126cce07c1c842d" compoundref="EigenSystemDavidson_8hpp" startline="118">sisi4s::EigenSystemDavidson&lt; H, P, V &gt;::leftEigenVectors</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1EigenSystemDavidson_1a7969428bfb8d8fc4ab6e5c82b25801ec" compoundref="EigenSystemDavidson_8hpp" startline="113">sisi4s::EigenSystemDavidson&lt; H, P, V &gt;::minIterations</references>
+        <references refid="Log_8hpp_1a8839cdf651ee7aca0c558a57fbcca7a1" compoundref="Log_8hpp" startline="101">OUT</references>
+        <references refid="classsisi4s_1_1EigenSystemDavidson_1a1fc25be7bd7b72e440848f25e1519f13" compoundref="EigenSystemDavidson_8hpp" startline="109">sisi4s::EigenSystemDavidson&lt; H, P, V &gt;::p</references>
+        <references refid="classsisi4s_1_1EigenSystemDavidson_1afe865892c1c297f31931af778751d162" compoundref="EigenSystemDavidson_8hpp" startline="114">sisi4s::EigenSystemDavidson&lt; H, P, V &gt;::refreshIterations</references>
+        <references refid="classsisi4s_1_1EigenSystemDavidson_1aca3adefd8e560892314467c600bd339c" compoundref="EigenSystemDavidson_8hpp" startline="117">sisi4s::EigenSystemDavidson&lt; H, P, V &gt;::rightEigenVectors</references>
+        <references refid="namespacesisi4s_1a40947d88c4989cacff153a78af67f686" compoundref="MathFunctions_8hpp" startline="24" endline="26">sisi4s::sqrt</references>
+        <references refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" compoundref="CLI11_8hpp" startline="1124" endline="1126">CLI::detail::to_string</references>
+        <references refid="classsisi4s_1_1EigenSystemDavidson_1a6c909a09222a50e4ac7c52bd9cb24875">sisi4s::EigenSystemDavidson&lt; H, P, V &gt;::tolerance</references>
+        <referencedby refid="classsisi4s_1_1CcsdEquationOfMotionDavidson_1a418beaea4a3a3fe7cf890ba392a7d6ef" compoundref="CcsdEquationOfMotionDavidson_8cxx" startline="77" endline="495">sisi4s::CcsdEquationOfMotionDavidson::run</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::EigenSystemDavidson&lt; H, P, V &gt;</label>
+        <link refid="classsisi4s_1_1EigenSystemDavidson"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;</label>
+        <link refid="classsisi4s_1_1EigenSystemDavidsonMono"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>sisi4s::EigenSystemDavidson&lt; H, P, V &gt;</label>
+        <link refid="classsisi4s_1_1EigenSystemDavidson"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;</label>
+        <link refid="classsisi4s_1_1EigenSystemDavidsonMono"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/EigenSystemDavidson.hpp" line="125" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/EigenSystemDavidson.hpp" bodystart="125" bodyend="462"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a3ef0d68a9b49e503b07d950aed24d3f8" prot="public" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>EigenSystemDavidson</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidsonMono_1a622fbf996569d0926d8a2d9265a27d47" prot="public" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>EigenSystemDavidsonMono</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1af846dd05a47badd3bcd9163526426533" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>eigenValues</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a8fa2603fb7e877f8c2199b3a4f0c988d" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>eigenVectorsCount</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1aebe6bd483ef3e8fbe23beb8408296faf" prot="public" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>energy</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidsonMono_1aaa82f628c4a1b94f4de1b20afcc587c6" prot="public" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>F</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a94104c47e077a463bdad406e2c4c4e29" prot="public" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>getEigenValues</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a9698734a56decef29b543394c700fb50" prot="public" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>getLeftEigenVectors</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a29a5e150d4444bf21b7bd28ff8c215c5" prot="public" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>getRightEigenVectors</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1acfeb357e5da75c148fd8f3dd2752d929" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>h</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a68c3b529d29778f68126cce07c1c842d" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>leftEigenVectors</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a22170c178b4803e84801e9ad83419ad3" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>maxBasisSize</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a5d2e005486cb962b11adf23136e615f4" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>maxIterations</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a7969428bfb8d8fc4ab6e5c82b25801ec" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>minIterations</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a1fc25be7bd7b72e440848f25e1519f13" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>p</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1afe865892c1c297f31931af778751d162" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>refreshIterations</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a5aed301533dde0f4172b7c6430f52ca9" prot="public" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>refreshOnMaxBasisSize</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1ac5c3bc5a870c9cc30caa4b9e857cd8ff" prot="public" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>refreshOnMaxBasisSize</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a6e490f57008e455e970bbab15326dc34" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>refreshOnMaxBasisSizeValue</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1aca3adefd8e560892314467c600bd339c" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>rightEigenVectors</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidsonMono_1ae374662234b193df4dbfadedbce69beb" prot="public" virt="virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a6c909a09222a50e4ac7c52bd9cb24875" prot="protected" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>tolerance</name></member>
+      <member refid="classsisi4s_1_1EigenSystemDavidson_1a9c72484082db6be7ecf5095376088e94" prot="public" virt="non-virtual"><scope>sisi4s::EigenSystemDavidsonMono</scope><name>vectors</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

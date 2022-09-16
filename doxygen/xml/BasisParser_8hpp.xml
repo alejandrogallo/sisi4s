@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="BasisParser_8hpp" kind="file" language="C++">
+    <compoundname>BasisParser.hpp</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">map</includes>
+    <includes refid="Parsing_8hpp" local="no">util/Parsing.hpp</includes>
+    <includes refid="AngularMomentum_8hpp" local="no">util/AngularMomentum.hpp</includes>
+    <includes refid="BasisSet_8hpp" local="no">util/BasisSet.hpp</includes>
+    <includes local="no">regex</includes>
+    <includes local="no">numeric</includes>
+    <includedby refid="BasisParser_8cxx" local="no">BasisParser.cxx</includedby>
+    <includedby refid="MoReader_8cxx" local="no">MoReader.cxx</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>BasisParser.hpp</label>
+        <link refid="BasisParser_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>util/AngularMomentum.hpp</label>
+        <link refid="AngularMomentum_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>util/BasisSet.hpp</label>
+        <link refid="BasisSet_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>util/Parsing.hpp</label>
+        <link refid="Parsing_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>algorithm</label>
+      </node>
+      <node id="5">
+        <label>fstream</label>
+      </node>
+      <node id="6">
+        <label>map</label>
+      </node>
+      <node id="11">
+        <label>numeric</label>
+      </node>
+      <node id="8">
+        <label>regex</label>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>MoReader.cxx</label>
+        <link refid="MoReader_8cxx"/>
+      </node>
+      <node id="2">
+        <label>BasisParser.cxx</label>
+        <link refid="BasisParser_8cxx"/>
+      </node>
+      <node id="1">
+        <label>BasisParser.hpp</label>
+        <link refid="BasisParser_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structnwchem_1_1BasisSetParser" prot="public">nwchem::BasisSetParser</innerclass>
+    <innernamespace refid="namespacenwchem">nwchem</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_NWCHEM_BASIS_PARSER_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_NWCHEM_BASIS_PARSER_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Parsing_8hpp" kindref="compound">util/Parsing.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="AngularMomentum_8hpp" kindref="compound">util/AngularMomentum.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="BasisSet_8hpp" kindref="compound">util/BasisSet.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;regex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;numeric&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="namespacenwchem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenwchem" kindref="compound">nwchem</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepars" kindref="compound">pars</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="structnwchem_1_1BasisSetParser" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structnwchem_1_1BasisSetParser" kindref="compound">BasisSetParser</ref><sp/>{</highlight></codeline>
+<codeline lineno="21" refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::smatch<sp/><ref refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" kindref="member">match</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structnwchem_1_1BasisSetParser_1a897f82a03eca6f0768e6fee1da071dc5" kindref="member">matches</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;t,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structpars_1_1Regex" kindref="compound">Regex</ref><sp/>&amp;r);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structBasis" kindref="compound">Basis</ref><sp/><ref refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" kindref="member">parseBasis</ref><sp/>(std::fstream<sp/>&amp;f,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>name);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">BasisSet</ref><sp/><ref refid="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" kindref="member">parseFile</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;fileName);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/BasisParser.hpp"/>
+  </compounddef>
+</doxygen>

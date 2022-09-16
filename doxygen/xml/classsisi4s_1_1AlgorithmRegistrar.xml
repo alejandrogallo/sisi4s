@@ -1,0 +1,576 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1AlgorithmRegistrar" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::AlgorithmRegistrar</compoundname>
+    <basecompoundref refid="classsisi4s_1_1AlgorithmFactory" prot="protected" virt="non-virtual">sisi4s::AlgorithmFactory</basecompoundref>
+    <includes refid="Algorithm_8hpp" local="no">Algorithm.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename AlgorithmType</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1AlgorithmRegistrar_1a330fe60ba5c91d293b90515f48235ad5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;::AlgorithmRegistrar</definition>
+        <argsstring>(std::string const &amp;name)</argsstring>
+        <name>AlgorithmRegistrar</name>
+        <qualifiedname>sisi4s::AlgorithmRegistrar::AlgorithmRegistrar</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Constructs the registrating instance. The algorithm type must be given as template argument, the algorithm name as method argument. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.hpp" line="162" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.hpp" bodystart="162" bodyend="164"/>
+        <references refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" compoundref="Algorithm_8hpp" startline="135" endline="137">sisi4s::AlgorithmFactory::getAlgorithmMap</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class to be statically instantiated by an algorithm to register it in the <ref refid="classsisi4s_1_1AlgorithmFactory" kindref="compound">AlgorithmFactory</ref>. Registered algorithms can be instantiated from the <ref refid="namespacesisi4s" kindref="compound">sisi4s</ref> control language. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ApproximateCoulombVertex &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ApproximateCoulombVertex &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ApproximateParticleHoleCoulombVertex &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ApproximateParticleHoleCoulombVertex &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::BasisSetExtrapolation &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::BasisSetExtrapolation &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CcsdDiagrammaticDecomposition &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CcsdDiagrammaticDecomposition &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CcsdEnergyFromCoulombIntegrals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CcsdEnergyFromCoulombIntegrals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CcsdEnergyFromCoulombIntegralsReference &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CcsdEnergyFromCoulombIntegralsReference &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CcsdEquationOfMotionDavidson &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CcsdEquationOfMotionDavidson &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CcsdPerturbativeTriples &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CcsdPerturbativeTriples &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CcsdPerturbativeTriplesComplex &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CcsdPerturbativeTriplesComplex &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CcsdtEquationOfMotionDavidson &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CcsdtEquationOfMotionDavidson &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ComplexTensorContraction &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ComplexTensorContraction &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ComplexTensorNorm &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ComplexTensorNorm &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ComplexTensorReader &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ComplexTensorReader &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ComplexTensorSum &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ComplexTensorSum &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ComplexTensorWriter &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ComplexTensorWriter &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CoulombIntegralsFromGaussian &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CoulombIntegralsFromGaussian &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CoulombIntegralsFromVertex &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CoulombIntegralsFromVertex &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CoulombVertexDecomposition &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CoulombVertexDecomposition &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CoulombVertexFromFactors &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CoulombVertexFromFactors &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CoulombVertexReader &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CoulombVertexReader &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="24">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CoulombVertexSingularVectors &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CoulombVertexSingularVectors &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::Delete &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::Delete &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::DoublesAmplitudesDecomposition &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::DoublesAmplitudesDecomposition &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::DoublesAmplitudesFromVertex &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::DoublesAmplitudesFromVertex &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="28">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::DrccdEnergyFromCoulombIntegrals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::DrccdEnergyFromCoulombIntegrals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::Exit &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::Exit &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="30">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::FcidumpReader &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::FcidumpReader &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::FcidumpWriter &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::FcidumpWriter &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="32">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::FiniteSizeCorrection &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::FiniteSizeCorrection &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="33">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::FockMatrixFromCoulombIntegrals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::FockMatrixFromCoulombIntegrals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="34">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::FromComplexTensor &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::FromComplexTensor &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="35">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::GenerateRandomComplexMatrix &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::GenerateRandomComplexMatrix &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="36">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::GenerateRandomMatrix &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::GenerateRandomMatrix &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="37">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::GenerateRandomTensor &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::GenerateRandomTensor &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="38">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::HartreeFockFromCoulombIntegrals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::HartreeFockFromCoulombIntegrals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="39">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::HartreeFockFromGaussian &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::HartreeFockFromGaussian &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="40">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::MeanCorrelationHoleDepth &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::MeanCorrelationHoleDepth &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="41">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::MoReader &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::MoReader &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="42">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::Mp2NaturalOrbitals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::Mp2NaturalOrbitals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="43">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::NaturalTransitionOrbitalsFromRhoAI &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::NaturalTransitionOrbitalsFromRhoAI &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="44">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::NuclearRepulsionEnergy &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::NuclearRepulsionEnergy &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="45">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::OneBodyFromGaussian &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::OneBodyFromGaussian &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="46">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::OneBodyRotation &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::OneBodyRotation &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="47">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ParenthesisTriples &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ParenthesisTriples &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="48">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ParticleHoleCoulombVertexDecomposition &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ParticleHoleCoulombVertexDecomposition &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="49">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ParticleHoleCoulombVertexFromFactors &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ParticleHoleCoulombVertexFromFactors &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="50">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ParticleHoleCoulombVertexReader &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ParticleHoleCoulombVertexReader &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="51">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::ParticleHoleCoulombVertexSingularVectors &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::ParticleHoleCoulombVertexSingularVectors &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="52">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::PerturbativeTriples &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::PerturbativeTriples &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="53">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::PseudoInverse &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::PseudoInverse &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="54">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::SingleParticleOccupancies &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::SingleParticleOccupancies &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="55">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::SliceCoulombVertex &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::SliceCoulombVertex &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="56">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorAntisymmetrizer &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorAntisymmetrizer &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="57">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorContraction &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorContraction &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="58">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorGetMax &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorGetMax &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="59">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorNorm &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorNorm &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="60">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorReader &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorReader &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="61">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorReduceijij &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorReduceijij &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="62">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorSlicer &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorSlicer &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="63">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorSum &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorSum &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="64">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorUnrestricter &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorUnrestricter &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="65">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorWriter &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorWriter &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="66">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::UCcsdEAEquationOfMotionDavidson &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::UCcsdEAEquationOfMotionDavidson &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="67">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::UCcsdIPEquationOfMotionDavidson &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::UCcsdIPEquationOfMotionDavidson &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="68">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::UPerturbativeTriples &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::UPerturbativeTriples &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="69">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::UccsdAmplitudesFromCoulombIntegrals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::UccsdAmplitudesFromCoulombIntegrals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="70">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::UccsdtAmplitudesFromCoulombIntegrals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::UccsdtAmplitudesFromCoulombIntegrals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="71">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::UccsdtqAmplitudesFromCoulombIntegrals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::UccsdtqAmplitudesFromCoulombIntegrals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="72">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::UegVertexGenerator &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::UegVertexGenerator &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="73">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="74">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::UrpaAmplitudesFromCoulombIntegrals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; sisi4s::UrpaAmplitudesFromCoulombIntegrals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::AlgorithmFactory</label>
+        <link refid="classsisi4s_1_1AlgorithmFactory"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="2" relation="protected-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>sisi4s::AlgorithmFactory</label>
+        <link refid="classsisi4s_1_1AlgorithmFactory"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="2" relation="protected-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.hpp" line="155" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.hpp" bodystart="155" bodyend="165"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" prot="protected" virt="non-virtual"><scope>sisi4s::AlgorithmRegistrar</scope><name>AlgorithmMap</name></member>
+      <member refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" prot="protected" virt="non-virtual"><scope>sisi4s::AlgorithmRegistrar</scope><name>algorithmMap</name></member>
+      <member refid="classsisi4s_1_1AlgorithmRegistrar_1a330fe60ba5c91d293b90515f48235ad5" prot="public" virt="non-virtual"><scope>sisi4s::AlgorithmRegistrar</scope><name>AlgorithmRegistrar</name></member>
+      <member refid="classsisi4s_1_1AlgorithmFactory_1a0c080f73a73dc107e2f3eab4a5de98b2" prot="protected" virt="non-virtual"><scope>sisi4s::AlgorithmRegistrar</scope><name>create</name></member>
+      <member refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" prot="protected" virt="non-virtual"><scope>sisi4s::AlgorithmRegistrar</scope><name>getAlgorithmMap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

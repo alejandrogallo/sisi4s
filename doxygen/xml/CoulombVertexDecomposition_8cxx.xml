@@ -1,0 +1,860 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="CoulombVertexDecomposition_8cxx" kind="file" language="C++">
+    <compoundname>CoulombVertexDecomposition.cxx</compoundname>
+    <includes refid="CoulombVertexDecomposition_8hpp" local="no">algorithms/CoulombVertexDecomposition.hpp</includes>
+    <includes refid="CanonicalPolyadicDecomposition_8hpp" local="no">math/CanonicalPolyadicDecomposition.hpp</includes>
+    <includes refid="IterativePseudoInverse_8hpp" local="no">math/IterativePseudoInverse.hpp</includes>
+    <includes refid="RandomTensor_8hpp" local="no">math/RandomTensor.hpp</includes>
+    <includes refid="MathFunctions_8hpp" local="no">math/MathFunctions.hpp</includes>
+    <includes refid="Mixer_8hpp" local="no">mixers/Mixer.hpp</includes>
+    <includes refid="SharedPointer_8hpp" local="no">util/SharedPointer.hpp</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes local="no">limits</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CoulombVertexDecomposition.cxx</label>
+        <link refid="CoulombVertexDecomposition_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/CoulombVertexDecomposition.hpp</label>
+        <link refid="CoulombVertexDecomposition_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>math/CanonicalPolyadicDecomposition.hpp</label>
+        <link refid="CanonicalPolyadicDecomposition_8hpp"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>math/ComplexTensor.hpp</label>
+        <link refid="ComplexTensor_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>math/FockVector.hpp</label>
+        <link refid="FockVector_8hpp"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>math/IterativePseudoInverse.hpp</label>
+        <link refid="IterativePseudoInverse_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>math/RandomTensor.hpp</label>
+        <link refid="RandomTensor_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>math/RegularizedAlternatingLeastSquares.hpp</label>
+        <link refid="RegularizedAlternatingLeastSquares_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>mixers/Mixer.hpp</label>
+        <link refid="Mixer_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>util/SharedPointer.hpp</label>
+        <link refid="SharedPointer_8hpp"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>util/SourceLocation.hpp</label>
+        <link refid="SourceLocation_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="19">
+        <label>complex</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="23">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="7">
+        <label>ctime</label>
+      </node>
+      <node id="47">
+        <label>exception</label>
+      </node>
+      <node id="16">
+        <label>fstream</label>
+      </node>
+      <node id="36">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>iomanip</label>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="44">
+        <label>iterator</label>
+      </node>
+      <node id="46">
+        <label>limits</label>
+      </node>
+      <node id="40">
+        <label>locale</label>
+      </node>
+      <node id="20">
+        <label>map</label>
+      </node>
+      <node id="35">
+        <label>memory</label>
+      </node>
+      <node id="37">
+        <label>numeric</label>
+      </node>
+      <node id="9">
+        <label>ostream</label>
+      </node>
+      <node id="30">
+        <label>random</label>
+      </node>
+      <node id="42">
+        <label>set</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="45">
+        <label>stdexcept</label>
+      </node>
+      <node id="15">
+        <label>streambuf</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="48">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="49">
+        <label>sys/types.h</label>
+      </node>
+      <node id="38">
+        <label>tuple</label>
+      </node>
+      <node id="43">
+        <label>type_traits</label>
+      </node>
+      <node id="39">
+        <label>utility</label>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2016,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CoulombVertexDecomposition_8hpp" kindref="compound">algorithms/CoulombVertexDecomposition.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CanonicalPolyadicDecomposition_8hpp" kindref="compound">math/CanonicalPolyadicDecomposition.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="IterativePseudoInverse_8hpp" kindref="compound">math/IterativePseudoInverse.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="RandomTensor_8hpp" kindref="compound">math/RandomTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MathFunctions_8hpp" kindref="compound">math/MathFunctions.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Mixer_8hpp" kindref="compound">mixers/Mixer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">CTF;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1CoulombVertexDecomposition" kindref="compound">CoulombVertexDecomposition</ref>);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classsisi4s_1_1CoulombVertexDecomposition_1a92dfc7906c3df2cfd0724033211822f2" refkind="member"><highlight class="normal">CoulombVertexDecomposition::</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>CoulombVertexDecomposition</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">(</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">):</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList),</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>composedGammaGqr(nullptr),<sp/>PiqR(nullptr),<sp/>regularizationEstimator(nullptr)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classsisi4s_1_1CoulombVertexDecomposition_1a9a0534c7fbf919273df65232d6d7dcd6" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9a0534c7fbf919273df65232d6d7dcd6" kindref="member">CoulombVertexDecomposition::</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9a0534c7fbf919273df65232d6d7dcd6" kindref="member">  ~CoulombVertexDecomposition</ref>()</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;OutgoingFactorOrbitals&quot;</highlight><highlight class="normal">)<sp/>&amp;&amp;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;ComposedCoulombVertex&quot;</highlight><highlight class="normal">)<sp/>&amp;&amp;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1acd0aaf72344c9483f0ee107e965cb485" kindref="member">regularizationEstimator</ref>)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1acd0aaf72344c9483f0ee107e965cb485" kindref="member">regularizationEstimator</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" kindref="member">CoulombVertexDecomposition::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref><sp/>=<sp/>getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;CoulombVertex&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NG(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;lens[1]);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>calculate<sp/>decomposition<sp/>rank</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref><sp/>=<sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;rankSize&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a25855914a84044adf08d1f9ae15c5533" kindref="member">DEFAULT_RANK_SIZE</ref>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>rank<sp/>is<sp/>not<sp/>given<sp/>use<sp/>rank<sp/>factors<sp/>(if<sp/>they<sp/>are<sp/>not<sp/>given<sp/>use<sp/>rankFactors=3.0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref><sp/>==<sp/>-1)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rankFactor(<ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;rankFactor&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a2d5f35d10b348ce007fe85f2cdce9bde" kindref="member">DEFAULT_RANK_FACTOR</ref>));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref><sp/>=<sp/>NG<sp/>*<sp/>rankFactor;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a820133d0349fd920ffe91fcea789adb8" kindref="member">realFactorOrbitals</ref><sp/>=<sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;realFactorOrbitals&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a10c5962670833a8914fd31baf5f25d2d" kindref="member">DEFAULT_REAL_FACTOR_ORBITALS</ref></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4f33e932456c08552f3c53c9798ca8b5" kindref="member">normalizedFactorOrbitals</ref><sp/>=<sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;normalizedFactorOrbitals&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a2d174ec6503e2d111b5b5b91b8b75732" kindref="member">DEFAULT_NORMALIZED_FACTOR_ORBITALS</ref></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Tensor<sp/>rank<sp/>decomposition<sp/>with<sp/>rank<sp/>NR=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>realFactorOrbitals=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a820133d0349fd920ffe91fcea789adb8" kindref="member">realFactorOrbitals</ref></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>normalizedFactorOrbitals=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4f33e932456c08552f3c53c9798ca8b5" kindref="member">normalizedFactorOrbitals</ref><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Decomposing<sp/>Coulomb<sp/>vertex<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;get_name()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>with<sp/>NG=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>NG</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>Np=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Np<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a8d3447e10df5b61bafff1a98d814e2a3" kindref="member">writeSubIterations</ref><sp/>=<sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;writeSubIterations&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a0cff00d7fe53f7fefb5505b21dfef7bb" kindref="member">DEFAULT_WRITE_SUB_ITERATIONS</ref></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DefaultRandomEngine" kindref="compound">DefaultRandomEngine</ref><sp/>random;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>std::normal_distribution&lt;double&gt;<sp/>normalDistribution(0.0,<sp/>1.0);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>factor<sp/>tensors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;StartingFactorOrbitals&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*PirRTensor(getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;StartingFactorOrbitals&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>PirRTensor-&gt;set_name(</highlight><highlight class="stringliteral">&quot;StartingPirR&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(PirRTensor-&gt;order<sp/>!=<sp/>2)<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Matrix<sp/>expected<sp/>as<sp/>argument<sp/>StartingPirR&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Initial<sp/>PirR=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>PirRTensor-&gt;get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref><sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">Matrix&lt;complex&gt;<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PirRTensor);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Matrix&lt;complex&gt;(Np,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref>),<sp/>NS,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;PirR&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;profile);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Initial<sp/>PirR=RandomTensor&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad79e22ef8ca23c70e5d0edcd8dd1532c" kindref="member">setRandomTensor</ref>(*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,<sp/>normalDistribution,<sp/>random);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a7d82ab4745622f23dad2c094c368f915" kindref="member">realizePi</ref>(*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>);<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ac8955814dd0e4158d01fc10da8259f58" kindref="member">normalizePi</ref>(*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;StartingCoulombFactors&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*LambdaGRTensor(getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;StartingCoulombFactors&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>LambdaGRTensor-&gt;set_name(</highlight><highlight class="stringliteral">&quot;StartingLambdaGR&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(LambdaGRTensor-&gt;order<sp/>!=<sp/>2)<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Matrix<sp/>expected<sp/>as<sp/>argument<sp/>StartingLambdaGR&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Initial<sp/>LambdaGR=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>LambdaGRTensor-&gt;get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref><sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">Matrix&lt;complex&gt;<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(LambdaGRTensor);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Matrix&lt;complex&gt;(NG,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref>),<sp/>NS,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;LambdaGR&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;profile);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Initial<sp/>LambdaGR=RandomTensor&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad79e22ef8ca23c70e5d0edcd8dd1532c" kindref="member">setRandomTensor</ref>(*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>,<sp/>normalDistribution,<sp/>random);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Matrix&lt;complex&gt;(Np,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref>),<sp/>NS,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;PiqR&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;profile);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>std::string<sp/>ansatz(</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;ansatz&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" kindref="member">HERMITIAN</ref>)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ansatz<sp/>!=<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" kindref="member">HERMITIAN</ref><sp/>&amp;&amp;<sp/>ansatz<sp/>!=<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1adaf768c7f53cb3bdd16bb5aa329d5eeb" kindref="member">SYMMETRIC</ref><sp/>&amp;&amp;<sp/>ansatz<sp/>!=<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a55ac10ef01705047aa95f615e87bd799" kindref="member">PSEUDO_INVERSE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>stringStream;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>stringStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Unknown<sp/>decomposition<sp/>ansatz<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ansatz<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(stringStream.str());</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Using<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ansatz</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>ansatz<sp/>for<sp/>decomposition&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" kindref="member">computeOutgoingPi</ref>();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;FactorOrbitals&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;CoulombFactors&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;OutgoingFactorOrbitals&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>allocatedTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;OutgoingFactorOrbitals&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref>(</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>3,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;lens,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;sym,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;composedGammaGqr&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;profile</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;ComposedCoulombVertex&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>allocatedTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;ComposedCoulombVertex&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>swampingThreshold(</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;swampingThreshold&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ac1842c29920c1b75f22cd66f166fff6f" kindref="member">DEFAULT_SWAMPING_THRESHOLD</ref>)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>regularizationFriction(</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;regularizationFriction&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a351646adb448ba08baa4db1411b69567" kindref="member">DEFAULT_REGULARIZATION_FRICTION</ref>)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1acd0aaf72344c9483f0ee107e965cb485" kindref="member">regularizationEstimator</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator" kindref="compound">AlternatingLeastSquaresRegularizationEstimator</ref>(</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>swampingThreshold,<sp/>regularizationFriction,<sp/>1</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>int64_t<sp/>iterationsCount(0);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>int64_t<sp/>maxIterationsCount(</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;maxIterations&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1aaa65034ca3ba142b17e5b37f5159caf6" kindref="member">DEFAULT_MAX_ITERATIONS</ref>)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta(<ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;delta&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1afdc566018f5ffa4699ff754f1abfe090" kindref="member">DEFAULT_DELTA</ref>));</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" kindref="member">Delta</ref><sp/>=<sp/>std::numeric_limits&lt;double&gt;::infinity();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(iterationsCount<sp/>&lt;<sp/>maxIterationsCount<sp/>&amp;&amp;<sp/>Delta<sp/>&gt;<sp/>delta)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" kindref="member">fit</ref>(iterationsCount);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>++iterationsCount;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" kindref="member">CoulombVertexDecomposition::dryRun</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE<sp/>that<sp/>in<sp/>the<sp/>dry<sp/>run<sp/>GammaGai,...<sp/>are<sp/>local<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>(</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;CoulombVertex&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NG(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>-&gt;lens[1]);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>calculate<sp/>decomposition<sp/>rank</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref><sp/>=<sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;rankSize&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a25855914a84044adf08d1f9ae15c5533" kindref="member">DEFAULT_RANK_SIZE</ref>);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>rank<sp/>is<sp/>not<sp/>given<sp/>use<sp/>rank<sp/>factors<sp/>(if<sp/>they<sp/>are<sp/>not<sp/>given<sp/>use<sp/>rankFactors=2.0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref><sp/>==<sp/>-1)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rankFactor(<ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;rankFactor&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a2d5f35d10b348ce007fe85f2cdce9bde" kindref="member">DEFAULT_RANK_FACTOR</ref>));</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref><sp/>=<sp/>NG<sp/>*<sp/>rankFactor;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a820133d0349fd920ffe91fcea789adb8" kindref="member">realFactorOrbitals</ref><sp/>=<sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;realFactorOrbitals&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a10c5962670833a8914fd31baf5f25d2d" kindref="member">DEFAULT_REAL_FACTOR_ORBITALS</ref></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4f33e932456c08552f3c53c9798ca8b5" kindref="member">normalizedFactorOrbitals</ref><sp/>=<sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;normalizedFactorOrbitals&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a2d174ec6503e2d111b5b5b91b8b75732" kindref="member">DEFAULT_NORMALIZED_FACTOR_ORBITALS</ref></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Tensor<sp/>rank<sp/>decomposition<sp/>with<sp/>rank<sp/>NR=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>realFactorOrbitals=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a820133d0349fd920ffe91fcea789adb8" kindref="member">realFactorOrbitals</ref></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>normalizedFactorOrbitals=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4f33e932456c08552f3c53c9798ca8b5" kindref="member">normalizedFactorOrbitals</ref><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Decomposing<sp/>Coulomb<sp/>vertex<sp/>with<sp/>NG=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>NG</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>Np=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Np<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;StartingFactorOrbitals&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Initial<sp/>PirR=StartingPirR&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Initial<sp/>PirR=RandomTensor&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;StartingCoulombFactors&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Initial<sp/>LambdaGR=StartingLambdaGR&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Initial<sp/>LambdaGR=RandomTensor&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>factor<sp/>tensors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;complex&gt;</ref>(Np,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref>),<sp/>NS);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;complex&gt;</ref>(Np,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref>),<sp/>NS);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;complex&gt;</ref>(NG,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" kindref="member">rank</ref>),<sp/>NS);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex,<sp/>DryTensor&lt;complex&gt;&gt;(</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;FactorOrbitals&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex,<sp/>DryTensor&lt;complex&gt;&gt;(</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CoulombFactors&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>std::string<sp/>ansatz(</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;ansatz&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" kindref="member">HERMITIAN</ref>)</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ansatz<sp/>==<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" kindref="member">HERMITIAN</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Using<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" kindref="member">HERMITIAN</ref></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>ansatz<sp/>for<sp/>decomposition&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ansatz<sp/>==<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1adaf768c7f53cb3bdd16bb5aa329d5eeb" kindref="member">SYMMETRIC</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Using<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1adaf768c7f53cb3bdd16bb5aa329d5eeb" kindref="member">SYMMETRIC</ref></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>ansatz<sp/>for<sp/>decomposition&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ansatz<sp/>==<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a55ac10ef01705047aa95f615e87bd799" kindref="member">PSEUDO_INVERSE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Using<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a55ac10ef01705047aa95f615e87bd799" kindref="member">PSEUDO_INVERSE</ref></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>ansatz<sp/>for<sp/>decomposition&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>stringStream;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>stringStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Unknown<sp/>decomposition<sp/>ansatz<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ansatz<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(stringStream.str());</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;OutgoingFactorOrbitals&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>allocatedTensorArgument&lt;complex,<sp/>DryTensor&lt;complex&gt;&gt;(</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;OutgoingFactorOrbitals&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref>(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>(*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>));</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;ComposedCoulombVertex&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>allocatedTensorArgument&lt;complex,<sp/>DryTensor&lt;complex&gt;&gt;(</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;ComposedCoulombVertex&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" kindref="member">dryFit</ref>(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref>);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234" refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" kindref="member">CoulombVertexDecomposition::fit</ref>(</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/>int64_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>iterationsCount</highlight></codeline>
+<codeline lineno="236"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fitFactorOrbitals(</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;fitFactorOrbitals&quot;</highlight><highlight class="normal">,<sp/>1)</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fitFactorOrbitals)<sp/>{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" kindref="member">iterateQuadraticFactor</ref>(iterationsCount);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fitCoulombFactors(</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;fitCoulombFactors&quot;</highlight><highlight class="normal">,<sp/>1)</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fitCoulombFactors)<sp/>{</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1abf3c4be1dfed55e71db97d40eff3ce87" kindref="member">fitRegularizedAlternatingLeastSquaresFactor</ref>(</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>,</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,</highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>,</highlight><highlight class="charliteral">&apos;q&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>,</highlight><highlight class="charliteral">&apos;G&apos;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1acd0aaf72344c9483f0ee107e965cb485" kindref="member">regularizationEstimator</ref></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" kindref="member">Delta</ref><sp/>=<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" kindref="member">getDelta</ref>();</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;RALS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;iteration=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(iterationsCount+1)</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>Delta=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" kindref="member">Delta</ref><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262" refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" kindref="member">CoulombVertexDecomposition::dryFit</ref>(</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*GammaGqr,</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*PiqR,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*PirR,</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*LambdaGR,</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*composedGammaGqr</highlight></codeline>
+<codeline lineno="267"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a7e043fcaaf8e99a86eb9920cf43cc228" kindref="member">dryFitRegularizedAlternatingLeastSquaresFactor</ref>(</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>,</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>,</highlight><highlight class="charliteral">&apos;q&apos;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>,</highlight><highlight class="charliteral">&apos;G&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,</highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a7e043fcaaf8e99a86eb9920cf43cc228" kindref="member">dryFitRegularizedAlternatingLeastSquaresFactor</ref>(</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>,</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>,</highlight><highlight class="charliteral">&apos;G&apos;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,</highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>,</highlight><highlight class="charliteral">&apos;q&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a7e043fcaaf8e99a86eb9920cf43cc228" kindref="member">dryFitRegularizedAlternatingLeastSquaresFactor</ref>(</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>,</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,</highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>,</highlight><highlight class="charliteral">&apos;q&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>,</highlight><highlight class="charliteral">&apos;G&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1abfc549a8ae34264be9b654324c1ae036" kindref="member">dryComposeCanonicalPolyadicDecompositionTensors</ref>(</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285" refid="classsisi4s_1_1CoulombVertexDecomposition_1ac8955814dd0e4158d01fc10da8259f58" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ac8955814dd0e4158d01fc10da8259f58" kindref="member">CoulombVertexDecomposition::normalizePi</ref>(</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref></highlight></codeline>
+<codeline lineno="287"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/>Bivar_Function&lt;complex&gt;<sp/>fDot(&amp;sisi4s::dot&lt;complex&gt;);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/>CTF::Vector&lt;complex&gt;<sp/>norm(<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>.lens[0],<sp/>*<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>.wrld);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>norm[&quot;q&quot;]<sp/>=<sp/>Pi[&quot;qR&quot;]<sp/>*<sp/>conj(Pi[&quot;qR&quot;])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/>norm.contract(1.0,<sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>,</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>,</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">,<sp/>0.0,</highlight><highlight class="stringliteral">&quot;q&quot;</highlight><highlight class="normal">,<sp/>fDot);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>quotient(<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/>Univar_Function&lt;complex&gt;<sp/>fSqrt(&amp;sisi4s::sqrt&lt;complex&gt;);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>quotient[&quot;qR&quot;]<sp/>=<sp/>sqrt(norm[&quot;q&quot;])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/>quotient.sum(1.0,<sp/>norm,</highlight><highlight class="stringliteral">&quot;q&quot;</highlight><highlight class="normal">,<sp/>0.0,</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">,<sp/>fSqrt);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/>Bivar_Function&lt;complex&gt;<sp/>fDivide(&amp;sisi4s::divide&lt;complex&gt;);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Pi[&quot;qR&quot;]<sp/>=<sp/>Pi[&quot;qR&quot;]<sp/>/<sp/>quotient[&quot;qR&quot;]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>.contract(1.0,<sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>,</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">,<sp/>quotient,</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">,<sp/>0.0,</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">,<sp/>fDivide);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301" refid="classsisi4s_1_1CoulombVertexDecomposition_1a7d82ab4745622f23dad2c094c368f915" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a7d82ab4745622f23dad2c094c368f915" kindref="member">CoulombVertexDecomposition::realizePi</ref>(</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref></highlight></codeline>
+<codeline lineno="303"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/>Univar_Function&lt;complex&gt;<sp/>fConj(&amp;sisi4s::conj&lt;complex&gt;);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>conjX(<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>conjX[&quot;qR&quot;]<sp/>=<sp/>conj(Pi[&quot;qR&quot;])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/>conjX.sum(1.0,<sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>,</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">,<sp/>0.0,</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">,<sp/>fConj);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>[</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>conjX[</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>[</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">]<sp/>*=<sp/>0.5;</highlight></codeline>
+<codeline lineno="310"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312" refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" kindref="member">CoulombVertexDecomposition::iterateQuadraticFactor</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>mixer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/>std::string<sp/>mixerName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;mixer&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;LinearMixer&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;complex&gt;</ref>)<sp/>mixer(<ref refid="classsisi4s_1_1MixerFactory" kindref="compound">MixerFactory&lt;complex&gt;::create</ref>(mixerName,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!mixer)<sp/>{</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>stringStream;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/>stringStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Mixer<sp/>not<sp/>implemented:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mixerName;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(stringStream.str());</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>initial<sp/>guess<sp/>is<sp/>current<sp/>Pi^q_R,<sp/>composedGamma-Gamma<sp/>is<sp/>the<sp/>residuum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;complex&gt;</ref>)<sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>(</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;complex&gt;</ref>,</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref>)&gt;({<ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref>,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>)}),</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;({</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">})</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>initialDelta(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" kindref="member">getDelta</ref>());</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Babylonian<sp/>algorithm<sp/>to<sp/>solve<sp/>quadratic<sp/>form</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxSubIterationsCount(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;maxSubIterations&quot;</highlight><highlight class="normal">,<sp/>8));</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minSubIterationsCount(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;minSubIterations&quot;</highlight><highlight class="normal">,<sp/>2));</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j(0);</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" kindref="member">Delta</ref>(2*initialDelta);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>j<sp/>&lt;<sp/>minSubIterationsCount<sp/>||</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/>(initialDelta<sp/>&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" kindref="member">Delta</ref><sp/>&amp;&amp;<sp/>j<sp/>&lt;<sp/>maxSubIterationsCount)</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>first,<sp/>compute<sp/>Pi_r^R<sp/>by<sp/>least-squares,<sp/>fit<sp/>keeping<sp/>all<sp/>other<sp/>fixed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ac2bf3b584b1380ce33fc334c17610fed" kindref="member">fitAlternatingLeastSquaresFactor</ref>(</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>,</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>,</highlight><highlight class="charliteral">&apos;q&apos;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>,</highlight><highlight class="charliteral">&apos;G&apos;</highlight><highlight class="normal">,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,</highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a820133d0349fd920ffe91fcea789adb8" kindref="member">realFactorOrbitals</ref>)<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a7d82ab4745622f23dad2c094c368f915" kindref="member">realizePi</ref>(*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4f33e932456c08552f3c53c9798ca8b5" kindref="member">normalizedFactorOrbitals</ref>)<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ac8955814dd0e4158d01fc10da8259f58" kindref="member">normalizePi</ref>(*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>);</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>then<sp/>get<sp/>new<sp/>Pi^q_R<sp/>by<sp/>conjugate<sp/>transposition<sp/>or<sp/>pseudo<sp/>inversion</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" kindref="member">computeOutgoingPi</ref>();</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>difference<sp/>to<sp/>old<sp/>Pi^q_R<sp/>as<sp/>residuum<sp/>and<sp/>append<sp/>to<sp/>mixer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>PiChange(<sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref><sp/>);</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref><sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;complex&gt;</ref>,</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref>)&gt;({<ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref>,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>)}),</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;({</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">})</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>*PiChange<sp/>-=<sp/>*<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>;</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/>mixer-&gt;append(<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>,<sp/>PiChange);</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>mixer&apos;s<sp/>best<sp/>estimate<sp/>for<sp/>Pi^q_R</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref><sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;complex&gt;</ref>,<sp/>*mixer-&gt;<ref refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" kindref="member">get</ref>());</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>write<sp/>it<sp/>to<sp/>PiqR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/>(*PiqR)[</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"></highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>fit<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" kindref="member">Delta</ref><sp/>=<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" kindref="member">getDelta</ref>();</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a8d3447e10df5b61bafff1a98d814e2a3" kindref="member">writeSubIterations</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Babylonian&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;|Pi^(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(i+1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(j+1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Pi*^(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(i+1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(j+1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Lambda^(n)<sp/>-<sp/>Gamma|=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" kindref="member">Delta</ref><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/>++j;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="371"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight></codeline>
+<codeline lineno="373" refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" kindref="member">CoulombVertexDecomposition::computeOutgoingPi</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/>std::string<sp/>ansatz(</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;ansatz&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" kindref="member">HERMITIAN</ref>)</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ansatz<sp/>==<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" kindref="member">HERMITIAN</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/>Univar_Function&lt;complex&gt;<sp/>fConj(&amp;sisi4s::conj&lt;complex&gt;);</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>-&gt;sum(1.0,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">,<sp/>0.0,</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">,fConj);</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ansatz<sp/>==<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1adaf768c7f53cb3bdd16bb5aa329d5eeb" kindref="member">SYMMETRIC</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/>(*PiqR)[</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*PirR)[</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ansatz<sp/>==<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a55ac10ef01705047aa95f615e87bd799" kindref="member">PSEUDO_INVERSE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/>(*PiqR)[</highlight><highlight class="stringliteral">&quot;qR&quot;</highlight><highlight class="normal">]<sp/>=<sp/><ref refid="classsisi4s_1_1IterativePseudoInverse" kindref="compound">IterativePseudoInverse&lt;complex&gt;</ref>(*PirR).<ref refid="classsisi4s_1_1IterativePseudoInverse_1a1549bac3e662a0bdf1cf6ab25608dff4" kindref="member">get</ref>()[</highlight><highlight class="stringliteral">&quot;Rq&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>stringStream;</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/>stringStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Unknown<sp/>decomposition<sp/>ansatz<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ansatz<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(stringStream.str());</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="390"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight></codeline>
+<codeline lineno="392" refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" kindref="member">CoulombVertexDecomposition::getDelta</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a73e63f2894299063b2902d0f4f67fe27" kindref="member">composeCanonicalPolyadicDecompositionTensors</ref>(</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref></highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/>(*composedGammaGqr)[</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">]<sp/>-=<sp/>(*GammaGqr)[</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" kindref="member">Delta</ref>(<ref refid="namespacesisi4s_1a072b9097a4466552d4ee05cea48af554" kindref="member">frobeniusNorm</ref>(*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref>));</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/>(*composedGammaGqr)[</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*GammaGqr)[</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" kindref="member">Delta</ref>;</highlight></codeline>
+<codeline lineno="400"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"></highlight></codeline>
+<codeline lineno="402"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1adaf768c7f53cb3bdd16bb5aa329d5eeb" kindref="member">CoulombVertexDecomposition::SYMMETRIC</ref>(</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;symmetric&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" kindref="member">CoulombVertexDecomposition::HERMITIAN</ref>(</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;hermitian&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="406"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a55ac10ef01705047aa95f615e87bd799" kindref="member">CoulombVertexDecomposition::PSEUDO_INVERSE</ref>(</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;pseudoInverse&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="409"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx"/>
+  </compounddef>
+</doxygen>

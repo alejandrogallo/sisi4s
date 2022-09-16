@@ -1,0 +1,463 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="CtfMachineTensor_8hpp" kind="file" language="C++">
+    <compoundname>CtfMachineTensor.hpp</compoundname>
+    <includes local="no">tcc/MachineTensor.hpp</includes>
+    <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes local="no">string</includes>
+    <includes local="no">memory</includes>
+    <includedby refid="CoulombVertexFromFactors_8cxx" local="no">CoulombVertexFromFactors.cxx</includedby>
+    <includedby refid="ParticleHoleCoulombVertexFromFactors_8cxx" local="no">ParticleHoleCoulombVertexFromFactors.cxx</includedby>
+    <incdepgraph>
+      <node id="13">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CtfMachineTensor.hpp</label>
+        <link refid="CtfMachineTensor_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>algorithm</label>
+      </node>
+      <node id="10">
+        <label>cmath</label>
+      </node>
+      <node id="6">
+        <label>cstdint</label>
+      </node>
+      <node id="12">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="5">
+        <label>ctime</label>
+      </node>
+      <node id="32">
+        <label>exception</label>
+      </node>
+      <node id="20">
+        <label>fstream</label>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="8">
+        <label>iomanip</label>
+      </node>
+      <node id="25">
+        <label>iostream</label>
+      </node>
+      <node id="28">
+        <label>iterator</label>
+      </node>
+      <node id="31">
+        <label>limits</label>
+      </node>
+      <node id="23">
+        <label>locale</label>
+      </node>
+      <node id="19">
+        <label>map</label>
+      </node>
+      <node id="16">
+        <label>memory</label>
+      </node>
+      <node id="18">
+        <label>numeric</label>
+      </node>
+      <node id="7">
+        <label>ostream</label>
+      </node>
+      <node id="26">
+        <label>set</label>
+      </node>
+      <node id="9">
+        <label>sstream</label>
+      </node>
+      <node id="29">
+        <label>stdexcept</label>
+      </node>
+      <node id="14">
+        <label>string</label>
+      </node>
+      <node id="33">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="34">
+        <label>sys/types.h</label>
+      </node>
+      <node id="2">
+        <label>tcc/MachineTensor.hpp</label>
+      </node>
+      <node id="21">
+        <label>tuple</label>
+      </node>
+      <node id="27">
+        <label>type_traits</label>
+      </node>
+      <node id="22">
+        <label>utility</label>
+      </node>
+      <node id="30">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>CoulombVertexFromFactors.cxx</label>
+        <link refid="CoulombVertexFromFactors_8cxx"/>
+      </node>
+      <node id="3">
+        <label>ParticleHoleCoulombVertexFromFactors.cxx</label>
+        <link refid="ParticleHoleCoulombVertexFromFactors_8cxx"/>
+      </node>
+      <node id="1">
+        <label>CtfMachineTensor.hpp</label>
+        <link refid="CtfMachineTensor_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1CtfMachineTensor" prot="public">sisi4s::CtfMachineTensor</innerclass>
+    <innerclass refid="classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken" prot="protected">sisi4s::CtfMachineTensor::ProtectedToken</innerclass>
+    <innerclass refid="classsisi4s_1_1CtfMachineTensorFactory" prot="public">sisi4s::CtfMachineTensorFactory</innerclass>
+    <innerclass refid="classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken" prot="protected">sisi4s::CtfMachineTensorFactory::ProtectedToken</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2016,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CTF_MACHINE_TENSOR_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CTF_MACHINE_TENSOR_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;tcc/MachineTensor.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CtfMachineTensorFactory;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="16" refid="classsisi4s_1_1CtfMachineTensor" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1CtfMachineTensor" kindref="compound">CtfMachineTensor</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>tcc::MachineTensor&lt;F&gt;<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18" refid="classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken" kindref="compound">ProtectedToken</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>required<sp/>by<sp/>templates<sp/>to<sp/>infer<sp/>corresponding<sp/>Factory<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classsisi4s_1_1CtfMachineTensor_1a500f0e7eaf8b54374d18a206518a137a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensorFactory" kindref="compound">CtfMachineTensorFactory&lt;F&gt;</ref><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a500f0e7eaf8b54374d18a206518a137a" kindref="member">Factory</ref>;</highlight></codeline>
+<codeline lineno="24" refid="classsisi4s_1_1CtfMachineTensor_1a744bf3107808aec9d7ba00afcc6ae69f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;F&gt;<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a744bf3107808aec9d7ba00afcc6ae69f" kindref="member">Tensor</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>constructors<sp/>called<sp/>by<sp/>factory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="classsisi4s_1_1CtfMachineTensor_1a6ae96bde1af99a8b0aff6e5956fac75c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a6ae96bde1af99a8b0aff6e5956fac75c" kindref="member">CtfMachineTensor</ref>(</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>&amp;lens,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;name,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::World<sp/>*world,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken" kindref="compound">ProtectedToken</ref><sp/>&amp;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>(</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_cast&lt;int&gt;(lens.size()),<sp/>lens.data(),</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;(0,<sp/>lens.size()).data(),</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*world,<sp/>name.c_str()</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>copy<sp/>constructor<sp/>from<sp/>CTF<sp/>tensor,<sp/>for<sp/>compatibility</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classsisi4s_1_1CtfMachineTensor_1a2881a03a7f22a82651fe577024984d65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a2881a03a7f22a82651fe577024984d65" kindref="member">CtfMachineTensor</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a744bf3107808aec9d7ba00afcc6ae69f" kindref="member">Tensor</ref><sp/>&amp;T,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken" kindref="compound">ProtectedToken</ref><sp/>&amp;):<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>(T)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="classsisi4s_1_1CtfMachineTensor_1a6e3f708b04b669af0aa1b2c4ccaf402d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;CtfMachineTensor&lt;F&gt;&gt;<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a6e3f708b04b669af0aa1b2c4ccaf402d" kindref="member">create</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a744bf3107808aec9d7ba00afcc6ae69f" kindref="member">Tensor</ref><sp/>&amp;T)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::make_shared&lt;CtfMachineTensor&lt;F&gt;&gt;(T,<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken" kindref="compound">ProtectedToken</ref>());</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="classsisi4s_1_1CtfMachineTensor_1a4a5efee024e42e7ad588b3ceab683e21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a4a5efee024e42e7ad588b3ceab683e21" kindref="member">~CtfMachineTensor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this[bIndices]<sp/>=<sp/>alpha<sp/>*<sp/>A[aIndices]<sp/>+<sp/>beta*this[bIndices]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classsisi4s_1_1CtfMachineTensor_1adbb6518e60bbfe08c51eb0f508178268" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1adbb6518e60bbfe08c51eb0f508178268" kindref="member">move</ref>(</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;tcc::MachineTensor&lt;F&gt;&gt;<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;aIndices,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>beta,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;bIndices</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;CtfMachineTensor&lt;F&gt;&gt;<sp/>ctfA(</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::dynamic_pointer_cast&lt;<ref refid="classsisi4s_1_1CtfMachineTensor" kindref="compound">CtfMachineTensor&lt;F&gt;</ref>&gt;(A)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ctfA)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Passed<sp/>machine<sp/>tensor<sp/>of<sp/>wrong<sp/>implementation.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(2,<sp/></highlight><highlight class="stringliteral">&quot;TCC&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;move<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1ab45bfaee131040106bcf0dc6701a95e6" kindref="member">getName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>bIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]<sp/>&lt;&lt;=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>*<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ctfA-&gt;getName()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>aIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beta<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>*<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1ab45bfaee131040106bcf0dc6701a95e6" kindref="member">getName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>bIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>.sum(</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctfA-&gt;tensor,<sp/>aIndices.c_str(),</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beta,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bIndices.c_str()</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this[bIndices]<sp/>=<sp/>alpha<sp/>*<sp/>f(A[aIndices])<sp/>+<sp/>beta*this[bIndices]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="classsisi4s_1_1CtfMachineTensor_1a8b7ee727d351fcb80f42d71164c59065" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a8b7ee727d351fcb80f42d71164c59065" kindref="member">move</ref>(</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;tcc::MachineTensor&lt;F&gt;&gt;<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;aIndices,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>beta,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;bIndices,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>)&gt;<sp/>&amp;f</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;CtfMachineTensor&lt;F&gt;&gt;<sp/>ctfA(</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::dynamic_pointer_cast&lt;<ref refid="classsisi4s_1_1CtfMachineTensor" kindref="compound">CtfMachineTensor&lt;F&gt;</ref>&gt;(A)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ctfA)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Passed<sp/>machine<sp/>tensor<sp/>of<sp/>wrong<sp/>implementation.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(2,<sp/></highlight><highlight class="stringliteral">&quot;TCC&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;move<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1ab45bfaee131040106bcf0dc6701a95e6" kindref="member">getName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>bIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]<sp/>&lt;&lt;=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>*<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ctfA-&gt;getName()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>aIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beta<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>*<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1ab45bfaee131040106bcf0dc6701a95e6" kindref="member">getName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>bIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>.sum(</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctfA-&gt;tensor,<sp/>aIndices.c_str(),</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beta,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bIndices.c_str(),</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Univar_Function&lt;F&gt;(f)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this[cIndices]<sp/>=<sp/>alpha<sp/>*<sp/>A[aIndices]<sp/>*<sp/>B[bIndices]<sp/>+<sp/>beta*this[cIndices]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="classsisi4s_1_1CtfMachineTensor_1a2a05c45644a61a0bdd21cccda2ce3d9c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a2a05c45644a61a0bdd21cccda2ce3d9c" kindref="member">contract</ref>(</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;tcc::MachineTensor&lt;F&gt;&gt;<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;aIndices,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;tcc::MachineTensor&lt;F&gt;&gt;<sp/>&amp;B,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;bIndices,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>beta,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;cIndices</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;CtfMachineTensor&lt;F&gt;&gt;<sp/>ctfA(</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::dynamic_pointer_cast&lt;<ref refid="classsisi4s_1_1CtfMachineTensor" kindref="compound">CtfMachineTensor&lt;F&gt;</ref>&gt;(A)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;CtfMachineTensor&lt;F&gt;&gt;<sp/>ctfB(</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::dynamic_pointer_cast&lt;<ref refid="classsisi4s_1_1CtfMachineTensor" kindref="compound">CtfMachineTensor&lt;F&gt;</ref>&gt;(B)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ctfA<sp/>||<sp/>!ctfB)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Passed<sp/>machine<sp/>tensor<sp/>of<sp/>wrong<sp/>implementation.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(2,<sp/></highlight><highlight class="stringliteral">&quot;TCC&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;contract<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1ab45bfaee131040106bcf0dc6701a95e6" kindref="member">getName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>cIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]<sp/>&lt;&lt;=<sp/>g(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>*<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ctfA-&gt;getName()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>aIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;],<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctfB-&gt;getName()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>bIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;])<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beta<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>*<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1ab45bfaee131040106bcf0dc6701a95e6" kindref="member">getName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>cIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>.contract(</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctfA-&gt;tensor,<sp/>aIndices.c_str(),</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctfB-&gt;tensor,<sp/>bIndices.c_str(),</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beta,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cIndices.c_str()</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this[cIndices]<sp/>=<sp/>alpha<sp/>*<sp/>g(A[aIndices],B[bIndices])<sp/>+<sp/>beta*this[cIndices]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="classsisi4s_1_1CtfMachineTensor_1a50034ef0467f3d4bc5e1a4b9165da7dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a50034ef0467f3d4bc5e1a4b9165da7dd" kindref="member">contract</ref>(</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;tcc::MachineTensor&lt;F&gt;&gt;<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;aIndices,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;tcc::MachineTensor&lt;F&gt;&gt;<sp/>&amp;B,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;bIndices,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>beta,</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;cIndices,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>)&gt;<sp/>&amp;g</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;CtfMachineTensor&lt;F&gt;&gt;<sp/>ctfA(</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::dynamic_pointer_cast&lt;<ref refid="classsisi4s_1_1CtfMachineTensor" kindref="compound">CtfMachineTensor&lt;F&gt;</ref>&gt;(A)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;CtfMachineTensor&lt;F&gt;&gt;<sp/>ctfB(</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::dynamic_pointer_cast&lt;<ref refid="classsisi4s_1_1CtfMachineTensor" kindref="compound">CtfMachineTensor&lt;F&gt;</ref>&gt;(B)</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ctfA<sp/>||<sp/>!ctfB)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Passed<sp/>machine<sp/>tensor<sp/>of<sp/>wrong<sp/>implementation.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(2,<sp/></highlight><highlight class="stringliteral">&quot;TCC&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;contract<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1ab45bfaee131040106bcf0dc6701a95e6" kindref="member">getName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>cIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]<sp/>&lt;&lt;=<sp/>g(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>*<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ctfA-&gt;getName()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>aIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;],<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctfB-&gt;getName()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>bIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;])<sp/>+<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beta<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>*<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1ab45bfaee131040106bcf0dc6701a95e6" kindref="member">getName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>cIndices<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>.contract(</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctfA-&gt;tensor,<sp/>aIndices.c_str(),</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctfB-&gt;tensor,<sp/>bIndices.c_str(),</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beta,</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cIndices.c_str(),</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Bivar_Function&lt;F&gt;(g)</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>interfaces<sp/>to<sp/>be<sp/>defined:<sp/>slice,<sp/>permute,<sp/>transform</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176" refid="classsisi4s_1_1CtfMachineTensor_1ad42078480dff2e03d45b6caaaa5ac42b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1ad42078480dff2e03d45b6caaaa5ac42b" kindref="member">getLens</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;(<ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>.lens,<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>.lens+<ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>.order);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180" refid="classsisi4s_1_1CtfMachineTensor_1ab45bfaee131040106bcf0dc6701a95e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1ab45bfaee131040106bcf0dc6701a95e6" kindref="member">getName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::string(<ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>.get_name());</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187" refid="classsisi4s_1_1CtfMachineTensor_1a6420ca2220d90a739f8581a99d13d132" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a744bf3107808aec9d7ba00afcc6ae69f" kindref="member">Tensor</ref><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1a9962a0d391f33495ea08ea29692fc497" kindref="member">tensor</ref>;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1CtfMachineTensorFactory" kindref="compound">CtfMachineTensorFactory</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="193" refid="classsisi4s_1_1CtfMachineTensorFactory" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1CtfMachineTensorFactory" kindref="compound">CtfMachineTensorFactory</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>tcc::MachineTensorFactory&lt;F&gt;<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="195" refid="classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken" kindref="compound">ProtectedToken</ref><sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="199" refid="classsisi4s_1_1CtfMachineTensorFactory_1a52049f3eef49ca75f7f9cf10b44b635a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensorFactory_1a52049f3eef49ca75f7f9cf10b44b635a" kindref="member">CtfMachineTensorFactory</ref>(</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::World<sp/>*world_,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken" kindref="compound">ProtectedToken</ref><sp/>&amp;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1CtfMachineTensorFactory_1a7f88de13fa1303176ca44f07a7a73d2c" kindref="member">world</ref>(world_)<sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204" refid="classsisi4s_1_1CtfMachineTensorFactory_1a8afcf87d07befafd7b35da7c0d121ffd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensorFactory_1a8afcf87d07befafd7b35da7c0d121ffd" kindref="member">~CtfMachineTensorFactory</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207" refid="classsisi4s_1_1CtfMachineTensorFactory_1a6866f2608af2b2d148f08e66ab28b09a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;tcc::MachineTensor&lt;F&gt;&gt;<sp/><ref refid="classsisi4s_1_1CtfMachineTensorFactory_1a6866f2608af2b2d148f08e66ab28b09a" kindref="member">createTensor</ref>(</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>&amp;lens,</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;name</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;typename<sp/>tcc::MachineTensor&lt;F&gt;&gt;(</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::make_shared&lt;CtfMachineTensor&lt;F&gt;&gt;(</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lens,<sp/>name,<sp/><ref refid="classsisi4s_1_1CtfMachineTensorFactory_1a7f88de13fa1303176ca44f07a7a73d2c" kindref="member">world</ref>,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken" kindref="compound">CtfMachineTensor&lt;F&gt;::ProtectedToken</ref>()</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218" refid="classsisi4s_1_1CtfMachineTensorFactory_1a74001952b09b22923dbe77f2add12711" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;CtfMachineTensorFactory&lt;F&gt;&gt;<sp/><ref refid="classsisi4s_1_1CtfMachineTensorFactory_1a74001952b09b22923dbe77f2add12711" kindref="member">create</ref>(</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::World<sp/>*<ref refid="classsisi4s_1_1CtfMachineTensorFactory_1a7f88de13fa1303176ca44f07a7a73d2c" kindref="member">world</ref><sp/>=<sp/><ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::make_shared&lt;CtfMachineTensorFactory&lt;F&gt;&gt;(</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CtfMachineTensorFactory_1a7f88de13fa1303176ca44f07a7a73d2c" kindref="member">world</ref>,<sp/><ref refid="classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken" kindref="compound">ProtectedToken</ref>()</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="226" refid="classsisi4s_1_1CtfMachineTensorFactory_1a7f88de13fa1303176ca44f07a7a73d2c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::World<sp/>*<ref refid="classsisi4s_1_1CtfMachineTensorFactory_1a7f88de13fa1303176ca44f07a7a73d2c" kindref="member">world</ref>;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="228"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp"/>
+  </compounddef>
+</doxygen>

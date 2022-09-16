@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="ScaLapackHermitianEigenSystemDc_8hpp" kind="file" language="C++">
+    <compoundname>ScaLapackHermitianEigenSystemDc.hpp</compoundname>
+    <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
+    <includes refid="ScaLapackMatrix_8hpp" local="no">util/ScaLapackMatrix.hpp</includes>
+    <includes refid="ScaLapack_8hpp" local="no">extern/ScaLapack.hpp</includes>
+    <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
+    <includes local="no">memory</includes>
+    <includedby refid="CoulombVertexSingularVectors_8cxx" local="no">CoulombVertexSingularVectors.cxx</includedby>
+    <includedby refid="DoublesAmplitudesDecomposition_8cxx" local="no">DoublesAmplitudesDecomposition.cxx</includedby>
+    <includedby refid="ParticleHoleCoulombVertexSingularVectors_8cxx" local="no">ParticleHoleCoulombVertexSingularVectors.cxx</includedby>
+    <includedby refid="PseudoInverseHermitianSvd_8cxx" local="no">PseudoInverseHermitianSvd.cxx</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>extern/ScaLapack.hpp</label>
+        <link refid="ScaLapack_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>util/BlacsWorld.hpp</label>
+        <link refid="BlacsWorld_8hpp"/>
+      </node>
+      <node id="8">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ScaLapackHermitianEigenSystemDc.hpp</label>
+        <link refid="ScaLapackHermitianEigenSystemDc_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>util/ScaLapackMatrix.hpp</label>
+        <link refid="ScaLapackMatrix_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>complex</label>
+      </node>
+      <node id="9">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="15">
+        <label>memory</label>
+      </node>
+      <node id="4">
+        <label>ostream</label>
+      </node>
+      <node id="13">
+        <label>sstream</label>
+      </node>
+      <node id="12">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>CoulombVertexSingularVectors.cxx</label>
+        <link refid="CoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="3">
+        <label>DoublesAmplitudesDecomposition.cxx</label>
+        <link refid="DoublesAmplitudesDecomposition_8cxx"/>
+      </node>
+      <node id="4">
+        <label>ParticleHoleCoulombVertexSingularVectors.cxx</label>
+        <link refid="ParticleHoleCoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="5">
+        <label>PseudoInverseHermitianSvd.cxx</label>
+        <link refid="PseudoInverseHermitianSvd_8cxx"/>
+      </node>
+      <node id="1">
+        <label>ScaLapackHermitianEigenSystemDc.hpp</label>
+        <link refid="ScaLapackHermitianEigenSystemDc_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4" prot="public">sisi4s::ScaLapackHermitianEigenSystemDc&lt; double &gt;</innerclass>
+    <innerclass refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4" prot="public">sisi4s::ScaLapackHermitianEigenSystemDc&lt; complex &gt;</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="ScaLapackHermitianEigenSystemDc_8hpp_1a409f2605e1f6b7576cf17b36a6be3fa3" prot="public" static="no">
+        <name>SCA_LAPACK_HERMITIAN_EIGEN_STSTEM_DC_DEFINED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackHermitianEigenSystemDc.hpp" line="3" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackHermitianEigenSystemDc.hpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2016,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SCA_LAPACK_HERMITIAN_EIGEN_SYSTEM_DC_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="ScaLapackHermitianEigenSystemDc_8hpp_1a409f2605e1f6b7576cf17b36a6be3fa3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCA_LAPACK_HERMITIAN_EIGEN_STSTEM_DC_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapackMatrix_8hpp" kindref="compound">util/ScaLapackMatrix.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapack_8hpp" kindref="compound">extern/ScaLapack.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>base<sp/>template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="15" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc" kindref="compound">ScaLapackHermitianEigenSystemDc</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>specialization<sp/>for<sp/>double</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc" kindref="compound">ScaLapackHermitianEigenSystemDc</ref>&lt;double&gt;<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1aca65e9d7ae9aa12de5ee47caa644c947" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1aca65e9d7ae9aa12de5ee47caa644c947" kindref="member">ScaLapackHermitianEigenSystemDc</ref>(</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;double&gt;</ref>&gt;<sp/>&amp;A_,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;double&gt;</ref>&gt;<sp/>&amp;U_</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>A(A_),<sp/>U(U_),</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>workCount(-1),<sp/>integerWorkCount(-1),</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>work(nullptr),<sp/>integerWork(nullptr)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>check<sp/>if<sp/>matrix<sp/>is<sp/>quadratic</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>optimalWork;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>optimalIntegerWork;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset(1);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>info;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ScaLapack_8hpp_1a0c07dbe3581a7dc329d9d49e3d1098a1" kindref="member">pdsyevd_</ref>(</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;V&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;L&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;A-&gt;lens[0],</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>A-&gt;getLocalValues(),<sp/>&amp;offset,<sp/>&amp;offset,<sp/>A-&gt;getDescriptor(),</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>U-&gt;getLocalValues(),<sp/>&amp;offset,<sp/>&amp;offset,<sp/>U-&gt;getDescriptor(),</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;optimalWork,<sp/>&amp;workCount,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;optimalIntegerWork,<sp/>&amp;integerWorkCount,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;info</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(info<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;ERROR:<sp/>PDSYEVD<sp/>initialization<sp/>failed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>workCount<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(optimalWork+0.5);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>integerWorkCount<sp/>=<sp/>optimalIntegerWork;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>work:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>work<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[workCount];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>integerWork<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[integerWorkCount];</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a9e5aa9f392425e5de8f7312d0e7121bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a9e5aa9f392425e5de8f7312d0e7121bd" kindref="member">~ScaLapackHermitianEigenSystemDc</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(work)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>work;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(integerWork)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>integerWork;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>work<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>integerWork<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a2206b1129be420da0861ee33d12dec79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a2206b1129be420da0861ee33d12dec79" kindref="member">solve</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*lambda)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset(1);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>info;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ScaLapack_8hpp_1a0c07dbe3581a7dc329d9d49e3d1098a1" kindref="member">pdsyevd_</ref>(</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;V&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;L&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;A-&gt;lens[0],</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>A-&gt;getLocalValues(),<sp/>&amp;offset,<sp/>&amp;offset,<sp/>A-&gt;getDescriptor(),</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lambda,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>U-&gt;getLocalValues(),<sp/>&amp;offset,<sp/>&amp;offset,<sp/>U-&gt;getDescriptor(),</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>work,<sp/>&amp;workCount,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>integerWork,<sp/>&amp;integerWorkCount,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;info</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(info<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;ERROR:<sp/>PDSYEVD<sp/>diagonlization<sp/>failed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="79" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a0652dcb8e49840bdf994cf7082bfb8d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;ScaLapackMatrix&lt;double&gt;&gt;<sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a0652dcb8e49840bdf994cf7082bfb8d8" kindref="member">A</ref>,<sp/>U;</highlight></codeline>
+<codeline lineno="80" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a59e076cbf21f801d5a3b4b026d49238f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>workCount,<sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a59e076cbf21f801d5a3b4b026d49238f" kindref="member">integerWorkCount</ref>;</highlight></codeline>
+<codeline lineno="81" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1aa06a8df290890450e04c4f44a5dd4f53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*<ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1aa06a8df290890450e04c4f44a5dd4f53" kindref="member">work</ref>;</highlight></codeline>
+<codeline lineno="82" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a30d6e5f39ff9f2dd16babf72c3fa331a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a30d6e5f39ff9f2dd16babf72c3fa331a" kindref="member">integerWork</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>specialization<sp/>for<sp/>complex</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
+<codeline lineno="87" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc" kindref="compound">ScaLapackHermitianEigenSystemDc</ref>&lt;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>&gt;<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="89" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a3356a9562c3cab8716c3f316404c462a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a3356a9562c3cab8716c3f316404c462a" kindref="member">ScaLapackHermitianEigenSystemDc</ref>(</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;complex&gt;</ref>&gt;<sp/>&amp;A_,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;complex&gt;</ref>&gt;<sp/>&amp;U_</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>A(A_),<sp/>U(U_),</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>workCount(-1),<sp/>realWorkCount(-1),<sp/>integerWorkCount(-1),</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>work(nullptr),<sp/>realWork(nullptr),<sp/>integerWork(nullptr)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>check<sp/>if<sp/>matrix<sp/>is<sp/>quadratic</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>optimalWork;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>optimalRealWork;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>optimalIntegerWork;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset(1);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>info;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ScaLapack_8hpp_1ab21cb1d728da740f1f3812a81245aa01" kindref="member">pzheevd_</ref>(</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;V&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;L&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;A-&gt;lens[0],</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>A-&gt;getLocalValues(),<sp/>&amp;offset,<sp/>&amp;offset,<sp/>A-&gt;getDescriptor(),</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>U-&gt;getLocalValues(),<sp/>&amp;offset,<sp/>&amp;offset,<sp/>U-&gt;getDescriptor(),</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;optimalWork,<sp/>&amp;workCount,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;optimalRealWork,<sp/>&amp;realWorkCount,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;optimalIntegerWork,<sp/>&amp;integerWorkCount,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;info</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(info<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;ERROR:<sp/>PZHEEVD<sp/>initialization<sp/>failed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>workCount<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(std::real(optimalWork)+0.5);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>realWorkCount<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int64_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(optimalRealWork+0.5);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>integerWorkCount<sp/>=<sp/>optimalIntegerWork;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>work:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>work<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>[workCount];</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE<sp/>that<sp/>realWorkCount<sp/>actually<sp/>refers<sp/>to<sp/>a<sp/>number<sp/>of<sp/>complexes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>realWork<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[2*realWorkCount];</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>integerWork<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[integerWorkCount];</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a88f7ea5137684d343bf553338f74db4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a88f7ea5137684d343bf553338f74db4c" kindref="member">~ScaLapackHermitianEigenSystemDc</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(work)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>work;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(realWork)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>realWork;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(integerWork)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>integerWork;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>work<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>realWork<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>integerWork<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a403b665901b5b6a2a1077529507767e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a403b665901b5b6a2a1077529507767e5" kindref="member">solve</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*lambda)<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset(1);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>info;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ScaLapack_8hpp_1ab21cb1d728da740f1f3812a81245aa01" kindref="member">pzheevd_</ref>(</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;V&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;L&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;A-&gt;lens[0],</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>A-&gt;getLocalValues(),<sp/>&amp;offset,<sp/>&amp;offset,<sp/>A-&gt;getDescriptor(),</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lambda,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>U-&gt;getLocalValues(),<sp/>&amp;offset,<sp/>&amp;offset,<sp/>U-&gt;getDescriptor(),</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>work,<sp/>&amp;workCount,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>realWork,<sp/>&amp;realWorkCount,</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>integerWork,<sp/>&amp;integerWorkCount,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;info</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(info<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;ERROR:<sp/>PZHEEVD<sp/>diagonlization<sp/>failed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="155" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a1e9479a128a3bb0125addc7203b9b81c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;ScaLapackMatrix&lt;complex&gt;&gt;<sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a1e9479a128a3bb0125addc7203b9b81c" kindref="member">A</ref>,<sp/>U;</highlight></codeline>
+<codeline lineno="156" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a152ef237456e853d19c1884bafbc22df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>workCount,<sp/>realWorkCount,<sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a152ef237456e853d19c1884bafbc22df" kindref="member">integerWorkCount</ref>;</highlight></codeline>
+<codeline lineno="157" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a46177b5c1383e2412f73831645ff5683" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>*<ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a46177b5c1383e2412f73831645ff5683" kindref="member">work</ref>;</highlight></codeline>
+<codeline lineno="158" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a33d7c9944fe4f2fe45395c268df49869" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*<ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a33d7c9944fe4f2fe45395c268df49869" kindref="member">realWork</ref>;</highlight></codeline>
+<codeline lineno="159" refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a20d20163a3de00f8694d81a1548cbde4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a20d20163a3de00f8694d81a1548cbde4" kindref="member">integerWork</ref>;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackHermitianEigenSystemDc.hpp"/>
+  </compounddef>
+</doxygen>

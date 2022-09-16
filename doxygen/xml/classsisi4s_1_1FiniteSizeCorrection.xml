@@ -1,0 +1,908 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1FiniteSizeCorrection" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::FiniteSizeCorrection</compoundname>
+    <basecompoundref refid="classsisi4s_1_1Algorithm" prot="public" virt="non-virtual">sisi4s::Algorithm</basecompoundref>
+    <includes refid="FiniteSizeCorrection_8hpp" local="no">FiniteSizeCorrection.hpp</includes>
+    <innerclass refid="classFiniteSizeCorrection_1_1Momentum" prot="public">FiniteSizeCorrection::Momentum</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1a8bd7e8f4fb6dd29b05ae627f0d8b614b" prot="public" static="yes" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">AlgorithmRegistrar</ref>&lt; <ref refid="classsisi4s_1_1FiniteSizeCorrection" kindref="compound">FiniteSizeCorrection</ref> &gt;</type>
+        <definition>AlgorithmRegistrar&lt; FiniteSizeCorrection &gt; FiniteSizeCorrection::registrar_</definition>
+        <argsstring></argsstring>
+        <name>registrar_</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::registrar_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="11" column="72" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1ac4259a8834b9fd0996e9905a4a4c93a2" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sisi4s::FiniteSizeCorrection::NG</definition>
+        <argsstring></argsstring>
+        <name>NG</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::NG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="27" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="27" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" compoundref="FiniteSizeCorrection_8cxx" startline="337" endline="466">calculateComplexStructureFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" compoundref="FiniteSizeCorrection_8cxx" startline="968" endline="1020">calculateFiniteSizeCorrection</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" compoundref="FiniteSizeCorrection_8cxx" startline="124" endline="334">calculateRealStructureFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1ab03fab436020be68b42a07d07b0eb3ca" compoundref="FiniteSizeCorrection_8cxx" startline="469" endline="525">dryCalculateStructureFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a577d15a51e965510c8afcaedbf02202a" compoundref="FiniteSizeCorrection_8cxx" startline="110" endline="122">readFromFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1aff5b228d981afbaa9c83aa5430e70b9d" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; sisi4s::FiniteSizeCorrection::GLengths</definition>
+        <argsstring></argsstring>
+        <name>GLengths</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::GLengths</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="29" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="29" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" compoundref="FiniteSizeCorrection_8cxx" startline="968" endline="1020">calculateFiniteSizeCorrection</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1a7f21fa46115ceffd8e205ea2c3f8c706" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; sisi4s::FiniteSizeCorrection::averageSGs</definition>
+        <argsstring></argsstring>
+        <name>averageSGs</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::averageSGs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="30" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="30" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" compoundref="FiniteSizeCorrection_8cxx" startline="968" endline="1020">calculateFiniteSizeCorrection</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1acb4a2d84298739a8bcad2937d7ebf6bb" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; sisi4s::FiniteSizeCorrection::meanErrorSG</definition>
+        <argsstring></argsstring>
+        <name>meanErrorSG</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::meanErrorSG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="31" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="31" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1a2d43f73135f2e57a449fd065a6a6c960" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; sisi4s::FiniteSizeCorrection::structureFactors</definition>
+        <argsstring></argsstring>
+        <name>structureFactors</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::structureFactors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="32" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="32" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" compoundref="FiniteSizeCorrection_8cxx" startline="337" endline="466">calculateComplexStructureFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" compoundref="FiniteSizeCorrection_8cxx" startline="124" endline="334">calculateRealStructureFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a577d15a51e965510c8afcaedbf02202a" compoundref="FiniteSizeCorrection_8cxx" startline="110" endline="122">readFromFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1a44840efaf12698bdbf9c22c648564656" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; sisi4s::FiniteSizeCorrection::VofG</definition>
+        <argsstring></argsstring>
+        <name>VofG</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::VofG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="33" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="33" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" compoundref="FiniteSizeCorrection_8cxx" startline="337" endline="466">calculateComplexStructureFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" compoundref="FiniteSizeCorrection_8cxx" startline="124" endline="334">calculateRealStructureFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a577d15a51e965510c8afcaedbf02202a" compoundref="FiniteSizeCorrection_8cxx" startline="110" endline="122">readFromFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1a48841ae1b52308fb0d55c2e0c77a58e8" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double sisi4s::FiniteSizeCorrection::GC</definition>
+        <argsstring></argsstring>
+        <name>GC</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::GC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="34" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="34" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" compoundref="FiniteSizeCorrection_8cxx" startline="968" endline="1020">calculateFiniteSizeCorrection</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a0b0230201e4d274b939c205e3f0464f5" compoundref="FiniteSizeCorrection_8cxx" startline="962" endline="966">SGxVG</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1ab08a52965354202703ac3372c1cc63af" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double sisi4s::FiniteSizeCorrection::inter3D</definition>
+        <argsstring></argsstring>
+        <name>inter3D</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::inter3D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="35" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" compoundref="FiniteSizeCorrection_8cxx" startline="968" endline="1020">calculateFiniteSizeCorrection</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1ad0f40dfd289d147867e1c682a7c8c0ed" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double sisi4s::FiniteSizeCorrection::sum3D</definition>
+        <argsstring></argsstring>
+        <name>sum3D</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::sum3D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="36" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="36" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" compoundref="FiniteSizeCorrection_8cxx" startline="968" endline="1020">calculateFiniteSizeCorrection</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1a2b291585932615723bc227b7b649481c" prot="protected" static="no" mutable="no">
+        <type><ref refid="classFiniteSizeCorrection_1_1Momentum" kindref="compound">Momentum</ref> *</type>
+        <definition>Momentum* sisi4s::FiniteSizeCorrection::fibonacciGrid</definition>
+        <argsstring></argsstring>
+        <name>fibonacciGrid</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::fibonacciGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="38" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1abe853aa5dccd41090fc1d8282937d60a" compoundref="FiniteSizeCorrection_8cxx" startline="528" endline="545">constructFibonacciGrid</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1aa90205ef2a30f792951481f3f04e03fb" prot="protected" static="no" mutable="no">
+        <type><ref refid="classFiniteSizeCorrection_1_1Momentum" kindref="compound">Momentum</ref> *</type>
+        <definition>Momentum* sisi4s::FiniteSizeCorrection::cartesianGrid</definition>
+        <argsstring></argsstring>
+        <name>cartesianGrid</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::cartesianGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="39" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" compoundref="FiniteSizeCorrection_8cxx" startline="968" endline="1020">calculateFiniteSizeCorrection</referencedby>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1FiniteSizeCorrection_1a0183e40d0c45804bed455771a6b2f583" prot="protected" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int sisi4s::FiniteSizeCorrection::DEFAULT_NUM_FIBONACCI</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_NUM_FIBONACCI</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::DEFAULT_NUM_FIBONACCI</qualifiedname>
+        <initializer>= 128</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="28" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="28" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1af274871c99f48406060dae040b683597" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string sisi4s::FiniteSizeCorrection::getName</definition>
+        <argsstring>()</argsstring>
+        <name>getName</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::getName</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1ad88a11462d7efa2cd6ee1dd2884d7a68">getName</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="11" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a49d3758a730b919104d2d4c45f7d89a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FiniteSizeCorrection::FiniteSizeCorrection</definition>
+        <argsstring>(std::vector&lt; Argument &gt; const &amp;argumentList)</argsstring>
+        <name>FiniteSizeCorrection</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::FiniteSizeCorrection</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref> &gt; const &amp;</type>
+          <declname>argumentList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="12" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a359868e0dc350ae8eb584d2fbf6b58b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>FiniteSizeCorrection::~FiniteSizeCorrection</definition>
+        <argsstring>()</argsstring>
+        <name>~FiniteSizeCorrection</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::~FiniteSizeCorrection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="15" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="34" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a8a7b438545c815dc93309d16208128de" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::run</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1aacd7ce50628f515d50d178213db8b320">run</reimplements>
+        <briefdescription>
+<para>Calculates the finite size correction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="20" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="37" bodyend="61"/>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" compoundref="FiniteSizeCorrection_8cxx" startline="337" endline="466">calculateComplexStructureFactor</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" compoundref="FiniteSizeCorrection_8cxx" startline="968" endline="1020">calculateFiniteSizeCorrection</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" compoundref="FiniteSizeCorrection_8cxx" startline="124" endline="334">calculateRealStructureFactor</references>
+        <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="38" endline="54">sisi4s::Algorithm::getArgumentData</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a577d15a51e965510c8afcaedbf02202a" compoundref="FiniteSizeCorrection_8cxx" startline="110" endline="122">readFromFile</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1ac7e57c7cbc1fa709a2e23b177676f566" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::dryRun</definition>
+        <argsstring>()</argsstring>
+        <name>dryRun</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::dryRun</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de">dryRun</reimplements>
+        <briefdescription>
+<para>Performs a Dry Run. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="25" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="63" bodyend="76"/>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a100128dd8d514f54d7897e858ac0b8cf" compoundref="FiniteSizeCorrection_8cxx" startline="1022" endline="1028">dryCalculateFiniteSizeCorrection</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ab03fab436020be68b42a07d07b0eb3ca" compoundref="FiniteSizeCorrection_8cxx" startline="469" endline="525">dryCalculateStructureFactor</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a200f4c2590c7f573670d778ce6d4dc71" compoundref="FiniteSizeCorrection_8cxx" startline="909" endline="910">dryInterpolation3D</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a577d15a51e965510c8afcaedbf02202a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::readFromFile</definition>
+        <argsstring>()</argsstring>
+        <name>readFromFile</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::readFromFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="40" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="110" bodyend="122"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ac4259a8834b9fd0996e9905a4a4c93a2" compoundref="FiniteSizeCorrection_8hpp" startline="27">NG</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a2d43f73135f2e57a449fd065a6a6c960" compoundref="FiniteSizeCorrection_8hpp" startline="32">structureFactors</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a44840efaf12698bdbf9c22c648564656" compoundref="FiniteSizeCorrection_8hpp" startline="33">VofG</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a8a7b438545c815dc93309d16208128de" compoundref="FiniteSizeCorrection_8cxx" startline="37" endline="61">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::calculateRealStructureFactor</definition>
+        <argsstring>()</argsstring>
+        <name>calculateRealStructureFactor</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::calculateRealStructureFactor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="41" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="124" bodyend="334"/>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="namespacesisi4s_1a77d868359a18a73cfe184f25fad2f59b" compoundref="ComplexTensor_8cxx" startline="39" endline="51">sisi4s::fromComplexTensor</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" compoundref="Algorithm_8cxx" startline="188" endline="200">sisi4s::Algorithm::getTensorArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ac4259a8834b9fd0996e9905a4a4c93a2" compoundref="FiniteSizeCorrection_8hpp" startline="27">NG</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+        <references refid="namespacesisi4s_1a40947d88c4989cacff153a78af67f686" compoundref="MathFunctions_8hpp" startline="24" endline="26">sisi4s::sqrt</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a2d43f73135f2e57a449fd065a6a6c960" compoundref="FiniteSizeCorrection_8hpp" startline="32">structureFactors</references>
+        <references refid="namespacesisi4s_1a20c6b0ad3767206173edfb7bf525e5a7" compoundref="ComplexTensor_8cxx" startline="76" endline="96">sisi4s::toComplexTensor</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a44840efaf12698bdbf9c22c648564656" compoundref="FiniteSizeCorrection_8hpp" startline="33">VofG</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a8a7b438545c815dc93309d16208128de" compoundref="FiniteSizeCorrection_8cxx" startline="37" endline="61">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::calculateComplexStructureFactor</definition>
+        <argsstring>()</argsstring>
+        <name>calculateComplexStructureFactor</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::calculateComplexStructureFactor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="45" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="337" bodyend="466"/>
+        <references refid="namespacesisi4s_1a77d868359a18a73cfe184f25fad2f59b" compoundref="ComplexTensor_8cxx" startline="39" endline="51">sisi4s::fromComplexTensor</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ac4259a8834b9fd0996e9905a4a4c93a2" compoundref="FiniteSizeCorrection_8hpp" startline="27">NG</references>
+        <references refid="namespacesisi4s_1a40947d88c4989cacff153a78af67f686" compoundref="MathFunctions_8hpp" startline="24" endline="26">sisi4s::sqrt</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a2d43f73135f2e57a449fd065a6a6c960" compoundref="FiniteSizeCorrection_8hpp" startline="32">structureFactors</references>
+        <references refid="namespacesisi4s_1a20c6b0ad3767206173edfb7bf525e5a7" compoundref="ComplexTensor_8cxx" startline="76" endline="96">sisi4s::toComplexTensor</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a44840efaf12698bdbf9c22c648564656" compoundref="FiniteSizeCorrection_8hpp" startline="33">VofG</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a8a7b438545c815dc93309d16208128de" compoundref="FiniteSizeCorrection_8cxx" startline="37" endline="61">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1abe853aa5dccd41090fc1d8282937d60a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::constructFibonacciGrid</definition>
+        <argsstring>(double R, int N)</argsstring>
+        <name>constructFibonacciGrid</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::constructFibonacciGrid</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>R</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="47" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="528" bodyend="545"/>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a2b291585932615723bc227b7b649481c" compoundref="FiniteSizeCorrection_8hpp" startline="38">fibonacciGrid</references>
+        <references refid="namespacesisi4s_1a40947d88c4989cacff153a78af67f686" compoundref="MathFunctions_8hpp" startline="24" endline="26">sisi4s::sqrt</references>
+        <references refid="classFiniteSizeCorrection_1_1Momentum_1a30aaac3c853a744a6c561799b47bedbb" compoundref="FiniteSizeCorrection_8cxx" startline="81">sisi4s::FiniteSizeCorrection::Momentum::v</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::interpolation3D</definition>
+        <argsstring>()</argsstring>
+        <name>interpolation3D</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::interpolation3D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>gte::IntpTrilinear3&lt;double&gt; interpolatedSG(
+boxDimensions[0], boxDimensions[1], boxDimensions[2],
+boxOrigin[0], 1, boxOrigin[1], 1, boxOrigin[2], 1,
+regularSG
+);</para>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="48" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="547" bodyend="907"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="classsisi4s_1_1MpiCommunicator_1acf97e26d4d096c1ab248bb09864ebd26" compoundref="MpiCommunicator_8hpp" startline="42" endline="48">sisi4s::MpiCommunicator::allReduce</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a7f21fa46115ceffd8e205ea2c3f8c706" compoundref="FiniteSizeCorrection_8hpp" startline="30">averageSGs</references>
+        <references refid="classsisi4s_1_1MpiCommunicator_1a9e2b81f7b5f964584b006b816bf81f21" compoundref="MpiCommunicator_8hpp" startline="28" endline="30">sisi4s::MpiCommunicator::barrier</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1aa90205ef2a30f792951481f3f04e03fb" compoundref="FiniteSizeCorrection_8hpp" startline="39">cartesianGrid</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1abe853aa5dccd41090fc1d8282937d60a" compoundref="FiniteSizeCorrection_8cxx" startline="528" endline="545">constructFibonacciGrid</references>
+        <references refid="classsisi4s_1_1Vector_1acf318cab813d8dcc4e7b062cf260f3d6" compoundref="Vector_8hpp" startline="94" endline="103">sisi4s::Vector&lt; F, D &gt;::cross</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a0183e40d0c45804bed455771a6b2f583" compoundref="FiniteSizeCorrection_8hpp" startline="28">DEFAULT_NUM_FIBONACCI</references>
+        <references refid="namespacesisi4s_1a92d239b67d4a13717f4e7f93ad9591f2" compoundref="MathFunctions_8hpp" startline="45" endline="47">sisi4s::dot</references>
+        <references refid="classsisi4s_1_1Vector_1a8d8a0dd7fa816afad751865285eec6be" compoundref="Vector_8hpp" startline="105" endline="111">sisi4s::Vector&lt; F, D &gt;::dot</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a2b291585932615723bc227b7b649481c" compoundref="FiniteSizeCorrection_8hpp" startline="38">fibonacciGrid</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a48841ae1b52308fb0d55c2e0c77a58e8" compoundref="FiniteSizeCorrection_8hpp" startline="34">GC</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" compoundref="Algorithm_8cxx" startline="117" endline="129">sisi4s::Algorithm::getRealArgument</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1aff5b228d981afbaa9c83aa5430e70b9d" compoundref="FiniteSizeCorrection_8hpp" startline="29">GLengths</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ab08a52965354202703ac3372c1cc63af" compoundref="FiniteSizeCorrection_8hpp" startline="35">inter3D</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a5debe508e1f3f2713edc13d922058da1" compoundref="FiniteSizeCorrection_8cxx" startline="917" endline="942">IsInSmallBZ</references>
+        <references refid="classFiniteSizeCorrection_1_1Momentum_1ae18396efa4021eacd358997c9221f19a" compoundref="FiniteSizeCorrection_8cxx" startline="83">sisi4s::FiniteSizeCorrection::Momentum::l</references>
+        <references refid="classsisi4s_1_1Vector_1a136ec801253ede3aa5c4b20b16951230" compoundref="Vector_8hpp" startline="127" endline="130">sisi4s::Vector&lt; F, D &gt;::length</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1acb4a2d84298739a8bcad2937d7ebf6bb" compoundref="FiniteSizeCorrection_8hpp" startline="31">meanErrorSG</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ac4259a8834b9fd0996e9905a4a4c93a2" compoundref="FiniteSizeCorrection_8hpp" startline="27">NG</references>
+        <references refid="classFiniteSizeCorrection_1_1Momentum_1ac63d8096de034b3c0b33ca15eca8e4f6" compoundref="FiniteSizeCorrection_8cxx" startline="82">sisi4s::FiniteSizeCorrection::Momentum::s</references>
+        <references refid="classFiniteSizeCorrection_1_1Momentum_1a0678f2c906a19f42b976a9f69f29b89e" compoundref="FiniteSizeCorrection_8cxx" startline="102" endline="104">sisi4s::FiniteSizeCorrection::Momentum::sortByLength</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a2d43f73135f2e57a449fd065a6a6c960" compoundref="FiniteSizeCorrection_8hpp" startline="32">structureFactors</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ad0f40dfd289d147867e1c682a7c8c0ed" compoundref="FiniteSizeCorrection_8hpp" startline="36">sum3D</references>
+        <references refid="classFiniteSizeCorrection_1_1Momentum_1a30aaac3c853a744a6c561799b47bedbb" compoundref="FiniteSizeCorrection_8cxx" startline="81">sisi4s::FiniteSizeCorrection::Momentum::v</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a44840efaf12698bdbf9c22c648564656" compoundref="FiniteSizeCorrection_8hpp" startline="33">VofG</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a8a7b438545c815dc93309d16208128de" compoundref="FiniteSizeCorrection_8cxx" startline="37" endline="61">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a5debe508e1f3f2713edc13d922058da1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FiniteSizeCorrection::IsInSmallBZ</definition>
+        <argsstring>(Vector&lt; double &gt; point, double scale, std::vector&lt; sisi4s::Vector&lt; double &gt; &gt; smallBZ)</argsstring>
+        <name>IsInSmallBZ</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::IsInSmallBZ</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1Vector" kindref="compound">Vector</ref>&lt; double &gt;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="classsisi4s_1_1Vector" kindref="compound">sisi4s::Vector</ref>&lt; double &gt; &gt;</type>
+          <declname>smallBZ</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="49" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="917" bodyend="942"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="namespacesisi4s_1a92d239b67d4a13717f4e7f93ad9591f2" compoundref="MathFunctions_8hpp" startline="45" endline="47">sisi4s::dot</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">interpolation3D</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a0b0230201e4d274b939c205e3f0464f5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double FiniteSizeCorrection::SGxVG</definition>
+        <argsstring>(sisi4s::Inter1D&lt; double &gt; Int1d, double x)</argsstring>
+        <name>SGxVG</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::SGxVG</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1Inter1D" kindref="compound">sisi4s::Inter1D</ref>&lt; double &gt;</type>
+          <declname>Int1d</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="52" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="962" bodyend="966"/>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a48841ae1b52308fb0d55c2e0c77a58e8" compoundref="FiniteSizeCorrection_8hpp" startline="34">GC</references>
+        <references refid="classsisi4s_1_1Inter1D_1a09df214d5aab2db417ef87280fe54200" compoundref="Interpolation_8hpp" startline="65" endline="92">sisi4s::Inter1D&lt; F &gt;::getValue</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a8e228d06ce5699114b77698c9c0ddbee" compoundref="FiniteSizeCorrection_8cxx" startline="955" endline="960">simpson</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1aa51e7e10b5bd2964732bc007fa28d8ad" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double FiniteSizeCorrection::integrate</definition>
+        <argsstring>(sisi4s::Inter1D&lt; double &gt; Int1d, double start, double end, int steps)</argsstring>
+        <name>integrate</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::integrate</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1Inter1D" kindref="compound">sisi4s::Inter1D</ref>&lt; double &gt;</type>
+          <declname>Int1d</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>end</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>steps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="53" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="944" bodyend="953"/>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a8e228d06ce5699114b77698c9c0ddbee" compoundref="FiniteSizeCorrection_8cxx" startline="955" endline="960">simpson</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" compoundref="FiniteSizeCorrection_8cxx" startline="968" endline="1020">calculateFiniteSizeCorrection</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a8e228d06ce5699114b77698c9c0ddbee" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double FiniteSizeCorrection::simpson</definition>
+        <argsstring>(sisi4s::Inter1D&lt; double &gt; Int1d, double x, double h)</argsstring>
+        <name>simpson</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::simpson</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1Inter1D" kindref="compound">sisi4s::Inter1D</ref>&lt; double &gt;</type>
+          <declname>Int1d</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="57" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="955" bodyend="960"/>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a0b0230201e4d274b939c205e3f0464f5" compoundref="FiniteSizeCorrection_8cxx" startline="962" endline="966">SGxVG</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1aa51e7e10b5bd2964732bc007fa28d8ad" compoundref="FiniteSizeCorrection_8cxx" startline="944" endline="953">integrate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::calculateFiniteSizeCorrection</definition>
+        <argsstring>()</argsstring>
+        <name>calculateFiniteSizeCorrection</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::calculateFiniteSizeCorrection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="61" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="968" bodyend="1020"/>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a7f21fa46115ceffd8e205ea2c3f8c706" compoundref="FiniteSizeCorrection_8hpp" startline="30">averageSGs</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1aa90205ef2a30f792951481f3f04e03fb" compoundref="FiniteSizeCorrection_8hpp" startline="39">cartesianGrid</references>
+        <references refid="classsisi4s_1_1Inter1D_1aa6373f49148397cef6d09a6dc985a1a1" compoundref="Interpolation_8hpp" startline="35" endline="63">sisi4s::Inter1D&lt; F &gt;::cubicSpline</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1a48841ae1b52308fb0d55c2e0c77a58e8" compoundref="FiniteSizeCorrection_8hpp" startline="34">GC</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" compoundref="Algorithm_8cxx" startline="117" endline="129">sisi4s::Algorithm::getRealArgument</references>
+        <references refid="classsisi4s_1_1Inter1D_1a09df214d5aab2db417ef87280fe54200" compoundref="Interpolation_8hpp" startline="65" endline="92">sisi4s::Inter1D&lt; F &gt;::getValue</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1aff5b228d981afbaa9c83aa5430e70b9d" compoundref="FiniteSizeCorrection_8hpp" startline="29">GLengths</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1aa51e7e10b5bd2964732bc007fa28d8ad" compoundref="FiniteSizeCorrection_8cxx" startline="944" endline="953">integrate</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ab08a52965354202703ac3372c1cc63af" compoundref="FiniteSizeCorrection_8hpp" startline="35">inter3D</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ac4259a8834b9fd0996e9905a4a4c93a2" compoundref="FiniteSizeCorrection_8hpp" startline="27">NG</references>
+        <references refid="classFiniteSizeCorrection_1_1Momentum_1ac63d8096de034b3c0b33ca15eca8e4f6" compoundref="FiniteSizeCorrection_8cxx" startline="82">sisi4s::FiniteSizeCorrection::Momentum::s</references>
+        <references refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" compoundref="Algorithm_8cxx" startline="387" endline="390">sisi4s::Algorithm::setRealArgument</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ad0f40dfd289d147867e1c682a7c8c0ed" compoundref="FiniteSizeCorrection_8hpp" startline="36">sum3D</references>
+        <references refid="classFiniteSizeCorrection_1_1Momentum_1a4c5a9a87b0983f09b1c8557f225ef6fa" compoundref="FiniteSizeCorrection_8cxx" startline="84">sisi4s::FiniteSizeCorrection::Momentum::vg</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a8a7b438545c815dc93309d16208128de" compoundref="FiniteSizeCorrection_8cxx" startline="37" endline="61">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1ab03fab436020be68b42a07d07b0eb3ca" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::dryCalculateStructureFactor</definition>
+        <argsstring>()</argsstring>
+        <name>dryCalculateStructureFactor</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::dryCalculateStructureFactor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="63" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="469" bodyend="525"/>
+        <references refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" compoundref="Algorithm_8cxx" startline="303" endline="312">sisi4s::Algorithm::allocatedTensorArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" compoundref="Algorithm_8cxx" startline="188" endline="200">sisi4s::Algorithm::getTensorArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" compoundref="DryTensor_8hpp" startline="92">sisi4s::DryTensor&lt; F &gt;::lens</references>
+        <references refid="classsisi4s_1_1FiniteSizeCorrection_1ac4259a8834b9fd0996e9905a4a4c93a2" compoundref="FiniteSizeCorrection_8hpp" startline="27">NG</references>
+        <references refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" compoundref="SourceLocation_8hpp" startline="46">SOURCE_LOCATION</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1ac7e57c7cbc1fa709a2e23b177676f566" compoundref="FiniteSizeCorrection_8cxx" startline="63" endline="76">dryRun</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a200f4c2590c7f573670d778ce6d4dc71" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::dryInterpolation3D</definition>
+        <argsstring>()</argsstring>
+        <name>dryInterpolation3D</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::dryInterpolation3D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="64" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="909" bodyend="910"/>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1ac7e57c7cbc1fa709a2e23b177676f566" compoundref="FiniteSizeCorrection_8cxx" startline="63" endline="76">dryRun</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a100128dd8d514f54d7897e858ac0b8cf" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiniteSizeCorrection::dryCalculateFiniteSizeCorrection</definition>
+        <argsstring>()</argsstring>
+        <name>dryCalculateFiniteSizeCorrection</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::dryCalculateFiniteSizeCorrection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="65" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.cxx" bodystart="1022" bodyend="1028"/>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" compoundref="Algorithm_8cxx" startline="117" endline="129">sisi4s::Algorithm::getRealArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" compoundref="Algorithm_8cxx" startline="387" endline="390">sisi4s::Algorithm::setRealArgument</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1ac7e57c7cbc1fa709a2e23b177676f566" compoundref="FiniteSizeCorrection_8cxx" startline="63" endline="76">dryRun</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1ab839fb917065569bd80e7161ae7301f2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sisi4s::FiniteSizeCorrection::extrapolation</definition>
+        <argsstring>(double minG, double maxG, int basisSetExtrapolation)</argsstring>
+        <name>extrapolation</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::extrapolation</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>minG</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>maxG</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>basisSetExtrapolation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="67" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1a438c6ea49a285946d34aa4006095bbe5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double sisi4s::FiniteSizeCorrection::simplestWindow</definition>
+        <argsstring>(double Gmin, double Gmax, double G)</argsstring>
+        <name>simplestWindow</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::simplestWindow</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>Gmin</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Gmax</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>G</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="68" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1ae57b495d6def659cba4bb194ee436f89" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double sisi4s::FiniteSizeCorrection::integrateSimplestWindow</definition>
+        <argsstring>(double Gmin, double Gmax)</argsstring>
+        <name>integrateSimplestWindow</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::integrateSimplestWindow</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>Gmin</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Gmax</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="69" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1aaac37f82140fd1c0b0413f0a533e6be7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double sisi4s::FiniteSizeCorrection::leastSquareFit</definition>
+        <argsstring>(std::vector&lt; double &gt; fitabsG, std::vector&lt; double &gt; fitSF)</argsstring>
+        <name>leastSquareFit</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::leastSquareFit</qualifiedname>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>fitabsG</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>fitSF</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="70" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FiniteSizeCorrection_1adf93ff1b8a947984f67f6e2f27d7a62c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sisi4s::FiniteSizeCorrection::basisSetCompleteness</definition>
+        <argsstring>()</argsstring>
+        <name>basisSetCompleteness</name>
+        <qualifiedname>sisi4s::FiniteSizeCorrection::basisSetCompleteness</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="72" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::FiniteSizeCorrection</label>
+        <link refid="classsisi4s_1_1FiniteSizeCorrection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::FiniteSizeCorrection &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+        <childnode refid="5" relation="template-instance">
+          <edgelabel>&lt; sisi4s::FiniteSizeCorrection &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>sisi4s::FiniteSizeCorrection::Momentum</label>
+        <link refid="classFiniteSizeCorrection_1_1Momentum"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>+v</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="4">
+        <label>sisi4s::AlgorithmFactory</label>
+        <link refid="classsisi4s_1_1AlgorithmFactory"/>
+      </node>
+      <node id="5">
+        <label>sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::FiniteSizeCorrection</label>
+        <link refid="classsisi4s_1_1FiniteSizeCorrection"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+registrar_</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>#cartesianGrid</edgelabel>
+          <edgelabel>#fibonacciGrid</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>sisi4s::Vector&lt; F, D &gt;</label>
+        <link refid="classsisi4s_1_1Vector"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" line="9" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FiniteSizeCorrection.hpp" bodystart="9" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>Algorithm</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>allocateContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>allocatedTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>arguments</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a7f21fa46115ceffd8e205ea2c3f8c706" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>averageSGs</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1adf93ff1b8a947984f67f6e2f27d7a62c" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>basisSetCompleteness</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>calculateComplexStructureFactor</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>calculateFiniteSizeCorrection</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>calculateRealStructureFactor</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1aa90205ef2a30f792951481f3f04e03fb" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>cartesianGrid</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>checkArgumentsOrDie</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1abe853aa5dccd41090fc1d8282937d60a" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>constructFibonacciGrid</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a0183e40d0c45804bed455771a6b2f583" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>DEFAULT_NUM_FIBONACCI</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a100128dd8d514f54d7897e858ac0b8cf" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>dryCalculateFiniteSizeCorrection</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1ab03fab436020be68b42a07d07b0eb3ca" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>dryCalculateStructureFactor</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a200f4c2590c7f573670d778ce6d4dc71" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>dryInterpolation3D</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1ac7e57c7cbc1fa709a2e23b177676f566" prot="public" virt="virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>dryRun</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1ab839fb917065569bd80e7161ae7301f2" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>extrapolation</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a2b291585932615723bc227b7b649481c" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>fibonacciGrid</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a49d3758a730b919104d2d4c45f7d89a3" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>FiniteSizeCorrection</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a48841ae1b52308fb0d55c2e0c77a58e8" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>GC</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getArgumentData</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a407d54400b4b652a5b1b8d79b9c57175" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getGivenArgumentNames</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a98c473d7c36973fb5dbd29b6dce3f09e" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1af274871c99f48406060dae040b683597" prot="public" virt="virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getName</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aedbdee78ab6ed424c34121218b6cdf68" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getRealArgumentFromInteger</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getRealArgumentFromTensor</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getTensorArgumentFromReal</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1aff5b228d981afbaa9c83aa5430e70b9d" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>GLengths</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1aa51e7e10b5bd2964732bc007fa28d8ad" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>integrate</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1ae57b495d6def659cba4bb194ee436f89" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>integrateSimplestWindow</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1ab08a52965354202703ac3372c1cc63af" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>inter3D</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>interpolation3D</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a5debe508e1f3f2713edc13d922058da1" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>IsInSmallBZ</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1aaac37f82140fd1c0b0413f0a533e6be7" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>leastSquareFit</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1acb4a2d84298739a8bcad2937d7ebf6bb" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>meanErrorSG</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1ac4259a8834b9fd0996e9905a4a4c93a2" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>NG</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a577d15a51e965510c8afcaedbf02202a" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>readFromFile</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a8bd7e8f4fb6dd29b05ae627f0d8b614b" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>registrar_</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a8a7b438545c815dc93309d16208128de" prot="public" virt="virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>setIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>setRealArgument</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a0b0230201e4d274b939c205e3f0464f5" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>SGxVG</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a438c6ea49a285946d34aa4006095bbe5" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>simplestWindow</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a8e228d06ce5699114b77698c9c0ddbee" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>simpson</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a2d43f73135f2e57a449fd065a6a6c960" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>structureFactors</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1ad0f40dfd289d147867e1c682a7c8c0ed" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>sum3D</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a44840efaf12698bdbf9c22c648564656" prot="protected" virt="non-virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>VofG</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" prot="public" virt="virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>~Algorithm</name></member>
+      <member refid="classsisi4s_1_1FiniteSizeCorrection_1a359868e0dc350ae8eb584d2fbf6b58b9" prot="public" virt="virtual"><scope>sisi4s::FiniteSizeCorrection</scope><name>~FiniteSizeCorrection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="UccsdAmplitudesFromCoulombIntegrals_8hpp" kind="file" language="C++">
+    <compoundname>UccsdAmplitudesFromCoulombIntegrals.hpp</compoundname>
+    <includes refid="ClusterSinglesDoublesAlgorithm_8hpp" local="no">algorithms/ClusterSinglesDoublesAlgorithm.hpp</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">string</includes>
+    <includedby refid="UccsdAmplitudesFromCoulombIntegrals_8cxx" local="no">UccsdAmplitudesFromCoulombIntegrals.cxx</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/ClusterSinglesDoublesAlgorithm.hpp</label>
+        <link refid="ClusterSinglesDoublesAlgorithm_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UccsdAmplitudesFromCoulombIntegrals.hpp</label>
+        <link refid="UccsdAmplitudesFromCoulombIntegrals_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>math/ComplexTensor.hpp</label>
+        <link refid="ComplexTensor_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>math/FockVector.hpp</label>
+        <link refid="FockVector_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>util/SharedPointer.hpp</label>
+        <link refid="SharedPointer_8hpp"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>util/SourceLocation.hpp</label>
+        <link refid="SourceLocation_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="19">
+        <label>complex</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="23">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="7">
+        <label>ctime</label>
+      </node>
+      <node id="44">
+        <label>exception</label>
+      </node>
+      <node id="16">
+        <label>fstream</label>
+      </node>
+      <node id="33">
+        <label>functional</label>
+      </node>
+      <node id="49">
+        <label>initializer_list</label>
+      </node>
+      <node id="10">
+        <label>iomanip</label>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="41">
+        <label>iterator</label>
+      </node>
+      <node id="43">
+        <label>limits</label>
+      </node>
+      <node id="37">
+        <label>locale</label>
+      </node>
+      <node id="20">
+        <label>map</label>
+      </node>
+      <node id="29">
+        <label>memory</label>
+      </node>
+      <node id="34">
+        <label>numeric</label>
+      </node>
+      <node id="9">
+        <label>ostream</label>
+      </node>
+      <node id="39">
+        <label>set</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="42">
+        <label>stdexcept</label>
+      </node>
+      <node id="15">
+        <label>streambuf</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="45">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="46">
+        <label>sys/types.h</label>
+      </node>
+      <node id="35">
+        <label>tuple</label>
+      </node>
+      <node id="40">
+        <label>type_traits</label>
+      </node>
+      <node id="36">
+        <label>utility</label>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>UccsdAmplitudesFromCoulombIntegrals.cxx</label>
+        <link refid="UccsdAmplitudesFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="1">
+        <label>UccsdAmplitudesFromCoulombIntegrals.hpp</label>
+        <link refid="UccsdAmplitudesFromCoulombIntegrals_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals" prot="public">sisi4s::UccsdAmplitudesFromCoulombIntegrals</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2017,<sp/>Andreas<sp/>Grueneis,<sp/>Felix<sp/>Hummel<sp/>and<sp/>Alejandro<sp/>Gallo,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>___CLUSTERSINGLESDOUBLESALGORITHM_DEFINED_PEACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>___CLUSTERSINGLESDOUBLESALGORITHM_DEFINED_PEACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ClusterSinglesDoublesAlgorithm_8hpp" kindref="compound">algorithms/ClusterSinglesDoublesAlgorithm.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="12" refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals" kindref="compound">UccsdAmplitudesFromCoulombIntegrals</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" kindref="compound">ClusterSinglesDoublesAlgorithm</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14" refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a246b38783dcc184c9af31ac67e59c86e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" kindref="member">ALGORITHM_REGISTRAR_DECLARATION</ref>(<ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals" kindref="compound">UccsdAmplitudesFromCoulombIntegrals</ref>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a9e15dee0de9aec5e1f26e378900da207" kindref="member">UccsdAmplitudesFromCoulombIntegrals</ref>(</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ae84b94b2f0e72c0d3adc5bd74b3ccd82" kindref="member">~UccsdAmplitudesFromCoulombIntegrals</ref>();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a1668977da91bbd8d13f2ac92e6149b11" kindref="member">run</ref>();</highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ae3921eb9f91c5eb8ef4d9b10a140ae05" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ae3921eb9f91c5eb8ef4d9b10a140ae05" kindref="member">getAbbreviation</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Uccsd&quot;</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;double&gt;</ref>)<sp/><ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ac69efb64d37389e3ebe7212bd9516d7b" kindref="member">getResiduum</ref>(</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iteration,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;double&gt;</ref>)<sp/>&amp;amplitudes</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a5f54ddc5f43c0cc716a44ad2c595936d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a5f54ddc5f43c0cc716a44ad2c595936d" kindref="member">usingIntermediates</ref>;</highlight></codeline>
+<codeline lineno="33" refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a42922f6e000853e2815cbd2c8fa5c82a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a42922f6e000853e2815cbd2c8fa5c82a" kindref="member">onlyPpl</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;complex&gt;</ref>)<sp/><ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ac69efb64d37389e3ebe7212bd9516d7b" kindref="member">getResiduum</ref>(</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iteration,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;complex&gt;</ref>)<sp/>&amp;amplitudes</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a10a145b2a213255c27cadb9a1751f520" kindref="member">getResiduumTemplate</ref>(</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iteration,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;amplitudes</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp"/>
+  </compounddef>
+</doxygen>

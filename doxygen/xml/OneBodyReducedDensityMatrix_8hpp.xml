@@ -1,0 +1,500 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="OneBodyReducedDensityMatrix_8hpp" kind="file" language="C++">
+    <compoundname>OneBodyReducedDensityMatrix.hpp</compoundname>
+    <includes local="no">iostream</includes>
+    <includes refid="SharedPointer_8hpp" local="no">util/SharedPointer.hpp</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes refid="FockVector_8hpp" local="no">math/FockVector.hpp</includes>
+    <includedby refid="CcsdEquationOfMotionDavidson_8cxx" local="no">CcsdEquationOfMotionDavidson.cxx</includedby>
+    <includedby refid="CcsdtEquationOfMotionDavidson_8cxx" local="no">CcsdtEquationOfMotionDavidson.cxx</includedby>
+    <includedby refid="UCcsdEAEquationOfMotionDavidson_8cxx" local="no">UCcsdEAEquationOfMotionDavidson.cxx</includedby>
+    <includedby refid="UCcsdIPEquationOfMotionDavidson_8cxx" local="no">UCcsdIPEquationOfMotionDavidson.cxx</includedby>
+    <includedby refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" local="no">UnrestrictedEquationOfMotionSinglesFromRpa.cxx</includedby>
+    <incdepgraph>
+      <node id="26">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>OneBodyReducedDensityMatrix.hpp</label>
+        <link refid="OneBodyReducedDensityMatrix_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>math/ComplexTensor.hpp</label>
+        <link refid="ComplexTensor_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>math/FockVector.hpp</label>
+        <link refid="FockVector_8hpp"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>util/SharedPointer.hpp</label>
+        <link refid="SharedPointer_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>algorithm</label>
+      </node>
+      <node id="14">
+        <label>cmath</label>
+      </node>
+      <node id="22">
+        <label>complex</label>
+      </node>
+      <node id="10">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="9">
+        <label>ctime</label>
+      </node>
+      <node id="41">
+        <label>exception</label>
+      </node>
+      <node id="17">
+        <label>fstream</label>
+      </node>
+      <node id="28">
+        <label>functional</label>
+      </node>
+      <node id="12">
+        <label>iomanip</label>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+      <node id="37">
+        <label>iterator</label>
+      </node>
+      <node id="40">
+        <label>limits</label>
+      </node>
+      <node id="33">
+        <label>locale</label>
+      </node>
+      <node id="30">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+      <node id="29">
+        <label>numeric</label>
+      </node>
+      <node id="11">
+        <label>ostream</label>
+      </node>
+      <node id="35">
+        <label>set</label>
+      </node>
+      <node id="13">
+        <label>sstream</label>
+      </node>
+      <node id="38">
+        <label>stdexcept</label>
+      </node>
+      <node id="16">
+        <label>streambuf</label>
+      </node>
+      <node id="15">
+        <label>string</label>
+      </node>
+      <node id="42">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="43">
+        <label>sys/types.h</label>
+      </node>
+      <node id="31">
+        <label>tuple</label>
+      </node>
+      <node id="36">
+        <label>type_traits</label>
+      </node>
+      <node id="32">
+        <label>utility</label>
+      </node>
+      <node id="39">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>CcsdEquationOfMotionDavidson.cxx</label>
+        <link refid="CcsdEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="3">
+        <label>CcsdtEquationOfMotionDavidson.cxx</label>
+        <link refid="CcsdtEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="1">
+        <label>OneBodyReducedDensityMatrix.hpp</label>
+        <link refid="OneBodyReducedDensityMatrix_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>UCcsdEAEquationOfMotionDavidson.cxx</label>
+        <link refid="UCcsdEAEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="5">
+        <label>UCcsdIPEquationOfMotionDavidson.cxx</label>
+        <link refid="UCcsdIPEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="6">
+        <label>UnrestrictedEquationOfMotionSinglesFromRpa.cxx</label>
+        <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1OneBodyReducedDensityMatrix" prot="public">sisi4s::OneBodyReducedDensityMatrix</innerclass>
+    <innerclass refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix" prot="public">sisi4s::CisOneBodyReducedDensityMatrix</innerclass>
+    <innerclass refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix" prot="public">sisi4s::EomOneBodyReducedDensityMatrix</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>EOM_1RDM_DENSITY_MATRIX_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EOM_1RDM_DENSITY_MATRIX_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="FockVector_8hpp" kindref="compound">math/FockVector.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="13" refid="classsisi4s_1_1OneBodyReducedDensityMatrix" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1OneBodyReducedDensityMatrix" kindref="compound">OneBodyReducedDensityMatrix</ref><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a3aafe6eaf76d03dd131a82af3a2e90e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a3aafe6eaf76d03dd131a82af3a2e90e7" kindref="member">~OneBodyReducedDensityMatrix</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="17" refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a6cce97b9bf1b175729a391865915f854" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/><ref refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a6cce97b9bf1b175729a391865915f854" kindref="member">getIA</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="18" refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a9cd6063593814f9fb02e1285ffac96fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/><ref refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a9cd6063593814f9fb02e1285ffac96fb" kindref="member">getAI</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1aae149a4cb1d475bf4000960d57438e7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/><ref refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1aae149a4cb1d475bf4000960d57438e7f" kindref="member">getIJ</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="20" refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a8994dab43017686e5fc55f4b32614eff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/><ref refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a8994dab43017686e5fc55f4b32614eff" kindref="member">getAB</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="25" refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix" kindref="compound">CisOneBodyReducedDensityMatrix</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1OneBodyReducedDensityMatrix" kindref="compound">OneBodyReducedDensityMatrix</ref>&lt;F&gt;<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix" kindref="compound">CisOneBodyReducedDensityMatrix</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SFockVector" kindref="compound">SFockVector&lt;F&gt;</ref><sp/>&amp;r):<sp/>R(r)<sp/>{}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/>getIJ()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Rij)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rij;<sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(R.get(0)-&gt;lens[1]);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>oo[]<sp/>=<sp/>{No,<sp/>No};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{NS,<sp/>NS};</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Rij<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>2,<sp/>oo,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Rij&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Rconj<sp/>=<sp/>CTF::Tensor&lt;F&gt;(*Rij);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Conjugate<sp/>R</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a065b48a575e1c9dd06da30d0aed8c7c1" kindref="member">conjugate</ref>(Rconj);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rij)[</highlight><highlight class="stringliteral">&quot;ii&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>(*R.get(0))[</highlight><highlight class="stringliteral">&quot;aj&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R.get(0))[</highlight><highlight class="stringliteral">&quot;aj&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rij)[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*R.get(0))[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R.get(0))[</highlight><highlight class="stringliteral">&quot;aj&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rij;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/>getAB()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Rab)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rab;<sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(R.get(0)-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vv[]<sp/>=<sp/>{Nv,<sp/>Nv};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{NS,<sp/>NS};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Rab<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>2,<sp/>vv,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Rab&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Rconj<sp/>=<sp/>CTF::Tensor&lt;F&gt;(*Rab);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a065b48a575e1c9dd06da30d0aed8c7c1" kindref="member">conjugate</ref>(Rconj);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rab)[</highlight><highlight class="stringliteral">&quot;ab&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*R.get(0))[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R.get(0))[</highlight><highlight class="stringliteral">&quot;bi&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rab;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/>Rai,<sp/>Ria,<sp/>Rij,<sp/>Rab;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SFockVector" kindref="compound">SFockVector&lt;F&gt;</ref><sp/>&amp;R;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="70" refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix" kindref="compound">EomOneBodyReducedDensityMatrix</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1OneBodyReducedDensityMatrix" kindref="compound">OneBodyReducedDensityMatrix</ref>&lt;F&gt;<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1ae95cdb4d76ad5d01eed54fac646a1929" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1ae95cdb4d76ad5d01eed54fac646a1929" kindref="member">EomOneBodyReducedDensityMatrix</ref>(</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>*Tai_,<sp/>CTF::Tensor&lt;F&gt;<sp/>*Tabij_,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector&lt;F&gt;</ref><sp/>*L_,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector&lt;F&gt;</ref><sp/>*R_</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/>Tai(Tai_),<sp/>Tabij(Tabij_),<sp/>L(L_),<sp/>R(R_){</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;OneBodyRDM&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Calculating<sp/>eom<sp/>ccsd<sp/>1rdm&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a46262e8796397e744bfa453d60a201c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/><ref refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a46262e8796397e744bfa453d60a201c3" kindref="member">getAI</ref>()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Rai)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rai;<sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Rai<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>*Tai);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*L-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;ke&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;eaki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*L-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;ke&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;ak&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ei&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*L-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;ke&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;ei&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ak&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-0.5)<sp/>*<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;kled&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;di&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;eakl&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-0.5)<sp/>*<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;kled&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;al&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;edki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-0.5)<sp/>*<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;kled&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;di&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;eakl&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-0.5)<sp/>*<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;kled&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;al&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;edki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rai;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a27c6e71785292cb8bc37d5132de2edfa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/><ref refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a27c6e71785292cb8bc37d5132de2edfa" kindref="member">getIJ</ref>()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Rij)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rij;<sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(Tai-&gt;lens[1]);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>oo[]<sp/>=<sp/>{No,<sp/>No};</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{NS,<sp/>NS};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Rij<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>2,<sp/>oo,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Rij&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rij)[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rij)[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*L-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;je&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;ei&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rij)[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>0.5<sp/>*<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;kjed&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;edki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rij)[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;kjed&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;ek&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;di&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>not<sp/>in<sp/>the<sp/>paper</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rij)[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;kjed&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;di&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ek&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rij;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a761b105a982b278a197d8376a2beee90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/><ref refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a761b105a982b278a197d8376a2beee90" kindref="member">getAB</ref>()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Rab)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rab;<sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(Tai-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vv[]<sp/>=<sp/>{Nv,<sp/>Nv};</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{NS,<sp/>NS};</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Rab<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>2,<sp/>vv,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Rab&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rab)[</highlight><highlight class="stringliteral">&quot;ab&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rab)[</highlight><highlight class="stringliteral">&quot;ab&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*L-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;ka&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;bk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rab)[</highlight><highlight class="stringliteral">&quot;ab&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-0.5)<sp/>*<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;klea&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;ebkl&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rab)[</highlight><highlight class="stringliteral">&quot;ab&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;klea&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;ek&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;bl&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>not<sp/>in<sp/>the<sp/>paper</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Rab)[</highlight><highlight class="stringliteral">&quot;ab&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;klea&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;bl&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ek&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rab;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a054e4c309108960fd9e788efddfbb633" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/><ref refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a054e4c309108960fd9e788efddfbb633" kindref="member">getIA</ref>()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Ria)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Ria;<sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(Tai-&gt;lens[0]),<sp/>No(Tai-&gt;lens[1]);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ov[]<sp/>=<sp/>{No,<sp/>Nv};</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{NS,<sp/>NS};</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Ria<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>2,<sp/>ov,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Ria&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Ria)[</highlight><highlight class="stringliteral">&quot;ia&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>is<sp/>0<sp/>because<sp/>r0<sp/>is<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//(*Ria)[&quot;ia&quot;]<sp/>+=<sp/>(*L-&gt;get(0))[&quot;ia&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*Ria)[</highlight><highlight class="stringliteral">&quot;ia&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*L-&gt;get(1))[</highlight><highlight class="stringliteral">&quot;oifa&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*R-&gt;get(0))[</highlight><highlight class="stringliteral">&quot;fo&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>is<sp/>0<sp/>because<sp/>r0<sp/>is<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//(*Ria)[&quot;ia&quot;]<sp/>+=<sp/>(*L-&gt;get(1))[&quot;oifa&quot;]<sp/>*<sp/>Tai[&quot;fo&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Ria;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/>Rai,<sp/>Ria,<sp/>Rij,<sp/>Rab;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>*Tai,<sp/>*Tabij;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector&lt;F&gt;</ref><sp/>*L,<sp/>*R;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/OneBodyReducedDensityMatrix.hpp"/>
+  </compounddef>
+</doxygen>

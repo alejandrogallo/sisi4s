@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structpars_1_1XyzParser" kind="struct" language="C++" prot="public">
+    <compoundname>pars::XyzParser</compoundname>
+    <includes refid="XyzParser_8hpp" local="no">XyzParser.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpars_1_1XyzParser_1ab07fca5fd1fd24a0c1e579d10c3fc094" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structpars_1_1Regex" kindref="compound">Regex</ref></type>
+        <definition>const Regex pars::XyzParser::sep</definition>
+        <argsstring></argsstring>
+        <name>sep</name>
+        <qualifiedname>pars::XyzParser::sep</qualifiedname>
+        <initializer>= <ref refid="namespacepars_1a1cce466723c30e92152dd3a9ede48df0" kindref="member">blank</ref> + <ref refid="namespacepars_1a71161c67c796117fe14c18beb97b4de2" kindref="member">oneOrMore</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" line="22" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpars_1_1XyzParser_1a232db37903c3fc26aad014503685f46d" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structpars_1_1Regex" kindref="compound">Regex</ref></type>
+        <definition>const Regex pars::XyzParser::atom</definition>
+        <argsstring></argsstring>
+        <name>atom</name>
+        <qualifiedname>pars::XyzParser::atom</qualifiedname>
+        <initializer>= <ref refid="namespacepars_1a8e4122733980cf5623d19f2ba68ccf12" kindref="member">upper</ref> + <ref refid="namespacepars_1a020cf386310223423b06c230ee658c13" kindref="member">lower</ref> + <ref refid="namespacepars_1a832dec230b6f898fda8c99bf54323d18" kindref="member">optional</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" line="23" column="2" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpars_1_1XyzParser_1a50c77e1045f5768048c39606d3fd69ad" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structpars_1_1Regex" kindref="compound">Regex</ref></type>
+        <definition>const Regex pars::XyzParser::xyz_line</definition>
+        <argsstring></argsstring>
+        <name>xyz_line</name>
+        <qualifiedname>pars::XyzParser::xyz_line</qualifiedname>
+        <initializer>= <ref refid="namespacepars_1a07f6fdb3a7f7f358ee1330f866f144db" kindref="member">bof</ref> + <ref refid="namespacepars_1a1cce466723c30e92152dd3a9ede48df0" kindref="member">blank</ref> + <ref refid="namespacepars_1a6dd95daa3e3817a64dd5b6d4fff8d417" kindref="member">anyOf</ref> 
+                       + <ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">capture</ref>(atom.s) + sep.s 
+                       + <ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">capture</ref>(<ref refid="namespacepars_1abd0d3ec23684cfcbfd53a65509861855" kindref="member">realNumber</ref>) + sep.s
+                       + <ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">capture</ref>(<ref refid="namespacepars_1abd0d3ec23684cfcbfd53a65509861855" kindref="member">realNumber</ref>) + sep.s
+                       + <ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">capture</ref>(<ref refid="namespacepars_1abd0d3ec23684cfcbfd53a65509861855" kindref="member">realNumber</ref>)
+                       + <ref refid="namespacepars_1a1cce466723c30e92152dd3a9ede48df0" kindref="member">blank</ref> + <ref refid="namespacepars_1a6dd95daa3e3817a64dd5b6d4fff8d417" kindref="member">anyOf</ref> + <ref refid="namespacepars_1a2fea7aec0ef4f24e5b90e588d96f4cc2" kindref="member">eof</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" line="24" column="2" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" bodystart="24" bodyend="-1"/>
+        <referencedby refid="structpars_1_1XyzParser_1ad32856f5f42e02bd28ba3cb39b6a8c28" compoundref="XyzParser_8hpp" startline="32" endline="42">parseLine</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structpars_1_1XyzParser_1ad32856f5f42e02bd28ba3cb39b6a8c28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structAtom" kindref="compound">Atom</ref></type>
+        <definition>Atom pars::XyzParser::parseLine</definition>
+        <argsstring>(const std::string &amp;line)</argsstring>
+        <name>parseLine</name>
+        <qualifiedname>pars::XyzParser::parseLine</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" line="32" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" bodystart="32" bodyend="42"/>
+        <references refid="structpars_1_1Regex_1a79e1cba281b5ea7efe06b5de947037ff" compoundref="Parsing_8hpp" startline="46">pars::Regex::r</references>
+        <references refid="structpars_1_1XyzParser_1a50c77e1045f5768048c39606d3fd69ad" compoundref="XyzParser_8hpp" startline="24">xyz_line</references>
+        <referencedby refid="structpars_1_1XyzParser_1a7709a85b9e6a9f1cd9483bca92a40d9d" compoundref="XyzParser_8hpp" startline="44" endline="63">parseFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structpars_1_1XyzParser_1a7709a85b9e6a9f1cd9483bca92a40d9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structAtom" kindref="compound">Atom</ref> &gt;</type>
+        <definition>std::vector&lt; Atom &gt; pars::XyzParser::parseFile</definition>
+        <argsstring>(const std::string &amp;fileName)</argsstring>
+        <name>parseFile</name>
+        <qualifiedname>pars::XyzParser::parseFile</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" line="44" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" bodystart="44" bodyend="63"/>
+        <references refid="structpars_1_1XyzParser_1ad32856f5f42e02bd28ba3cb39b6a8c28" compoundref="XyzParser_8hpp" startline="32" endline="42">parseLine</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>pars::Regex</label>
+        <link refid="structpars_1_1Regex"/>
+      </node>
+      <node id="1">
+        <label>pars::XyzParser</label>
+        <link refid="structpars_1_1XyzParser"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+atom</edgelabel>
+          <edgelabel>+sep</edgelabel>
+          <edgelabel>+xyz_line</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" line="20" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/XyzParser.hpp" bodystart="20" bodyend="65"/>
+    <listofallmembers>
+      <member refid="structpars_1_1XyzParser_1a232db37903c3fc26aad014503685f46d" prot="public" virt="non-virtual"><scope>pars::XyzParser</scope><name>atom</name></member>
+      <member refid="structpars_1_1XyzParser_1a7709a85b9e6a9f1cd9483bca92a40d9d" prot="public" virt="non-virtual"><scope>pars::XyzParser</scope><name>parseFile</name></member>
+      <member refid="structpars_1_1XyzParser_1ad32856f5f42e02bd28ba3cb39b6a8c28" prot="public" virt="non-virtual"><scope>pars::XyzParser</scope><name>parseLine</name></member>
+      <member refid="structpars_1_1XyzParser_1ab07fca5fd1fd24a0c1e579d10c3fc094" prot="public" virt="non-virtual"><scope>pars::XyzParser</scope><name>sep</name></member>
+      <member refid="structpars_1_1XyzParser_1a50c77e1045f5768048c39606d3fd69ad" prot="public" virt="non-virtual"><scope>pars::XyzParser</scope><name>xyz_line</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

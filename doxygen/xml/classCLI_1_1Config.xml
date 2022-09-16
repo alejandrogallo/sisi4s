@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1Config" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>CLI::Config</compoundname>
+    <derivedcompoundref refid="classCLI_1_1ConfigBase" prot="public" virt="non-virtual">CLI::ConfigBase</derivedcompoundref>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classCLI_1_1Config_1a44be58c62906c58a118d8a3bf0f2a312" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structCLI_1_1ConfigItem" kindref="compound">ConfigItem</ref> &gt;</type>
+        <definition>std::vector&lt;ConfigItem&gt; CLI::Config::items</definition>
+        <argsstring></argsstring>
+        <name>items</name>
+        <qualifiedname>CLI::Config::items</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2552" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2552" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCLI_1_1Config_1a516815ecb20f72816caeab5049d0873d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string CLI::Config::to_config</definition>
+        <argsstring>(const App *, bool, bool, std::string) const =0</argsstring>
+        <name>to_config</name>
+        <qualifiedname>CLI::Config::to_config</qualifiedname>
+        <reimplementedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08">to_config</reimplementedby>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <briefdescription>
+<para>Convert an app into a configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2556" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Config_1af08741b7aa795644af5491faf04a0b2e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::vector&lt; <ref refid="structCLI_1_1ConfigItem" kindref="compound">ConfigItem</ref> &gt;</type>
+        <definition>virtual std::vector&lt; ConfigItem &gt; CLI::Config::from_config</definition>
+        <argsstring>(std::istream &amp;) const =0</argsstring>
+        <name>from_config</name>
+        <qualifiedname>CLI::Config::from_config</qualifiedname>
+        <reimplementedby refid="classCLI_1_1ConfigBase_1a1395eecde5af65b73e3670529df0e17b">from_config</reimplementedby>
+        <param>
+          <type>std::istream &amp;</type>
+        </param>
+        <briefdescription>
+<para>Convert a configuration into an app. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2559" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Config_1affac2102274c1a09c0e08b2c9410b57f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string CLI::Config::to_flag</definition>
+        <argsstring>(const ConfigItem &amp;item) const</argsstring>
+        <name>to_flag</name>
+        <qualifiedname>CLI::Config::to_flag</qualifiedname>
+        <param>
+          <type>const <ref refid="structCLI_1_1ConfigItem" kindref="compound">ConfigItem</ref> &amp;</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Get a flag value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2562" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2562" bodyend="2567"/>
+        <references refid="structCLI_1_1ConfigItem_1af76892225a187445bced0d220ae9e52b" compoundref="CLI11_8hpp" startline="2542" endline="2546">CLI::ConfigItem::fullname</references>
+        <references refid="structCLI_1_1ConfigItem_1a201384703e6509d14bc28de3ef2a2cbc" compoundref="CLI11_8hpp" startline="2539">CLI::ConfigItem::inputs</references>
+        <references refid="classCLI_1_1ConversionError_1afcf6df5e47b430c4083465a07f2ba037" compoundref="CLI11_8hpp" startline="729" endline="731">CLI::ConversionError::TooManyInputsFlag</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Config_1a2581bc51c6f5bba2f07d0d696c1170c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structCLI_1_1ConfigItem" kindref="compound">ConfigItem</ref> &gt;</type>
+        <definition>std::vector&lt; ConfigItem &gt; CLI::Config::from_file</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>from_file</name>
+        <qualifiedname>CLI::Config::from_file</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Parse a config file, throw an error (<ref refid="classCLI_1_1ParseError" kindref="compound">ParseError</ref>:ConfigParseError or <ref refid="classCLI_1_1FileError" kindref="compound">FileError</ref>) on failure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2570" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2570" bodyend="2576"/>
+        <references refid="classCLI_1_1FileError_1a5117d3f4ce0cb625a9153f948114015b" compoundref="CLI11_8hpp" startline="718" endline="718">CLI::FileError::Missing</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Config_1adf504285455f78fb1595d2ddad1cb626" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual CLI::Config::~Config</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Config</name>
+        <qualifiedname>CLI::Config::~Config</qualifiedname>
+        <briefdescription>
+<para>Virtual destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2579" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class provides a converter for configuration files. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CLI::Config</label>
+        <link refid="classCLI_1_1Config"/>
+      </node>
+      <node id="2">
+        <label>CLI::ConfigBase</label>
+        <link refid="classCLI_1_1ConfigBase"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CLI::ConfigINI</label>
+        <link refid="classCLI_1_1ConfigINI"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::Config</label>
+        <link refid="classCLI_1_1Config"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2550" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2550" bodyend="2580"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1Config_1af08741b7aa795644af5491faf04a0b2e" prot="public" virt="pure-virtual"><scope>CLI::Config</scope><name>from_config</name></member>
+      <member refid="classCLI_1_1Config_1a2581bc51c6f5bba2f07d0d696c1170c4" prot="public" virt="non-virtual"><scope>CLI::Config</scope><name>from_file</name></member>
+      <member refid="classCLI_1_1Config_1a44be58c62906c58a118d8a3bf0f2a312" prot="protected" virt="non-virtual"><scope>CLI::Config</scope><name>items</name></member>
+      <member refid="classCLI_1_1Config_1a516815ecb20f72816caeab5049d0873d" prot="public" virt="pure-virtual"><scope>CLI::Config</scope><name>to_config</name></member>
+      <member refid="classCLI_1_1Config_1affac2102274c1a09c0e08b2c9410b57f" prot="public" virt="virtual"><scope>CLI::Config</scope><name>to_flag</name></member>
+      <member refid="classCLI_1_1Config_1adf504285455f78fb1595d2ddad1cb626" prot="public" virt="virtual"><scope>CLI::Config</scope><name>~Config</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

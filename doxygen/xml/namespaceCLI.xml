@@ -1,0 +1,1003 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="namespaceCLI" kind="namespace" language="C++">
+    <compoundname>CLI</compoundname>
+    <innerclass refid="classCLI_1_1App" prot="public">CLI::App</innerclass>
+    <innerclass refid="classCLI_1_1ArgumentMismatch" prot="public">CLI::ArgumentMismatch</innerclass>
+    <innerclass refid="classCLI_1_1AsNumberWithUnit" prot="public">CLI::AsNumberWithUnit</innerclass>
+    <innerclass refid="classCLI_1_1AsSizeValue" prot="public">CLI::AsSizeValue</innerclass>
+    <innerclass refid="classCLI_1_1BadNameString" prot="public">CLI::BadNameString</innerclass>
+    <innerclass refid="classCLI_1_1Bound" prot="public">CLI::Bound</innerclass>
+    <innerclass refid="classCLI_1_1CallForAllHelp" prot="public">CLI::CallForAllHelp</innerclass>
+    <innerclass refid="classCLI_1_1CallForHelp" prot="public">CLI::CallForHelp</innerclass>
+    <innerclass refid="classCLI_1_1CallForVersion" prot="public">CLI::CallForVersion</innerclass>
+    <innerclass refid="classCLI_1_1CheckedTransformer" prot="public">CLI::CheckedTransformer</innerclass>
+    <innerclass refid="classCLI_1_1Config" prot="public">CLI::Config</innerclass>
+    <innerclass refid="classCLI_1_1ConfigBase" prot="public">CLI::ConfigBase</innerclass>
+    <innerclass refid="classCLI_1_1ConfigError" prot="public">CLI::ConfigError</innerclass>
+    <innerclass refid="classCLI_1_1ConfigINI" prot="public">CLI::ConfigINI</innerclass>
+    <innerclass refid="structCLI_1_1ConfigItem" prot="public">CLI::ConfigItem</innerclass>
+    <innerclass refid="classCLI_1_1ConstructionError" prot="public">CLI::ConstructionError</innerclass>
+    <innerclass refid="classCLI_1_1ConversionError" prot="public">CLI::ConversionError</innerclass>
+    <innerclass refid="classCLI_1_1CustomValidator" prot="public">CLI::CustomValidator</innerclass>
+    <innerclass refid="classCLI_1_1Error" prot="public">CLI::Error</innerclass>
+    <innerclass refid="classCLI_1_1ExcludesError" prot="public">CLI::ExcludesError</innerclass>
+    <innerclass refid="classCLI_1_1ExtrasError" prot="public">CLI::ExtrasError</innerclass>
+    <innerclass refid="classCLI_1_1FileError" prot="public">CLI::FileError</innerclass>
+    <innerclass refid="classCLI_1_1Formatter" prot="public">CLI::Formatter</innerclass>
+    <innerclass refid="classCLI_1_1FormatterBase" prot="public">CLI::FormatterBase</innerclass>
+    <innerclass refid="classCLI_1_1FormatterLambda" prot="public">CLI::FormatterLambda</innerclass>
+    <innerclass refid="classCLI_1_1HorribleError" prot="public">CLI::HorribleError</innerclass>
+    <innerclass refid="classCLI_1_1IncorrectConstruction" prot="public">CLI::IncorrectConstruction</innerclass>
+    <innerclass refid="classCLI_1_1InvalidError" prot="public">CLI::InvalidError</innerclass>
+    <innerclass refid="structCLI_1_1is__bool" prot="public">CLI::is_bool</innerclass>
+    <innerclass refid="structCLI_1_1is__bool_3_01bool_01_4" prot="public">CLI::is_bool&lt; bool &gt;</innerclass>
+    <innerclass refid="structCLI_1_1is__copyable__ptr" prot="public">CLI::is_copyable_ptr</innerclass>
+    <innerclass refid="structCLI_1_1is__shared__ptr" prot="public">CLI::is_shared_ptr</innerclass>
+    <innerclass refid="structCLI_1_1is__shared__ptr_3_01const_01std_1_1shared__ptr_3_01T_01_4_01_4" prot="public">CLI::is_shared_ptr&lt; const std::shared_ptr&lt; T &gt; &gt;</innerclass>
+    <innerclass refid="structCLI_1_1is__shared__ptr_3_01std_1_1shared__ptr_3_01T_01_4_01_4" prot="public">CLI::is_shared_ptr&lt; std::shared_ptr&lt; T &gt; &gt;</innerclass>
+    <innerclass refid="classCLI_1_1IsMember" prot="public">CLI::IsMember</innerclass>
+    <innerclass refid="structCLI_1_1IsMemberType" prot="public">CLI::IsMemberType</innerclass>
+    <innerclass refid="structCLI_1_1IsMemberType_3_01const_01char_01_5_01_4" prot="public">CLI::IsMemberType&lt; const char * &gt;</innerclass>
+    <innerclass refid="structCLI_1_1make__void" prot="public">CLI::make_void</innerclass>
+    <innerclass refid="classCLI_1_1Option" prot="public">CLI::Option</innerclass>
+    <innerclass refid="classCLI_1_1Option__group" prot="public">CLI::Option_group</innerclass>
+    <innerclass refid="classCLI_1_1OptionAlreadyAdded" prot="public">CLI::OptionAlreadyAdded</innerclass>
+    <innerclass refid="classCLI_1_1OptionBase" prot="public">CLI::OptionBase</innerclass>
+    <innerclass refid="classCLI_1_1OptionDefaults" prot="public">CLI::OptionDefaults</innerclass>
+    <innerclass refid="classCLI_1_1OptionNotFound" prot="public">CLI::OptionNotFound</innerclass>
+    <innerclass refid="classCLI_1_1ParseError" prot="public">CLI::ParseError</innerclass>
+    <innerclass refid="classCLI_1_1Range" prot="public">CLI::Range</innerclass>
+    <innerclass refid="classCLI_1_1RequiredError" prot="public">CLI::RequiredError</innerclass>
+    <innerclass refid="classCLI_1_1RequiresError" prot="public">CLI::RequiresError</innerclass>
+    <innerclass refid="classCLI_1_1RuntimeError" prot="public">CLI::RuntimeError</innerclass>
+    <innerclass refid="classCLI_1_1Success" prot="public">CLI::Success</innerclass>
+    <innerclass refid="classCLI_1_1Transformer" prot="public">CLI::Transformer</innerclass>
+    <innerclass refid="classCLI_1_1TypeValidator" prot="public">CLI::TypeValidator</innerclass>
+    <innerclass refid="classCLI_1_1ValidationError" prot="public">CLI::ValidationError</innerclass>
+    <innerclass refid="classCLI_1_1Validator" prot="public">CLI::Validator</innerclass>
+    <innernamespace refid="namespaceCLI_1_1detail">CLI::detail</innernamespace>
+    <innernamespace refid="namespaceCLI_1_1enums">CLI::enums</innernamespace>
+    <innernamespace refid="namespaceCLI_1_1FailureMessage">CLI::FailureMessage</innernamespace>
+      <sectiondef kind="user-defined">
+      <memberdef kind="typedef" id="namespaceCLI_1ab10c9ea9c2144378c9d368cb2742af12" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::pair&lt; std::string, T &gt; &gt;</type>
+        <definition>using CLI::TransformPairs = typedef std::vector&lt;std::pair&lt;std::string, T&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>TransformPairs</name>
+        <qualifiedname>CLI::TransformPairs</qualifiedname>
+        <briefdescription>
+<para>definition of the default transformation object </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3363" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceCLI_1ab60cbe0bb76c7b2e00d63f48a573e322" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classCLI_1_1detail_1_1ExistingFileValidator" kindref="compound">detail::ExistingFileValidator</ref></type>
+        <definition>const detail::ExistingFileValidator CLI::ExistingFile</definition>
+        <argsstring></argsstring>
+        <name>ExistingFile</name>
+        <qualifiedname>CLI::ExistingFile</qualifiedname>
+        <briefdescription>
+<para>Check for existing file (returns error message if check fails) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3054" column="37" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3054" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceCLI_1a297aa1a5877b3f744ee8857960e0e025" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classCLI_1_1detail_1_1ExistingDirectoryValidator" kindref="compound">detail::ExistingDirectoryValidator</ref></type>
+        <definition>const detail::ExistingDirectoryValidator CLI::ExistingDirectory</definition>
+        <argsstring></argsstring>
+        <name>ExistingDirectory</name>
+        <qualifiedname>CLI::ExistingDirectory</qualifiedname>
+        <briefdescription>
+<para>Check for an existing directory (returns error message if check fails) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3057" column="42" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3057" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceCLI_1ab0065d2e9866c49896ce3c682e8c7062" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classCLI_1_1detail_1_1ExistingPathValidator" kindref="compound">detail::ExistingPathValidator</ref></type>
+        <definition>const detail::ExistingPathValidator CLI::ExistingPath</definition>
+        <argsstring></argsstring>
+        <name>ExistingPath</name>
+        <qualifiedname>CLI::ExistingPath</qualifiedname>
+        <briefdescription>
+<para>Check for an existing path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3060" column="37" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3060" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceCLI_1a790f9bb552cf96ab9ca2d6c9749adba1" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classCLI_1_1detail_1_1NonexistentPathValidator" kindref="compound">detail::NonexistentPathValidator</ref></type>
+        <definition>const detail::NonexistentPathValidator CLI::NonexistentPath</definition>
+        <argsstring></argsstring>
+        <name>NonexistentPath</name>
+        <qualifiedname>CLI::NonexistentPath</qualifiedname>
+        <briefdescription>
+<para>Check for an non-existing path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3063" column="40" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3063" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceCLI_1a9cfed0354c4d5dd79f145fcbdcb4c155" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classCLI_1_1detail_1_1IPV4Validator" kindref="compound">detail::IPV4Validator</ref></type>
+        <definition>const detail::IPV4Validator CLI::ValidIPV4</definition>
+        <argsstring></argsstring>
+        <name>ValidIPV4</name>
+        <qualifiedname>CLI::ValidIPV4</qualifiedname>
+        <briefdescription>
+<para>Check for an IP4 address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3066" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3066" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceCLI_1ad26eb8a490b25b301412d98b055691be" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classCLI_1_1TypeValidator" kindref="compound">TypeValidator</ref>&lt; double &gt;</type>
+        <definition>const TypeValidator&lt; double &gt; CLI::Number(&quot;NUMBER&quot;)</definition>
+        <argsstring>(&quot;NUMBER&quot;)</argsstring>
+        <name>Number</name>
+        <qualifiedname>CLI::Number</qualifiedname>
+        <briefdescription>
+<para>Check for a number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3084" column="21"/>
+        <referencedby refid="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" compoundref="CLI11_8hpp" startline="3538" endline="3607">CLI::AsNumberWithUnit::AsNumberWithUnit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceCLI_1ac63dde78c4b53d214ed36e19344a05b0" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classCLI_1_1Range" kindref="compound">Range</ref></type>
+        <definition>const Range CLI::NonNegativeNumber((std::numeric_limits&lt; double &gt;::max)(), &quot;NONNEGATIVE&quot;)</definition>
+        <argsstring>((std::numeric_limits&lt; double &gt;::max)(), &quot;NONNEGATIVE&quot;)</argsstring>
+        <name>NonNegativeNumber</name>
+        <qualifiedname>CLI::NonNegativeNumber</qualifiedname>
+        <briefdescription>
+<para>Check for a non negative number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3119" column="13"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceCLI_1ad1ccedfe3e419c0d84dddbb3f3a5ddba" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classCLI_1_1Range" kindref="compound">Range</ref></type>
+        <definition>const Range CLI::PositiveNumber((std::numeric_limits&lt; double &gt;::min)(),(std::numeric_limits&lt; double &gt;::max)(), &quot;POSITIVE&quot;)</definition>
+        <argsstring>((std::numeric_limits&lt; double &gt;::min)(),(std::numeric_limits&lt; double &gt;::max)(), &quot;POSITIVE&quot;)</argsstring>
+        <name>PositiveNumber</name>
+        <qualifiedname>CLI::PositiveNumber</qualifiedname>
+        <briefdescription>
+<para>Check for a positive valued number (val&gt;0.0), min() her is the smallest positive number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3122" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1a0c52326d2681814c22aa1a93ce43375e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::ignore_case</definition>
+        <argsstring>(std::string item)</argsstring>
+        <name>ignore_case</name>
+        <qualifiedname>CLI::ignore_case</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to allow ignore_case to be passed to <ref refid="classCLI_1_1IsMember" kindref="compound">IsMember</ref> or Transform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3500" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3500" bodyend="3500"/>
+        <references refid="namespaceCLI_1_1detail_1ae83709ec148057ec53df4383645727e9" compoundref="CLI11_8hpp" startline="377" endline="382">CLI::detail::to_lower</references>
+        <referencedby refid="namespaceCLI_1_1detail_1a356b9c9cc904af2b0a918fd55e86cd9c" compoundref="CLI11_8hpp" startline="422" endline="450">CLI::detail::find_member</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1a111b6f05d21b9b84e7ba933ade79884c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::ignore_underscore</definition>
+        <argsstring>(std::string item)</argsstring>
+        <name>ignore_underscore</name>
+        <qualifiedname>CLI::ignore_underscore</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to allow ignore_underscore to be passed to <ref refid="classCLI_1_1IsMember" kindref="compound">IsMember</ref> or Transform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3503" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3503" bodyend="3503"/>
+        <references refid="namespaceCLI_1_1detail_1a5359a7a0e33366a12e15523b100f591a" compoundref="CLI11_8hpp" startline="385" endline="388">CLI::detail::remove_underscore</references>
+        <referencedby refid="namespaceCLI_1_1detail_1a356b9c9cc904af2b0a918fd55e86cd9c" compoundref="CLI11_8hpp" startline="422" endline="450">CLI::detail::find_member</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1ac9f5612a3fa6d56e08bff5c307af10f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::ignore_space</definition>
+        <argsstring>(std::string item)</argsstring>
+        <name>ignore_space</name>
+        <qualifiedname>CLI::ignore_space</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to allow checks to ignore spaces to be passed to <ref refid="classCLI_1_1IsMember" kindref="compound">IsMember</ref> or Transform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3506" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3506" bodyend="3510"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceCLI_1a1d8108a219533f0b0361640a017f037e" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ExitCodes</name>
+        <qualifiedname>CLI::ExitCodes</qualifiedname>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea505a83f220c02df2f85c3810cd9ceb38" prot="public">
+          <name>Success</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea903d95792f297008a1fd3fab8df69f79" prot="public">
+          <name>IncorrectConstruction</name>
+          <initializer>= 100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037eab319e260db27232cb74e2a23124b7a2c" prot="public">
+          <name>BadNameString</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037eade33f5f54db87abfb2926228f0867038" prot="public">
+          <name>OptionAlreadyAdded</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea06344c468073b2b66824779ffa5105cc" prot="public">
+          <name>FileError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea33f8a28d3c790e00d94cc848895dfb51" prot="public">
+          <name>ConversionError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea8180c46099f957f51b2bc31f7f0f5c42" prot="public">
+          <name>ValidationError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea9f418597ecc2a82cc220ea24b53505d3" prot="public">
+          <name>RequiredError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea5a33e2f2a0eda1a6a9d8534c79459794" prot="public">
+          <name>RequiresError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea180b6078f0a0618bbdbaeda656841923" prot="public">
+          <name>ExcludesError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea12e25f67fcb619ec309d229ae4b9d75e" prot="public">
+          <name>ExtrasError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea1053efdc7a34708782767df3ed95cded" prot="public">
+          <name>ConfigError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037eaf65e8093ec3083c0c4909e321df2ece7" prot="public">
+          <name>InvalidError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037eaaadcc078255a085fcac00639a9519392" prot="public">
+          <name>HorribleError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037eaa40b471f8a3c0ca91e719ea8101aa46d" prot="public">
+          <name>OptionNotFound</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea347fac6a5a40acb21af1b8e7e81aab0e" prot="public">
+          <name>ArgumentMismatch</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a1d8108a219533f0b0361640a017f037ea45b3e4c35409fb597ea598dc4b984b8c" prot="public">
+          <name>BaseClass</name>
+          <initializer>= 127</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>These codes are part of every error in <ref refid="namespaceCLI" kindref="compound">CLI</ref>. They can be obtained from e using e.exit_code or as a quick shortcut, int values from e.get_error_code(). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="567" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="567" bodyend="585"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceCLI_1a97e7d97131e3889f32b721570eca119c" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>AppFormatMode</name>
+        <qualifiedname>CLI::AppFormatMode</qualifiedname>
+        <enumvalue id="namespaceCLI_1a97e7d97131e3889f32b721570eca119ca960b44c579bc2f6818d2daaf9e4c16f0" prot="public">
+          <name>Normal</name>
+          <briefdescription>
+<para>The normal, detailed help. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a97e7d97131e3889f32b721570eca119cab1c94ca2fbc3e78fc30069c8d0f01680" prot="public">
+          <name>All</name>
+          <briefdescription>
+<para>A fully expanded help. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a97e7d97131e3889f32b721570eca119cae80155eceb940c89e2de63ad05868db2" prot="public">
+          <name>Sub</name>
+          <briefdescription>
+<para>Used when printed as part of expanded subcommand. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This enum signifies the type of help requested</para>
+<para>This is passed in by <ref refid="classCLI_1_1App" kindref="compound">App</ref>; all user classes must accept this as the second argument. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3776" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3776" bodyend="3780"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2b" prot="public" static="no" strong="yes">
+        <type>char</type>
+        <name>MultiOptionPolicy</name>
+        <qualifiedname>CLI::MultiOptionPolicy</qualifiedname>
+        <enumvalue id="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2ba8ce61dd2505effd96f937fa743b6491f" prot="public">
+          <name>Throw</name>
+          <briefdescription>
+<para>Throw an error if any extra arguments were given. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2ba91a7975e6be6ac082721192c7eb98891" prot="public">
+          <name>TakeLast</name>
+          <briefdescription>
+<para>take only the last Expected number of arguments </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2ba59a97fc8d11b2b3f89acfe1c3ac891df" prot="public">
+          <name>TakeFirst</name>
+          <briefdescription>
+<para>take only the first Expected number of arguments </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2baa286d9991c6a547ae25a5f5216164b8f" prot="public">
+          <name>Join</name>
+          <briefdescription>
+<para>merge all the arguments together into a single string via the delimiter character default(&apos;<linebreak/>
+&apos;) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2ba571fa4972dd227b4097ab6a774ca1263" prot="public">
+          <name>TakeAll</name>
+          <briefdescription>
+<para>just get all the passed argument regardless </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enumeration of the multiOption Policy selection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3942" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3942" bodyend="3948"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceCLI_1a474d5665894fe9a318ddbdb9ebf194d4" prot="public" static="no" strong="yes">
+        <type>char</type>
+        <name>config_extras_mode</name>
+        <qualifiedname>CLI::config_extras_mode</qualifiedname>
+        <enumvalue id="namespaceCLI_1a474d5665894fe9a318ddbdb9ebf194d4acb5e100e5a9a3e7f6d1fd97512215282" prot="public">
+          <name>error</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a474d5665894fe9a318ddbdb9ebf194d4a567bc1d268f135496de3d5b946b691f3" prot="public">
+          <name>ignore</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a474d5665894fe9a318ddbdb9ebf194d4af8fffd92dc01c6b6d02d482b82d5b315" prot="public">
+          <name>ignore_all</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1a474d5665894fe9a318ddbdb9ebf194d4ad7ba9bbfda42b9657f14ee37ef76150b" prot="public">
+          <name>capture</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>enumeration of modes of how to deal with extras in config files </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5275" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5275" bodyend="5275"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceCLI_1a17b4ff2556876f1f42e0d585542a1578" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>B</declname>
+            <defname>B</defname>
+          </param>
+          <param>
+            <type>class T</type>
+            <defval>void</defval>
+          </param>
+        </templateparamlist>
+        <type>typename std::enable_if&lt; B, T &gt;::type</type>
+        <definition>using CLI::enable_if_t = typedef typename std::enable_if&lt;B, T&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>enable_if_t</name>
+        <qualifiedname>CLI::enable_if_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A copy of enable_if_t from C++14, compatible with C++11.</para>
+<para>We could check to see if C++14 is being used, but it does not hurt to redefine this (even Google does this: <ulink url="https://github.com/google/skia/blob/main/include/private/SkTLogic.h">https://github.com/google/skia/blob/main/include/private/SkTLogic.h</ulink>) It is not in the std namespace anyway, so no harm done. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="896" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="896" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceCLI_1abbcb7870ad49a8d458c1b585e3ab364e" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>typename <ref refid="structCLI_1_1make__void" kindref="compound">make_void</ref>&lt; Ts... &gt;::type</type>
+        <definition>using CLI::void_t = typedef typename make_void&lt;Ts...&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>void_t</name>
+        <qualifiedname>CLI::void_t</qualifiedname>
+        <briefdescription>
+<para>A copy of std::void_t from C++17 - same reasoning as enable_if_t, it does not hurt to redefine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="902" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="902" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceCLI_1a61fcdcefcfde73ff50ae59869f047080" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>B</declname>
+            <defname>B</defname>
+          </param>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class F</type>
+          </param>
+        </templateparamlist>
+        <type>typename std::conditional&lt; B, T, F &gt;::type</type>
+        <definition>using CLI::conditional_t = typedef typename std::conditional&lt;B, T, F&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>conditional_t</name>
+        <qualifiedname>CLI::conditional_t</qualifiedname>
+        <briefdescription>
+<para>A copy of std::conditional_t from C++14 - same reasoning as enable_if_t, it does not hurt to redefine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="905" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="905" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceCLI_1a352933bfbcba692b1e860cfe0b580319" prot="public" static="no">
+        <type><ref refid="classCLI_1_1ConfigBase" kindref="compound">ConfigBase</ref></type>
+        <definition>using CLI::ConfigTOML = typedef ConfigBase</definition>
+        <argsstring></argsstring>
+        <name>ConfigTOML</name>
+        <qualifiedname>CLI::ConfigTOML</qualifiedname>
+        <briefdescription>
+<para>the default <ref refid="classCLI_1_1Config" kindref="compound">Config</ref> is the TOML file format </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2672" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2672" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceCLI_1a777eb94b3fedc66106c44ae5d8c17ee8" prot="public" static="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>using CLI::results_t = typedef std::vector&lt;std::string&gt;</definition>
+        <argsstring></argsstring>
+        <name>results_t</name>
+        <qualifiedname>CLI::results_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3933" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3933" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceCLI_1ac9e16923ffafaa89111b4a134267ce20" prot="public" static="no">
+        <type>std::function&lt; bool(const <ref refid="namespaceCLI_1a777eb94b3fedc66106c44ae5d8c17ee8" kindref="member">results_t</ref> &amp;)&gt;</type>
+        <definition>using CLI::callback_t = typedef std::function&lt;bool(const results_t &amp;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>callback_t</name>
+        <qualifiedname>CLI::callback_t</qualifiedname>
+        <briefdescription>
+<para>callback function definition </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3935" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3935" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceCLI_1a64b0009243a9d2e0dee466f0a1b04d59" prot="public" static="no">
+        <type>std::unique_ptr&lt; <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> &gt;</type>
+        <definition>using CLI::Option_p = typedef std::unique_ptr&lt;Option&gt;</definition>
+        <argsstring></argsstring>
+        <name>Option_p</name>
+        <qualifiedname>CLI::Option_p</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3940" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3940" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceCLI_1ad6d256a0cca01f58faf90f0b4595aca4" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="classCLI_1_1App" kindref="compound">App</ref> &gt;</type>
+        <definition>using CLI::App_p = typedef std::shared_ptr&lt;App&gt;</definition>
+        <argsstring></argsstring>
+        <name>App_p</name>
+        <qualifiedname>CLI::App_p</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5279" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5279" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceCLI_1a495f418aefacfdfbe91642a18f60d77c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::TriggerOn</definition>
+        <argsstring>(App *trigger_app, App *app_to_enable)</argsstring>
+        <name>TriggerOn</name>
+        <qualifiedname>CLI::TriggerOn</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>trigger_app</declname>
+        </param>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app_to_enable</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to enable one option group/subcommand when another is used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8233" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8233" bodyend="8237"/>
+        <references refid="classCLI_1_1App_1af5104a0ae06292a8cef25e428ce533c8" compoundref="CLI11_8hpp" startline="5618" endline="5621">CLI::App::disabled</references>
+        <references refid="classCLI_1_1App_1a1d4af11ac48929ee486482ea7b2cfe4f" compoundref="CLI11_8hpp" startline="5630" endline="5637">CLI::App::disabled_by_default</references>
+        <references refid="classCLI_1_1App_1a7d58a9da106a0fb723eda4bd56017523" compoundref="CLI11_8hpp" startline="5641" endline="5649">CLI::App::enabled_by_default</references>
+        <references refid="classCLI_1_1App_1a94045b9a983dd80d8fa1b477422c7849" compoundref="CLI11_8hpp" startline="5563" endline="5566">CLI::App::preparse_callback</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1a5feaad2da28dd1b1adac0ebd8382af7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::TriggerOn</definition>
+        <argsstring>(App *trigger_app, std::vector&lt; App * &gt; apps_to_enable)</argsstring>
+        <name>TriggerOn</name>
+        <qualifiedname>CLI::TriggerOn</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>trigger_app</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="classCLI_1_1App" kindref="compound">App</ref> * &gt;</type>
+          <declname>apps_to_enable</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to enable one option group/subcommand when another is used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8240" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8240" bodyend="8251"/>
+        <references refid="classCLI_1_1App_1a94045b9a983dd80d8fa1b477422c7849" compoundref="CLI11_8hpp" startline="5563" endline="5566">CLI::App::preparse_callback</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1ae611995dabf1e7d4a2480f1952ef6ba7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::TriggerOff</definition>
+        <argsstring>(App *trigger_app, App *app_to_enable)</argsstring>
+        <name>TriggerOff</name>
+        <qualifiedname>CLI::TriggerOff</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>trigger_app</declname>
+        </param>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app_to_enable</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to disable one option group/subcommand when another is used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8254" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8254" bodyend="8258"/>
+        <references refid="classCLI_1_1App_1af5104a0ae06292a8cef25e428ce533c8" compoundref="CLI11_8hpp" startline="5618" endline="5621">CLI::App::disabled</references>
+        <references refid="classCLI_1_1App_1a1d4af11ac48929ee486482ea7b2cfe4f" compoundref="CLI11_8hpp" startline="5630" endline="5637">CLI::App::disabled_by_default</references>
+        <references refid="classCLI_1_1App_1a7d58a9da106a0fb723eda4bd56017523" compoundref="CLI11_8hpp" startline="5641" endline="5649">CLI::App::enabled_by_default</references>
+        <references refid="classCLI_1_1App_1a94045b9a983dd80d8fa1b477422c7849" compoundref="CLI11_8hpp" startline="5563" endline="5566">CLI::App::preparse_callback</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1aeb752166e5a0486440b5902f7878ed72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::TriggerOff</definition>
+        <argsstring>(App *trigger_app, std::vector&lt; App * &gt; apps_to_enable)</argsstring>
+        <name>TriggerOff</name>
+        <qualifiedname>CLI::TriggerOff</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>trigger_app</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="classCLI_1_1App" kindref="compound">App</ref> * &gt;</type>
+          <declname>apps_to_enable</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to disable one option group/subcommand when another is used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8261" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8261" bodyend="8272"/>
+        <references refid="classCLI_1_1App_1a94045b9a983dd80d8fa1b477422c7849" compoundref="CLI11_8hpp" startline="5563" endline="5566">CLI::App::preparse_callback</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1a6cb6f8bfff8c49385fb24f6f23a23c21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::deprecate_option</definition>
+        <argsstring>(Option *opt, const std::string &amp;replacement=&quot;&quot;)</argsstring>
+        <name>deprecate_option</name>
+        <qualifiedname>CLI::deprecate_option</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <declname>opt</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>replacement</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Helper function to mark an option as deprecated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8275" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8275" bodyend="8287"/>
+        <references refid="classCLI_1_1Option_1ae94ff5bfc6549f9c86aff629be829353" compoundref="CLI11_8hpp" startline="4360" endline="4366">CLI::Option::check</references>
+        <references refid="classCLI_1_1Option_1adb517865b2f89c023e9544085cb332e4" compoundref="CLI11_8hpp" startline="4666" endline="4669">CLI::Option::description</references>
+        <references refid="classCLI_1_1Option_1a6298f2354e3e02d262f1f6815621639a" compoundref="CLI11_8hpp" startline="4663" endline="4663">CLI::Option::get_description</references>
+        <references refid="classCLI_1_1Option_1ab84751fbf9037efaed5b64fed17fe57f" compoundref="CLI11_8hpp" startline="4686" endline="4739">CLI::Option::get_name</references>
+        <referencedby refid="namespaceCLI_1ad6d89b5d1aba2ebdca5f94534d658cab" compoundref="CLI11_8hpp" startline="8290" endline="8293">deprecate_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1ad6d89b5d1aba2ebdca5f94534d658cab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::deprecate_option</definition>
+        <argsstring>(App *app, const std::string &amp;option_name, const std::string &amp;replacement=&quot;&quot;)</argsstring>
+        <name>deprecate_option</name>
+        <qualifiedname>CLI::deprecate_option</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>option_name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>replacement</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Helper function to mark an option as deprecated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8290" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8290" bodyend="8293"/>
+        <references refid="namespaceCLI_1a6cb6f8bfff8c49385fb24f6f23a23c21" compoundref="CLI11_8hpp" startline="8275" endline="8287">deprecate_option</references>
+        <references refid="classCLI_1_1App_1ad098a287e9a398ec6b24630335d068c8" compoundref="CLI11_8hpp" startline="6850" endline="6856">CLI::App::get_option</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1a5e83d92a6ec271c2439141feaede1136" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::deprecate_option</definition>
+        <argsstring>(App &amp;app, const std::string &amp;option_name, const std::string &amp;replacement=&quot;&quot;)</argsstring>
+        <name>deprecate_option</name>
+        <qualifiedname>CLI::deprecate_option</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> &amp;</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>option_name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>replacement</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Helper function to mark an option as deprecated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8296" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8296" bodyend="8299"/>
+        <references refid="namespaceCLI_1a6cb6f8bfff8c49385fb24f6f23a23c21" compoundref="CLI11_8hpp" startline="8275" endline="8287">deprecate_option</references>
+        <references refid="classCLI_1_1App_1ad098a287e9a398ec6b24630335d068c8" compoundref="CLI11_8hpp" startline="6850" endline="6856">CLI::App::get_option</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::retire_option</definition>
+        <argsstring>(App *app, Option *opt)</argsstring>
+        <name>retire_option</name>
+        <qualifiedname>CLI::retire_option</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <declname>opt</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to mark an option as retired. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8302" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8302" bodyend="8324"/>
+        <references refid="classCLI_1_1App_1a8c812d42c7720ecb5cd0aec41b5aa941" compoundref="CLI11_8hpp" startline="5784" endline="5823">CLI::App::add_option</references>
+        <references refid="classCLI_1_1Option_1a83302957a61e4bd7e5f21c552b39edb5" compoundref="CLI11_8hpp" startline="4328" endline="4331">CLI::Option::allow_extra_args</references>
+        <references refid="classCLI_1_1Option_1ac742a336add6ee44ce61dc3dd196fd23" compoundref="CLI11_8hpp" startline="5053" endline="5056">CLI::Option::default_str</references>
+        <references refid="classCLI_1_1Option_1a66d22991355232198a3da4b395847eba" compoundref="CLI11_8hpp" startline="4286" endline="4305">CLI::Option::expected</references>
+        <references refid="classCLI_1_1Option_1a784f66cb9371753ddeb8df59c85cb490" compoundref="CLI11_8hpp" startline="4333" endline="4333">CLI::Option::get_allow_extra_args</references>
+        <references refid="classCLI_1_1Option_1a21133f27201fa12203567cf0ee40c9c5" compoundref="CLI11_8hpp" startline="4640" endline="4640">CLI::Option::get_expected_max</references>
+        <references refid="classCLI_1_1Option_1a19c64a02c22d968e834c2aaf13f98f62" compoundref="CLI11_8hpp" startline="4638" endline="4638">CLI::Option::get_expected_min</references>
+        <references refid="classCLI_1_1Validator_1a688775a9b9dffb8f7e40cfb42af11697" compoundref="CLI11_8hpp" startline="2783" endline="2783">CLI::Validator::get_name</references>
+        <references refid="classCLI_1_1Option_1ab84751fbf9037efaed5b64fed17fe57f" compoundref="CLI11_8hpp" startline="4686" endline="4739">CLI::Option::get_name</references>
+        <references refid="classCLI_1_1Option_1a0c7e5712134a2227301fb50bcc9488c8" compoundref="CLI11_8hpp" startline="4593" endline="4593">CLI::Option::get_type_size_max</references>
+        <references refid="classCLI_1_1Option_1a38a511ab2001c283c06fb31a7ea12501" compoundref="CLI11_8hpp" startline="4591" endline="4591">CLI::Option::get_type_size_min</references>
+        <references refid="classCLI_1_1App_1a3058b128735eec0813589b56c5453115" compoundref="CLI11_8hpp" startline="6143" endline="6162">CLI::App::remove_option</references>
+        <references refid="classCLI_1_1Option_1a1fcb3c625eeca46ef953732a71403027" compoundref="CLI11_8hpp" startline="4986" endline="4989">CLI::Option::type_name</references>
+        <references refid="classCLI_1_1Option_1a8914e4810b213c5e23359d61a70c5ac1" compoundref="CLI11_8hpp" startline="4992" endline="5009">CLI::Option::type_size</references>
+        <referencedby refid="namespaceCLI_1a52390f850f663cf38a27e134c1a39b61" compoundref="CLI11_8hpp" startline="8327" endline="8327">retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1a52390f850f663cf38a27e134c1a39b61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::retire_option</definition>
+        <argsstring>(App &amp;app, Option *opt)</argsstring>
+        <name>retire_option</name>
+        <qualifiedname>CLI::retire_option</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> &amp;</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <declname>opt</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to mark an option as retired. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8327" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8327" bodyend="8327"/>
+        <references refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">retire_option</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1ad9ac23b01e2ef840ec123f5a115302ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::retire_option</definition>
+        <argsstring>(App *app, const std::string &amp;option_name)</argsstring>
+        <name>retire_option</name>
+        <qualifiedname>CLI::retire_option</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>option_name</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to mark an option as retired. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8330" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8330" bodyend="8348"/>
+        <references refid="classCLI_1_1App_1a8c812d42c7720ecb5cd0aec41b5aa941" compoundref="CLI11_8hpp" startline="5784" endline="5823">CLI::App::add_option</references>
+        <references refid="classCLI_1_1Option_1ac742a336add6ee44ce61dc3dd196fd23" compoundref="CLI11_8hpp" startline="5053" endline="5056">CLI::Option::default_str</references>
+        <references refid="classCLI_1_1Option_1a66d22991355232198a3da4b395847eba" compoundref="CLI11_8hpp" startline="4286" endline="4305">CLI::Option::expected</references>
+        <references refid="classCLI_1_1Validator_1a688775a9b9dffb8f7e40cfb42af11697" compoundref="CLI11_8hpp" startline="2783" endline="2783">CLI::Validator::get_name</references>
+        <references refid="classCLI_1_1App_1a5125f786c409fe0bbba684fe99f2c5fe" compoundref="CLI11_8hpp" startline="6812" endline="6828">CLI::App::get_option_no_throw</references>
+        <references refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">retire_option</references>
+        <references refid="classCLI_1_1Option_1a1fcb3c625eeca46ef953732a71403027" compoundref="CLI11_8hpp" startline="4986" endline="4989">CLI::Option::type_name</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1a77cd1a3639a91dea33a7d144ea476df6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::retire_option</definition>
+        <argsstring>(App &amp;app, const std::string &amp;option_name)</argsstring>
+        <name>retire_option</name>
+        <qualifiedname>CLI::retire_option</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> &amp;</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>option_name</declname>
+        </param>
+        <briefdescription>
+<para>Helper function to mark an option as retired. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8351" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8351" bodyend="8351"/>
+        <references refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">retire_option</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="139" column="1"/>
+  </compounddef>
+</doxygen>

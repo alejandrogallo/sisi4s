@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1BinaryTensorHeaderBase" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::BinaryTensorHeaderBase</compoundname>
+    <derivedcompoundref refid="classsisi4s_1_1BinaryTensorHeader" prot="public" virt="non-virtual">sisi4s::BinaryTensorHeader</derivedcompoundref>
+    <includes refid="BinaryTensorFormat_8hpp" local="no">BinaryTensorFormat.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1a00a557624efcc196db32788e316e7096" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char sisi4s::BinaryTensorHeaderBase::magic[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>magic</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::magic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="11" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="11" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1BinaryTensorHeaderBase_1af002a75e5dd90f43f1fb0c0f278ccba1" compoundref="BinaryTensorFormat_8hpp" startline="27" endline="38">BinaryTensorHeaderBase</referencedby>
+        <referencedby refid="classsisi4s_1_1TensorIo_1a76f8a675658b0c0ca47579d67b829336" compoundref="TensorIo_8cxx" startline="239" endline="265">sisi4s::TensorIo::readBinaryHeader</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1a8b405fd20c9c0b9abb970403978e002a" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t sisi4s::BinaryTensorHeaderBase::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::version</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="12" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="12" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1TensorIo_1a76f8a675658b0c0ca47579d67b829336" compoundref="TensorIo_8cxx" startline="239" endline="265">sisi4s::TensorIo::readBinaryHeader</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1ad8073ab97595f596cc968d53f69d95e2" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char sisi4s::BinaryTensorHeaderBase::numberType[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>numberType</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::numberType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="13" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="13" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1BinaryTensorHeaderBase_1af002a75e5dd90f43f1fb0c0f278ccba1" compoundref="BinaryTensorFormat_8hpp" startline="27" endline="38">BinaryTensorHeaderBase</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1ae7559446031b647622a012c5f9fd359d" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t sisi4s::BinaryTensorHeaderBase::bytesPerNumber</definition>
+        <argsstring></argsstring>
+        <name>bytesPerNumber</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::bytesPerNumber</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="14" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1a88a4a54f1883652d07409d11be5e3258" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t sisi4s::BinaryTensorHeaderBase::numbersPerElement</definition>
+        <argsstring></argsstring>
+        <name>numbersPerElement</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::numbersPerElement</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="15" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t sisi4s::BinaryTensorHeaderBase::order</definition>
+        <argsstring></argsstring>
+        <name>order</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::order</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="16" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="16" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1TensorIo_1a76f8a675658b0c0ca47579d67b829336" compoundref="TensorIo_8cxx" startline="239" endline="265">sisi4s::TensorIo::readBinaryHeader</referencedby>
+        <referencedby refid="ParenthesisTriples_8cxx_1a87b6a4c46a2a3e1205454fc7189a744d" compoundref="ParenthesisTriples_8cxx" startline="37" endline="77">readBinaryTensorSerial</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1afeede52911e2e8df68c57c99613c3966" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t sisi4s::BinaryTensorHeaderBase::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="17" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1a9dc22236602c92ac9d8df6cc8b2c7da9" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t sisi4s::BinaryTensorHeaderBase::reserved</definition>
+        <argsstring></argsstring>
+        <name>reserved</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="18" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1af0433538dbccb23d1dad071aedf752ed" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr char const  *</type>
+        <definition>constexpr char const* sisi4s::BinaryTensorHeaderBase::MAGIC</definition>
+        <argsstring></argsstring>
+        <name>MAGIC</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::MAGIC</qualifiedname>
+        <initializer>= &quot;TENS&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="20" column="33" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="20" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1BinaryTensorHeaderBase_1af002a75e5dd90f43f1fb0c0f278ccba1" compoundref="BinaryTensorFormat_8hpp" startline="27" endline="38">BinaryTensorHeaderBase</referencedby>
+        <referencedby refid="classsisi4s_1_1TensorIo_1a76f8a675658b0c0ca47579d67b829336" compoundref="TensorIo_8cxx" startline="239" endline="265">sisi4s::TensorIo::readBinaryHeader</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1ae47df96a30e9cf08b7e70c077ebfadba" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t sisi4s::BinaryTensorHeaderBase::VERSION</definition>
+        <argsstring></argsstring>
+        <name>VERSION</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::VERSION</qualifiedname>
+        <initializer>= 0x09000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="21" column="30" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="21" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1TensorIo_1a76f8a675658b0c0ca47579d67b829336" compoundref="TensorIo_8cxx" startline="239" endline="265">sisi4s::TensorIo::readBinaryHeader</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1BinaryTensorHeaderBase_1a88eae1154a4c6608522a6fd5df79a15f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr char const  *</type>
+        <definition>constexpr char const* sisi4s::BinaryTensorHeaderBase::IEEE</definition>
+        <argsstring></argsstring>
+        <name>IEEE</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::IEEE</qualifiedname>
+        <initializer>= &quot;IEEE&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="22" column="33" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="22" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1BinaryTensorHeaderBase_1af002a75e5dd90f43f1fb0c0f278ccba1" compoundref="BinaryTensorFormat_8hpp" startline="27" endline="38">BinaryTensorHeaderBase</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1BinaryTensorHeaderBase_1ac6e66dcf1f0fde2ece447b089abfd21b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::BinaryTensorHeaderBase::BinaryTensorHeaderBase</definition>
+        <argsstring>()</argsstring>
+        <name>BinaryTensorHeaderBase</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::BinaryTensorHeaderBase</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="25" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="25" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1BinaryTensorHeaderBase_1af002a75e5dd90f43f1fb0c0f278ccba1" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::BinaryTensorHeaderBase::BinaryTensorHeaderBase</definition>
+        <argsstring>(int32_t bytesPerNumber_, int32_t numsPerElement_, int32_t order_)</argsstring>
+        <name>BinaryTensorHeaderBase</name>
+        <qualifiedname>sisi4s::BinaryTensorHeaderBase::BinaryTensorHeaderBase</qualifiedname>
+        <param>
+          <type>int32_t</type>
+          <declname>bytesPerNumber_</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>numsPerElement_</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>order_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="27" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="27" bodyend="38"/>
+        <references refid="classsisi4s_1_1BinaryTensorHeaderBase_1a88eae1154a4c6608522a6fd5df79a15f" compoundref="BinaryTensorFormat_8hpp" startline="22">IEEE</references>
+        <references refid="classsisi4s_1_1BinaryTensorHeaderBase_1a00a557624efcc196db32788e316e7096" compoundref="BinaryTensorFormat_8hpp" startline="11">magic</references>
+        <references refid="classsisi4s_1_1BinaryTensorHeaderBase_1af0433538dbccb23d1dad071aedf752ed" compoundref="BinaryTensorFormat_8hpp" startline="20">MAGIC</references>
+        <references refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad8073ab97595f596cc968d53f69d95e2" compoundref="BinaryTensorFormat_8hpp" startline="13">numberType</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::BinaryTensorHeader</label>
+        <link refid="classsisi4s_1_1BinaryTensorHeader"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::BinaryTensorHeaderBase</label>
+        <link refid="classsisi4s_1_1BinaryTensorHeaderBase"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::BinaryTensorHeaderBase</label>
+        <link refid="classsisi4s_1_1BinaryTensorHeaderBase"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" line="9" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BinaryTensorFormat.hpp" bodystart="9" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1ac6e66dcf1f0fde2ece447b089abfd21b" prot="protected" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>BinaryTensorHeaderBase</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1af002a75e5dd90f43f1fb0c0f278ccba1" prot="protected" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>BinaryTensorHeaderBase</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1ae7559446031b647622a012c5f9fd359d" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>bytesPerNumber</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1afeede52911e2e8df68c57c99613c3966" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>flags</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1a88eae1154a4c6608522a6fd5df79a15f" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>IEEE</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1a00a557624efcc196db32788e316e7096" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>magic</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1af0433538dbccb23d1dad071aedf752ed" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>MAGIC</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1a88a4a54f1883652d07409d11be5e3258" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>numbersPerElement</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad8073ab97595f596cc968d53f69d95e2" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>numberType</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>order</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1a9dc22236602c92ac9d8df6cc8b2c7da9" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>reserved</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1a8b405fd20c9c0b9abb970403978e002a" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>version</name></member>
+      <member refid="classsisi4s_1_1BinaryTensorHeaderBase_1ae47df96a30e9cf08b7e70c077ebfadba" prot="public" virt="non-virtual"><scope>sisi4s::BinaryTensorHeaderBase</scope><name>VERSION</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

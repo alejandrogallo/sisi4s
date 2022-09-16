@@ -1,0 +1,1431 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Data_8hpp" kind="file" language="C++">
+    <compoundname>Data.hpp</compoundname>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes refid="Float_8hpp" local="no">math/Float.hpp</includes>
+    <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
+    <includes local="no">string</includes>
+    <includes local="no">map</includes>
+    <includes local="no">vector</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
+    <includedby refid="Algorithm_8cxx" local="no">Algorithm.cxx</includedby>
+    <includedby refid="Algorithm_8hpp" local="no">Algorithm.hpp</includedby>
+    <includedby refid="Data_8cxx" local="no">Data.cxx</includedby>
+    <includedby refid="Parser_8hpp" local="no">Parser.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>cmath</label>
+      </node>
+      <node id="16">
+        <label>complex</label>
+      </node>
+      <node id="5">
+        <label>cstdint</label>
+      </node>
+      <node id="20">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="4">
+        <label>ctime</label>
+      </node>
+      <node id="13">
+        <label>fstream</label>
+      </node>
+      <node id="7">
+        <label>iomanip</label>
+      </node>
+      <node id="11">
+        <label>iostream</label>
+      </node>
+      <node id="17">
+        <label>map</label>
+      </node>
+      <node id="6">
+        <label>ostream</label>
+      </node>
+      <node id="8">
+        <label>sstream</label>
+      </node>
+      <node id="12">
+        <label>streambuf</label>
+      </node>
+      <node id="10">
+        <label>string</label>
+      </node>
+      <node id="18">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="171">
+        <label>Data.cxx</label>
+        <link refid="Data_8cxx"/>
+      </node>
+      <node id="1">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>Parser.cxx</label>
+        <link refid="Parser_8cxx"/>
+      </node>
+      <node id="121">
+        <label>Parser.hpp</label>
+        <link refid="Parser_8hpp"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+      </node>
+      <node id="122">
+        <label>Sisi4s.cxx</label>
+        <link refid="Sisi4s_8cxx"/>
+      </node>
+      <node id="2">
+        <label>Algorithm.cxx</label>
+        <link refid="Algorithm_8cxx"/>
+      </node>
+      <node id="3">
+        <label>Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+        <childnode refid="148" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="160" relation="include">
+        </childnode>
+        <childnode refid="162" relation="include">
+        </childnode>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
+        <childnode refid="170" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ApproximateCoulombVertex.cxx</label>
+        <link refid="ApproximateCoulombVertex_8cxx"/>
+      </node>
+      <node id="4">
+        <label>ApproximateCoulombVertex.hpp</label>
+        <link refid="ApproximateCoulombVertex_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ApproximateParticleHoleCoulombVertex.cxx</label>
+        <link refid="ApproximateParticleHoleCoulombVertex_8cxx"/>
+      </node>
+      <node id="6">
+        <label>ApproximateParticleHoleCoulombVertex.hpp</label>
+        <link refid="ApproximateParticleHoleCoulombVertex_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>BasisSetExtrapolation.cxx</label>
+        <link refid="BasisSetExtrapolation_8cxx"/>
+      </node>
+      <node id="8">
+        <label>BasisSetExtrapolation.hpp</label>
+        <link refid="BasisSetExtrapolation_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>CcsdDiagrammaticDecomposition.cxx</label>
+        <link refid="CcsdDiagrammaticDecomposition_8cxx"/>
+      </node>
+      <node id="10">
+        <label>CcsdDiagrammaticDecomposition.hpp</label>
+        <link refid="CcsdDiagrammaticDecomposition_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>CcsdEnergyFromCoulombIntegrals.cxx</label>
+        <link refid="CcsdEnergyFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="26">
+        <label>CcsdEnergyFromCoulombIntegrals.hpp</label>
+        <link refid="CcsdEnergyFromCoulombIntegrals_8hpp"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>CcsdEnergyFromCoulombIntegralsReference.cxx</label>
+        <link refid="CcsdEnergyFromCoulombIntegralsReference_8cxx"/>
+      </node>
+      <node id="28">
+        <label>CcsdEnergyFromCoulombIntegralsReference.hpp</label>
+        <link refid="CcsdEnergyFromCoulombIntegralsReference_8hpp"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>CcsdEquationOfMotionDavidson.cxx</label>
+        <link refid="CcsdEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="12">
+        <label>CcsdEquationOfMotionDavidson.hpp</label>
+        <link refid="CcsdEquationOfMotionDavidson_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>CcsdPerturbativeTriples.cxx</label>
+        <link refid="CcsdPerturbativeTriples_8cxx"/>
+      </node>
+      <node id="14">
+        <label>CcsdPerturbativeTriples.hpp</label>
+        <link refid="CcsdPerturbativeTriples_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>CcsdPerturbativeTriplesComplex.cxx</label>
+        <link refid="CcsdPerturbativeTriplesComplex_8cxx"/>
+      </node>
+      <node id="16">
+        <label>CcsdPerturbativeTriplesComplex.hpp</label>
+        <link refid="CcsdPerturbativeTriplesComplex_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>CcsdPreconditioner.cxx</label>
+        <link refid="CcsdPreconditioner_8cxx"/>
+      </node>
+      <node id="18">
+        <label>CcsdPreconditioner.hpp</label>
+        <link refid="CcsdPreconditioner_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>CcsdtEquationOfMotionDavidson.cxx</label>
+        <link refid="CcsdtEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="24">
+        <label>CcsdtEquationOfMotionDavidson.hpp</label>
+        <link refid="CcsdtEquationOfMotionDavidson_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>ClusterSinglesDoublesAlgorithm.cxx</label>
+        <link refid="ClusterSinglesDoublesAlgorithm_8cxx"/>
+      </node>
+      <node id="25">
+        <label>ClusterSinglesDoublesAlgorithm.hpp</label>
+        <link refid="ClusterSinglesDoublesAlgorithm_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>ClusterSinglesDoublesTriplesAlgorithm.cxx</label>
+        <link refid="ClusterSinglesDoublesTriplesAlgorithm_8cxx"/>
+      </node>
+      <node id="31">
+        <label>ClusterSinglesDoublesTriplesAlgorithm.hpp</label>
+        <link refid="ClusterSinglesDoublesTriplesAlgorithm_8hpp"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx</label>
+        <link refid="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8cxx"/>
+      </node>
+      <node id="35">
+        <label>ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp</label>
+        <link refid="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8hpp"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>ComplexTensorContraction.cxx</label>
+        <link refid="ComplexTensorContraction_8cxx"/>
+      </node>
+      <node id="45">
+        <label>ComplexTensorContraction.hpp</label>
+        <link refid="ComplexTensorContraction_8hpp"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>ComplexTensorNorm.cxx</label>
+        <link refid="ComplexTensorNorm_8cxx"/>
+      </node>
+      <node id="47">
+        <label>ComplexTensorNorm.hpp</label>
+        <link refid="ComplexTensorNorm_8hpp"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>ComplexTensorReader.cxx</label>
+        <link refid="ComplexTensorReader_8cxx"/>
+      </node>
+      <node id="49">
+        <label>ComplexTensorReader.hpp</label>
+        <link refid="ComplexTensorReader_8hpp"/>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>ComplexTensorSum.cxx</label>
+        <link refid="ComplexTensorSum_8cxx"/>
+      </node>
+      <node id="51">
+        <label>ComplexTensorSum.hpp</label>
+        <link refid="ComplexTensorSum_8hpp"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>ComplexTensorWriter.cxx</label>
+        <link refid="ComplexTensorWriter_8cxx"/>
+      </node>
+      <node id="53">
+        <label>ComplexTensorWriter.hpp</label>
+        <link refid="ComplexTensorWriter_8hpp"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>CoulombIntegralsFromGaussian.cxx</label>
+        <link refid="CoulombIntegralsFromGaussian_8cxx"/>
+      </node>
+      <node id="55">
+        <label>CoulombIntegralsFromGaussian.hpp</label>
+        <link refid="CoulombIntegralsFromGaussian_8hpp"/>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>CoulombIntegralsFromRotatedCoulombIntegrals.cxx</label>
+        <link refid="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="57">
+        <label>CoulombIntegralsFromRotatedCoulombIntegrals.hpp</label>
+        <link refid="CoulombIntegralsFromRotatedCoulombIntegrals_8hpp"/>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>CoulombIntegralsFromVertex.cxx</label>
+        <link refid="CoulombIntegralsFromVertex_8cxx"/>
+      </node>
+      <node id="59">
+        <label>CoulombIntegralsFromVertex.hpp</label>
+        <link refid="CoulombIntegralsFromVertex_8hpp"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>CoulombVertexDecomposition.cxx</label>
+        <link refid="CoulombVertexDecomposition_8cxx"/>
+      </node>
+      <node id="61">
+        <label>CoulombVertexDecomposition.hpp</label>
+        <link refid="CoulombVertexDecomposition_8hpp"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>CoulombVertexFromFactors.cxx</label>
+        <link refid="CoulombVertexFromFactors_8cxx"/>
+      </node>
+      <node id="63">
+        <label>CoulombVertexFromFactors.hpp</label>
+        <link refid="CoulombVertexFromFactors_8hpp"/>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>CoulombVertexReader.cxx</label>
+        <link refid="CoulombVertexReader_8cxx"/>
+      </node>
+      <node id="65">
+        <label>CoulombVertexReader.hpp</label>
+        <link refid="CoulombVertexReader_8hpp"/>
+        <childnode refid="66" relation="include">
+        </childnode>
+      </node>
+      <node id="68">
+        <label>CoulombVertexSingularVectors.cxx</label>
+        <link refid="CoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="67">
+        <label>CoulombVertexSingularVectors.hpp</label>
+        <link refid="CoulombVertexSingularVectors_8hpp"/>
+        <childnode refid="68" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>Delete.cxx</label>
+        <link refid="Delete_8cxx"/>
+      </node>
+      <node id="69">
+        <label>Delete.hpp</label>
+        <link refid="Delete_8hpp"/>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>DoublesAmplitudesDecomposition.cxx</label>
+        <link refid="DoublesAmplitudesDecomposition_8cxx"/>
+      </node>
+      <node id="71">
+        <label>DoublesAmplitudesDecomposition.hpp</label>
+        <link refid="DoublesAmplitudesDecomposition_8hpp"/>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>DoublesAmplitudesFromVertex.cxx</label>
+        <link refid="DoublesAmplitudesFromVertex_8cxx"/>
+      </node>
+      <node id="73">
+        <label>DoublesAmplitudesFromVertex.hpp</label>
+        <link refid="DoublesAmplitudesFromVertex_8hpp"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>DrccdEnergyFromCoulombIntegrals.cxx</label>
+        <link refid="DrccdEnergyFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="39">
+        <label>DrccdEnergyFromCoulombIntegrals.hpp</label>
+        <link refid="DrccdEnergyFromCoulombIntegrals_8hpp"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>Exit.cxx</label>
+        <link refid="Exit_8cxx"/>
+      </node>
+      <node id="75">
+        <label>Exit.hpp</label>
+        <link refid="Exit_8hpp"/>
+        <childnode refid="76" relation="include">
+        </childnode>
+      </node>
+      <node id="78">
+        <label>FcidumpReader.cxx</label>
+        <link refid="FcidumpReader_8cxx"/>
+      </node>
+      <node id="77">
+        <label>FcidumpReader.hpp</label>
+        <link refid="FcidumpReader_8hpp"/>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="79">
+        <label>FcidumpWriter.cxx</label>
+        <link refid="FcidumpWriter_8cxx"/>
+      </node>
+      <node id="80">
+        <label>FcidumpWriter.hpp</label>
+        <link refid="FcidumpWriter_8hpp"/>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>FiniteSizeCorrection.cxx</label>
+        <link refid="FiniteSizeCorrection_8cxx"/>
+      </node>
+      <node id="81">
+        <label>FiniteSizeCorrection.hpp</label>
+        <link refid="FiniteSizeCorrection_8hpp"/>
+        <childnode refid="82" relation="include">
+        </childnode>
+      </node>
+      <node id="84">
+        <label>FockMatrixFromCoulombIntegrals.cxx</label>
+        <link refid="FockMatrixFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="83">
+        <label>FockMatrixFromCoulombIntegrals.hpp</label>
+        <link refid="FockMatrixFromCoulombIntegrals_8hpp"/>
+        <childnode refid="84" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>FromComplexTensor.cxx</label>
+        <link refid="FromComplexTensor_8cxx"/>
+      </node>
+      <node id="85">
+        <label>FromComplexTensor.hpp</label>
+        <link refid="FromComplexTensor_8hpp"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+      </node>
+      <node id="88">
+        <label>GenerateRandomComplexMatrix.cxx</label>
+        <link refid="GenerateRandomComplexMatrix_8cxx"/>
+      </node>
+      <node id="87">
+        <label>GenerateRandomComplexMatrix.hpp</label>
+        <link refid="GenerateRandomComplexMatrix_8hpp"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="90">
+        <label>GenerateRandomMatrix.cxx</label>
+        <link refid="GenerateRandomMatrix_8cxx"/>
+      </node>
+      <node id="89">
+        <label>GenerateRandomMatrix.hpp</label>
+        <link refid="GenerateRandomMatrix_8hpp"/>
+        <childnode refid="90" relation="include">
+        </childnode>
+      </node>
+      <node id="92">
+        <label>GenerateRandomTensor.cxx</label>
+        <link refid="GenerateRandomTensor_8cxx"/>
+      </node>
+      <node id="91">
+        <label>GenerateRandomTensor.hpp</label>
+        <link refid="GenerateRandomTensor_8hpp"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+      </node>
+      <node id="94">
+        <label>HartreeFockFromCoulombIntegrals.cxx</label>
+        <link refid="HartreeFockFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="93">
+        <label>HartreeFockFromCoulombIntegrals.hpp</label>
+        <link refid="HartreeFockFromCoulombIntegrals_8hpp"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>HartreeFockFromGaussian.cxx</label>
+        <link refid="HartreeFockFromGaussian_8cxx"/>
+      </node>
+      <node id="96">
+        <label>HartreeFockFromGaussian.hpp</label>
+        <link refid="HartreeFockFromGaussian_8hpp"/>
+        <childnode refid="95" relation="include">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>MeanCorrelationHoleDepth.cxx</label>
+        <link refid="MeanCorrelationHoleDepth_8cxx"/>
+      </node>
+      <node id="97">
+        <label>MeanCorrelationHoleDepth.hpp</label>
+        <link refid="MeanCorrelationHoleDepth_8hpp"/>
+        <childnode refid="98" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>MoReader.cxx</label>
+        <link refid="MoReader_8cxx"/>
+      </node>
+      <node id="106">
+        <label>MoReader.hpp</label>
+        <link refid="MoReader_8hpp"/>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>Mp2NaturalOrbitals.cxx</label>
+        <link refid="Mp2NaturalOrbitals_8cxx"/>
+      </node>
+      <node id="108">
+        <label>Mp2NaturalOrbitals.hpp</label>
+        <link refid="Mp2NaturalOrbitals_8hpp"/>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>NaturalTransitionOrbitalsFromRhoAI.cxx</label>
+        <link refid="NaturalTransitionOrbitalsFromRhoAI_8cxx"/>
+      </node>
+      <node id="110">
+        <label>NaturalTransitionOrbitalsFromRhoAI.hpp</label>
+        <link refid="NaturalTransitionOrbitalsFromRhoAI_8hpp"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+      </node>
+      <node id="113">
+        <label>NuclearRepulsionEnergy.cxx</label>
+        <link refid="NuclearRepulsionEnergy_8cxx"/>
+      </node>
+      <node id="112">
+        <label>NuclearRepulsionEnergy.hpp</label>
+        <link refid="NuclearRepulsionEnergy_8hpp"/>
+        <childnode refid="113" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>OneBodyFromGaussian.cxx</label>
+        <link refid="OneBodyFromGaussian_8cxx"/>
+      </node>
+      <node id="114">
+        <label>OneBodyFromGaussian.hpp</label>
+        <link refid="OneBodyFromGaussian_8hpp"/>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="117">
+        <label>OneBodyRotation.cxx</label>
+        <link refid="OneBodyRotation_8cxx"/>
+      </node>
+      <node id="116">
+        <label>OneBodyRotation.hpp</label>
+        <link refid="OneBodyRotation_8hpp"/>
+        <childnode refid="117" relation="include">
+        </childnode>
+      </node>
+      <node id="119">
+        <label>ParenthesisTriples.cxx</label>
+        <link refid="ParenthesisTriples_8cxx"/>
+      </node>
+      <node id="118">
+        <label>ParenthesisTriples.hpp</label>
+        <link refid="ParenthesisTriples_8hpp"/>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="124">
+        <label>ParticleHoleCoulombIntegrals.cxx</label>
+        <link refid="ParticleHoleCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="123">
+        <label>ParticleHoleCoulombIntegrals.hpp</label>
+        <link refid="ParticleHoleCoulombIntegrals_8hpp"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+      </node>
+      <node id="126">
+        <label>ParticleHoleCoulombVertexDecomposition.cxx</label>
+        <link refid="ParticleHoleCoulombVertexDecomposition_8cxx"/>
+      </node>
+      <node id="125">
+        <label>ParticleHoleCoulombVertexDecomposition.hpp</label>
+        <link refid="ParticleHoleCoulombVertexDecomposition_8hpp"/>
+        <childnode refid="126" relation="include">
+        </childnode>
+      </node>
+      <node id="128">
+        <label>ParticleHoleCoulombVertexFromFactors.cxx</label>
+        <link refid="ParticleHoleCoulombVertexFromFactors_8cxx"/>
+      </node>
+      <node id="127">
+        <label>ParticleHoleCoulombVertexFromFactors.hpp</label>
+        <link refid="ParticleHoleCoulombVertexFromFactors_8hpp"/>
+        <childnode refid="128" relation="include">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>ParticleHoleCoulombVertexReader.cxx</label>
+        <link refid="ParticleHoleCoulombVertexReader_8cxx"/>
+      </node>
+      <node id="129">
+        <label>ParticleHoleCoulombVertexReader.hpp</label>
+        <link refid="ParticleHoleCoulombVertexReader_8hpp"/>
+        <childnode refid="130" relation="include">
+        </childnode>
+      </node>
+      <node id="132">
+        <label>ParticleHoleCoulombVertexSingularVectors.cxx</label>
+        <link refid="ParticleHoleCoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="131">
+        <label>ParticleHoleCoulombVertexSingularVectors.hpp</label>
+        <link refid="ParticleHoleCoulombVertexSingularVectors_8hpp"/>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="134">
+        <label>PerturbativeTriples.cxx</label>
+        <link refid="PerturbativeTriples_8cxx"/>
+      </node>
+      <node id="133">
+        <label>PerturbativeTriples.hpp</label>
+        <link refid="PerturbativeTriples_8hpp"/>
+        <childnode refid="134" relation="include">
+        </childnode>
+      </node>
+      <node id="136">
+        <label>PseudoInverse.cxx</label>
+        <link refid="PseudoInverse_8cxx"/>
+      </node>
+      <node id="135">
+        <label>PseudoInverse.hpp</label>
+        <link refid="PseudoInverse_8hpp"/>
+        <childnode refid="136" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>SimilarityTransformedHamiltonian.cxx</label>
+        <link refid="SimilarityTransformedHamiltonian_8cxx"/>
+      </node>
+      <node id="137">
+        <label>SimilarityTransformedHamiltonian.hpp</label>
+        <link refid="SimilarityTransformedHamiltonian_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+      </node>
+      <node id="141">
+        <label>SingleParticleOccupancies.cxx</label>
+        <link refid="SingleParticleOccupancies_8cxx"/>
+      </node>
+      <node id="140">
+        <label>SingleParticleOccupancies.hpp</label>
+        <link refid="SingleParticleOccupancies_8hpp"/>
+        <childnode refid="141" relation="include">
+        </childnode>
+      </node>
+      <node id="143">
+        <label>SliceCoulombVertex.cxx</label>
+        <link refid="SliceCoulombVertex_8cxx"/>
+      </node>
+      <node id="142">
+        <label>SliceCoulombVertex.hpp</label>
+        <link refid="SliceCoulombVertex_8hpp"/>
+        <childnode refid="143" relation="include">
+        </childnode>
+      </node>
+      <node id="145">
+        <label>TensorAntisymmetrizer.cxx</label>
+        <link refid="TensorAntisymmetrizer_8cxx"/>
+      </node>
+      <node id="144">
+        <label>TensorAntisymmetrizer.hpp</label>
+        <link refid="TensorAntisymmetrizer_8hpp"/>
+        <childnode refid="145" relation="include">
+        </childnode>
+      </node>
+      <node id="147">
+        <label>TensorContraction.cxx</label>
+        <link refid="TensorContraction_8cxx"/>
+      </node>
+      <node id="146">
+        <label>TensorContraction.hpp</label>
+        <link refid="TensorContraction_8hpp"/>
+        <childnode refid="147" relation="include">
+        </childnode>
+      </node>
+      <node id="149">
+        <label>TensorGetMax.cxx</label>
+        <link refid="TensorGetMax_8cxx"/>
+      </node>
+      <node id="148">
+        <label>TensorGetMax.hpp</label>
+        <link refid="TensorGetMax_8hpp"/>
+        <childnode refid="149" relation="include">
+        </childnode>
+      </node>
+      <node id="151">
+        <label>TensorNorm.cxx</label>
+        <link refid="TensorNorm_8cxx"/>
+      </node>
+      <node id="150">
+        <label>TensorNorm.hpp</label>
+        <link refid="TensorNorm_8hpp"/>
+        <childnode refid="151" relation="include">
+        </childnode>
+      </node>
+      <node id="153">
+        <label>TensorReader.cxx</label>
+        <link refid="TensorReader_8cxx"/>
+      </node>
+      <node id="152">
+        <label>TensorReader.hpp</label>
+        <link refid="TensorReader_8hpp"/>
+        <childnode refid="153" relation="include">
+        </childnode>
+      </node>
+      <node id="155">
+        <label>TensorReduceijij.cxx</label>
+        <link refid="TensorReduceijij_8cxx"/>
+      </node>
+      <node id="154">
+        <label>TensorReduceijij.hpp</label>
+        <link refid="TensorReduceijij_8hpp"/>
+        <childnode refid="155" relation="include">
+        </childnode>
+      </node>
+      <node id="157">
+        <label>TensorSlicer.cxx</label>
+        <link refid="TensorSlicer_8cxx"/>
+      </node>
+      <node id="156">
+        <label>TensorSlicer.hpp</label>
+        <link refid="TensorSlicer_8hpp"/>
+        <childnode refid="157" relation="include">
+        </childnode>
+      </node>
+      <node id="159">
+        <label>TensorSum.cxx</label>
+        <link refid="TensorSum_8cxx"/>
+      </node>
+      <node id="158">
+        <label>TensorSum.hpp</label>
+        <link refid="TensorSum_8hpp"/>
+        <childnode refid="159" relation="include">
+        </childnode>
+      </node>
+      <node id="161">
+        <label>TensorUnrestricter.cxx</label>
+        <link refid="TensorUnrestricter_8cxx"/>
+      </node>
+      <node id="160">
+        <label>TensorUnrestricter.hpp</label>
+        <link refid="TensorUnrestricter_8hpp"/>
+        <childnode refid="161" relation="include">
+        </childnode>
+      </node>
+      <node id="163">
+        <label>TensorWriter.cxx</label>
+        <link refid="TensorWriter_8cxx"/>
+      </node>
+      <node id="162">
+        <label>TensorWriter.hpp</label>
+        <link refid="TensorWriter_8hpp"/>
+        <childnode refid="163" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>UCcsdEAEquationOfMotionDavidson.cxx</label>
+        <link refid="UCcsdEAEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="164">
+        <label>UCcsdEAEquationOfMotionDavidson.hpp</label>
+        <link refid="UCcsdEAEquationOfMotionDavidson_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>UCcsdIPEquationOfMotionDavidson.cxx</label>
+        <link refid="UCcsdIPEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="165">
+        <label>UCcsdIPEquationOfMotionDavidson.hpp</label>
+        <link refid="UCcsdIPEquationOfMotionDavidson_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="167">
+        <label>UPerturbativeTriples.cxx</label>
+        <link refid="UPerturbativeTriples_8cxx"/>
+      </node>
+      <node id="166">
+        <label>UPerturbativeTriples.hpp</label>
+        <link refid="UPerturbativeTriples_8hpp"/>
+        <childnode refid="167" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>UccsdAmplitudesFromCoulombIntegrals.cxx</label>
+        <link refid="UccsdAmplitudesFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="41">
+        <label>UccsdAmplitudesFromCoulombIntegrals.hpp</label>
+        <link refid="UccsdAmplitudesFromCoulombIntegrals_8hpp"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>UccsdtAmplitudesFromCoulombIntegrals.cxx</label>
+        <link refid="UccsdtAmplitudesFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="33">
+        <label>UccsdtAmplitudesFromCoulombIntegrals.hpp</label>
+        <link refid="UccsdtAmplitudesFromCoulombIntegrals_8hpp"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>UccsdtqAmplitudesFromCoulombIntegrals.cxx</label>
+        <link refid="UccsdtqAmplitudesFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="37">
+        <label>UccsdtqAmplitudesFromCoulombIntegrals.hpp</label>
+        <link refid="UccsdtqAmplitudesFromCoulombIntegrals_8hpp"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="169">
+        <label>UegVertexGenerator.cxx</label>
+        <link refid="UegVertexGenerator_8cxx"/>
+      </node>
+      <node id="168">
+        <label>UegVertexGenerator.hpp</label>
+        <link refid="UegVertexGenerator_8hpp"/>
+        <childnode refid="169" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>UnrestrictedEquationOfMotionSinglesFromRpa.cxx</label>
+        <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx"/>
+      </node>
+      <node id="170">
+        <label>UnrestrictedEquationOfMotionSinglesFromRpa.hpp</label>
+        <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>UrpaAmplitudesFromCoulombIntegrals.cxx</label>
+        <link refid="UrpaAmplitudesFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="43">
+        <label>UrpaAmplitudesFromCoulombIntegrals.hpp</label>
+        <link refid="UrpaAmplitudesFromCoulombIntegrals_8hpp"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="138">
+        <label>wabcijk.cxx</label>
+        <link refid="wabcijk_8cxx"/>
+      </node>
+      <node id="139">
+        <label>wabij.cxx</label>
+        <link refid="wabij_8cxx"/>
+      </node>
+      <node id="101">
+        <label>DiisMixer.cxx</label>
+        <link refid="DiisMixer_8cxx"/>
+      </node>
+      <node id="100">
+        <label>DiisMixer.hpp</label>
+        <link refid="DiisMixer_8hpp"/>
+        <childnode refid="101" relation="include">
+        </childnode>
+      </node>
+      <node id="103">
+        <label>LinearMixer.cxx</label>
+        <link refid="LinearMixer_8cxx"/>
+      </node>
+      <node id="102">
+        <label>LinearMixer.hpp</label>
+        <link refid="LinearMixer_8hpp"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+      </node>
+      <node id="104">
+        <label>Mixer.cxx</label>
+        <link refid="Mixer_8cxx"/>
+      </node>
+      <node id="99">
+        <label>Mixer.hpp</label>
+        <link refid="Mixer_8hpp"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1TypeTraits_3_01bool_01_4" prot="public">sisi4s::TypeTraits&lt; bool &gt;</innerclass>
+    <innerclass refid="classsisi4s_1_1TypeTraits_3_01int64__t_01_4" prot="public">sisi4s::TypeTraits&lt; int64_t &gt;</innerclass>
+    <innerclass refid="classsisi4s_1_1TypeTraits_3_01Float64_01_4" prot="public">sisi4s::TypeTraits&lt; Float64 &gt;</innerclass>
+    <innerclass refid="classsisi4s_1_1TypeTraits_3_01Complex64_01_4" prot="public">sisi4s::TypeTraits&lt; Complex64 &gt;</innerclass>
+    <innerclass refid="classsisi4s_1_1Data" prot="public">sisi4s::Data</innerclass>
+    <innerclass refid="classsisi4s_1_1TypedData" prot="public">sisi4s::TypedData</innerclass>
+    <innerclass refid="classsisi4s_1_1TextData" prot="public">sisi4s::TextData</innerclass>
+    <innerclass refid="classsisi4s_1_1BooleanData" prot="public">sisi4s::BooleanData</innerclass>
+    <innerclass refid="classsisi4s_1_1NumericData" prot="public">sisi4s::NumericData</innerclass>
+    <innerclass refid="classsisi4s_1_1RealData" prot="public">sisi4s::RealData</innerclass>
+    <innerclass refid="classsisi4s_1_1IntegerData" prot="public">sisi4s::IntegerData</innerclass>
+    <innerclass refid="structsisi4s_1_1ContainerData" prot="public">sisi4s::ContainerData</innerclass>
+    <innerclass refid="classsisi4s_1_1TensorData" prot="public">sisi4s::TensorData</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="Data_8hpp_1a3c4eccd4b86dbbba5ed7a08809c8664c" prot="public" static="no">
+        <name>_MAKE_TRAIT</name>
+        <param><defname>_type</defname></param>
+        <param><defname>_name</defname></param>
+        <initializer>  template &lt;&gt;                                     \
+  class TypeTraits&lt;_type&gt; {                       \
+  public:                                         \
+  static std::string getName() { return _name; }  \
+  };</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/Data.hpp" line="23" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/Data.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2015,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DATA_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DATA_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Float_8hpp" kindref="compound">math/Float.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>find<sp/>out<sp/>why<sp/>Exception<sp/>must<sp/>be<sp/>included<sp/>after<sp/>string,map<sp/>and<sp/>ctf</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="22" refid="classsisi4s_1_1TypeTraits" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1TypeTraits" kindref="compound">TypeTraits</ref>;</highlight></codeline>
+<codeline lineno="23" refid="Data_8hpp_1a3c4eccd4b86dbbba5ed7a08809c8664c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_MAKE_TRAIT(_type,<sp/>_name)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor"><sp/><sp/>template<sp/>&lt;&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor"><sp/><sp/>class<sp/>TypeTraits&lt;_type&gt;<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"><sp/><sp/>public:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor"><sp/><sp/>static<sp/>std::string<sp/>getName()<sp/>{<sp/>return<sp/>_name;<sp/>}<sp/><sp/>\</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor"><sp/><sp/>};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classsisi4s_1_1TypeTraits_3_01bool_01_4_1a66638c5328991fa1cd07996efdf43768" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="Data_8hpp_1a3c4eccd4b86dbbba5ed7a08809c8664c" kindref="member">_MAKE_TRAIT</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;boolean&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="30" refid="classsisi4s_1_1TypeTraits_3_01int64__t_01_4_1a0615f36c24a57cba37349e328d5d8197" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="Data_8hpp_1a3c4eccd4b86dbbba5ed7a08809c8664c" kindref="member">_MAKE_TRAIT</ref>(int64_t,<sp/>&quot;integer&quot;)</highlight></codeline>
+<codeline lineno="31" refid="classsisi4s_1_1TypeTraits_3_01Float64_01_4_1a7b75c5140221511d44ea239c1fe9d510" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="Data_8hpp_1a3c4eccd4b86dbbba5ed7a08809c8664c" kindref="member">_MAKE_TRAIT</ref>(<ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref>,<sp/>&quot;real&quot;)</highlight></codeline>
+<codeline lineno="32" refid="classsisi4s_1_1TypeTraits_3_01Complex64_01_4_1ac897c98b8eb97021e189fa58d150b301" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="Data_8hpp_1a3c4eccd4b86dbbba5ed7a08809c8664c" kindref="member">_MAKE_TRAIT</ref>(<ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref>,<sp/>&quot;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>&quot;)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>_MAKE_TRAIT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classsisi4s_1_1Data" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="37" refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363" kindref="member">Stage</ref><sp/>{</highlight></codeline>
+<codeline lineno="38" refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363adaa138789887eb37b0e47ad00e0661e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363a032f49b3bce929cf5d3f24baeabd8787" kindref="member">MENTIONED</ref><sp/>=<sp/>0,<sp/><ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363aab8a4162af125abeebd2d8cea69b1f7f" kindref="member">TYPED</ref><sp/>=<sp/>1,<sp/><ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363adaa138789887eb37b0e47ad00e0661e3" kindref="member">ALLOCATED</ref><sp/>=<sp/>2,<sp/></highlight></codeline>
+<codeline lineno="39" refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363ac57745690e2f2de7e5c5da40470f346f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363ac57745690e2f2de7e5c5da40470f346f" kindref="member">READY</ref><sp/>=<sp/>3,</highlight></codeline>
+<codeline lineno="40" refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363a794112436987c4dce7a21ac477af6c7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363a794112436987c4dce7a21ac477af6c7f" kindref="member">UNUSED</ref><sp/>=<sp/>4,<sp/><ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363a231f695d1309feeee5aa0293838080d0" kindref="member">LINGERING</ref><sp/>=<sp/>5</highlight></codeline>
+<codeline lineno="41" refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363a231f695d1309feeee5aa0293838080d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data_1a451ecabfc1b04d8fe42d9e7830e18631" kindref="member">Data</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_);</highlight></codeline>
+<codeline lineno="43" refid="classsisi4s_1_1Data_1afc5a5d52ee5ef41efbdfe2f26d7dc0c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data_1afc5a5d52ee5ef41efbdfe2f26d7dc0c3" kindref="member">~Data</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data_1ab919572bad2952b419b4ca41feb8c0bf" kindref="member">dataMap</ref>[<ref refid="classsisi4s_1_1Data_1abd2d32de237619f900be350b94773048" kindref="member">name</ref>]<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46" refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><sp/><sp/><ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data_1abd2d32de237619f900be350b94773048" kindref="member">name</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="47" refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" kindref="member">getTypeName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data_1aed57921e32429b6456ed4af469e35b46" kindref="member">typeName</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="48" refid="classsisi4s_1_1Data_1a89e252bcbcdd0ea67517967b8613b841" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363" kindref="member">Stage</ref><sp/><ref refid="classsisi4s_1_1Data_1a89e252bcbcdd0ea67517967b8613b841" kindref="member">getStage</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data_1abee42fc152a8cfbfda5e2b59c080cc74" kindref="member">stage</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classsisi4s_1_1Data_1a5b4676e48b4f437d399587e6903f896a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*<ref refid="classsisi4s_1_1Data_1a5b4676e48b4f437d399587e6903f896a" kindref="member">get</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<ref refid="classsisi4s_1_1Data_1abd2d32de237619f900be350b94773048" kindref="member">name</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>iterator(<ref refid="classsisi4s_1_1Data_1ab919572bad2952b419b4ca41feb8c0bf" kindref="member">dataMap</ref>.find(<ref refid="classsisi4s_1_1Data_1abd2d32de237619f900be350b94773048" kindref="member">name</ref>));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(iterator<sp/>!=<sp/><ref refid="classsisi4s_1_1Data_1ab919572bad2952b419b4ca41feb8c0bf" kindref="member">dataMap</ref>.end())<sp/>?<sp/>iterator-&gt;second<sp/>:<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="58" refid="classsisi4s_1_1Data_1a2b7ea527a91a456c6ea715ef71f3285c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data_1a2b7ea527a91a456c6ea715ef71f3285c" kindref="member">Data</ref>(</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;typeName_</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1Data_1abd2d32de237619f900be350b94773048" kindref="member">name</ref>(name_),<sp/><ref refid="classsisi4s_1_1Data_1aed57921e32429b6456ed4af469e35b46" kindref="member">typeName</ref>(typeName_),<sp/><ref refid="classsisi4s_1_1Data_1abee42fc152a8cfbfda5e2b59c080cc74" kindref="member">stage</ref>(<ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363aab8a4162af125abeebd2d8cea69b1f7f" kindref="member">TYPED</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*mentionedData(<ref refid="classsisi4s_1_1Data_1ab919572bad2952b419b4ca41feb8c0bf" kindref="member">dataMap</ref>[name_]);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mentionedData)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mentionedData-&gt;<ref refid="classsisi4s_1_1Data_1a89e252bcbcdd0ea67517967b8613b841" kindref="member">getStage</ref>()<sp/>==<sp/><ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363a032f49b3bce929cf5d3f24baeabd8787" kindref="member">MENTIONED</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>mentionedData;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;overwriting<sp/>existing<sp/>data:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>name_<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>mentionedData;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>EXCEPTION(&quot;Trying<sp/>to<sp/>overwrite<sp/>existing<sp/>data&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data_1ab919572bad2952b419b4ca41feb8c0bf" kindref="member">dataMap</ref>[name_]<sp/>=<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73" refid="classsisi4s_1_1Data_1abd2d32de237619f900be350b94773048" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classsisi4s_1_1Data_1abd2d32de237619f900be350b94773048" kindref="member">name</ref>,<sp/><ref refid="classsisi4s_1_1Data_1aed57921e32429b6456ed4af469e35b46" kindref="member">typeName</ref>;</highlight></codeline>
+<codeline lineno="74" refid="classsisi4s_1_1Data_1abee42fc152a8cfbfda5e2b59c080cc74" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363" kindref="member">Stage</ref><sp/><ref refid="classsisi4s_1_1Data_1abee42fc152a8cfbfda5e2b59c080cc74" kindref="member">stage</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="classsisi4s_1_1Data_1ab919572bad2952b419b4ca41feb8c0bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>Data<sp/>*&gt;<sp/><ref refid="classsisi4s_1_1Data_1ab919572bad2952b419b4ca41feb8c0bf" kindref="member">dataMap</ref>;</highlight></codeline>
+<codeline lineno="77" refid="classsisi4s_1_1Data_1aff39e49c90374f8eee4fab8ab8b3fb31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int64_t<sp/><ref refid="classsisi4s_1_1Data_1aff39e49c90374f8eee4fab8ab8b3fb31" kindref="member">nextAnynomousDataId</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="classsisi4s_1_1TypedData" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1TypedData" kindref="compound">TypedData</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="85" refid="classsisi4s_1_1TypedData_1ac6c466b393564c30084424b259d60dfe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1TypedData_1ac6c466b393564c30084424b259d60dfe" kindref="member">TypedData</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;typeName_):<sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref>(<ref refid="classsisi4s_1_1TypedData_1a2e5e68414dbf941754a5a4cfc4e9a429" kindref="member">nextName</ref>(),<sp/>typeName_)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90" refid="classsisi4s_1_1TypedData_1afe0171a99e447701e1997d15e570ad00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1TypedData_1afe0171a99e447701e1997d15e570ad00" kindref="member">TypedData</ref>(</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;typeName_</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref>(name_,<sp/>typeName_)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="classsisi4s_1_1TypedData_1a2e5e68414dbf941754a5a4cfc4e9a429" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1TypedData_1a2e5e68414dbf941754a5a4cfc4e9a429" kindref="member">nextName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::stringstream<sp/>sStream;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Constant&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1TypedData_1ab058426313681f75cc7319cf81b9a179" kindref="member">nextId</ref>++;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sStream.str();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="classsisi4s_1_1TypedData_1ab058426313681f75cc7319cf81b9a179" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TypedData_1ab058426313681f75cc7319cf81b9a179" kindref="member">nextId</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="classsisi4s_1_1TextData" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1TextData" kindref="compound">TextData</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TypedData" kindref="compound">TypedData</ref><sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="111" refid="classsisi4s_1_1TextData_1a1650d36f80ffe155e4d58f6bc3d91902" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1TextData_1a1650d36f80ffe155e4d58f6bc3d91902" kindref="member">TextData</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;value_):<sp/><ref refid="classsisi4s_1_1TypedData" kindref="compound">TypedData</ref>(</highlight><highlight class="stringliteral">&quot;text&quot;</highlight><highlight class="normal">),<sp/><ref refid="classsisi4s_1_1TextData_1afd29c9958958ac9e9de099b3b5f7b372" kindref="member">value</ref>(value_)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="112" refid="classsisi4s_1_1TextData_1ab809873d6adcba3c537789015a0ee072" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1TextData_1ab809873d6adcba3c537789015a0ee072" kindref="member">TextData</ref>(</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;value_</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1TypedData" kindref="compound">TypedData</ref>(name_,<sp/></highlight><highlight class="stringliteral">&quot;text&quot;</highlight><highlight class="normal">),<sp/><ref refid="classsisi4s_1_1TextData_1afd29c9958958ac9e9de099b3b5f7b372" kindref="member">value</ref>(value_)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="115" refid="classsisi4s_1_1TextData_1afd29c9958958ac9e9de099b3b5f7b372" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classsisi4s_1_1TextData_1afd29c9958958ac9e9de099b3b5f7b372" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="classsisi4s_1_1BooleanData" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1BooleanData" kindref="compound">BooleanData</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TypedData" kindref="compound">TypedData</ref><sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="120" refid="classsisi4s_1_1BooleanData_1ac454d4df6e35aa4b4e12eb5983efe9f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BooleanData_1ac454d4df6e35aa4b4e12eb5983efe9f1" kindref="member">BooleanData</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>value_):<sp/><ref refid="classsisi4s_1_1TypedData" kindref="compound">TypedData</ref>(</highlight><highlight class="stringliteral">&quot;boolean&quot;</highlight><highlight class="normal">),<sp/><ref refid="classsisi4s_1_1BooleanData_1ab7805d58a322c6eb7f716f341eedcb82" kindref="member">value</ref>(value_)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="121" refid="classsisi4s_1_1BooleanData_1a841f13b222384b0f29f1ffb6d5f3aad6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BooleanData_1a841f13b222384b0f29f1ffb6d5f3aad6" kindref="member">BooleanData</ref>(</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>value_</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1TypedData" kindref="compound">TypedData</ref>(name_,<sp/></highlight><highlight class="stringliteral">&quot;boolean&quot;</highlight><highlight class="normal">),<sp/><ref refid="classsisi4s_1_1BooleanData_1ab7805d58a322c6eb7f716f341eedcb82" kindref="member">value</ref>(value_)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="124" refid="classsisi4s_1_1BooleanData_1ab7805d58a322c6eb7f716f341eedcb82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1BooleanData_1ab7805d58a322c6eb7f716f341eedcb82" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="classsisi4s_1_1NumericData" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TypedData" kindref="compound">TypedData</ref><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="129" refid="classsisi4s_1_1NumericData_1af9beedc886bb686fdc528b079ace34a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1NumericData_1af9beedc886bb686fdc528b079ace34a7" kindref="member">NumericData</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;typeName_):<sp/><ref refid="classsisi4s_1_1TypedData" kindref="compound">TypedData</ref>(typeName_)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="130" refid="classsisi4s_1_1NumericData_1a26c21cb9016a884e1656e3c7d55b3565" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1NumericData_1a26c21cb9016a884e1656e3c7d55b3565" kindref="member">NumericData</ref>(</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;typeName_</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1TypedData" kindref="compound">TypedData</ref>(name_,<sp/>typeName_)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="classsisi4s_1_1RealData" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref><sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="138" refid="classsisi4s_1_1RealData_1a88adf0e2515eaa75ee16a4c3a2c4de51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1RealData_1a88adf0e2515eaa75ee16a4c3a2c4de51" kindref="member">RealData</ref>(real<sp/>value_):<sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref>(</highlight><highlight class="stringliteral">&quot;real&quot;</highlight><highlight class="normal">),<sp/><ref refid="classsisi4s_1_1RealData_1aa2ebfedadb13cb8ef30ddc96d8351d83" kindref="member">value</ref>(value_)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="139" refid="classsisi4s_1_1RealData_1a7e8d2e12f4579e7d70505075cc147952" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1RealData_1a7e8d2e12f4579e7d70505075cc147952" kindref="member">RealData</ref>(</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>real<sp/>value_</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref>(name_,<sp/></highlight><highlight class="stringliteral">&quot;real&quot;</highlight><highlight class="normal">),<sp/><ref refid="classsisi4s_1_1RealData_1aa2ebfedadb13cb8ef30ddc96d8351d83" kindref="member">value</ref>(value_)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="142" refid="classsisi4s_1_1RealData_1aa2ebfedadb13cb8ef30ddc96d8351d83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="classsisi4s_1_1RealData_1aa2ebfedadb13cb8ef30ddc96d8351d83" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="classsisi4s_1_1IntegerData" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1IntegerData" kindref="compound">IntegerData</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref><sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="147" refid="classsisi4s_1_1IntegerData_1a4aa3164f05eca0af1107b23481be677e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1IntegerData_1a4aa3164f05eca0af1107b23481be677e" kindref="member">IntegerData</ref>(int64_t<sp/>value_):<sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref>(</highlight><highlight class="stringliteral">&quot;integer&quot;</highlight><highlight class="normal">),<sp/><ref refid="classsisi4s_1_1IntegerData_1a626faf1b2a39b358fcb44d904c9de573" kindref="member">value</ref>(value_)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="148" refid="classsisi4s_1_1IntegerData_1ae25540f4dd6afe5c00da279f426976a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1IntegerData_1ae25540f4dd6afe5c00da279f426976a5" kindref="member">IntegerData</ref>(</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_,<sp/>int64_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>value_</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref>(name_,<sp/></highlight><highlight class="stringliteral">&quot;real&quot;</highlight><highlight class="normal">),<sp/><ref refid="classsisi4s_1_1IntegerData_1a626faf1b2a39b358fcb44d904c9de573" kindref="member">value</ref>(value_)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="151" refid="classsisi4s_1_1IntegerData_1a626faf1b2a39b358fcb44d904c9de573" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/><ref refid="classsisi4s_1_1IntegerData_1a626faf1b2a39b358fcb44d904c9de573" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>C=std::vector&lt;F&gt;<sp/>&gt;</highlight></codeline>
+<codeline lineno="155" refid="structsisi4s_1_1ContainerData" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsisi4s_1_1ContainerData" kindref="compound">ContainerData</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref><sp/>{</highlight></codeline>
+<codeline lineno="156" refid="structsisi4s_1_1ContainerData_1a12e651b227ad4331a48364b4972ce247" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsisi4s_1_1ContainerData_1a12e651b227ad4331a48364b4972ce247" kindref="member">ContainerData</ref>(</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>C<sp/>*value_</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref>(</highlight><highlight class="stringliteral">&quot;Container<sp/>of<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="classsisi4s_1_1TypeTraits" kindref="compound">TypeTraits</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;::<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>()),<sp/><ref refid="structsisi4s_1_1ContainerData_1adbe82f8ea2133d487d9b3eb99e46640e" kindref="member">value</ref>(value_){}</highlight></codeline>
+<codeline lineno="159" refid="structsisi4s_1_1ContainerData_1aab1f10ebf2ac39f3e7008592347f192a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsisi4s_1_1ContainerData_1aab1f10ebf2ac39f3e7008592347f192a" kindref="member">ContainerData</ref>(</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_,<sp/>C<sp/>*value_</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref>(name_,<sp/></highlight><highlight class="stringliteral">&quot;Container<sp/>of<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="classsisi4s_1_1TypeTraits" kindref="compound">TypeTraits</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;::<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>()),</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structsisi4s_1_1ContainerData_1adbe82f8ea2133d487d9b3eb99e46640e" kindref="member">value</ref>(value_)<sp/>{}</highlight></codeline>
+<codeline lineno="163" refid="structsisi4s_1_1ContainerData_1a9ffed60bb155ac9189e147d511fbf5e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1ContainerData_1a9ffed60bb155ac9189e147d511fbf5e6" kindref="member">~ContainerData</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structsisi4s_1_1ContainerData_1adbe82f8ea2133d487d9b3eb99e46640e" kindref="member">value</ref>)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1ContainerData_1adbe82f8ea2133d487d9b3eb99e46640e" kindref="member">value</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="164" refid="structsisi4s_1_1ContainerData_1adbe82f8ea2133d487d9b3eb99e46640e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>C<sp/>*<ref refid="structsisi4s_1_1ContainerData_1adbe82f8ea2133d487d9b3eb99e46640e" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T=CTF::Tensor&lt;F&gt;<sp/>&gt;</highlight></codeline>
+<codeline lineno="168" refid="classsisi4s_1_1TensorData" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref><sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="170" refid="classsisi4s_1_1TensorData_1a8efedb03ce045d073ed47a3765aa5558" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1TensorData_1a8efedb03ce045d073ed47a3765aa5558" kindref="member">TensorData</ref>(</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/>*value_</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref>(</highlight><highlight class="stringliteral">&quot;tensor<sp/>of<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="classsisi4s_1_1TypeTraits" kindref="compound">TypeTraits</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;::<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>()),<sp/><ref refid="classsisi4s_1_1TensorData_1ab4271a62e0c5a4f0e9172edbc61a11a0" kindref="member">value</ref>(value_)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174" refid="classsisi4s_1_1TensorData_1adff973099df5d53ab92dcf7ce76b7a83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1TensorData_1adff973099df5d53ab92dcf7ce76b7a83" kindref="member">TensorData</ref>(</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_,<sp/>T<sp/>*value_</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref>(name_,<sp/></highlight><highlight class="stringliteral">&quot;tensor<sp/>of<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="classsisi4s_1_1TypeTraits" kindref="compound">TypeTraits</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;::<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>()),<sp/><ref refid="classsisi4s_1_1TensorData_1ab4271a62e0c5a4f0e9172edbc61a11a0" kindref="member">value</ref>(value_)</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180" refid="classsisi4s_1_1TensorData_1a9f1d158f7bf077abea3ae190ebe92d1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TensorData_1a9f1d158f7bf077abea3ae190ebe92d1e" kindref="member">~TensorData</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1TensorData_1ab4271a62e0c5a4f0e9172edbc61a11a0" kindref="member">value</ref>)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TensorData_1ab4271a62e0c5a4f0e9172edbc61a11a0" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183" refid="classsisi4s_1_1TensorData_1ab4271a62e0c5a4f0e9172edbc61a11a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>T<sp/>*<ref refid="classsisi4s_1_1TensorData_1ab4271a62e0c5a4f0e9172edbc61a11a0" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/Data.hpp"/>
+  </compounddef>
+</doxygen>

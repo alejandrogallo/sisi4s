@@ -1,0 +1,739 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1Validator" kind="class" language="C++" prot="public">
+    <compoundname>CLI::Validator</compoundname>
+    <derivedcompoundref refid="classCLI_1_1AsNumberWithUnit" prot="public" virt="non-virtual">CLI::AsNumberWithUnit</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1Bound" prot="public" virt="non-virtual">CLI::Bound</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1CheckedTransformer" prot="public" virt="non-virtual">CLI::CheckedTransformer</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1CustomValidator" prot="public" virt="non-virtual">CLI::CustomValidator</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1IsMember" prot="public" virt="non-virtual">CLI::IsMember</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1Range" prot="public" virt="non-virtual">CLI::Range</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1Transformer" prot="public" virt="non-virtual">CLI::Transformer</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1TypeValidator" prot="public" virt="non-virtual">CLI::TypeValidator&lt; DesiredType &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1detail_1_1ExistingDirectoryValidator" prot="public" virt="non-virtual">CLI::detail::ExistingDirectoryValidator</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1detail_1_1ExistingFileValidator" prot="public" virt="non-virtual">CLI::detail::ExistingFileValidator</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1detail_1_1ExistingPathValidator" prot="public" virt="non-virtual">CLI::detail::ExistingPathValidator</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1detail_1_1IPV4Validator" prot="public" virt="non-virtual">CLI::detail::IPV4Validator</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1detail_1_1NonexistentPathValidator" prot="public" virt="non-virtual">CLI::detail::NonexistentPathValidator</derivedcompoundref>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classCLI_1_1Validator_1a9f00a86d01b79facfc300be76b7463d7" prot="protected" static="no" mutable="no">
+        <type>std::function&lt; std::string()&gt;</type>
+        <definition>std::function&lt;std::string()&gt; CLI::Validator::desc_function_</definition>
+        <argsstring></argsstring>
+        <name>desc_function_</name>
+        <qualifiedname>CLI::Validator::desc_function_</qualifiedname>
+        <initializer>{[]() { return std::string{}; }}</initializer>
+        <briefdescription>
+<para>This is the description function, if empty the description_ will be used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2704" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2704" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1Validator_1acb7942915861f00426ba4106c3fa1445" compoundref="CLI11_8hpp" startline="2759" endline="2763">description</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1ab113af781dbc286b22cdfeedd5204e68" compoundref="CLI11_8hpp" startline="2870" endline="2890">operator!</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Validator_1aa6c1eedd7839b91d88246539f2305ef3" prot="protected" static="no" mutable="no">
+        <type>std::function&lt; std::string(std::string &amp;)&gt;</type>
+        <definition>std::function&lt;std::string(std::string &amp;)&gt; CLI::Validator::func_</definition>
+        <argsstring></argsstring>
+        <name>func_</name>
+        <qualifiedname>CLI::Validator::func_</qualifiedname>
+        <initializer>{[](std::string &amp;) { return std::string{}; }}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the base function that is to be called. Returns a string error message if validation fails. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2708" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2708" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1Validator_1ab113af781dbc286b22cdfeedd5204e68" compoundref="CLI11_8hpp" startline="2870" endline="2890">operator!</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1a52e52713e3e170d132a01bf91ea2b879" compoundref="CLI11_8hpp" startline="2822" endline="2843">operator&amp;</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1ac19919604a6ac47c5a1cbd34920991a4" compoundref="CLI11_8hpp" startline="2847" endline="2867">operator|</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Validator_1ac97b23ee16e15ae0b31253feb39706bf" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string CLI::Validator::name_</definition>
+        <argsstring></argsstring>
+        <name>name_</name>
+        <qualifiedname>CLI::Validator::name_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>The name for search purposes of the <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2710" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2710" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1Validator_1a56272c0571e4b28e5f1387787bee671c" compoundref="CLI11_8hpp" startline="2777" endline="2781">name</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Validator_1a301ecf2851e4a7cdcad7c9b774598320" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CLI::Validator::application_index_</definition>
+        <argsstring></argsstring>
+        <name>application_index_</name>
+        <qualifiedname>CLI::Validator::application_index_</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>A <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> will only apply to an indexed value (-1 is all elements) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2712" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2712" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1Validator_1a5f621b1380d9a1a3694bc509a087d1cd" compoundref="CLI11_8hpp" startline="2807" endline="2811">application_index</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1ab113af781dbc286b22cdfeedd5204e68" compoundref="CLI11_8hpp" startline="2870" endline="2890">operator!</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1a52e52713e3e170d132a01bf91ea2b879" compoundref="CLI11_8hpp" startline="2822" endline="2843">operator&amp;</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1ac19919604a6ac47c5a1cbd34920991a4" compoundref="CLI11_8hpp" startline="2847" endline="2867">operator|</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Validator_1a558776377513d88bf637b5d775c4e31b" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::Validator::active_</definition>
+        <argsstring></argsstring>
+        <name>active_</name>
+        <qualifiedname>CLI::Validator::active_</qualifiedname>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>Enable for <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> to allow it to be disabled if need be. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2714" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2714" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1Validator_1a98fa76ba029599613e3ab8609e25af4d" compoundref="CLI11_8hpp" startline="2790" endline="2794">active</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1ab113af781dbc286b22cdfeedd5204e68" compoundref="CLI11_8hpp" startline="2870" endline="2890">operator!</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1a52e52713e3e170d132a01bf91ea2b879" compoundref="CLI11_8hpp" startline="2822" endline="2843">operator&amp;</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1ac19919604a6ac47c5a1cbd34920991a4" compoundref="CLI11_8hpp" startline="2847" endline="2867">operator|</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Validator_1a60df532d1d80afc040ec0e8ed2736200" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::Validator::non_modifying_</definition>
+        <argsstring></argsstring>
+        <name>non_modifying_</name>
+        <qualifiedname>CLI::Validator::non_modifying_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>specify that a validator should not modify the input </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2716" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2716" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCLI_1_1Validator_1a918d82662319f6dc9dad53d580741569" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CLI::Validator::Validator</definition>
+        <argsstring>()=default</argsstring>
+        <name>Validator</name>
+        <qualifiedname>CLI::Validator::Validator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2719" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a71df7c1c94c4abceee930eef957f5b76" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CLI::Validator::Validator</definition>
+        <argsstring>(std::string validator_desc)</argsstring>
+        <name>Validator</name>
+        <qualifiedname>CLI::Validator::Validator</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>validator_desc</declname>
+        </param>
+        <briefdescription>
+<para>Construct a <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> with just the description string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2721" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2721" bodyend="2721"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1aede1b1a51a7f924342a92cbbd3ee41be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CLI::Validator::Validator</definition>
+        <argsstring>(std::function&lt; std::string(std::string &amp;)&gt; op, std::string validator_desc, std::string validator_name=&quot;&quot;)</argsstring>
+        <name>Validator</name>
+        <qualifiedname>CLI::Validator::Validator</qualifiedname>
+        <param>
+          <type>std::function&lt; std::string(std::string &amp;)&gt;</type>
+          <declname>op</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>validator_desc</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>validator_name</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Construct <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> from basic information. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2723" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2723" bodyend="2725"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1afc57c1bbaadbff4ce9c5772519818831" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &amp;</type>
+        <definition>Validator &amp; CLI::Validator::operation</definition>
+        <argsstring>(std::function&lt; std::string(std::string &amp;)&gt; op)</argsstring>
+        <name>operation</name>
+        <qualifiedname>CLI::Validator::operation</qualifiedname>
+        <param>
+          <type>std::function&lt; std::string(std::string &amp;)&gt;</type>
+          <declname>op</declname>
+        </param>
+        <briefdescription>
+<para>Set the <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> operation function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2727" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2727" bodyend="2730"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a97241be1f8ac1c8d2fabdcf2ec761f49" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Validator::operator()</definition>
+        <argsstring>(std::string &amp;str) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>CLI::Validator::operator()</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the required operator for a <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> - provided to help users (CLI11 uses the member <computeroutput>func</computeroutput> directly) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2733" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2733" bodyend="2744"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">CLI::detail::str</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a3e4e7670d82455a43c0d3f8c9cc1db4f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Validator::operator()</definition>
+        <argsstring>(const std::string &amp;str) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>CLI::Validator::operator()</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the required operator for a <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> - provided to help users (CLI11 uses the member <computeroutput>func</computeroutput> directly) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2748" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2748" bodyend="2751"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">CLI::detail::str</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a35930c9b193bb0f7c5b7597dfe002e1f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &amp;</type>
+        <definition>Validator &amp; CLI::Validator::description</definition>
+        <argsstring>(std::string validator_desc)</argsstring>
+        <name>description</name>
+        <qualifiedname>CLI::Validator::description</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>validator_desc</declname>
+        </param>
+        <briefdescription>
+<para>Specify the type string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2754" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2754" bodyend="2757"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1acb7942915861f00426ba4106c3fa1445" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref></type>
+        <definition>Validator CLI::Validator::description</definition>
+        <argsstring>(std::string validator_desc) const</argsstring>
+        <name>description</name>
+        <qualifiedname>CLI::Validator::description</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>validator_desc</declname>
+        </param>
+        <briefdescription>
+<para>Specify the type string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2759" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2759" bodyend="2763"/>
+        <references refid="classCLI_1_1Validator_1a9f00a86d01b79facfc300be76b7463d7" compoundref="CLI11_8hpp" startline="2704">desc_function_</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a77c9d0a1f496ccaa4a8ef293a41bca78" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Validator::get_description</definition>
+        <argsstring>() const</argsstring>
+        <name>get_description</name>
+        <qualifiedname>CLI::Validator::get_description</qualifiedname>
+        <briefdescription>
+<para>Generate type description information for the <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2765" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2765" bodyend="2770"/>
+        <referencedby refid="classCLI_1_1Option_1a8b8425827ceb852c3cc3f44b9b1c26a4" compoundref="CLI11_8hpp" startline="5087" endline="5098">CLI::Option::get_type_name</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a8fc0ddaaa61f5dc5a7fa527d697991da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &amp;</type>
+        <definition>Validator &amp; CLI::Validator::name</definition>
+        <argsstring>(std::string validator_name)</argsstring>
+        <name>name</name>
+        <qualifiedname>CLI::Validator::name</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>validator_name</declname>
+        </param>
+        <briefdescription>
+<para>Specify the type string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2772" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2772" bodyend="2775"/>
+        <referencedby refid="classCLI_1_1Option_1ae94ff5bfc6549f9c86aff629be829353" compoundref="CLI11_8hpp" startline="4360" endline="4366">CLI::Option::check</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a56272c0571e4b28e5f1387787bee671c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref></type>
+        <definition>Validator CLI::Validator::name</definition>
+        <argsstring>(std::string validator_name) const</argsstring>
+        <name>name</name>
+        <qualifiedname>CLI::Validator::name</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>validator_name</declname>
+        </param>
+        <briefdescription>
+<para>Specify the type string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2777" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2777" bodyend="2781"/>
+        <references refid="classCLI_1_1Validator_1ac97b23ee16e15ae0b31253feb39706bf" compoundref="CLI11_8hpp" startline="2710">name_</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a688775a9b9dffb8f7e40cfb42af11697" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; CLI::Validator::get_name</definition>
+        <argsstring>() const</argsstring>
+        <name>get_name</name>
+        <qualifiedname>CLI::Validator::get_name</qualifiedname>
+        <briefdescription>
+<para>Get the name of the <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2783" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2783" bodyend="2783"/>
+        <referencedby refid="classCLI_1_1Option_1a5ab8425e4e001f52d87db7ee86cbd579" compoundref="CLI11_8hpp" startline="4412" endline="4422">CLI::Option::get_validator</referencedby>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1ac8f0bd247c6cca15729c2f0f5b822fe4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &amp;</type>
+        <definition>Validator &amp; CLI::Validator::active</definition>
+        <argsstring>(bool active_val=true)</argsstring>
+        <name>active</name>
+        <qualifiedname>CLI::Validator::active</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>active_val</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Specify whether the <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> is active or not. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2785" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2785" bodyend="2788"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a98fa76ba029599613e3ab8609e25af4d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref></type>
+        <definition>Validator CLI::Validator::active</definition>
+        <argsstring>(bool active_val=true) const</argsstring>
+        <name>active</name>
+        <qualifiedname>CLI::Validator::active</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>active_val</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Specify whether the <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> is active or not. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2790" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2790" bodyend="2794"/>
+        <references refid="classCLI_1_1Validator_1a558776377513d88bf637b5d775c4e31b" compoundref="CLI11_8hpp" startline="2714">active_</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a356d979d984dffff3489caf4baca9160" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &amp;</type>
+        <definition>Validator &amp; CLI::Validator::non_modifying</definition>
+        <argsstring>(bool no_modify=true)</argsstring>
+        <name>non_modifying</name>
+        <qualifiedname>CLI::Validator::non_modifying</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>no_modify</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Specify whether the <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> can be modifying or not. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2797" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2797" bodyend="2800"/>
+        <referencedby refid="classCLI_1_1Option_1ae94ff5bfc6549f9c86aff629be829353" compoundref="CLI11_8hpp" startline="4360" endline="4366">CLI::Option::check</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1ae24fb3eedf62301b733b3a20d2b93757" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &amp;</type>
+        <definition>Validator &amp; CLI::Validator::application_index</definition>
+        <argsstring>(int app_index)</argsstring>
+        <name>application_index</name>
+        <qualifiedname>CLI::Validator::application_index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>app_index</declname>
+        </param>
+        <briefdescription>
+<para>Specify the application index of a validator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2802" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2802" bodyend="2805"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a5f621b1380d9a1a3694bc509a087d1cd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref></type>
+        <definition>Validator CLI::Validator::application_index</definition>
+        <argsstring>(int app_index) const</argsstring>
+        <name>application_index</name>
+        <qualifiedname>CLI::Validator::application_index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>app_index</declname>
+        </param>
+        <briefdescription>
+<para>Specify the application index of a validator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2807" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2807" bodyend="2811"/>
+        <references refid="classCLI_1_1Validator_1a301ecf2851e4a7cdcad7c9b774598320" compoundref="CLI11_8hpp" startline="2712">application_index_</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1aa27699959ccccc236af305582d2b3e90" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Validator::get_application_index</definition>
+        <argsstring>() const</argsstring>
+        <name>get_application_index</name>
+        <qualifiedname>CLI::Validator::get_application_index</qualifiedname>
+        <briefdescription>
+<para>Get the current value of the application index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2813" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2813" bodyend="2813"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a1c08bcd3bca8c446e49e44d2c4e1413f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Validator::get_active</definition>
+        <argsstring>() const</argsstring>
+        <name>get_active</name>
+        <qualifiedname>CLI::Validator::get_active</qualifiedname>
+        <briefdescription>
+<para>Get a boolean if the validator is active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2815" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2815" bodyend="2815"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1addb6df41feafbbbe6347a46151d55762" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Validator::get_modifying</definition>
+        <argsstring>() const</argsstring>
+        <name>get_modifying</name>
+        <qualifiedname>CLI::Validator::get_modifying</qualifiedname>
+        <briefdescription>
+<para>Get a boolean if the validator is allowed to modify the input returns true if it can modify the input. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2818" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2818" bodyend="2818"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1a52e52713e3e170d132a01bf91ea2b879" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref></type>
+        <definition>Validator CLI::Validator::operator&amp;</definition>
+        <argsstring>(const Validator &amp;other) const</argsstring>
+        <name>operator&amp;</name>
+        <qualifiedname>CLI::Validator::operator&amp;</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Combining validators is a new validator. Type comes from left validator if function, otherwise only set if the same. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2822" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2822" bodyend="2843"/>
+        <references refid="classCLI_1_1Validator_1a558776377513d88bf637b5d775c4e31b" compoundref="CLI11_8hpp" startline="2714">active_</references>
+        <references refid="classCLI_1_1Validator_1a301ecf2851e4a7cdcad7c9b774598320" compoundref="CLI11_8hpp" startline="2712">application_index_</references>
+        <references refid="classCLI_1_1Validator_1aa6c1eedd7839b91d88246539f2305ef3" compoundref="CLI11_8hpp" startline="2708">func_</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1ac19919604a6ac47c5a1cbd34920991a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref></type>
+        <definition>Validator CLI::Validator::operator|</definition>
+        <argsstring>(const Validator &amp;other) const</argsstring>
+        <name>operator|</name>
+        <qualifiedname>CLI::Validator::operator|</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Combining validators is a new validator. Type comes from left validator if function, otherwise only set if the same. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2847" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2847" bodyend="2867"/>
+        <references refid="classCLI_1_1Validator_1a558776377513d88bf637b5d775c4e31b" compoundref="CLI11_8hpp" startline="2714">active_</references>
+        <references refid="classCLI_1_1Validator_1a301ecf2851e4a7cdcad7c9b774598320" compoundref="CLI11_8hpp" startline="2712">application_index_</references>
+        <references refid="classCLI_1_1Validator_1aa6c1eedd7839b91d88246539f2305ef3" compoundref="CLI11_8hpp" startline="2708">func_</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Validator_1ab113af781dbc286b22cdfeedd5204e68" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref></type>
+        <definition>Validator CLI::Validator::operator!</definition>
+        <argsstring>() const</argsstring>
+        <name>operator!</name>
+        <qualifiedname>CLI::Validator::operator!</qualifiedname>
+        <briefdescription>
+<para>Create a validator that fails when a given validator succeeds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2870" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2870" bodyend="2890"/>
+        <references refid="classCLI_1_1Validator_1a558776377513d88bf637b5d775c4e31b" compoundref="CLI11_8hpp" startline="2714">active_</references>
+        <references refid="classCLI_1_1Validator_1a301ecf2851e4a7cdcad7c9b774598320" compoundref="CLI11_8hpp" startline="2712">application_index_</references>
+        <references refid="classCLI_1_1Validator_1a9f00a86d01b79facfc300be76b7463d7" compoundref="CLI11_8hpp" startline="2704">desc_function_</references>
+        <references refid="classCLI_1_1Validator_1aa6c1eedd7839b91d88246539f2305ef3" compoundref="CLI11_8hpp" startline="2708">func_</references>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">CLI::detail::str</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classCLI_1_1Validator_1ab0e3ea24889ccbf2965c59495148a9bf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::Validator::_merge_description</definition>
+        <argsstring>(const Validator &amp;val1, const Validator &amp;val2, const std::string &amp;merger)</argsstring>
+        <name>_merge_description</name>
+        <qualifiedname>CLI::Validator::_merge_description</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &amp;</type>
+          <declname>val1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &amp;</type>
+          <declname>val2</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>merger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2893" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2893" bodyend="2906"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Some validators that are provided. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These are simple <computeroutput>std::string(const std::string&amp;)</computeroutput> validators that are useful. They return a string if the validation fails. A custom struct is provided, as well, with the same user semantics, but with the ability to provide a new type name. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CLI::AsNumberWithUnit</label>
+        <link refid="classCLI_1_1AsNumberWithUnit"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CLI::AsSizeValue</label>
+        <link refid="classCLI_1_1AsSizeValue"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CLI::Bound</label>
+        <link refid="classCLI_1_1Bound"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CLI::CheckedTransformer</label>
+        <link refid="classCLI_1_1CheckedTransformer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CLI::CustomValidator</label>
+        <link refid="classCLI_1_1CustomValidator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>CLI::IsMember</label>
+        <link refid="classCLI_1_1IsMember"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>CLI::Range</label>
+        <link refid="classCLI_1_1Range"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>CLI::Transformer</label>
+        <link refid="classCLI_1_1Transformer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>CLI::TypeValidator&lt; DesiredType &gt;</label>
+        <link refid="classCLI_1_1TypeValidator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CLI::Validator</label>
+        <link refid="classCLI_1_1Validator"/>
+      </node>
+      <node id="11">
+        <label>CLI::detail::ExistingDirectoryValidator</label>
+        <link refid="classCLI_1_1detail_1_1ExistingDirectoryValidator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>CLI::detail::ExistingFileValidator</label>
+        <link refid="classCLI_1_1detail_1_1ExistingFileValidator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>CLI::detail::ExistingPathValidator</label>
+        <link refid="classCLI_1_1detail_1_1ExistingPathValidator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>CLI::detail::IPV4Validator</label>
+        <link refid="classCLI_1_1detail_1_1IPV4Validator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>CLI::detail::NonexistentPathValidator</label>
+        <link refid="classCLI_1_1detail_1_1NonexistentPathValidator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::Validator</label>
+        <link refid="classCLI_1_1Validator"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2701" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2701" bodyend="2907"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1Validator_1ab0e3ea24889ccbf2965c59495148a9bf" prot="private" virt="non-virtual"><scope>CLI::Validator</scope><name>_merge_description</name></member>
+      <member refid="classCLI_1_1Validator_1ac8f0bd247c6cca15729c2f0f5b822fe4" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>active</name></member>
+      <member refid="classCLI_1_1Validator_1a98fa76ba029599613e3ab8609e25af4d" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>active</name></member>
+      <member refid="classCLI_1_1Validator_1a558776377513d88bf637b5d775c4e31b" prot="protected" virt="non-virtual"><scope>CLI::Validator</scope><name>active_</name></member>
+      <member refid="classCLI_1_1Validator_1ae24fb3eedf62301b733b3a20d2b93757" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>application_index</name></member>
+      <member refid="classCLI_1_1Validator_1a5f621b1380d9a1a3694bc509a087d1cd" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>application_index</name></member>
+      <member refid="classCLI_1_1Validator_1a301ecf2851e4a7cdcad7c9b774598320" prot="protected" virt="non-virtual"><scope>CLI::Validator</scope><name>application_index_</name></member>
+      <member refid="classCLI_1_1Validator_1a9f00a86d01b79facfc300be76b7463d7" prot="protected" virt="non-virtual"><scope>CLI::Validator</scope><name>desc_function_</name></member>
+      <member refid="classCLI_1_1Validator_1a35930c9b193bb0f7c5b7597dfe002e1f" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>description</name></member>
+      <member refid="classCLI_1_1Validator_1acb7942915861f00426ba4106c3fa1445" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>description</name></member>
+      <member refid="classCLI_1_1Validator_1aa6c1eedd7839b91d88246539f2305ef3" prot="protected" virt="non-virtual"><scope>CLI::Validator</scope><name>func_</name></member>
+      <member refid="classCLI_1_1Validator_1a1c08bcd3bca8c446e49e44d2c4e1413f" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>get_active</name></member>
+      <member refid="classCLI_1_1Validator_1aa27699959ccccc236af305582d2b3e90" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>get_application_index</name></member>
+      <member refid="classCLI_1_1Validator_1a77c9d0a1f496ccaa4a8ef293a41bca78" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>get_description</name></member>
+      <member refid="classCLI_1_1Validator_1addb6df41feafbbbe6347a46151d55762" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>get_modifying</name></member>
+      <member refid="classCLI_1_1Validator_1a688775a9b9dffb8f7e40cfb42af11697" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>get_name</name></member>
+      <member refid="classCLI_1_1Validator_1a8fc0ddaaa61f5dc5a7fa527d697991da" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>name</name></member>
+      <member refid="classCLI_1_1Validator_1a56272c0571e4b28e5f1387787bee671c" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>name</name></member>
+      <member refid="classCLI_1_1Validator_1ac97b23ee16e15ae0b31253feb39706bf" prot="protected" virt="non-virtual"><scope>CLI::Validator</scope><name>name_</name></member>
+      <member refid="classCLI_1_1Validator_1a356d979d984dffff3489caf4baca9160" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>non_modifying</name></member>
+      <member refid="classCLI_1_1Validator_1a60df532d1d80afc040ec0e8ed2736200" prot="protected" virt="non-virtual"><scope>CLI::Validator</scope><name>non_modifying_</name></member>
+      <member refid="classCLI_1_1Validator_1afc57c1bbaadbff4ce9c5772519818831" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>operation</name></member>
+      <member refid="classCLI_1_1Validator_1ab113af781dbc286b22cdfeedd5204e68" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>operator!</name></member>
+      <member refid="classCLI_1_1Validator_1a52e52713e3e170d132a01bf91ea2b879" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>operator&amp;</name></member>
+      <member refid="classCLI_1_1Validator_1a97241be1f8ac1c8d2fabdcf2ec761f49" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>operator()</name></member>
+      <member refid="classCLI_1_1Validator_1a3e4e7670d82455a43c0d3f8c9cc1db4f" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>operator()</name></member>
+      <member refid="classCLI_1_1Validator_1ac19919604a6ac47c5a1cbd34920991a4" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>operator|</name></member>
+      <member refid="classCLI_1_1Validator_1a918d82662319f6dc9dad53d580741569" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>Validator</name></member>
+      <member refid="classCLI_1_1Validator_1a71df7c1c94c4abceee930eef957f5b76" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>Validator</name></member>
+      <member refid="classCLI_1_1Validator_1aede1b1a51a7f924342a92cbbd3ee41be" prot="public" virt="non-virtual"><scope>CLI::Validator</scope><name>Validator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

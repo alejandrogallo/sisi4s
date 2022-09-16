@@ -1,0 +1,510 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1Formatter" kind="class" language="C++" prot="public">
+    <compoundname>CLI::Formatter</compoundname>
+    <basecompoundref refid="classCLI_1_1FormatterBase" prot="public" virt="non-virtual">CLI::FormatterBase</basecompoundref>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+      <sectiondef kind="user-defined">
+      <header>Overridables</header>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1aebbdf79e2615ea7d16fe8f30fb6551fc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_group</definition>
+        <argsstring>(std::string group, bool is_positional, std::vector&lt; const Option * &gt; opts) const</argsstring>
+        <name>make_group</name>
+        <qualifiedname>CLI::Formatter::make_group</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>group</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_positional</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; const <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> * &gt;</type>
+          <declname>opts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This prints out a group of options with title </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3874" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8795" bodyend="8804"/>
+        <references refid="namespacepars_1a56722e3642335e4646823756ceb888ca">pars::group</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1aab5f07a6d3154ace0be4d9dbf85f795b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_positionals</definition>
+        <argsstring>(const App *app) const</argsstring>
+        <name>make_positionals</name>
+        <qualifiedname>CLI::Formatter::make_positionals</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+<para>This prints out just the positionals &quot;group&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3877" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8806" bodyend="8814"/>
+        <references refid="classCLI_1_1OptionBase_1ad824d0f4f973675beece17d6b5ad9d00" compoundref="CLI11_8hpp" startline="4025" endline="4025">CLI::OptionBase&lt; CRTP &gt;::get_group</references>
+        <references refid="classCLI_1_1App_1ab4e19fac7ff58e4b5252a387728dcd72" compoundref="CLI11_8hpp" startline="6779" endline="6793">CLI::App::get_options</references>
+        <references refid="classCLI_1_1Option_1acab7033604b49e314d290b01adea690d" compoundref="CLI11_8hpp" startline="4654" endline="4654">CLI::Option::get_positional</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1ad48dd6b9432babc0037d6726230221f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_groups</definition>
+        <argsstring>(const App *app, AppFormatMode mode) const</argsstring>
+        <name>make_groups</name>
+        <qualifiedname>CLI::Formatter::make_groups</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119c" kindref="member">AppFormatMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>This prints out all the groups of options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3880" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8816" bodyend="8838"/>
+        <references refid="classCLI_1_1OptionBase_1ad824d0f4f973675beece17d6b5ad9d00" compoundref="CLI11_8hpp" startline="4025" endline="4025">CLI::OptionBase&lt; CRTP &gt;::get_group</references>
+        <references refid="classCLI_1_1App_1af0d7e22ac4f12250818bce3e22e8d569" compoundref="CLI11_8hpp" startline="7024" endline="7035">CLI::App::get_groups</references>
+        <references refid="classCLI_1_1App_1a389fe480583b713747db067b3ce1d5a5" compoundref="CLI11_8hpp" startline="6945" endline="6945">CLI::App::get_help_all_ptr</references>
+        <references refid="classCLI_1_1App_1a4720d5ded12ab00d3aa76bd195ad92be" compoundref="CLI11_8hpp" startline="6939" endline="6939">CLI::App::get_help_ptr</references>
+        <references refid="classCLI_1_1App_1ab4e19fac7ff58e4b5252a387728dcd72" compoundref="CLI11_8hpp" startline="6779" endline="6793">CLI::App::get_options</references>
+        <references refid="namespacepars_1a56722e3642335e4646823756ceb888ca">pars::group</references>
+        <references refid="classCLI_1_1Option_1a94cc5149d388be946c449e8ee61cd034" compoundref="CLI11_8hpp" startline="4657" endline="4657">CLI::Option::nonpositional</references>
+        <references refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119cae80155eceb940c89e2de63ad05868db2">CLI::Sub</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1a9e6b7c4c6eee50b11fe1ca785002db04" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_subcommands</definition>
+        <argsstring>(const App *app, AppFormatMode mode) const</argsstring>
+        <name>make_subcommands</name>
+        <qualifiedname>CLI::Formatter::make_subcommands</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119c" kindref="member">AppFormatMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>This prints out all the subcommands. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3883" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8940" bodyend="8980"/>
+        <references refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119cab1c94ca2fbc3e78fc30069c8d0f01680">CLI::All</references>
+        <references refid="classCLI_1_1App_1a7285a71dac7f168f5d0f992ac75f404d" compoundref="CLI11_8hpp" startline="6892" endline="6892">CLI::App::get_group</references>
+        <references refid="classCLI_1_1App_1a6b4b0c02d0c3d08b534fb93737056751" compoundref="CLI11_8hpp" startline="6564" endline="6564">CLI::App::get_subcommands</references>
+        <references refid="namespacepars_1a56722e3642335e4646823756ceb888ca">pars::group</references>
+        <references refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119cae80155eceb940c89e2de63ad05868db2">CLI::Sub</references>
+        <references refid="namespaceCLI_1_1detail_1ae83709ec148057ec53df4383645727e9" compoundref="CLI11_8hpp" startline="377" endline="382">CLI::detail::to_lower</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1a82a62cd4b9833cab20e82c4d099c0c7f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_subcommand</definition>
+        <argsstring>(const App *sub) const</argsstring>
+        <name>make_subcommand</name>
+        <qualifiedname>CLI::Formatter::make_subcommand</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>sub</declname>
+        </param>
+        <briefdescription>
+<para>This prints out a subcommand. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3886" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8982" bodyend="8986"/>
+        <references refid="namespaceCLI_1_1detail_1a4b73b36dbab9c829a299be49799fbb40" compoundref="CLI11_8hpp" startline="300" endline="315">CLI::detail::format_help</references>
+        <references refid="classCLI_1_1App_1ab7637441b1cd7fb2fcf5e7e095e779a7" compoundref="CLI11_8hpp" startline="6770" endline="6770">CLI::App::get_description</references>
+        <references refid="classCLI_1_1App_1aa75309f557d6cdba74b299e4f9e7cfbe" compoundref="CLI11_8hpp" startline="6978" endline="6992">CLI::App::get_display_name</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1ade54fd392e2c9f5364744dca82408e60" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_expanded</definition>
+        <argsstring>(const App *sub) const</argsstring>
+        <name>make_expanded</name>
+        <qualifiedname>CLI::Formatter::make_expanded</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>sub</declname>
+        </param>
+        <briefdescription>
+<para>This prints out a subcommand in help-all. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3889" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8988" bodyend="9006"/>
+        <references refid="namespaceCLI_1_1detail_1ab39b1977d7375250cc57d90723cf1554" compoundref="CLI11_8hpp" startline="391" endline="401">CLI::detail::find_and_replace</references>
+        <references refid="namespaceCLI_1_1detail_1a7d78342c07cdd65a9f7aafa857679394" compoundref="CLI11_8hpp" startline="318" endline="333">CLI::detail::format_aliases</references>
+        <references refid="classCLI_1_1App_1a626fd71499fbb8e26bb83f33b1df1536" compoundref="CLI11_8hpp" startline="6969" endline="6969">CLI::App::get_aliases</references>
+        <references refid="classCLI_1_1App_1aa75309f557d6cdba74b299e4f9e7cfbe" compoundref="CLI11_8hpp" startline="6978" endline="6992">CLI::App::get_display_name</references>
+        <references refid="classCLI_1_1App_1adeac41bd40859dfbff9817244c09c989" compoundref="CLI11_8hpp" startline="6966" endline="6966">CLI::App::get_name</references>
+        <references refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119cae80155eceb940c89e2de63ad05868db2">CLI::Sub</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1ad2c14eb79877613d7049434c10507489" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_footer</definition>
+        <argsstring>(const App *app) const</argsstring>
+        <name>make_footer</name>
+        <qualifiedname>CLI::Formatter::make_footer</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+<para>This prints out all the groups of options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3892" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8908" bodyend="8914"/>
+        <references refid="classCLI_1_1App_1ad1a6871e4384311fae85e5e03fdcd3fa" compoundref="CLI11_8hpp" startline="6895" endline="6895">CLI::App::get_footer</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1a0f45c98dab9502d8241c24f9ea250ede" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_description</definition>
+        <argsstring>(const App *app) const</argsstring>
+        <name>make_description</name>
+        <qualifiedname>CLI::Formatter::make_description</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+<para>This displays the description line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3895" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8840" bodyend="8864"/>
+        <references refid="classCLI_1_1App_1ab7637441b1cd7fb2fcf5e7e095e779a7" compoundref="CLI11_8hpp" startline="6770" endline="6770">CLI::App::get_description</references>
+        <references refid="classCLI_1_1App_1ac0458768d5cd311ef361e039ce58c45a" compoundref="CLI11_8hpp" startline="6907" endline="6907">CLI::App::get_require_option_max</references>
+        <references refid="classCLI_1_1App_1a242b3d549b70e9f8785b727703371d40" compoundref="CLI11_8hpp" startline="6904" endline="6904">CLI::App::get_require_option_min</references>
+        <references refid="classCLI_1_1App_1a74fa8829acfe2311724ecad5bdb91dce" compoundref="CLI11_8hpp" startline="6916" endline="6916">CLI::App::get_required</references>
+        <references refid="namespaceCLI_1_1detail_1a9c070858740ce15aaecb1c5f04e21a09" compoundref="CLI11_8hpp" startline="1141" endline="1145">CLI::detail::to_string</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1a3aac4a7ce4ca139704e632915892024c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_usage</definition>
+        <argsstring>(const App *app, std::string name) const</argsstring>
+        <name>make_usage</name>
+        <qualifiedname>CLI::Formatter::make_usage</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>This displays the usage line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3898" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8866" bodyend="8906"/>
+        <references refid="classCLI_1_1App_1af0d7e22ac4f12250818bce3e22e8d569" compoundref="CLI11_8hpp" startline="7024" endline="7035">CLI::App::get_groups</references>
+        <references refid="classCLI_1_1App_1ab4e19fac7ff58e4b5252a387728dcd72" compoundref="CLI11_8hpp" startline="6779" endline="6793">CLI::App::get_options</references>
+        <references refid="classCLI_1_1Option_1acab7033604b49e314d290b01adea690d" compoundref="CLI11_8hpp" startline="4654" endline="4654">CLI::Option::get_positional</references>
+        <references refid="classCLI_1_1App_1a76fa6784188f97df35ceb6b8207accd2" compoundref="CLI11_8hpp" startline="6901" endline="6901">CLI::App::get_require_subcommand_max</references>
+        <references refid="classCLI_1_1App_1af990c1f077d815768ca3d2f250d058d9" compoundref="CLI11_8hpp" startline="6898" endline="6898">CLI::App::get_require_subcommand_min</references>
+        <references refid="classCLI_1_1App_1a6b4b0c02d0c3d08b534fb93737056751" compoundref="CLI11_8hpp" startline="6564" endline="6564">CLI::App::get_subcommands</references>
+        <references refid="namespaceCLI_1_1detail_1ab351f13ec104e2cba19ec6baf4a552f6" compoundref="CLI11_8hpp" startline="181" endline="191">CLI::detail::join</references>
+        <references refid="classCLI_1_1Option_1a94cc5149d388be946c449e8ee61cd034" compoundref="CLI11_8hpp" startline="4657" endline="4657">CLI::Option::nonpositional</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1a838e0f47efa4fbd1b738eedb156887b9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_help</definition>
+        <argsstring>(const App *, std::string, AppFormatMode) const override</argsstring>
+        <name>make_help</name>
+        <qualifiedname>CLI::Formatter::make_help</qualifiedname>
+        <reimplements refid="classCLI_1_1FormatterBase_1ac8ab93655a645352634709e15087080b">make_help</reimplements>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <defname>app</defname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <defname>name</defname>
+        </param>
+        <param>
+          <type><ref refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119c" kindref="member">AppFormatMode</ref></type>
+          <defname>mode</defname>
+        </param>
+        <briefdescription>
+<para>This puts everything together. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3901" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8916" bodyend="8938"/>
+        <references refid="classCLI_1_1App_1a7285a71dac7f168f5d0f992ac75f404d" compoundref="CLI11_8hpp" startline="6892" endline="6892">CLI::App::get_group</references>
+        <references refid="classCLI_1_1App_1adeac41bd40859dfbff9817244c09c989" compoundref="CLI11_8hpp" startline="6966" endline="6966">CLI::App::get_name</references>
+        <references refid="classCLI_1_1App_1a5f31177cf639f148d3a315861ff6ca5c" compoundref="CLI11_8hpp" startline="6960" endline="6960">CLI::App::get_parent</references>
+        <references refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119cae80155eceb940c89e2de63ad05868db2">CLI::Sub</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Options</header>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1a1503e498cef1cab66a01d84bac59b5d8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string CLI::Formatter::make_option</definition>
+        <argsstring>(const Option *opt, bool is_positional) const</argsstring>
+        <name>make_option</name>
+        <qualifiedname>CLI::Formatter::make_option</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <declname>opt</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_positional</declname>
+        </param>
+        <briefdescription>
+<para>This prints out an option help line, either positional or optional form. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3908" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3908" bodyend="3913"/>
+        <references refid="namespaceCLI_1_1detail_1a4b73b36dbab9c829a299be49799fbb40" compoundref="CLI11_8hpp" startline="300" endline="315">CLI::detail::format_help</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1ad29eb726bf961560f0c6419fd74332d0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_option_name</definition>
+        <argsstring>(const Option *, bool) const</argsstring>
+        <name>make_option_name</name>
+        <qualifiedname>CLI::Formatter::make_option_name</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <defname>opt</defname>
+        </param>
+        <param>
+          <type>bool</type>
+          <defname>is_positional</defname>
+        </param>
+        <briefdescription>
+<para>This is the name part of an option, Default: left column. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3916" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="9008" bodyend="9013"/>
+        <references refid="classCLI_1_1Option_1ab84751fbf9037efaed5b64fed17fe57f" compoundref="CLI11_8hpp" startline="4686" endline="4739">CLI::Option::get_name</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_option_opts</definition>
+        <argsstring>(const Option *) const</argsstring>
+        <name>make_option_opts</name>
+        <qualifiedname>CLI::Formatter::make_option_opts</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <defname>opt</defname>
+        </param>
+        <briefdescription>
+<para>This is the options part of the name, Default: combined into left column. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3919" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="9015" bodyend="9048"/>
+        <references refid="namespaceCLI_1_1detail_1a99abe3824b1f1bea457ad0ae635f5c51" compoundref="CLI11_8hpp" startline="161">CLI::detail::expected_max_vector_size</references>
+        <references refid="classCLI_1_1Option_1a3b8410c5366dbbb6781b37d963677101" compoundref="CLI11_8hpp" startline="4608" endline="4608">CLI::Option::get_default_str</references>
+        <references refid="classCLI_1_1Option_1a9657b97545e51cdcda8efd61d13b5ab3" compoundref="CLI11_8hpp" startline="4599" endline="4599">CLI::Option::get_envname</references>
+        <references refid="classCLI_1_1Option_1a833eaaba4c8823298e7740a3e43a82b6" compoundref="CLI11_8hpp" startline="4605" endline="4605">CLI::Option::get_excludes</references>
+        <references refid="classCLI_1_1Option_1a307543e6e4ddeb6e4ea00438b5b10be3" compoundref="CLI11_8hpp" startline="4635" endline="4635">CLI::Option::get_expected</references>
+        <references refid="classCLI_1_1Option_1a21133f27201fa12203567cf0ee40c9c5" compoundref="CLI11_8hpp" startline="4640" endline="4640">CLI::Option::get_expected_max</references>
+        <references refid="classCLI_1_1Option_1a19c64a02c22d968e834c2aaf13f98f62" compoundref="CLI11_8hpp" startline="4638" endline="4638">CLI::Option::get_expected_min</references>
+        <references refid="classCLI_1_1Option_1acf898e5c04f5fb3f42ec1ea711e97743" compoundref="CLI11_8hpp" startline="4602" endline="4602">CLI::Option::get_needs</references>
+        <references refid="classCLI_1_1Option_1a012e378f4018f0d9366536edd3623d70" compoundref="CLI11_8hpp" startline="4676" endline="4676">CLI::Option::get_option_text</references>
+        <references refid="classCLI_1_1OptionBase_1aa902dee6da6d7f5b083b1c7d5f9c1308" compoundref="CLI11_8hpp" startline="4028" endline="4028">CLI::OptionBase&lt; CRTP &gt;::get_required</references>
+        <references refid="classCLI_1_1Option_1a8b8425827ceb852c3cc3f44b9b1c26a4" compoundref="CLI11_8hpp" startline="5087" endline="5098">CLI::Option::get_type_name</references>
+        <references refid="classCLI_1_1Option_1a88f36e42c1afcf1d4887230cc133f1fa" compoundref="CLI11_8hpp" startline="4588" endline="4588">CLI::Option::get_type_size</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1acf6c56689b56533dad59f8e1ff71c7ce" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_option_desc</definition>
+        <argsstring>(const Option *) const</argsstring>
+        <name>make_option_desc</name>
+        <qualifiedname>CLI::Formatter::make_option_desc</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <defname>opt</defname>
+        </param>
+        <briefdescription>
+<para>This is the description. Default: Right column, on new line if left column too large. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3922" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="9050" bodyend="9050"/>
+        <references refid="classCLI_1_1Option_1a6298f2354e3e02d262f1f6815621639a" compoundref="CLI11_8hpp" startline="4663" endline="4663">CLI::Option::get_description</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1afd69c393a40e9b1212f3552a1f48a414" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Formatter::make_option_usage</definition>
+        <argsstring>(const Option *opt) const</argsstring>
+        <name>make_option_usage</name>
+        <qualifiedname>CLI::Formatter::make_option_usage</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <declname>opt</declname>
+        </param>
+        <briefdescription>
+<para>This is used to print the name on the USAGE line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3925" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="9052" bodyend="9062"/>
+        <references refid="namespaceCLI_1_1detail_1a99abe3824b1f1bea457ad0ae635f5c51" compoundref="CLI11_8hpp" startline="161">CLI::detail::expected_max_vector_size</references>
+        <references refid="classCLI_1_1Option_1a307543e6e4ddeb6e4ea00438b5b10be3" compoundref="CLI11_8hpp" startline="4635" endline="4635">CLI::Option::get_expected</references>
+        <references refid="classCLI_1_1Option_1a21133f27201fa12203567cf0ee40c9c5" compoundref="CLI11_8hpp" startline="4640" endline="4640">CLI::Option::get_expected_max</references>
+        <references refid="classCLI_1_1OptionBase_1aa902dee6da6d7f5b083b1c7d5f9c1308" compoundref="CLI11_8hpp" startline="4028" endline="4028">CLI::OptionBase&lt; CRTP &gt;::get_required</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCLI_1_1Formatter_1ab52f2843f5fb86789de006e7473fccf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CLI::Formatter::Formatter</definition>
+        <argsstring>()=default</argsstring>
+        <name>Formatter</name>
+        <qualifiedname>CLI::Formatter::Formatter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3865" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1a5390f944dc43547592101c78b2a5d398" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CLI::Formatter::Formatter</definition>
+        <argsstring>(const Formatter &amp;)=default</argsstring>
+        <name>Formatter</name>
+        <qualifiedname>CLI::Formatter::Formatter</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Formatter" kindref="compound">Formatter</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3866" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Formatter_1a135ec80d7cd0c8ecb0101bff64c55a59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CLI::Formatter::Formatter</definition>
+        <argsstring>(Formatter &amp;&amp;)=default</argsstring>
+        <name>Formatter</name>
+        <qualifiedname>CLI::Formatter::Formatter</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1Formatter" kindref="compound">Formatter</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3867" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This is the default <ref refid="classCLI_1_1Formatter" kindref="compound">Formatter</ref> for CLI11. It pretty prints help output, and is broken into quite a few overridable methods, to be highly customizable with minimal effort. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CLI::Formatter</label>
+        <link refid="classCLI_1_1Formatter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CLI::FormatterBase</label>
+        <link refid="classCLI_1_1FormatterBase"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::Formatter</label>
+        <link refid="classCLI_1_1Formatter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CLI::FormatterBase</label>
+        <link refid="classCLI_1_1FormatterBase"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3863" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3863" bodyend="3928"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1FormatterBase_1acd8c03570a48e5937ab748bf6103ca2d" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>column_width</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a2427b2199dd9654b050d00c89d764332" prot="protected" virt="non-virtual"><scope>CLI::Formatter</scope><name>column_width_</name></member>
+      <member refid="classCLI_1_1Formatter_1ab52f2843f5fb86789de006e7473fccf7" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>Formatter</name></member>
+      <member refid="classCLI_1_1Formatter_1a5390f944dc43547592101c78b2a5d398" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>Formatter</name></member>
+      <member refid="classCLI_1_1Formatter_1a135ec80d7cd0c8ecb0101bff64c55a59" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>Formatter</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a85811a9afbc33d19fb1d8d1a0553f2b1" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>FormatterBase</name></member>
+      <member refid="classCLI_1_1FormatterBase_1abd363023789788a8242d2c8ccf394c48" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>FormatterBase</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a5552e960c2f477a570ee67541e15e8ea" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>FormatterBase</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a41e32517e27b98dcf85acfb0fd169c97" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>get_column_width</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a7e8f9d7896c599f7befd84a9947d4cab" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>get_label</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a73a17d81d04f5ee02a2cab32a59a8551" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>label</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a2ee79421fa339b227d6cb9ca1bce4ad1" prot="protected" virt="non-virtual"><scope>CLI::Formatter</scope><name>labels_</name></member>
+      <member refid="classCLI_1_1Formatter_1a0f45c98dab9502d8241c24f9ea250ede" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_description</name></member>
+      <member refid="classCLI_1_1Formatter_1ade54fd392e2c9f5364744dca82408e60" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_expanded</name></member>
+      <member refid="classCLI_1_1Formatter_1ad2c14eb79877613d7049434c10507489" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_footer</name></member>
+      <member refid="classCLI_1_1Formatter_1aebbdf79e2615ea7d16fe8f30fb6551fc" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_group</name></member>
+      <member refid="classCLI_1_1Formatter_1ad48dd6b9432babc0037d6726230221f0" prot="public" virt="non-virtual"><scope>CLI::Formatter</scope><name>make_groups</name></member>
+      <member refid="classCLI_1_1Formatter_1a838e0f47efa4fbd1b738eedb156887b9" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_help</name></member>
+      <member refid="classCLI_1_1Formatter_1a1503e498cef1cab66a01d84bac59b5d8" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_option</name></member>
+      <member refid="classCLI_1_1Formatter_1acf6c56689b56533dad59f8e1ff71c7ce" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_option_desc</name></member>
+      <member refid="classCLI_1_1Formatter_1ad29eb726bf961560f0c6419fd74332d0" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_option_name</name></member>
+      <member refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_option_opts</name></member>
+      <member refid="classCLI_1_1Formatter_1afd69c393a40e9b1212f3552a1f48a414" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_option_usage</name></member>
+      <member refid="classCLI_1_1Formatter_1aab5f07a6d3154ace0be4d9dbf85f795b" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_positionals</name></member>
+      <member refid="classCLI_1_1Formatter_1a82a62cd4b9833cab20e82c4d099c0c7f" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_subcommand</name></member>
+      <member refid="classCLI_1_1Formatter_1a9e6b7c4c6eee50b11fe1ca785002db04" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_subcommands</name></member>
+      <member refid="classCLI_1_1Formatter_1a3aac4a7ce4ca139704e632915892024c" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>make_usage</name></member>
+      <member refid="classCLI_1_1FormatterBase_1ac634fe340a7679a3f4add85c969e4d98" prot="public" virt="virtual"><scope>CLI::Formatter</scope><name>~FormatterBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

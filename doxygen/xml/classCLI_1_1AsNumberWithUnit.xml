@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1AsNumberWithUnit" kind="class" language="C++" prot="public">
+    <compoundname>CLI::AsNumberWithUnit</compoundname>
+    <basecompoundref refid="classCLI_1_1Validator" prot="public" virt="non-virtual">CLI::Validator</basecompoundref>
+    <derivedcompoundref refid="classCLI_1_1AsSizeValue" prot="public" virt="non-virtual">CLI::AsSizeValue</derivedcompoundref>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Options</name>
+        <qualifiedname>CLI::AsNumberWithUnit::Options</qualifiedname>
+        <enumvalue id="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a9a74bbe8ec5a2e406528acf1a03e4c8c" prot="public">
+          <name>CASE_SENSITIVE</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a7f446c7c1a6b0381bb3b648fab313bcb" prot="public">
+          <name>CASE_INSENSITIVE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a485b9e5f4b359102413727e5b2491d8d" prot="public">
+          <name>UNIT_OPTIONAL</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a9996f24d3f700b703d5f5843f6ad1d99" prot="public">
+          <name>UNIT_REQUIRED</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a870d760dcdc3ddfe3dea704c3985eb89" prot="public">
+          <name>DEFAULT</name>
+          <initializer>= CASE_INSENSITIVE | UNIT_OPTIONAL</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adjust <ref refid="classCLI_1_1AsNumberWithUnit" kindref="compound">AsNumberWithUnit</ref> behavior. CASE_SENSITIVE/CASE_INSENSITIVE controls how units are matched. UNIT_OPTIONAL/UNIT_REQUIRED throws <ref refid="classCLI_1_1ValidationError" kindref="compound">ValidationError</ref> if UNIT_REQUIRED is set and unit literal is not found. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3529" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3529" bodyend="3535"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="namespaceCLI_1ad26eb8a490b25b301412d98b055691be" kindref="member">Number</ref></type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>CLI::AsNumberWithUnit::AsNumberWithUnit</definition>
+        <argsstring>(std::map&lt; std::string, Number &gt; mapping, Options opts=DEFAULT, const std::string &amp;unit_name=&quot;UNIT&quot;)</argsstring>
+        <name>AsNumberWithUnit</name>
+        <qualifiedname>CLI::AsNumberWithUnit::AsNumberWithUnit</qualifiedname>
+        <param>
+          <type>std::map&lt; std::string, <ref refid="namespaceCLI_1ad26eb8a490b25b301412d98b055691be" kindref="member">Number</ref> &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type><ref refid="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321" kindref="member">Options</ref></type>
+          <declname>opts</declname>
+          <defval><ref refid="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a870d760dcdc3ddfe3dea704c3985eb89" kindref="member">DEFAULT</ref></defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit_name</declname>
+          <defval>&quot;UNIT&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3538" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3538" bodyend="3607"/>
+        <references refid="namespaceCLI_1_1detail_1a58ce723daebf6cd298565eb365d1b157" compoundref="CLI11_8hpp" startline="3269" endline="3282">CLI::detail::checked_multiply</references>
+        <references refid="namespaceCLI_1_1detail_1a320e031a5eb12297a140d2d6fc73362a" compoundref="CLI11_8hpp" startline="3182" endline="3200">CLI::detail::generate_map</references>
+        <references refid="namespaceCLI_1_1detail_1ac89ce22647a9f697b800d9c47b9d956f" compoundref="CLI11_8hpp" startline="372" endline="374">CLI::detail::isalpha</references>
+        <references refid="namespaceCLI_1_1detail_1af286727de86fce444325681379e2c511" compoundref="CLI11_8hpp" startline="1717" endline="1719">CLI::detail::lexical_cast</references>
+        <references refid="namespaceCLI_1ad26eb8a490b25b301412d98b055691be">CLI::Number</references>
+        <references refid="namespaceCLI_1_1detail_1a32d84ce1a65de779e88fdf4aa3b54ea6" compoundref="CLI11_8hpp" startline="241" endline="245">CLI::detail::rtrim</references>
+        <references refid="namespaceCLI_1_1detail_1ae83709ec148057ec53df4383645727e9" compoundref="CLI11_8hpp" startline="377" endline="382">CLI::detail::to_lower</references>
+        <references refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" compoundref="CLI11_8hpp" startline="1124" endline="1126">CLI::detail::to_string</references>
+        <references refid="namespaceCLI_1_1detail_1a621323632158048f6168deacc432b838" compoundref="CLI11_8hpp" startline="256" endline="256">CLI::detail::trim</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classCLI_1_1AsNumberWithUnit_1ab965db567f374cacdafa51564d1f1b30" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="namespaceCLI_1ad26eb8a490b25b301412d98b055691be" kindref="member">Number</ref></type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void CLI::AsNumberWithUnit::validate_mapping</definition>
+        <argsstring>(std::map&lt; std::string, Number &gt; &amp;mapping, Options opts)</argsstring>
+        <name>validate_mapping</name>
+        <qualifiedname>CLI::AsNumberWithUnit::validate_mapping</qualifiedname>
+        <param>
+          <type>std::map&lt; std::string, <ref refid="namespaceCLI_1ad26eb8a490b25b301412d98b055691be" kindref="member">Number</ref> &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type><ref refid="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321" kindref="member">Options</ref></type>
+          <declname>opts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check that mapping contains valid units. Update mapping for CASE_INSENSITIVE mode. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3612" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3612" bodyend="3635"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1AsNumberWithUnit_1af3af4bbb08904c621eb9d64571a80632" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="namespaceCLI_1ad26eb8a490b25b301412d98b055691be" kindref="member">Number</ref></type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>static std::string CLI::AsNumberWithUnit::generate_description</definition>
+        <argsstring>(const std::string &amp;name, Options opts)</argsstring>
+        <name>generate_description</name>
+        <qualifiedname>CLI::AsNumberWithUnit::generate_description</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321" kindref="member">Options</ref></type>
+          <declname>opts</declname>
+        </param>
+        <briefdescription>
+<para>Generate description like this: NUMBER [UNIT]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3638" column="36" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3638" bodyend="3647"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Multiply a number by a factor using given mapping. Can be used to write transforms for SIZE or DURATION inputs.</para>
+<para>Example: With mapping = <computeroutput>{&quot;b&quot;-&gt;1, &quot;kb&quot;-&gt;1024, &quot;mb&quot;-&gt;1024*1024}</computeroutput> one can recognize inputs like &quot;100&quot;, &quot;12kb&quot;, &quot;100 MB&quot;, that will be automatically transformed to 100, 14448, 104857600.</para>
+<para>Output number type matches the type in the provided mapping. Therefore, if it is required to interpret real inputs like &quot;0.42 s&quot;, the mapping should be of a type &lt;string, float&gt; or &lt;string, double&gt;. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CLI::AsNumberWithUnit</label>
+        <link refid="classCLI_1_1AsNumberWithUnit"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CLI::AsSizeValue</label>
+        <link refid="classCLI_1_1AsSizeValue"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CLI::Validator</label>
+        <link refid="classCLI_1_1Validator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::AsNumberWithUnit</label>
+        <link refid="classCLI_1_1AsNumberWithUnit"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CLI::Validator</label>
+        <link refid="classCLI_1_1Validator"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3523" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3523" bodyend="3648"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1Validator_1ac8f0bd247c6cca15729c2f0f5b822fe4" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>active</name></member>
+      <member refid="classCLI_1_1Validator_1a98fa76ba029599613e3ab8609e25af4d" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>active</name></member>
+      <member refid="classCLI_1_1Validator_1a558776377513d88bf637b5d775c4e31b" prot="protected" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>active_</name></member>
+      <member refid="classCLI_1_1Validator_1ae24fb3eedf62301b733b3a20d2b93757" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>application_index</name></member>
+      <member refid="classCLI_1_1Validator_1a5f621b1380d9a1a3694bc509a087d1cd" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>application_index</name></member>
+      <member refid="classCLI_1_1Validator_1a301ecf2851e4a7cdcad7c9b774598320" prot="protected" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>application_index_</name></member>
+      <member refid="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>AsNumberWithUnit</name></member>
+      <member refid="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a7f446c7c1a6b0381bb3b648fab313bcb" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>CASE_INSENSITIVE</name></member>
+      <member refid="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a9a74bbe8ec5a2e406528acf1a03e4c8c" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>CASE_SENSITIVE</name></member>
+      <member refid="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a870d760dcdc3ddfe3dea704c3985eb89" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>DEFAULT</name></member>
+      <member refid="classCLI_1_1Validator_1a9f00a86d01b79facfc300be76b7463d7" prot="protected" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>desc_function_</name></member>
+      <member refid="classCLI_1_1Validator_1a35930c9b193bb0f7c5b7597dfe002e1f" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>description</name></member>
+      <member refid="classCLI_1_1Validator_1acb7942915861f00426ba4106c3fa1445" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>description</name></member>
+      <member refid="classCLI_1_1Validator_1aa6c1eedd7839b91d88246539f2305ef3" prot="protected" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>func_</name></member>
+      <member refid="classCLI_1_1AsNumberWithUnit_1af3af4bbb08904c621eb9d64571a80632" prot="private" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>generate_description</name></member>
+      <member refid="classCLI_1_1Validator_1a1c08bcd3bca8c446e49e44d2c4e1413f" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>get_active</name></member>
+      <member refid="classCLI_1_1Validator_1aa27699959ccccc236af305582d2b3e90" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>get_application_index</name></member>
+      <member refid="classCLI_1_1Validator_1a77c9d0a1f496ccaa4a8ef293a41bca78" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>get_description</name></member>
+      <member refid="classCLI_1_1Validator_1addb6df41feafbbbe6347a46151d55762" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>get_modifying</name></member>
+      <member refid="classCLI_1_1Validator_1a688775a9b9dffb8f7e40cfb42af11697" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>get_name</name></member>
+      <member refid="classCLI_1_1Validator_1a8fc0ddaaa61f5dc5a7fa527d697991da" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>name</name></member>
+      <member refid="classCLI_1_1Validator_1a56272c0571e4b28e5f1387787bee671c" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>name</name></member>
+      <member refid="classCLI_1_1Validator_1ac97b23ee16e15ae0b31253feb39706bf" prot="protected" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>name_</name></member>
+      <member refid="classCLI_1_1Validator_1a356d979d984dffff3489caf4baca9160" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>non_modifying</name></member>
+      <member refid="classCLI_1_1Validator_1a60df532d1d80afc040ec0e8ed2736200" prot="protected" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>non_modifying_</name></member>
+      <member refid="classCLI_1_1Validator_1afc57c1bbaadbff4ce9c5772519818831" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>operation</name></member>
+      <member refid="classCLI_1_1Validator_1ab113af781dbc286b22cdfeedd5204e68" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>operator!</name></member>
+      <member refid="classCLI_1_1Validator_1a52e52713e3e170d132a01bf91ea2b879" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>operator&amp;</name></member>
+      <member refid="classCLI_1_1Validator_1a97241be1f8ac1c8d2fabdcf2ec761f49" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>operator()</name></member>
+      <member refid="classCLI_1_1Validator_1a3e4e7670d82455a43c0d3f8c9cc1db4f" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>operator()</name></member>
+      <member refid="classCLI_1_1Validator_1ac19919604a6ac47c5a1cbd34920991a4" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>operator|</name></member>
+      <member refid="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>Options</name></member>
+      <member refid="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a485b9e5f4b359102413727e5b2491d8d" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>UNIT_OPTIONAL</name></member>
+      <member refid="classCLI_1_1AsNumberWithUnit_1a4f1b96d1a43a6acb3f85b68dd6f5a321a9996f24d3f700b703d5f5843f6ad1d99" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>UNIT_REQUIRED</name></member>
+      <member refid="classCLI_1_1AsNumberWithUnit_1ab965db567f374cacdafa51564d1f1b30" prot="private" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>validate_mapping</name></member>
+      <member refid="classCLI_1_1Validator_1a918d82662319f6dc9dad53d580741569" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>Validator</name></member>
+      <member refid="classCLI_1_1Validator_1a71df7c1c94c4abceee930eef957f5b76" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>Validator</name></member>
+      <member refid="classCLI_1_1Validator_1aede1b1a51a7f924342a92cbbd3ee41be" prot="public" virt="non-virtual"><scope>CLI::AsNumberWithUnit</scope><name>Validator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

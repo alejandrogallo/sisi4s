@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classEomDiagonalValueComparator" kind="class" language="C++" prot="public">
+    <compoundname>EomDiagonalValueComparator</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classEomDiagonalValueComparator_1afea547026c2f888a54dca308ccaae0bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EomDiagonalValueComparator&lt; F &gt;::operator()</definition>
+        <argsstring>(const std::pair&lt; int, F &gt; &amp;a, const std::pair&lt; int, F &gt; &amp;b)</argsstring>
+        <name>operator()</name>
+        <qualifiedname>EomDiagonalValueComparator::operator()</qualifiedname>
+        <param>
+          <type>const std::pair&lt; int, F &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const std::pair&lt; int, F &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" line="63" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" bodystart="63" bodyend="81"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="classEomDiagonalValueComparator_1a7d3a474a133d3406978510d400ad4809" compoundref="CcsdPreconditioner_8cxx" startline="83" endline="83">EomDiagonalValueComparator&lt; F &gt;::computeDifference</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+      </memberdef>
+      <memberdef kind="function" id="classEomDiagonalValueComparator_1a7d3a474a133d3406978510d400ad4809" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double EomDiagonalValueComparator&lt; F &gt;::computeDifference</definition>
+        <argsstring>(const F &amp;a, const F &amp;b)</argsstring>
+        <name>computeDifference</name>
+        <qualifiedname>EomDiagonalValueComparator::computeDifference</qualifiedname>
+        <param>
+          <type>const F &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const F &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" line="83" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" bodystart="83" bodyend="83"/>
+        <referencedby refid="classEomDiagonalValueComparator_1afea547026c2f888a54dca308ccaae0bf" compoundref="CcsdPreconditioner_8cxx" startline="63" endline="81">EomDiagonalValueComparator&lt; F &gt;::operator()</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classEomDiagonalValueComparator_1a36d700a963e58dc20e6584fa96ad94fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double EomDiagonalValueComparator&lt; sisi4s::complex &gt;::computeDifference</definition>
+        <argsstring>(const sisi4s::complex &amp;a, const sisi4s::complex &amp;b)</argsstring>
+        <name>computeDifference</name>
+        <qualifiedname>EomDiagonalValueComparator::computeDifference</qualifiedname>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" line="88" column="35" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" bodystart="88" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Comparator that should filter out zero values of the diagonal matrix. Zero values are treated as infinite so that they get appended to the end of the list. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>EomDiagonalValueComparator&lt; F &gt;</label>
+        <link refid="classEomDiagonalValueComparator"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" line="61" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" bodystart="61" bodyend="85"/>
+    <listofallmembers>
+      <member refid="classEomDiagonalValueComparator_1a7d3a474a133d3406978510d400ad4809" prot="public" virt="non-virtual"><scope>EomDiagonalValueComparator</scope><name>computeDifference</name></member>
+      <member refid="classEomDiagonalValueComparator_1a36d700a963e58dc20e6584fa96ad94fe" prot="public" virt="non-virtual"><scope>EomDiagonalValueComparator</scope><name>computeDifference</name></member>
+      <member refid="classEomDiagonalValueComparator_1afea547026c2f888a54dca308ccaae0bf" prot="public" virt="non-virtual"><scope>EomDiagonalValueComparator</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

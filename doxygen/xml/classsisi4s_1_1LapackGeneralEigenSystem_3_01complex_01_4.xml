@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</compoundname>
+    <includes refid="LapackGeneralEigenSystem_8hpp" local="no">LapackGeneralEigenSystem.hpp</includes>
+    <innerclass refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1_1EigenValueComparator" prot="public">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::EigenValueComparator</innerclass>
+    <templateparamlist>
+    </templateparamlist>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a63ab8d5ed59a1798470bb4a12e3fe2cb" prot="protected" static="no" mutable="no">
+        <type></type>
+        <definition>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::L</definition>
+        <argsstring></argsstring>
+        <name>L</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::L</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="283" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a576d6f54f63ba8aa52dc97e0d294b40d" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt;</type>
+        <definition>std::vector&lt;complex&gt; sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::lambdas</definition>
+        <argsstring></argsstring>
+        <name>lambdas</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::lambdas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="284" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a8542e1b930fbedc3a8986ff0dc240c18" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::LapackGeneralEigenSystem</definition>
+        <argsstring>(const LapackMatrix&lt; complex &gt; &amp;A_, bool computeRightEigenvectors=true, bool computeLeftEigenvectors=false)</argsstring>
+        <name>LapackGeneralEigenSystem</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::LapackGeneralEigenSystem</qualifiedname>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <declname>A_</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>computeRightEigenvectors</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>computeLeftEigenvectors</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="118" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="118" bodyend="192"/>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1a5b733258c657d65b923dd8831dcf65f1" compoundref="LapackMatrix_8hpp" startline="77" endline="77">sisi4s::LapackMatrix&lt; F &gt;::getColumns</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1af17845e3e518413996316885e56e0367" compoundref="LapackMatrix_8hpp" startline="76" endline="76">sisi4s::LapackMatrix&lt; F &gt;::getRows</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1a4cea0ed82779b1a9acae7635b7b0b82d" compoundref="LapackMatrix_8hpp" startline="82" endline="84">sisi4s::LapackMatrix&lt; F &gt;::getValues</references>
+        <references refid="Lapack_8hpp_1aa5156a837dc04850959f7eec5f83e01c">zgeev_</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a7c8e3bf3cd664a9cb05395eb5d8a9a0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::~LapackGeneralEigenSystem</definition>
+        <argsstring>()</argsstring>
+        <name>~LapackGeneralEigenSystem</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::~LapackGeneralEigenSystem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="194" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="194" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1aa58704d675805ce30607c8dc2d11e52d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt; complex &gt; &amp; sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::getEigenValues</definition>
+        <argsstring>() const</argsstring>
+        <name>getEigenValues</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::getEigenValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="197" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="197" bodyend="199"/>
+        <referencedby refid="classsisi4s_1_1EigenSystemDavidsonMono_1ae374662234b193df4dbfadedbce69beb" compoundref="EigenSystemDavidson_8hpp" startline="149" endline="459">sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a4bb537adfb22439f531c3631f7a92e39" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+        <definition>const LapackMatrix&lt; complex &gt; &amp; sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::getRightEigenVectors</definition>
+        <argsstring>() const</argsstring>
+        <name>getRightEigenVectors</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::getRightEigenVectors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="201" column="24" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="201" bodyend="206"/>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <referencedby refid="classsisi4s_1_1EigenSystemDavidsonMono_1ae374662234b193df4dbfadedbce69beb" compoundref="EigenSystemDavidson_8hpp" startline="149" endline="459">sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a67faaf207be53fbcaaed625b551697b7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+        <definition>const LapackMatrix&lt; complex &gt; &amp; sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::getLeftEigenVectors</definition>
+        <argsstring>() const</argsstring>
+        <name>getLeftEigenVectors</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::getLeftEigenVectors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="208" column="24" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="208" bodyend="213"/>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <referencedby refid="classsisi4s_1_1EigenSystemDavidsonMono_1ae374662234b193df4dbfadedbce69beb" compoundref="EigenSystemDavidson_8hpp" startline="149" endline="459">sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1ac6d8679f777fa5ce0c872076f7b26b8a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::rightEigenError</definition>
+        <argsstring>(const LapackMatrix&lt; complex &gt; &amp;A)</argsstring>
+        <name>rightEigenError</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::rightEigenError</qualifiedname>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="215" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="215" bodyend="228"/>
+        <references refid="namespacesisi4s_1abc3ea35f1434b9c5021b9195449d1f9b" compoundref="MathFunctions_8hpp" startline="34" endline="36">sisi4s::conj</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1af17845e3e518413996316885e56e0367" compoundref="LapackMatrix_8hpp" startline="76" endline="76">sisi4s::LapackMatrix&lt; F &gt;::getRows</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a6ff1cce7cf64d7659d0804317f5b62bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::leftEigenError</definition>
+        <argsstring>(const LapackMatrix&lt; complex &gt; &amp;A)</argsstring>
+        <name>leftEigenError</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::leftEigenError</qualifiedname>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="229" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="229" bodyend="242"/>
+        <references refid="namespacesisi4s_1abc3ea35f1434b9c5021b9195449d1f9b" compoundref="MathFunctions_8hpp" startline="34" endline="36">sisi4s::conj</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1af17845e3e518413996316885e56e0367" compoundref="LapackMatrix_8hpp" startline="76" endline="76">sisi4s::LapackMatrix&lt; F &gt;::getRows</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1ad33b6438b8401c3f6c72cad5230ad801" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::biorthogonalError</definition>
+        <argsstring>()</argsstring>
+        <name>biorthogonalError</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::biorthogonalError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="244" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="244" bodyend="257"/>
+        <references refid="namespacesisi4s_1abc3ea35f1434b9c5021b9195449d1f9b" compoundref="MathFunctions_8hpp" startline="34" endline="36">sisi4s::conj</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a421c0520564a85ffaba3046da942422a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::PTR</definition>
+        <argsstring>(LapackMatrix&lt; complex &gt;) R</argsstring>
+        <name>PTR</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::PTR</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="283" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a2fba6bcf5f656fff42f91548a32c373d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::orderEigenVectors</definition>
+        <argsstring>(const std::vector&lt; std::pair&lt; int, complex &gt; &gt; &amp;sortedEigenValues, LapackMatrix&lt; complex &gt; &amp;U)</argsstring>
+        <name>orderEigenVectors</name>
+        <qualifiedname>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::orderEigenVectors</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::pair&lt; int, <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &gt; &amp;</type>
+          <declname>sortedEigenValues</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <declname>U</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="286" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="286" bodyend="297"/>
+        <references refid="classsisi4s_1_1LapackMatrix_1af17845e3e518413996316885e56e0367" compoundref="LapackMatrix_8hpp" startline="76" endline="76">sisi4s::LapackMatrix&lt; F &gt;::getRows</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</label>
+        <link refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" line="116" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackGeneralEigenSystem.hpp" bodystart="116" bodyend="298"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1ad33b6438b8401c3f6c72cad5230ad801" prot="public" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>biorthogonalError</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1aa58704d675805ce30607c8dc2d11e52d" prot="public" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>getEigenValues</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a67faaf207be53fbcaaed625b551697b7" prot="public" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>getLeftEigenVectors</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a4bb537adfb22439f531c3631f7a92e39" prot="public" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>getRightEigenVectors</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a63ab8d5ed59a1798470bb4a12e3fe2cb" prot="protected" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>L</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a576d6f54f63ba8aa52dc97e0d294b40d" prot="protected" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>lambdas</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a8542e1b930fbedc3a8986ff0dc240c18" prot="public" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>LapackGeneralEigenSystem</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a6ff1cce7cf64d7659d0804317f5b62bf" prot="public" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>leftEigenError</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a2fba6bcf5f656fff42f91548a32c373d" prot="protected" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>orderEigenVectors</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a421c0520564a85ffaba3046da942422a" prot="protected" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>PTR</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1ac6d8679f777fa5ce0c872076f7b26b8a" prot="public" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>rightEigenError</name></member>
+      <member refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a7c8e3bf3cd664a9cb05395eb5d8a9a0b" prot="public" virt="non-virtual"><scope>sisi4s::LapackGeneralEigenSystem&lt; complex &gt;</scope><name>~LapackGeneralEigenSystem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

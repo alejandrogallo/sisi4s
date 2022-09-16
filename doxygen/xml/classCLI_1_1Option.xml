@@ -1,0 +1,2740 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1Option" kind="class" language="C++" prot="public">
+    <compoundname>CLI::Option</compoundname>
+    <basecompoundref refid="classCLI_1_1OptionBase" prot="public" virt="non-virtual">CLI::OptionBase&lt; Option &gt;</basecompoundref>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+      <sectiondef kind="user-defined">
+      <header>Parsing results</header>
+      <memberdef kind="enum" id="classCLI_1_1Option_1a21df1631a6f5ddb495b9ce9c940669b9" prot="protected" static="no" strong="yes">
+        <type>char</type>
+        <name>option_state</name>
+        <qualifiedname>CLI::Option::option_state</qualifiedname>
+        <enumvalue id="classCLI_1_1Option_1a21df1631a6f5ddb495b9ce9c940669b9adbc77665f51d780a776978e34f065af5" prot="protected">
+          <name>parsing</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>The option is currently collecting parsed results. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCLI_1_1Option_1a21df1631a6f5ddb495b9ce9c940669b9ac9e825f4641cd3bec0ba01a0c2d67755" prot="protected">
+          <name>validated</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>the results have been validated </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCLI_1_1Option_1a21df1631a6f5ddb495b9ce9c940669b9a282fabc3aa55dcf5a73ad91ea6c62de6" prot="protected">
+          <name>reduced</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>a subset of results has been generated </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classCLI_1_1Option_1a21df1631a6f5ddb495b9ce9c940669b9a3e711527b127cf4c52c3470324bb7a74" prot="protected">
+          <name>callback_run</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+<para>the callback has been executed </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>enumeration for the option state machine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4231" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4231" bodyend="4236"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1af45b214347a715edf92b1e3de5c4b938" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespaceCLI_1a777eb94b3fedc66106c44ae5d8c17ee8" kindref="member">results_t</ref></type>
+        <definition>results_t CLI::Option::results_</definition>
+        <argsstring></argsstring>
+        <name>results_</name>
+        <qualifiedname>CLI::Option::results_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>complete Results of parsing </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4227" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a7e1e5e40353f296f4b1f0a5940dc7099" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespaceCLI_1a777eb94b3fedc66106c44ae5d8c17ee8" kindref="member">results_t</ref></type>
+        <definition>results_t CLI::Option::proc_results_</definition>
+        <argsstring></argsstring>
+        <name>proc_results_</name>
+        <qualifiedname>CLI::Option::proc_results_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>results after reduction </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4229" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a239c3f2953f88bc9cf1a2bc99af39095" prot="protected" static="no" mutable="no">
+        <type><ref refid="classCLI_1_1Option_1a21df1631a6f5ddb495b9ce9c940669b9" kindref="member">option_state</ref></type>
+        <definition>option_state CLI::Option::current_option_state_</definition>
+        <argsstring></argsstring>
+        <name>current_option_state_</name>
+        <qualifiedname>CLI::Option::current_option_state_</qualifiedname>
+        <initializer>{<ref refid="classCLI_1_1Option_1a21df1631a6f5ddb495b9ce9c940669b9adbc77665f51d780a776978e34f065af5" kindref="member">option_state::parsing</ref>}</initializer>
+        <briefdescription>
+<para>Whether the callback has run (needed for INI parsing) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4238" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1adb0563505e82a3932466a23700ce66ba" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::Option::allow_extra_args_</definition>
+        <argsstring></argsstring>
+        <name>allow_extra_args_</name>
+        <qualifiedname>CLI::Option::allow_extra_args_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Specify that extra args beyond type_size_max should be allowed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4240" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a47712db860c1df802ff0ee51cbc2200e" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::Option::flag_like_</definition>
+        <argsstring></argsstring>
+        <name>flag_like_</name>
+        <qualifiedname>CLI::Option::flag_like_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Specify that the option should act like a flag vs regular option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4242" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a16ff0fc34306cdd0c51379f16d61eeec" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::Option::run_callback_for_default_</definition>
+        <argsstring></argsstring>
+        <name>run_callback_for_default_</name>
+        <qualifiedname>CLI::Option::run_callback_for_default_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Control option to run the callback to set the default. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4244" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1aa95f089d19a4b14039261fd7e35e6223" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::Option::inject_separator_</definition>
+        <argsstring></argsstring>
+        <name>inject_separator_</name>
+        <qualifiedname>CLI::Option::inject_separator_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>flag indicating a separator needs to be injected after each argument call </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4246" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a4716e3d2f016a0a33580fc4981580e9d" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::Option::trigger_on_result_</definition>
+        <argsstring></argsstring>
+        <name>trigger_on_result_</name>
+        <qualifiedname>CLI::Option::trigger_on_result_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>flag indicating that the option should trigger the validation and callback chain on each result when loaded </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4248" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a4b75830d792af9a8b7e0e19f5c26fa2e" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CLI::Option::force_callback_</definition>
+        <argsstring></argsstring>
+        <name>force_callback_</name>
+        <qualifiedname>CLI::Option::force_callback_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>flag indicating that the option should force the callback regardless if any results present </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4250" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4250" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Names</header>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a7d8ef1d4012fde878668c943d9b197bc" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; CLI::Option::snames_</definition>
+        <argsstring></argsstring>
+        <name>snames_</name>
+        <qualifiedname>CLI::Option::snames_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>A list of the short names (<computeroutput>-a</computeroutput>) without the leading dashes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4149" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4149" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1Option_1ad95e4bba59db33e4bfe4caf91ca7be21" compoundref="CLI11_8hpp" startline="4773" endline="4792">matching_name</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1ae06feaf7ca62a5497514a09f44724430" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; CLI::Option::lnames_</definition>
+        <argsstring></argsstring>
+        <name>lnames_</name>
+        <qualifiedname>CLI::Option::lnames_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>A list of the long names (<computeroutput>--long</computeroutput>) without the leading dashes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4152" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4152" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1Option_1ad95e4bba59db33e4bfe4caf91ca7be21" compoundref="CLI11_8hpp" startline="4773" endline="4792">matching_name</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1ad2c7c8c939c6eacfb25ae7a83c0640af" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;std::string, std::string&gt; &gt; CLI::Option::default_flag_values_</definition>
+        <argsstring></argsstring>
+        <name>default_flag_values_</name>
+        <qualifiedname>CLI::Option::default_flag_values_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A list of the flag names with the appropriate default value, the first part of the pair should be duplicates of what is in snames or lnames but will trigger a particular response on a flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4156" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a56635c9d01c0fde66df3a5edf87b8a31" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; CLI::Option::fnames_</definition>
+        <argsstring></argsstring>
+        <name>fnames_</name>
+        <qualifiedname>CLI::Option::fnames_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>a list of flag names with specified default values; </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4159" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a3599a92dde17b22551dcdfcb9798f0f3" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::pname_</definition>
+        <argsstring></argsstring>
+        <name>pname_</name>
+        <qualifiedname>CLI::Option::pname_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>A positional name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4162" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1acac4bf11cbd933967ced9175946ffbe6" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::envname_</definition>
+        <argsstring></argsstring>
+        <name>envname_</name>
+        <qualifiedname>CLI::Option::envname_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>If given, check the environment for this option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4165" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4165" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1App_1a0a367021eca99facc7968bb24333a8fb" compoundref="CLI11_8hpp" startline="7256" endline="7286">CLI::App::_process_env</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Help</header>
+      <memberdef kind="variable" id="classCLI_1_1Option_1aa6427b2f3303cc4469cacdc098b9d4bf" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::description_</definition>
+        <argsstring></argsstring>
+        <name>description_</name>
+        <qualifiedname>CLI::Option::description_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>The description for help strings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4172" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a169893983f2dd0dc840ebca98bb76698" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::default_str_</definition>
+        <argsstring></argsstring>
+        <name>default_str_</name>
+        <qualifiedname>CLI::Option::default_str_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>A human readable default value, either manually set, captured, or captured by default. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4175" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a23dc529b1db815e7056750d671e29896" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::option_text_</definition>
+        <argsstring></argsstring>
+        <name>option_text_</name>
+        <qualifiedname>CLI::Option::option_text_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>If given, replace the text that describes the option type and usage in the help text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4178" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a2080c70a11f8935118dffc924824aa87" prot="protected" static="no" mutable="no">
+        <type>std::function&lt; std::string()&gt;</type>
+        <definition>std::function&lt;std::string()&gt; CLI::Option::type_name_</definition>
+        <argsstring></argsstring>
+        <name>type_name_</name>
+        <qualifiedname>CLI::Option::type_name_</qualifiedname>
+        <initializer>{[]() { return std::string(); }}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A human readable type value, set when <ref refid="classCLI_1_1App" kindref="compound">App</ref> creates this</para>
+<para>This is a lambda function so &quot;types&quot; can be dynamic, such as when a set prints its contents. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4183" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1acc7769c9cd48d7c7302dd51aa8fd3bd2" prot="protected" static="no" mutable="no">
+        <type>std::function&lt; std::string()&gt;</type>
+        <definition>std::function&lt;std::string()&gt; CLI::Option::default_function_</definition>
+        <argsstring></argsstring>
+        <name>default_function_</name>
+        <qualifiedname>CLI::Option::default_function_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>Run this function to capture a default (ignore if empty) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4186" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4186" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Configuration</header>
+      <memberdef kind="variable" id="classCLI_1_1Option_1ad9a5a55a8c3fdce89dbf5c167c183ca6" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CLI::Option::type_size_max_</definition>
+        <argsstring></argsstring>
+        <name>type_size_max_</name>
+        <qualifiedname>CLI::Option::type_size_max_</qualifiedname>
+        <initializer>{1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of arguments that make up one option. max is the nominal type size, min is the minimum number of strings </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4194" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a23e5549e7c0490f15018ee84bc39d644" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CLI::Option::type_size_min_</definition>
+        <argsstring></argsstring>
+        <name>type_size_min_</name>
+        <qualifiedname>CLI::Option::type_size_min_</qualifiedname>
+        <initializer>{1}</initializer>
+        <briefdescription>
+<para>The minimum number of arguments an option should be expecting. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4196" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a35e04622c4de2eab61a04421d0618741" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CLI::Option::expected_min_</definition>
+        <argsstring></argsstring>
+        <name>expected_min_</name>
+        <qualifiedname>CLI::Option::expected_min_</qualifiedname>
+        <initializer>{1}</initializer>
+        <briefdescription>
+<para>The minimum number of expected values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4199" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a963ed9f9758d938c860bc14bf1db57b6" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CLI::Option::expected_max_</definition>
+        <argsstring></argsstring>
+        <name>expected_max_</name>
+        <qualifiedname>CLI::Option::expected_max_</qualifiedname>
+        <initializer>{1}</initializer>
+        <briefdescription>
+<para>The maximum number of expected values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4201" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1ad406b8299fb243f0caa52a35863c82b7" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> &gt;</type>
+        <definition>std::vector&lt;Validator&gt; CLI::Option::validators_</definition>
+        <argsstring></argsstring>
+        <name>validators_</name>
+        <qualifiedname>CLI::Option::validators_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>A list of Validators to run on each value parsed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4204" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a3bd8d2ff461e8046b284cdbfcd741dce" prot="protected" static="no" mutable="no">
+        <type>std::set&lt; <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> * &gt;</type>
+        <definition>std::set&lt;Option *&gt; CLI::Option::needs_</definition>
+        <argsstring></argsstring>
+        <name>needs_</name>
+        <qualifiedname>CLI::Option::needs_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>A list of options that are required with this option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4207" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4207" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1App_1a4e0c00ce18bbfca1ae890a653bbd2b93" compoundref="CLI11_8hpp" startline="7339" endline="7465">CLI::App::_process_requirements</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a49c5490dd092599c067833fd0f5c79d3" prot="protected" static="no" mutable="no">
+        <type>std::set&lt; <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> * &gt;</type>
+        <definition>std::set&lt;Option *&gt; CLI::Option::excludes_</definition>
+        <argsstring></argsstring>
+        <name>excludes_</name>
+        <qualifiedname>CLI::Option::excludes_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>A list of options that are excluded with this option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4210" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4210" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1App_1a4e0c00ce18bbfca1ae890a653bbd2b93" compoundref="CLI11_8hpp" startline="7339" endline="7465">CLI::App::_process_requirements</referencedby>
+        <referencedby refid="classCLI_1_1Option_1a1cdf774701540dc336a83e930cad084d" compoundref="CLI11_8hpp" startline="4468" endline="4481">excludes</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Other</header>
+      <memberdef kind="variable" id="classCLI_1_1Option_1a9391ef1d3ed3f0607633b36faf72f5c0" prot="protected" static="no" mutable="no">
+        <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+        <definition>App* CLI::Option::parent_</definition>
+        <argsstring></argsstring>
+        <name>parent_</name>
+        <qualifiedname>CLI::Option::parent_</qualifiedname>
+        <initializer>{nullptr}</initializer>
+        <briefdescription>
+<para>link back up to the parent <ref refid="classCLI_1_1App" kindref="compound">App</ref> for fallthrough </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4217" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1Option_1ab79262b952902ff5e1cba6e3788aca54" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespaceCLI_1ac9e16923ffafaa89111b4a134267ce20" kindref="member">callback_t</ref></type>
+        <definition>callback_t CLI::Option::callback_</definition>
+        <argsstring></argsstring>
+        <name>callback_</name>
+        <qualifiedname>CLI::Option::callback_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>Options store a callback to do all the work. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4220" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4220" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Basic</header>
+      <memberdef kind="function" id="classCLI_1_1Option_1a72d6fb10f92fb81fc7a10327ce1a7da6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CLI::Option::Option</definition>
+        <argsstring>(const Option &amp;)=delete</argsstring>
+        <name>Option</name>
+        <qualifiedname>CLI::Option::Option</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4263" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a4c6bad0d2ed76477d603c6439d18184e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> &amp;</type>
+        <definition>Option &amp; CLI::Option::operator=</definition>
+        <argsstring>(const Option &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>CLI::Option::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4264" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a154543609c45d9c59c69991a08ca272b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t CLI::Option::count</definition>
+        <argsstring>() const</argsstring>
+        <name>count</name>
+        <qualifiedname>CLI::Option::count</qualifiedname>
+        <briefdescription>
+<para>Count the total number of times an option was passed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4267" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4267" bodyend="4267"/>
+        <referencedby refid="classCLI_1_1App_1a6e3eedf148351dabd1868bd7e63d24bc" compoundref="CLI11_8hpp" startline="7720" endline="7731">CLI::App::_count_remaining_positionals</referencedby>
+        <referencedby refid="classCLI_1_1App_1af15231547d53a51458059588a1c34a0b" compoundref="CLI11_8hpp" startline="7734" endline="7742">CLI::App::_has_remaining_positionals</referencedby>
+        <referencedby refid="classCLI_1_1App_1a3b564aa8c90f25152f5379c661ab82b1" compoundref="CLI11_8hpp" startline="7747" endline="7844">CLI::App::_parse_positional</referencedby>
+        <referencedby refid="classCLI_1_1App_1a0a367021eca99facc7968bb24333a8fb" compoundref="CLI11_8hpp" startline="7256" endline="7286">CLI::App::_process_env</referencedby>
+        <referencedby refid="classCLI_1_1App_1a3d04865bf341cea82bcb164b10db578b" compoundref="CLI11_8hpp" startline="7316" endline="7336">CLI::App::_process_help_flags</referencedby>
+        <referencedby refid="classCLI_1_1App_1a4e0c00ce18bbfca1ae890a653bbd2b93" compoundref="CLI11_8hpp" startline="7339" endline="7465">CLI::App::_process_requirements</referencedby>
+        <referencedby refid="classCLI_1_1App_1a4933a7e5603ab5eaa9705d4027e6cb12" compoundref="CLI11_8hpp" startline="6304" endline="6316">CLI::App::count_all</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1af5677ee4a55c2a85784f64198db6b452" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <qualifiedname>CLI::Option::empty</qualifiedname>
+        <briefdescription>
+<para>True if the option was not passed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4270" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4270" bodyend="4270"/>
+        <referencedby refid="classCLI_1_1App_1a1f7a70f4bc4c375a7de10073a5de709d" compoundref="CLI11_8hpp" startline="7603" endline="7673">CLI::App::_parse_single_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ab73e846fb3a78ac7eff8b6cd6afb24a1" prot="public" static="no" const="yes" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CLI::Option::operator bool</definition>
+        <argsstring>() const</argsstring>
+        <name>operator bool</name>
+        <qualifiedname>CLI::Option::operator bool</qualifiedname>
+        <briefdescription>
+<para>This bool operator returns true if any arguments were passed or the option callback is forced. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4273" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4273" bodyend="4273"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1abbd36aaff5cdca8b10346bafed51da39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::Option::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>CLI::Option::clear</qualifiedname>
+        <briefdescription>
+<para>Clear the parsed results (mostly for testing) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4276" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4276" bodyend="4279"/>
+        <referencedby refid="classCLI_1_1App_1a6b5a085a039cab7e5906b3cd4407fdc8" compoundref="CLI11_8hpp" startline="6407" endline="6420">CLI::App::clear</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Setting options</header>
+      <memberdef kind="function" id="classCLI_1_1Option_1a66d22991355232198a3da4b395847eba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::expected</definition>
+        <argsstring>(int value)</argsstring>
+        <name>expected</name>
+        <qualifiedname>CLI::Option::expected</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Set the number of expected arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4286" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4286" bodyend="4305"/>
+        <references refid="namespaceCLI_1_1detail_1a99abe3824b1f1bea457ad0ae635f5c51" compoundref="CLI11_8hpp" startline="161">CLI::detail::expected_max_vector_size</references>
+        <referencedby refid="classCLI_1_1App_1a424261859a15ab1426dafb5c3d64eaed" compoundref="CLI11_8hpp" startline="5829" endline="5849">CLI::App::add_option</referencedby>
+        <referencedby refid="classCLI_1_1App_1a69553182f587b733f323589eecbd8491" compoundref="CLI11_8hpp" startline="5871" endline="5889">CLI::App::add_option_function</referencedby>
+        <referencedby refid="classCLI_1_1App_1a18d7c8077e7a02a83b374df9bd5204a6" compoundref="CLI11_8hpp" startline="5853" endline="5867">CLI::App::add_option_no_stream</referencedby>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a379ad7b6c87b653a39c2f296aed1d05a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::expected</definition>
+        <argsstring>(int value_min, int value_max)</argsstring>
+        <name>expected</name>
+        <qualifiedname>CLI::Option::expected</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>value_min</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value_max</declname>
+        </param>
+        <briefdescription>
+<para>Set the range of expected arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4308" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4308" bodyend="4325"/>
+        <references refid="namespaceCLI_1_1detail_1a99abe3824b1f1bea457ad0ae635f5c51" compoundref="CLI11_8hpp" startline="161">CLI::detail::expected_max_vector_size</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a83302957a61e4bd7e5f21c552b39edb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::allow_extra_args</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>allow_extra_args</name>
+        <qualifiedname>CLI::Option::allow_extra_args</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the value of allow_extra_args which allows extra value arguments on the flag or option to be included with each instance </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4328" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4328" bodyend="4331"/>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a784f66cb9371753ddeb8df59c85cb490" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::get_allow_extra_args</definition>
+        <argsstring>() const</argsstring>
+        <name>get_allow_extra_args</name>
+        <qualifiedname>CLI::Option::get_allow_extra_args</qualifiedname>
+        <briefdescription>
+<para>Get the current value of allow extra args. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4333" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4333" bodyend="4333"/>
+        <referencedby refid="classCLI_1_1App_1a3b564aa8c90f25152f5379c661ab82b1" compoundref="CLI11_8hpp" startline="7747" endline="7844">CLI::App::_parse_positional</referencedby>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a86d413992d2193c81db1ce250ddf2e26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::trigger_on_parse</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>trigger_on_parse</name>
+        <qualifiedname>CLI::Option::trigger_on_parse</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Set the value of trigger_on_parse which specifies that the option callback should be triggered on every parse. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4335" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4335" bodyend="4338"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a2aa9124d0afd3524e45eda09e7303b49" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::get_trigger_on_parse</definition>
+        <argsstring>() const</argsstring>
+        <name>get_trigger_on_parse</name>
+        <qualifiedname>CLI::Option::get_trigger_on_parse</qualifiedname>
+        <briefdescription>
+<para>The status of trigger on parse. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4340" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4340" bodyend="4340"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ae07696e732630332ad126bed994f57a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::force_callback</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>force_callback</name>
+        <qualifiedname>CLI::Option::force_callback</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Set the value of force_callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4343" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4343" bodyend="4346"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a74b46aa4c1c155c0990c821604180f47" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::get_force_callback</definition>
+        <argsstring>() const</argsstring>
+        <name>get_force_callback</name>
+        <qualifiedname>CLI::Option::get_force_callback</qualifiedname>
+        <briefdescription>
+<para>The status of force_callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4348" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4348" bodyend="4348"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a81a26e9320e4ec616fbbd6fa3ad60ef7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::run_callback_for_default</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>run_callback_for_default</name>
+        <qualifiedname>CLI::Option::run_callback_for_default</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the value of run_callback_for_default which controls whether the callback function should be called to set the default This is controlled automatically but could be manipulated by the user. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4352" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4352" bodyend="4355"/>
+        <referencedby refid="classCLI_1_1App_1a424261859a15ab1426dafb5c3d64eaed" compoundref="CLI11_8hpp" startline="5829" endline="5849">CLI::App::add_option</referencedby>
+        <referencedby refid="classCLI_1_1App_1a18d7c8077e7a02a83b374df9bd5204a6" compoundref="CLI11_8hpp" startline="5853" endline="5867">CLI::App::add_option_no_stream</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a1ed32a17d1e82cae7ff2419f34994856" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::get_run_callback_for_default</definition>
+        <argsstring>() const</argsstring>
+        <name>get_run_callback_for_default</name>
+        <qualifiedname>CLI::Option::get_run_callback_for_default</qualifiedname>
+        <briefdescription>
+<para>Get the current value of run_callback_for_default. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4357" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4357" bodyend="4357"/>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ae94ff5bfc6549f9c86aff629be829353" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::check</definition>
+        <argsstring>(Validator validator, const std::string &amp;validator_name=&quot;&quot;)</argsstring>
+        <name>check</name>
+        <qualifiedname>CLI::Option::check</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref></type>
+          <declname>validator</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>validator_name</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Adds a <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> with a built in type name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4360" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4360" bodyend="4366"/>
+        <references refid="classCLI_1_1Validator_1a8fc0ddaaa61f5dc5a7fa527d697991da" compoundref="CLI11_8hpp" startline="2772" endline="2775">CLI::Validator::name</references>
+        <references refid="classCLI_1_1Validator_1a356d979d984dffff3489caf4baca9160" compoundref="CLI11_8hpp" startline="2797" endline="2800">CLI::Validator::non_modifying</references>
+        <referencedby refid="namespaceCLI_1a6cb6f8bfff8c49385fb24f6f23a23c21" compoundref="CLI11_8hpp" startline="8275" endline="8287">CLI::deprecate_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a5d78261b97d0a87576bdc9d9c8c6e25b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::check</definition>
+        <argsstring>(std::function&lt; std::string(const std::string &amp;)&gt; Validator, std::string Validator_description=&quot;&quot;, std::string Validator_name=&quot;&quot;)</argsstring>
+        <name>check</name>
+        <qualifiedname>CLI::Option::check</qualifiedname>
+        <param>
+          <type>std::function&lt; std::string(const std::string &amp;)&gt;</type>
+          <declname>Validator</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>Validator_description</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>Validator_name</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Adds a <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref>. Takes a const string&amp; and returns an error message (empty if conversion/check is okay). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4369" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4369" bodyend="4375"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ab75cdf67048dc7fb32e75a1d3c7613ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::transform</definition>
+        <argsstring>(Validator Validator, const std::string &amp;Validator_name=&quot;&quot;)</argsstring>
+        <name>transform</name>
+        <qualifiedname>CLI::Option::transform</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref></type>
+          <declname>Validator</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>Validator_name</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Adds a transforming <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> with a built in type name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4378" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4378" bodyend="4383"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1aa0e2fe5ccb41d2277aee71c20faabcab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::transform</definition>
+        <argsstring>(const std::function&lt; std::string(std::string)&gt; &amp;func, std::string transform_description=&quot;&quot;, std::string transform_name=&quot;&quot;)</argsstring>
+        <name>transform</name>
+        <qualifiedname>CLI::Option::transform</qualifiedname>
+        <param>
+          <type>const std::function&lt; std::string(std::string)&gt; &amp;</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>transform_description</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>transform_name</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Adds a Validator-like function that can change result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4386" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4386" bodyend="4399"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a586133dab20a9143a9466fae8e78095d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::each</definition>
+        <argsstring>(const std::function&lt; void(std::string)&gt; &amp;func)</argsstring>
+        <name>each</name>
+        <qualifiedname>CLI::Option::each</qualifiedname>
+        <param>
+          <type>const std::function&lt; void(std::string)&gt; &amp;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+<para>Adds a user supplied function to run on each item passed in (communicate though lambda capture) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4402" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4402" bodyend="4410"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a5ab8425e4e001f52d87db7ee86cbd579" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> *</type>
+        <definition>Validator * CLI::Option::get_validator</definition>
+        <argsstring>(const std::string &amp;Validator_name=&quot;&quot;)</argsstring>
+        <name>get_validator</name>
+        <qualifiedname>CLI::Option::get_validator</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>Validator_name</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Get a named <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4412" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4412" bodyend="4422"/>
+        <references refid="classCLI_1_1Validator_1a688775a9b9dffb8f7e40cfb42af11697" compoundref="CLI11_8hpp" startline="2783" endline="2783">CLI::Validator::get_name</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ae3274d2bec7a745d46f5d5e504da9c4e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> *</type>
+        <definition>Validator * CLI::Option::get_validator</definition>
+        <argsstring>(int index)</argsstring>
+        <name>get_validator</name>
+        <qualifiedname>CLI::Option::get_validator</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Get a <ref refid="classCLI_1_1Validator" kindref="compound">Validator</ref> by index NOTE: this may not be the order of definition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4425" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4425" bodyend="4431"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ad81f0537b30d16f02a066473ef3ad5dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::needs</definition>
+        <argsstring>(Option *opt)</argsstring>
+        <name>needs</name>
+        <qualifiedname>CLI::Option::needs</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <declname>opt</declname>
+        </param>
+        <briefdescription>
+<para>Sets required options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4434" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4434" bodyend="4439"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1aec2946d8cf9744bc55a3b8954df09999" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval><ref refid="classCLI_1_1App" kindref="compound">App</ref></defval>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::needs</definition>
+        <argsstring>(std::string opt_name)</argsstring>
+        <name>needs</name>
+        <qualifiedname>CLI::Option::needs</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>opt_name</declname>
+        </param>
+        <briefdescription>
+<para>Can find a string if needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4442" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4442" bodyend="4448"/>
+        <references refid="classCLI_1_1IncorrectConstruction_1a7d969b4082d618be5aa4536a0ae85643" compoundref="CLI11_8hpp" startline="638" endline="640">CLI::IncorrectConstruction::MissingOption</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ad9fb912d3f5fcf2b882cbb220412a3be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename A</type>
+          </param>
+          <param>
+            <type>typename B</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>ARG</declname>
+            <defname>ARG</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::needs</definition>
+        <argsstring>(A opt, B opt1, ARG... args)</argsstring>
+        <name>needs</name>
+        <qualifiedname>CLI::Option::needs</qualifiedname>
+        <param>
+          <type>A</type>
+          <declname>opt</declname>
+        </param>
+        <param>
+          <type>B</type>
+          <declname>opt1</declname>
+        </param>
+        <param>
+          <type>ARG...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Any number supported, any mix of string and Opt. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4451" column="28" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4451" bodyend="4454"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1aab72f7fef9aca5eefb25b09c1abffb3c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::remove_needs</definition>
+        <argsstring>(Option *opt)</argsstring>
+        <name>remove_needs</name>
+        <qualifiedname>CLI::Option::remove_needs</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <declname>opt</declname>
+        </param>
+        <briefdescription>
+<para>Remove needs link from an option. Returns true if the option really was in the needs list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4457" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4457" bodyend="4465"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a1cdf774701540dc336a83e930cad084d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::excludes</definition>
+        <argsstring>(Option *opt)</argsstring>
+        <name>excludes</name>
+        <qualifiedname>CLI::Option::excludes</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <declname>opt</declname>
+        </param>
+        <briefdescription>
+<para>Sets excluded options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4468" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4468" bodyend="4481"/>
+        <references refid="classCLI_1_1Option_1a49c5490dd092599c067833fd0f5c79d3" compoundref="CLI11_8hpp" startline="4210">excludes_</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1aa1110e431ac1c6d5fbdc985ed29b0e0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval><ref refid="classCLI_1_1App" kindref="compound">App</ref></defval>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::excludes</definition>
+        <argsstring>(std::string opt_name)</argsstring>
+        <name>excludes</name>
+        <qualifiedname>CLI::Option::excludes</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>opt_name</declname>
+        </param>
+        <briefdescription>
+<para>Can find a string if needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4484" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4484" bodyend="4490"/>
+        <references refid="classCLI_1_1IncorrectConstruction_1a7d969b4082d618be5aa4536a0ae85643" compoundref="CLI11_8hpp" startline="638" endline="640">CLI::IncorrectConstruction::MissingOption</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1afbb2f4c5cdad55a70f4503938804234a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename A</type>
+          </param>
+          <param>
+            <type>typename B</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>ARG</declname>
+            <defname>ARG</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::excludes</definition>
+        <argsstring>(A opt, B opt1, ARG... args)</argsstring>
+        <name>excludes</name>
+        <qualifiedname>CLI::Option::excludes</qualifiedname>
+        <param>
+          <type>A</type>
+          <declname>opt</declname>
+        </param>
+        <param>
+          <type>B</type>
+          <declname>opt1</declname>
+        </param>
+        <param>
+          <type>ARG...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Any number supported, any mix of string and Opt. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4493" column="28" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4493" bodyend="4496"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a414e6a8f76443036a9fb096f49165660" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::remove_excludes</definition>
+        <argsstring>(Option *opt)</argsstring>
+        <name>remove_excludes</name>
+        <qualifiedname>CLI::Option::remove_excludes</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+          <declname>opt</declname>
+        </param>
+        <briefdescription>
+<para>Remove needs link from an option. Returns true if the option really was in the needs list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4499" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4499" bodyend="4507"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ad47dfb0c974c94041c605882919afdb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::envname</definition>
+        <argsstring>(std::string name)</argsstring>
+        <name>envname</name>
+        <qualifiedname>CLI::Option::envname</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Sets environment variable to read if no option given. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4510" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4510" bodyend="4513"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a3906c06092f4c7c109c39fdc86183fd6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval><ref refid="classCLI_1_1App" kindref="compound">App</ref></defval>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::ignore_case</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>ignore_case</name>
+        <qualifiedname>CLI::Option::ignore_case</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ignore case</para>
+<para>The template hides the fact that we don&apos;t have the definition of <ref refid="classCLI_1_1App" kindref="compound">App</ref> yet. You are never expected to add an argument to the template here. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4519" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4519" bodyend="4537"/>
+        <references refid="classCLI_1_1Option_1ad95e4bba59db33e4bfe4caf91ca7be21" compoundref="CLI11_8hpp" startline="4773" endline="4792">matching_name</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ad02168c79c67a4b39e64b98d4cc39ca9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+            <defval><ref refid="classCLI_1_1App" kindref="compound">App</ref></defval>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::ignore_underscore</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>ignore_underscore</name>
+        <qualifiedname>CLI::Option::ignore_underscore</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ignore underscores in the option names</para>
+<para>The template hides the fact that we don&apos;t have the definition of <ref refid="classCLI_1_1App" kindref="compound">App</ref> yet. You are never expected to add an argument to the template here. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4543" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4543" bodyend="4562"/>
+        <references refid="classCLI_1_1Option_1ad95e4bba59db33e4bfe4caf91ca7be21" compoundref="CLI11_8hpp" startline="4773" endline="4792">matching_name</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a421a54aa82da9a5231b9457387afebbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::multi_option_policy</definition>
+        <argsstring>(MultiOptionPolicy value=MultiOptionPolicy::Throw)</argsstring>
+        <name>multi_option_policy</name>
+        <qualifiedname>CLI::Option::multi_option_policy</qualifiedname>
+        <param>
+          <type><ref refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2b" kindref="member">MultiOptionPolicy</ref></type>
+          <declname>value</declname>
+          <defval><ref refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2ba8ce61dd2505effd96f937fa743b6491f" kindref="member">MultiOptionPolicy::Throw</ref></defval>
+        </param>
+        <briefdescription>
+<para>Take the last argument if given multiple times (or another policy) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4565" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4565" bodyend="4576"/>
+        <references refid="namespaceCLI_1_1detail_1a99abe3824b1f1bea457ad0ae635f5c51" compoundref="CLI11_8hpp" startline="161">CLI::detail::expected_max_vector_size</references>
+        <references refid="namespaceCLI_1a991a3264d3459575fc7e83eb54d73d2ba8ce61dd2505effd96f937fa743b6491f">CLI::Throw</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a79441c26ba3d4e180ec3efa81d0481de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::disable_flag_override</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>disable_flag_override</name>
+        <qualifiedname>CLI::Option::disable_flag_override</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Disable flag overrides values, e.g. <ndash/>flag=</para>
+<para>is not allowed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4579" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4579" bodyend="4582"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Accessors</header>
+      <memberdef kind="function" id="classCLI_1_1Option_1a88f36e42c1afcf1d4887230cc133f1fa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::get_type_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_type_size</name>
+        <qualifiedname>CLI::Option::get_type_size</qualifiedname>
+        <briefdescription>
+<para>The number of arguments the option expects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4588" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4588" bodyend="4588"/>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a38a511ab2001c283c06fb31a7ea12501" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::get_type_size_min</definition>
+        <argsstring>() const</argsstring>
+        <name>get_type_size_min</name>
+        <qualifiedname>CLI::Option::get_type_size_min</qualifiedname>
+        <briefdescription>
+<para>The minimum number of arguments the option expects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4591" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4591" bodyend="4591"/>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a0c7e5712134a2227301fb50bcc9488c8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::get_type_size_max</definition>
+        <argsstring>() const</argsstring>
+        <name>get_type_size_max</name>
+        <qualifiedname>CLI::Option::get_type_size_max</qualifiedname>
+        <briefdescription>
+<para>The maximum number of arguments the option expects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4593" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4593" bodyend="4593"/>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1aa326426fcfb55d18854b02b59551d1d8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::get_inject_separator</definition>
+        <argsstring>() const</argsstring>
+        <name>get_inject_separator</name>
+        <qualifiedname>CLI::Option::get_inject_separator</qualifiedname>
+        <briefdescription>
+<para>Return the inject_separator flag. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4596" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4596" bodyend="4596"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a9657b97545e51cdcda8efd61d13b5ab3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::get_envname</definition>
+        <argsstring>() const</argsstring>
+        <name>get_envname</name>
+        <qualifiedname>CLI::Option::get_envname</qualifiedname>
+        <briefdescription>
+<para>The environment variable associated to this value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4599" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4599" bodyend="4599"/>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1acf898e5c04f5fb3f42ec1ea711e97743" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::set&lt; <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> * &gt;</type>
+        <definition>std::set&lt; Option * &gt; CLI::Option::get_needs</definition>
+        <argsstring>() const</argsstring>
+        <name>get_needs</name>
+        <qualifiedname>CLI::Option::get_needs</qualifiedname>
+        <briefdescription>
+<para>The set of options needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4602" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4602" bodyend="4602"/>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a833eaaba4c8823298e7740a3e43a82b6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::set&lt; <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> * &gt;</type>
+        <definition>std::set&lt; Option * &gt; CLI::Option::get_excludes</definition>
+        <argsstring>() const</argsstring>
+        <name>get_excludes</name>
+        <qualifiedname>CLI::Option::get_excludes</qualifiedname>
+        <briefdescription>
+<para>The set of options excluded. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4605" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4605" bodyend="4605"/>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a3b8410c5366dbbb6781b37d963677101" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::get_default_str</definition>
+        <argsstring>() const</argsstring>
+        <name>get_default_str</name>
+        <qualifiedname>CLI::Option::get_default_str</qualifiedname>
+        <briefdescription>
+<para>The default value (for help printing) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4608" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4608" bodyend="4608"/>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a8ab1e8c10d6d6c3b49b71cb0d8e5d3fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceCLI_1ac9e16923ffafaa89111b4a134267ce20" kindref="member">callback_t</ref></type>
+        <definition>callback_t CLI::Option::get_callback</definition>
+        <argsstring>() const</argsstring>
+        <name>get_callback</name>
+        <qualifiedname>CLI::Option::get_callback</qualifiedname>
+        <briefdescription>
+<para>Get the callback function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4611" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4611" bodyend="4611"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a0a987c3c71873880e8bfb6d0beb67278" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; std::string &gt; &amp;</type>
+        <definition>const std::vector&lt; std::string &gt; &amp; CLI::Option::get_lnames</definition>
+        <argsstring>() const</argsstring>
+        <name>get_lnames</name>
+        <qualifiedname>CLI::Option::get_lnames</qualifiedname>
+        <briefdescription>
+<para>Get the long names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4614" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4614" bodyend="4614"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1afd01460d88143d536beccb78b16ed4f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; std::string &gt; &amp;</type>
+        <definition>const std::vector&lt; std::string &gt; &amp; CLI::Option::get_snames</definition>
+        <argsstring>() const</argsstring>
+        <name>get_snames</name>
+        <qualifiedname>CLI::Option::get_snames</qualifiedname>
+        <briefdescription>
+<para>Get the short names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4617" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4617" bodyend="4617"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a55aa3e2e0d1386deb0d30b3c3a3d5bc1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; std::string &gt; &amp;</type>
+        <definition>const std::vector&lt; std::string &gt; &amp; CLI::Option::get_fnames</definition>
+        <argsstring>() const</argsstring>
+        <name>get_fnames</name>
+        <qualifiedname>CLI::Option::get_fnames</qualifiedname>
+        <briefdescription>
+<para>Get the flag names with specified default values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4620" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4620" bodyend="4620"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ad7a4cd6a54153bf4cb567e2011b76f16" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; CLI::Option::get_single_name</definition>
+        <argsstring>() const</argsstring>
+        <name>get_single_name</name>
+        <qualifiedname>CLI::Option::get_single_name</qualifiedname>
+        <briefdescription>
+<para>Get a single name for the option, first of lname, pname, sname, envname. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4622" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4622" bodyend="4633"/>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a307543e6e4ddeb6e4ea00438b5b10be3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::get_expected</definition>
+        <argsstring>() const</argsstring>
+        <name>get_expected</name>
+        <qualifiedname>CLI::Option::get_expected</qualifiedname>
+        <briefdescription>
+<para>The number of times the option expects to be included. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4635" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4635" bodyend="4635"/>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1afd69c393a40e9b1212f3552a1f48a414" compoundref="CLI11_8hpp" startline="9052" endline="9062">CLI::Formatter::make_option_usage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a19c64a02c22d968e834c2aaf13f98f62" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::get_expected_min</definition>
+        <argsstring>() const</argsstring>
+        <name>get_expected_min</name>
+        <qualifiedname>CLI::Option::get_expected_min</qualifiedname>
+        <briefdescription>
+<para>The number of times the option expects to be included. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4638" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4638" bodyend="4638"/>
+        <referencedby refid="classCLI_1_1App_1a1f7a70f4bc4c375a7de10073a5de709d" compoundref="CLI11_8hpp" startline="7603" endline="7673">CLI::App::_parse_single_config</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a21133f27201fa12203567cf0ee40c9c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::get_expected_max</definition>
+        <argsstring>() const</argsstring>
+        <name>get_expected_max</name>
+        <qualifiedname>CLI::Option::get_expected_max</qualifiedname>
+        <briefdescription>
+<para>The max number of times the option expects to be included. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4640" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4640" bodyend="4640"/>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1afd69c393a40e9b1212f3552a1f48a414" compoundref="CLI11_8hpp" startline="9052" endline="9062">CLI::Formatter::make_option_usage</referencedby>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1af87dffed2cb245673312c993e563710e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::get_items_expected_min</definition>
+        <argsstring>() const</argsstring>
+        <name>get_items_expected_min</name>
+        <qualifiedname>CLI::Option::get_items_expected_min</qualifiedname>
+        <briefdescription>
+<para>The total min number of expected string values to be used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4643" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4643" bodyend="4643"/>
+        <referencedby refid="classCLI_1_1App_1a6e3eedf148351dabd1868bd7e63d24bc" compoundref="CLI11_8hpp" startline="7720" endline="7731">CLI::App::_count_remaining_positionals</referencedby>
+        <referencedby refid="classCLI_1_1App_1af15231547d53a51458059588a1c34a0b" compoundref="CLI11_8hpp" startline="7734" endline="7742">CLI::App::_has_remaining_positionals</referencedby>
+        <referencedby refid="classCLI_1_1App_1a3b564aa8c90f25152f5379c661ab82b1" compoundref="CLI11_8hpp" startline="7747" endline="7844">CLI::App::_parse_positional</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a996b69fbb68a6d62829855816c30ed38" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::get_items_expected_max</definition>
+        <argsstring>() const</argsstring>
+        <name>get_items_expected_max</name>
+        <qualifiedname>CLI::Option::get_items_expected_max</qualifiedname>
+        <briefdescription>
+<para>Get the maximum number of items expected to be returned and used for the callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4646" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4646" bodyend="4649"/>
+        <references refid="namespaceCLI_1_1detail_1a58ce723daebf6cd298565eb365d1b157" compoundref="CLI11_8hpp" startline="3269" endline="3282">CLI::detail::checked_multiply</references>
+        <references refid="namespaceCLI_1_1detail_1a99abe3824b1f1bea457ad0ae635f5c51" compoundref="CLI11_8hpp" startline="161">CLI::detail::expected_max_vector_size</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1afe31a608506cbe75d40d6cced342be11" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::get_items_expected</definition>
+        <argsstring>() const</argsstring>
+        <name>get_items_expected</name>
+        <qualifiedname>CLI::Option::get_items_expected</qualifiedname>
+        <briefdescription>
+<para>The total min number of expected string values to be used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4651" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4651" bodyend="4651"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1acab7033604b49e314d290b01adea690d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::get_positional</definition>
+        <argsstring>() const</argsstring>
+        <name>get_positional</name>
+        <qualifiedname>CLI::Option::get_positional</qualifiedname>
+        <briefdescription>
+<para>True if the argument can be given directly. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4654" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4654" bodyend="4654"/>
+        <referencedby refid="classCLI_1_1App_1a6e3eedf148351dabd1868bd7e63d24bc" compoundref="CLI11_8hpp" startline="7720" endline="7731">CLI::App::_count_remaining_positionals</referencedby>
+        <referencedby refid="classCLI_1_1App_1af15231547d53a51458059588a1c34a0b" compoundref="CLI11_8hpp" startline="7734" endline="7742">CLI::App::_has_remaining_positionals</referencedby>
+        <referencedby refid="classCLI_1_1App_1a3b564aa8c90f25152f5379c661ab82b1" compoundref="CLI11_8hpp" startline="7747" endline="7844">CLI::App::_parse_positional</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1aab5f07a6d3154ace0be4d9dbf85f795b" compoundref="CLI11_8hpp" startline="8806" endline="8814">CLI::Formatter::make_positionals</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1a3aac4a7ce4ca139704e632915892024c" compoundref="CLI11_8hpp" startline="8866" endline="8906">CLI::Formatter::make_usage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a94cc5149d388be946c449e8ee61cd034" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::nonpositional</definition>
+        <argsstring>() const</argsstring>
+        <name>nonpositional</name>
+        <qualifiedname>CLI::Option::nonpositional</qualifiedname>
+        <briefdescription>
+<para>True if option has at least one non-positional name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4657" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4657" bodyend="4657"/>
+        <referencedby refid="classCLI_1_1Formatter_1ad48dd6b9432babc0037d6726230221f0" compoundref="CLI11_8hpp" startline="8816" endline="8838">CLI::Formatter::make_groups</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1a3aac4a7ce4ca139704e632915892024c" compoundref="CLI11_8hpp" startline="8866" endline="8906">CLI::Formatter::make_usage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a6770984498050b33659ce0c14b8f4696" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::has_description</definition>
+        <argsstring>() const</argsstring>
+        <name>has_description</name>
+        <qualifiedname>CLI::Option::has_description</qualifiedname>
+        <briefdescription>
+<para>True if option has description. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4660" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4660" bodyend="4660"/>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a6298f2354e3e02d262f1f6815621639a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; CLI::Option::get_description</definition>
+        <argsstring>() const</argsstring>
+        <name>get_description</name>
+        <qualifiedname>CLI::Option::get_description</qualifiedname>
+        <briefdescription>
+<para>Get the description. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4663" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4663" bodyend="4663"/>
+        <referencedby refid="namespaceCLI_1a6cb6f8bfff8c49385fb24f6f23a23c21" compoundref="CLI11_8hpp" startline="8275" endline="8287">CLI::deprecate_option</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1acf6c56689b56533dad59f8e1ff71c7ce" compoundref="CLI11_8hpp" startline="9050" endline="9050">CLI::Formatter::make_option_desc</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1adb517865b2f89c023e9544085cb332e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::description</definition>
+        <argsstring>(std::string option_description)</argsstring>
+        <name>description</name>
+        <qualifiedname>CLI::Option::description</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>option_description</declname>
+        </param>
+        <briefdescription>
+<para>Set the description. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4666" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4666" bodyend="4669"/>
+        <referencedby refid="namespaceCLI_1a6cb6f8bfff8c49385fb24f6f23a23c21" compoundref="CLI11_8hpp" startline="8275" endline="8287">CLI::deprecate_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a5bdcc74efea965f6d440b03432df50e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::option_text</definition>
+        <argsstring>(std::string text)</argsstring>
+        <name>option_text</name>
+        <qualifiedname>CLI::Option::option_text</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4671" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4671" bodyend="4674"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a012e378f4018f0d9366536edd3623d70" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; CLI::Option::get_option_text</definition>
+        <argsstring>() const</argsstring>
+        <name>get_option_text</name>
+        <qualifiedname>CLI::Option::get_option_text</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4676" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4676" bodyend="4676"/>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Help tools</header>
+      <memberdef kind="function" id="classCLI_1_1Option_1ab84751fbf9037efaed5b64fed17fe57f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::get_name</definition>
+        <argsstring>(bool positional=false, bool all_options=false) const</argsstring>
+        <name>get_name</name>
+        <qualifiedname>CLI::Option::get_name</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>positional</declname>
+          <defval>false</defval>
+          <briefdescription><para>Show the positional name </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>all_options</declname>
+          <defval>false</defval>
+          <briefdescription><para>Show every option </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Gets a comma separated list of names. Will include / prefer the positional name if positional is true. If all_options is false, pick just the most descriptive name to show. Use <computeroutput>get_name(true)</computeroutput> to get the positional name (replaces <computeroutput>get_pname</computeroutput>) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>The all list will never include a positional unless asked or that&apos;s the only name.</para>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4686" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4686" bodyend="4739"/>
+        <references refid="namespaceCLI_1_1detail_1ab351f13ec104e2cba19ec6baf4a552f6" compoundref="CLI11_8hpp" startline="181" endline="191">CLI::detail::join</references>
+        <referencedby refid="classCLI_1_1App_1aaabfb31d7fb10ee7465716b948b376dc" compoundref="CLI11_8hpp" startline="8159" endline="8196">CLI::App::_move_option</referencedby>
+        <referencedby refid="classCLI_1_1App_1a4e0c00ce18bbfca1ae890a653bbd2b93" compoundref="CLI11_8hpp" startline="7339" endline="7465">CLI::App::_process_requirements</referencedby>
+        <referencedby refid="namespaceCLI_1a6cb6f8bfff8c49385fb24f6f23a23c21" compoundref="CLI11_8hpp" startline="8275" endline="8287">CLI::deprecate_option</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1ad29eb726bf961560f0c6419fd74332d0" compoundref="CLI11_8hpp" startline="9008" endline="9013">CLI::Formatter::make_option_name</referencedby>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+        <referencedby refid="namespaceCLI_1_1FailureMessage_1ab2a36cd7fb3b91628be43f31647f3c38" compoundref="CLI11_8hpp" startline="8356" endline="8372">CLI::FailureMessage::simple</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Parser tools</header>
+      <memberdef kind="function" id="classCLI_1_1Option_1ab06eb6c31666a4a003aeb2cf3e5cdcd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::Option::run_callback</definition>
+        <argsstring>()</argsstring>
+        <name>run_callback</name>
+        <qualifiedname>CLI::Option::run_callback</qualifiedname>
+        <briefdescription>
+<para>Process the callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4746" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4746" bodyend="4770"/>
+        <references refid="classCLI_1_1Error_1a725f16d721c2320ba75b4d6c99d2056a" compoundref="CLI11_8hpp" startline="603" endline="603">CLI::Error::get_name</references>
+        <referencedby refid="classCLI_1_1App_1a1f7a70f4bc4c375a7de10073a5de709d" compoundref="CLI11_8hpp" startline="7603" endline="7673">CLI::App::_parse_single_config</referencedby>
+        <referencedby refid="classCLI_1_1App_1ad9e5d41a1efd28da92235b72682cbf74" compoundref="CLI11_8hpp" startline="7289" endline="7311">CLI::App::_process_callbacks</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ad95e4bba59db33e4bfe4caf91ca7be21" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; CLI::Option::matching_name</definition>
+        <argsstring>(const Option &amp;other) const</argsstring>
+        <name>matching_name</name>
+        <qualifiedname>CLI::Option::matching_name</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>If options share any of the same names, find it. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4773" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4773" bodyend="4792"/>
+        <references refid="classCLI_1_1Option_1a481001137137be0d6a4e5998866d604a" compoundref="CLI11_8hpp" startline="4832" endline="4834">check_lname</references>
+        <references refid="classCLI_1_1Option_1acfa639ba77f034615c7e66028da1fc3b" compoundref="CLI11_8hpp" startline="4827" endline="4829">check_sname</references>
+        <references refid="classCLI_1_1Option_1ae06feaf7ca62a5497514a09f44724430" compoundref="CLI11_8hpp" startline="4152">lnames_</references>
+        <references refid="classCLI_1_1Option_1a7d8ef1d4012fde878668c943d9b197bc" compoundref="CLI11_8hpp" startline="4149">snames_</references>
+        <referencedby refid="classCLI_1_1Option_1a3906c06092f4c7c109c39fdc86183fd6" compoundref="CLI11_8hpp" startline="4519" endline="4537">ignore_case</referencedby>
+        <referencedby refid="classCLI_1_1Option_1ad02168c79c67a4b39e64b98d4cc39ca9" compoundref="CLI11_8hpp" startline="4543" endline="4562">ignore_underscore</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ae72ff0b89bebb2987d548c186c577e50" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::operator==</definition>
+        <argsstring>(const Option &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>CLI::Option::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1Option" kindref="compound">Option</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>If options share any of the same names, they are equal (not counting positional) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4794" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4794" bodyend="4794"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a6a87a518665bbddf17512edccd962ba3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::check_name</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>check_name</name>
+        <qualifiedname>CLI::Option::check_name</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Check a name. Requires &quot;-&quot; or &quot;--&quot; for short / long, supports positional name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4797" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4797" bodyend="4824"/>
+        <references refid="namespaceCLI_1_1detail_1a5359a7a0e33366a12e15523b100f591a" compoundref="CLI11_8hpp" startline="385" endline="388">CLI::detail::remove_underscore</references>
+        <references refid="namespaceCLI_1_1detail_1ae83709ec148057ec53df4383645727e9" compoundref="CLI11_8hpp" startline="377" endline="382">CLI::detail::to_lower</references>
+        <referencedby refid="classCLI_1_1App_1a5125f786c409fe0bbba684fe99f2c5fe" compoundref="CLI11_8hpp" startline="6812" endline="6828">CLI::App::get_option_no_throw</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1acfa639ba77f034615c7e66028da1fc3b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::check_sname</definition>
+        <argsstring>(std::string name) const</argsstring>
+        <name>check_sname</name>
+        <qualifiedname>CLI::Option::check_sname</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Requires &quot;-&quot; to be removed from string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4827" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4827" bodyend="4829"/>
+        <references refid="namespaceCLI_1_1detail_1a356b9c9cc904af2b0a918fd55e86cd9c" compoundref="CLI11_8hpp" startline="422" endline="450">CLI::detail::find_member</references>
+        <referencedby refid="classCLI_1_1Option_1ad95e4bba59db33e4bfe4caf91ca7be21" compoundref="CLI11_8hpp" startline="4773" endline="4792">matching_name</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a481001137137be0d6a4e5998866d604a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::check_lname</definition>
+        <argsstring>(std::string name) const</argsstring>
+        <name>check_lname</name>
+        <qualifiedname>CLI::Option::check_lname</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Requires &quot;--&quot; to be removed from string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4832" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4832" bodyend="4834"/>
+        <references refid="namespaceCLI_1_1detail_1a356b9c9cc904af2b0a918fd55e86cd9c" compoundref="CLI11_8hpp" startline="422" endline="450">CLI::detail::find_member</references>
+        <referencedby refid="classCLI_1_1Option_1ad95e4bba59db33e4bfe4caf91ca7be21" compoundref="CLI11_8hpp" startline="4773" endline="4792">matching_name</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a4d2329268bae134aa58e704fa61f4b57" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::check_fname</definition>
+        <argsstring>(std::string name) const</argsstring>
+        <name>check_fname</name>
+        <qualifiedname>CLI::Option::check_fname</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Requires &quot;--&quot; to be removed from string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4837" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4837" bodyend="4842"/>
+        <references refid="namespaceCLI_1_1detail_1a356b9c9cc904af2b0a918fd55e86cd9c" compoundref="CLI11_8hpp" startline="422" endline="450">CLI::detail::find_member</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a4eb6212ac30a0b139da52d258a3a1790" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::get_flag_value</definition>
+        <argsstring>(const std::string &amp;name, std::string input_value) const</argsstring>
+        <name>get_flag_value</name>
+        <qualifiedname>CLI::Option::get_flag_value</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>input_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the value that goes for a flag, nominally gets the default value but allows for overrides if not disabled </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4846" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4846" bodyend="4887"/>
+        <references refid="namespaceCLI_1_1detail_1a356b9c9cc904af2b0a918fd55e86cd9c" compoundref="CLI11_8hpp" startline="422" endline="450">CLI::detail::find_member</references>
+        <references refid="classCLI_1_1ArgumentMismatch_1af40fccb119664c7c5025bba76fb2d7e2" compoundref="CLI11_8hpp" startline="803" endline="805">CLI::ArgumentMismatch::FlagOverride</references>
+        <references refid="namespaceCLI_1_1detail_1af45abf683b881127298aa28b3c4e6cf5" compoundref="CLI11_8hpp" startline="1670" endline="1710">CLI::detail::to_flag_value</references>
+        <references refid="namespaceCLI_1_1detail_1a9c070858740ce15aaecb1c5f04e21a09" compoundref="CLI11_8hpp" startline="1141" endline="1145">CLI::detail::to_string</references>
+        <referencedby refid="classCLI_1_1App_1a1f7a70f4bc4c375a7de10073a5de709d" compoundref="CLI11_8hpp" startline="7603" endline="7673">CLI::App::_parse_single_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a49ba3750688c16a2c001dd2c91ecba3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::add_result</definition>
+        <argsstring>(std::string s)</argsstring>
+        <name>add_result</name>
+        <qualifiedname>CLI::Option::add_result</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Puts a result at the end. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4890" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4890" bodyend="4894"/>
+        <referencedby refid="classCLI_1_1App_1a3b564aa8c90f25152f5379c661ab82b1" compoundref="CLI11_8hpp" startline="7747" endline="7844">CLI::App::_parse_positional</referencedby>
+        <referencedby refid="classCLI_1_1App_1a1f7a70f4bc4c375a7de10073a5de709d" compoundref="CLI11_8hpp" startline="7603" endline="7673">CLI::App::_parse_single_config</referencedby>
+        <referencedby refid="classCLI_1_1App_1a0a367021eca99facc7968bb24333a8fb" compoundref="CLI11_8hpp" startline="7256" endline="7286">CLI::App::_process_env</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ad772e6434c9cbc64407832a77263cae1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::add_result</definition>
+        <argsstring>(std::string s, int &amp;results_added)</argsstring>
+        <name>add_result</name>
+        <qualifiedname>CLI::Option::add_result</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>results_added</declname>
+        </param>
+        <briefdescription>
+<para>Puts a result at the end and get a count of the number of arguments actually added. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4897" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4897" bodyend="4901"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1abe1ad866ef9d96e23ae84def8c8b031c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::add_result</definition>
+        <argsstring>(std::vector&lt; std::string &gt; s)</argsstring>
+        <name>add_result</name>
+        <qualifiedname>CLI::Option::add_result</qualifiedname>
+        <param>
+          <type>std::vector&lt; std::string &gt;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Puts a result at the end. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4904" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4904" bodyend="4910"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">CLI::detail::str</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a34fe6f578eba2a9d4647c59e3dababe0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="namespaceCLI_1a777eb94b3fedc66106c44ae5d8c17ee8" kindref="member">results_t</ref> &amp;</type>
+        <definition>const results_t &amp; CLI::Option::results</definition>
+        <argsstring>() const</argsstring>
+        <name>results</name>
+        <qualifiedname>CLI::Option::results</qualifiedname>
+        <briefdescription>
+<para>Get the current complete results set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4913" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4913" bodyend="4913"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a35ae96199e3704c2b4be44bae9be28fa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceCLI_1a777eb94b3fedc66106c44ae5d8c17ee8" kindref="member">results_t</ref></type>
+        <definition>results_t CLI::Option::reduced_results</definition>
+        <argsstring>() const</argsstring>
+        <name>reduced_results</name>
+        <qualifiedname>CLI::Option::reduced_results</qualifiedname>
+        <briefdescription>
+<para>Get a copy of the results. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4916" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4916" bodyend="4932"/>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ac445a3a3ac14d7ec0f229887028bbbf7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CLI::Option::results</definition>
+        <argsstring>(T &amp;output) const</argsstring>
+        <name>results</name>
+        <qualifiedname>CLI::Option::results</qualifiedname>
+        <param>
+          <type>T &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+<para>Get the results as a specified type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4935" column="22" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4935" bodyend="4963"/>
+        <references refid="classCLI_1_1Error_1a725f16d721c2320ba75b4d6c99d2056a" compoundref="CLI11_8hpp" startline="603" endline="603">CLI::Error::get_name</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1aaf823105782108a6c777b7e0925d2430" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T CLI::Option::as</definition>
+        <argsstring>() const</argsstring>
+        <name>as</name>
+        <qualifiedname>CLI::Option::as</qualifiedname>
+        <briefdescription>
+<para>Return the results as the specified type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4966" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4966" bodyend="4970"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1aae19e4231b0c1ef14cf2f3c7189e453c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::Option::get_callback_run</definition>
+        <argsstring>() const</argsstring>
+        <name>get_callback_run</name>
+        <qualifiedname>CLI::Option::get_callback_run</qualifiedname>
+        <briefdescription>
+<para>See if the callback has been run already. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4973" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4973" bodyend="4973"/>
+        <referencedby refid="classCLI_1_1App_1ad9e5d41a1efd28da92235b72682cbf74" compoundref="CLI11_8hpp" startline="7289" endline="7311">CLI::App::_process_callbacks</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Custom options</header>
+      <memberdef kind="function" id="classCLI_1_1Option_1ad4ff97f7911d552972c10771bcf488d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::type_name_fn</definition>
+        <argsstring>(std::function&lt; std::string()&gt; typefun)</argsstring>
+        <name>type_name_fn</name>
+        <qualifiedname>CLI::Option::type_name_fn</qualifiedname>
+        <param>
+          <type>std::function&lt; std::string()&gt;</type>
+          <declname>typefun</declname>
+        </param>
+        <briefdescription>
+<para>Set the type function to run when displayed on this option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4980" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4980" bodyend="4983"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a1fcb3c625eeca46ef953732a71403027" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::type_name</definition>
+        <argsstring>(std::string typeval)</argsstring>
+        <name>type_name</name>
+        <qualifiedname>CLI::Option::type_name</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>typeval</declname>
+        </param>
+        <briefdescription>
+<para>Set a custom option typestring. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4986" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4986" bodyend="4989"/>
+        <referencedby refid="classCLI_1_1App_1a424261859a15ab1426dafb5c3d64eaed" compoundref="CLI11_8hpp" startline="5829" endline="5849">CLI::App::add_option</referencedby>
+        <referencedby refid="classCLI_1_1App_1a69553182f587b733f323589eecbd8491" compoundref="CLI11_8hpp" startline="5871" endline="5889">CLI::App::add_option_function</referencedby>
+        <referencedby refid="classCLI_1_1App_1a18d7c8077e7a02a83b374df9bd5204a6" compoundref="CLI11_8hpp" startline="5853" endline="5867">CLI::App::add_option_no_stream</referencedby>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a8914e4810b213c5e23359d61a70c5ac1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::type_size</definition>
+        <argsstring>(int option_type_size)</argsstring>
+        <name>type_size</name>
+        <qualifiedname>CLI::Option::type_size</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>option_type_size</declname>
+        </param>
+        <briefdescription>
+<para>Set a custom option size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4992" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4992" bodyend="5009"/>
+        <references refid="namespaceCLI_1_1detail_1a99abe3824b1f1bea457ad0ae635f5c51" compoundref="CLI11_8hpp" startline="161">CLI::detail::expected_max_vector_size</references>
+        <referencedby refid="classCLI_1_1App_1a424261859a15ab1426dafb5c3d64eaed" compoundref="CLI11_8hpp" startline="5829" endline="5849">CLI::App::add_option</referencedby>
+        <referencedby refid="classCLI_1_1App_1a69553182f587b733f323589eecbd8491" compoundref="CLI11_8hpp" startline="5871" endline="5889">CLI::App::add_option_function</referencedby>
+        <referencedby refid="classCLI_1_1App_1a18d7c8077e7a02a83b374df9bd5204a6" compoundref="CLI11_8hpp" startline="5853" endline="5867">CLI::App::add_option_no_stream</referencedby>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a81d7f38453c88d417fb5333b5ef39959" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::type_size</definition>
+        <argsstring>(int option_type_size_min, int option_type_size_max)</argsstring>
+        <name>type_size</name>
+        <qualifiedname>CLI::Option::type_size</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>option_type_size_min</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>option_type_size_max</declname>
+        </param>
+        <briefdescription>
+<para>Set a custom option type size range. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5011" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5011" bodyend="5033"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="namespaceCLI_1_1detail_1a99abe3824b1f1bea457ad0ae635f5c51" compoundref="CLI11_8hpp" startline="161">CLI::detail::expected_max_vector_size</references>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a8238350326df789724d4a8e422c1fa10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::Option::inject_separator</definition>
+        <argsstring>(bool value=true)</argsstring>
+        <name>inject_separator</name>
+        <qualifiedname>CLI::Option::inject_separator</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Set the value of the separator injection flag. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5036" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5036" bodyend="5036"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a3d5ac9c31bf8b29852e18c8908d16235" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::default_function</definition>
+        <argsstring>(const std::function&lt; std::string()&gt; &amp;func)</argsstring>
+        <name>default_function</name>
+        <qualifiedname>CLI::Option::default_function</qualifiedname>
+        <param>
+          <type>const std::function&lt; std::string()&gt; &amp;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+<para>Set a capture function for the default. Mostly used by <ref refid="classCLI_1_1App" kindref="compound">App</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5039" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5039" bodyend="5042"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ac3c74dba1e4c52bba56b57ed0bcfba74" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::capture_default_str</definition>
+        <argsstring>()</argsstring>
+        <name>capture_default_str</name>
+        <qualifiedname>CLI::Option::capture_default_str</qualifiedname>
+        <briefdescription>
+<para>Capture the default value from the original value (if it can be captured) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5045" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5045" bodyend="5050"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ac742a336add6ee44ce61dc3dd196fd23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::default_str</definition>
+        <argsstring>(std::string val)</argsstring>
+        <name>default_str</name>
+        <qualifiedname>CLI::Option::default_str</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Set the default value string representation (does not change the contained value) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5053" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5053" bodyend="5056"/>
+        <referencedby refid="namespaceCLI_1a36cfe4a6a80bf143735c0b80960bc252" compoundref="CLI11_8hpp" startline="8302" endline="8324">CLI::retire_option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ad54a6c2a78d84970977f84212a7a6a7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename X</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>Option * CLI::Option::default_val</definition>
+        <argsstring>(const X &amp;val)</argsstring>
+        <name>default_val</name>
+        <qualifiedname>CLI::Option::default_val</qualifiedname>
+        <param>
+          <type>const X &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the default value and validate the results and run the callback if appropriate to set the value into the bound value only available for types that can be converted to a string </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5060" column="24" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5060" bodyend="5084"/>
+        <references refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" compoundref="CLI11_8hpp" startline="1124" endline="1126">CLI::detail::to_string</references>
+        <referencedby refid="structsisi4s_1_1Options_1a6683d7ed27952a4813bb0fae54e17cc0" compoundref="Options_8cxx" startline="9" endline="33">sisi4s::Options::Options</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a8b8425827ceb852c3cc3f44b9b1c26a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::get_type_name</definition>
+        <argsstring>() const</argsstring>
+        <name>get_type_name</name>
+        <qualifiedname>CLI::Option::get_type_name</qualifiedname>
+        <briefdescription>
+<para>Get the full typename for this option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5087" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5087" bodyend="5098"/>
+        <references refid="classCLI_1_1Validator_1a77c9d0a1f496ccaa4a8ef293a41bca78" compoundref="CLI11_8hpp" startline="2765" endline="2770">CLI::Validator::get_description</references>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1aca354470d28f7416f7e3f856b081dadb" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::Option::_validate_results</definition>
+        <argsstring>(results_t &amp;res) const</argsstring>
+        <name>_validate_results</name>
+        <qualifiedname>CLI::Option::_validate_results</qualifiedname>
+        <param>
+          <type><ref refid="namespaceCLI_1a777eb94b3fedc66106c44ae5d8c17ee8" kindref="member">results_t</ref> &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Run the results through the Validators. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5102" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5102" bodyend="5138"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a644abf536eba340929c3b9bad73d0d11" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::Option::_reduce_results</definition>
+        <argsstring>(results_t &amp;res, const results_t &amp;original) const</argsstring>
+        <name>_reduce_results</name>
+        <qualifiedname>CLI::Option::_reduce_results</qualifiedname>
+        <param>
+          <type><ref refid="namespaceCLI_1a777eb94b3fedc66106c44ae5d8c17ee8" kindref="member">results_t</ref> &amp;</type>
+          <declname>res</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceCLI_1a777eb94b3fedc66106c44ae5d8c17ee8" kindref="member">results_t</ref> &amp;</type>
+          <declname>original</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reduce the results in accordance with the MultiOptionPolicy <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>results are assigned to res if there if they are different </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5143" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5143" bodyend="5192"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1a9f1600f7e3ad98218710f1f6f4cb351f" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::Option::_validate</definition>
+        <argsstring>(std::string &amp;result, int index) const</argsstring>
+        <name>_validate</name>
+        <qualifiedname>CLI::Option::_validate</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5195" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5195" bodyend="5215"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1Option_1ac157a6f680fdce1950c9ab930533b1fe" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CLI::Option::_add_result</definition>
+        <argsstring>(std::string &amp;&amp;result, std::vector&lt; std::string &gt; &amp;res) const</argsstring>
+        <name>_add_result</name>
+        <qualifiedname>CLI::Option::_add_result</qualifiedname>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::string &gt; &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Add a single result to the result set, taking into account delimiters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5218" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5218" bodyend="5248"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCLI_1_1Option_1a8efb526a434cbcd7d019ee4a5703dbcd" prot="private" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend CLI::Option::App</definition>
+        <argsstring></argsstring>
+        <name>App</name>
+        <qualifiedname>CLI::Option::App</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4142" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4142" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classCLI_1_1Option_1a35e90f0fc810ccca676f7fa39bf4cc27" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CLI::Option::Option</definition>
+        <argsstring>(std::string option_name, std::string option_description, callback_t callback, App *parent)</argsstring>
+        <name>Option</name>
+        <qualifiedname>CLI::Option::Option</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>option_name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>option_description</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceCLI_1ac9e16923ffafaa89111b4a134267ce20" kindref="member">callback_t</ref></type>
+          <declname>callback</declname>
+        </param>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+<para>Making an option by hand is not defined, it must be made by the <ref refid="classCLI_1_1App" kindref="compound">App</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4254" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4254" bodyend="4257"/>
+        <references refid="namespaceCLI_1_1detail_1a2f845e274b0701ae700150328804badf" compoundref="CLI11_8hpp" startline="2490" endline="2522">CLI::detail::get_names</references>
+        <references refid="namespaceCLI_1_1detail_1a001565020c65971162bae8cc2ba7d3e1" compoundref="CLI11_8hpp" startline="2450" endline="2459">CLI::detail::split_names</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CLI::Option</label>
+        <link refid="classCLI_1_1Option"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CLI::OptionBase&lt; CRTP &gt;</label>
+        <link refid="classCLI_1_1OptionBase"/>
+      </node>
+      <node id="2">
+        <label>CLI::OptionBase&lt; Option &gt;</label>
+        <link refid="classCLI_1_1OptionBase"/>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; Option &gt;</edgelabel>
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>CLI::App</label>
+        <link refid="classCLI_1_1App"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>#option_defaults_</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>#config_ptr_</edgelabel>
+          <edgelabel>#help_all_ptr_</edgelabel>
+          <edgelabel>#help_ptr_</edgelabel>
+          <edgelabel>#version_ptr_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>#parent_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CLI::Option</label>
+        <link refid="classCLI_1_1Option"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>#parent_</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CLI::OptionBase&lt; CRTP &gt;</label>
+        <link refid="classCLI_1_1OptionBase"/>
+      </node>
+      <node id="5">
+        <label>CLI::OptionDefaults</label>
+        <link refid="classCLI_1_1OptionDefaults"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CLI::OptionBase&lt; Option &gt;</label>
+        <link refid="classCLI_1_1OptionBase"/>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; Option &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CLI::OptionBase&lt; OptionDefaults &gt;</label>
+        <link refid="classCLI_1_1OptionBase"/>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; OptionDefaults &gt;</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="4141" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="4141" bodyend="5249"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1Option_1ac157a6f680fdce1950c9ab930533b1fe" prot="private" virt="non-virtual"><scope>CLI::Option</scope><name>_add_result</name></member>
+      <member refid="classCLI_1_1Option_1a644abf536eba340929c3b9bad73d0d11" prot="private" virt="non-virtual"><scope>CLI::Option</scope><name>_reduce_results</name></member>
+      <member refid="classCLI_1_1Option_1a9f1600f7e3ad98218710f1f6f4cb351f" prot="private" virt="non-virtual"><scope>CLI::Option</scope><name>_validate</name></member>
+      <member refid="classCLI_1_1Option_1aca354470d28f7416f7e3f856b081dadb" prot="private" virt="non-virtual"><scope>CLI::Option</scope><name>_validate_results</name></member>
+      <member refid="classCLI_1_1Option_1a49ba3750688c16a2c001dd2c91ecba3e" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>add_result</name></member>
+      <member refid="classCLI_1_1Option_1ad772e6434c9cbc64407832a77263cae1" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>add_result</name></member>
+      <member refid="classCLI_1_1Option_1abe1ad866ef9d96e23ae84def8c8b031c" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>add_result</name></member>
+      <member refid="classCLI_1_1Option_1a83302957a61e4bd7e5f21c552b39edb5" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>allow_extra_args</name></member>
+      <member refid="classCLI_1_1Option_1adb0563505e82a3932466a23700ce66ba" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>allow_extra_args_</name></member>
+      <member refid="classCLI_1_1OptionBase_1ac5ee05409ef6e5369e78ecf127bb0e7f" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>always_capture_default</name></member>
+      <member refid="classCLI_1_1OptionBase_1a23aca05ffa9c2d3fbba10b5434cdba64" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>always_capture_default_</name></member>
+      <member refid="classCLI_1_1Option_1a8efb526a434cbcd7d019ee4a5703dbcd" prot="private" virt="non-virtual"><scope>CLI::Option</scope><name>App</name></member>
+      <member refid="classCLI_1_1Option_1aaf823105782108a6c777b7e0925d2430" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>as</name></member>
+      <member refid="classCLI_1_1Option_1ab79262b952902ff5e1cba6e3788aca54" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>callback_</name></member>
+      <member refid="classCLI_1_1Option_1ac3c74dba1e4c52bba56b57ed0bcfba74" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>capture_default_str</name></member>
+      <member refid="classCLI_1_1Option_1ae94ff5bfc6549f9c86aff629be829353" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>check</name></member>
+      <member refid="classCLI_1_1Option_1a5d78261b97d0a87576bdc9d9c8c6e25b" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>check</name></member>
+      <member refid="classCLI_1_1Option_1a4d2329268bae134aa58e704fa61f4b57" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>check_fname</name></member>
+      <member refid="classCLI_1_1Option_1a481001137137be0d6a4e5998866d604a" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>check_lname</name></member>
+      <member refid="classCLI_1_1Option_1a6a87a518665bbddf17512edccd962ba3" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>check_name</name></member>
+      <member refid="classCLI_1_1Option_1acfa639ba77f034615c7e66028da1fc3b" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>check_sname</name></member>
+      <member refid="classCLI_1_1Option_1abbd36aaff5cdca8b10346bafed51da39" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>clear</name></member>
+      <member refid="classCLI_1_1OptionBase_1a618d6a4f8137bec3272a04d848106046" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>configurable</name></member>
+      <member refid="classCLI_1_1OptionBase_1a86801bb8560b37e40ea60815871a22ee" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>configurable_</name></member>
+      <member refid="classCLI_1_1OptionBase_1aeccfd835475420d963f2fff446c32003" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>copy_to</name></member>
+      <member refid="classCLI_1_1Option_1a154543609c45d9c59c69991a08ca272b" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>count</name></member>
+      <member refid="classCLI_1_1Option_1a239c3f2953f88bc9cf1a2bc99af39095" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>current_option_state_</name></member>
+      <member refid="classCLI_1_1Option_1ad2c7c8c939c6eacfb25ae7a83c0640af" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>default_flag_values_</name></member>
+      <member refid="classCLI_1_1Option_1a3d5ac9c31bf8b29852e18c8908d16235" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>default_function</name></member>
+      <member refid="classCLI_1_1Option_1acc7769c9cd48d7c7302dd51aa8fd3bd2" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>default_function_</name></member>
+      <member refid="classCLI_1_1Option_1ac742a336add6ee44ce61dc3dd196fd23" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>default_str</name></member>
+      <member refid="classCLI_1_1Option_1a169893983f2dd0dc840ebca98bb76698" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>default_str_</name></member>
+      <member refid="classCLI_1_1Option_1ad54a6c2a78d84970977f84212a7a6a7b" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>default_val</name></member>
+      <member refid="classCLI_1_1OptionBase_1a620c2f57aca00ad2ad1fe8870143fcc1" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>delimiter</name></member>
+      <member refid="classCLI_1_1OptionBase_1ac4164d93e2b8e59b2de24dad04a9f34b" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>delimiter_</name></member>
+      <member refid="classCLI_1_1Option_1adb517865b2f89c023e9544085cb332e4" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>description</name></member>
+      <member refid="classCLI_1_1Option_1aa6427b2f3303cc4469cacdc098b9d4bf" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>description_</name></member>
+      <member refid="classCLI_1_1Option_1a79441c26ba3d4e180ec3efa81d0481de" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>disable_flag_override</name></member>
+      <member refid="classCLI_1_1OptionBase_1ab62f608c0957e32ccf56f2834aa574c1" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>disable_flag_override_</name></member>
+      <member refid="classCLI_1_1Option_1a586133dab20a9143a9466fae8e78095d" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>each</name></member>
+      <member refid="classCLI_1_1Option_1af5677ee4a55c2a85784f64198db6b452" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>empty</name></member>
+      <member refid="classCLI_1_1Option_1ad47dfb0c974c94041c605882919afdb5" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>envname</name></member>
+      <member refid="classCLI_1_1Option_1acac4bf11cbd933967ced9175946ffbe6" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>envname_</name></member>
+      <member refid="classCLI_1_1Option_1a1cdf774701540dc336a83e930cad084d" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>excludes</name></member>
+      <member refid="classCLI_1_1Option_1aa1110e431ac1c6d5fbdc985ed29b0e0b" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>excludes</name></member>
+      <member refid="classCLI_1_1Option_1afbb2f4c5cdad55a70f4503938804234a" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>excludes</name></member>
+      <member refid="classCLI_1_1Option_1a49c5490dd092599c067833fd0f5c79d3" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>excludes_</name></member>
+      <member refid="classCLI_1_1Option_1a66d22991355232198a3da4b395847eba" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>expected</name></member>
+      <member refid="classCLI_1_1Option_1a379ad7b6c87b653a39c2f296aed1d05a" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>expected</name></member>
+      <member refid="classCLI_1_1Option_1a963ed9f9758d938c860bc14bf1db57b6" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>expected_max_</name></member>
+      <member refid="classCLI_1_1Option_1a35e04622c4de2eab61a04421d0618741" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>expected_min_</name></member>
+      <member refid="classCLI_1_1Option_1a47712db860c1df802ff0ee51cbc2200e" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>flag_like_</name></member>
+      <member refid="classCLI_1_1Option_1a56635c9d01c0fde66df3a5edf87b8a31" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>fnames_</name></member>
+      <member refid="classCLI_1_1Option_1ae07696e732630332ad126bed994f57a1" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>force_callback</name></member>
+      <member refid="classCLI_1_1Option_1a4b75830d792af9a8b7e0e19f5c26fa2e" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>force_callback_</name></member>
+      <member refid="classCLI_1_1Option_1a784f66cb9371753ddeb8df59c85cb490" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_allow_extra_args</name></member>
+      <member refid="classCLI_1_1OptionBase_1acf913635549804e222cd309294cdba7a" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_always_capture_default</name></member>
+      <member refid="classCLI_1_1Option_1a8ab1e8c10d6d6c3b49b71cb0d8e5d3fb" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_callback</name></member>
+      <member refid="classCLI_1_1Option_1aae19e4231b0c1ef14cf2f3c7189e453c" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_callback_run</name></member>
+      <member refid="classCLI_1_1OptionBase_1a148499af929ff2498d1ef3567fc18dfc" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_configurable</name></member>
+      <member refid="classCLI_1_1Option_1a3b8410c5366dbbb6781b37d963677101" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_default_str</name></member>
+      <member refid="classCLI_1_1OptionBase_1ad3057f1f7bdd0473d86aad54a0e36064" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_delimiter</name></member>
+      <member refid="classCLI_1_1Option_1a6298f2354e3e02d262f1f6815621639a" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_description</name></member>
+      <member refid="classCLI_1_1OptionBase_1a07c4e6b7c4a7c3af4e147613d5e39aa0" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_disable_flag_override</name></member>
+      <member refid="classCLI_1_1Option_1a9657b97545e51cdcda8efd61d13b5ab3" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_envname</name></member>
+      <member refid="classCLI_1_1Option_1a833eaaba4c8823298e7740a3e43a82b6" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_excludes</name></member>
+      <member refid="classCLI_1_1Option_1a307543e6e4ddeb6e4ea00438b5b10be3" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_expected</name></member>
+      <member refid="classCLI_1_1Option_1a21133f27201fa12203567cf0ee40c9c5" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_expected_max</name></member>
+      <member refid="classCLI_1_1Option_1a19c64a02c22d968e834c2aaf13f98f62" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_expected_min</name></member>
+      <member refid="classCLI_1_1Option_1a4eb6212ac30a0b139da52d258a3a1790" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_flag_value</name></member>
+      <member refid="classCLI_1_1Option_1a55aa3e2e0d1386deb0d30b3c3a3d5bc1" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_fnames</name></member>
+      <member refid="classCLI_1_1Option_1a74b46aa4c1c155c0990c821604180f47" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_force_callback</name></member>
+      <member refid="classCLI_1_1OptionBase_1ad824d0f4f973675beece17d6b5ad9d00" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_group</name></member>
+      <member refid="classCLI_1_1OptionBase_1a12d180bda82c466cfbcd5fbeac27e956" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_ignore_case</name></member>
+      <member refid="classCLI_1_1OptionBase_1a321ce55e69252d0b01426480a8c6c894" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_ignore_underscore</name></member>
+      <member refid="classCLI_1_1Option_1aa326426fcfb55d18854b02b59551d1d8" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_inject_separator</name></member>
+      <member refid="classCLI_1_1Option_1afe31a608506cbe75d40d6cced342be11" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_items_expected</name></member>
+      <member refid="classCLI_1_1Option_1a996b69fbb68a6d62829855816c30ed38" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_items_expected_max</name></member>
+      <member refid="classCLI_1_1Option_1af87dffed2cb245673312c993e563710e" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_items_expected_min</name></member>
+      <member refid="classCLI_1_1Option_1a0a987c3c71873880e8bfb6d0beb67278" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_lnames</name></member>
+      <member refid="classCLI_1_1OptionBase_1a67ade2fd6f98b5a77c45b18c3d8ae639" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_multi_option_policy</name></member>
+      <member refid="classCLI_1_1Option_1ab84751fbf9037efaed5b64fed17fe57f" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_name</name></member>
+      <member refid="classCLI_1_1Option_1acf898e5c04f5fb3f42ec1ea711e97743" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_needs</name></member>
+      <member refid="classCLI_1_1Option_1a012e378f4018f0d9366536edd3623d70" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_option_text</name></member>
+      <member refid="classCLI_1_1Option_1acab7033604b49e314d290b01adea690d" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_positional</name></member>
+      <member refid="classCLI_1_1OptionBase_1aa902dee6da6d7f5b083b1c7d5f9c1308" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_required</name></member>
+      <member refid="classCLI_1_1Option_1a1ed32a17d1e82cae7ff2419f34994856" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_run_callback_for_default</name></member>
+      <member refid="classCLI_1_1Option_1ad7a4cd6a54153bf4cb567e2011b76f16" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_single_name</name></member>
+      <member refid="classCLI_1_1Option_1afd01460d88143d536beccb78b16ed4f0" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_snames</name></member>
+      <member refid="classCLI_1_1Option_1a2aa9124d0afd3524e45eda09e7303b49" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_trigger_on_parse</name></member>
+      <member refid="classCLI_1_1Option_1a8b8425827ceb852c3cc3f44b9b1c26a4" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_type_name</name></member>
+      <member refid="classCLI_1_1Option_1a88f36e42c1afcf1d4887230cc133f1fa" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_type_size</name></member>
+      <member refid="classCLI_1_1Option_1a0c7e5712134a2227301fb50bcc9488c8" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_type_size_max</name></member>
+      <member refid="classCLI_1_1Option_1a38a511ab2001c283c06fb31a7ea12501" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_type_size_min</name></member>
+      <member refid="classCLI_1_1Option_1a5ab8425e4e001f52d87db7ee86cbd579" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_validator</name></member>
+      <member refid="classCLI_1_1Option_1ae3274d2bec7a745d46f5d5e504da9c4e" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>get_validator</name></member>
+      <member refid="classCLI_1_1OptionBase_1a17077e6cf3e228a4978fb4be525bc80d" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>group</name></member>
+      <member refid="classCLI_1_1OptionBase_1ad0d8bd0637023f7d87a8e95315e8fb21" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>group_</name></member>
+      <member refid="classCLI_1_1Option_1a6770984498050b33659ce0c14b8f4696" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>has_description</name></member>
+      <member refid="classCLI_1_1Option_1a3906c06092f4c7c109c39fdc86183fd6" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>ignore_case</name></member>
+      <member refid="classCLI_1_1OptionBase_1a616d0aa1bd4e540733e24f88bc17cd3a" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>ignore_case_</name></member>
+      <member refid="classCLI_1_1Option_1ad02168c79c67a4b39e64b98d4cc39ca9" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>ignore_underscore</name></member>
+      <member refid="classCLI_1_1OptionBase_1adafc24528125977c500b9b0c7b5068bf" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>ignore_underscore_</name></member>
+      <member refid="classCLI_1_1Option_1a8238350326df789724d4a8e422c1fa10" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>inject_separator</name></member>
+      <member refid="classCLI_1_1Option_1aa95f089d19a4b14039261fd7e35e6223" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>inject_separator_</name></member>
+      <member refid="classCLI_1_1OptionBase_1a1c353d2455f0fc251fa8d0e98b66ea93" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>join</name></member>
+      <member refid="classCLI_1_1OptionBase_1a2f9160afa4b72e8425bffd043be92ea6" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>join</name></member>
+      <member refid="classCLI_1_1Option_1ae06feaf7ca62a5497514a09f44724430" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>lnames_</name></member>
+      <member refid="classCLI_1_1OptionBase_1a083eb9ce01d6f8a59f6cfea0cece2e05" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>mandatory</name></member>
+      <member refid="classCLI_1_1Option_1ad95e4bba59db33e4bfe4caf91ca7be21" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>matching_name</name></member>
+      <member refid="classCLI_1_1Option_1a421a54aa82da9a5231b9457387afebbb" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>multi_option_policy</name></member>
+      <member refid="classCLI_1_1OptionBase_1a2c5483d3c992baad97beed3de2b82b05" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>multi_option_policy_</name></member>
+      <member refid="classCLI_1_1Option_1ad81f0537b30d16f02a066473ef3ad5dc" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>needs</name></member>
+      <member refid="classCLI_1_1Option_1aec2946d8cf9744bc55a3b8954df09999" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>needs</name></member>
+      <member refid="classCLI_1_1Option_1ad9fb912d3f5fcf2b882cbb220412a3be" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>needs</name></member>
+      <member refid="classCLI_1_1Option_1a3bd8d2ff461e8046b284cdbfcd741dce" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>needs_</name></member>
+      <member refid="classCLI_1_1Option_1a94cc5149d388be946c449e8ee61cd034" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>nonpositional</name></member>
+      <member refid="classCLI_1_1Option_1ab73e846fb3a78ac7eff8b6cd6afb24a1" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>operator bool</name></member>
+      <member refid="classCLI_1_1Option_1a4c6bad0d2ed76477d603c6439d18184e" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>operator=</name></member>
+      <member refid="classCLI_1_1Option_1ae72ff0b89bebb2987d548c186c577e50" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>operator==</name></member>
+      <member refid="classCLI_1_1Option_1a35e90f0fc810ccca676f7fa39bf4cc27" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>Option</name></member>
+      <member refid="classCLI_1_1Option_1a72d6fb10f92fb81fc7a10327ce1a7da6" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>Option</name></member>
+      <member refid="classCLI_1_1Option_1a21df1631a6f5ddb495b9ce9c940669b9" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>option_state</name></member>
+      <member refid="classCLI_1_1Option_1a5bdcc74efea965f6d440b03432df50e5" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>option_text</name></member>
+      <member refid="classCLI_1_1Option_1a23dc529b1db815e7056750d671e29896" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>option_text_</name></member>
+      <member refid="classCLI_1_1Option_1a9391ef1d3ed3f0607633b36faf72f5c0" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>parent_</name></member>
+      <member refid="classCLI_1_1Option_1a3599a92dde17b22551dcdfcb9798f0f3" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>pname_</name></member>
+      <member refid="classCLI_1_1Option_1a7e1e5e40353f296f4b1f0a5940dc7099" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>proc_results_</name></member>
+      <member refid="classCLI_1_1Option_1a35ae96199e3704c2b4be44bae9be28fa" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>reduced_results</name></member>
+      <member refid="classCLI_1_1Option_1a414e6a8f76443036a9fb096f49165660" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>remove_excludes</name></member>
+      <member refid="classCLI_1_1Option_1aab72f7fef9aca5eefb25b09c1abffb3c" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>remove_needs</name></member>
+      <member refid="classCLI_1_1OptionBase_1af18d4c8d8c2392b6947db9179110289a" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>required</name></member>
+      <member refid="classCLI_1_1OptionBase_1abad838fd3da11f840a40536a279912ac" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>required_</name></member>
+      <member refid="classCLI_1_1Option_1a34fe6f578eba2a9d4647c59e3dababe0" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>results</name></member>
+      <member refid="classCLI_1_1Option_1ac445a3a3ac14d7ec0f229887028bbbf7" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>results</name></member>
+      <member refid="classCLI_1_1Option_1af45b214347a715edf92b1e3de5c4b938" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>results_</name></member>
+      <member refid="classCLI_1_1Option_1ab06eb6c31666a4a003aeb2cf3e5cdcd9" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>run_callback</name></member>
+      <member refid="classCLI_1_1Option_1a81a26e9320e4ec616fbbd6fa3ad60ef7" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>run_callback_for_default</name></member>
+      <member refid="classCLI_1_1Option_1a16ff0fc34306cdd0c51379f16d61eeec" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>run_callback_for_default_</name></member>
+      <member refid="classCLI_1_1Option_1a7d8ef1d4012fde878668c943d9b197bc" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>snames_</name></member>
+      <member refid="classCLI_1_1OptionBase_1a0edb237c89d77253e079e4d6c7f86e8c" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>take_all</name></member>
+      <member refid="classCLI_1_1OptionBase_1a5727e47f4541f99986503b086f1da735" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>take_first</name></member>
+      <member refid="classCLI_1_1OptionBase_1abf721b86beb0f957a4d85ad4f6e72c20" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>take_last</name></member>
+      <member refid="classCLI_1_1Option_1ab75cdf67048dc7fb32e75a1d3c7613ae" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>transform</name></member>
+      <member refid="classCLI_1_1Option_1aa0e2fe5ccb41d2277aee71c20faabcab" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>transform</name></member>
+      <member refid="classCLI_1_1Option_1a86d413992d2193c81db1ce250ddf2e26" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>trigger_on_parse</name></member>
+      <member refid="classCLI_1_1Option_1a4716e3d2f016a0a33580fc4981580e9d" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>trigger_on_result_</name></member>
+      <member refid="classCLI_1_1Option_1a1fcb3c625eeca46ef953732a71403027" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>type_name</name></member>
+      <member refid="classCLI_1_1Option_1a2080c70a11f8935118dffc924824aa87" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>type_name_</name></member>
+      <member refid="classCLI_1_1Option_1ad4ff97f7911d552972c10771bcf488d7" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>type_name_fn</name></member>
+      <member refid="classCLI_1_1Option_1a8914e4810b213c5e23359d61a70c5ac1" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>type_size</name></member>
+      <member refid="classCLI_1_1Option_1a81d7f38453c88d417fb5333b5ef39959" prot="public" virt="non-virtual"><scope>CLI::Option</scope><name>type_size</name></member>
+      <member refid="classCLI_1_1Option_1ad9a5a55a8c3fdce89dbf5c167c183ca6" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>type_size_max_</name></member>
+      <member refid="classCLI_1_1Option_1a23e5549e7c0490f15018ee84bc39d644" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>type_size_min_</name></member>
+      <member refid="classCLI_1_1Option_1ad406b8299fb243f0caa52a35863c82b7" prot="protected" virt="non-virtual"><scope>CLI::Option</scope><name>validators_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

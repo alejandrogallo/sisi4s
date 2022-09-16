@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1FormatterBase" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>CLI::FormatterBase</compoundname>
+    <derivedcompoundref refid="classCLI_1_1Formatter" prot="public" virt="non-virtual">CLI::Formatter</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1FormatterLambda" prot="public" virt="non-virtual">CLI::FormatterLambda</derivedcompoundref>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+      <sectiondef kind="user-defined">
+      <header>Options</header>
+      <memberdef kind="variable" id="classCLI_1_1FormatterBase_1a2427b2199dd9654b050d00c89d764332" prot="protected" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t CLI::FormatterBase::column_width_</definition>
+        <argsstring></argsstring>
+        <name>column_width_</name>
+        <qualifiedname>CLI::FormatterBase::column_width_</qualifiedname>
+        <initializer>{30}</initializer>
+        <briefdescription>
+<para>The width of the first column. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3792" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3792" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCLI_1_1FormatterBase_1a2ee79421fa339b227d6cb9ca1bce4ad1" prot="protected" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; CLI::FormatterBase::labels_</definition>
+        <argsstring></argsstring>
+        <name>labels_</name>
+        <qualifiedname>CLI::FormatterBase::labels_</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>The required help printout labels (user changeable) Values are Needs, Excludes, etc. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3796" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3796" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Basic</header>
+      <memberdef kind="function" id="classCLI_1_1FormatterBase_1a85811a9afbc33d19fb1d8d1a0553f2b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CLI::FormatterBase::FormatterBase</definition>
+        <argsstring>()=default</argsstring>
+        <name>FormatterBase</name>
+        <qualifiedname>CLI::FormatterBase::FormatterBase</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3803" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1FormatterBase_1abd363023789788a8242d2c8ccf394c48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CLI::FormatterBase::FormatterBase</definition>
+        <argsstring>(const FormatterBase &amp;)=default</argsstring>
+        <name>FormatterBase</name>
+        <qualifiedname>CLI::FormatterBase::FormatterBase</qualifiedname>
+        <param>
+          <type>const <ref refid="classCLI_1_1FormatterBase" kindref="compound">FormatterBase</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3804" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1FormatterBase_1a5552e960c2f477a570ee67541e15e8ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CLI::FormatterBase::FormatterBase</definition>
+        <argsstring>(FormatterBase &amp;&amp;)=default</argsstring>
+        <name>FormatterBase</name>
+        <qualifiedname>CLI::FormatterBase::FormatterBase</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1FormatterBase" kindref="compound">FormatterBase</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3805" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1FormatterBase_1ac634fe340a7679a3f4add85c969e4d98" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type></type>
+        <definition>virtual CLI::FormatterBase::~FormatterBase</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>~FormatterBase</name>
+        <qualifiedname>CLI::FormatterBase::~FormatterBase</qualifiedname>
+        <briefdescription>
+<para>Adding a destructor in this form to work around bug in GCC 4.7. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3808" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3808" bodyend="3808"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1FormatterBase_1ac8ab93655a645352634709e15087080b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string CLI::FormatterBase::make_help</definition>
+        <argsstring>(const App *, std::string, AppFormatMode) const =0</argsstring>
+        <name>make_help</name>
+        <qualifiedname>CLI::FormatterBase::make_help</qualifiedname>
+        <reimplementedby refid="classCLI_1_1Formatter_1a838e0f47efa4fbd1b738eedb156887b9">make_help</reimplementedby>
+        <reimplementedby refid="classCLI_1_1FormatterLambda_1a5eca71447c56251c67b97187e4a888e6">make_help</reimplementedby>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+        </param>
+        <param>
+          <type>std::string</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119c" kindref="member">AppFormatMode</ref></type>
+        </param>
+        <briefdescription>
+<para>This is the key method that puts together help. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3811" column="25"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Setters</header>
+      <memberdef kind="function" id="classCLI_1_1FormatterBase_1a73a17d81d04f5ee02a2cab32a59a8551" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::FormatterBase::label</definition>
+        <argsstring>(std::string key, std::string val)</argsstring>
+        <name>label</name>
+        <qualifiedname>CLI::FormatterBase::label</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Set the &quot;REQUIRED&quot; label. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3818" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3818" bodyend="3818"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1FormatterBase_1acd8c03570a48e5937ab748bf6103ca2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::FormatterBase::column_width</definition>
+        <argsstring>(std::size_t val)</argsstring>
+        <name>column_width</name>
+        <qualifiedname>CLI::FormatterBase::column_width</qualifiedname>
+        <param>
+          <type>std::size_t</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Set the column width. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3821" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3821" bodyend="3821"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Getters</header>
+      <memberdef kind="function" id="classCLI_1_1FormatterBase_1a7e8f9d7896c599f7befd84a9947d4cab" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::FormatterBase::get_label</definition>
+        <argsstring>(std::string key) const</argsstring>
+        <name>get_label</name>
+        <qualifiedname>CLI::FormatterBase::get_label</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Get the current value of a name (REQUIRED, etc.) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3828" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3828" bodyend="3833"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1FormatterBase_1a41e32517e27b98dcf85acfb0fd169c97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t CLI::FormatterBase::get_column_width</definition>
+        <argsstring>() const</argsstring>
+        <name>get_column_width</name>
+        <qualifiedname>CLI::FormatterBase::get_column_width</qualifiedname>
+        <briefdescription>
+<para>Get the current column width. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3836" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3836" bodyend="3836"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This is the minimum requirements to run a formatter.</para>
+<para>A user can subclass this is if they do not care at all about the structure in <ref refid="classCLI_1_1Formatter" kindref="compound">CLI::Formatter</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CLI::Formatter</label>
+        <link refid="classCLI_1_1Formatter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CLI::FormatterBase</label>
+        <link refid="classCLI_1_1FormatterBase"/>
+      </node>
+      <node id="3">
+        <label>CLI::FormatterLambda</label>
+        <link refid="classCLI_1_1FormatterLambda"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::FormatterBase</label>
+        <link refid="classCLI_1_1FormatterBase"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3786" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3786" bodyend="3839"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1FormatterBase_1acd8c03570a48e5937ab748bf6103ca2d" prot="public" virt="non-virtual"><scope>CLI::FormatterBase</scope><name>column_width</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a2427b2199dd9654b050d00c89d764332" prot="protected" virt="non-virtual"><scope>CLI::FormatterBase</scope><name>column_width_</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a85811a9afbc33d19fb1d8d1a0553f2b1" prot="public" virt="non-virtual"><scope>CLI::FormatterBase</scope><name>FormatterBase</name></member>
+      <member refid="classCLI_1_1FormatterBase_1abd363023789788a8242d2c8ccf394c48" prot="public" virt="non-virtual"><scope>CLI::FormatterBase</scope><name>FormatterBase</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a5552e960c2f477a570ee67541e15e8ea" prot="public" virt="non-virtual"><scope>CLI::FormatterBase</scope><name>FormatterBase</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a41e32517e27b98dcf85acfb0fd169c97" prot="public" virt="non-virtual"><scope>CLI::FormatterBase</scope><name>get_column_width</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a7e8f9d7896c599f7befd84a9947d4cab" prot="public" virt="non-virtual"><scope>CLI::FormatterBase</scope><name>get_label</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a73a17d81d04f5ee02a2cab32a59a8551" prot="public" virt="non-virtual"><scope>CLI::FormatterBase</scope><name>label</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a2ee79421fa339b227d6cb9ca1bce4ad1" prot="protected" virt="non-virtual"><scope>CLI::FormatterBase</scope><name>labels_</name></member>
+      <member refid="classCLI_1_1FormatterBase_1ac8ab93655a645352634709e15087080b" prot="public" virt="pure-virtual"><scope>CLI::FormatterBase</scope><name>make_help</name></member>
+      <member refid="classCLI_1_1FormatterBase_1ac634fe340a7679a3f4add85c969e4d98" prot="public" virt="virtual"><scope>CLI::FormatterBase</scope><name>~FormatterBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,690 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="UPerturbativeTriples_8cxx" kind="file" language="C++">
+    <compoundname>UPerturbativeTriples.cxx</compoundname>
+    <includes refid="UPerturbativeTriples_8hpp" local="no">algorithms/UPerturbativeTriples.hpp</includes>
+    <includes refid="MathFunctions_8hpp" local="no">math/MathFunctions.hpp</includes>
+    <includes refid="DryTensor_8hpp" local="no">DryTensor.hpp</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
+    <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UPerturbativeTriples.cxx</label>
+        <link refid="UPerturbativeTriples_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/UPerturbativeTriples.hpp</label>
+        <link refid="UPerturbativeTriples_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>util/SourceLocation.hpp</label>
+        <link refid="SourceLocation_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="19">
+        <label>complex</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="23">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="7">
+        <label>ctime</label>
+      </node>
+      <node id="43">
+        <label>exception</label>
+      </node>
+      <node id="16">
+        <label>fstream</label>
+      </node>
+      <node id="32">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>iomanip</label>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="40">
+        <label>iterator</label>
+      </node>
+      <node id="42">
+        <label>limits</label>
+      </node>
+      <node id="36">
+        <label>locale</label>
+      </node>
+      <node id="20">
+        <label>map</label>
+      </node>
+      <node id="31">
+        <label>memory</label>
+      </node>
+      <node id="33">
+        <label>numeric</label>
+      </node>
+      <node id="9">
+        <label>ostream</label>
+      </node>
+      <node id="38">
+        <label>set</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="41">
+        <label>stdexcept</label>
+      </node>
+      <node id="15">
+        <label>streambuf</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="44">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="45">
+        <label>sys/types.h</label>
+      </node>
+      <node id="34">
+        <label>tuple</label>
+      </node>
+      <node id="39">
+        <label>type_traits</label>
+      </node>
+      <node id="35">
+        <label>utility</label>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="UPerturbativeTriples_8hpp" kindref="compound">algorithms/UPerturbativeTriples.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MathFunctions_8hpp" kindref="compound">math/MathFunctions.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DryTensor_8hpp" kindref="compound">DryTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">CTF;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1UPerturbativeTriples" kindref="compound">UPerturbativeTriples</ref>);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="classsisi4s_1_1UPerturbativeTriples_1a778082c54facf0e65d9b0d9df9f6cc54" refkind="member"><highlight class="normal">UPerturbativeTriples::UPerturbativeTriples(</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1UPerturbativeTriples_1a4405bfe79f036702dbd809c37ddc3c84" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1UPerturbativeTriples_1a4405bfe79f036702dbd809c37ddc3c84" kindref="member">UPerturbativeTriples::~UPerturbativeTriples</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="classsisi4s_1_1UPerturbativeTriples_1a44528381f51fc8eae60adce17b8c9109" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1UPerturbativeTriples_1a44528381f51fc8eae60adce17b8c9109" kindref="member">UPerturbativeTriples::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/><sp/>*epsi(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/><sp/>*epsa(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>*Vabij(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;PPHHCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>*Vijka(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HHHPCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>*Vabci(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;PPPHCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>*Tabij(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;CcsdDoublesAmplitudes&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/><sp/><sp/>*Tai(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;CcsdSinglesAmplitudes&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(epsi-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(epsa-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vvvooo[]<sp/>=<sp/>{<sp/>Nv,<sp/>Nv,<sp/>Nv,<sp/>No,<sp/>No,<sp/>No<sp/>};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/>syms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS,<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>SVabcijk(6,<sp/>vvvooo,<sp/>syms,<sp/>*Vabij-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;SVabcijk&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>erase<sp/>0.5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>0.5<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vabij)[</highlight><highlight class="stringliteral">&quot;bcjk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>DVabcijk(6,<sp/>vvvooo,<sp/>syms,<sp/>*Vabij-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;DVabcijk&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;adij&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vabci)[</highlight><highlight class="stringliteral">&quot;bcdk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;abil&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vijka)[</highlight><highlight class="stringliteral">&quot;jklc&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>Tabcijk(6,<sp/>vvvooo,<sp/>syms,<sp/>*Vabij-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;Tabcijk&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>AUTOMATIC</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tabij[&quot;adij&quot;]<sp/><sp/><sp/>Vabci[&quot;bcdk&quot;]</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;dgjk&quot;]<sp/>*<sp/>Vabci[&quot;efgi&quot;];<sp/><sp/>⇒<sp/>defjki</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;egjk&quot;]<sp/>*<sp/>Vabci[&quot;dfgi&quot;];<sp/><sp/>⇒<sp/>edfjki</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;fgjk&quot;]<sp/>*<sp/>Vabci[&quot;edgi&quot;];<sp/><sp/>⇒<sp/>fedjki</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;dgki&quot;]<sp/>*<sp/>Vabci[&quot;efgj&quot;];<sp/><sp/>⇒<sp/>defkij</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;egki&quot;]<sp/>*<sp/>Vabci[&quot;dfgj&quot;];<sp/><sp/>⇒<sp/>edfkij</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;fgki&quot;]<sp/>*<sp/>Vabci[&quot;edgj&quot;];<sp/><sp/>⇒<sp/>fedkij</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;dgij&quot;]<sp/>*<sp/>Vabci[&quot;efgk&quot;];<sp/><sp/>⇒<sp/>defijk</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;egij&quot;]<sp/>*<sp/>Vabci[&quot;dfgk&quot;];<sp/><sp/>⇒<sp/>edfijk</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;fgij&quot;]<sp/>*<sp/>Vabci[&quot;edgk&quot;];<sp/><sp/>⇒<sp/>fedijk</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"></highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/>AUTOMATIC<sp/>HOLES</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"></highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>Tabij[&quot;abli&quot;]<sp/>*<sp/>Vijka[&quot;jklc&quot;];<sp/>(ours)</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;deok&quot;]<sp/>*<sp/>Vijka[&quot;ijof&quot;];<sp/><sp/>⇒<sp/>defkij</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;dfok&quot;]<sp/>*<sp/>Vijka[&quot;ijoe&quot;];<sp/><sp/>⇒<sp/>dfekij</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;feok&quot;]<sp/>*<sp/>Vijka[&quot;ijod&quot;];<sp/><sp/>⇒<sp/>fedkij</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;deoj&quot;]<sp/>*<sp/>Vijka[&quot;ikof&quot;];<sp/><sp/>⇒<sp/>defjik</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;dfoj&quot;]<sp/>*<sp/>Vijka[&quot;ikoe&quot;];<sp/><sp/>⇒<sp/>dfejik</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;feoj&quot;]<sp/>*<sp/>Vijka[&quot;ikod&quot;];<sp/><sp/>⇒<sp/>fedjik</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;deoi&quot;]<sp/>*<sp/>Vijka[&quot;kjof&quot;];<sp/><sp/>⇒<sp/>defikj</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;dfoi&quot;]<sp/>*<sp/>Vijka[&quot;kjoe&quot;];<sp/><sp/>⇒<sp/>dfeikj</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;feoi&quot;]<sp/>*<sp/>Vijka[&quot;kjod&quot;];<sp/><sp/>⇒<sp/>fedikj</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/>AUTOMATIC<sp/>singles</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"></highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;dk&quot;]<sp/>*<sp/>Vabij[&quot;efij&quot;];defkij</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;ek&quot;]<sp/>*<sp/>Vabij[&quot;dfij&quot;];edfkij</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;fk&quot;]<sp/>*<sp/>Vabij[&quot;edij&quot;];fedkij</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;dj&quot;]<sp/>*<sp/>Vabij[&quot;efik&quot;];defjik</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;ej&quot;]<sp/>*<sp/>Vabij[&quot;dfik&quot;];edfjik</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;fj&quot;]<sp/>*<sp/>Vabij[&quot;edik&quot;];fedjik</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;di&quot;]<sp/>*<sp/>Vabij[&quot;efkj&quot;];defikj</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;ei&quot;]<sp/>*<sp/>Vabij[&quot;dfkj&quot;];edfikj</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;fi&quot;]<sp/>*<sp/>Vabij[&quot;edkj&quot;];fedikj</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"></highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Explanation</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/>*<sp/>-----------</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/>*<sp/>We<sp/>have<sp/>to<sp/>anisymmetrize<sp/>the<sp/>diagramas<sp/>because<sp/>we<sp/>are<sp/>doing</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/>*<sp/>unrestricted<sp/>and<sp/>hier<sp/>everything<sp/>is<sp/>a<sp/>matrix<sp/>element.</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/>*<sp/>We<sp/>can&apos;t<sp/>put<sp/>the<sp/>VIJKA<sp/>diagram<sp/>with<sp/>the<sp/>VABCI<sp/>diagram</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/>*<sp/>because<sp/>they<sp/>don&apos;t<sp/>antisymmetrize<sp/>in<sp/>the<sp/>same<sp/>way,<sp/>think<sp/>about<sp/>it,</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/>*<sp/>or<sp/>just<sp/>draw<sp/>them<sp/>to<sp/>see.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/>*<sp/>So<sp/>first<sp/>antisymmetrize<sp/>the<sp/>VABCI-based<sp/>diagram.</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Then<sp/>we<sp/>antisymmetrize<sp/>the<sp/>VIJKA-based<sp/>diagram</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/>*<sp/>We<sp/>store<sp/>the<sp/>sum<sp/>of<sp/>these<sp/>antisymmetrized<sp/>diagram<sp/>into<sp/>DVabcijk</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/>*<sp/>and<sp/>we<sp/>still<sp/>add<sp/>the<sp/>singles<sp/>contribution<sp/>to<sp/>Tabcijk.</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/>*<sp/>We<sp/>divide<sp/>Tabcijk<sp/>by<sp/>the<sp/>denominator<sp/>and<sp/>calculate<sp/>the<sp/>energy.</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>VABCI<sp/>PART<sp/><sp/><sp/>-------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;adij&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vabci)[</highlight><highlight class="stringliteral">&quot;bcdk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;edfjki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;fedjki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;edfkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;fedkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defijk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;edfijk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;fedijk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>SAVE<sp/>antisymmetrized<sp/>VABCI<sp/>PART<sp/>FOR<sp/>LATER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//SVabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>Tabcijk[&quot;abcijk&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>VIJKA<sp/>PART<sp/><sp/><sp/>-------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;deok&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vijka)[</highlight><highlight class="stringliteral">&quot;ijof&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;dfekij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;fedkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defjik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;dfejik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;fedjik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defikj&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;dfeikj&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;fedikj&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>antisymmetrized<sp/>VIJKA<sp/>part</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//SVabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>Tabcijk[&quot;abcijk&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Save<sp/>antisymmetrized<sp/>in<sp/>DVabcijk</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/>=<sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Singles<sp/>part<sp/>-------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;dk&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vabij)[</highlight><highlight class="stringliteral">&quot;efij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;edfkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;fedkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;defjik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;edfjik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;fedjik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;defikj&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;edfikj&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;fedikj&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>HIRATA<sp/>Implementation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>---------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Let<sp/>us<sp/>find<sp/>index<sp/>equivalences<sp/>between<sp/>hirata&apos;s<sp/>and<sp/>ours</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tabij[&quot;gdjk&quot;]<sp/><sp/><sp/><sp/>Vabic[&quot;efig&quot;]<sp/><sp/><sp/>(original)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tabij[&quot;dgjk&quot;]<sp/><sp/><sp/><sp/>Vabci[&quot;efgi&quot;]<sp/><sp/><sp/>(changed<sp/>for<sp/>our<sp/>code)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tabij[&quot;adij&quot;]<sp/><sp/><sp/><sp/>Vabci[&quot;bcdk&quot;]<sp/><sp/><sp/>(ours)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=&gt;<sp/>defjki</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tabij[&quot;deok&quot;]<sp/>*<sp/>Vijka[&quot;ijof&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>Tabij[&quot;abli&quot;]<sp/>*<sp/>Vijka[&quot;jklc&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=&gt;<sp/>defjki</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tai[&quot;dk&quot;]<sp/>*<sp/>Vabij[&quot;efij&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tai[&quot;ai&quot;]<sp/>*<sp/>Vabij[&quot;bcjk&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=&gt;<sp/>defjki</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>OLD_HIRATA</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;edfjki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;fedjki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;edfkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;fedkij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defijk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;edfijk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;fedijk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>=<sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/><sp/>//--</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/><sp/><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;gdjk&quot;]<sp/>*<sp/>Vabic[&quot;efig&quot;];</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/><sp/><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;gejk&quot;]<sp/>*<sp/>Vabic[&quot;dfig&quot;];</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/><sp/><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;gfjk&quot;]<sp/>*<sp/>Vabic[&quot;edig&quot;];</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/><sp/>//--</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/><sp/><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;gdki&quot;]<sp/>*<sp/>Vabic[&quot;efjg&quot;];</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/><sp/><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;geki&quot;]<sp/>*<sp/>Vabic[&quot;dfjg&quot;];</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/><sp/><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;gfki&quot;]<sp/>*<sp/>Vabic[&quot;edjg&quot;];</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/><sp/>//--</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/><sp/><sp/><sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;gdij&quot;]<sp/>*<sp/>Vabic[&quot;efkg&quot;];</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/><sp/><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;geij&quot;]<sp/>*<sp/>Vabic[&quot;dfkg&quot;];</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/><sp/><sp/><sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tabij[&quot;gfij&quot;]<sp/>*<sp/>Vabic[&quot;edkg&quot;];</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;edfjki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;fedjki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;defkji&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;edfkji&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;fedkji&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;defjik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;edfjik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;defjki&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;fedjik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;dk&quot;]<sp/>*<sp/>Vabij[&quot;efij&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;ek&quot;]<sp/>*<sp/>Vabij[&quot;dfij&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;fk&quot;]<sp/>*<sp/>Vabij[&quot;edij&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;dj&quot;]<sp/>*<sp/>Vabij[&quot;efik&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;ej&quot;]<sp/>*<sp/>Vabij[&quot;dfik&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;fj&quot;]<sp/>*<sp/>Vabij[&quot;edik&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;di&quot;]<sp/>*<sp/>Vabij[&quot;efkj&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;ei&quot;]<sp/>*<sp/>Vabij[&quot;dfkj&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>Tai[&quot;fi&quot;]<sp/>*<sp/>Vabij[&quot;edkj&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/>/**********************</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/><sp/>//<sp/>Gauss<sp/>implementaiton</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/><sp/>//<sp/>permute<sp/>cylicly<sp/>abc</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/><sp/>//<sp/><sp/><sp/><sp/>permute<sp/>cyclicly<sp/>ijk</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/><sp/>=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;abcijk&quot;];</highlight></codeline>
+<codeline lineno="239"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;abcjki&quot;];</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;abckij&quot;];</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/><sp/>//<sp/><sp/><sp/><sp/>permute<sp/>cyclicly<sp/>ijk</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;bcaijk&quot;];</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;bcajki&quot;];</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;bcakij&quot;];</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/><sp/>//<sp/><sp/><sp/><sp/>permute<sp/>cyclicly<sp/>ijk</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;cabijk&quot;];</highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;cabjki&quot;];</highlight></codeline>
+<codeline lineno="248"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;cabkij&quot;];</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/>/**********************</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/><sp/>//<sp/>Gauss<sp/>implementaiton</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/><sp/>//<sp/>permute<sp/>cylicly<sp/>abc</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/><sp/>//<sp/><sp/><sp/><sp/>permute<sp/>cyclicly<sp/>ijk</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;abcijk&quot;];</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;abcjki&quot;];</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;abckij&quot;];</highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/><sp/>//<sp/><sp/><sp/><sp/>permute<sp/>cyclicly<sp/>ijk</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;bcaijk&quot;];</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;bcajki&quot;];</highlight></codeline>
+<codeline lineno="261"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;bcakij&quot;];</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/><sp/>//<sp/><sp/><sp/><sp/>permute<sp/>cyclicly<sp/>ijk</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;cabijk&quot;];</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;cabjki&quot;];</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;cabkij&quot;];</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/>/***********************</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/><sp/>//<sp/>Theo&apos;s<sp/>implementation</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/><sp/>//<sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;acbijk&quot;];</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"><sp/><sp/>//<sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;bacijk&quot;];</highlight></codeline>
+<codeline lineno="272"><highlight class="comment"><sp/><sp/>//<sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;bcaijk&quot;];</highlight></codeline>
+<codeline lineno="273"><highlight class="comment"><sp/><sp/>//<sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;cabijk&quot;];</highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/><sp/>//<sp/><sp/>Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>DVabcijk[&quot;cbaijk&quot;];</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/>/***********************</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/><sp/>//<sp/>Theo&apos;s<sp/>implementation</highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/><sp/>//Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;acbijk&quot;];</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/><sp/>//Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;bacijk&quot;];</highlight></codeline>
+<codeline lineno="281"><highlight class="comment"><sp/><sp/>//Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;bcaijk&quot;];</highlight></codeline>
+<codeline lineno="282"><highlight class="comment"><sp/><sp/>//Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;cabijk&quot;];</highlight></codeline>
+<codeline lineno="283"><highlight class="comment"><sp/><sp/>//Tabcijk[&quot;abcijk&quot;]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>SVabcijk[&quot;cbaijk&quot;];</highlight></codeline>
+<codeline lineno="284"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*epsi)[</highlight><highlight class="stringliteral">&quot;i&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/>+=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*epsi)[</highlight><highlight class="stringliteral">&quot;j&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/>+=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*epsi)[</highlight><highlight class="stringliteral">&quot;k&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*epsa)[</highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*epsa)[</highlight><highlight class="stringliteral">&quot;b&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/>SVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*epsa)[</highlight><highlight class="stringliteral">&quot;c&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/>Bivar_Function&lt;&gt;<sp/>fDivide(&amp;divide&lt;double&gt;);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/>Tabcijk.contract(</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>1.0,<sp/>Tabcijk,</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">,<sp/>SVabcijk,</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">,<sp/>0.0,</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">,<sp/>fDivide</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/>Scalar&lt;&gt;<sp/>energy(*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/>energy[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>(1.0<sp/>/<sp/>36.0)<sp/>*<sp/>DVabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">]<sp/>*<sp/>Tabcijk[</highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>energy[&quot;&quot;]<sp/>+=<sp/>DVabcijk[&quot;bacjik&quot;]<sp/>*<sp/>Tabcijk[&quot;abcijk&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>energy[&quot;&quot;]<sp/>+=<sp/>DVabcijk[&quot;acbikj&quot;]<sp/>*<sp/>Tabcijk[&quot;abcijk&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>energy[&quot;&quot;]<sp/>+=<sp/>DVabcijk[&quot;cbakji&quot;]<sp/>*<sp/>Tabcijk[&quot;abcijk&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>energy[&quot;&quot;]<sp/>+=<sp/>DVabcijk[&quot;cabkij&quot;]<sp/>*<sp/>Tabcijk[&quot;abcijk&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>energy[&quot;&quot;]<sp/>+=<sp/>DVabcijk[&quot;bcajki&quot;]<sp/>*<sp/>Tabcijk[&quot;abcijk&quot;];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eTriples(energy.get_val());</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//double<sp/>eCcsd(getRealArgument(&quot;CcsdEnergy&quot;));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//double<sp/>e(eCcsd<sp/>+<sp/>eTriples);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//LOG(0,<sp/>&quot;PerturbativeTriples&quot;)<sp/>&lt;&lt;<sp/>&quot;e=&quot;<sp/>&lt;&lt;<sp/>e<sp/>&lt;&lt;<sp/>std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//LOG(1,<sp/>&quot;PerturbativeTriples&quot;)<sp/>&lt;&lt;<sp/>&quot;ccsd=&quot;<sp/>&lt;&lt;<sp/>eCcsd<sp/>&lt;&lt;<sp/>std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;PerturbativeTriples&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;triples=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>eTriples<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" kindref="member">setRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;PerturbativeTriplesEnergy&quot;</highlight><highlight class="normal">,<sp/>energy);</highlight></codeline>
+<codeline lineno="314"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316" refid="classsisi4s_1_1UPerturbativeTriples_1a7df5e00df28999b6aeb9091e76359bba" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1UPerturbativeTriples_1a7df5e00df28999b6aeb9091e76359bba" kindref="member">UPerturbativeTriples::dryRun</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/>getTensorArgument&lt;double,<sp/>DryTensor&lt;double&gt;&gt;(</highlight><highlight class="stringliteral">&quot;PPHHCoulombIntegrals&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/>getTensorArgument&lt;double,<sp/>DryTensor&lt;double&gt;&gt;(</highlight><highlight class="stringliteral">&quot;HHHPCoulombIntegrals&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/>getTensorArgument&lt;double,<sp/>DryTensor&lt;double&gt;&gt;(</highlight><highlight class="stringliteral">&quot;PPPHCoulombIntegrals&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*Tai(</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;double&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;CcsdSinglesAmplitudes&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*Tabij(</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;double&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;CcsdDoublesAmplitudes&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>the<sp/>Particle/Hole<sp/>Eigenenergies<sp/>epsi<sp/>epsa<sp/>required<sp/>for<sp/>the<sp/>energy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*epsi(</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;double&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*epsa(</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;double&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>No,Nv</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(epsi-&gt;<ref refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" kindref="member">lens</ref>[0]);</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(epsa-&gt;<ref refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" kindref="member">lens</ref>[0]);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocate<sp/>the<sp/>doubles<sp/>amplitudes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vvvooo[]<sp/>=<sp/>{<sp/>Nv,<sp/>Nv<sp/>,<sp/>Nv<sp/>,<sp/>No<sp/>,<sp/>No<sp/>,<sp/>No<sp/>};</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/>syms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/><sp/>NS<sp/>,<sp/>NS<sp/>,<sp/>NS<sp/>,<sp/>NS<sp/>};</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>Tabcijk(6,<sp/>vvvooo,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>Zabcijk(6,<sp/>vvvooo,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>Zai(*Tai,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>Zabij(*Tabij,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryScalar" kindref="compound">DryScalar&lt;&gt;</ref><sp/>energy();</highlight></codeline>
+<codeline lineno="353"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UPerturbativeTriples.cxx"/>
+  </compounddef>
+</doxygen>

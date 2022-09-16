@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structSzOperator" kind="struct" language="C++" prot="public">
+    <compoundname>SzOperator</compoundname>
+    <basecompoundref refid="structSpinOperator" prot="public" virt="non-virtual">SpinOperator&lt; F &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structSzOperator_1a5cef086000a11cbcaf2b0ffbdc95e9bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SzOperator&lt; F &gt;::SzOperator</definition>
+        <argsstring>(int No, int Nv)</argsstring>
+        <name>SzOperator</name>
+        <qualifiedname>SzOperator::SzOperator</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>No</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Nv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdEquationOfMotionDavidson.cxx" line="45" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdEquationOfMotionDavidson.cxx" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="structSzOperator_1a96859d005ed85eaf3164a0ccf6b4a35a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SzOperator&lt; F &gt;::getIJ</definition>
+        <argsstring>()</argsstring>
+        <name>getIJ</name>
+        <qualifiedname>SzOperator::getIJ</qualifiedname>
+        <reimplements refid="structSpinOperator_1a731fc19b19cb3c9e89831061f4433db0">getIJ</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdEquationOfMotionDavidson.cxx" line="46" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdEquationOfMotionDavidson.cxx" bodystart="46" bodyend="53"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+      </memberdef>
+      <memberdef kind="function" id="structSzOperator_1a1056bdc329082992180d185b07fa2c79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SzOperator&lt; F &gt;::getAB</definition>
+        <argsstring>()</argsstring>
+        <name>getAB</name>
+        <qualifiedname>SzOperator::getAB</qualifiedname>
+        <reimplements refid="structSpinOperator_1a05990b16ed6f5e8e98fba55586058d8a">getAB</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdEquationOfMotionDavidson.cxx" line="54" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdEquationOfMotionDavidson.cxx" bodystart="54" bodyend="61"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>SpinOperator&lt; F &gt;</label>
+        <link refid="structSpinOperator"/>
+      </node>
+      <node id="1">
+        <label>SzOperator&lt; F &gt;</label>
+        <link refid="structSzOperator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>SpinOperator&lt; F &gt;</label>
+        <link refid="structSpinOperator"/>
+      </node>
+      <node id="1">
+        <label>SzOperator&lt; F &gt;</label>
+        <link refid="structSzOperator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdEquationOfMotionDavidson.cxx" line="44" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdEquationOfMotionDavidson.cxx" bodystart="44" bodyend="62"/>
+    <listofallmembers>
+      <member refid="structSzOperator_1a1056bdc329082992180d185b07fa2c79" prot="public" virt="virtual"><scope>SzOperator</scope><name>getAB</name></member>
+      <member refid="structSzOperator_1a96859d005ed85eaf3164a0ccf6b4a35a" prot="public" virt="virtual"><scope>SzOperator</scope><name>getIJ</name></member>
+      <member refid="structSpinOperator_1ab9038d0f3303aff3c7d1d8328f5c1c6f" prot="public" virt="non-virtual"><scope>SzOperator</scope><name>No</name></member>
+      <member refid="structSpinOperator_1abbdff2bf4a8e7bd74134eec1918761f6" prot="public" virt="non-virtual"><scope>SzOperator</scope><name>Nv</name></member>
+      <member refid="structSpinOperator_1a1505c422ec71a1b1c967153c5abe6630" prot="public" virt="non-virtual"><scope>SzOperator</scope><name>Sab</name></member>
+      <member refid="structSpinOperator_1a403244ce1066f81868bc09da8bf07ed7" prot="public" virt="non-virtual"><scope>SzOperator</scope><name>Sij</name></member>
+      <member refid="structSpinOperator_1a84945591eaa7b5d8d9b9a9b905ea599a" prot="public" virt="non-virtual"><scope>SzOperator</scope><name>SpinOperator</name></member>
+      <member refid="structSzOperator_1a5cef086000a11cbcaf2b0ffbdc95e9bf" prot="public" virt="non-virtual"><scope>SzOperator</scope><name>SzOperator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

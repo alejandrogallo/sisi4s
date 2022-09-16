@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structIntegralProvider" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>IntegralProvider</compoundname>
+    <innerclass refid="structIntegralProvider_1_1Limit" prot="public">IntegralProvider::Limit</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename V</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structIntegralProvider_1aa50acdb6d86623a23513fe2930e77598" prot="public" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t IntegralProvider&lt; V &gt;::No</definition>
+        <argsstring></argsstring>
+        <name>No</name>
+        <qualifiedname>IntegralProvider::No</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" line="46" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" bodystart="46" bodyend="-1"/>
+        <referencedby refid="structIntegralProvider_1aca121445c50dba97b783159c30a84626" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="38" endline="42">IntegralProvider&lt; V &gt;::indexToInt</referencedby>
+        <referencedby refid="structIntegralProvider_1ad11c563ff48d79517f0d93e31295d8d5" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="33" endline="37">IntegralProvider&lt; V &gt;::indexToLimits</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structIntegralProvider_1aa741c0fcac672dc2c567d870a25ab427" prot="public" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t IntegralProvider&lt; V &gt;::Nv</definition>
+        <argsstring></argsstring>
+        <name>Nv</name>
+        <qualifiedname>IntegralProvider::Nv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" line="46" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" bodystart="46" bodyend="-1"/>
+        <referencedby refid="structIntegralProvider_1aca121445c50dba97b783159c30a84626" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="38" endline="42">IntegralProvider&lt; V &gt;::indexToInt</referencedby>
+        <referencedby refid="structIntegralProvider_1ad11c563ff48d79517f0d93e31295d8d5" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="33" endline="37">IntegralProvider&lt; V &gt;::indexToLimits</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structIntegralProvider_1a1f704d963a5bc856f2a68069373d055d" prot="public" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t IntegralProvider&lt; V &gt;::Np</definition>
+        <argsstring></argsstring>
+        <name>Np</name>
+        <qualifiedname>IntegralProvider::Np</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" line="46" column="22" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structIntegralProvider_1a5435fd03b0f170b3c3afd880410dbca5" prot="public" static="no" mutable="no">
+        <type>const bool</type>
+        <definition>const bool IntegralProvider&lt; V &gt;::chemistNotation</definition>
+        <argsstring></argsstring>
+        <name>chemistNotation</name>
+        <qualifiedname>IntegralProvider::chemistNotation</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" line="47" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structIntegralProvider_1ad854ec063569b65b086dd220d6640604" prot="public" static="no" mutable="no">
+        <type>const bool</type>
+        <definition>const bool IntegralProvider&lt; V &gt;::unrestricted</definition>
+        <argsstring></argsstring>
+        <name>unrestricted</name>
+        <qualifiedname>IntegralProvider::unrestricted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" line="48" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structIntegralProvider_1ac0c031653c0a34dfd79fc0157ada4674" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>IntegralProvider&lt; V &gt;::IntegralProvider</definition>
+        <argsstring>(size_t no, size_t nv, bool chemistNotation_, bool unrestricted_)</argsstring>
+        <name>IntegralProvider</name>
+        <qualifiedname>IntegralProvider::IntegralProvider</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>no</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>nv</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>chemistNotation_</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>unrestricted_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" line="24" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structIntegralProvider_1ad11c563ff48d79517f0d93e31295d8d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structIntegralProvider_1_1Limit" kindref="compound">Limit</ref></type>
+        <definition>Limit IntegralProvider&lt; V &gt;::indexToLimits</definition>
+        <argsstring>(Index &amp;i)</argsstring>
+        <name>indexToLimits</name>
+        <qualifiedname>IntegralProvider::indexToLimits</qualifiedname>
+        <param>
+          <type><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8d" kindref="member">Index</ref> &amp;</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" line="33" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" bodystart="33" bodyend="37"/>
+        <references refid="structIntegralProvider_1aa50acdb6d86623a23513fe2930e77598" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="46">IntegralProvider&lt; V &gt;::No</references>
+        <references refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" compoundref="Integrals_8hpp" startline="8">sisi4s::NO</references>
+        <references refid="structIntegralProvider_1aa741c0fcac672dc2c567d870a25ab427" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="46">IntegralProvider&lt; V &gt;::Nv</references>
+        <references refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" compoundref="Integrals_8hpp" startline="8">sisi4s::NV</references>
+      </memberdef>
+      <memberdef kind="function" id="structIntegralProvider_1aca121445c50dba97b783159c30a84626" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t IntegralProvider&lt; V &gt;::indexToInt</definition>
+        <argsstring>(Index i)</argsstring>
+        <name>indexToInt</name>
+        <qualifiedname>IntegralProvider::indexToInt</qualifiedname>
+        <param>
+          <type><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8d" kindref="member">Index</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" line="38" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" bodystart="38" bodyend="42"/>
+        <references refid="structIntegralProvider_1aa50acdb6d86623a23513fe2930e77598" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="46">IntegralProvider&lt; V &gt;::No</references>
+        <references refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" compoundref="Integrals_8hpp" startline="8">sisi4s::NO</references>
+        <references refid="structIntegralProvider_1aa741c0fcac672dc2c567d870a25ab427" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="46">IntegralProvider&lt; V &gt;::Nv</references>
+        <references refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" compoundref="Integrals_8hpp" startline="8">sisi4s::NV</references>
+      </memberdef>
+      <memberdef kind="function" id="structIntegralProvider_1a2f3bce11ce0fcbc690aa7f889cee5e32" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>V</type>
+        <definition>virtual V IntegralProvider&lt; V &gt;::compute</definition>
+        <argsstring>(Index P, Index Q, Index R, Index S)=0</argsstring>
+        <name>compute</name>
+        <qualifiedname>IntegralProvider::compute</qualifiedname>
+        <param>
+          <type><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8d" kindref="member">Index</ref></type>
+          <declname>P</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8d" kindref="member">Index</ref></type>
+          <declname>Q</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8d" kindref="member">Index</ref></type>
+          <declname>R</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8d" kindref="member">Index</ref></type>
+          <declname>S</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" line="44" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>CtfIntegralProvider</label>
+        <link refid="structCtfIntegralProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IntegralProvider&lt; CTF::Tensor&lt; double &gt; &gt;</label>
+        <link refid="structIntegralProvider"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; CTF::Tensor&lt; double &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>IntegralProvider&lt; V &gt;</label>
+        <link refid="structIntegralProvider"/>
+      </node>
+      <node id="4">
+        <label>IntegralProvider&lt; std::vector&lt; double &gt; &gt;</label>
+        <link refid="structIntegralProvider"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; std::vector&lt; double &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>SlowVectorIntegralProvider</label>
+        <link refid="structSlowVectorIntegralProvider"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>VectorIntegralProvider</label>
+        <link refid="structVectorIntegralProvider"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>IntegralProvider&lt; V &gt;</label>
+        <link refid="structIntegralProvider"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" line="22" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.cxx" bodystart="22" bodyend="49"/>
+    <listofallmembers>
+      <member refid="structIntegralProvider_1a5435fd03b0f170b3c3afd880410dbca5" prot="public" virt="non-virtual"><scope>IntegralProvider</scope><name>chemistNotation</name></member>
+      <member refid="structIntegralProvider_1a2f3bce11ce0fcbc690aa7f889cee5e32" prot="public" virt="pure-virtual"><scope>IntegralProvider</scope><name>compute</name></member>
+      <member refid="structIntegralProvider_1aca121445c50dba97b783159c30a84626" prot="public" virt="non-virtual"><scope>IntegralProvider</scope><name>indexToInt</name></member>
+      <member refid="structIntegralProvider_1ad11c563ff48d79517f0d93e31295d8d5" prot="public" virt="non-virtual"><scope>IntegralProvider</scope><name>indexToLimits</name></member>
+      <member refid="structIntegralProvider_1ac0c031653c0a34dfd79fc0157ada4674" prot="public" virt="non-virtual"><scope>IntegralProvider</scope><name>IntegralProvider</name></member>
+      <member refid="structIntegralProvider_1aa50acdb6d86623a23513fe2930e77598" prot="public" virt="non-virtual"><scope>IntegralProvider</scope><name>No</name></member>
+      <member refid="structIntegralProvider_1a1f704d963a5bc856f2a68069373d055d" prot="public" virt="non-virtual"><scope>IntegralProvider</scope><name>Np</name></member>
+      <member refid="structIntegralProvider_1aa741c0fcac672dc2c567d870a25ab427" prot="public" virt="non-virtual"><scope>IntegralProvider</scope><name>Nv</name></member>
+      <member refid="structIntegralProvider_1ad854ec063569b65b086dd220d6640604" prot="public" virt="non-virtual"><scope>IntegralProvider</scope><name>unrestricted</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

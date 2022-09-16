@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1Timer" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::Timer</compoundname>
+    <includes refid="Timer_8hpp" local="no">Timer.hpp</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1Timer_1a886ed86e350f5eb7b68d5de8d774b587" prot="protected" static="no" mutable="no">
+        <type><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref> *</type>
+        <definition>Time* sisi4s::Timer::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <qualifiedname>sisi4s::Timer::time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.hpp" line="17" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.hpp" bodystart="17" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Timer_1a14fa469c4c295c5fa6e66a4ad1092146" compoundref="Timer_8cxx" startline="19" endline="22">~Timer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Timer_1a5e9e3b4ed80d69b5a69b32fb4605c329" prot="protected" static="no" mutable="no">
+        <type><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref></type>
+        <definition>Time sisi4s::Timer::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <qualifiedname>sisi4s::Timer::start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.hpp" line="18" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.hpp" bodystart="18" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Timer_1a14fa469c4c295c5fa6e66a4ad1092146" compoundref="Timer_8cxx" startline="19" endline="22">~Timer</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1Timer_1aa35f206fa23e01ed790802ebc5575c5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Timer::Timer</definition>
+        <argsstring>(Time *time)</argsstring>
+        <name>Timer</name>
+        <qualifiedname>sisi4s::Timer::Timer</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref> *</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Constructor of a <ref refid="classsisi4s_1_1Timer" kindref="compound">Timer</ref> object starting the measurement. \parameter seconds specifies where the measured time shall be written to upon destruction of the object marking the end of the measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.hpp" line="14" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.cxx" bodystart="11" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Timer_1a14fa469c4c295c5fa6e66a4ad1092146" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Timer::~Timer</definition>
+        <argsstring>()</argsstring>
+        <name>~Timer</name>
+        <qualifiedname>sisi4s::Timer::~Timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroys the timer object concluding the time measurement and adding the elapsed time to the double specified upon construction of the timer object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.hpp" line="15" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.cxx" bodystart="19" bodyend="22"/>
+        <references refid="classsisi4s_1_1Time_1ab133fcb3422dbde9d68f5a5155c5127c" compoundref="Time_8hpp" startline="65" endline="69">sisi4s::Time::getCurrentRealTime</references>
+        <references refid="classsisi4s_1_1Timer_1a5e9e3b4ed80d69b5a69b32fb4605c329" compoundref="Timer_8hpp" startline="18">start</references>
+        <references refid="classsisi4s_1_1Timer_1a886ed86e350f5eb7b68d5de8d774b587" compoundref="Timer_8hpp" startline="17">time</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classsisi4s_1_1Timer" kindref="compound">Timer</ref> class providing timing functionality. The object can be created in a scope whose lifetime is then measured. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>sisi4s::Time</label>
+        <link refid="classsisi4s_1_1Time"/>
+        <childnode refid="3" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::Timer</label>
+        <link refid="classsisi4s_1_1Timer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>#start</edgelabel>
+          <edgelabel>#time</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>timespec</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.hpp" line="12" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Timer.hpp" bodystart="12" bodyend="19"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Timer_1a5e9e3b4ed80d69b5a69b32fb4605c329" prot="protected" virt="non-virtual"><scope>sisi4s::Timer</scope><name>start</name></member>
+      <member refid="classsisi4s_1_1Timer_1a886ed86e350f5eb7b68d5de8d774b587" prot="protected" virt="non-virtual"><scope>sisi4s::Timer</scope><name>time</name></member>
+      <member refid="classsisi4s_1_1Timer_1aa35f206fa23e01ed790802ebc5575c5b" prot="public" virt="non-virtual"><scope>sisi4s::Timer</scope><name>Timer</name></member>
+      <member refid="classsisi4s_1_1Timer_1a14fa469c4c295c5fa6e66a4ad1092146" prot="public" virt="non-virtual"><scope>sisi4s::Timer</scope><name>~Timer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

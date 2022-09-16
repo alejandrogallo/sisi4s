@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="BlacsWorld_8cxx" kind="file" language="C++">
+    <compoundname>BlacsWorld.cxx</compoundname>
+    <includes refid="BlacsWorld_8hpp" local="no">util/BlacsWorld.hpp</includes>
+    <includes refid="Blacs_8hpp" local="no">extern/Blacs.hpp</includes>
+    <includes refid="ScaLapack_8hpp" local="no">extern/ScaLapack.hpp</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>extern/Blacs.hpp</label>
+        <link refid="Blacs_8hpp"/>
+      </node>
+      <node id="4">
+        <label>extern/ScaLapack.hpp</label>
+        <link refid="ScaLapack_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BlacsWorld.cxx</label>
+        <link refid="BlacsWorld_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>util/BlacsWorld.hpp</label>
+        <link refid="BlacsWorld_8hpp"/>
+      </node>
+      <node id="9">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>cmath</label>
+      </node>
+      <node id="8">
+        <label>complex</label>
+      </node>
+      <node id="12">
+        <label>cstdint</label>
+      </node>
+      <node id="11">
+        <label>ctime</label>
+      </node>
+      <node id="19">
+        <label>fstream</label>
+      </node>
+      <node id="13">
+        <label>iomanip</label>
+      </node>
+      <node id="17">
+        <label>iostream</label>
+      </node>
+      <node id="7">
+        <label>ostream</label>
+      </node>
+      <node id="14">
+        <label>sstream</label>
+      </node>
+      <node id="18">
+        <label>streambuf</label>
+      </node>
+      <node id="16">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="BlacsWorld_8hpp" kindref="compound">util/BlacsWorld.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Blacs_8hpp" kindref="compound">extern/Blacs.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapack_8hpp" kindref="compound">extern/ScaLapack.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="classsisi4s_1_1BlacsWorld_1a720328f15e7797f099bb8554720a2164" refkind="member"><highlight class="normal">BlacsWorld::BlacsWorld(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rank_,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>processes,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>processRows):<sp/>rank(rank_)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[0]<sp/>=<sp/>processRows<sp/>&gt;<sp/>0<sp/>?</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>processRows<sp/>:<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="namespacesisi4s_1a40947d88c4989cacff153a78af67f686" kindref="member">std::sqrt</ref>(processes));</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[1]<sp/>=<sp/>processes<sp/>/<sp/><ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[0];</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[0]<sp/>*<sp/><ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[1]<sp/>!=<sp/>processes)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>--<ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[0];</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[1]<sp/>=<sp/>processes<sp/>/<sp/><ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[0];</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><ref refid="Blacs_8hpp_1ab37e53063503886d05f9b279e895b693" kindref="member">Cblacs_get</ref>(-1,<sp/>0,<sp/>&amp;<ref refid="classsisi4s_1_1BlacsWorld_1a1993d2fcc74c966cd9f40441edf4b0c3" kindref="member">context</ref>);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="Blacs_8hpp_1af112f990dbc189ac1d2092c0f2ea5d06" kindref="member">Cblacs_gridinit</ref>(&amp;<ref refid="classsisi4s_1_1BlacsWorld_1a1993d2fcc74c966cd9f40441edf4b0c3" kindref="member">context</ref>,<sp/></highlight><highlight class="stringliteral">&quot;ColumnMajor&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[0],<sp/><ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[1]);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><ref refid="Blacs_8hpp_1a23cee1588893f7d3dadcec251d90d563" kindref="member">Cblacs_gridinfo</ref>(</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a1993d2fcc74c966cd9f40441edf4b0c3" kindref="member">context</ref>,<sp/>&amp;<ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[0],<sp/>&amp;<ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[1],<sp/>&amp;<ref refid="classsisi4s_1_1BlacsWorld_1a1c0057db4593cc4e4bedeb468c85dafb" kindref="member">firstElement</ref>[0],<sp/>&amp;<ref refid="classsisi4s_1_1BlacsWorld_1a1c0057db4593cc4e4bedeb468c85dafb" kindref="member">firstElement</ref>[1]</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classsisi4s_1_1BlacsWorld_1ac926df5a02d94ef079f265dd64f3cb1e" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1BlacsWorld_1ac926df5a02d94ef079f265dd64f3cb1e" kindref="member">BlacsWorld::~BlacsWorld</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><ref refid="Blacs_8hpp_1a515699b23fa31b466e5127bebef78ad0" kindref="member">Cblacs_gridexit</ref>(<ref refid="classsisi4s_1_1BlacsWorld_1a1993d2fcc74c966cd9f40441edf4b0c3" kindref="member">context</ref>);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classsisi4s_1_1BlacsWorld_1a932972e47385c0df0f9e9f10da7e46da" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1BlacsWorld_1a932972e47385c0df0f9e9f10da7e46da" kindref="member">BlacsWorld::barrier</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="Blacs_8hpp_1a59fd00f9c40d4ca4f1fbf24ec51520eb" kindref="member">Cblacs_barrier</ref>(<ref refid="classsisi4s_1_1BlacsWorld_1a1993d2fcc74c966cd9f40441edf4b0c3" kindref="member">context</ref>,<sp/></highlight><highlight class="stringliteral">&quot;All&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BlacsWorld.cxx"/>
+  </compounddef>
+</doxygen>

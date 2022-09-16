@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1NumericData" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::NumericData</compoundname>
+    <basecompoundref refid="classsisi4s_1_1TypedData" prot="public" virt="non-virtual">sisi4s::TypedData</basecompoundref>
+    <derivedcompoundref refid="structsisi4s_1_1ContainerData" prot="public" virt="non-virtual">sisi4s::ContainerData&lt; F, C &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classsisi4s_1_1IntegerData" prot="public" virt="non-virtual">sisi4s::IntegerData</derivedcompoundref>
+    <derivedcompoundref refid="classsisi4s_1_1RealData" prot="public" virt="non-virtual">sisi4s::RealData</derivedcompoundref>
+    <derivedcompoundref refid="classsisi4s_1_1TensorData" prot="public" virt="non-virtual">sisi4s::TensorData&lt; F, T &gt;</derivedcompoundref>
+    <includes refid="Data_8hpp" local="no">Data.hpp</includes>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1NumericData_1af9beedc886bb686fdc528b079ace34a7" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::NumericData::NumericData</definition>
+        <argsstring>(std::string const &amp;typeName_)</argsstring>
+        <name>NumericData</name>
+        <qualifiedname>sisi4s::NumericData::NumericData</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>typeName_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/Data.hpp" line="129" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/Data.hpp" bodystart="129" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1NumericData_1a26c21cb9016a884e1656e3c7d55b3565" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::NumericData::NumericData</definition>
+        <argsstring>(std::string const &amp;name_, std::string const &amp;typeName_)</argsstring>
+        <name>NumericData</name>
+        <qualifiedname>sisi4s::NumericData::NumericData</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name_</declname>
+        </param>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>typeName_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/Data.hpp" line="130" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/Data.hpp" bodystart="130" bodyend="133"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>sisi4s::ContainerData&lt; F, C &gt;</label>
+        <link refid="structsisi4s_1_1ContainerData"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sisi4s::Data</label>
+        <link refid="classsisi4s_1_1Data"/>
+      </node>
+      <node id="5">
+        <label>sisi4s::IntegerData</label>
+        <link refid="classsisi4s_1_1IntegerData"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::NumericData</label>
+        <link refid="classsisi4s_1_1NumericData"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>sisi4s::RealData</label>
+        <link refid="classsisi4s_1_1RealData"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>sisi4s::TensorData&lt; F, T &gt;</label>
+        <link refid="classsisi4s_1_1TensorData"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::TypedData</label>
+        <link refid="classsisi4s_1_1TypedData"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>sisi4s::Data</label>
+        <link refid="classsisi4s_1_1Data"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::NumericData</label>
+        <link refid="classsisi4s_1_1NumericData"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::TypedData</label>
+        <link refid="classsisi4s_1_1TypedData"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/Data.hpp" line="127" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/Data.hpp" bodystart="127" bodyend="134"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363adaa138789887eb37b0e47ad00e0661e3" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>ALLOCATED</name></member>
+      <member refid="classsisi4s_1_1Data_1a451ecabfc1b04d8fe42d9e7830e18631" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>Data</name></member>
+      <member refid="classsisi4s_1_1Data_1a2b7ea527a91a456c6ea715ef71f3285c" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>Data</name></member>
+      <member refid="classsisi4s_1_1Data_1ab919572bad2952b419b4ca41feb8c0bf" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>dataMap</name></member>
+      <member refid="classsisi4s_1_1Data_1a5b4676e48b4f437d399587e6903f896a" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>get</name></member>
+      <member refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>getName</name></member>
+      <member refid="classsisi4s_1_1Data_1a89e252bcbcdd0ea67517967b8613b841" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>getStage</name></member>
+      <member refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>getTypeName</name></member>
+      <member refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363a231f695d1309feeee5aa0293838080d0" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>LINGERING</name></member>
+      <member refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363a032f49b3bce929cf5d3f24baeabd8787" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>MENTIONED</name></member>
+      <member refid="classsisi4s_1_1Data_1abd2d32de237619f900be350b94773048" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>name</name></member>
+      <member refid="classsisi4s_1_1Data_1aff39e49c90374f8eee4fab8ab8b3fb31" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>nextAnynomousDataId</name></member>
+      <member refid="classsisi4s_1_1TypedData_1ab058426313681f75cc7319cf81b9a179" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>nextId</name></member>
+      <member refid="classsisi4s_1_1TypedData_1a2e5e68414dbf941754a5a4cfc4e9a429" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>nextName</name></member>
+      <member refid="classsisi4s_1_1NumericData_1af9beedc886bb686fdc528b079ace34a7" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>NumericData</name></member>
+      <member refid="classsisi4s_1_1NumericData_1a26c21cb9016a884e1656e3c7d55b3565" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>NumericData</name></member>
+      <member refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363ac57745690e2f2de7e5c5da40470f346f" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>READY</name></member>
+      <member refid="classsisi4s_1_1Data_1abee42fc152a8cfbfda5e2b59c080cc74" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>stage</name></member>
+      <member refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>Stage</name></member>
+      <member refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363aab8a4162af125abeebd2d8cea69b1f7f" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>TYPED</name></member>
+      <member refid="classsisi4s_1_1TypedData_1ac6c466b393564c30084424b259d60dfe" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>TypedData</name></member>
+      <member refid="classsisi4s_1_1TypedData_1afe0171a99e447701e1997d15e570ad00" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>TypedData</name></member>
+      <member refid="classsisi4s_1_1Data_1aed57921e32429b6456ed4af469e35b46" prot="protected" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>typeName</name></member>
+      <member refid="classsisi4s_1_1Data_1ae1bf44bd448c3961cc9ba067b8c6a363a794112436987c4dce7a21ac477af6c7f" prot="public" virt="non-virtual"><scope>sisi4s::NumericData</scope><name>UNUSED</name></member>
+      <member refid="classsisi4s_1_1Data_1afc5a5d52ee5ef41efbdfe2f26d7dc0c3" prot="public" virt="virtual"><scope>sisi4s::NumericData</scope><name>~Data</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

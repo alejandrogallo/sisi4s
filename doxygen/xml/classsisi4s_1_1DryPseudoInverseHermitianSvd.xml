@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1DryPseudoInverseHermitianSvd" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::DryPseudoInverseHermitianSvd</compoundname>
+    <includes refid="PseudoInverseHermitianSvd_8hpp" local="no">PseudoInverseHermitianSvd.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a82390b24880c14f5dd5bd268a2ce8333" prot="protected" static="no" mutable="no">
+        <type><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix</ref>&lt; F &gt;</type>
+        <definition>DryMatrix&lt;F&gt; sisi4s::DryPseudoInverseHermitianSvd&lt; F &gt;::inverse</definition>
+        <argsstring></argsstring>
+        <name>inverse</name>
+        <qualifiedname>sisi4s::DryPseudoInverseHermitianSvd::inverse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" line="30" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a634cf1b84317485331402fb97285ddc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>template DryPseudoInverseHermitianSvd::DryPseudoInverseHermitianSvd</definition>
+        <argsstring>(DryMatrix&lt; F &gt; const &amp;matrix)</argsstring>
+        <name>DryPseudoInverseHermitianSvd</name>
+        <qualifiedname>sisi4s::DryPseudoInverseHermitianSvd::DryPseudoInverseHermitianSvd</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix</ref>&lt; F &gt; const &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" line="26" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.cxx" bodystart="80" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a20b16bbf7672a641dfdfc42ddba39d98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix</ref>&lt; F &gt; &amp;</type>
+        <definition>template DryMatrix&lt; sisi4s::Complex64 &gt; &amp; DryPseudoInverseHermitianSvd::get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <qualifiedname>sisi4s::DryPseudoInverseHermitianSvd::get</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" line="27" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.cxx" bodystart="88" bodyend="90"/>
+        <references refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" compoundref="DiisMixer_8cxx" startline="16" endline="32">inverse</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>sisi4s::DryMatrix&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1DryMatrix"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="template-instance">
+          <edgelabel>&lt; F &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sisi4s::DryTensor&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1DryTensor"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+location</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="template-instance">
+          <edgelabel>&lt; F &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>sisi4s::DryTensor&lt; double &gt;</label>
+        <link refid="classsisi4s_1_1DryTensor"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+location</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="template-instance">
+          <edgelabel>&lt; double &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>sisi4s::DryMatrix&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1DryMatrix"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::DryPseudoInverseHermitianSvd&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1DryPseudoInverseHermitianSvd"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>#inverse</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>sisi4s::DryTensor&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1DryTensor"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+location</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>sisi4s::SourceLocation</label>
+        <link refid="classsisi4s_1_1SourceLocation"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" line="24" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" bodystart="24" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a634cf1b84317485331402fb97285ddc5" prot="public" virt="non-virtual"><scope>sisi4s::DryPseudoInverseHermitianSvd</scope><name>DryPseudoInverseHermitianSvd</name></member>
+      <member refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a20b16bbf7672a641dfdfc42ddba39d98" prot="public" virt="non-virtual"><scope>sisi4s::DryPseudoInverseHermitianSvd</scope><name>get</name></member>
+      <member refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a82390b24880c14f5dd5bd268a2ce8333" prot="protected" virt="non-virtual"><scope>sisi4s::DryPseudoInverseHermitianSvd</scope><name>inverse</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

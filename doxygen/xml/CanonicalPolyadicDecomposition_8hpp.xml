@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="CanonicalPolyadicDecomposition_8hpp" kind="file" language="C++">
+    <compoundname>CanonicalPolyadicDecomposition.hpp</compoundname>
+    <includes refid="DryTensor_8hpp" local="no">DryTensor.hpp</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includedby refid="CanonicalPolyadicDecomposition_8cxx" local="no">CanonicalPolyadicDecomposition.cxx</includedby>
+    <includedby refid="CoulombVertexDecomposition_8cxx" local="no">CoulombVertexDecomposition.cxx</includedby>
+    <includedby refid="ParticleHoleCoulombVertexDecomposition_8cxx" local="no">ParticleHoleCoulombVertexDecomposition.cxx</includedby>
+    <includedby refid="RegularizedAlternatingLeastSquares_8cxx" local="no">RegularizedAlternatingLeastSquares.cxx</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CanonicalPolyadicDecomposition.hpp</label>
+        <link refid="CanonicalPolyadicDecomposition_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>util/SourceLocation.hpp</label>
+        <link refid="SourceLocation_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="10">
+        <label>cstdint</label>
+      </node>
+      <node id="18">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="9">
+        <label>ctime</label>
+      </node>
+      <node id="15">
+        <label>fstream</label>
+      </node>
+      <node id="11">
+        <label>iomanip</label>
+      </node>
+      <node id="13">
+        <label>iostream</label>
+      </node>
+      <node id="6">
+        <label>ostream</label>
+      </node>
+      <node id="5">
+        <label>sstream</label>
+      </node>
+      <node id="14">
+        <label>streambuf</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="16">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>CoulombVertexDecomposition.cxx</label>
+        <link refid="CoulombVertexDecomposition_8cxx"/>
+      </node>
+      <node id="4">
+        <label>ParticleHoleCoulombVertexDecomposition.cxx</label>
+        <link refid="ParticleHoleCoulombVertexDecomposition_8cxx"/>
+      </node>
+      <node id="2">
+        <label>CanonicalPolyadicDecomposition.cxx</label>
+        <link refid="CanonicalPolyadicDecomposition_8cxx"/>
+      </node>
+      <node id="1">
+        <label>CanonicalPolyadicDecomposition.hpp</label>
+        <link refid="CanonicalPolyadicDecomposition_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>RegularizedAlternatingLeastSquares.cxx</label>
+        <link refid="RegularizedAlternatingLeastSquares_8cxx"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>CANONICAL_POLYADIC_DECOMPOSITION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CANONICAL_POLYADIC_DECOMPOSITION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DryTensor_8hpp" kindref="compound">DryTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="13" refid="namespacesisi4s_1a73e63f2894299063b2902d0f4f67fe27" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a73e63f2894299063b2902d0f4f67fe27" kindref="member">composeCanonicalPolyadicDecompositionTensors</ref>(</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;A,<sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;B,<sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;C,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;T</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1abfc549a8ae34264be9b654324c1ae036" kindref="member">dryComposeCanonicalPolyadicDecompositionTensors</ref>(</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/>&amp;A,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/>&amp;B,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/>&amp;C,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/>&amp;T</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="40" refid="namespacesisi4s_1a21fb3aa5ddffa42109990b275c1508c4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a21fb3aa5ddffa42109990b275c1508c4" kindref="member">contractWithCanonicalPolyadicDecompositionTensors</ref>(</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;T,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*indicesT,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;B,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>idxB,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;C,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>idxC,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;A,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>idxA</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a3c57f2c3b6b413ec8c8cbac80a1bbaca" kindref="member">dryContractWithCanonicalPolyadicDecompositionTensors</ref>(</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/>&amp;T,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*indicesT,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/>&amp;B,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>idxB,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/>&amp;C,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>idxC,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/>&amp;A,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>idxA</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/CanonicalPolyadicDecomposition.hpp"/>
+  </compounddef>
+</doxygen>

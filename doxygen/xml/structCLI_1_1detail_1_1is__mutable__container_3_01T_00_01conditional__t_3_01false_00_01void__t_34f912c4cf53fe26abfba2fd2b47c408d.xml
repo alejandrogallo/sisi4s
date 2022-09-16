@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structCLI_1_1detail_1_1is__mutable__container_3_01T_00_01conditional__t_3_01false_00_01void__t_34f912c4cf53fe26abfba2fd2b47c408d" kind="struct" language="C++" prot="public">
+    <compoundname>CLI::detail::is_mutable_container&lt; T, conditional_t&lt; false, void_t&lt; typename T::value_type, decltype(std::declval&lt; T &gt;().end()), decltype(std::declval&lt; T &gt;().clear()), decltype(std::declval&lt; T &gt;().insert(std::declval&lt; decltype(std::declval&lt; T &gt;().end())&gt;(), std::declval&lt; const typename T::value_type &amp; &gt;()))&gt;, void &gt; &gt;</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">conditional_t&lt; std::is_constructible&lt; T, std::string &gt;::value, std::false_type, std::true_type &gt;</basecompoundref>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>type trait to test if a type is a mutable container meaning it has a value_type, it has an iterator, a clear, and end methods and an insert function. And for our purposes we exclude std::string and types that can be constructed from a std::string </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CLI::detail::is_mutable_container&lt; T, conditional_t&lt; false, void_t&lt; typename T::value_type, decltype(std::declval&lt; T &gt;().end()), decltype(std::declval&lt; T &gt;().clear()), decltype(std::declval&lt; T &gt;().insert(std::declval&lt; decltype(std::declval&lt; T &gt;().end())&gt;(), std::declval&lt; const typename T::value_type &amp; &gt;()))&gt;, void &gt; &gt;</label>
+        <link refid="structCLI_1_1detail_1_1is__mutable__container_3_01T_00_01conditional__t_3_01false_00_01void__t_34f912c4cf53fe26abfba2fd2b47c408d"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>conditional_t&lt; std::is_constructible&lt; T, std::string &gt;::value, std::false_type, std::true_type &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::detail::is_mutable_container&lt; T, conditional_t&lt; false, void_t&lt; typename T::value_type, decltype(std::declval&lt; T &gt;().end()), decltype(std::declval&lt; T &gt;().clear()), decltype(std::declval&lt; T &gt;().insert(std::declval&lt; decltype(std::declval&lt; T &gt;().end())&gt;(), std::declval&lt; const typename T::value_type &amp; &gt;()))&gt;, void &gt; &gt;</label>
+        <link refid="structCLI_1_1detail_1_1is__mutable__container_3_01T_00_01conditional__t_3_01false_00_01void__t_34f912c4cf53fe26abfba2fd2b47c408d"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>conditional_t&lt; std::is_constructible&lt; T, std::string &gt;::value, std::false_type, std::true_type &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1080" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1089" bodyend="1089"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1FormatterLambda" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>CLI::FormatterLambda</compoundname>
+    <basecompoundref refid="classCLI_1_1FormatterBase" prot="public" virt="non-virtual">CLI::FormatterBase</basecompoundref>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classCLI_1_1FormatterLambda_1a998d826deff449612050415677bfd60a" prot="private" static="no">
+        <type>std::function&lt; std::string(const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *, std::string, <ref refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119c" kindref="member">AppFormatMode</ref>)&gt;</type>
+        <definition>using CLI::FormatterLambda::funct_t =  std::function&lt;std::string(const App *, std::string, AppFormatMode)&gt;</definition>
+        <argsstring></argsstring>
+        <name>funct_t</name>
+        <qualifiedname>CLI::FormatterLambda::funct_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3843" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3843" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCLI_1_1FormatterLambda_1a1f50c50b725833ce2882610097fa786a" prot="private" static="no" mutable="no">
+        <type>funct_t</type>
+        <definition>funct_t CLI::FormatterLambda::lambda_</definition>
+        <argsstring></argsstring>
+        <name>lambda_</name>
+        <qualifiedname>CLI::FormatterLambda::lambda_</qualifiedname>
+        <briefdescription>
+<para>The lambda to hold and run. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3846" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3846" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCLI_1_1FormatterLambda_1aca398f0ed80cb70f742ffaf48355e42c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CLI::FormatterLambda::FormatterLambda</definition>
+        <argsstring>(funct_t funct)</argsstring>
+        <name>FormatterLambda</name>
+        <qualifiedname>CLI::FormatterLambda::FormatterLambda</qualifiedname>
+        <param>
+          <type>funct_t</type>
+          <declname>funct</declname>
+        </param>
+        <briefdescription>
+<para>Create a <ref refid="classCLI_1_1FormatterLambda" kindref="compound">FormatterLambda</ref> with a lambda function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3850" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3850" bodyend="3850"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1FormatterLambda_1ab8bb1862cb970b170e95b11db08d6d83" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>CLI::FormatterLambda::~FormatterLambda</definition>
+        <argsstring>() noexcept override</argsstring>
+        <name>~FormatterLambda</name>
+        <qualifiedname>CLI::FormatterLambda::~FormatterLambda</qualifiedname>
+        <briefdescription>
+<para>Adding a destructor (mostly to make GCC 4.7 happy) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3853" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3853" bodyend="3853"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1FormatterLambda_1a5eca71447c56251c67b97187e4a888e6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::FormatterLambda::make_help</definition>
+        <argsstring>(const App *app, std::string name, AppFormatMode mode) const override</argsstring>
+        <name>make_help</name>
+        <qualifiedname>CLI::FormatterLambda::make_help</qualifiedname>
+        <reimplements refid="classCLI_1_1FormatterBase_1ac8ab93655a645352634709e15087080b">make_help</reimplements>
+        <param>
+          <type>const <ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceCLI_1a97e7d97131e3889f32b721570eca119c" kindref="member">AppFormatMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>This will simply call the lambda function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3856" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3856" bodyend="3858"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This is a specialty override for lambda functions. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CLI::FormatterBase</label>
+        <link refid="classCLI_1_1FormatterBase"/>
+      </node>
+      <node id="1">
+        <label>CLI::FormatterLambda</label>
+        <link refid="classCLI_1_1FormatterLambda"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>CLI::FormatterBase</label>
+        <link refid="classCLI_1_1FormatterBase"/>
+      </node>
+      <node id="1">
+        <label>CLI::FormatterLambda</label>
+        <link refid="classCLI_1_1FormatterLambda"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3842" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3842" bodyend="3859"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1FormatterBase_1acd8c03570a48e5937ab748bf6103ca2d" prot="public" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>column_width</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a2427b2199dd9654b050d00c89d764332" prot="protected" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>column_width_</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a85811a9afbc33d19fb1d8d1a0553f2b1" prot="public" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>FormatterBase</name></member>
+      <member refid="classCLI_1_1FormatterBase_1abd363023789788a8242d2c8ccf394c48" prot="public" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>FormatterBase</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a5552e960c2f477a570ee67541e15e8ea" prot="public" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>FormatterBase</name></member>
+      <member refid="classCLI_1_1FormatterLambda_1aca398f0ed80cb70f742ffaf48355e42c" prot="public" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>FormatterLambda</name></member>
+      <member refid="classCLI_1_1FormatterLambda_1a998d826deff449612050415677bfd60a" prot="private" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>funct_t</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a41e32517e27b98dcf85acfb0fd169c97" prot="public" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>get_column_width</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a7e8f9d7896c599f7befd84a9947d4cab" prot="public" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>get_label</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a73a17d81d04f5ee02a2cab32a59a8551" prot="public" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>label</name></member>
+      <member refid="classCLI_1_1FormatterBase_1a2ee79421fa339b227d6cb9ca1bce4ad1" prot="protected" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>labels_</name></member>
+      <member refid="classCLI_1_1FormatterLambda_1a1f50c50b725833ce2882610097fa786a" prot="private" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>lambda_</name></member>
+      <member refid="classCLI_1_1FormatterLambda_1a5eca71447c56251c67b97187e4a888e6" prot="public" virt="virtual"><scope>CLI::FormatterLambda</scope><name>make_help</name></member>
+      <member refid="classCLI_1_1FormatterBase_1ac634fe340a7679a3f4add85c969e4d98" prot="public" virt="virtual"><scope>CLI::FormatterLambda</scope><name>~FormatterBase</name></member>
+      <member refid="classCLI_1_1FormatterLambda_1ab8bb1862cb970b170e95b11db08d6d83" prot="public" virt="non-virtual"><scope>CLI::FormatterLambda</scope><name>~FormatterLambda</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

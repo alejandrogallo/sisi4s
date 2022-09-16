@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="OneBodyFromGaussian_8hpp" kind="file" language="C++">
+    <compoundname>OneBodyFromGaussian.hpp</compoundname>
+    <includes refid="Algorithm_8hpp" local="no">algorithms/Algorithm.hpp</includes>
+    <includes local="no">vector</includes>
+    <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
+    <includes local="no">libint2.hpp</includes>
+    <includes local="no">Eigen/Eigen</includes>
+    <includedby refid="HartreeFockFromGaussian_8cxx" local="no">HartreeFockFromGaussian.cxx</includedby>
+    <includedby refid="OneBodyFromGaussian_8cxx" local="no">OneBodyFromGaussian.cxx</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>OneBodyFromGaussian.hpp</label>
+        <link refid="OneBodyFromGaussian_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>Eigen/Eigen</label>
+      </node>
+      <node id="11">
+        <label>cmath</label>
+      </node>
+      <node id="18">
+        <label>complex</label>
+      </node>
+      <node id="7">
+        <label>cstdint</label>
+      </node>
+      <node id="22">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="6">
+        <label>ctime</label>
+      </node>
+      <node id="15">
+        <label>fstream</label>
+      </node>
+      <node id="9">
+        <label>iomanip</label>
+      </node>
+      <node id="13">
+        <label>iostream</label>
+      </node>
+      <node id="24">
+        <label>libint2.hpp</label>
+      </node>
+      <node id="19">
+        <label>map</label>
+      </node>
+      <node id="8">
+        <label>ostream</label>
+      </node>
+      <node id="10">
+        <label>sstream</label>
+      </node>
+      <node id="14">
+        <label>streambuf</label>
+      </node>
+      <node id="12">
+        <label>string</label>
+      </node>
+      <node id="20">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>HartreeFockFromGaussian.cxx</label>
+        <link refid="HartreeFockFromGaussian_8cxx"/>
+      </node>
+      <node id="3">
+        <label>OneBodyFromGaussian.cxx</label>
+        <link refid="OneBodyFromGaussian_8cxx"/>
+      </node>
+      <node id="1">
+        <label>OneBodyFromGaussian.hpp</label>
+        <link refid="OneBodyFromGaussian_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1OneBodyFromGaussian" prot="public">sisi4s::OneBodyFromGaussian</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_ONE_BODY_FROM_GAUSSIAN_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_ONE_BODY_FROM_GAUSSIAN_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Algorithm_8hpp" kindref="compound">algorithms/Algorithm.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;libint2.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Eigen&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classsisi4s_1_1OneBodyFromGaussian" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1OneBodyFromGaussian" kindref="compound">OneBodyFromGaussian</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14" refid="classsisi4s_1_1OneBodyFromGaussian_1a85b4e0d82441814c5121c2f6ce9614d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" kindref="member">ALGORITHM_REGISTRAR_DECLARATION</ref>(<ref refid="classsisi4s_1_1OneBodyFromGaussian" kindref="compound">OneBodyFromGaussian</ref>);</highlight></codeline>
+<codeline lineno="15" refid="classsisi4s_1_1OneBodyFromGaussian_1a8c9738fd4ee1ef1379ffef8a2f1403f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1OneBodyFromGaussian_1a8c9738fd4ee1ef1379ffef8a2f1403f3" kindref="member">OneBodyFromGaussian</ref>(</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{}</highlight></codeline>
+<codeline lineno="18" refid="classsisi4s_1_1OneBodyFromGaussian_1aa877edb7aa1cd2f0f4134345367ea6d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1OneBodyFromGaussian_1aa877edb7aa1cd2f0f4134345367ea6d5" kindref="member">~OneBodyFromGaussian</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" kindref="member">run</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/OneBodyFromGaussian.hpp"/>
+  </compounddef>
+</doxygen>

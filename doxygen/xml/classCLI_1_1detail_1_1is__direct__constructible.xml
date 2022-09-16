@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1detail_1_1is__direct__constructible" kind="class" language="C++" prot="public">
+    <compoundname>CLI::detail::is_direct_constructible</compoundname>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename C</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classCLI_1_1detail_1_1is__direct__constructible_1a4249fb3f2a63b33af754625ab7580375" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool CLI::detail::is_direct_constructible&lt; T, C &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>CLI::detail::is_direct_constructible::value</qualifiedname>
+        <initializer>= decltype(test&lt;T, C&gt;(0, typename std::is_constructible&lt;T, C&gt;::type()))::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1018" column="27" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1018" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classCLI_1_1detail_1_1is__direct__constructible_1a140e03f98b24c13c4eef5112598f55c9" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TT</type>
+          </param>
+          <param>
+            <type>typename CC</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::is_direct_constructible&lt; T, C &gt;::test</definition>
+        <argsstring>(int, std::true_type) -&gt; decltype(TT { std::declval&lt; CC &gt;() }, std::is_move_assignable&lt; TT &gt;())</argsstring>
+        <name>test</name>
+        <qualifiedname>CLI::detail::is_direct_constructible::test</qualifiedname>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>std::true_type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1001" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1detail_1_1is__direct__constructible_1ac29aa745a0817f7fcc443611fa4fb8f3" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TT</type>
+          </param>
+          <param>
+            <type>typename CC</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::is_direct_constructible&lt; T, C &gt;::test</definition>
+        <argsstring>(int, std::false_type) -&gt; std::false_type</argsstring>
+        <name>test</name>
+        <qualifiedname>CLI::detail::is_direct_constructible::test</qualifiedname>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>std::false_type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1013" column="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1detail_1_1is__direct__constructible_1a9be5851b139e88bb59e47891cf812047" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename</type>
+          </param>
+          <param>
+            <type>typename</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::is_direct_constructible&lt; T, C &gt;::test</definition>
+        <argsstring>(...) -&gt; std::false_type</argsstring>
+        <name>test</name>
+        <qualifiedname>CLI::detail::is_direct_constructible::test</qualifiedname>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1015" column="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::detail::is_direct_constructible&lt; T, C &gt;</label>
+        <link refid="classCLI_1_1detail_1_1is__direct__constructible"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="999" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="999" bodyend="1019"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1detail_1_1is__direct__constructible_1a140e03f98b24c13c4eef5112598f55c9" prot="private" virt="non-virtual"><scope>CLI::detail::is_direct_constructible</scope><name>test</name></member>
+      <member refid="classCLI_1_1detail_1_1is__direct__constructible_1ac29aa745a0817f7fcc443611fa4fb8f3" prot="private" virt="non-virtual"><scope>CLI::detail::is_direct_constructible</scope><name>test</name></member>
+      <member refid="classCLI_1_1detail_1_1is__direct__constructible_1a9be5851b139e88bb59e47891cf812047" prot="private" virt="non-virtual"><scope>CLI::detail::is_direct_constructible</scope><name>test</name></member>
+      <member refid="classCLI_1_1detail_1_1is__direct__constructible_1a4249fb3f2a63b33af754625ab7580375" prot="public" virt="non-virtual"><scope>CLI::detail::is_direct_constructible</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

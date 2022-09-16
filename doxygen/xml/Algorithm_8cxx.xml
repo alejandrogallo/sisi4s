@@ -1,0 +1,920 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Algorithm_8cxx" kind="file" language="C++">
+    <compoundname>Algorithm.cxx</compoundname>
+    <includes refid="Algorithm_8hpp" local="no">algorithms/Algorithm.hpp</includes>
+    <includes refid="Data_8hpp" local="no">Data.hpp</includes>
+    <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
+    <includes refid="DryTensor_8hpp" local="no">DryTensor.hpp</includes>
+    <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">list</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Algorithm.cxx</label>
+        <link refid="Algorithm_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>util/SourceLocation.hpp</label>
+        <link refid="SourceLocation_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>cmath</label>
+      </node>
+      <node id="18">
+        <label>complex</label>
+      </node>
+      <node id="7">
+        <label>cstdint</label>
+      </node>
+      <node id="22">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="6">
+        <label>ctime</label>
+      </node>
+      <node id="15">
+        <label>fstream</label>
+      </node>
+      <node id="9">
+        <label>iomanip</label>
+      </node>
+      <node id="13">
+        <label>iostream</label>
+      </node>
+      <node id="26">
+        <label>list</label>
+      </node>
+      <node id="19">
+        <label>map</label>
+      </node>
+      <node id="8">
+        <label>ostream</label>
+      </node>
+      <node id="10">
+        <label>sstream</label>
+      </node>
+      <node id="14">
+        <label>streambuf</label>
+      </node>
+      <node id="12">
+        <label>string</label>
+      </node>
+      <node id="20">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4" prot="public">TensorTypeTraits&lt; F, CTF::Tensor&lt; F &gt; &gt;</innerclass>
+    <innerclass refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Matrix_3_01F_01_4_01_4" prot="public">TensorTypeTraits&lt; F, CTF::Matrix&lt; F &gt; &gt;</innerclass>
+    <innerclass refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Vector_3_01F_01_4_01_4" prot="public">TensorTypeTraits&lt; F, CTF::Vector&lt; F &gt; &gt;</innerclass>
+    <innerclass refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Scalar_3_01F_01_4_01_4" prot="public">TensorTypeTraits&lt; F, CTF::Scalar&lt; F &gt; &gt;</innerclass>
+    <innerclass refid="classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4" prot="public">TensorTypeTraits&lt; F, DryTensor&lt; F &gt; &gt;</innerclass>
+    <innerclass refid="classTensorTypeTraits_3_01F_00_01DryMatrix_3_01F_01_4_01_4" prot="public">TensorTypeTraits&lt; F, DryMatrix&lt; F &gt; &gt;</innerclass>
+    <innerclass refid="classTensorTypeTraits_3_01F_00_01DryVector_3_01F_01_4_01_4" prot="public">TensorTypeTraits&lt; F, DryVector&lt; F &gt; &gt;</innerclass>
+    <innerclass refid="classTensorTypeTraits_3_01F_00_01DryScalar_3_01F_01_4_01_4" prot="public">TensorTypeTraits&lt; F, DryScalar&lt; F &gt; &gt;</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="Algorithm_8cxx_1a9aa4c77430336ce19f57b080608a155d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocateContainerArgument&lt; int64_t, std::vector&lt; int64_t &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, std::vector&lt; int64_t &gt; *container)</argsstring>
+        <name>Algorithm::allocateContainerArgument&lt; int64_t, std::vector&lt; int64_t &gt; &gt;</name>
+        <qualifiedname>allocateContainerArgument&lt; int64_t, std::vector&lt; int64_t &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; int64_t &gt; *</type>
+          <declname>container</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="177" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="177" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1a4d5611c62c2530b2cc4baa16a42bf916" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocateContainerArgument&lt; sisi4s::real, std::vector&lt; sisi4s::real &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, std::vector&lt; sisi4s::real &gt; *container)</argsstring>
+        <name>Algorithm::allocateContainerArgument&lt; sisi4s::real, std::vector&lt; sisi4s::real &gt; &gt;</name>
+        <qualifiedname>allocateContainerArgument&lt; sisi4s::real, std::vector&lt; sisi4s::real &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; sisi4s::real &gt; *</type>
+          <declname>container</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="180" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="180" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1ae8d5268886450001bace4518451834b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocateContainerArgument&lt; sisi4s::complex, std::vector&lt; sisi4s::complex &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, std::vector&lt; sisi4s::complex &gt; *container)</argsstring>
+        <name>Algorithm::allocateContainerArgument&lt; sisi4s::complex, std::vector&lt; sisi4s::complex &gt; &gt;</name>
+        <qualifiedname>allocateContainerArgument&lt; sisi4s::complex, std::vector&lt; sisi4s::complex &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> &gt; *</type>
+          <declname>container</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="183" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="183" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1a7e40f784bfb3197c66451e6160aef9b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref> &gt; *</type>
+        <definition>template CTF::Tensor&lt; Float64 &gt; * Algorithm::getTensorArgument&lt; Float64, CTF::Tensor&lt; Float64 &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;)</argsstring>
+        <name>Algorithm::getTensorArgument&lt; Float64, CTF::Tensor&lt; Float64 &gt; &gt;</name>
+        <qualifiedname>getTensorArgument&lt; Float64, CTF::Tensor&lt; Float64 &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="202" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="202" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1a7f4918d56dd13afcf29e7096e97c45e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref> &gt; *</type>
+        <definition>template CTF::Tensor&lt; Complex64 &gt; * Algorithm::getTensorArgument&lt; Complex64, CTF::Tensor&lt; Complex64 &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;)</argsstring>
+        <name>Algorithm::getTensorArgument&lt; Complex64, CTF::Tensor&lt; Complex64 &gt; &gt;</name>
+        <qualifiedname>getTensorArgument&lt; Complex64, CTF::Tensor&lt; Complex64 &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="206" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="206" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1ad72e1ad0b1738b2e3b17e1a6f854a542" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref> &gt; *</type>
+        <definition>template CTF::Tensor&lt; Float64 &gt; * Algorithm::getTensorArgumentFromReal&lt; Float64, CTF::Tensor&lt; Float64 &gt; &gt;</definition>
+        <argsstring>(RealData *)</argsstring>
+        <name>Algorithm::getTensorArgumentFromReal&lt; Float64, CTF::Tensor&lt; Float64 &gt; &gt;</name>
+        <qualifiedname>getTensorArgumentFromReal&lt; Float64, CTF::Tensor&lt; Float64 &gt; &gt;</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="285" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="285" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1aab20338f31916bafb0c78438db5c406a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref> &gt; *</type>
+        <definition>template CTF::Tensor&lt; Complex64 &gt; * Algorithm::getTensorArgumentFromReal&lt; Complex64, CTF::Tensor&lt; Complex64 &gt; &gt;</definition>
+        <argsstring>(RealData *)</argsstring>
+        <name>Algorithm::getTensorArgumentFromReal&lt; Complex64, CTF::Tensor&lt; Complex64 &gt; &gt;</name>
+        <qualifiedname>getTensorArgumentFromReal&lt; Complex64, CTF::Tensor&lt; Complex64 &gt; &gt;</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="289" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="289" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1a8192d49ee2b912e4a444515fb79b9b7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocatedTensorArgument&lt; Float64, CTF::Tensor&lt; Float64 &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, CTF::Tensor&lt; Float64 &gt; *tensor)</argsstring>
+        <name>Algorithm::allocatedTensorArgument&lt; Float64, CTF::Tensor&lt; Float64 &gt; &gt;</name>
+        <qualifiedname>allocatedTensorArgument&lt; Float64, CTF::Tensor&lt; Float64 &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref> &gt; *</type>
+          <declname>tensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="315" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="315" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1a5f1daa7f4dc06e6a1424a763f965fae2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocatedTensorArgument&lt; sisi4s::real, CTF::Matrix&lt; sisi4s::real &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, CTF::Matrix&lt; real &gt; *tensor)</argsstring>
+        <name>Algorithm::allocatedTensorArgument&lt; sisi4s::real, CTF::Matrix&lt; sisi4s::real &gt; &gt;</name>
+        <qualifiedname>allocatedTensorArgument&lt; sisi4s::real, CTF::Matrix&lt; sisi4s::real &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>CTF::Matrix&lt; real &gt; *</type>
+          <declname>tensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="320" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="320" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1a2cadd5bf15b195a08e456a9223e9cc5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocatedTensorArgument&lt; sisi4s::real, CTF::Vector&lt; sisi4s::real &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, CTF::Vector&lt; sisi4s::real &gt; *tensor)</argsstring>
+        <name>Algorithm::allocatedTensorArgument&lt; sisi4s::real, CTF::Vector&lt; sisi4s::real &gt; &gt;</name>
+        <qualifiedname>allocatedTensorArgument&lt; sisi4s::real, CTF::Vector&lt; sisi4s::real &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>CTF::Vector&lt; sisi4s::real &gt; *</type>
+          <declname>tensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="324" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="324" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1aa9e6727eae562830af5d1b482ba76ca0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocatedTensorArgument&lt; sisi4s::real, CTF::Scalar&lt; sisi4s::real &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, CTF::Scalar&lt; sisi4s::real &gt; *tensor)</argsstring>
+        <name>Algorithm::allocatedTensorArgument&lt; sisi4s::real, CTF::Scalar&lt; sisi4s::real &gt; &gt;</name>
+        <qualifiedname>allocatedTensorArgument&lt; sisi4s::real, CTF::Scalar&lt; sisi4s::real &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>CTF::Scalar&lt; sisi4s::real &gt; *</type>
+          <declname>tensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="328" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="328" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1a80588a22734ef398552f3928d1942633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocatedTensorArgument&lt; Complex64, CTF::Tensor&lt; Complex64 &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, CTF::Tensor&lt; Complex64 &gt; *tensor)</argsstring>
+        <name>Algorithm::allocatedTensorArgument&lt; Complex64, CTF::Tensor&lt; Complex64 &gt; &gt;</name>
+        <qualifiedname>allocatedTensorArgument&lt; Complex64, CTF::Tensor&lt; Complex64 &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref> &gt; *</type>
+          <declname>tensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="333" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="333" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1a51f43d1c96a6a18f50dafff13f4836c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocatedTensorArgument&lt; sisi4s::complex, CTF::Matrix&lt; sisi4s::complex &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, CTF::Matrix&lt; sisi4s::complex &gt; *tensor)</argsstring>
+        <name>Algorithm::allocatedTensorArgument&lt; sisi4s::complex, CTF::Matrix&lt; sisi4s::complex &gt; &gt;</name>
+        <qualifiedname>allocatedTensorArgument&lt; sisi4s::complex, CTF::Matrix&lt; sisi4s::complex &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>CTF::Matrix&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> &gt; *</type>
+          <declname>tensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="338" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="338" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1a613f1c01dfe3bde1e3d3395ab06babb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocatedTensorArgument&lt; sisi4s::complex, CTF::Vector&lt; sisi4s::complex &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, CTF::Vector&lt; sisi4s::complex &gt; *tensor)</argsstring>
+        <name>Algorithm::allocatedTensorArgument&lt; sisi4s::complex, CTF::Vector&lt; sisi4s::complex &gt; &gt;</name>
+        <qualifiedname>allocatedTensorArgument&lt; sisi4s::complex, CTF::Vector&lt; sisi4s::complex &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>CTF::Vector&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> &gt; *</type>
+          <declname>tensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="342" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="342" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="Algorithm_8cxx_1acd1488440bea14c0d25805280f984fe9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void Algorithm::allocatedTensorArgument&lt; sisi4s::complex, CTF::Scalar&lt; sisi4s::complex &gt; &gt;</definition>
+        <argsstring>(std::string const &amp;name, CTF::Scalar&lt; sisi4s::complex &gt; *tensor)</argsstring>
+        <name>Algorithm::allocatedTensorArgument&lt; sisi4s::complex, CTF::Scalar&lt; sisi4s::complex &gt; &gt;</name>
+        <qualifiedname>allocatedTensorArgument&lt; sisi4s::complex, CTF::Scalar&lt; sisi4s::complex &gt; &gt;</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>CTF::Scalar&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> &gt; *</type>
+          <declname>tensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" line="346" column="1" declfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx" declline="346" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2015,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Algorithm_8hpp" kindref="compound">algorithms/Algorithm.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Data_8hpp" kindref="compound">Data.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DryTensor_8hpp" kindref="compound">DryTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;list&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" refkind="member"><highlight class="normal">Algorithm::Algorithm(std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>arg(argumentList.begin());<sp/>arg<sp/>!=<sp/>argumentList.end();<sp/>++arg)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref><sp/>argument<sp/>=<sp/>*arg;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" kindref="member">arguments</ref>[argument.<ref refid="classsisi4s_1_1Argument_1af1413fc817486afbacacf5980f009fe8" kindref="member">getName</ref>()]<sp/>=<sp/>argument.<ref refid="classsisi4s_1_1Argument_1a5c32abc11fbb12c73db239fe52384528" kindref="member">getData</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" kindref="member">Algorithm::~Algorithm</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de" kindref="member">Algorithm::dryRun</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/><ref refid="classsisi4s_1_1Algorithm_1ad88a11462d7efa2cd6ee1dd2884d7a68" kindref="member">getName</ref>())<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;dry<sp/>run<sp/>not<sp/>implemented&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">Algorithm::isArgumentGiven</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" kindref="member">arguments</ref>.find(name)<sp/>!=<sp/><ref refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" kindref="member">arguments</ref>.end();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">Algorithm::getArgumentData</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dataIterator(<ref refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" kindref="member">arguments</ref>.find(name));</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dataIterator<sp/>==<sp/><ref refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" kindref="member">arguments</ref>.end())<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>sStream;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>sStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Missing<sp/>argument:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>name;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>throw<sp/>new<sp/>EXCEPTION(std::stringstream()<sp/>&lt;&lt;<sp/>&quot;Missing<sp/>argument:<sp/>&quot;<sp/>&lt;&lt;<sp/>name);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(sStream.str());</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*data<sp/>=<sp/><ref refid="classsisi4s_1_1Data_1a5b4676e48b4f437d399587e6903f896a" kindref="member">Data::get</ref>(dataIterator-&gt;second);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!data)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>sStream;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>sStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Missing<sp/>data:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>dataIterator-&gt;second;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>throw<sp/>new<sp/>EXCEPTION(std::stringstream()<sp/>&lt;&lt;<sp/>&quot;Missing<sp/>data:<sp/>&quot;<sp/>&lt;&lt;<sp/>dataIterator-&gt;second);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(sStream.str());</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" refkind="member"><highlight class="normal">std::string<sp/><ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">Algorithm::getTextArgument</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*data(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(name));</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1TextData" kindref="compound">TextData</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*textData<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1TextData" kindref="compound">TextData</ref><sp/></highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(data);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!textData)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>sstream;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>sstream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Incompatible<sp/>type<sp/>for<sp/>argument:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Excpected<sp/>Text,<sp/>found<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>data-&gt;<ref refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" kindref="member">getTypeName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(sstream.str());</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>textData-&gt;<ref refid="classsisi4s_1_1TextData_1afd29c9958958ac9e9de099b3b5f7b372" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67" refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" refkind="member"><highlight class="normal">std::string<sp/><ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">Algorithm::getTextArgument</ref>(</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;defaultValue</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(name)<sp/>?<sp/><ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(name)<sp/>:<sp/>defaultValue;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" kindref="member">Algorithm::getBooleanArgument</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/>*TODO:<sp/>Do<sp/>this<sp/>without<sp/>the<sp/>getTextArgument<sp/>function,<sp/>because<sp/>in<sp/>this</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/>*case<sp/>the<sp/>parser<sp/>want<sp/>to<sp/>have<sp/>quotes<sp/>on<sp/>the<sp/>boolean<sp/>value<sp/>i.e.</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/>*<sp/><sp/>(myflag<sp/>&quot;true&quot;)</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>std::string<sp/>text(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(name));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>text.compare(</highlight><highlight class="stringliteral">&quot;.TRUE.&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0<sp/>||</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>text.compare(</highlight><highlight class="stringliteral">&quot;true&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0<sp/>||</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>text.compare(</highlight><highlight class="stringliteral">&quot;True&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0<sp/>||</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>text.compare(</highlight><highlight class="stringliteral">&quot;TRUE&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0<sp/>||</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>text.compare(</highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0<sp/>||</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>text.compare(</highlight><highlight class="stringliteral">&quot;t&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0<sp/>||</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>text.compare(</highlight><highlight class="stringliteral">&quot;T&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94" refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" kindref="member">Algorithm::getBooleanArgument</ref>(</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;defaultValue</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(name)<sp/>?<sp/><ref refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" kindref="member">getBooleanArgument</ref>(name)<sp/>:<sp/>defaultValue;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" refkind="member"><highlight class="normal">int64_t<sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">Algorithm::getIntegerArgument</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*data(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(name));</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1IntegerData" kindref="compound">IntegerData</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*integerData<sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1IntegerData" kindref="compound">IntegerData</ref><sp/></highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(data);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!integerData)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>sstream;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>sstream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Incompatible<sp/>type<sp/>for<sp/>argument:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Excpected<sp/>Integer,<sp/>found<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>data-&gt;<ref refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" kindref="member">getTypeName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(sstream.str());</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>integerData-&gt;<ref refid="classsisi4s_1_1IntegerData_1a626faf1b2a39b358fcb44d904c9de573" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111" refid="classsisi4s_1_1Algorithm_1a98c473d7c36973fb5dbd29b6dce3f09e" refkind="member"><highlight class="normal">int64_t<sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">Algorithm::getIntegerArgument</ref>(</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>int64_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>defaultValue</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(name)<sp/>?<sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(name)<sp/>:<sp/>defaultValue;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" refkind="member"><highlight class="normal">sisi4s::real<sp/><ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">Algorithm::getRealArgument</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*data(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(name));</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref><sp/>*realData(</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(data));</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(realData)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>realData-&gt;<ref refid="classsisi4s_1_1RealData_1aa2ebfedadb13cb8ef30ddc96d8351d83" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1IntegerData" kindref="compound">IntegerData</ref><sp/>*integerData(</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1IntegerData" kindref="compound">IntegerData</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(data));</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(integerData)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" kindref="member">getRealArgumentFromInteger</ref>(integerData);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;real&gt;</ref><sp/>*tensorData(</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;real&gt;</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(data));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tensorData)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" kindref="member">getRealArgumentFromTensor</ref>(tensorData);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>std::stringstream<sp/>sstream;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>sstream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Incompatible<sp/>type<sp/>for<sp/>argument:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Excpected<sp/>Real,<sp/>found<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>data-&gt;<ref refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" kindref="member">getTypeName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(sstream.str());</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130" refid="classsisi4s_1_1Algorithm_1aedbdee78ab6ed424c34121218b6cdf68" refkind="member"><highlight class="normal">sisi4s::real<sp/><ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">Algorithm::getRealArgument</ref>(</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>real<sp/>defaultValue</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(name)<sp/>?<sp/><ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(name)<sp/>:<sp/>defaultValue;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="135" refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" refkind="member"><highlight class="normal">sisi4s::real<sp/><ref refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" kindref="member">Algorithm::getRealArgumentFromInteger</ref>(<ref refid="classsisi4s_1_1IntegerData" kindref="compound">IntegerData</ref><sp/>*integerData<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>real<sp/>value(integerData-&gt;<ref refid="classsisi4s_1_1IntegerData_1a626faf1b2a39b358fcb44d904c9de573" kindref="member">value</ref>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(int64_t(value)<sp/>!=<sp/>integerData-&gt;<ref refid="classsisi4s_1_1IntegerData_1a626faf1b2a39b358fcb44d904c9de573" kindref="member">value</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;root&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Warning:<sp/>loss<sp/>of<sp/>precision<sp/>in<sp/>conversion<sp/>from<sp/>integer<sp/>to<sp/>real.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="143" refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" refkind="member"><highlight class="normal">sisi4s::real<sp/><ref refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" kindref="member">Algorithm::getRealArgumentFromTensor</ref>(<ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;real&gt;</ref><sp/>*data)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>(</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>data-&gt;<ref refid="classsisi4s_1_1TensorData_1ab4271a62e0c5a4f0e9172edbc61a11a0" kindref="member">value</ref>-&gt;order<sp/>==<sp/>0,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Scalar<sp/>expected<sp/>in<sp/>conversion<sp/>from<sp/>tensor<sp/>to<sp/>real.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>retrieve<sp/>the<sp/>real<sp/>value<sp/>from<sp/>the<sp/>tensor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>CTF::Scalar&lt;real&gt;<sp/>scalar;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>scalar[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*data-&gt;<ref refid="classsisi4s_1_1TensorData_1ab4271a62e0c5a4f0e9172edbc61a11a0" kindref="member">value</ref>)[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>scalar.get_val();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>C&gt;</highlight></codeline>
+<codeline lineno="155" refid="classsisi4s_1_1Algorithm_1a407d54400b4b652a5b1b8d79b9c57175" refkind="member"><highlight class="normal">C<sp/>*<ref refid="classsisi4s_1_1Algorithm_1a407d54400b4b652a5b1b8d79b9c57175" kindref="member">Algorithm::getContainerArgument</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*data(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(name));</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><ref refid="structsisi4s_1_1ContainerData" kindref="compound">ContainerData&lt;F, C&gt;</ref><sp/>*containerData(</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="structsisi4s_1_1ContainerData" kindref="compound">ContainerData&lt;F, C&gt;</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(data));</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(containerData)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>containerData-&gt;<ref refid="structsisi4s_1_1ContainerData_1adbe82f8ea2133d487d9b3eb99e46640e" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>provide<sp/>conversion<sp/>routines<sp/>from<sp/>real<sp/>to<sp/>complex<sp/>containers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>std::stringstream<sp/>sStream;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>sStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Incompatible<sp/>type<sp/>for<sp/>argument:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Excpected<sp/>container<sp/>of<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1TypeTraits" kindref="compound">TypeTraits&lt;F&gt;::getName</ref>()</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>found<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>data-&gt;<ref refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" kindref="member">getTypeName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(sStream.str());</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>C&gt;</highlight></codeline>
+<codeline lineno="168" refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" kindref="member">Algorithm::allocateContainerArgument</ref>(</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>C<sp/>*container</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*mentionedData(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(name));</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1ContainerData" kindref="compound">ContainerData&lt;F, C &gt;</ref>(</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>mentionedData-&gt;<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>(),<sp/>container</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177" refid="Algorithm_8cxx_1a9aa4c77430336ce19f57b080608a155d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Algorithm::allocateContainerArgument&lt;<sp/>int64_t,<sp/>std::vector&lt;int64_t&gt;<sp/>&gt;(</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>std::vector&lt;int64_t&gt;<sp/>*container);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180" refid="Algorithm_8cxx_1a4d5611c62c2530b2cc4baa16a42bf916" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Algorithm::allocateContainerArgument&lt;<sp/>sisi4s::real,<sp/>std::vector&lt;sisi4s::real&gt;<sp/>&gt;(</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>std::vector&lt;sisi4s::real&gt;<sp/>*container);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183" refid="Algorithm_8cxx_1ae8d5268886450001bace4518451834b9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Algorithm::allocateContainerArgument&lt;<sp/>sisi4s::complex,<sp/>std::vector&lt;sisi4s::complex&gt;<sp/>&gt;(</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>std::vector&lt;sisi4s::complex&gt;<sp/>*container);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="188" refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" refkind="member"><highlight class="normal">T<sp/>*<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">Algorithm::getTensorArgument</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*data(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(name));</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;F, T&gt;</ref><sp/>*tensorData(</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;F, T&gt;</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(data));</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tensorData)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tensorData-&gt;<ref refid="classsisi4s_1_1TensorData_1ab4271a62e0c5a4f0e9172edbc61a11a0" kindref="member">value</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref><sp/>*realData(</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(data));</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(realData)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>getTensorArgumentFromReal&lt;F,<sp/>T&gt;(realData);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>provide<sp/>conversion<sp/>routines<sp/>from<sp/>real<sp/>to<sp/>complex<sp/>tensors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/>std::stringstream<sp/>sStream;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>sStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Incompatible<sp/>type<sp/>for<sp/>argument:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Excpected<sp/>tensor<sp/>of<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classsisi4s_1_1TypeTraits" kindref="compound">TypeTraits&lt;F&gt;::getName</ref>()</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>found<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>data-&gt;<ref refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" kindref="member">getTypeName</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(sStream.str());</highlight></codeline>
+<codeline lineno="200"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202" refid="Algorithm_8cxx_1a7e40f784bfb3197c66451e6160aef9b7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal">CTF::Tensor&lt;Float64&gt;<sp/>*<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">Algorithm::getTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref>,<sp/>CTF::Tensor&lt;Float64&gt;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;);</highlight></codeline>
+<codeline lineno="206" refid="Algorithm_8cxx_1a7f4918d56dd13afcf29e7096e97c45e2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">CTF::Tensor&lt;Complex64&gt;<sp/>*<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">Algorithm::getTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref>,<sp/>CTF::Tensor&lt;Complex64&gt;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Float64&gt;</ref><sp/>*<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">Algorithm::getTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Float64&gt;</ref></highlight></codeline>
+<codeline lineno="213"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Complex64&gt;</ref><sp/>*<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">Algorithm::getTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Complex64&gt;</ref></highlight></codeline>
+<codeline lineno="217"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T=CTF::Tensor&lt;F&gt;<sp/>&gt;</highlight></codeline>
+<codeline lineno="224" refid="classTensorTypeTraits" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTensorTypeTraits" kindref="compound">TensorTypeTraits</ref>;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="227" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTensorTypeTraits" kindref="compound">TensorTypeTraits</ref>&lt;<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/>CTF::<ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor</ref>&lt;F&gt;<sp/>&gt;<sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="229" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4_1a76b080c85a375425327e7c8bfd9ce9e5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;F&gt;<sp/><ref refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4_1a76b080c85a375425327e7c8bfd9ce9e5" kindref="member">BaseType</ref>;</highlight></codeline>
+<codeline lineno="230" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4_1a85e0fdf26021c73895e61fb2d02e5d5e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CTF::Scalar&lt;F&gt;<sp/><ref refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4_1a85e0fdf26021c73895e61fb2d02e5d5e" kindref="member">ScalarType</ref>;</highlight></codeline>
+<codeline lineno="231" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4_1a400e7dda6ccf04eec3ba739bfb9e1a15" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CTF::Vector&lt;F&gt;<sp/><ref refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4_1a400e7dda6ccf04eec3ba739bfb9e1a15" kindref="member">VectorType</ref>;</highlight></codeline>
+<codeline lineno="232" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4_1a3546dbf7f0c8242fdc63d09d9400cdf8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CTF::Matrix&lt;F&gt;<sp/><ref refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4_1a3546dbf7f0c8242fdc63d09d9400cdf8" kindref="member">MatrixType</ref>;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="235" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Matrix_3_01F_01_4_01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTensorTypeTraits" kindref="compound">TensorTypeTraits</ref>&lt;<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/>CTF::Matrix&lt;F&gt;<sp/>&gt;<sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="237" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Matrix_3_01F_01_4_01_4_1aea41a6c288e9a6b0020f1f0a8532dc27" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;F&gt;<sp/><ref refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Matrix_3_01F_01_4_01_4_1aea41a6c288e9a6b0020f1f0a8532dc27" kindref="member">BaseType</ref>;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="240" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Vector_3_01F_01_4_01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTensorTypeTraits" kindref="compound">TensorTypeTraits</ref>&lt;<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/>CTF::<ref refid="classsisi4s_1_1Vector" kindref="compound">Vector</ref>&lt;F&gt;<sp/>&gt;<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="242" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Vector_3_01F_01_4_01_4_1a9643634e0db51a9c6adb4610d2c90212" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;F&gt;<sp/><ref refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Vector_3_01F_01_4_01_4_1a9643634e0db51a9c6adb4610d2c90212" kindref="member">BaseType</ref>;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="245" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Scalar_3_01F_01_4_01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTensorTypeTraits" kindref="compound">TensorTypeTraits</ref>&lt;<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/>CTF::Scalar&lt;F&gt;<sp/>&gt;<sp/>{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="247" refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Scalar_3_01F_01_4_01_4_1a510f1a4e8be6d7c57cc0371e5a7a7881" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;F&gt;<sp/><ref refid="classTensorTypeTraits_3_01F_00_01CTF_1_1Scalar_3_01F_01_4_01_4_1a510f1a4e8be6d7c57cc0371e5a7a7881" kindref="member">BaseType</ref>;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="250" refid="classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTensorTypeTraits" kindref="compound">TensorTypeTraits</ref>&lt;<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;<sp/>&gt;<sp/>{</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="252" refid="classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4_1a21416a685a1816ed4e180171bc4df8d9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/><ref refid="classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4_1a21416a685a1816ed4e180171bc4df8d9" kindref="member">BaseType</ref>;</highlight></codeline>
+<codeline lineno="253" refid="classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4_1a515e9dc119f51222cb0085fc485c31e7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryScalar" kindref="compound">DryScalar&lt;F&gt;</ref><sp/><ref refid="classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4_1a515e9dc119f51222cb0085fc485c31e7" kindref="member">ScalarType</ref>;</highlight></codeline>
+<codeline lineno="254" refid="classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4_1afc442547ef2576fb1f257d2a9522173a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector&lt;F&gt;</ref><sp/><ref refid="classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4_1afc442547ef2576fb1f257d2a9522173a" kindref="member">VectorType</ref>;</highlight></codeline>
+<codeline lineno="255" refid="classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4_1a28fbc8643c04c022dd3fb8bcf00f8d61" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;F&gt;</ref><sp/><ref refid="classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4_1a28fbc8643c04c022dd3fb8bcf00f8d61" kindref="member">MatrixType</ref>;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="258" refid="classTensorTypeTraits_3_01F_00_01DryMatrix_3_01F_01_4_01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTensorTypeTraits" kindref="compound">TensorTypeTraits</ref>&lt;<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;<sp/>&gt;<sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="260" refid="classTensorTypeTraits_3_01F_00_01DryMatrix_3_01F_01_4_01_4_1a692ec1025080019227448cafe8fed4be" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/><ref refid="classTensorTypeTraits_3_01F_00_01DryMatrix_3_01F_01_4_01_4_1a692ec1025080019227448cafe8fed4be" kindref="member">BaseType</ref>;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="263" refid="classTensorTypeTraits_3_01F_00_01DryVector_3_01F_01_4_01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTensorTypeTraits" kindref="compound">TensorTypeTraits</ref>&lt;<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;<sp/>&gt;<sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="265" refid="classTensorTypeTraits_3_01F_00_01DryVector_3_01F_01_4_01_4_1aa4c0cabc2c5872a48f8326ec90713424" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/><ref refid="classTensorTypeTraits_3_01F_00_01DryVector_3_01F_01_4_01_4_1aa4c0cabc2c5872a48f8326ec90713424" kindref="member">BaseType</ref>;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="268" refid="classTensorTypeTraits_3_01F_00_01DryScalar_3_01F_01_4_01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTensorTypeTraits" kindref="compound">TensorTypeTraits</ref>&lt;<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/><ref refid="classsisi4s_1_1DryScalar" kindref="compound">DryScalar</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;<sp/>&gt;<sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="270" refid="classTensorTypeTraits_3_01F_00_01DryScalar_3_01F_01_4_01_4_1aa3fa0866f096d84517c4fad3def53392" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/><ref refid="classTensorTypeTraits_3_01F_00_01DryScalar_3_01F_01_4_01_4_1aa3fa0866f096d84517c4fad3def53392" kindref="member">BaseType</ref>;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="278" refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" refkind="member"><highlight class="normal">T<sp/>*<ref refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" kindref="member">Algorithm::getTensorArgumentFromReal</ref>(<ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref><sp/>*realData)<sp/>{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>left<sp/>to<sp/>leak<sp/>memory...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>a<sp/>better<sp/>solution<sp/>would<sp/>be<sp/>to<sp/>replace<sp/>the<sp/>RealData<sp/>with<sp/>the<sp/>allocated</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TensorData<sp/>and<sp/>support<sp/>down-cast<sp/>for<sp/>Scalars<sp/>to<sp/>Real</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/><ref refid="classTensorTypeTraits" kindref="compound">TensorTypeTraits&lt;F,T&gt;::ScalarType</ref>(realData-&gt;<ref refid="classsisi4s_1_1RealData_1aa2ebfedadb13cb8ef30ddc96d8351d83" kindref="member">value</ref>);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285" refid="Algorithm_8cxx_1ad72e1ad0b1738b2e3b17e1a6f854a542" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal">CTF::Tensor&lt;Float64&gt;<sp/>*<ref refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" kindref="member">Algorithm::getTensorArgumentFromReal</ref>&lt;</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref>,<sp/>CTF::Tensor&lt;Float64&gt;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal">&gt;(<ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref><sp/>*);</highlight></codeline>
+<codeline lineno="289" refid="Algorithm_8cxx_1aab20338f31916bafb0c78438db5c406a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal">CTF::Tensor&lt;Complex64&gt;<sp/>*<ref refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" kindref="member">Algorithm::getTensorArgumentFromReal</ref>&lt;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref>,<sp/>CTF::Tensor&lt;Complex64&gt;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal">&gt;(<ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref><sp/>*);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Float64&gt;</ref><sp/>*<ref refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" kindref="member">Algorithm::getTensorArgumentFromReal</ref>&lt;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Float64&gt;</ref></highlight></codeline>
+<codeline lineno="296"><highlight class="normal">&gt;(<ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref><sp/>*);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Complex64&gt;</ref><sp/>*<ref refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" kindref="member">Algorithm::getTensorArgumentFromReal</ref>&lt;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Complex64&gt;</ref></highlight></codeline>
+<codeline lineno="300"><highlight class="normal">&gt;(<ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref><sp/>*);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="303" refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>(</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>T<sp/>*tensor</highlight></codeline>
+<codeline lineno="305"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*mentionedData(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(name));</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;F, typename TensorTypeTraits&lt;F, T&gt;::BaseType</ref>&gt;(</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>mentionedData-&gt;<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>(),<sp/>tensor</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>the<sp/>constructor<sp/>of<sp/>TensorData<sp/>enteres<sp/>its<sp/>location<sp/>in<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>data<sp/>map<sp/>and<sp/>destroys<sp/>the<sp/>previous<sp/>content,<sp/>i.e.<sp/>mentionedData.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315" refid="Algorithm_8cxx_1a8192d49ee2b912e4a444515fb79b9b7c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref>,<sp/>CTF::Tensor&lt;Float64&gt;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>CTF::Tensor&lt;Float64&gt;<sp/>*tensor);</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>remove<sp/>specialized<sp/>tensors<sp/>(matrix,<sp/>vector,<sp/>scalar)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="320" refid="Algorithm_8cxx_1a5f1daa7f4dc06e6a1424a763f965fae2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/>sisi4s::real,<sp/>CTF::Matrix&lt;sisi4s::real&gt;</highlight></codeline>
+<codeline lineno="322"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>CTF::Matrix&lt;real&gt;<sp/>*tensor);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="324" refid="Algorithm_8cxx_1a2cadd5bf15b195a08e456a9223e9cc5c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/>sisi4s::real,<sp/>CTF::Vector&lt;sisi4s::real&gt;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>CTF::Vector&lt;sisi4s::real&gt;<sp/>*tensor);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="328" refid="Algorithm_8cxx_1aa9e6727eae562830af5d1b482ba76ca0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/>sisi4s::real,<sp/>CTF::Scalar&lt;sisi4s::real&gt;</highlight></codeline>
+<codeline lineno="330"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>CTF::Scalar&lt;sisi4s::real&gt;<sp/>*tensor);</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333" refid="Algorithm_8cxx_1a80588a22734ef398552f3928d1942633" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref>,<sp/>CTF::Tensor&lt;Complex64&gt;</highlight></codeline>
+<codeline lineno="335"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>CTF::Tensor&lt;Complex64&gt;<sp/>*tensor);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>remove<sp/>specialized<sp/>tensors<sp/>(matrix,<sp/>vector,<sp/>scalar)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="338" refid="Algorithm_8cxx_1a51f43d1c96a6a18f50dafff13f4836c0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref>,<sp/>CTF::Matrix&lt;sisi4s::complex&gt;</highlight></codeline>
+<codeline lineno="340"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>CTF::Matrix&lt;sisi4s::complex&gt;<sp/>*tensor);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="342" refid="Algorithm_8cxx_1a613f1c01dfe3bde1e3d3395ab06babb0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref>,<sp/>CTF::Vector&lt;sisi4s::complex&gt;</highlight></codeline>
+<codeline lineno="344"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>CTF::Vector&lt;sisi4s::complex&gt;<sp/>*tensor);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="346" refid="Algorithm_8cxx_1acd1488440bea14c0d25805280f984fe9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref>,<sp/>CTF::Scalar&lt;sisi4s::complex&gt;</highlight></codeline>
+<codeline lineno="348"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>CTF::Scalar&lt;sisi4s::complex&gt;<sp/>*tensor);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Float64&gt;</ref></highlight></codeline>
+<codeline lineno="353"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Float64&gt;</ref><sp/>*tensor);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>remove<sp/>specialized<sp/>tensors<sp/>(matrix,<sp/>vector,<sp/>scalar)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref>,<sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;Float64&gt;</ref></highlight></codeline>
+<codeline lineno="358"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;Float64&gt;</ref><sp/>*tensor);</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref>,<sp/><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector&lt;Float64&gt;</ref></highlight></codeline>
+<codeline lineno="362"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector&lt;Float64&gt;</ref><sp/>*tensor);</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kindref="member">Float64</ref>,<sp/><ref refid="classsisi4s_1_1DryScalar" kindref="compound">DryScalar&lt;Float64&gt;</ref></highlight></codeline>
+<codeline lineno="366"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/><ref refid="classsisi4s_1_1DryScalar" kindref="compound">DryScalar&lt;Float64&gt;</ref><sp/>*tensor);</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"></highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Complex64&gt;</ref></highlight></codeline>
+<codeline lineno="371"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;Complex64&gt;</ref><sp/>*tensor);</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>remove<sp/>specialized<sp/>tensors<sp/>(matrix,<sp/>vector,<sp/>scalar)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref>,<sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;Complex64&gt;</ref></highlight></codeline>
+<codeline lineno="376"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;Complex64&gt;</ref><sp/>*tensor);</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref>,<sp/><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector&lt;Complex64&gt;</ref></highlight></codeline>
+<codeline lineno="380"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector&lt;Complex64&gt;</ref><sp/>*tensor);</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">Algorithm::allocatedTensorArgument</ref>&lt;</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a4f2a35668e9f5c158a04d77cf39ac02b" kindref="member">Complex64</ref>,<sp/><ref refid="classsisi4s_1_1DryScalar" kindref="compound">DryScalar&lt;Complex64&gt;</ref></highlight></codeline>
+<codeline lineno="384"><highlight class="normal">&gt;(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/><ref refid="classsisi4s_1_1DryScalar" kindref="compound">DryScalar&lt;Complex64&gt;</ref><sp/>*tensor);</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"></highlight></codeline>
+<codeline lineno="386"><highlight class="normal"></highlight></codeline>
+<codeline lineno="387" refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" kindref="member">Algorithm::setRealArgument</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>real<sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*mentionedData(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(name));</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1RealData" kindref="compound">RealData</ref>(mentionedData-&gt;<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>(),<sp/>value);</highlight></codeline>
+<codeline lineno="390"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight></codeline>
+<codeline lineno="392" refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" kindref="member">Algorithm::setIntegerArgument</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*mentionedData(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(name));</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1IntegerData" kindref="compound">IntegerData</ref>(mentionedData-&gt;<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>(),<sp/>value);</highlight></codeline>
+<codeline lineno="395"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"></highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><ref refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" kindref="member">AlgorithmFactory::AlgorithmMap</ref><sp/>*<ref refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kindref="member">AlgorithmFactory::algorithmMap</ref>;</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/Algorithm.cxx"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structCLI_1_1detail_1_1AppFriend" kind="struct" language="C++" prot="public">
+    <compoundname>CLI::detail::AppFriend</compoundname>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structCLI_1_1detail_1_1AppFriend_1ac66cce5a6369dc642c31362a9abecc9f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::AppFriend::parse_arg</definition>
+        <argsstring>(App *app, Args &amp;&amp;...args) -&gt; typename std::result_of&lt; decltype(&amp;App::_parse_arg)(App, Args...)&gt;::type</argsstring>
+        <name>parse_arg</name>
+        <qualifiedname>CLI::detail::AppFriend::parse_arg</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Wrap _parse_short, perfectly forward arguments and return. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8400" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8400" bodyend="8403"/>
+        <references refid="classCLI_1_1App_1a73c9decd5eb2b0c7eeda63cc4bd5048e" compoundref="CLI11_8hpp" startline="7900" endline="8057">CLI::App::_parse_arg</references>
+      </memberdef>
+      <memberdef kind="function" id="structCLI_1_1detail_1_1AppFriend_1a091bd002147e12c2e21b4d1b42becff7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::AppFriend::parse_subcommand</definition>
+        <argsstring>(App *app, Args &amp;&amp;...args) -&gt; typename std::result_of&lt; decltype(&amp;App::_parse_subcommand)(App, Args...)&gt;::type</argsstring>
+        <name>parse_subcommand</name>
+        <qualifiedname>CLI::detail::AppFriend::parse_subcommand</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Wrap _parse_subcommand, perfectly forward arguments and return. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8407" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8407" bodyend="8410"/>
+        <references refid="classCLI_1_1App_1af20c05b97b9de2a4543a2de9bcc0993d" compoundref="CLI11_8hpp" startline="7870" endline="7896">CLI::App::_parse_subcommand</references>
+      </memberdef>
+      <memberdef kind="function" id="structCLI_1_1detail_1_1AppFriend_1a4a6a8cc04f6f6abe980c65042798cac4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+        <definition>static App * CLI::detail::AppFriend::get_fallthrough_parent</definition>
+        <argsstring>(App *app)</argsstring>
+        <name>get_fallthrough_parent</name>
+        <qualifiedname>CLI::detail::AppFriend::get_fallthrough_parent</qualifiedname>
+        <param>
+          <type><ref refid="classCLI_1_1App" kindref="compound">App</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+<para>Wrap the fallthrough parent function to make sure that is working correctly. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8413" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8413" bodyend="8413"/>
+        <references refid="classCLI_1_1App_1a0e00bdc00c5bca05d52d98833f77a3b5" compoundref="CLI11_8hpp" startline="8079" endline="8088">CLI::App::_get_fallthrough_parent</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class is simply to allow tests access to <ref refid="classCLI_1_1App" kindref="compound">App</ref>&apos;s protected functions. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::detail::AppFriend</label>
+        <link refid="structCLI_1_1detail_1_1AppFriend"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8385" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8385" bodyend="8414"/>
+    <listofallmembers>
+      <member refid="structCLI_1_1detail_1_1AppFriend_1a4a6a8cc04f6f6abe980c65042798cac4" prot="public" virt="non-virtual"><scope>CLI::detail::AppFriend</scope><name>get_fallthrough_parent</name></member>
+      <member refid="structCLI_1_1detail_1_1AppFriend_1ac66cce5a6369dc642c31362a9abecc9f" prot="public" virt="non-virtual"><scope>CLI::detail::AppFriend</scope><name>parse_arg</name></member>
+      <member refid="structCLI_1_1detail_1_1AppFriend_1a091bd002147e12c2e21b4d1b42becff7" prot="public" virt="non-virtual"><scope>CLI::detail::AppFriend</scope><name>parse_subcommand</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

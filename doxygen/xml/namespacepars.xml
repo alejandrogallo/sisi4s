@@ -1,0 +1,574 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="namespacepars" kind="namespace" language="C++">
+    <compoundname>pars</compoundname>
+    <innerclass refid="structpars_1_1Regex" prot="public">pars::Regex</innerclass>
+    <innerclass refid="structpars_1_1XyzParser" prot="public">pars::XyzParser</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" prot="public" static="no">
+        <type>std::string</type>
+        <definition>using pars::Str = typedef std::string</definition>
+        <argsstring></argsstring>
+        <name>Str</name>
+        <qualifiedname>pars::Str</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="9" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacepars_1abf63d88b9d2972448bb8e2e8f3e86300" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>Str pars::oneOf</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;v)</argsstring>
+        <name>oneOf</name>
+        <qualifiedname>pars::oneOf</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.cxx" line="8" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.cxx" bodystart="8" bodyend="18" declfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" declline="42" declcolumn="7"/>
+        <references refid="namespacepars_1abb95bf38925d724f1c91dc07e8d14363">orOf</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; pars::parseVector</definition>
+        <argsstring>(const std::string &amp;l)</argsstring>
+        <name>parseVector</name>
+        <qualifiedname>pars::parseVector</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.cxx" line="21" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.cxx" bodystart="21" bodyend="31"/>
+        <references refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d">capture</references>
+        <references refid="namespacepars_1a71161c67c796117fe14c18beb97b4de2">oneOrMore</references>
+        <references refid="structpars_1_1Regex_1a79e1cba281b5ea7efe06b5de947037ff" compoundref="Parsing_8hpp" startline="46">pars::Regex::r</references>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">CLI::detail::str</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1afa37affba88c42a393cc80f2b42caf50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; pars::parseVector&lt; double &gt;</definition>
+        <argsstring>(const std::string &amp;l)</argsstring>
+        <name>parseVector&lt; double &gt;</name>
+        <qualifiedname>pars::parseVector&lt; double &gt;</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.cxx" line="21" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.cxx" bodystart="34" bodyend="39"/>
+        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="144" endline="429">sisi4s::MoReader::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a6d4a77824971572b20b53e09f62618bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt; int &gt; pars::parseVector&lt; int &gt;</definition>
+        <argsstring>(const std::string &amp;l)</argsstring>
+        <name>parseVector&lt; int &gt;</name>
+        <qualifiedname>pars::parseVector&lt; int &gt;</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.cxx" line="21" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.cxx" bodystart="42" bodyend="47"/>
+        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="144" endline="429">sisi4s::MoReader::run</referencedby>
+        <referencedby refid="structsisi4s_1_1TensorSlicer_1a2a5a3ba1ccb504d6bc5e7b0799ee85a7" compoundref="TensorSlicer_8cxx" startline="19" endline="45">sisi4s::TensorSlicer::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a71161c67c796117fe14c18beb97b4de2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::oneOrMore</definition>
+        <argsstring>(&quot;+&quot;)</argsstring>
+        <name>oneOrMore</name>
+        <qualifiedname>pars::oneOrMore</qualifiedname>
+        <param>
+          <type>&quot;+&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="11" column="7"/>
+        <referencedby refid="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" compoundref="Parsing_8cxx" startline="21" endline="31">parseVector</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a72111858645844fb868e50ec9690c1ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::newline</definition>
+        <argsstring>(&quot;\\n&quot;)</argsstring>
+        <name>newline</name>
+        <qualifiedname>pars::newline</qualifiedname>
+        <param>
+          <type>&quot;\\n&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="12" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1ae39cb76e387922ec4333d99af4a120c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::anyChar</definition>
+        <argsstring>(&quot;.&quot;)</argsstring>
+        <name>anyChar</name>
+        <qualifiedname>pars::anyChar</qualifiedname>
+        <param>
+          <type>&quot;.&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="13" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1abe86e53e1495e1d56babbbf67a8aa49d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::tab</definition>
+        <argsstring>(&quot;\\t&quot;)</argsstring>
+        <name>tab</name>
+        <qualifiedname>pars::tab</qualifiedname>
+        <param>
+          <type>&quot;\\t&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="14" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a6dd95daa3e3817a64dd5b6d4fff8d417" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::anyOf</definition>
+        <argsstring>(&quot;*&quot;)</argsstring>
+        <name>anyOf</name>
+        <qualifiedname>pars::anyOf</qualifiedname>
+        <param>
+          <type>&quot;*&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="15" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a832dec230b6f898fda8c99bf54323d18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::optional</definition>
+        <argsstring>(&quot;?&quot;)</argsstring>
+        <name>optional</name>
+        <qualifiedname>pars::optional</qualifiedname>
+        <param>
+          <type>&quot;?&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="16" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a2fea7aec0ef4f24e5b90e588d96f4cc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::eof</definition>
+        <argsstring>(&quot;$&quot;)</argsstring>
+        <name>eof</name>
+        <qualifiedname>pars::eof</qualifiedname>
+        <param>
+          <type>&quot;$&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="17" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1abb95bf38925d724f1c91dc07e8d14363" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::orOf</definition>
+        <argsstring>(&quot;|&quot;)</argsstring>
+        <name>orOf</name>
+        <qualifiedname>pars::orOf</qualifiedname>
+        <param>
+          <type>&quot;|&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="18" column="6"/>
+        <referencedby refid="namespacepars_1abf63d88b9d2972448bb8e2e8f3e86300" compoundref="Parsing_8cxx" startline="8" endline="18">oneOf</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a07f6fdb3a7f7f358ee1330f866f144db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::bof</definition>
+        <argsstring>(&quot;^&quot;)</argsstring>
+        <name>bof</name>
+        <qualifiedname>pars::bof</qualifiedname>
+        <param>
+          <type>&quot;^&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="19" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a1a44c61d2f6af6a405a812bca290ce82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::alnum</definition>
+        <argsstring>(&quot;[[:alnum:]]&quot;)</argsstring>
+        <name>alnum</name>
+        <qualifiedname>pars::alnum</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:alnum:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="20" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::alpha</definition>
+        <argsstring>(&quot;[[:alpha:]]&quot;)</argsstring>
+        <name>alpha</name>
+        <qualifiedname>pars::alpha</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:alpha:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="21" column="6"/>
+        <referencedby refid="classsisi4s_1_1CtfMachineTensor_1a2a05c45644a61a0bdd21cccda2ce3d9c" compoundref="CtfMachineTensor_8hpp" startline="107" endline="137">sisi4s::CtfMachineTensor&lt; F &gt;::contract</referencedby>
+        <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a96558b1a79ac7e0bcdeb64127855241e" compoundref="IterativePseudoInverse_8cxx" startline="65" endline="104">sisi4s::IterativePseudoInverse&lt; F &gt;::iterate</referencedby>
+        <referencedby refid="classsisi4s_1_1CtfMachineTensor_1adbb6518e60bbfe08c51eb0f508178268" compoundref="CtfMachineTensor_8hpp" startline="53" endline="76">sisi4s::CtfMachineTensor&lt; F &gt;::move</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a1cce466723c30e92152dd3a9ede48df0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::blank</definition>
+        <argsstring>(&quot;[[:blank:]]&quot;)</argsstring>
+        <name>blank</name>
+        <qualifiedname>pars::blank</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:blank:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="22" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1ab32da78e64f3d45d6b505c3f84de986c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::cntrl</definition>
+        <argsstring>(&quot;[[:cntrl:]]&quot;)</argsstring>
+        <name>cntrl</name>
+        <qualifiedname>pars::cntrl</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:cntrl:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="23" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1aa92e8770e3c0ac070ea65b8e6f97dc65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::digit</definition>
+        <argsstring>(&quot;[[:digit:]]&quot;)</argsstring>
+        <name>digit</name>
+        <qualifiedname>pars::digit</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:digit:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="24" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a434757a083535f72af16aa2fada294a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::graph</definition>
+        <argsstring>(&quot;[[:graph:]]&quot;)</argsstring>
+        <name>graph</name>
+        <qualifiedname>pars::graph</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:graph:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="26" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a020cf386310223423b06c230ee658c13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::lower</definition>
+        <argsstring>(&quot;[[:lower:]]&quot;)</argsstring>
+        <name>lower</name>
+        <qualifiedname>pars::lower</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:lower:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="27" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a8e4122733980cf5623d19f2ba68ccf12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::upper</definition>
+        <argsstring>(&quot;[[:upper:]]&quot;)</argsstring>
+        <name>upper</name>
+        <qualifiedname>pars::upper</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:upper:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="28" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1ae984e547a97d4f7ad42367cc43206cf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::print</definition>
+        <argsstring>(&quot;[[:print:]]&quot;)</argsstring>
+        <name>print</name>
+        <qualifiedname>pars::print</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:print:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1aea75776b14e4bfd141b0e8eff1fecacf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::punct</definition>
+        <argsstring>(&quot;[[:punct:]]&quot;)</argsstring>
+        <name>punct</name>
+        <qualifiedname>pars::punct</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:punct:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="31" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1ab0cd9d42489ff12a2f9b9fb1c6feba11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::space</definition>
+        <argsstring>(&quot;[[:space:]]&quot;)</argsstring>
+        <name>space</name>
+        <qualifiedname>pars::space</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:space:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="32" column="6"/>
+        <referencedby refid="classsisi4s_1_1RangeParser_1a54820a829847e966af461d9befaa3d1e" compoundref="RangeParser_8hpp" startline="62" endline="82">sisi4s::RangeParser::parse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a49672d7ab0be76130761093f235ee31f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::xdigit</definition>
+        <argsstring>(&quot;[[:xdigit:]]&quot;)</argsstring>
+        <name>xdigit</name>
+        <qualifiedname>pars::xdigit</qualifiedname>
+        <param>
+          <type>&quot;]&quot;</type>
+          <array>[[:xdigit:]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="33" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1abd0d3ec23684cfcbfd53a65509861855" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref></type>
+        <definition>const Str pars::realNumber</definition>
+        <argsstring>(&quot;[-eE+\\d.]+&quot;)</argsstring>
+        <name>realNumber</name>
+        <qualifiedname>pars::realNumber</qualifiedname>
+        <param>
+          <type>&quot;+&quot;</type>
+          <array>[-eE+\\d.]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="34" column="6" declfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" declline="34" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::function&lt; <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>(<ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>)&gt;</type>
+        <definition>const std::function&lt; Str(Str)&gt; pars::capture</definition>
+        <argsstring>([](const Str &amp;i) { return &quot;(&quot;+i+&quot;)&quot;;})</argsstring>
+        <name>capture</name>
+        <qualifiedname>pars::capture</qualifiedname>
+        <param>
+          <attributes>[]</attributes>
+          <type>(const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref> &amp;i) { return &quot;(&quot;+i+&quot;)&quot;;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="38" column="17"/>
+        <referencedby refid="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" compoundref="Parsing_8cxx" startline="21" endline="31">parseVector</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a56722e3642335e4646823756ceb888ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::function&lt; <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>(<ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>)&gt;</type>
+        <definition>const std::function&lt; Str(Str)&gt; pars::group</definition>
+        <argsstring>([](const Str &amp;i) { return &quot;(?:&quot;+i+&quot;)&quot;;})</argsstring>
+        <name>group</name>
+        <qualifiedname>pars::group</qualifiedname>
+        <param>
+          <attributes>[]</attributes>
+          <type>(const <ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref> &amp;i) { return &quot;(?:&quot;+i+&quot;)&quot;;}</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="39" column="26" declfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" declline="39" declcolumn="26"/>
+        <referencedby refid="classCLI_1_1Option__group_1a4440d3849d0c46d01a37b84c301b148a" compoundref="CLI11_8hpp" startline="8202" endline="8206">CLI::Option_group::Option_group</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1aebbdf79e2615ea7d16fe8f30fb6551fc" compoundref="CLI11_8hpp" startline="8795" endline="8804">CLI::Formatter::make_group</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1ad48dd6b9432babc0037d6726230221f0" compoundref="CLI11_8hpp" startline="8816" endline="8838">CLI::Formatter::make_groups</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1a9e6b7c4c6eee50b11fe1ca785002db04" compoundref="CLI11_8hpp" startline="8940" endline="8980">CLI::Formatter::make_subcommands</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacepars_1a1d1569c27bdb1bd91a7e8205da521b14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; F &gt;</type>
+        <definition>std::vector&lt; F &gt; pars::parseVector</definition>
+        <argsstring>(const std::string &amp;)</argsstring>
+        <name>parseVector</name>
+        <qualifiedname>pars::parseVector</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" line="52" column="15" declfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp" declline="52" declcolumn="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.cxx" line="6" column="1"/>
+  </compounddef>
+</doxygen>

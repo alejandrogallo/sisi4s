@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structCLI_1_1ConfigItem" kind="struct" language="C++" prot="public">
+    <compoundname>CLI::ConfigItem</compoundname>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structCLI_1_1ConfigItem_1ae6e0262b6c756e5e662b608613927ccc" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; CLI::ConfigItem::parents</definition>
+        <argsstring></argsstring>
+        <name>parents</name>
+        <qualifiedname>CLI::ConfigItem::parents</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>This is the list of parents. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2533" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2533" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1App_1a1f7a70f4bc4c375a7de10073a5de709d" compoundref="CLI11_8hpp" startline="7603" endline="7673">CLI::App::_parse_single_config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structCLI_1_1ConfigItem_1aaf499b8c32cef0f5c8d7271fa0d10b93" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string CLI::ConfigItem::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>CLI::ConfigItem::name</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>This is the name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2536" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2536" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1App_1a1f7a70f4bc4c375a7de10073a5de709d" compoundref="CLI11_8hpp" startline="7603" endline="7673">CLI::App::_parse_single_config</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structCLI_1_1ConfigItem_1a201384703e6509d14bc28de3ef2a2cbc" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; CLI::ConfigItem::inputs</definition>
+        <argsstring></argsstring>
+        <name>inputs</name>
+        <qualifiedname>CLI::ConfigItem::inputs</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>Listing of inputs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2539" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2539" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1App_1a1f7a70f4bc4c375a7de10073a5de709d" compoundref="CLI11_8hpp" startline="7603" endline="7673">CLI::App::_parse_single_config</referencedby>
+        <referencedby refid="classCLI_1_1Config_1affac2102274c1a09c0e08b2c9410b57f" compoundref="CLI11_8hpp" startline="2562" endline="2567">CLI::Config::to_flag</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structCLI_1_1ConfigItem_1af76892225a187445bced0d220ae9e52b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::ConfigItem::fullname</definition>
+        <argsstring>() const</argsstring>
+        <name>fullname</name>
+        <qualifiedname>CLI::ConfigItem::fullname</qualifiedname>
+        <briefdescription>
+<para>The list of parents and name joined by &quot;.&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2542" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2542" bodyend="2546"/>
+        <references refid="namespaceCLI_1_1detail_1ab351f13ec104e2cba19ec6baf4a552f6" compoundref="CLI11_8hpp" startline="181" endline="191">CLI::detail::join</references>
+        <referencedby refid="classCLI_1_1App_1a1f7a70f4bc4c375a7de10073a5de709d" compoundref="CLI11_8hpp" startline="7603" endline="7673">CLI::App::_parse_single_config</referencedby>
+        <referencedby refid="classCLI_1_1Config_1affac2102274c1a09c0e08b2c9410b57f" compoundref="CLI11_8hpp" startline="2562" endline="2567">CLI::Config::to_flag</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Holds values to load into Options. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::ConfigItem</label>
+        <link refid="structCLI_1_1ConfigItem"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2531" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2531" bodyend="2547"/>
+    <listofallmembers>
+      <member refid="structCLI_1_1ConfigItem_1af76892225a187445bced0d220ae9e52b" prot="public" virt="non-virtual"><scope>CLI::ConfigItem</scope><name>fullname</name></member>
+      <member refid="structCLI_1_1ConfigItem_1a201384703e6509d14bc28de3ef2a2cbc" prot="public" virt="non-virtual"><scope>CLI::ConfigItem</scope><name>inputs</name></member>
+      <member refid="structCLI_1_1ConfigItem_1aaf499b8c32cef0f5c8d7271fa0d10b93" prot="public" virt="non-virtual"><scope>CLI::ConfigItem</scope><name>name</name></member>
+      <member refid="structCLI_1_1ConfigItem_1ae6e0262b6c756e5e662b608613927ccc" prot="public" virt="non-virtual"><scope>CLI::ConfigItem</scope><name>parents</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

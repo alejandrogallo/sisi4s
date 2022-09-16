@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1LapackMatrix" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::LapackMatrix</compoundname>
+    <includes refid="LapackMatrix_8hpp" local="no">LapackMatrix.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+        <defval>real</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1LapackMatrix_1ad77877ab6370f82119db24fe82e347ac" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sisi4s::LapackMatrix&lt; F &gt;::rows</definition>
+        <argsstring></argsstring>
+        <name>rows</name>
+        <qualifiedname>sisi4s::LapackMatrix::rows</qualifiedname>
+        <briefdescription>
+<para>Number of rows and columns. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="119" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="119" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a85b4b3ed82e097af33abe787037f13ad" compoundref="LapackMatrix_8hpp" startline="49" endline="59">sisi4s::LapackMatrix&lt; F &gt;::LapackMatrix</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1af17845e3e518413996316885e56e0367" compoundref="LapackMatrix_8hpp" startline="76" endline="76">sisi4s::LapackMatrix&lt; F &gt;::getRows</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1ac722239d1811f175274e17a7c38e3a70" compoundref="LapackMatrix_8hpp" startline="68" endline="70">sisi4s::LapackMatrix&lt; F &gt;::operator()</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a750c722a96103dd35ebfe98f08584250" compoundref="LapackMatrix_8hpp" startline="61" endline="66">sisi4s::LapackMatrix&lt; F &gt;::operator=</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a362dd68db532ce88dc845a6bab0cb33c" compoundref="LapackMatrix_8hpp" startline="96" endline="113">sisi4s::LapackMatrix&lt; F &gt;::write</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1LapackMatrix_1a09bb786da5bf5c21e3d6a45b65747e69" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sisi4s::LapackMatrix&lt; F &gt;::columns</definition>
+        <argsstring></argsstring>
+        <name>columns</name>
+        <qualifiedname>sisi4s::LapackMatrix::columns</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="119" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="119" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a85b4b3ed82e097af33abe787037f13ad" compoundref="LapackMatrix_8hpp" startline="49" endline="59">sisi4s::LapackMatrix&lt; F &gt;::LapackMatrix</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a5b733258c657d65b923dd8831dcf65f1" compoundref="LapackMatrix_8hpp" startline="77" endline="77">sisi4s::LapackMatrix&lt; F &gt;::getColumns</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a750c722a96103dd35ebfe98f08584250" compoundref="LapackMatrix_8hpp" startline="61" endline="66">sisi4s::LapackMatrix&lt; F &gt;::operator=</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a362dd68db532ce88dc845a6bab0cb33c" compoundref="LapackMatrix_8hpp" startline="96" endline="113">sisi4s::LapackMatrix&lt; F &gt;::write</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1LapackMatrix_1acc36c556ee4355df78e8fc35f2495843" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; F &gt;</type>
+        <definition>std::vector&lt;F&gt; sisi4s::LapackMatrix&lt; F &gt;::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <qualifiedname>sisi4s::LapackMatrix::values</qualifiedname>
+        <briefdescription>
+<para>The column major data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="124" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="124" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a85b4b3ed82e097af33abe787037f13ad" compoundref="LapackMatrix_8hpp" startline="49" endline="59">sisi4s::LapackMatrix&lt; F &gt;::LapackMatrix</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a4cea0ed82779b1a9acae7635b7b0b82d" compoundref="LapackMatrix_8hpp" startline="82" endline="84">sisi4s::LapackMatrix&lt; F &gt;::getValues</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1ac722239d1811f175274e17a7c38e3a70" compoundref="LapackMatrix_8hpp" startline="68" endline="70">sisi4s::LapackMatrix&lt; F &gt;::operator()</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a750c722a96103dd35ebfe98f08584250" compoundref="LapackMatrix_8hpp" startline="61" endline="66">sisi4s::LapackMatrix&lt; F &gt;::operator=</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a362dd68db532ce88dc845a6bab0cb33c" compoundref="LapackMatrix_8hpp" startline="96" endline="113">sisi4s::LapackMatrix&lt; F &gt;::write</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1a3e58fe4a0444c7d76cc681c75d81cdbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::LapackMatrix&lt; F &gt;::LapackMatrix</definition>
+        <argsstring>(const LapackMatrix&lt; F &gt; &amp;A)</argsstring>
+        <name>LapackMatrix</name>
+        <qualifiedname>sisi4s::LapackMatrix::LapackMatrix</qualifiedname>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref>&lt; F &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+<para>Copies the content of the Lapack matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="17" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="17" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1a6648c56df3444ec096eacf14f44ac279" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::LapackMatrix&lt; F &gt;::LapackMatrix</definition>
+        <argsstring>(const int rows_, const int columns_)</argsstring>
+        <name>LapackMatrix</name>
+        <qualifiedname>sisi4s::LapackMatrix::LapackMatrix</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>rows_</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>columns_</declname>
+        </param>
+        <briefdescription>
+<para>Construct a zero nxm Lapack matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="27" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="27" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1acd71ef7665bf5efbc2d2f6ae50649938" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::LapackMatrix&lt; F &gt;::LapackMatrix</definition>
+        <argsstring>(const int rows_, const int columns_, const std::vector&lt; F &gt; &amp;values_)</argsstring>
+        <name>LapackMatrix</name>
+        <qualifiedname>sisi4s::LapackMatrix::LapackMatrix</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>rows_</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>columns_</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; F &gt; &amp;</type>
+          <declname>values_</declname>
+        </param>
+        <briefdescription>
+<para>Construct an nxm Lapack matrix from a given vector of values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="37" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="37" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1a85b4b3ed82e097af33abe787037f13ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::LapackMatrix&lt; F &gt;::LapackMatrix</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; &amp;ctfA, const int rows_=0, const int columns_=0)</argsstring>
+        <name>LapackMatrix</name>
+        <qualifiedname>sisi4s::LapackMatrix::LapackMatrix</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <declname>ctfA</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>rows_</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>columns_</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Constructs an <ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref> from a CTF tensor on all ranks if rows and columns is given, reinterpret the matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="49" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="49" bodyend="59"/>
+        <references refid="classsisi4s_1_1LapackMatrix_1a09bb786da5bf5c21e3d6a45b65747e69" compoundref="LapackMatrix_8hpp" startline="119">sisi4s::LapackMatrix&lt; F &gt;::columns</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1ad77877ab6370f82119db24fe82e347ac" compoundref="LapackMatrix_8hpp" startline="119">sisi4s::LapackMatrix&lt; F &gt;::rows</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1acc36c556ee4355df78e8fc35f2495843" compoundref="LapackMatrix_8hpp" startline="124">sisi4s::LapackMatrix&lt; F &gt;::values</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1a750c722a96103dd35ebfe98f08584250" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref>&lt; F &gt; &amp;</type>
+        <definition>LapackMatrix&lt; F &gt; &amp; sisi4s::LapackMatrix&lt; F &gt;::operator=</definition>
+        <argsstring>(const LapackMatrix&lt; F &gt; &amp;A)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>sisi4s::LapackMatrix::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1LapackMatrix" kindref="compound">LapackMatrix</ref>&lt; F &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="61" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="61" bodyend="66"/>
+        <references refid="classsisi4s_1_1LapackMatrix_1a09bb786da5bf5c21e3d6a45b65747e69" compoundref="LapackMatrix_8hpp" startline="119">sisi4s::LapackMatrix&lt; F &gt;::columns</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1ad77877ab6370f82119db24fe82e347ac" compoundref="LapackMatrix_8hpp" startline="119">sisi4s::LapackMatrix&lt; F &gt;::rows</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1acc36c556ee4355df78e8fc35f2495843" compoundref="LapackMatrix_8hpp" startline="124">sisi4s::LapackMatrix&lt; F &gt;::values</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1ac722239d1811f175274e17a7c38e3a70" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const F &amp;</type>
+        <definition>const F &amp; sisi4s::LapackMatrix&lt; F &gt;::operator()</definition>
+        <argsstring>(const int i, const int j) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>sisi4s::LapackMatrix::operator()</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="68" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="68" bodyend="70"/>
+        <references refid="classsisi4s_1_1LapackMatrix_1ad77877ab6370f82119db24fe82e347ac" compoundref="LapackMatrix_8hpp" startline="119">sisi4s::LapackMatrix&lt; F &gt;::rows</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1acc36c556ee4355df78e8fc35f2495843" compoundref="LapackMatrix_8hpp" startline="124">sisi4s::LapackMatrix&lt; F &gt;::values</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1a058e1e66c73bd181c83cc5e150ad000b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>F &amp;</type>
+        <definition>F &amp; sisi4s::LapackMatrix&lt; F &gt;::operator()</definition>
+        <argsstring>(const int i, const int j)</argsstring>
+        <name>operator()</name>
+        <qualifiedname>sisi4s::LapackMatrix::operator()</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="72" column="7" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="72" bodyend="74"/>
+        <references refid="classsisi4s_1_1LapackMatrix_1ad77877ab6370f82119db24fe82e347ac" compoundref="LapackMatrix_8hpp" startline="119">sisi4s::LapackMatrix&lt; F &gt;::rows</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1acc36c556ee4355df78e8fc35f2495843" compoundref="LapackMatrix_8hpp" startline="124">sisi4s::LapackMatrix&lt; F &gt;::values</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1af17845e3e518413996316885e56e0367" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int sisi4s::LapackMatrix&lt; F &gt;::getRows</definition>
+        <argsstring>() const</argsstring>
+        <name>getRows</name>
+        <qualifiedname>sisi4s::LapackMatrix::getRows</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="76" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="76" bodyend="76"/>
+        <references refid="classsisi4s_1_1LapackMatrix_1ad77877ab6370f82119db24fe82e347ac" compoundref="LapackMatrix_8hpp" startline="119">sisi4s::LapackMatrix&lt; F &gt;::rows</references>
+        <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a8542e1b930fbedc3a8986ff0dc240c18" compoundref="LapackGeneralEigenSystem_8hpp" startline="118" endline="192">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::LapackGeneralEigenSystem</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackInverse_3_01Complex64_01_4_1ac46c62694eacb361ccae04d2adcebfb7" compoundref="LapackInverse_8hpp" startline="23" endline="56">sisi4s::LapackInverse&lt; Complex64 &gt;::LapackInverse</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a6ff1cce7cf64d7659d0804317f5b62bf" compoundref="LapackGeneralEigenSystem_8hpp" startline="229" endline="242">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::leftEigenError</referencedby>
+        <referencedby refid="NaturalTransitionOrbitalsFromRhoAI_8cxx_1a17a4374cc872225dc976a9c910f9e694" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="43" endline="55">logOverlap</referencedby>
+        <referencedby refid="NaturalTransitionOrbitalsFromRhoAI_8cxx_1a66116addded68ea64321206849fd47f4" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="30" endline="40">logVectorNorms</referencedby>
+        <referencedby refid="namespacesisi4s_1ad8f97234396d606aceaefe0bb5473fcb" compoundref="LapackMatrix_8hpp" startline="130" endline="150">sisi4s::operator*</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a2fba6bcf5f656fff42f91548a32c373d" compoundref="LapackGeneralEigenSystem_8hpp" startline="286" endline="297">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::orderEigenVectors</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1ac6d8679f777fa5ce0c872076f7b26b8a" compoundref="LapackGeneralEigenSystem_8hpp" startline="215" endline="228">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::rightEigenError</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1a5b733258c657d65b923dd8831dcf65f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int sisi4s::LapackMatrix&lt; F &gt;::getColumns</definition>
+        <argsstring>() const</argsstring>
+        <name>getColumns</name>
+        <qualifiedname>sisi4s::LapackMatrix::getColumns</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="77" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="77" bodyend="77"/>
+        <references refid="classsisi4s_1_1LapackMatrix_1a09bb786da5bf5c21e3d6a45b65747e69" compoundref="LapackMatrix_8hpp" startline="119">sisi4s::LapackMatrix&lt; F &gt;::columns</references>
+        <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a8542e1b930fbedc3a8986ff0dc240c18" compoundref="LapackGeneralEigenSystem_8hpp" startline="118" endline="192">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::LapackGeneralEigenSystem</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackInverse_3_01Complex64_01_4_1ac46c62694eacb361ccae04d2adcebfb7" compoundref="LapackInverse_8hpp" startline="23" endline="56">sisi4s::LapackInverse&lt; Complex64 &gt;::LapackInverse</referencedby>
+        <referencedby refid="NaturalTransitionOrbitalsFromRhoAI_8cxx_1a17a4374cc872225dc976a9c910f9e694" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="43" endline="55">logOverlap</referencedby>
+        <referencedby refid="NaturalTransitionOrbitalsFromRhoAI_8cxx_1a66116addded68ea64321206849fd47f4" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="30" endline="40">logVectorNorms</referencedby>
+        <referencedby refid="namespacesisi4s_1ad8f97234396d606aceaefe0bb5473fcb" compoundref="LapackMatrix_8hpp" startline="130" endline="150">sisi4s::operator*</referencedby>
+        <referencedby refid="classsisi4s_1_1EigenSystemDavidsonMono_1ae374662234b193df4dbfadedbce69beb" compoundref="EigenSystemDavidson_8hpp" startline="149" endline="459">sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1a4cea0ed82779b1a9acae7635b7b0b82d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const F *</type>
+        <definition>const F * sisi4s::LapackMatrix&lt; F &gt;::getValues</definition>
+        <argsstring>() const</argsstring>
+        <name>getValues</name>
+        <qualifiedname>sisi4s::LapackMatrix::getValues</qualifiedname>
+        <briefdescription>
+<para>Returns the pointer to the column major data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="82" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="82" bodyend="84"/>
+        <references refid="classsisi4s_1_1LapackMatrix_1acc36c556ee4355df78e8fc35f2495843" compoundref="LapackMatrix_8hpp" startline="124">sisi4s::LapackMatrix&lt; F &gt;::values</references>
+        <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a8542e1b930fbedc3a8986ff0dc240c18" compoundref="LapackGeneralEigenSystem_8hpp" startline="118" endline="192">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::LapackGeneralEigenSystem</referencedby>
+        <referencedby refid="structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI_1a9b8f3c2cf11778ba71bdcc2881885059" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="59" endline="111">sisi4s::NaturalTransitionOrbitalsFromRhoAI::buildTransformations</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1a5e583f4ed250d20e2797ae6dea665812" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>F *</type>
+        <definition>F * sisi4s::LapackMatrix&lt; F &gt;::getValues</definition>
+        <argsstring>()</argsstring>
+        <name>getValues</name>
+        <qualifiedname>sisi4s::LapackMatrix::getValues</qualifiedname>
+        <briefdescription>
+<para>Returns the pointer to the mutable column major data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="89" column="7" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="89" bodyend="91"/>
+        <references refid="classsisi4s_1_1LapackMatrix_1acc36c556ee4355df78e8fc35f2495843" compoundref="LapackMatrix_8hpp" startline="124">sisi4s::LapackMatrix&lt; F &gt;::values</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1LapackMatrix_1a362dd68db532ce88dc845a6bab0cb33c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sisi4s::LapackMatrix&lt; F &gt;::write</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; &amp;ctfA) const</argsstring>
+        <name>write</name>
+        <qualifiedname>sisi4s::LapackMatrix::write</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <declname>ctfA</declname>
+        </param>
+        <briefdescription>
+<para>Writes the data of this Lapack matrix to the CTF tensor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="96" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="96" bodyend="113"/>
+        <references refid="classsisi4s_1_1LapackMatrix_1a09bb786da5bf5c21e3d6a45b65747e69" compoundref="LapackMatrix_8hpp" startline="119">sisi4s::LapackMatrix&lt; F &gt;::columns</references>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="namespaceCLI_1_1detail_1ab351f13ec104e2cba19ec6baf4a552f6" compoundref="CLI11_8hpp" startline="181" endline="191">CLI::detail::join</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1ad77877ab6370f82119db24fe82e347ac" compoundref="LapackMatrix_8hpp" startline="119">sisi4s::LapackMatrix&lt; F &gt;::rows</references>
+        <references refid="classsisi4s_1_1LapackMatrix_1acc36c556ee4355df78e8fc35f2495843" compoundref="LapackMatrix_8hpp" startline="124">sisi4s::LapackMatrix&lt; F &gt;::values</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::LapackMatrix&lt; Complex64 &gt;</label>
+        <link refid="classsisi4s_1_1LapackMatrix"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; Complex64 &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::LapackMatrix&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1LapackMatrix"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::LapackMatrix&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1LapackMatrix"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" line="12" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/LapackMatrix.hpp" bodystart="12" bodyend="125"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1LapackMatrix_1a09bb786da5bf5c21e3d6a45b65747e69" prot="protected" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>columns</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1a5b733258c657d65b923dd8831dcf65f1" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>getColumns</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1af17845e3e518413996316885e56e0367" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>getRows</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1a4cea0ed82779b1a9acae7635b7b0b82d" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>getValues</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1a5e583f4ed250d20e2797ae6dea665812" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>getValues</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1a3e58fe4a0444c7d76cc681c75d81cdbb" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>LapackMatrix</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1a6648c56df3444ec096eacf14f44ac279" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>LapackMatrix</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1acd71ef7665bf5efbc2d2f6ae50649938" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>LapackMatrix</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1a85b4b3ed82e097af33abe787037f13ad" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>LapackMatrix</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1ac722239d1811f175274e17a7c38e3a70" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>operator()</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1a058e1e66c73bd181c83cc5e150ad000b" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>operator()</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1a750c722a96103dd35ebfe98f08584250" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>operator=</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1ad77877ab6370f82119db24fe82e347ac" prot="protected" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>rows</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1acc36c556ee4355df78e8fc35f2495843" prot="protected" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>values</name></member>
+      <member refid="classsisi4s_1_1LapackMatrix_1a362dd68db532ce88dc845a6bab0cb33c" prot="public" virt="non-virtual"><scope>sisi4s::LapackMatrix</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

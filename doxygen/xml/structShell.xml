@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structShell" kind="struct" language="C++" prot="public">
+    <compoundname>Shell</compoundname>
+    <includes refid="BasisSet_8hpp" local="no">BasisSet.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structShell_1a971ebe0b3950bc65e1a220dccabe82aa" prot="public" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string Shell::atom</definition>
+        <argsstring></argsstring>
+        <name>atom</name>
+        <qualifiedname>Shell::atom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BasisSet.hpp" line="14" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BasisSet.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structShell_1a409a9c2b7277dd0327c8017b5f68a296" prot="public" static="no" mutable="no">
+        <type>const <ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408" kindref="member">am::AngularMomentum</ref></type>
+        <definition>const am::AngularMomentum Shell::am</definition>
+        <argsstring></argsstring>
+        <name>am</name>
+        <qualifiedname>Shell::am</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BasisSet.hpp" line="15" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BasisSet.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structShell_1a1290cfe164b11541efa50faecd0cea54" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structContractedGaussian" kindref="compound">ContractedGaussian</ref></type>
+        <definition>const ContractedGaussian Shell::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <qualifiedname>Shell::g</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BasisSet.hpp" line="16" column="28" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BasisSet.hpp" bodystart="16" bodyend="-1"/>
+        <referencedby refid="structShell_1aa7a93b277d0f3a2e8538efb40eb57483" compoundref="BasisSet_8hpp" startline="17" endline="17">size</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structShell_1aa7a93b277d0f3a2e8538efb40eb57483" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t Shell::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <qualifiedname>Shell::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BasisSet.hpp" line="17" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BasisSet.hpp" bodystart="17" bodyend="17"/>
+        <references refid="structShell_1a1290cfe164b11541efa50faecd0cea54" compoundref="BasisSet_8hpp" startline="16">g</references>
+        <references refid="structContractedGaussian_1a0bb00325f21012cbb344454d2cec82f5" compoundref="BasisSet_8hpp" startline="10" endline="10">ContractedGaussian::size</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>ContractedGaussian</label>
+        <link refid="structContractedGaussian"/>
+      </node>
+      <node id="1">
+        <label>Shell</label>
+        <link refid="structShell"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+g</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/BasisSet.hpp" line="13" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/BasisSet.hpp" bodystart="13" bodyend="18"/>
+    <listofallmembers>
+      <member refid="structShell_1a409a9c2b7277dd0327c8017b5f68a296" prot="public" virt="non-virtual"><scope>Shell</scope><name>am</name></member>
+      <member refid="structShell_1a971ebe0b3950bc65e1a220dccabe82aa" prot="public" virt="non-virtual"><scope>Shell</scope><name>atom</name></member>
+      <member refid="structShell_1a1290cfe164b11541efa50faecd0cea54" prot="public" virt="non-virtual"><scope>Shell</scope><name>g</name></member>
+      <member refid="structShell_1aa7a93b277d0f3a2e8538efb40eb57483" prot="public" virt="non-virtual"><scope>Shell</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

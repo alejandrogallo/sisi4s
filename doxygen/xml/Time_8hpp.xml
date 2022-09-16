@@ -1,0 +1,2086 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Time_8hpp" kind="file" language="C++">
+    <compoundname>Time.hpp</compoundname>
+    <includes local="no">ctime</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">ostream</includes>
+    <includes local="no">iomanip</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">cmath</includes>
+    <includedby refid="Log_8hpp" local="no">Log.hpp</includedby>
+    <includedby refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includedby>
+    <includedby refid="Timer_8hpp" local="no">Timer.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cmath</label>
+      </node>
+      <node id="3">
+        <label>cstdint</label>
+      </node>
+      <node id="2">
+        <label>ctime</label>
+      </node>
+      <node id="5">
+        <label>iomanip</label>
+      </node>
+      <node id="4">
+        <label>ostream</label>
+      </node>
+      <node id="6">
+        <label>sstream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="175">
+        <label>Data.cxx</label>
+        <link refid="Data_8cxx"/>
+      </node>
+      <node id="30">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="175" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+      </node>
+      <node id="179">
+        <label>DryTensor.cxx</label>
+        <link refid="DryTensor_8cxx"/>
+      </node>
+      <node id="176">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="180" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="182" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+        <childnode refid="186" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+      </node>
+      <node id="124">
+        <label>Parser.cxx</label>
+        <link refid="Parser_8cxx"/>
+      </node>
+      <node id="125">
+        <label>Parser.hpp</label>
+        <link refid="Parser_8hpp"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+      </node>
+      <node id="126">
+        <label>Sisi4s.cxx</label>
+        <link refid="Sisi4s_8cxx"/>
+      </node>
+      <node id="207">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="208" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="193" relation="include">
+        </childnode>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="209" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="173" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Algorithm.cxx</label>
+        <link refid="Algorithm_8cxx"/>
+      </node>
+      <node id="31">
+        <label>Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+        <childnode refid="148" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="160" relation="include">
+        </childnode>
+        <childnode refid="162" relation="include">
+        </childnode>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
+        <childnode refid="169" relation="include">
+        </childnode>
+        <childnode refid="170" relation="include">
+        </childnode>
+        <childnode refid="172" relation="include">
+        </childnode>
+        <childnode refid="174" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ApproximateCoulombVertex.cxx</label>
+        <link refid="ApproximateCoulombVertex_8cxx"/>
+      </node>
+      <node id="32">
+        <label>ApproximateCoulombVertex.hpp</label>
+        <link refid="ApproximateCoulombVertex_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ApproximateParticleHoleCoulombVertex.cxx</label>
+        <link refid="ApproximateParticleHoleCoulombVertex_8cxx"/>
+      </node>
+      <node id="33">
+        <label>ApproximateParticleHoleCoulombVertex.hpp</label>
+        <link refid="ApproximateParticleHoleCoulombVertex_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>BasisSetExtrapolation.cxx</label>
+        <link refid="BasisSetExtrapolation_8cxx"/>
+      </node>
+      <node id="34">
+        <label>BasisSetExtrapolation.hpp</label>
+        <link refid="BasisSetExtrapolation_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>CcsdDiagrammaticDecomposition.cxx</label>
+        <link refid="CcsdDiagrammaticDecomposition_8cxx"/>
+      </node>
+      <node id="35">
+        <label>CcsdDiagrammaticDecomposition.hpp</label>
+        <link refid="CcsdDiagrammaticDecomposition_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>CcsdEnergyFromCoulombIntegrals.cxx</label>
+        <link refid="CcsdEnergyFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="45">
+        <label>CcsdEnergyFromCoulombIntegrals.hpp</label>
+        <link refid="CcsdEnergyFromCoulombIntegrals_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>CcsdEnergyFromCoulombIntegralsReference.cxx</label>
+        <link refid="CcsdEnergyFromCoulombIntegralsReference_8cxx"/>
+      </node>
+      <node id="46">
+        <label>CcsdEnergyFromCoulombIntegralsReference.hpp</label>
+        <link refid="CcsdEnergyFromCoulombIntegralsReference_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>CcsdEquationOfMotionDavidson.cxx</label>
+        <link refid="CcsdEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="36">
+        <label>CcsdEquationOfMotionDavidson.hpp</label>
+        <link refid="CcsdEquationOfMotionDavidson_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>CcsdPerturbativeTriples.cxx</label>
+        <link refid="CcsdPerturbativeTriples_8cxx"/>
+      </node>
+      <node id="37">
+        <label>CcsdPerturbativeTriples.hpp</label>
+        <link refid="CcsdPerturbativeTriples_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>CcsdPerturbativeTriplesComplex.cxx</label>
+        <link refid="CcsdPerturbativeTriplesComplex_8cxx"/>
+      </node>
+      <node id="38">
+        <label>CcsdPerturbativeTriplesComplex.hpp</label>
+        <link refid="CcsdPerturbativeTriplesComplex_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>CcsdPreconditioner.cxx</label>
+        <link refid="CcsdPreconditioner_8cxx"/>
+      </node>
+      <node id="39">
+        <label>CcsdPreconditioner.hpp</label>
+        <link refid="CcsdPreconditioner_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>CcsdtEquationOfMotionDavidson.cxx</label>
+        <link refid="CcsdtEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="43">
+        <label>CcsdtEquationOfMotionDavidson.hpp</label>
+        <link refid="CcsdtEquationOfMotionDavidson_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>ClusterSinglesDoublesAlgorithm.cxx</label>
+        <link refid="ClusterSinglesDoublesAlgorithm_8cxx"/>
+      </node>
+      <node id="44">
+        <label>ClusterSinglesDoublesAlgorithm.hpp</label>
+        <link refid="ClusterSinglesDoublesAlgorithm_8hpp"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>ClusterSinglesDoublesTriplesAlgorithm.cxx</label>
+        <link refid="ClusterSinglesDoublesTriplesAlgorithm_8cxx"/>
+      </node>
+      <node id="47">
+        <label>ClusterSinglesDoublesTriplesAlgorithm.hpp</label>
+        <link refid="ClusterSinglesDoublesTriplesAlgorithm_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx</label>
+        <link refid="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8cxx"/>
+      </node>
+      <node id="50">
+        <label>ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp</label>
+        <link refid="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8hpp"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>ComplexTensorContraction.cxx</label>
+        <link refid="ComplexTensorContraction_8cxx"/>
+      </node>
+      <node id="59">
+        <label>ComplexTensorContraction.hpp</label>
+        <link refid="ComplexTensorContraction_8hpp"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>ComplexTensorNorm.cxx</label>
+        <link refid="ComplexTensorNorm_8cxx"/>
+      </node>
+      <node id="61">
+        <label>ComplexTensorNorm.hpp</label>
+        <link refid="ComplexTensorNorm_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>ComplexTensorReader.cxx</label>
+        <link refid="ComplexTensorReader_8cxx"/>
+      </node>
+      <node id="62">
+        <label>ComplexTensorReader.hpp</label>
+        <link refid="ComplexTensorReader_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>ComplexTensorSum.cxx</label>
+        <link refid="ComplexTensorSum_8cxx"/>
+      </node>
+      <node id="63">
+        <label>ComplexTensorSum.hpp</label>
+        <link refid="ComplexTensorSum_8hpp"/>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>ComplexTensorWriter.cxx</label>
+        <link refid="ComplexTensorWriter_8cxx"/>
+      </node>
+      <node id="65">
+        <label>ComplexTensorWriter.hpp</label>
+        <link refid="ComplexTensorWriter_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>CoulombIntegralsFromGaussian.cxx</label>
+        <link refid="CoulombIntegralsFromGaussian_8cxx"/>
+      </node>
+      <node id="66">
+        <label>CoulombIntegralsFromGaussian.hpp</label>
+        <link refid="CoulombIntegralsFromGaussian_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>CoulombIntegralsFromRotatedCoulombIntegrals.cxx</label>
+        <link refid="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="67">
+        <label>CoulombIntegralsFromRotatedCoulombIntegrals.hpp</label>
+        <link refid="CoulombIntegralsFromRotatedCoulombIntegrals_8hpp"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>CoulombIntegralsFromVertex.cxx</label>
+        <link refid="CoulombIntegralsFromVertex_8cxx"/>
+      </node>
+      <node id="68">
+        <label>CoulombIntegralsFromVertex.hpp</label>
+        <link refid="CoulombIntegralsFromVertex_8hpp"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>CoulombVertexDecomposition.cxx</label>
+        <link refid="CoulombVertexDecomposition_8cxx"/>
+      </node>
+      <node id="69">
+        <label>CoulombVertexDecomposition.hpp</label>
+        <link refid="CoulombVertexDecomposition_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>CoulombVertexFromFactors.cxx</label>
+        <link refid="CoulombVertexFromFactors_8cxx"/>
+      </node>
+      <node id="70">
+        <label>CoulombVertexFromFactors.hpp</label>
+        <link refid="CoulombVertexFromFactors_8hpp"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>CoulombVertexReader.cxx</label>
+        <link refid="CoulombVertexReader_8cxx"/>
+      </node>
+      <node id="71">
+        <label>CoulombVertexReader.hpp</label>
+        <link refid="CoulombVertexReader_8hpp"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>CoulombVertexSingularVectors.cxx</label>
+        <link refid="CoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="72">
+        <label>CoulombVertexSingularVectors.hpp</label>
+        <link refid="CoulombVertexSingularVectors_8hpp"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>Delete.cxx</label>
+        <link refid="Delete_8cxx"/>
+      </node>
+      <node id="73">
+        <label>Delete.hpp</label>
+        <link refid="Delete_8hpp"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>DoublesAmplitudesDecomposition.cxx</label>
+        <link refid="DoublesAmplitudesDecomposition_8cxx"/>
+      </node>
+      <node id="75">
+        <label>DoublesAmplitudesDecomposition.hpp</label>
+        <link refid="DoublesAmplitudesDecomposition_8hpp"/>
+        <childnode refid="76" relation="include">
+        </childnode>
+      </node>
+      <node id="78">
+        <label>DoublesAmplitudesFromVertex.cxx</label>
+        <link refid="DoublesAmplitudesFromVertex_8cxx"/>
+      </node>
+      <node id="77">
+        <label>DoublesAmplitudesFromVertex.hpp</label>
+        <link refid="DoublesAmplitudesFromVertex_8hpp"/>
+        <childnode refid="78" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>DrccdEnergyFromCoulombIntegrals.cxx</label>
+        <link refid="DrccdEnergyFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="53">
+        <label>DrccdEnergyFromCoulombIntegrals.hpp</label>
+        <link refid="DrccdEnergyFromCoulombIntegrals_8hpp"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>Exit.cxx</label>
+        <link refid="Exit_8cxx"/>
+      </node>
+      <node id="79">
+        <label>Exit.hpp</label>
+        <link refid="Exit_8hpp"/>
+        <childnode refid="80" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>FcidumpReader.cxx</label>
+        <link refid="FcidumpReader_8cxx"/>
+      </node>
+      <node id="81">
+        <label>FcidumpReader.hpp</label>
+        <link refid="FcidumpReader_8hpp"/>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>FcidumpWriter.cxx</label>
+        <link refid="FcidumpWriter_8cxx"/>
+      </node>
+      <node id="84">
+        <label>FcidumpWriter.hpp</label>
+        <link refid="FcidumpWriter_8hpp"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>FiniteSizeCorrection.cxx</label>
+        <link refid="FiniteSizeCorrection_8cxx"/>
+      </node>
+      <node id="85">
+        <label>FiniteSizeCorrection.hpp</label>
+        <link refid="FiniteSizeCorrection_8hpp"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+      </node>
+      <node id="88">
+        <label>FockMatrixFromCoulombIntegrals.cxx</label>
+        <link refid="FockMatrixFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="87">
+        <label>FockMatrixFromCoulombIntegrals.hpp</label>
+        <link refid="FockMatrixFromCoulombIntegrals_8hpp"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="90">
+        <label>FromComplexTensor.cxx</label>
+        <link refid="FromComplexTensor_8cxx"/>
+      </node>
+      <node id="89">
+        <label>FromComplexTensor.hpp</label>
+        <link refid="FromComplexTensor_8hpp"/>
+        <childnode refid="90" relation="include">
+        </childnode>
+      </node>
+      <node id="92">
+        <label>GenerateRandomComplexMatrix.cxx</label>
+        <link refid="GenerateRandomComplexMatrix_8cxx"/>
+      </node>
+      <node id="91">
+        <label>GenerateRandomComplexMatrix.hpp</label>
+        <link refid="GenerateRandomComplexMatrix_8hpp"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+      </node>
+      <node id="94">
+        <label>GenerateRandomMatrix.cxx</label>
+        <link refid="GenerateRandomMatrix_8cxx"/>
+      </node>
+      <node id="93">
+        <label>GenerateRandomMatrix.hpp</label>
+        <link refid="GenerateRandomMatrix_8hpp"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>GenerateRandomTensor.cxx</label>
+        <link refid="GenerateRandomTensor_8cxx"/>
+      </node>
+      <node id="95">
+        <label>GenerateRandomTensor.hpp</label>
+        <link refid="GenerateRandomTensor_8hpp"/>
+        <childnode refid="96" relation="include">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>HartreeFockFromCoulombIntegrals.cxx</label>
+        <link refid="HartreeFockFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="97">
+        <label>HartreeFockFromCoulombIntegrals.hpp</label>
+        <link refid="HartreeFockFromCoulombIntegrals_8hpp"/>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>HartreeFockFromGaussian.cxx</label>
+        <link refid="HartreeFockFromGaussian_8cxx"/>
+      </node>
+      <node id="100">
+        <label>HartreeFockFromGaussian.hpp</label>
+        <link refid="HartreeFockFromGaussian_8hpp"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>MeanCorrelationHoleDepth.cxx</label>
+        <link refid="MeanCorrelationHoleDepth_8cxx"/>
+      </node>
+      <node id="101">
+        <label>MeanCorrelationHoleDepth.hpp</label>
+        <link refid="MeanCorrelationHoleDepth_8hpp"/>
+        <childnode refid="102" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>MoReader.cxx</label>
+        <link refid="MoReader_8cxx"/>
+      </node>
+      <node id="110">
+        <label>MoReader.hpp</label>
+        <link refid="MoReader_8hpp"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+      </node>
+      <node id="113">
+        <label>Mp2NaturalOrbitals.cxx</label>
+        <link refid="Mp2NaturalOrbitals_8cxx"/>
+      </node>
+      <node id="112">
+        <label>Mp2NaturalOrbitals.hpp</label>
+        <link refid="Mp2NaturalOrbitals_8hpp"/>
+        <childnode refid="113" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>NaturalTransitionOrbitalsFromRhoAI.cxx</label>
+        <link refid="NaturalTransitionOrbitalsFromRhoAI_8cxx"/>
+      </node>
+      <node id="114">
+        <label>NaturalTransitionOrbitalsFromRhoAI.hpp</label>
+        <link refid="NaturalTransitionOrbitalsFromRhoAI_8hpp"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="117">
+        <label>NuclearRepulsionEnergy.cxx</label>
+        <link refid="NuclearRepulsionEnergy_8cxx"/>
+      </node>
+      <node id="116">
+        <label>NuclearRepulsionEnergy.hpp</label>
+        <link refid="NuclearRepulsionEnergy_8hpp"/>
+        <childnode refid="117" relation="include">
+        </childnode>
+      </node>
+      <node id="119">
+        <label>OneBodyFromGaussian.cxx</label>
+        <link refid="OneBodyFromGaussian_8cxx"/>
+      </node>
+      <node id="118">
+        <label>OneBodyFromGaussian.hpp</label>
+        <link refid="OneBodyFromGaussian_8hpp"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="194">
+        <label>OneBodyReducedDensityMatrix.hpp</label>
+        <link refid="OneBodyReducedDensityMatrix_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="121">
+        <label>OneBodyRotation.cxx</label>
+        <link refid="OneBodyRotation_8cxx"/>
+      </node>
+      <node id="120">
+        <label>OneBodyRotation.hpp</label>
+        <link refid="OneBodyRotation_8hpp"/>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+      <node id="123">
+        <label>ParenthesisTriples.cxx</label>
+        <link refid="ParenthesisTriples_8cxx"/>
+      </node>
+      <node id="122">
+        <label>ParenthesisTriples.hpp</label>
+        <link refid="ParenthesisTriples_8hpp"/>
+        <childnode refid="123" relation="include">
+        </childnode>
+      </node>
+      <node id="128">
+        <label>ParticleHoleCoulombIntegrals.cxx</label>
+        <link refid="ParticleHoleCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="127">
+        <label>ParticleHoleCoulombIntegrals.hpp</label>
+        <link refid="ParticleHoleCoulombIntegrals_8hpp"/>
+        <childnode refid="128" relation="include">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>ParticleHoleCoulombVertexDecomposition.cxx</label>
+        <link refid="ParticleHoleCoulombVertexDecomposition_8cxx"/>
+      </node>
+      <node id="129">
+        <label>ParticleHoleCoulombVertexDecomposition.hpp</label>
+        <link refid="ParticleHoleCoulombVertexDecomposition_8hpp"/>
+        <childnode refid="130" relation="include">
+        </childnode>
+      </node>
+      <node id="132">
+        <label>ParticleHoleCoulombVertexFromFactors.cxx</label>
+        <link refid="ParticleHoleCoulombVertexFromFactors_8cxx"/>
+      </node>
+      <node id="131">
+        <label>ParticleHoleCoulombVertexFromFactors.hpp</label>
+        <link refid="ParticleHoleCoulombVertexFromFactors_8hpp"/>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="134">
+        <label>ParticleHoleCoulombVertexReader.cxx</label>
+        <link refid="ParticleHoleCoulombVertexReader_8cxx"/>
+      </node>
+      <node id="133">
+        <label>ParticleHoleCoulombVertexReader.hpp</label>
+        <link refid="ParticleHoleCoulombVertexReader_8hpp"/>
+        <childnode refid="134" relation="include">
+        </childnode>
+      </node>
+      <node id="136">
+        <label>ParticleHoleCoulombVertexSingularVectors.cxx</label>
+        <link refid="ParticleHoleCoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="135">
+        <label>ParticleHoleCoulombVertexSingularVectors.hpp</label>
+        <link refid="ParticleHoleCoulombVertexSingularVectors_8hpp"/>
+        <childnode refid="136" relation="include">
+        </childnode>
+      </node>
+      <node id="138">
+        <label>PerturbativeTriples.cxx</label>
+        <link refid="PerturbativeTriples_8cxx"/>
+      </node>
+      <node id="137">
+        <label>PerturbativeTriples.hpp</label>
+        <link refid="PerturbativeTriples_8hpp"/>
+        <childnode refid="138" relation="include">
+        </childnode>
+      </node>
+      <node id="140">
+        <label>PseudoInverse.cxx</label>
+        <link refid="PseudoInverse_8cxx"/>
+      </node>
+      <node id="139">
+        <label>PseudoInverse.hpp</label>
+        <link refid="PseudoInverse_8hpp"/>
+        <childnode refid="140" relation="include">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>SimilarityTransformedHamiltonian.cxx</label>
+        <link refid="SimilarityTransformedHamiltonian_8cxx"/>
+      </node>
+      <node id="141">
+        <label>SimilarityTransformedHamiltonian.hpp</label>
+        <link refid="SimilarityTransformedHamiltonian_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="143" relation="include">
+        </childnode>
+      </node>
+      <node id="145">
+        <label>SingleParticleOccupancies.cxx</label>
+        <link refid="SingleParticleOccupancies_8cxx"/>
+      </node>
+      <node id="144">
+        <label>SingleParticleOccupancies.hpp</label>
+        <link refid="SingleParticleOccupancies_8hpp"/>
+        <childnode refid="145" relation="include">
+        </childnode>
+      </node>
+      <node id="147">
+        <label>SliceCoulombVertex.cxx</label>
+        <link refid="SliceCoulombVertex_8cxx"/>
+      </node>
+      <node id="146">
+        <label>SliceCoulombVertex.hpp</label>
+        <link refid="SliceCoulombVertex_8hpp"/>
+        <childnode refid="147" relation="include">
+        </childnode>
+      </node>
+      <node id="210">
+        <label>StantonIntermediatesUCCSD.cxx</label>
+        <link refid="StantonIntermediatesUCCSD_8cxx"/>
+      </node>
+      <node id="149">
+        <label>TensorAntisymmetrizer.cxx</label>
+        <link refid="TensorAntisymmetrizer_8cxx"/>
+      </node>
+      <node id="148">
+        <label>TensorAntisymmetrizer.hpp</label>
+        <link refid="TensorAntisymmetrizer_8hpp"/>
+        <childnode refid="149" relation="include">
+        </childnode>
+      </node>
+      <node id="151">
+        <label>TensorContraction.cxx</label>
+        <link refid="TensorContraction_8cxx"/>
+      </node>
+      <node id="150">
+        <label>TensorContraction.hpp</label>
+        <link refid="TensorContraction_8hpp"/>
+        <childnode refid="151" relation="include">
+        </childnode>
+      </node>
+      <node id="153">
+        <label>TensorGetMax.cxx</label>
+        <link refid="TensorGetMax_8cxx"/>
+      </node>
+      <node id="152">
+        <label>TensorGetMax.hpp</label>
+        <link refid="TensorGetMax_8hpp"/>
+        <childnode refid="153" relation="include">
+        </childnode>
+      </node>
+      <node id="155">
+        <label>TensorNorm.cxx</label>
+        <link refid="TensorNorm_8cxx"/>
+      </node>
+      <node id="154">
+        <label>TensorNorm.hpp</label>
+        <link refid="TensorNorm_8hpp"/>
+        <childnode refid="155" relation="include">
+        </childnode>
+      </node>
+      <node id="157">
+        <label>TensorReader.cxx</label>
+        <link refid="TensorReader_8cxx"/>
+      </node>
+      <node id="156">
+        <label>TensorReader.hpp</label>
+        <link refid="TensorReader_8hpp"/>
+        <childnode refid="157" relation="include">
+        </childnode>
+      </node>
+      <node id="159">
+        <label>TensorReduceijij.cxx</label>
+        <link refid="TensorReduceijij_8cxx"/>
+      </node>
+      <node id="158">
+        <label>TensorReduceijij.hpp</label>
+        <link refid="TensorReduceijij_8hpp"/>
+        <childnode refid="159" relation="include">
+        </childnode>
+      </node>
+      <node id="161">
+        <label>TensorSlicer.cxx</label>
+        <link refid="TensorSlicer_8cxx"/>
+      </node>
+      <node id="160">
+        <label>TensorSlicer.hpp</label>
+        <link refid="TensorSlicer_8hpp"/>
+        <childnode refid="161" relation="include">
+        </childnode>
+      </node>
+      <node id="163">
+        <label>TensorSum.cxx</label>
+        <link refid="TensorSum_8cxx"/>
+      </node>
+      <node id="162">
+        <label>TensorSum.hpp</label>
+        <link refid="TensorSum_8hpp"/>
+        <childnode refid="163" relation="include">
+        </childnode>
+      </node>
+      <node id="165">
+        <label>TensorUnrestricter.cxx</label>
+        <link refid="TensorUnrestricter_8cxx"/>
+      </node>
+      <node id="164">
+        <label>TensorUnrestricter.hpp</label>
+        <link refid="TensorUnrestricter_8hpp"/>
+        <childnode refid="165" relation="include">
+        </childnode>
+      </node>
+      <node id="167">
+        <label>TensorWriter.cxx</label>
+        <link refid="TensorWriter_8cxx"/>
+      </node>
+      <node id="166">
+        <label>TensorWriter.hpp</label>
+        <link refid="TensorWriter_8hpp"/>
+        <childnode refid="167" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>UCcsdEAEquationOfMotionDavidson.cxx</label>
+        <link refid="UCcsdEAEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="168">
+        <label>UCcsdEAEquationOfMotionDavidson.hpp</label>
+        <link refid="UCcsdEAEquationOfMotionDavidson_8hpp"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>UCcsdIPEquationOfMotionDavidson.cxx</label>
+        <link refid="UCcsdIPEquationOfMotionDavidson_8cxx"/>
+      </node>
+      <node id="169">
+        <label>UCcsdIPEquationOfMotionDavidson.hpp</label>
+        <link refid="UCcsdIPEquationOfMotionDavidson_8hpp"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="171">
+        <label>UPerturbativeTriples.cxx</label>
+        <link refid="UPerturbativeTriples_8cxx"/>
+      </node>
+      <node id="170">
+        <label>UPerturbativeTriples.hpp</label>
+        <link refid="UPerturbativeTriples_8hpp"/>
+        <childnode refid="171" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>UccsdAmplitudesFromCoulombIntegrals.cxx</label>
+        <link refid="UccsdAmplitudesFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="55">
+        <label>UccsdAmplitudesFromCoulombIntegrals.hpp</label>
+        <link refid="UccsdAmplitudesFromCoulombIntegrals_8hpp"/>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>UccsdtAmplitudesFromCoulombIntegrals.cxx</label>
+        <link refid="UccsdtAmplitudesFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="48">
+        <label>UccsdtAmplitudesFromCoulombIntegrals.hpp</label>
+        <link refid="UccsdtAmplitudesFromCoulombIntegrals_8hpp"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>UccsdtqAmplitudesFromCoulombIntegrals.cxx</label>
+        <link refid="UccsdtqAmplitudesFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="51">
+        <label>UccsdtqAmplitudesFromCoulombIntegrals.hpp</label>
+        <link refid="UccsdtqAmplitudesFromCoulombIntegrals_8hpp"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="173">
+        <label>UegVertexGenerator.cxx</label>
+        <link refid="UegVertexGenerator_8cxx"/>
+      </node>
+      <node id="172">
+        <label>UegVertexGenerator.hpp</label>
+        <link refid="UegVertexGenerator_8hpp"/>
+        <childnode refid="173" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>UnrestrictedEquationOfMotionSinglesFromRpa.cxx</label>
+        <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx"/>
+      </node>
+      <node id="174">
+        <label>UnrestrictedEquationOfMotionSinglesFromRpa.hpp</label>
+        <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8hpp"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>UrpaAmplitudesFromCoulombIntegrals.cxx</label>
+        <link refid="UrpaAmplitudesFromCoulombIntegrals_8cxx"/>
+      </node>
+      <node id="57">
+        <label>UrpaAmplitudesFromCoulombIntegrals.hpp</label>
+        <link refid="UrpaAmplitudesFromCoulombIntegrals_8hpp"/>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="142">
+        <label>wabcijk.cxx</label>
+        <link refid="wabcijk_8cxx"/>
+      </node>
+      <node id="143">
+        <label>wabij.cxx</label>
+        <link refid="wabij_8cxx"/>
+      </node>
+      <node id="8">
+        <label>CanonicalPolyadicDecomposition.cxx</label>
+        <link refid="CanonicalPolyadicDecomposition_8cxx"/>
+      </node>
+      <node id="177">
+        <label>CanonicalPolyadicDecomposition.hpp</label>
+        <link refid="CanonicalPolyadicDecomposition_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+      </node>
+      <node id="188">
+        <label>EigenSystemDavidson.hpp</label>
+        <link refid="EigenSystemDavidson_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="193">
+        <label>FockVector.hpp</label>
+        <link refid="FockVector_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="194" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="169" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="174" relation="include">
+        </childnode>
+      </node>
+      <node id="195">
+        <label>Integration.hpp</label>
+        <link refid="Integration_8hpp"/>
+      </node>
+      <node id="196">
+        <label>Interpolation.hpp</label>
+        <link refid="Interpolation_8hpp"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+      </node>
+      <node id="181">
+        <label>IterativePseudoInverse.cxx</label>
+        <link refid="IterativePseudoInverse_8cxx"/>
+      </node>
+      <node id="180">
+        <label>IterativePseudoInverse.hpp</label>
+        <link refid="IterativePseudoInverse_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+      </node>
+      <node id="191">
+        <label>MathFunctions.cxx</label>
+        <link refid="MathFunctions_8cxx"/>
+      </node>
+      <node id="192">
+        <label>MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="188" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="193" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+      </node>
+      <node id="183">
+        <label>PseudoInverseHermitianSvd.cxx</label>
+        <link refid="PseudoInverseHermitianSvd_8cxx"/>
+      </node>
+      <node id="182">
+        <label>PseudoInverseHermitianSvd.hpp</label>
+        <link refid="PseudoInverseHermitianSvd_8hpp"/>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+      </node>
+      <node id="185">
+        <label>PseudoInverseSvd.cxx</label>
+        <link refid="PseudoInverseSvd_8cxx"/>
+      </node>
+      <node id="184">
+        <label>PseudoInverseSvd.hpp</label>
+        <link refid="PseudoInverseSvd_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+      </node>
+      <node id="209">
+        <label>RandomTensor.hpp</label>
+        <link refid="RandomTensor_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="178">
+        <label>RegularizedAlternatingLeastSquares.cxx</label>
+        <link refid="RegularizedAlternatingLeastSquares_8cxx"/>
+      </node>
+      <node id="186">
+        <label>RegularizedAlternatingLeastSquares.hpp</label>
+        <link refid="RegularizedAlternatingLeastSquares_8hpp"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+      </node>
+      <node id="197">
+        <label>Vector.hpp</label>
+        <link refid="Vector_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="198" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>DiisMixer.cxx</label>
+        <link refid="DiisMixer_8cxx"/>
+      </node>
+      <node id="104">
+        <label>DiisMixer.hpp</label>
+        <link refid="DiisMixer_8hpp"/>
+        <childnode refid="105" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>LinearMixer.cxx</label>
+        <link refid="LinearMixer_8cxx"/>
+      </node>
+      <node id="106">
+        <label>LinearMixer.hpp</label>
+        <link refid="LinearMixer_8hpp"/>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="108">
+        <label>Mixer.cxx</label>
+        <link refid="Mixer_8cxx"/>
+      </node>
+      <node id="103">
+        <label>Mixer.hpp</label>
+        <link refid="Mixer_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="202">
+        <label>MovecsParser.cxx</label>
+        <link refid="MovecsParser_8cxx"/>
+      </node>
+      <node id="201">
+        <label>MovecsParser.hpp</label>
+        <link refid="MovecsParser_8hpp"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="202" relation="include">
+        </childnode>
+      </node>
+      <node id="200">
+        <label>MosParser.cxx</label>
+        <link refid="MosParser_8cxx"/>
+      </node>
+      <node id="199">
+        <label>MosParser.hpp</label>
+        <link refid="MosParser_8hpp"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>BlacsWorld.cxx</label>
+        <link refid="BlacsWorld_8cxx"/>
+      </node>
+      <node id="208">
+        <label>CtfMachineTensor.hpp</label>
+        <link refid="CtfMachineTensor_8hpp"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="187">
+        <label>LapackGeneralEigenSystem.hpp</label>
+        <link refid="LapackGeneralEigenSystem_8hpp"/>
+        <childnode refid="188" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="189">
+        <label>LapackInverse.hpp</label>
+        <link refid="LapackInverse_8hpp"/>
+      </node>
+      <node id="190">
+        <label>Log.cxx</label>
+        <link refid="Log_8cxx"/>
+      </node>
+      <node id="2">
+        <label>Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="187" relation="include">
+        </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="190" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="192" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="201" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="194" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+        <childnode refid="186" relation="include">
+        </childnode>
+        <childnode refid="203" relation="include">
+        </childnode>
+        <childnode refid="204" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="173" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="198">
+        <label>MpiCommunicator.hpp</label>
+        <link refid="MpiCommunicator_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+      </node>
+      <node id="203">
+        <label>ScaLapackMatrix.cxx</label>
+        <link refid="ScaLapackMatrix_8cxx"/>
+      </node>
+      <node id="204">
+        <label>Scanner.hpp</label>
+        <link refid="Scanner_8hpp"/>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+      </node>
+      <node id="205">
+        <label>TensorIo.cxx</label>
+        <link refid="TensorIo_8cxx"/>
+      </node>
+      <node id="206">
+        <label>TensorIo.hpp</label>
+        <link refid="TensorIo_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+        <childnode refid="211" relation="include">
+        </childnode>
+      </node>
+      <node id="212">
+        <label>Timer.cxx</label>
+        <link refid="Timer_8cxx"/>
+      </node>
+      <node id="211">
+        <label>Timer.hpp</label>
+        <link refid="Timer_8hpp"/>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1Time" prot="public">sisi4s::Time</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TIME_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TIME_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ctime&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="17" refid="classsisi4s_1_1Time" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref>:<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>timespec<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>int64_t<sp/><ref refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" kindref="member">FRACTIONS</ref><sp/>=<sp/>1000000000;</highlight></codeline>
+<codeline lineno="20" refid="classsisi4s_1_1Time_1a6cf1cef47e10cc59c5da149659b32a5e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Time_1a6cf1cef47e10cc59c5da149659b32a5e" kindref="member">FRACTION_DIGITS</ref><sp/>=<sp/>9;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="classsisi4s_1_1Time_1a1fe453201aaef43e32265cb23d0c30c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Time_1a1fe453201aaef43e32265cb23d0c30c9" kindref="member">Time</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tv_sec<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tv_nsec<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26" refid="classsisi4s_1_1Time_1adee0bd889c5538f65f4d4ff18b7f61e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Time_1adee0bd889c5538f65f4d4ff18b7f61e6" kindref="member">Time</ref>(int64_t<sp/>seconds,<sp/>int64_t<sp/>nanoSeconds)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tv_sec<sp/>=<sp/>seconds;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tv_nsec<sp/>=<sp/>nanoSeconds;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30" refid="classsisi4s_1_1Time_1a68fbbb4d639afab1c0a2c976e55a18ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Time_1a68fbbb4d639afab1c0a2c976e55a18ee" kindref="member">Time</ref>(<ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;t):<sp/>timespec(t)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classsisi4s_1_1Time_1a8b0e7f1e475a376cf6c0436a05639de1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/><ref refid="classsisi4s_1_1Time_1a8b0e7f1e475a376cf6c0436a05639de1" kindref="member">getSeconds</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tv_sec;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36" refid="classsisi4s_1_1Time_1a1dd6ec8247d71c7dc892e7e262ac104f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/><ref refid="classsisi4s_1_1Time_1a1dd6ec8247d71c7dc892e7e262ac104f" kindref="member">getFractions</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tv_nsec;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39" refid="classsisi4s_1_1Time_1acde8b004fc350d2767365a72a31e3c47" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Time_1acde8b004fc350d2767365a72a31e3c47" kindref="member">getFractionalSeconds</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tv_sec<sp/>+<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(tv_nsec)<sp/>/<sp/><ref refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" kindref="member">FRACTIONS</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="classsisi4s_1_1Time_1a4b20fc998cedc6bdf77cc9d905319d68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/>&amp;<ref refid="classsisi4s_1_1Time_1a4b20fc998cedc6bdf77cc9d905319d68" kindref="member">operator += </ref>(<ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;t)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tv_nsec<sp/>+=<sp/>t.tv_nsec;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tv_nsec<sp/>&lt;<sp/><ref refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" kindref="member">FRACTIONS</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tv_sec<sp/>+=<sp/>t.tv_sec;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tv_sec<sp/>+=<sp/>t.tv_sec<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tv_nsec<sp/>-=<sp/><ref refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" kindref="member">FRACTIONS</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classsisi4s_1_1Time_1aade39a0acac16865f1b8e752c6859003" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/>&amp;<ref refid="classsisi4s_1_1Time_1aade39a0acac16865f1b8e752c6859003" kindref="member">operator -= </ref>(<ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;t)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tv_nsec<sp/>&gt;=<sp/>t.tv_nsec)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tv_nsec<sp/>-=<sp/>t.tv_nsec;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tv_sec<sp/>-=<sp/>t.tv_sec;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tv_nsec<sp/>+=<sp/><ref refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" kindref="member">FRACTIONS</ref><sp/>-<sp/>t.tv_nsec;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tv_sec<sp/>-=<sp/>t.tv_sec<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="classsisi4s_1_1Time_1ab133fcb3422dbde9d68f5a5155c5127c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/><ref refid="classsisi4s_1_1Time_1ab133fcb3422dbde9d68f5a5155c5127c" kindref="member">getCurrentRealTime</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/>time;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>clock_gettime(CLOCK_REALTIME,<sp/>&amp;time);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>time;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="namespacesisi4s_1abb2a741481172f62f7345c12f61ad1b7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/><ref refid="namespacesisi4s_1a309771251a73107cf5eedbe665fa5a6a" kindref="member">operator +</ref>(<ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;t1,<sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;t2)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/>result(t1);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>result<sp/>+=<sp/>t2;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="namespacesisi4s_1a81473a06bad398711cfa0119c06e86cd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/><ref refid="namespacesisi4s_1a84270509b10f18833241a3aedc483433" kindref="member">operator -</ref>(<ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;t1,<sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;t2)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/>result(t1);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>result<sp/>-=<sp/>t2;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="namespacesisi4s_1af367ad2673f0d194941471c8c23d70a5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/><ref refid="namespacesisi4s_1a3e0e5db8049adce93ba9fc38d7aaeb7f" kindref="member">operator *</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/>&amp;difference,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>factor)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d(difference.<ref refid="classsisi4s_1_1Time_1acde8b004fc350d2767365a72a31e3c47" kindref="member">getFractionalSeconds</ref>()<sp/>*<sp/>factor);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref>(std::floor(d),<sp/>std::round((d-std::floor(d))<sp/>*<sp/><ref refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" kindref="member">Time::FRACTIONS</ref>));</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="namespacesisi4s_1af0b04a8d66de62bc764d8bec46070280" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::ostream<sp/>&amp;<ref refid="namespacesisi4s_1a824dfb7d6773baaa4dfc79467ad83a59" kindref="member">operator &lt;&lt;</ref>(std::ostream<sp/>&amp;stream,<sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;t)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>time;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>time<sp/>&lt;&lt;<sp/>t.<ref refid="classsisi4s_1_1Time_1a8b0e7f1e475a376cf6c0436a05639de1" kindref="member">getSeconds</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::setw(<ref refid="classsisi4s_1_1Time_1a6cf1cef47e10cc59c5da149659b32a5e" kindref="member">Time::FRACTION_DIGITS</ref>)<sp/>&lt;&lt;<sp/>std::setfill(</highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>t.<ref refid="classsisi4s_1_1Time_1a1dd6ec8247d71c7dc892e7e262ac104f" kindref="member">getFractions</ref>();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream<sp/>&lt;&lt;<sp/>time.str();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Time.hpp"/>
+  </compounddef>
+</doxygen>

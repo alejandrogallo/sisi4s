@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="ParticleHoleCoulombVertexDecomposition_8hpp" kind="file" language="C++">
+    <compoundname>ParticleHoleCoulombVertexDecomposition.hpp</compoundname>
+    <includes refid="Algorithm_8hpp" local="no">algorithms/Algorithm.hpp</includes>
+    <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
+    <includes refid="RegularizedAlternatingLeastSquares_8hpp" local="no">math/RegularizedAlternatingLeastSquares.hpp</includes>
+    <includes refid="DryTensor_8hpp" local="no">DryTensor.hpp</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includedby refid="ParticleHoleCoulombVertexDecomposition_8cxx" local="no">ParticleHoleCoulombVertexDecomposition.cxx</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ParticleHoleCoulombVertexDecomposition.hpp</label>
+        <link refid="ParticleHoleCoulombVertexDecomposition_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>math/RegularizedAlternatingLeastSquares.hpp</label>
+        <link refid="RegularizedAlternatingLeastSquares_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>util/SourceLocation.hpp</label>
+        <link refid="SourceLocation_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>cmath</label>
+      </node>
+      <node id="18">
+        <label>complex</label>
+      </node>
+      <node id="7">
+        <label>cstdint</label>
+      </node>
+      <node id="22">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="6">
+        <label>ctime</label>
+      </node>
+      <node id="15">
+        <label>fstream</label>
+      </node>
+      <node id="9">
+        <label>iomanip</label>
+      </node>
+      <node id="13">
+        <label>iostream</label>
+      </node>
+      <node id="19">
+        <label>map</label>
+      </node>
+      <node id="8">
+        <label>ostream</label>
+      </node>
+      <node id="10">
+        <label>sstream</label>
+      </node>
+      <node id="14">
+        <label>streambuf</label>
+      </node>
+      <node id="12">
+        <label>string</label>
+      </node>
+      <node id="20">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>ParticleHoleCoulombVertexDecomposition.cxx</label>
+        <link refid="ParticleHoleCoulombVertexDecomposition_8cxx"/>
+      </node>
+      <node id="1">
+        <label>ParticleHoleCoulombVertexDecomposition.hpp</label>
+        <link refid="ParticleHoleCoulombVertexDecomposition_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition" prot="public">sisi4s::ParticleHoleCoulombVertexDecomposition</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2016,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>PARTICLE_HOLE_COULOMB_VERTEX_DECOMPOSITION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARTICLE_HOLE_COULOMB_VERTEX_DECOMPOSITION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Algorithm_8hpp" kindref="compound">algorithms/Algorithm.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="RegularizedAlternatingLeastSquares_8hpp" kindref="compound">math/RegularizedAlternatingLeastSquares.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DryTensor_8hpp" kindref="compound">DryTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="20" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition" kindref="compound">ParticleHoleCoulombVertexDecomposition</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa0549ccf15e5fe66eaeff0582be1d68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" kindref="member">ALGORITHM_REGISTRAR_DECLARATION</ref>(<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition" kindref="compound">ParticleHoleCoulombVertexDecomposition</ref>);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab95941d5a1249ae3da6fcbb89fb3fd6e" kindref="member">ParticleHoleCoulombVertexDecomposition</ref>(</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a48c88eb2e101c9a0cb400473ecb2bf6f" kindref="member">~ParticleHoleCoulombVertexDecomposition</ref>();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" kindref="member">run</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a40fbdeb633e7771f3ef19466965f8000" kindref="member">dryRun</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a131f9285ac30dc0dbec1ecb496ae989e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a131f9285ac30dc0dbec1ecb496ae989e" kindref="member">rank</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ac42c46a7311c80653b0348c91a283236" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ac42c46a7311c80653b0348c91a283236" kindref="member">Delta</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abcd33f3408c67ad5008858a493c5eb82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abcd33f3408c67ad5008858a493c5eb82" kindref="member">epsilonStep</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a33f6baa440b743a3967455714c3be369" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a33f6baa440b743a3967455714c3be369" kindref="member">realFactorOrbitals</ref>;</highlight></codeline>
+<codeline lineno="58" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aad4247483449c8135d1358d7b6e3d8be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aad4247483449c8135d1358d7b6e3d8be" kindref="member">normalizedFactorOrbitals</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aeff64071606b820d65ea980b6419f8d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;complex&gt;<sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aeff64071606b820d65ea980b6419f8d0" kindref="member">GammaGai</ref>;</highlight></codeline>
+<codeline lineno="68" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a8c1279c2b043117ce665aeb7af7c5e26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;complex&gt;<sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a8c1279c2b043117ce665aeb7af7c5e26" kindref="member">Gamma0Gai</ref>;</highlight></codeline>
+<codeline lineno="72" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a60d43bb2eabab45890118a3e14caf755" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;complex&gt;<sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a60d43bb2eabab45890118a3e14caf755" kindref="member">PiiR</ref>;</highlight></codeline>
+<codeline lineno="77" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a337919c0838370e3a43de55b9147377d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;complex&gt;<sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a337919c0838370e3a43de55b9147377d" kindref="member">PiaR</ref>;</highlight></codeline>
+<codeline lineno="82" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad59fd2f50ce56aa0d97256fc887faba3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;complex&gt;<sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad59fd2f50ce56aa0d97256fc887faba3" kindref="member">LambdaGR</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator" kindref="compound">AlternatingLeastSquaresRegularizationEstimator</ref></highlight></codeline>
+<codeline lineno="91" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a84140e538a853e50a1fb38c90329e790" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a400d438fb8925bda39491d3807fa98a7" kindref="member">regularizationEstimatorPiiR</ref>,<sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a84140e538a853e50a1fb38c90329e790" kindref="member">regularizationEstimatorPiaR</ref>,</highlight></codeline>
+<codeline lineno="92" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a52bd7200e776c3a6b9a12b0d7a4a0100" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a52bd7200e776c3a6b9a12b0d7a4a0100" kindref="member">regularizationEstimatorLambdaGR</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1a12b71eef8adbe3fa289fb551999a17" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int64_t<sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1a12b71eef8adbe3fa289fb551999a17" kindref="member">DEFAULT_MAX_ITERATIONS</ref><sp/>=<sp/>32;</highlight></codeline>
+<codeline lineno="95" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a517a7b5783deb0b871c86bffe3fd8f11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a517a7b5783deb0b871c86bffe3fd8f11" kindref="member">DEFAULT_DELTA</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="96" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1aa5cb6f175ae21403518fe835f1d9a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1aa5cb6f175ae21403518fe835f1d9a6" kindref="member">DEFAULT_EPSILON_STEP</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="97" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a7c12c7f9ab42a82adf84b3af8a1d0938" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a7c12c7f9ab42a82adf84b3af8a1d0938" kindref="member">DEFAULT_SWAMPING_THRESHOLD</ref><sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="98" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a820111c7abb4e62898a958bde85f965e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a820111c7abb4e62898a958bde85f965e" kindref="member">DEFAULT_REGULARIZATION_FRICTION</ref><sp/>=<sp/>0.125;</highlight></codeline>
+<codeline lineno="99" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad8b15c278e2631f0b29f06c150526399" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad8b15c278e2631f0b29f06c150526399" kindref="member">DEFAULT_REAL_FACTOR_ORBITALS</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a53ed86b0c77aa9a460be64776bca1862" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a53ed86b0c77aa9a460be64776bca1862" kindref="member">DEFAULT_NORMALIZED_FACTOR_ORBITALS</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="103" refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab9a61b1b17494de51d4b8c6a65fac806" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab9a61b1b17494de51d4b8c6a65fac806" kindref="member">mp2Energy</ref>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" kindref="member">fit</ref>(int64_t<sp/>iterationsCount);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1d7aed53263c884eccb9c64c0cfcfd0a" kindref="member">dryFit</ref>(</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aeff64071606b820d65ea980b6419f8d0" kindref="member">GammaGai</ref>,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a337919c0838370e3a43de55b9147377d" kindref="member">PiaR</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a60d43bb2eabab45890118a3e14caf755" kindref="member">PiiR</ref>,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ad59fd2f50ce56aa0d97256fc887faba3" kindref="member">LambdaGR</ref>,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a8c1279c2b043117ce665aeb7af7c5e26" kindref="member">Gamma0Gai</ref></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaae154aa2544a2f07d611709210edf7e" kindref="member">normalizePi</ref>(CTF::Tensor&lt;complex&gt;<sp/>&amp;<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abb36b166b6e1c02e32edcc08f155e06f" kindref="member">realizePi</ref>(CTF::Tensor&lt;complex&gt;<sp/>&amp;<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa1e2c268f0caa1a362d7da3a3528944" kindref="member">evaluateMp2Error</ref>();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a2d64bea9206ccbf8349e7d515f9a7f5b" kindref="member">evaluateMp2</ref>(CTF::Tensor&lt;complex&gt;<sp/>&amp;Gamma);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a9ce049a099bb195ef13e8965457d1bce" kindref="member">dryEvaluateMp2</ref>(<ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>&amp;Gamma);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ParticleHoleCoulombVertexDecomposition.hpp"/>
+  </compounddef>
+</doxygen>

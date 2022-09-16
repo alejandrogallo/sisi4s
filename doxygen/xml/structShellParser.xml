@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structShellParser" kind="struct" language="C++" prot="public">
+    <compoundname>ShellParser</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structShellParser_1a43788583963f9257c2f38ed107b29926" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structpars_1_1Regex" kindref="compound">Regex</ref></type>
+        <definition>const Regex ShellParser::shell_symbol</definition>
+        <argsstring></argsstring>
+        <name>shell_symbol</name>
+        <qualifiedname>ShellParser::shell_symbol</qualifiedname>
+        <initializer>= <ref refid="namespacepars_1abf63d88b9d2972448bb8e2e8f3e86300" kindref="member">pars::oneOf</ref>({&quot;S&quot;, &quot;P&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;I&quot;, &quot;K&quot;})</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" line="72" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structShellParser_1af8a5825f5c78d2114312104c5d2219e9" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structpars_1_1Regex" kindref="compound">Regex</ref></type>
+        <definition>const Regex ShellParser::atom</definition>
+        <argsstring></argsstring>
+        <name>atom</name>
+        <qualifiedname>ShellParser::atom</qualifiedname>
+        <initializer>= <ref refid="namespacepars_1a8e4122733980cf5623d19f2ba68ccf12" kindref="member">pars::upper</ref> + <ref refid="namespacepars_1a020cf386310223423b06c230ee658c13" kindref="member">pars::lower</ref> + <ref refid="namespacepars_1a832dec230b6f898fda8c99bf54323d18" kindref="member">pars::optional</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" line="73" column="2" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structShellParser_1a0fd93fb86f4e83dbc0efcfa63848ed3d" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structpars_1_1Regex" kindref="compound">Regex</ref></type>
+        <definition>const Regex ShellParser::sep</definition>
+        <argsstring></argsstring>
+        <name>sep</name>
+        <qualifiedname>ShellParser::sep</qualifiedname>
+        <initializer>= <ref refid="namespacepars_1a1cce466723c30e92152dd3a9ede48df0" kindref="member">pars::blank</ref> + <ref refid="namespacepars_1a71161c67c796117fe14c18beb97b4de2" kindref="member">pars::oneOrMore</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" line="74" column="2" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structShellParser_1a68ac3a9fbc765070c8bf0650569cba1a" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structpars_1_1Regex" kindref="compound">Regex</ref></type>
+        <definition>const Regex ShellParser::shell</definition>
+        <argsstring></argsstring>
+        <name>shell</name>
+        <qualifiedname>ShellParser::shell</qualifiedname>
+        <initializer>= <ref refid="namespacepars_1a1cce466723c30e92152dd3a9ede48df0" kindref="member">pars::blank</ref> + <ref refid="namespacepars_1a6dd95daa3e3817a64dd5b6d4fff8d417" kindref="member">pars::anyOf</ref>
+                    
+                    + <ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">pars::capture</ref>(<ref refid="namespacepars_1aa92e8770e3c0ac070ea65b8e6f97dc65" kindref="member">pars::digit</ref> + <ref refid="namespacepars_1a71161c67c796117fe14c18beb97b4de2" kindref="member">pars::oneOrMore</ref>)
+                    
+                    + <ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">pars::capture</ref>(shell_symbol.s)
+                    + <ref refid="namespacepars_1a1cce466723c30e92152dd3a9ede48df0" kindref="member">pars::blank</ref> + <ref refid="namespacepars_1a6dd95daa3e3817a64dd5b6d4fff8d417" kindref="member">pars::anyOf</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" line="75" column="2" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" bodystart="75" bodyend="-1"/>
+        <referencedby refid="structShellParser_1a56f3162c870481b312406801f061ee68" compoundref="MoReader_8cxx" startline="84" endline="108">parseString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structShellParser_1a872fe339e7dbdfb28786db05b589346e" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structpars_1_1Regex" kindref="compound">Regex</ref></type>
+        <definition>const Regex ShellParser::basis_line</definition>
+        <argsstring></argsstring>
+        <name>basis_line</name>
+        <qualifiedname>ShellParser::basis_line</qualifiedname>
+        <initializer>= <ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">pars::capture</ref>(atom.s) + sep.s
+                         + <ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">pars::capture</ref>(<ref refid="namespacepars_1a56722e3642335e4646823756ceb888ca" kindref="member">pars::group</ref>(shell.s)+ <ref refid="namespacepars_1a71161c67c796117fe14c18beb97b4de2" kindref="member">pars::oneOrMore</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" line="81" column="2" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" bodystart="81" bodyend="-1"/>
+        <referencedby refid="structShellParser_1a56f3162c870481b312406801f061ee68" compoundref="MoReader_8cxx" startline="84" endline="108">parseString</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structShellParser_1a56f3162c870481b312406801f061ee68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">BasisSet</ref></type>
+        <definition>BasisSet ShellParser::parseString</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>parseString</name>
+        <qualifiedname>ShellParser::parseString</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" line="84" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" bodystart="84" bodyend="108"/>
+        <references refid="structShellParser_1a872fe339e7dbdfb28786db05b589346e" compoundref="MoReader_8cxx" startline="81">basis_line</references>
+        <references refid="namespaceam_1ac6b40085587bff5481ac689700436e24" compoundref="AngularMomentum_8cxx" startline="8" endline="14">am::fromString</references>
+        <references refid="structpars_1_1Regex_1a79e1cba281b5ea7efe06b5de947037ff" compoundref="Parsing_8hpp" startline="46">pars::Regex::r</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a3376046bb91bb0e6c548a5d9b7a4e31e" compoundref="AngularMomentum_8hpp" startline="8">am::S</references>
+        <references refid="structShellParser_1a68ac3a9fbc765070c8bf0650569cba1a" compoundref="MoReader_8cxx" startline="75">shell</references>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">CLI::detail::str</references>
+        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="144" endline="429">sisi4s::MoReader::run</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>ShellParser</label>
+        <link refid="structShellParser"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+atom</edgelabel>
+          <edgelabel>+basis_line</edgelabel>
+          <edgelabel>+sep</edgelabel>
+          <edgelabel>+shell</edgelabel>
+          <edgelabel>+shell_symbol</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>pars::Regex</label>
+        <link refid="structpars_1_1Regex"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" line="71" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/MoReader.cxx" bodystart="71" bodyend="109"/>
+    <listofallmembers>
+      <member refid="structShellParser_1af8a5825f5c78d2114312104c5d2219e9" prot="public" virt="non-virtual"><scope>ShellParser</scope><name>atom</name></member>
+      <member refid="structShellParser_1a872fe339e7dbdfb28786db05b589346e" prot="public" virt="non-virtual"><scope>ShellParser</scope><name>basis_line</name></member>
+      <member refid="structShellParser_1a56f3162c870481b312406801f061ee68" prot="public" virt="non-virtual"><scope>ShellParser</scope><name>parseString</name></member>
+      <member refid="structShellParser_1a0fd93fb86f4e83dbc0efcfa63848ed3d" prot="public" virt="non-virtual"><scope>ShellParser</scope><name>sep</name></member>
+      <member refid="structShellParser_1a68ac3a9fbc765070c8bf0650569cba1a" prot="public" virt="non-virtual"><scope>ShellParser</scope><name>shell</name></member>
+      <member refid="structShellParser_1a43788583963f9257c2f38ed107b29926" prot="public" virt="non-virtual"><scope>ShellParser</scope><name>shell_symbol</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

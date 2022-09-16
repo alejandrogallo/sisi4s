@@ -1,0 +1,415 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structCoulombIntegralsProvider" kind="struct" language="C++" prot="public">
+    <compoundname>CoulombIntegralsProvider</compoundname>
+    <innerclass refid="structCoulombIntegralsProvider_1_1IndexRange" prot="public">CoulombIntegralsProvider::IndexRange</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structCoulombIntegralsProvider_1a7c5d559c7d5691b5c4a527825460eed0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Distribution</name>
+        <qualifiedname>CoulombIntegralsProvider::Distribution</qualifiedname>
+        <enumvalue id="structCoulombIntegralsProvider_1a7c5d559c7d5691b5c4a527825460eed0af44a936a7655d3121ebef3c741ea7002" prot="public">
+          <name>SIMPLE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structCoulombIntegralsProvider_1a7c5d559c7d5691b5c4a527825460eed0af607658570920d6b9eac830130ef9af1" prot="public">
+          <name>ROUND_ROBIN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="42" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="42" bodyend="42"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1adc32b73502ed6220879ceb306b8db07a" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t CoulombIntegralsProvider::maxSize</definition>
+        <argsstring></argsstring>
+        <name>maxSize</name>
+        <qualifiedname>CoulombIntegralsProvider::maxSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="472" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="472" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1ae8157cf793e81c91a65f9aa5c7144bd6" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t CoulombIntegralsProvider::Np</definition>
+        <argsstring></argsstring>
+        <name>Np</name>
+        <qualifiedname>CoulombIntegralsProvider::Np</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="473" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="473" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1ab9217e6d3f1567cba84d736982dd73e1" prot="private" static="no" mutable="no">
+        <type>const <ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">libint2::BasisSet</ref> &amp;</type>
+        <definition>const libint2::BasisSet&amp; CoulombIntegralsProvider::shells</definition>
+        <argsstring></argsstring>
+        <name>shells</name>
+        <qualifiedname>CoulombIntegralsProvider::shells</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="474" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="474" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1ac37f036ffa035847ecbaa0e38efaa1e8" prot="private" static="no" mutable="no">
+        <type>const <ref refid="CoulombIntegralsFromGaussian_8cxx_1a0d4ce2c79ed096239916cdad4fee0f5d" kindref="member">Operator</ref></type>
+        <definition>const Operator CoulombIntegralsProvider::op</definition>
+        <argsstring></argsstring>
+        <name>op</name>
+        <qualifiedname>CoulombIntegralsProvider::op</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="475" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="475" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1a1688628290586234e8af1fe87a1b9a57" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; size_t &gt;</type>
+        <definition>std::vector&lt;size_t&gt; CoulombIntegralsProvider::mpiShells</definition>
+        <argsstring></argsstring>
+        <name>mpiShells</name>
+        <qualifiedname>CoulombIntegralsProvider::mpiShells</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="476" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="476" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1a45b448f061f1db903e9ef8035b4cc295" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; size_t &gt;</type>
+        <definition>std::vector&lt;size_t&gt; CoulombIntegralsProvider::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <qualifiedname>CoulombIntegralsProvider::offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="477" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="477" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1a6cffdcd629dd769dffda6abd5aa4844e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; CoulombIntegralsProvider::Vklmn</definition>
+        <argsstring></argsstring>
+        <name>Vklmn</name>
+        <qualifiedname>CoulombIntegralsProvider::Vklmn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="478" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="478" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1a8473bbdb922dea41fe389733de00d893" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int64_t &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int64_t&gt; &gt; CoulombIntegralsProvider::ctfIndices</definition>
+        <argsstring></argsstring>
+        <name>ctfIndices</name>
+        <qualifiedname>CoulombIntegralsProvider::ctfIndices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="479" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="479" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1a6cf48bb9778925c1435a64889747185b" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t CoulombIntegralsProvider::maxElementsWrite</definition>
+        <argsstring></argsstring>
+        <name>maxElementsWrite</name>
+        <qualifiedname>CoulombIntegralsProvider::maxElementsWrite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="481" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="481" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1a997bb6a895986ca8d744e20c1ac69536" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t CoulombIntegralsProvider::maxShellNbf</definition>
+        <argsstring></argsstring>
+        <name>maxShellNbf</name>
+        <qualifiedname>CoulombIntegralsProvider::maxShellNbf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="483" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="483" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1aa6f8b5463180833fcf17e26b0cead835" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t CoulombIntegralsProvider::maxShellElements</definition>
+        <argsstring></argsstring>
+        <name>maxShellElements</name>
+        <qualifiedname>CoulombIntegralsProvider::maxShellElements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="484" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="484" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCoulombIntegralsProvider_1a17c47da6233f09d908932b29c3283505" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t CoulombIntegralsProvider::writesPerShell</definition>
+        <argsstring></argsstring>
+        <name>writesPerShell</name>
+        <qualifiedname>CoulombIntegralsProvider::writesPerShell</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="485" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="485" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structCoulombIntegralsProvider_1af2daf5bcd77738efe6cffb1fd40eabbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CoulombIntegralsProvider::CoulombIntegralsProvider</definition>
+        <argsstring>(const libint2::BasisSet &amp;shells_, const Operator op_, const Distribution d, const size_t maxElementsWrite_)</argsstring>
+        <name>CoulombIntegralsProvider</name>
+        <qualifiedname>CoulombIntegralsProvider::CoulombIntegralsProvider</qualifiedname>
+        <param>
+          <type>const <ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">libint2::BasisSet</ref> &amp;</type>
+          <declname>shells_</declname>
+        </param>
+        <param>
+          <type>const <ref refid="CoulombIntegralsFromGaussian_8cxx_1a0d4ce2c79ed096239916cdad4fee0f5d" kindref="member">Operator</ref></type>
+          <declname>op_</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structCoulombIntegralsProvider_1a7c5d559c7d5691b5c4a527825460eed0" kindref="member">Distribution</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>const size_t</type>
+          <declname>maxElementsWrite_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="43" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="43" bodyend="111"/>
+        <references refid="structCoulombIntegralsProvider_1a8df812f1629b44e584240c394eddf730" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="113" endline="120">doRoundRobinDistribution</references>
+        <references refid="structCoulombIntegralsProvider_1a1f722245277ca761c4910a53665ff492" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="122" endline="146">doSimpleDistribution</references>
+        <references refid="CoulombIntegralsFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="19">LOGGER</references>
+        <references refid="structCoulombIntegralsProvider_1a7c5d559c7d5691b5c4a527825460eed0af44a936a7655d3121ebef3c741ea7002" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="42">SIMPLE</references>
+      </memberdef>
+      <memberdef kind="function" id="structCoulombIntegralsProvider_1a8df812f1629b44e584240c394eddf730" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsProvider::doRoundRobinDistribution</definition>
+        <argsstring>()</argsstring>
+        <name>doRoundRobinDistribution</name>
+        <qualifiedname>CoulombIntegralsProvider::doRoundRobinDistribution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="113" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="113" bodyend="120"/>
+        <referencedby refid="structCoulombIntegralsProvider_1af2daf5bcd77738efe6cffb1fd40eabbb" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="43" endline="111">CoulombIntegralsProvider</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structCoulombIntegralsProvider_1a1f722245277ca761c4910a53665ff492" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsProvider::doSimpleDistribution</definition>
+        <argsstring>()</argsstring>
+        <name>doSimpleDistribution</name>
+        <qualifiedname>CoulombIntegralsProvider::doSimpleDistribution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="122" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="122" bodyend="146"/>
+        <references refid="CoulombIntegralsFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="19">LOGGER</references>
+        <referencedby refid="structCoulombIntegralsProvider_1af2daf5bcd77738efe6cffb1fd40eabbb" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="43" endline="111">CoulombIntegralsProvider</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structCoulombIntegralsProvider_1ad79a86c683f1422994012c531e91f454" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsProvider::compute</definition>
+        <argsstring>()</argsstring>
+        <name>compute</name>
+        <qualifiedname>CoulombIntegralsProvider::compute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="148" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="148" bodyend="217"/>
+        <references refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" compoundref="MovecsParser_8hpp" startline="13">_L</references>
+        <references refid="structShellInfo_1a563de1b11e3b8e573c62881ad2d933d4" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="31">ShellInfo::begin</references>
+        <references refid="structShellInfo_1a4a69c46d2eb8b465244b1abecca68649" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="31">ShellInfo::end</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408aa4b003a0a471bcce11f0a0f622366799" compoundref="AngularMomentum_8hpp" startline="9">am::K</references>
+        <references refid="CoulombIntegralsFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="19">LOGGER</references>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structCoulombIntegralsProvider_1a33ac14abe6e04a3f30a58dfdfa441943" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsProvider::computeHalfContract</definition>
+        <argsstring>(size_t No, CTF::Tensor&lt; double &gt; *coeff)</argsstring>
+        <name>computeHalfContract</name>
+        <qualifiedname>CoulombIntegralsProvider::computeHalfContract</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>No</declname>
+        </param>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; *</type>
+          <declname>coeff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="219" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="219" bodyend="355"/>
+        <references refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" compoundref="MovecsParser_8hpp" startline="13">_L</references>
+        <references refid="structShellInfo_1a563de1b11e3b8e573c62881ad2d933d4" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="31">ShellInfo::begin</references>
+        <references refid="structShellInfo_1a4a69c46d2eb8b465244b1abecca68649" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="31">ShellInfo::end</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408aa4b003a0a471bcce11f0a0f622366799" compoundref="AngularMomentum_8hpp" startline="9">am::K</references>
+        <references refid="CoulombIntegralsFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="19">LOGGER</references>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structCoulombIntegralsProvider_1aa8786317559653a48e641690dc06fc82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structCoulombIntegralsProvider_1_1IndexRange" kindref="compound">IndexRange</ref> &gt;</type>
+        <definition>std::vector&lt; IndexRange &gt; CoulombIntegralsProvider::getWriteRangesForShell</definition>
+        <argsstring>(size_t i)</argsstring>
+        <name>getWriteRangesForShell</name>
+        <qualifiedname>CoulombIntegralsProvider::getWriteRangesForShell</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="362" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="362" bodyend="388"/>
+        <referencedby refid="structCoulombIntegralsProvider_1a11805d486a8047b18fa35f7aa009d792" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="390" endline="431">write</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structCoulombIntegralsProvider_1a11805d486a8047b18fa35f7aa009d792" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsProvider::write</definition>
+        <argsstring>(CTF::Tensor&lt; double &gt; *t)</argsstring>
+        <name>write</name>
+        <qualifiedname>CoulombIntegralsProvider::write</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="390" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="390" bodyend="431"/>
+        <references refid="structCoulombIntegralsProvider_1aa8786317559653a48e641690dc06fc82" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="362" endline="388">getWriteRangesForShell</references>
+        <references refid="CoulombIntegralsFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="19">LOGGER</references>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structCoulombIntegralsProvider_1ac09dc8e459fc11c652f064f878540e23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsProvider::readHalfContract</definition>
+        <argsstring>(CTF::Tensor&lt; double &gt; *t)</argsstring>
+        <name>readHalfContract</name>
+        <qualifiedname>CoulombIntegralsProvider::readHalfContract</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="433" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="433" bodyend="466"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CoulombIntegralsProvider</label>
+        <link refid="structCoulombIntegralsProvider"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="41" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="41" bodyend="487"/>
+    <listofallmembers>
+      <member refid="structCoulombIntegralsProvider_1ad79a86c683f1422994012c531e91f454" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>compute</name></member>
+      <member refid="structCoulombIntegralsProvider_1a33ac14abe6e04a3f30a58dfdfa441943" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>computeHalfContract</name></member>
+      <member refid="structCoulombIntegralsProvider_1af2daf5bcd77738efe6cffb1fd40eabbb" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>CoulombIntegralsProvider</name></member>
+      <member refid="structCoulombIntegralsProvider_1a8473bbdb922dea41fe389733de00d893" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>ctfIndices</name></member>
+      <member refid="structCoulombIntegralsProvider_1a7c5d559c7d5691b5c4a527825460eed0" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>Distribution</name></member>
+      <member refid="structCoulombIntegralsProvider_1a8df812f1629b44e584240c394eddf730" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>doRoundRobinDistribution</name></member>
+      <member refid="structCoulombIntegralsProvider_1a1f722245277ca761c4910a53665ff492" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>doSimpleDistribution</name></member>
+      <member refid="structCoulombIntegralsProvider_1aa8786317559653a48e641690dc06fc82" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>getWriteRangesForShell</name></member>
+      <member refid="structCoulombIntegralsProvider_1a6cf48bb9778925c1435a64889747185b" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>maxElementsWrite</name></member>
+      <member refid="structCoulombIntegralsProvider_1aa6f8b5463180833fcf17e26b0cead835" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>maxShellElements</name></member>
+      <member refid="structCoulombIntegralsProvider_1a997bb6a895986ca8d744e20c1ac69536" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>maxShellNbf</name></member>
+      <member refid="structCoulombIntegralsProvider_1adc32b73502ed6220879ceb306b8db07a" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>maxSize</name></member>
+      <member refid="structCoulombIntegralsProvider_1a1688628290586234e8af1fe87a1b9a57" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>mpiShells</name></member>
+      <member refid="structCoulombIntegralsProvider_1ae8157cf793e81c91a65f9aa5c7144bd6" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>Np</name></member>
+      <member refid="structCoulombIntegralsProvider_1a45b448f061f1db903e9ef8035b4cc295" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>offset</name></member>
+      <member refid="structCoulombIntegralsProvider_1ac37f036ffa035847ecbaa0e38efaa1e8" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>op</name></member>
+      <member refid="structCoulombIntegralsProvider_1ac09dc8e459fc11c652f064f878540e23" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>readHalfContract</name></member>
+      <member refid="structCoulombIntegralsProvider_1a7c5d559c7d5691b5c4a527825460eed0af607658570920d6b9eac830130ef9af1" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>ROUND_ROBIN</name></member>
+      <member refid="structCoulombIntegralsProvider_1ab9217e6d3f1567cba84d736982dd73e1" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>shells</name></member>
+      <member refid="structCoulombIntegralsProvider_1a7c5d559c7d5691b5c4a527825460eed0af44a936a7655d3121ebef3c741ea7002" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>SIMPLE</name></member>
+      <member refid="structCoulombIntegralsProvider_1a6cffdcd629dd769dffda6abd5aa4844e" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>Vklmn</name></member>
+      <member refid="structCoulombIntegralsProvider_1a11805d486a8047b18fa35f7aa009d792" prot="public" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>write</name></member>
+      <member refid="structCoulombIntegralsProvider_1a17c47da6233f09d908932b29c3283505" prot="private" virt="non-virtual"><scope>CoulombIntegralsProvider</scope><name>writesPerShell</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

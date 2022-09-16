@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="ScaLapackMatrix_8hpp" kind="file" language="C++">
+    <compoundname>ScaLapackMatrix.hpp</compoundname>
+    <includes refid="BlacsWorld_8hpp" local="no">util/BlacsWorld.hpp</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includedby refid="CoulombVertexSingularVectors_8cxx" local="no">CoulombVertexSingularVectors.cxx</includedby>
+    <includedby refid="DoublesAmplitudesDecomposition_8cxx" local="no">DoublesAmplitudesDecomposition.cxx</includedby>
+    <includedby refid="ParticleHoleCoulombVertexSingularVectors_8cxx" local="no">ParticleHoleCoulombVertexSingularVectors.cxx</includedby>
+    <includedby refid="PseudoInverseHermitianSvd_8cxx" local="no">PseudoInverseHermitianSvd.cxx</includedby>
+    <includedby refid="PseudoInverseSvd_8cxx" local="no">PseudoInverseSvd.cxx</includedby>
+    <includedby refid="ScaLapackHermitianEigenSystem_8hpp" local="no">ScaLapackHermitianEigenSystem.hpp</includedby>
+    <includedby refid="ScaLapackHermitianEigenSystemDc_8hpp" local="no">ScaLapackHermitianEigenSystemDc.hpp</includedby>
+    <includedby refid="ScaLapackMatrix_8cxx" local="no">ScaLapackMatrix.cxx</includedby>
+    <includedby refid="ScaLapackSingularValueDecomposition_8hpp" local="no">ScaLapackSingularValueDecomposition.hpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>util/BlacsWorld.hpp</label>
+        <link refid="BlacsWorld_8hpp"/>
+      </node>
+      <node id="3">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ScaLapackMatrix.hpp</label>
+        <link refid="ScaLapackMatrix_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ctf.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>CoulombVertexSingularVectors.cxx</label>
+        <link refid="CoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="3">
+        <label>DoublesAmplitudesDecomposition.cxx</label>
+        <link refid="DoublesAmplitudesDecomposition_8cxx"/>
+      </node>
+      <node id="4">
+        <label>ParticleHoleCoulombVertexSingularVectors.cxx</label>
+        <link refid="ParticleHoleCoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="5">
+        <label>PseudoInverseHermitianSvd.cxx</label>
+        <link refid="PseudoInverseHermitianSvd_8cxx"/>
+      </node>
+      <node id="6">
+        <label>PseudoInverseSvd.cxx</label>
+        <link refid="PseudoInverseSvd_8cxx"/>
+      </node>
+      <node id="7">
+        <label>ScaLapackHermitianEigenSystem.hpp</label>
+        <link refid="ScaLapackHermitianEigenSystem_8hpp"/>
+      </node>
+      <node id="8">
+        <label>ScaLapackHermitianEigenSystemDc.hpp</label>
+        <link refid="ScaLapackHermitianEigenSystemDc_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>ScaLapackMatrix.cxx</label>
+        <link refid="ScaLapackMatrix_8cxx"/>
+      </node>
+      <node id="1">
+        <label>ScaLapackMatrix.hpp</label>
+        <link refid="ScaLapackMatrix_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>ScaLapackSingularValueDecomposition.hpp</label>
+        <link refid="ScaLapackSingularValueDecomposition_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1ScaLapackDescriptor" prot="public">sisi4s::ScaLapackDescriptor</innerclass>
+    <innerclass refid="classsisi4s_1_1ScaLapackMatrix" prot="public">sisi4s::ScaLapackMatrix</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2016,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SCA_LAPACK_MATRIX_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCA_LAPACK_MATRIX_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="BlacsWorld_8hpp" kindref="compound">util/BlacsWorld.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="9" refid="classsisi4s_1_1ScaLapackDescriptor" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackDescriptor" kindref="compound">ScaLapackDescriptor</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a504c665e16ce96bf271d4adf81d3634f" kindref="member">ScaLapackDescriptor</ref>(<ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens_[2],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a86ec3dd5c5d2e042de5711e5c21c3a74" kindref="member">blockSize</ref>);</highlight></codeline>
+<codeline lineno="12" refid="classsisi4s_1_1ScaLapackDescriptor_1a636d1b470ac27033f5dcb38a5f06e54c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a636d1b470ac27033f5dcb38a5f06e54c" kindref="member">dataType</ref>;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>1<sp/>for<sp/>dense<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="classsisi4s_1_1ScaLapackDescriptor_1a9c6b43e51a9a6e200859a81cc73483e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a9c6b43e51a9a6e200859a81cc73483e6" kindref="member">blacsContext</ref>;</highlight></codeline>
+<codeline lineno="14" refid="classsisi4s_1_1ScaLapackDescriptor_1ab895910fe3d39be1e9d529d58cece907" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab895910fe3d39be1e9d529d58cece907" kindref="member">lens</ref>[2];</highlight></codeline>
+<codeline lineno="15" refid="classsisi4s_1_1ScaLapackDescriptor_1a86ec3dd5c5d2e042de5711e5c21c3a74" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a86ec3dd5c5d2e042de5711e5c21c3a74" kindref="member">blockSize</ref>[2];</highlight></codeline>
+<codeline lineno="16" refid="classsisi4s_1_1ScaLapackDescriptor_1ab46d8269b88725c3b2e18f1b97a505a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab46d8269b88725c3b2e18f1b97a505a2" kindref="member">offset</ref>[2];</highlight></codeline>
+<codeline lineno="17" refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[2];<sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>assumes<sp/>column<sp/>major<sp/>format</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>the<sp/>last<sp/>element<sp/>localLens[1]=number<sp/>of<sp/>local<sp/>columns</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>is<sp/>actually<sp/>not<sp/>part<sp/>of<sp/>the<sp/>scalapack<sp/>descriptor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="23" refid="classsisi4s_1_1ScaLapackMatrix" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor" kindref="compound">ScaLapackDescriptor</ref><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix</ref>(<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref><sp/>&amp;A);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix</ref>(</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Matrix&lt;F&gt;<sp/>&amp;A,<sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*<ref refid="classsisi4s_1_1ScaLapackMatrix_1a7297e85d9e8d57a48c6c73b2ea43c6f2" kindref="member">blacsWorld</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a86ec3dd5c5d2e042de5711e5c21c3a74" kindref="member">blockSize</ref><sp/>=<sp/>64</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix</ref>(</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;A,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab895910fe3d39be1e9d529d58cece907" kindref="member">lens</ref>[2],<sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*<ref refid="classsisi4s_1_1ScaLapackMatrix_1a7297e85d9e8d57a48c6c73b2ea43c6f2" kindref="member">blacsWorld</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a86ec3dd5c5d2e042de5711e5c21c3a74" kindref="member">blockSize</ref><sp/>=<sp/>64</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" kindref="member">~ScaLapackMatrix</ref>();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="classsisi4s_1_1ScaLapackMatrix_1a5dfe0272ad96e2f06ad062f970268331" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="classsisi4s_1_1ScaLapackMatrix_1a5dfe0272ad96e2f06ad062f970268331" kindref="member">getDescriptor</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;<ref refid="classsisi4s_1_1ScaLapackDescriptor_1a636d1b470ac27033f5dcb38a5f06e54c" kindref="member">dataType</ref>;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="classsisi4s_1_1ScaLapackMatrix_1acb1fdd23f443bdaf48e0ee6a53e00c97" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*<ref refid="classsisi4s_1_1ScaLapackMatrix_1acb1fdd23f443bdaf48e0ee6a53e00c97" kindref="member">getLocalValues</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" kindref="member">localValues</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="classsisi4s_1_1ScaLapackMatrix_1aceb1286acf884889bbf1888b35bc55da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*<ref refid="classsisi4s_1_1ScaLapackMatrix_1aceb1286acf884889bbf1888b35bc55da" kindref="member">getLocalValues</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" kindref="member">localValues</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">write</ref>(CTF::Matrix&lt;F&gt;<sp/>&amp;A);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">write</ref>(CTF::Tensor&lt;F&gt;<sp/>&amp;A);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" kindref="member">getGlobalIndex</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localIndex,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimension);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="classsisi4s_1_1ScaLapackMatrix_1a7297e85d9e8d57a48c6c73b2ea43c6f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*<ref refid="classsisi4s_1_1ScaLapackMatrix_1a7297e85d9e8d57a48c6c73b2ea43c6f2" kindref="member">blacsWorld</ref>;</highlight></codeline>
+<codeline lineno="107" refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>*<ref refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" kindref="member">localIndices</ref>;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*<ref refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" kindref="member">localValues</ref>;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp"/>
+  </compounddef>
+</doxygen>

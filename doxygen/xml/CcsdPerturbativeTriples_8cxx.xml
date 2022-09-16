@@ -1,0 +1,662 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="CcsdPerturbativeTriples_8cxx" kind="file" language="C++">
+    <compoundname>CcsdPerturbativeTriples.cxx</compoundname>
+    <includes refid="CcsdPerturbativeTriples_8hpp" local="no">algorithms/CcsdPerturbativeTriples.hpp</includes>
+    <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
+    <includes refid="ComplexTensor_8hpp" local="no">math/ComplexTensor.hpp</includes>
+    <includes refid="MathFunctions_8hpp" local="no">math/MathFunctions.hpp</includes>
+    <includes refid="Permutation_8hpp" local="no">math/Permutation.hpp</includes>
+    <includes refid="DryTensor_8hpp" local="no">DryTensor.hpp</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
+    <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CcsdPerturbativeTriples.cxx</label>
+        <link refid="CcsdPerturbativeTriples_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/CcsdPerturbativeTriples.hpp</label>
+        <link refid="CcsdPerturbativeTriples_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>math/ComplexTensor.hpp</label>
+        <link refid="ComplexTensor_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>math/Permutation.hpp</label>
+        <link refid="Permutation_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>util/SlicedCtfTensor.hpp</label>
+        <link refid="SlicedCtfTensor_8hpp"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>util/SourceLocation.hpp</label>
+        <link refid="SourceLocation_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="19">
+        <label>complex</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="23">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="7">
+        <label>ctime</label>
+      </node>
+      <node id="47">
+        <label>exception</label>
+      </node>
+      <node id="16">
+        <label>fstream</label>
+      </node>
+      <node id="36">
+        <label>functional</label>
+      </node>
+      <node id="26">
+        <label>initializer_list</label>
+      </node>
+      <node id="10">
+        <label>iomanip</label>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="44">
+        <label>iterator</label>
+      </node>
+      <node id="46">
+        <label>limits</label>
+      </node>
+      <node id="40">
+        <label>locale</label>
+      </node>
+      <node id="20">
+        <label>map</label>
+      </node>
+      <node id="35">
+        <label>memory</label>
+      </node>
+      <node id="37">
+        <label>numeric</label>
+      </node>
+      <node id="9">
+        <label>ostream</label>
+      </node>
+      <node id="42">
+        <label>set</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="45">
+        <label>stdexcept</label>
+      </node>
+      <node id="15">
+        <label>streambuf</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="48">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="49">
+        <label>sys/types.h</label>
+      </node>
+      <node id="38">
+        <label>tuple</label>
+      </node>
+      <node id="43">
+        <label>type_traits</label>
+      </node>
+      <node id="39">
+        <label>utility</label>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CcsdPerturbativeTriples_8hpp" kindref="compound">algorithms/CcsdPerturbativeTriples.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ComplexTensor_8hpp" kindref="compound">math/ComplexTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MathFunctions_8hpp" kindref="compound">math/MathFunctions.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Permutation_8hpp" kindref="compound">math/Permutation.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DryTensor_8hpp" kindref="compound">DryTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">CTF;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1CcsdPerturbativeTriples" kindref="compound">CcsdPerturbativeTriples</ref>);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classsisi4s_1_1CcsdPerturbativeTriples_1a73e3979f2f3e9a32aafd44da6e399778" refkind="member"><highlight class="normal">CcsdPerturbativeTriples::CcsdPerturbativeTriples(</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="classsisi4s_1_1CcsdPerturbativeTriples_1a95da12ac6ef056d6d168947f2c7aa04b" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a95da12ac6ef056d6d168947f2c7aa04b" kindref="member">CcsdPerturbativeTriples::~CcsdPerturbativeTriples</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="27" refid="namespacesisi4s_1a3e0e5db8049adce93ba9fc38d7aaeb7f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="namespacesisi4s_1a3e0e5db8049adce93ba9fc38d7aaeb7f" kindref="member">operator *</ref>(</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;s,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">sisi4s::Permutation&lt;N&gt;</ref><sp/>&amp;pi</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>sPi(s);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>sPi[i]<sp/>=<sp/>s[pi(i)];</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sPi;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classsisi4s_1_1CcsdPerturbativeTriples_1a91a20736900b7a0c000ff7352ef38301" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a91a20736900b7a0c000ff7352ef38301" kindref="member">CcsdPerturbativeTriples::sliceTensors</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slice<sp/>Tai<sp/>in<sp/>dimension<sp/>1,<sp/>i.e.<sp/>in<sp/>i</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a79e90a2c4873717ccf83044f72d3375f" kindref="member">Tai</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor&lt;&gt;</ref>(</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;CcsdSinglesAmplitudes&quot;</highlight><highlight class="normal">),<sp/>{1}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slice<sp/>Tabij<sp/>in<sp/>dimension<sp/>2&amp;3,<sp/>i.e.<sp/>in<sp/>i,j</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a421f60764b6421f46b6cf5f4fdcf092a" kindref="member">Tabij</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor&lt;&gt;</ref>(</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;CcsdDoublesAmplitudes&quot;</highlight><highlight class="normal">),<sp/>{2,3}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slice<sp/>Tabil<sp/>in<sp/>dimension<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a7e8ba71faab8990fc587d94df780fafd" kindref="member">Tabil</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor&lt;&gt;</ref>(</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;CcsdDoublesAmplitudes&quot;</highlight><highlight class="normal">),<sp/>{2}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slice<sp/>Vabij<sp/>in<sp/>dimension<sp/>2&amp;3,<sp/>i.e.<sp/>in<sp/>i,j</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a2812477f0393e82a41eaf0bb18de2fd1" kindref="member">Vabij</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor&lt;&gt;</ref>(</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;PPHHCoulombIntegrals&quot;</highlight><highlight class="normal">),<sp/>{2,3}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slice<sp/>Vijla<sp/>in<sp/>dimension<sp/>0&amp;1,<sp/>i.e.<sp/>in<sp/>i,j</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1ad30432c3c10a5d733f198092415c8acb" kindref="member">Vijla</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor&lt;&gt;</ref>(</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HHHPCoulombIntegrals&quot;</highlight><highlight class="normal">),<sp/>{0,1}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*GammaFqr(getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;CoulombVertex&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocate<sp/>and<sp/>compute<sp/>GammaFab,GammaFai<sp/>from<sp/>GammaFqr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NF(GammaFqr-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(GammaFqr-&gt;lens[1]);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iStart(0),<sp/>iEnd(<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1af8c320ca94959d485626008e0e5cc216" kindref="member">No</ref>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>aStart(Np-<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4030bc1537cf03327299e36e9d1540e7" kindref="member">Nv</ref>),<sp/>aEnd(Np);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>FaiStart[]<sp/>=<sp/>{<sp/>0,<sp/>aStart,<sp/>iStart};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>FaiEnd[]<sp/>=<sp/>{<sp/>NF,<sp/>aEnd,<sp/>iEnd<sp/>};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>FabStart[]<sp/>=<sp/>{<sp/>0,<sp/>aStart,<sp/>aStart<sp/>};</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>FabEnd[]<sp/>=<sp/>{<sp/>NF,<sp/>aEnd,<sp/>aEnd<sp/>};</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>GammaFai(GammaFqr-&gt;slice(FaiStart,FaiEnd));</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>GammaFab(GammaFqr-&gt;slice(FabStart,FabEnd));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Split<sp/>GammaFai,GammaFab<sp/>into<sp/>real<sp/>and<sp/>imaginary<sp/>parts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>unslicedRealGammaFai(</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>3,<sp/>GammaFai.lens,<sp/>GammaFai.sym,<sp/>*GammaFai.wrld,<sp/></highlight><highlight class="stringliteral">&quot;RealGammaFai&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>unslicedImagGammaFai(unslicedRealGammaFai);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a77d868359a18a73cfe184f25fad2f59b" kindref="member">fromComplexTensor</ref>(GammaFai,<sp/>unslicedRealGammaFai,<sp/>unslicedImagGammaFai);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slice<sp/>real<sp/>and<sp/>imag<sp/>GammaFai<sp/>in<sp/>dimension<sp/>2,<sp/>i.e.<sp/>in<sp/>i</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4717dc37b9ecee54078760427058ceb5" kindref="member">realGammaFai</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor&lt;&gt;</ref>(unslicedRealGammaFai,<sp/>{2});</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a0495cf272219de2428ff056f532f753e" kindref="member">imagGammaFai</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor&lt;&gt;</ref>(unslicedImagGammaFai,<sp/>{2});</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1aba3f1cd2a9a85f5b914b2b7f45b48a44" kindref="member">realGammaFab</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref>(</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>3,<sp/>GammaFab.lens,<sp/>GammaFab.sym,<sp/>*GammaFab.wrld,<sp/></highlight><highlight class="stringliteral">&quot;RealGammaFab&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1adaddc234fbe533465753520d2f23de37" kindref="member">imagGammaFab</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref>(*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1aba3f1cd2a9a85f5b914b2b7f45b48a44" kindref="member">realGammaFab</ref>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a77d868359a18a73cfe184f25fad2f59b" kindref="member">fromComplexTensor</ref>(GammaFab,<sp/>*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1aba3f1cd2a9a85f5b914b2b7f45b48a44" kindref="member">realGammaFab</ref>,<sp/>*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1adaddc234fbe533465753520d2f23de37" kindref="member">imagGammaFab</ref>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="classsisi4s_1_1CcsdPerturbativeTriples_1acb38067174ce6880742a30cb37cbca41" refkind="member"><highlight class="normal"><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>&amp;<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1acb38067174ce6880742a30cb37cbca41" kindref="member">CcsdPerturbativeTriples::getSinglesContribution</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map&lt;3&gt;</ref><sp/>&amp;i)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>(*SVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.5<sp/>*<sp/>(*Tai)({i(0)})[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a2812477f0393e82a41eaf0bb18de2fd1" kindref="member">Vabij</ref>)({i(1),i(2)})[</highlight><highlight class="stringliteral">&quot;bcjk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a26a4b80eae6bf6520fd9296780a53718" kindref="member">SVabc</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="classsisi4s_1_1CcsdPerturbativeTriples_1aaaf5f1a91137fba3a7fdcdef9df4f475" refkind="member"><highlight class="normal"><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>&amp;<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1aaaf5f1a91137fba3a7fdcdef9df4f475" kindref="member">CcsdPerturbativeTriples::getDoublesContribution</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map&lt;3&gt;</ref><sp/>&amp;i)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>(*SVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>=</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>(*Tabij)({i(0),i(1)})[</highlight><highlight class="stringliteral">&quot;adij&quot;</highlight><highlight class="normal">]<sp/>*</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>(*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1aba3f1cd2a9a85f5b914b2b7f45b48a44" kindref="member">realGammaFab</ref>)[</highlight><highlight class="stringliteral">&quot;Fbd&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*realGammaFai)({i(2)})[</highlight><highlight class="stringliteral">&quot;Fck&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>(*SVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>+=</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>(*Tabij)({i(0),i(1)})[</highlight><highlight class="stringliteral">&quot;adij&quot;</highlight><highlight class="normal">]<sp/>*</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>(*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1adaddc234fbe533465753520d2f23de37" kindref="member">imagGammaFab</ref>)[</highlight><highlight class="stringliteral">&quot;Fbd&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*imagGammaFai)({i(2)})[</highlight><highlight class="stringliteral">&quot;Fck&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>(*SVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>-=<sp/>(*Tabil)({i(0)})[</highlight><highlight class="stringliteral">&quot;abil&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1ad30432c3c10a5d733f198092415c8acb" kindref="member">Vijla</ref>)({i(1),i(2)})[</highlight><highlight class="stringliteral">&quot;jklc&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a26a4b80eae6bf6520fd9296780a53718" kindref="member">SVabc</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="classsisi4s_1_1CcsdPerturbativeTriples_1a05fb0f395dd5f995f16b7285021ab4d6" refkind="member"><highlight class="normal"><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>&amp;<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a05fb0f395dd5f995f16b7285021ab4d6" kindref="member">CcsdPerturbativeTriples::getEnergyDenominator</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map&lt;3&gt;</ref><sp/>&amp;i)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>reuse<sp/>SVabc<sp/>to<sp/>hold<sp/>the<sp/>energy<sp/>denominator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>*epsi(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>*epsa(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>due<sp/>to<sp/>a<sp/>bug<sp/>we<sp/>first<sp/>to<sp/>feed<sp/>the<sp/>sliced<sp/>vector<sp/>into<sp/>a<sp/>scalar</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>Scalar&lt;&gt;<sp/>eps(*epsi-&gt;wrld);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>epsiStart[]<sp/>=<sp/>{<sp/>i(0)<sp/>},<sp/>epsiEnd[]<sp/>=<sp/>{<sp/>i(0)+1<sp/>};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>eps[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">]<sp/>=<sp/>epsi-&gt;slice(epsiStart,epsiEnd)[</highlight><highlight class="stringliteral">&quot;i&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>(*SVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>eps.get_val();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>epsjStart[]<sp/>=<sp/>{<sp/>i(1)<sp/>},<sp/>epsjEnd[]<sp/>=<sp/>{<sp/>i(1)+1<sp/>};</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>eps[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">]<sp/>=<sp/>epsi-&gt;slice(epsjStart,epsjEnd)[</highlight><highlight class="stringliteral">&quot;j&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>(*SVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>eps.get_val();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>epskStart[]<sp/>=<sp/>{<sp/>i(2)<sp/>},<sp/>epskEnd[]<sp/>=<sp/>{<sp/>i(2)+1<sp/>};</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>eps[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">]<sp/>=<sp/>epsi-&gt;slice(epskStart,epskEnd)[</highlight><highlight class="stringliteral">&quot;k&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>(*SVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>eps.get_val();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>(*SVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>-=<sp/>(*epsa)[</highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>(*SVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>-=<sp/>(*epsa)[</highlight><highlight class="stringliteral">&quot;b&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>(*SVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>-=<sp/>(*epsa)[</highlight><highlight class="stringliteral">&quot;c&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a26a4b80eae6bf6520fd9296780a53718" kindref="member">SVabc</ref>;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="classsisi4s_1_1CcsdPerturbativeTriples_1ad094260a4c533e1734768a72b3ae0161" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1ad094260a4c533e1734768a72b3ae0161" kindref="member">CcsdPerturbativeTriples::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/><sp/>*epsi(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/><sp/>*epsa(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1af8c320ca94959d485626008e0e5cc216" kindref="member">No</ref><sp/>=<sp/>epsi-&gt;lens[0];</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4030bc1537cf03327299e36e9d1540e7" kindref="member">Nv</ref><sp/>=<sp/>epsa-&gt;lens[0];</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vvv[]<sp/>=<sp/>{<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4030bc1537cf03327299e36e9d1540e7" kindref="member">Nv</ref>,<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4030bc1537cf03327299e36e9d1540e7" kindref="member">Nv</ref>,<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4030bc1537cf03327299e36e9d1540e7" kindref="member">Nv</ref><sp/>};</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>doubles<sp/>amplitudes<sp/>contracted<sp/>with<sp/>V<sp/>for<sp/>current<sp/>i,j,k</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a96393b8c6df583155302ec341efea97d" kindref="member">DVabc</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref>(3,<sp/>vvv,<sp/>syms,<sp/>*epsi-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;DVabc&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>unconnected<sp/>singles<sp/>amplitudes<sp/>and<sp/>V<sp/>for<sp/>current<sp/>i,j,k</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a26a4b80eae6bf6520fd9296780a53718" kindref="member">SVabc</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref>(3,<sp/>vvv,<sp/>syms,<sp/>*epsi-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;SVabc&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>triples<sp/>amplitudes<sp/>considering<sp/>all<sp/>permutations<sp/>of<sp/>a,b,c<sp/>for<sp/>given<sp/>i,j,k</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>Tabc(3,<sp/>vvv,<sp/>syms,<sp/>*epsi-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;Tabc&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a91a20736900b7a0c000ff7352ef38301" kindref="member">sliceTensors</ref>();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>D.V<sp/>for<sp/>all<sp/>permutations<sp/>of<sp/>a,b,c<sp/>together<sp/>with<sp/>i,j,k</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>*piDVabc[<ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;3&gt;::ORDER</ref>];</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>p(0);<sp/>p<sp/>&lt;<sp/>Permutation&lt;3&gt;::ORDER;<sp/>++p)<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>piDVabc[p]<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref>(3,<sp/>vvv,<sp/>syms,<sp/>*epsi-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;piDVabc&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>spin<sp/>factors<sp/>and<sp/>Fermion<sp/>sign<sp/>depending<sp/>on<sp/>the<sp/>number<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>invariant<sp/>indices<sp/>when<sp/>permuting<sp/>a,b,c<sp/>keeping<sp/>i,j,k<sp/>fixed.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>having<sp/>2<sp/>invariant<sp/>indices<sp/>is<sp/>impossible</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>spinAndFermiFactors[]<sp/>=<sp/>{<sp/>+2.0,<sp/>-4.0,<sp/>0.0,<sp/>+8.0<sp/>};</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>true<sp/>if<sp/>the<sp/>permutation<sp/>Pi<sp/>leaves<sp/>the<sp/>current<sp/>indices<sp/>i,j,k<sp/>invariant</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>givesDistinctIndexPermutation[<ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;3&gt;::ORDER</ref>];</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>Scalar&lt;&gt;<sp/>energy(*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>energy[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>indices<sp/>i,j,k<sp/>as<sp/>map<sp/>with<sp/>3<sp/>elements<sp/>i(0),...,i(2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map&lt;3&gt;</ref><sp/>i;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>go<sp/>through<sp/>all<sp/>N<sp/>distinct<sp/>orders<sp/>0<sp/>&lt;=<sp/>i(0)<sp/>&lt;=<sp/>i(1)<sp/>&lt;=<sp/>i(2)<sp/>&lt;<sp/>No</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n(0);<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N(<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1af8c320ca94959d485626008e0e5cc216" kindref="member">No</ref>*(<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1af8c320ca94959d485626008e0e5cc216" kindref="member">No</ref>+1)*(<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1af8c320ca94959d485626008e0e5cc216" kindref="member">No</ref>+2)<sp/>/<sp/>6);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/>startTime(<ref refid="classsisi4s_1_1Time_1ab133fcb3422dbde9d68f5a5155c5127c" kindref="member">Time::getCurrentRealTime</ref>());</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i(0)<sp/>=<sp/>0;<sp/>i(0)<sp/>&lt;<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1af8c320ca94959d485626008e0e5cc216" kindref="member">No</ref>;<sp/>++i(0))<sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i(1)<sp/>=<sp/>i(0);<sp/>i(1)<sp/>&lt;<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1af8c320ca94959d485626008e0e5cc216" kindref="member">No</ref>;<sp/>++i(1))<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i(2)<sp/>=<sp/>i(1);<sp/>i(2)<sp/>&lt;<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1af8c320ca94959d485626008e0e5cc216" kindref="member">No</ref>;<sp/>++i(2))<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>D.V<sp/>in<sp/>all<sp/>permuations<sp/>of<sp/>i,j,k</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>build<sp/>sum<sp/>over<sp/>all<sp/>permutations<sp/>of<sp/>i,j,k<sp/>together<sp/>with<sp/>a,b,c</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*DVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>p(0);<sp/>p<sp/>&lt;<sp/>Permutation&lt;3&gt;::ORDER;<sp/>++p)<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;3&gt;</ref><sp/>pi(p);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>q;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>previsous<sp/>permutation<sp/>q<sp/>permutes<sp/>current<sp/>i,j,k<sp/>same<sp/>as<sp/>pi</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(q<sp/>=<sp/>0;<sp/>q<sp/>&lt;<sp/>p;<sp/>++q)<sp/>if<sp/>(i*Permutation&lt;3&gt;(q)<sp/>==<sp/>i*pi)<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(q<sp/>&lt;<sp/>p)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>permutation<sp/>p<sp/>equivalent<sp/>to<sp/>a<sp/>previous<sp/>q<sp/>for<sp/>the<sp/>given<sp/>i,j,k</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>givesDistinctIndexPermutation[p]<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>previously<sp/>calculated<sp/>permutation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*piDVabc[p])[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*piDVabc[q])[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>givesDistinctIndexPermutation[p]<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>non-equivalent:<sp/>calculate<sp/>for<sp/>given<sp/>i,j,k</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*piDVabc[p])[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>=<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1aaaf5f1a91137fba3a7fdcdef9df4f475" kindref="member">getDoublesContribution</ref>(i*pi)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>aggregate<sp/>all<sp/>simultaneous<sp/>permutations<sp/>of<sp/>i,j,k<sp/>and<sp/>a,b,c</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*DVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*piDVabc[p])[(</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">*pi).c_str()];</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>energy<sp/>denominator<sp/>is<sp/>invariant<sp/>under<sp/>all<sp/>permutations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Bivar_Function&lt;&gt;<sp/>fDivide(&amp;divide&lt;double&gt;);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a96393b8c6df583155302ec341efea97d" kindref="member">DVabc</ref>-&gt;contract(</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0,<sp/>*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a96393b8c6df583155302ec341efea97d" kindref="member">DVabc</ref>,</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a05fb0f395dd5f995f16b7285021ab4d6" kindref="member">getEnergyDenominator</ref>(i),</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">,<sp/>0.0,</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">,<sp/>fDivide</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>p(0);<sp/>p<sp/>&lt;<sp/>Permutation&lt;3&gt;::ORDER;<sp/>++p)<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(givesDistinctIndexPermutation[p])<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>all<sp/>distinct<sp/>permutation<sp/>pi<sp/>of<sp/>i,j,k<sp/>together<sp/>with<sp/>a,b,c</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;3&gt;</ref><sp/>pi(p);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tabc[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>s(0);<sp/>s<sp/>&lt;<sp/>Permutation&lt;3&gt;::ORDER;<sp/>++s)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>after<sp/>pi,<sp/>permute<sp/>a,b,c<sp/>with<sp/>sigma<sp/>leaving<sp/>i,j,k<sp/>fixed.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation&lt;3&gt;</ref><sp/>sigma(s);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>spin<sp/>factors<sp/>and<sp/>the<sp/>Fermion<sp/>sign<sp/>only<sp/>depend<sp/>on<sp/>sigma</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sf(spinAndFermiFactors[sigma.<ref refid="classsisi4s_1_1Permutation_1a14c55ad470ef27dc0945b00b7a864b95" kindref="member">invariantElementsCount</ref>()]);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>D.V<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>permutation<sp/>sigma*pi<sp/>of<sp/>a,b,k<sp/>and<sp/>in<sp/>permutation<sp/>pi<sp/>of<sp/>i,j,k</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tabc[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>sf<sp/>*<sp/>(*piDVabc[p])[(</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">*sigma*pi).c_str()];</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>D.V<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>permutation<sp/>sigma*pi<sp/>of<sp/>a,b,k<sp/>and<sp/>in<sp/>permutation<sp/>pi<sp/>of<sp/>i,j,k</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tabc[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>+=</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf<sp/>*<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1acb38067174ce6880742a30cb37cbca41" kindref="member">getSinglesContribution</ref>(i*pi)[(</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">*sigma*pi).c_str()];</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>contract</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*DVabc)[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">]<sp/>*<sp/>Tabc[</highlight><highlight class="stringliteral">&quot;abc&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++n;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;CcsdPerturbativeTriples&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/>n<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>N<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;<sp/>distinct<sp/>indices<sp/>calculated,<sp/>ETA=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="classsisi4s_1_1Time_1ab133fcb3422dbde9d68f5a5155c5127c" kindref="member">Time::getCurrentRealTime</ref>()-startTime)*(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(N)/n-1)<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;<sp/>s&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a96393b8c6df583155302ec341efea97d" kindref="member">DVabc</ref>;<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a26a4b80eae6bf6520fd9296780a53718" kindref="member">SVabc</ref>;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>p(0);<sp/>p<sp/>&lt;<sp/>Permutation&lt;3&gt;::ORDER;<sp/>++p)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>piDVabc[p];</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1aba3f1cd2a9a85f5b914b2b7f45b48a44" kindref="member">realGammaFab</ref>;<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1adaddc234fbe533465753520d2f23de37" kindref="member">imagGammaFab</ref>;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a79e90a2c4873717ccf83044f72d3375f" kindref="member">Tai</ref>;<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a421f60764b6421f46b6cf5f4fdcf092a" kindref="member">Tabij</ref>;<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a7e8ba71faab8990fc587d94df780fafd" kindref="member">Tabil</ref>;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a2812477f0393e82a41eaf0bb18de2fd1" kindref="member">Vabij</ref>;<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1ad30432c3c10a5d733f198092415c8acb" kindref="member">Vijla</ref>;<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4717dc37b9ecee54078760427058ceb5" kindref="member">realGammaFai</ref>;<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a0495cf272219de2428ff056f532f753e" kindref="member">imagGammaFai</ref>;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eTriples(energy.get_val());</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eCcsd(<ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;CcsdEnergy&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e(eCcsd<sp/>+<sp/>eTriples);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;CcsdPerturbativeTriples&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;e=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>e<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;CcsdPerturbativeTriples&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ccsd=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>eCcsd<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;CcsdPerturbativeTriples&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;triples=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>eTriples<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" kindref="member">setRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;CcsdPerturbativeTriplesEnergy&quot;</highlight><highlight class="normal">,<sp/>e);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241" refid="classsisi4s_1_1CcsdPerturbativeTriples_1aded6d4f3b539742365eb0f406207e9ed" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1aded6d4f3b539742365eb0f406207e9ed" kindref="member">CcsdPerturbativeTriples::dryRun</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>getTensorArgument&lt;double,<sp/>DryTensor&lt;double&gt;&gt;(</highlight><highlight class="stringliteral">&quot;PPHHCoulombIntegrals&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>getTensorArgument&lt;double,<sp/>DryTensor&lt;double&gt;&gt;(</highlight><highlight class="stringliteral">&quot;HHHPCoulombIntegrals&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a79e90a2c4873717ccf83044f72d3375f" kindref="member">Tai</ref>(</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;double&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;CcsdSinglesAmplitudes&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a421f60764b6421f46b6cf5f4fdcf092a" kindref="member">Tabij</ref>(</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;double&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;CcsdDoublesAmplitudes&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>the<sp/>Particle/Hole<sp/>Eigenenergies<sp/>epsi<sp/>epsa<sp/>required<sp/>for<sp/>the<sp/>energy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*epsa(</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;double&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>No,Nv</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4030bc1537cf03327299e36e9d1540e7" kindref="member">Nv</ref>(epsa-&gt;<ref refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" kindref="member">lens</ref>[0]);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocate<sp/>the<sp/>doubles<sp/>amplitudes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vvv[]<sp/>=<sp/>{<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4030bc1537cf03327299e36e9d1540e7" kindref="member">Nv</ref>,<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4030bc1537cf03327299e36e9d1540e7" kindref="member">Nv</ref>,<sp/><ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a4030bc1537cf03327299e36e9d1540e7" kindref="member">Nv</ref><sp/>};</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/>syms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>SVabcijk(3,<sp/>vvv,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>DVabcijk(3,<sp/>vvv,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>DV0abcijk(3,<sp/>vvv,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>DV1abcijk(3,<sp/>vvv,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>DV2abcijk(3,<sp/>vvv,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>DV3abcijk(3,<sp/>vvv,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>DV4abcijk(3,<sp/>vvv,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>DV5abcijk(3,<sp/>vvv,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>Tabcijk(3,<sp/>vvv,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>Zai(*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a79e90a2c4873717ccf83044f72d3375f" kindref="member">Tai</ref>,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>Zabij(*<ref refid="classsisi4s_1_1CcsdPerturbativeTriples_1a421f60764b6421f46b6cf5f4fdcf092a" kindref="member">Tabij</ref>,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryScalar" kindref="compound">DryScalar&lt;&gt;</ref><sp/>energy();</highlight></codeline>
+<codeline lineno="280"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPerturbativeTriples.cxx"/>
+  </compounddef>
+</doxygen>

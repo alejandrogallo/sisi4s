@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="MovecsParser_8hpp" kind="file" language="C++">
+    <compoundname>MovecsParser.hpp</compoundname>
+    <includes local="no">regex</includes>
+    <includes local="no">string</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">assert.h</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes refid="Parsing_8hpp" local="no">util/Parsing.hpp</includes>
+    <includedby refid="MoReader_8cxx" local="no">MoReader.cxx</includedby>
+    <includedby refid="MovecsParser_8cxx" local="no">MovecsParser.cxx</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>MovecsParser.hpp</label>
+        <link refid="MovecsParser_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>util/Parsing.hpp</label>
+        <link refid="Parsing_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>algorithm</label>
+      </node>
+      <node id="7">
+        <label>assert.h</label>
+      </node>
+      <node id="15">
+        <label>cmath</label>
+      </node>
+      <node id="11">
+        <label>cstdint</label>
+      </node>
+      <node id="10">
+        <label>ctime</label>
+      </node>
+      <node id="6">
+        <label>fstream</label>
+      </node>
+      <node id="13">
+        <label>iomanip</label>
+      </node>
+      <node id="16">
+        <label>iostream</label>
+      </node>
+      <node id="12">
+        <label>ostream</label>
+      </node>
+      <node id="2">
+        <label>regex</label>
+      </node>
+      <node id="14">
+        <label>sstream</label>
+      </node>
+      <node id="17">
+        <label>streambuf</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>MoReader.cxx</label>
+        <link refid="MoReader_8cxx"/>
+      </node>
+      <node id="3">
+        <label>MovecsParser.cxx</label>
+        <link refid="MovecsParser_8cxx"/>
+      </node>
+      <node id="1">
+        <label>MovecsParser.hpp</label>
+        <link refid="MovecsParser_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structnwchem_1_1MovecReader" prot="public">nwchem::MovecReader</innerclass>
+    <innernamespace refid="namespacenwchem">nwchem</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" prot="public" static="no">
+        <name>_L</name>
+        <param><defname>_l</defname></param>
+        <initializer><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(_l, &quot;MovecReader&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/MovecsParser.hpp" line="13" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/MovecsParser.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="MovecsParser_8hpp_1a0311534135adb1b7b865f6cc525407ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; F &gt;</type>
+        <definition>std::vector&lt; F &gt; readFortranChunk</definition>
+        <argsstring>(std::fstream &amp;file)</argsstring>
+        <name>readFortranChunk</name>
+        <param>
+          <type>std::fstream &amp;</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/MovecsParser.hpp" line="16" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/MovecsParser.hpp" bodystart="16" bodyend="28"/>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_MOVECS_PARSER_HEADE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_MOVECS_PARSER_HEADE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;regex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Parsing_8hpp" kindref="compound">util/Parsing.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_L(_l)<sp/>LOG(_l,<sp/>&quot;MovecReader&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="16" refid="MovecsParser_8hpp_1a0311534135adb1b7b865f6cc525407ef" refkind="member"><highlight class="normal">std::vector&lt;F&gt;<sp/><ref refid="MovecsParser_8hpp_1a0311534135adb1b7b865f6cc525407ef" kindref="member">readFortranChunk</ref>(std::fstream<sp/>&amp;file)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>uint32_t<sp/>fortran_section,<sp/>copy;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>std::vector&lt;F&gt;<sp/>buffer;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>file.read((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)&amp;fortran_section,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int32_t));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>copy<sp/>=<sp/>fortran_section;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer.resize(fortran_section<sp/>/<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>));</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>file.read((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)buffer.data(),<sp/>fortran_section);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>file.read((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)&amp;fortran_section,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int32_t));</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>assert(copy<sp/>==<sp/>fortran_section);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buffer;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepars" kindref="compound">pars</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenwchem" kindref="compound">nwchem</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="structnwchem_1_1MovecReader" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structnwchem_1_1MovecReader" kindref="compound">MovecReader</ref><sp/>{</highlight></codeline>
+<codeline lineno="33" refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structnwchem_1_1MovecReader_1a44539b9db34f6604dfa5252f7d3d76ef" kindref="member">nsets</ref>,<sp/><ref refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" kindref="member">Np</ref>;</highlight></codeline>
+<codeline lineno="34" refid="structnwchem_1_1MovecReader_1a5c67a3282224d9ec02b452192ad35111" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;int64_t&gt;<sp/><ref refid="structnwchem_1_1MovecReader_1a5c67a3282224d9ec02b452192ad35111" kindref="member">nmo</ref>;</highlight></codeline>
+<codeline lineno="35" refid="structnwchem_1_1MovecReader_1ad8716ffd74cd3b18bbe44bac84266a4a" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/><ref refid="structnwchem_1_1MovecReader_1a200b59e33c9e65da13546a46e01b1822" kindref="member">occupations</ref>,<sp/><ref refid="structnwchem_1_1MovecReader_1ad8716ffd74cd3b18bbe44bac84266a4a" kindref="member">eigenvalues</ref>,<sp/><ref refid="structnwchem_1_1MovecReader_1a36c15b9782dd991bb9ad507269b48630" kindref="member">mos</ref>;</highlight></codeline>
+<codeline lineno="36" refid="structnwchem_1_1MovecReader_1a9cec23172e2b6acf3219719d0e388d87" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structnwchem_1_1MovecReader_1a9cec23172e2b6acf3219719d0e388d87" kindref="member">iset</ref><sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>This<sp/>allows<sp/>to<sp/>skip<sp/>the<sp/>first<sp/>set,<sp/>dont<sp/>need<sp/>this<sp/>yet</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="structnwchem_1_1MovecReader_1aab7ba75425422e9faead8cbfa000800e" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1aab7ba75425422e9faead8cbfa000800e" kindref="member">MovecReader</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;fileName)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>std::fstream<sp/>file(fileName.c_str(),<sp/>std::ios::binary<sp/>|<sp/>std::ios::in);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file.good())<sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;File<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>fileName<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>not<sp/>found&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file.is_open())<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;File<sp/>IO<sp/>error:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>fileName;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>readFortranChunk&lt;char&gt;(file);<sp/></highlight><highlight class="comment">//<sp/>convergence<sp/>info</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>readFortranChunk&lt;char&gt;(file);<sp/></highlight><highlight class="comment">//<sp/>scftype</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>readFortranChunk&lt;char&gt;(file);<sp/></highlight><highlight class="comment">//<sp/>lentit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>_rfile(readFortranChunk&lt;char&gt;(file).data());</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" kindref="member">_L</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;title:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>_rfile<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>readFortranChunk&lt;char&gt;(file).data();<sp/></highlight><highlight class="comment">//<sp/>lenbas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>_rbasis(readFortranChunk&lt;char&gt;(file).data());</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" kindref="member">_L</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;basis:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>_rbasis<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1a44539b9db34f6604dfa5252f7d3d76ef" kindref="member">nsets</ref><sp/>=<sp/>*readFortranChunk&lt;int64_t&gt;(file).data();<sp/></highlight><highlight class="comment">//<sp/>nsets</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" kindref="member">Np</ref><sp/>=<sp/>*readFortranChunk&lt;int64_t&gt;(file).data();<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Np</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" kindref="member">_L</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;nsets:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="structnwchem_1_1MovecReader_1a44539b9db34f6604dfa5252f7d3d76ef" kindref="member">nsets</ref><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" kindref="member">_L</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Np:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" kindref="member">Np</ref><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>resize<sp/>occupations<sp/>and<sp/>such</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1a200b59e33c9e65da13546a46e01b1822" kindref="member">occupations</ref>.resize(<ref refid="structnwchem_1_1MovecReader_1a44539b9db34f6604dfa5252f7d3d76ef" kindref="member">nsets</ref>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1ad8716ffd74cd3b18bbe44bac84266a4a" kindref="member">eigenvalues</ref>.resize(<ref refid="structnwchem_1_1MovecReader_1a44539b9db34f6604dfa5252f7d3d76ef" kindref="member">nsets</ref>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1a36c15b9782dd991bb9ad507269b48630" kindref="member">mos</ref>.resize(<ref refid="structnwchem_1_1MovecReader_1a44539b9db34f6604dfa5252f7d3d76ef" kindref="member">nsets</ref>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>nmos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1a5c67a3282224d9ec02b452192ad35111" kindref="member">nmo</ref><sp/>=<sp/>readFortranChunk&lt;int64_t&gt;(file);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;<ref refid="structnwchem_1_1MovecReader_1a44539b9db34f6604dfa5252f7d3d76ef" kindref="member">nsets</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" kindref="member">_L</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;nmo[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="structnwchem_1_1MovecReader_1a5c67a3282224d9ec02b452192ad35111" kindref="member">nmo</ref>[i]<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>loop<sp/>which<sp/>reject<sp/>MOs<sp/>from<sp/>the<sp/>set</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="structnwchem_1_1MovecReader_1a9cec23172e2b6acf3219719d0e388d87" kindref="member">iset</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>readFortranChunk&lt;char&gt;(file);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>readFortranChunk&lt;char&gt;(file);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint64_t<sp/>j=0;<sp/>j&lt;<ref refid="structnwchem_1_1MovecReader_1a5c67a3282224d9ec02b452192ad35111" kindref="member">nmo</ref>[i];<sp/>j++)<sp/>{<sp/></highlight><highlight class="comment">//do<sp/>i<sp/>=<sp/>1,<sp/>nmo(jset)<sp/>read(unitno)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>readFortranChunk&lt;char&gt;(file);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>s(0);<sp/>s<sp/>&lt;<sp/><ref refid="structnwchem_1_1MovecReader_1a44539b9db34f6604dfa5252f7d3d76ef" kindref="member">nsets</ref>;<sp/>s++)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>do<sp/>s<sp/>=<sp/>1,<sp/>nsets</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>occupation<sp/>numbers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1a200b59e33c9e65da13546a46e01b1822" kindref="member">occupations</ref>[s]<sp/>=<sp/>readFortranChunk&lt;double&gt;(file);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" kindref="member">_L</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;#occupations<sp/>read:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="structnwchem_1_1MovecReader_1a200b59e33c9e65da13546a46e01b1822" kindref="member">occupations</ref>[s].size()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert(<ref refid="structnwchem_1_1MovecReader_1a200b59e33c9e65da13546a46e01b1822" kindref="member">occupations</ref>[s].size()<sp/>==<sp/><ref refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" kindref="member">Np</ref>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Eigenvaluess<sp/>[read(unitno)<sp/>(evals(j),<sp/>j=1,Np)]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1ad8716ffd74cd3b18bbe44bac84266a4a" kindref="member">eigenvalues</ref>[s]<sp/>=<sp/>readFortranChunk&lt;double&gt;(file);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" kindref="member">_L</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;#eigenvalues<sp/>read:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><sp/><ref refid="structnwchem_1_1MovecReader_1ad8716ffd74cd3b18bbe44bac84266a4a" kindref="member">eigenvalues</ref>[s].size()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>assert(<ref refid="structnwchem_1_1MovecReader_1ad8716ffd74cd3b18bbe44bac84266a4a" kindref="member">eigenvalues</ref>[s].size()<sp/>==<sp/><ref refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" kindref="member">Np</ref>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1a36c15b9782dd991bb9ad507269b48630" kindref="member">mos</ref>[s].resize(<ref refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" kindref="member">Np</ref><sp/>*<sp/><ref refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" kindref="member">Np</ref>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/><ref refid="structnwchem_1_1MovecReader_1a5c67a3282224d9ec02b452192ad35111" kindref="member">nmo</ref>[<ref refid="structnwchem_1_1MovecReader_1a9cec23172e2b6acf3219719d0e388d87" kindref="member">iset</ref>];<sp/>i++)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>do<sp/>i<sp/>=<sp/>1,<sp/>nmo(iset)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>mos_buff(readFortranChunk&lt;double&gt;(file));</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert(mos_buff.size()<sp/>==<sp/><ref refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" kindref="member">Np</ref>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j(0);<sp/>j<sp/>&lt;<sp/>mos_buff.size();<sp/>j++)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnwchem_1_1MovecReader_1a36c15b9782dd991bb9ad507269b48630" kindref="member">mos</ref>[s][j<sp/>+<sp/><ref refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" kindref="member">Np</ref>*i]<sp/>=<sp/>mos_buff[j];</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>file.close();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/nwchem/MovecsParser.hpp"/>
+  </compounddef>
+</doxygen>

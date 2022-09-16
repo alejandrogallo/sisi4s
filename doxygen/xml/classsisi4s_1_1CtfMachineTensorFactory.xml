@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1CtfMachineTensorFactory" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::CtfMachineTensorFactory</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">tcc::MachineTensorFactory&lt; F &gt;</basecompoundref>
+    <includes refid="CtfMachineTensor_8hpp" local="no">CtfMachineTensor.hpp</includes>
+    <innerclass refid="classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken" prot="protected">sisi4s::CtfMachineTensorFactory::ProtectedToken</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1CtfMachineTensorFactory_1a7f88de13fa1303176ca44f07a7a73d2c" prot="protected" static="no" mutable="no">
+        <type>CTF::World *</type>
+        <definition>CTF::World* sisi4s::CtfMachineTensorFactory&lt; F &gt;::world</definition>
+        <argsstring></argsstring>
+        <name>world</name>
+        <qualifiedname>sisi4s::CtfMachineTensorFactory::world</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" line="226" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" bodystart="226" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CtfMachineTensorFactory_1a74001952b09b22923dbe77f2add12711" compoundref="CtfMachineTensor_8hpp" startline="218" endline="224">sisi4s::CtfMachineTensorFactory&lt; F &gt;::create</referencedby>
+        <referencedby refid="classsisi4s_1_1CtfMachineTensorFactory_1a6866f2608af2b2d148f08e66ab28b09a" compoundref="CtfMachineTensor_8hpp" startline="207" endline="216">sisi4s::CtfMachineTensorFactory&lt; F &gt;::createTensor</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1CtfMachineTensorFactory_1a52049f3eef49ca75f7f9cf10b44b635a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::CtfMachineTensorFactory&lt; F &gt;::CtfMachineTensorFactory</definition>
+        <argsstring>(CTF::World *world_, const ProtectedToken &amp;)</argsstring>
+        <name>CtfMachineTensorFactory</name>
+        <qualifiedname>sisi4s::CtfMachineTensorFactory::CtfMachineTensorFactory</qualifiedname>
+        <param>
+          <type>CTF::World *</type>
+          <declname>world_</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken" kindref="compound">ProtectedToken</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" line="199" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" bodystart="199" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CtfMachineTensorFactory_1a8afcf87d07befafd7b35da7c0d121ffd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual sisi4s::CtfMachineTensorFactory&lt; F &gt;::~CtfMachineTensorFactory</definition>
+        <argsstring>()</argsstring>
+        <name>~CtfMachineTensorFactory</name>
+        <qualifiedname>sisi4s::CtfMachineTensorFactory::~CtfMachineTensorFactory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" line="204" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" bodystart="204" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CtfMachineTensorFactory_1a6866f2608af2b2d148f08e66ab28b09a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::shared_ptr&lt; tcc::MachineTensor&lt; F &gt; &gt;</type>
+        <definition>virtual std::shared_ptr&lt; tcc::MachineTensor&lt; F &gt; &gt; sisi4s::CtfMachineTensorFactory&lt; F &gt;::createTensor</definition>
+        <argsstring>(const std::vector&lt; int &gt; &amp;lens, const std::string &amp;name)</argsstring>
+        <name>createTensor</name>
+        <qualifiedname>sisi4s::CtfMachineTensorFactory::createTensor</qualifiedname>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>lens</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" line="207" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" bodystart="207" bodyend="216"/>
+        <references refid="classsisi4s_1_1CtfMachineTensorFactory_1a7f88de13fa1303176ca44f07a7a73d2c" compoundref="CtfMachineTensor_8hpp" startline="226">sisi4s::CtfMachineTensorFactory&lt; F &gt;::world</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsisi4s_1_1CtfMachineTensorFactory_1a74001952b09b22923dbe77f2add12711" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classsisi4s_1_1CtfMachineTensorFactory" kindref="compound">CtfMachineTensorFactory</ref>&lt; F &gt; &gt;</type>
+        <definition>static std::shared_ptr&lt; CtfMachineTensorFactory&lt; F &gt; &gt; sisi4s::CtfMachineTensorFactory&lt; F &gt;::create</definition>
+        <argsstring>(CTF::World *world=Sisi4s::world)</argsstring>
+        <name>create</name>
+        <qualifiedname>sisi4s::CtfMachineTensorFactory::create</qualifiedname>
+        <param>
+          <type>CTF::World *</type>
+          <declname>world</declname>
+          <defval><ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" line="218" column="28" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" bodystart="218" bodyend="224"/>
+        <references refid="classsisi4s_1_1CtfMachineTensorFactory_1a7f88de13fa1303176ca44f07a7a73d2c" compoundref="CtfMachineTensor_8hpp" startline="226">sisi4s::CtfMachineTensorFactory&lt; F &gt;::world</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>sisi4s::CtfMachineTensorFactory&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1CtfMachineTensorFactory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tcc::MachineTensorFactory&lt; F &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::CtfMachineTensorFactory&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1CtfMachineTensorFactory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tcc::MachineTensorFactory&lt; F &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" line="193" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/CtfMachineTensor.hpp" bodystart="193" bodyend="227"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1CtfMachineTensorFactory_1a74001952b09b22923dbe77f2add12711" prot="public" virt="non-virtual"><scope>sisi4s::CtfMachineTensorFactory</scope><name>create</name></member>
+      <member refid="classsisi4s_1_1CtfMachineTensorFactory_1a6866f2608af2b2d148f08e66ab28b09a" prot="public" virt="virtual"><scope>sisi4s::CtfMachineTensorFactory</scope><name>createTensor</name></member>
+      <member refid="classsisi4s_1_1CtfMachineTensorFactory_1a52049f3eef49ca75f7f9cf10b44b635a" prot="public" virt="non-virtual"><scope>sisi4s::CtfMachineTensorFactory</scope><name>CtfMachineTensorFactory</name></member>
+      <member refid="classsisi4s_1_1CtfMachineTensorFactory_1a7f88de13fa1303176ca44f07a7a73d2c" prot="protected" virt="non-virtual"><scope>sisi4s::CtfMachineTensorFactory</scope><name>world</name></member>
+      <member refid="classsisi4s_1_1CtfMachineTensorFactory_1a8afcf87d07befafd7b35da7c0d121ffd" prot="public" virt="virtual"><scope>sisi4s::CtfMachineTensorFactory</scope><name>~CtfMachineTensorFactory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

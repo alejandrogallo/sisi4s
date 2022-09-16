@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="SlicedCtfTensor_8hpp" kind="file" language="C++">
+    <compoundname>SlicedCtfTensor.hpp</compoundname>
+    <includes refid="Permutation_8hpp" local="no">math/Permutation.hpp</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes local="no">initializer_list</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">string</includes>
+    <includedby refid="CcsdPerturbativeTriples_8hpp" local="no">CcsdPerturbativeTriples.hpp</includedby>
+    <includedby refid="CcsdPerturbativeTriplesComplex_8hpp" local="no">CcsdPerturbativeTriplesComplex.hpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>math/Permutation.hpp</label>
+        <link refid="Permutation_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>SlicedCtfTensor.hpp</label>
+        <link refid="SlicedCtfTensor_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="4">
+        <label>initializer_list</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>CcsdPerturbativeTriples.cxx</label>
+        <link refid="CcsdPerturbativeTriples_8cxx"/>
+      </node>
+      <node id="2">
+        <label>CcsdPerturbativeTriples.hpp</label>
+        <link refid="CcsdPerturbativeTriples_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CcsdPerturbativeTriplesComplex.cxx</label>
+        <link refid="CcsdPerturbativeTriplesComplex_8cxx"/>
+      </node>
+      <node id="4">
+        <label>CcsdPerturbativeTriplesComplex.hpp</label>
+        <link refid="CcsdPerturbativeTriplesComplex_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>SlicedCtfTensor.hpp</label>
+        <link refid="SlicedCtfTensor_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1SlicedCtfTensor" prot="public">sisi4s::SlicedCtfTensor</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2017,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SLICED_CTF_TENSOR_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SLICED_CTF_TENSOR_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Permutation_8hpp" kindref="compound">math/Permutation.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;initializer_list&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="13" refid="classsisi4s_1_1SlicedCtfTensor" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor</ref><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15" refid="classsisi4s_1_1SlicedCtfTensor_1afed6552d2a8cafae3f82e628e99bb55b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1afed6552d2a8cafae3f82e628e99bb55b" kindref="member">SlicedCtfTensor</ref>(</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;T,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::initializer_list&lt;int&gt;<sp/>&amp;list</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a1dbc03001afc223eaf88b28e33f24670" kindref="member">create</ref>(T,<sp/>std::vector&lt;int&gt;(list));</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Iterator&gt;</highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1SlicedCtfTensor_1a65d5c2ae71fd8047369ddb5d2a7a8b2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a65d5c2ae71fd8047369ddb5d2a7a8b2e" kindref="member">SlicedCtfTensor</ref>(</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;T,<sp/>Iterator<sp/>begin,<sp/>Iterator<sp/>end</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a1dbc03001afc223eaf88b28e33f24670" kindref="member">create</ref>(T,<sp/>std::vector&lt;int&gt;(begin,<sp/>end));</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26" refid="classsisi4s_1_1SlicedCtfTensor_1a1dbc03001afc223eaf88b28e33f24670" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a1dbc03001afc223eaf88b28e33f24670" kindref="member">create</ref>(</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;T,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>&amp;slicedDims</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>indexNames<sp/>=<sp/>&quot;abcd...&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>indexNames(T.order,<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d(0);<sp/>d<sp/>&lt;<sp/>T.order;<sp/>++d)<sp/>indexNames[d]<sp/>+=<sp/>d;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>figure<sp/>out<sp/>how<sp/>many<sp/>slices<sp/>we<sp/>have<sp/>in<sp/>each<sp/>sliced<sp/>dimension</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1ac320ac20e3b670a03ebbc4b6f7909760" kindref="member">slicedLens</ref>.resize(slicedDims.size());</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/>slicesCount<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d(0);<sp/>d<sp/>&lt;<sp/>slicedDims.size();<sp/>++d)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>slicesCount<sp/>*=<sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1ac320ac20e3b670a03ebbc4b6f7909760" kindref="member">slicedLens</ref>[d]<sp/>=<sp/>T.lens[slicedDims[d]];</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>all<sp/>slices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a51ad54946cafc0c74c9ceccb4f727622" kindref="member">slices</ref>.resize(slicesCount);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>sliceIndex(0);<sp/>sliceIndex<sp/>&lt;<sp/>slicesCount;<sp/>++sliceIndex)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>slice<sp/>position<sp/>from<sp/>its<sp/>index<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/>i(sliceIndex);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>slicePosition(slicedDims.size());</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d(0);<sp/>d<sp/>&lt;<sp/>slicedDims.size();<sp/>++d)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>slicePosition[d]<sp/>=<sp/>i<sp/>%<sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1ac320ac20e3b670a03ebbc4b6f7909760" kindref="member">slicedLens</ref>[d];</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i<sp/>/=<sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1ac320ac20e3b670a03ebbc4b6f7909760" kindref="member">slicedLens</ref>[d];</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>start<sp/>=<sp/>(0,...,0),<sp/>end<sp/>=<sp/>(lens[0],...,lend[order-1])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>start(T.order),<sp/>end(T.lens,<sp/>T.lens+T.order);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>now<sp/>enter<sp/>the<sp/>slice<sp/>position<sp/>in<sp/>the<sp/>sliced<sp/>dimensions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d(0);<sp/>d<sp/>&lt;<sp/>slicedDims.size();<sp/>++d)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>start[slicedDims[d]]<sp/>=<sp/>slicePosition[d];</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end[slicedDims[d]]<sp/>=<sp/>slicePosition[d]<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a51ad54946cafc0c74c9ceccb4f727622" kindref="member">slices</ref>[sliceIndex]<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;F&gt;(</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T.slice(start.data(),<sp/>end.data())</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60" refid="classsisi4s_1_1SlicedCtfTensor_1a97761a0216b2563d16efeaa63270c6d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a97761a0216b2563d16efeaa63270c6d3" kindref="member">~SlicedCtfTensor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint64_t<sp/>i(0);<sp/>i<sp/>&lt;<sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a51ad54946cafc0c74c9ceccb4f727622" kindref="member">slices</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1SlicedCtfTensor_1a51ad54946cafc0c74c9ceccb4f727622" kindref="member">slices</ref>[i])<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a51ad54946cafc0c74c9ceccb4f727622" kindref="member">slices</ref>[i];</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a51ad54946cafc0c74c9ceccb4f727622" kindref="member">slices</ref>[i]<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="classsisi4s_1_1SlicedCtfTensor_1aef8906c905b50eff91bb470fb55a2adf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;<ref refid="classsisi4s_1_1SlicedCtfTensor_1aef8906c905b50eff91bb470fb55a2adf" kindref="member">operator ()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::initializer_list&lt;int&gt;<sp/>&amp;slicePos)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*</highlight><highlight class="keyword">this</highlight><highlight class="normal">)(std::vector&lt;int&gt;(slicePos));</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Iterator&gt;</highlight></codeline>
+<codeline lineno="71" refid="classsisi4s_1_1SlicedCtfTensor_1a5bbc467f9093a51a5efde65aaeff4df8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;<ref refid="classsisi4s_1_1SlicedCtfTensor_1aef8906c905b50eff91bb470fb55a2adf" kindref="member">operator ()</ref>(Iterator<sp/>begin,<sp/>Iterator<sp/>end)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*</highlight><highlight class="keyword">this</highlight><highlight class="normal">)(std::vector&lt;int&gt;(begin,<sp/>end));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74" refid="classsisi4s_1_1SlicedCtfTensor_1acf7bfcb7fd7d63aabcd00a27124c2f1d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;<ref refid="classsisi4s_1_1SlicedCtfTensor_1aef8906c905b50eff91bb470fb55a2adf" kindref="member">operator ()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>&amp;slicePosition)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>slice<sp/>number<sp/>from<sp/>its<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/>sliceIndex(0);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d(<ref refid="classsisi4s_1_1SlicedCtfTensor_1ac320ac20e3b670a03ebbc4b6f7909760" kindref="member">slicedLens</ref>.size()-1);<sp/>d<sp/>&gt;=<sp/>0;<sp/>--d)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sliceIndex<sp/>*=<sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1ac320ac20e3b670a03ebbc4b6f7909760" kindref="member">slicedLens</ref>[d];</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sliceIndex<sp/>+=<sp/>slicePosition[d];</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="classsisi4s_1_1SlicedCtfTensor_1a51ad54946cafc0c74c9ceccb4f727622" kindref="member">slices</ref>[sliceIndex];</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="classsisi4s_1_1SlicedCtfTensor_1ac320ac20e3b670a03ebbc4b6f7909760" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1ac320ac20e3b670a03ebbc4b6f7909760" kindref="member">slicedLens</ref>;</highlight></codeline>
+<codeline lineno="85" refid="classsisi4s_1_1SlicedCtfTensor_1a51ad54946cafc0c74c9ceccb4f727622" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;CTF::Tensor&lt;F&gt;<sp/>*&gt;<sp/><ref refid="classsisi4s_1_1SlicedCtfTensor_1a51ad54946cafc0c74c9ceccb4f727622" kindref="member">slices</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/SlicedCtfTensor.hpp"/>
+  </compounddef>
+</doxygen>

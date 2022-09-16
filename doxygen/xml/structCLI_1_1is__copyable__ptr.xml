@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structCLI_1_1is__copyable__ptr" kind="struct" language="C++" prot="public">
+    <compoundname>CLI::is_copyable_ptr</compoundname>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structCLI_1_1is__copyable__ptr_1a07cc0aed2820682d33f02dceaa28a74f" prot="public" static="yes" mutable="no">
+        <type>bool const</type>
+        <definition>bool const CLI::is_copyable_ptr&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>CLI::is_copyable_ptr::value</qualifiedname>
+        <initializer>= <ref refid="structCLI_1_1is__shared__ptr" kindref="compound">is_shared_ptr</ref>&lt;T&gt;::value || std::is_pointer&lt;T&gt;::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="924" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="924" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Check to see if something is copyable pointer. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::is_copyable_ptr&lt; T &gt;</label>
+        <link refid="structCLI_1_1is__copyable__ptr"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="923" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="923" bodyend="925"/>
+    <listofallmembers>
+      <member refid="structCLI_1_1is__copyable__ptr_1a07cc0aed2820682d33f02dceaa28a74f" prot="public" virt="non-virtual"><scope>CLI::is_copyable_ptr</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

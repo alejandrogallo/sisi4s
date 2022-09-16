@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1MixerRegistrar" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::MixerRegistrar</compoundname>
+    <basecompoundref refid="classsisi4s_1_1MixerFactory" prot="protected" virt="non-virtual">sisi4s::MixerFactory&lt; F &gt;</basecompoundref>
+    <includes refid="Mixer_8hpp" local="no">Mixer.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+      <param>
+        <type>typename MixerType</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1MixerRegistrar_1a39e6101e1a716322132c18799ef9a351" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::MixerRegistrar&lt; F, MixerType &gt;::MixerRegistrar</definition>
+        <argsstring>(std::string const &amp;name)</argsstring>
+        <name>MixerRegistrar</name>
+        <qualifiedname>sisi4s::MixerRegistrar::MixerRegistrar</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Constructs the registrating instance. The mixer type must be given as template argument, the mixer name as method argument. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" line="124" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" bodystart="124" bodyend="126"/>
+        <references refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" compoundref="Mixer_8hpp" startline="83" endline="90">sisi4s::MixerFactory&lt; F &gt;::getMixerMap</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class to be statically instantiated by a mixer to register it in the <ref refid="classsisi4s_1_1MixerFactory" kindref="compound">MixerFactory</ref>. Registered mixers can be instantiated from the <ref refid="namespacesisi4s" kindref="compound">sisi4s</ref> control language. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>sisi4s::MixerRegistrar&lt; F, sisi4s::DiisMixer&lt; F &gt; &gt;</label>
+        <link refid="classsisi4s_1_1MixerRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; F, sisi4s::DiisMixer&lt; F &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>sisi4s::MixerRegistrar&lt; F, sisi4s::LinearMixer&lt; F &gt; &gt;</label>
+        <link refid="classsisi4s_1_1MixerRegistrar"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; F, sisi4s::LinearMixer&lt; F &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::MixerFactory&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1MixerFactory"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::MixerRegistrar&lt; F, MixerType &gt;</label>
+        <link refid="classsisi4s_1_1MixerRegistrar"/>
+        <childnode refid="2" relation="protected-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>sisi4s::MixerFactory&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1MixerFactory"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::MixerRegistrar&lt; F, MixerType &gt;</label>
+        <link refid="classsisi4s_1_1MixerRegistrar"/>
+        <childnode refid="2" relation="protected-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" line="117" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/mixers/Mixer.hpp" bodystart="117" bodyend="127"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1MixerFactory_1a6b7e64c5758f4727dbe902450e2d1744" prot="protected" virt="non-virtual"><scope>sisi4s::MixerRegistrar</scope><name>create</name></member>
+      <member refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" prot="protected" virt="non-virtual"><scope>sisi4s::MixerRegistrar</scope><name>getMixerMap</name></member>
+      <member refid="classsisi4s_1_1MixerFactory_1a3affa82288bfbe8f7af45cbb5d281652" prot="protected" virt="non-virtual"><scope>sisi4s::MixerRegistrar</scope><name>mixerMap</name></member>
+      <member refid="classsisi4s_1_1MixerRegistrar_1a39e6101e1a716322132c18799ef9a351" prot="public" virt="non-virtual"><scope>sisi4s::MixerRegistrar</scope><name>MixerRegistrar</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

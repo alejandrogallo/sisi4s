@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1MpiCommunicator" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::MpiCommunicator</compoundname>
+    <includes refid="MpiCommunicator_8hpp" local="no">MpiCommunicator.hpp</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1MpiCommunicator_1aa62d56e1a0e614260baf5830fcb743c8" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sisi4s::MpiCommunicator::rank</definition>
+        <argsstring></argsstring>
+        <name>rank</name>
+        <qualifiedname>sisi4s::MpiCommunicator::rank</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="80" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="80" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1MpiCommunicator_1a4920d7e68dfa8c38de024795a264527f" compoundref="MpiCommunicator_8hpp" startline="55" endline="70">gather</referencedby>
+        <referencedby refid="classsisi4s_1_1MpiCommunicator_1a0e6f9439058e7c3685f2f05a40cda46a" compoundref="MpiCommunicator_8hpp" startline="72" endline="74">getRank</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1MpiCommunicator_1ac6cf9fdbbb8d03172d58437084220f97" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sisi4s::MpiCommunicator::processes</definition>
+        <argsstring></argsstring>
+        <name>processes</name>
+        <qualifiedname>sisi4s::MpiCommunicator::processes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="80" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="80" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1MpiCommunicator_1a4920d7e68dfa8c38de024795a264527f" compoundref="MpiCommunicator_8hpp" startline="55" endline="70">gather</referencedby>
+        <referencedby refid="classsisi4s_1_1MpiCommunicator_1a8c3f5cae509d21ca04c38cbda27abf3a" compoundref="MpiCommunicator_8hpp" startline="75" endline="77">getProcesses</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1MpiCommunicator_1a512182e1902b11373c679b92504d86bd" prot="protected" static="no" mutable="no">
+        <type>MPI_Comm</type>
+        <definition>MPI_Comm sisi4s::MpiCommunicator::comm</definition>
+        <argsstring></argsstring>
+        <name>comm</name>
+        <qualifiedname>sisi4s::MpiCommunicator::comm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="81" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="81" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1MpiCommunicator_1acf97e26d4d096c1ab248bb09864ebd26" compoundref="MpiCommunicator_8hpp" startline="42" endline="48">allReduce</referencedby>
+        <referencedby refid="classsisi4s_1_1MpiCommunicator_1a9e2b81f7b5f964584b006b816bf81f21" compoundref="MpiCommunicator_8hpp" startline="28" endline="30">barrier</referencedby>
+        <referencedby refid="classsisi4s_1_1MpiCommunicator_1a4920d7e68dfa8c38de024795a264527f" compoundref="MpiCommunicator_8hpp" startline="55" endline="70">gather</referencedby>
+        <referencedby refid="classsisi4s_1_1MpiCommunicator_1a27c1b97bc4e7ae60135dc41a13b226e3" compoundref="MpiCommunicator_8hpp" startline="33" endline="39">reduce</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1MpiCommunicator_1a939fde42ae3d99c1b204d6551a32ccfc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::MpiCommunicator::MpiCommunicator</definition>
+        <argsstring>(int rank_, int processes_, MPI_Comm comm_=MPI_COMM_WORLD)</argsstring>
+        <name>MpiCommunicator</name>
+        <qualifiedname>sisi4s::MpiCommunicator::MpiCommunicator</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>rank_</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>processes_</declname>
+        </param>
+        <param>
+          <type>MPI_Comm</type>
+          <declname>comm_</declname>
+          <defval>MPI_COMM_WORLD</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="17" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1MpiCommunicator_1a4709286aa093b23e8fa2911ef5d759ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::MpiCommunicator::MpiCommunicator</definition>
+        <argsstring>(const CTF::World &amp;world)</argsstring>
+        <name>MpiCommunicator</name>
+        <qualifiedname>sisi4s::MpiCommunicator::MpiCommunicator</qualifiedname>
+        <param>
+          <type>const CTF::World &amp;</type>
+          <declname>world</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="21" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1MpiCommunicator_1a8c3385248e49389232e40c70d0f1a73e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::MpiCommunicator::~MpiCommunicator</definition>
+        <argsstring>()</argsstring>
+        <name>~MpiCommunicator</name>
+        <qualifiedname>sisi4s::MpiCommunicator::~MpiCommunicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="25" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="25" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1MpiCommunicator_1a9e2b81f7b5f964584b006b816bf81f21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sisi4s::MpiCommunicator::barrier</definition>
+        <argsstring>()</argsstring>
+        <name>barrier</name>
+        <qualifiedname>sisi4s::MpiCommunicator::barrier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="28" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="28" bodyend="30"/>
+        <references refid="classsisi4s_1_1MpiCommunicator_1a512182e1902b11373c679b92504d86bd" compoundref="MpiCommunicator_8hpp" startline="81">comm</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">sisi4s::FiniteSizeCorrection::interpolation3D</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1MpiCommunicator_1a27c1b97bc4e7ae60135dc41a13b226e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void sisi4s::MpiCommunicator::reduce</definition>
+        <argsstring>(const F &amp;src, F &amp;dst, int rootRank=0)</argsstring>
+        <name>reduce</name>
+        <qualifiedname>sisi4s::MpiCommunicator::reduce</qualifiedname>
+        <param>
+          <type>const F &amp;</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>F &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rootRank</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="33" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="33" bodyend="39"/>
+        <references refid="classsisi4s_1_1MpiCommunicator_1a512182e1902b11373c679b92504d86bd" compoundref="MpiCommunicator_8hpp" startline="81">comm</references>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1afe2096757c8e16bec943b7b7f5acbd7f" compoundref="Sisi4s_8cxx" startline="174" endline="212">sisi4s::Sisi4s::printStatistics</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1MpiCommunicator_1acf97e26d4d096c1ab248bb09864ebd26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void sisi4s::MpiCommunicator::allReduce</definition>
+        <argsstring>(const F &amp;src, F &amp;dst)</argsstring>
+        <name>allReduce</name>
+        <qualifiedname>sisi4s::MpiCommunicator::allReduce</qualifiedname>
+        <param>
+          <type>const F &amp;</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>F &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="42" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="42" bodyend="48"/>
+        <references refid="classsisi4s_1_1MpiCommunicator_1a512182e1902b11373c679b92504d86bd" compoundref="MpiCommunicator_8hpp" startline="81">comm</references>
+        <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">sisi4s::FiniteSizeCorrection::interpolation3D</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1MpiCommunicator_1a4920d7e68dfa8c38de024795a264527f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void sisi4s::MpiCommunicator::gather</definition>
+        <argsstring>(const std::vector&lt; F &gt; &amp;src, std::vector&lt; F &gt; &amp;dst, int rootRank=0)</argsstring>
+        <name>gather</name>
+        <qualifiedname>sisi4s::MpiCommunicator::gather</qualifiedname>
+        <param>
+          <type>const std::vector&lt; F &gt; &amp;</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; F &gt; &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rootRank</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>\Brief Gathers the src vectors of all ranks together to the dst vector at the given root rank, by default rank 0. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="55" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="55" bodyend="70"/>
+        <references refid="classsisi4s_1_1MpiCommunicator_1a512182e1902b11373c679b92504d86bd" compoundref="MpiCommunicator_8hpp" startline="81">comm</references>
+        <references refid="classsisi4s_1_1MpiCommunicator_1ac6cf9fdbbb8d03172d58437084220f97" compoundref="MpiCommunicator_8hpp" startline="80">processes</references>
+        <references refid="classsisi4s_1_1MpiCommunicator_1aa62d56e1a0e614260baf5830fcb743c8" compoundref="MpiCommunicator_8hpp" startline="80">rank</references>
+        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a885a0ffef1ab5a039a69e40e8e8b1c09" compoundref="CcsdPreconditioner_8cxx" startline="162" endline="318">sisi4s::CcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
+        <referencedby refid="classsisi4s_1_1IPCcsdPreconditioner_1a2e97db095cdebec9c83d1b60295605ec" compoundref="CcsdPreconditioner_8cxx" startline="605" endline="711">sisi4s::IPCcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
+        <referencedby refid="classsisi4s_1_1EACcsdPreconditioner_1a49913544736063c43e265facdc2cc393" compoundref="CcsdPreconditioner_8cxx" startline="424" endline="530">sisi4s::EACcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1MpiCommunicator_1a0e6f9439058e7c3685f2f05a40cda46a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int sisi4s::MpiCommunicator::getRank</definition>
+        <argsstring>() const</argsstring>
+        <name>getRank</name>
+        <qualifiedname>sisi4s::MpiCommunicator::getRank</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="72" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="72" bodyend="74"/>
+        <references refid="classsisi4s_1_1MpiCommunicator_1aa62d56e1a0e614260baf5830fcb743c8" compoundref="MpiCommunicator_8hpp" startline="80">rank</references>
+        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a885a0ffef1ab5a039a69e40e8e8b1c09" compoundref="CcsdPreconditioner_8cxx" startline="162" endline="318">sisi4s::CcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
+        <referencedby refid="classsisi4s_1_1IPCcsdPreconditioner_1a2e97db095cdebec9c83d1b60295605ec" compoundref="CcsdPreconditioner_8cxx" startline="605" endline="711">sisi4s::IPCcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
+        <referencedby refid="classsisi4s_1_1EACcsdPreconditioner_1a49913544736063c43e265facdc2cc393" compoundref="CcsdPreconditioner_8cxx" startline="424" endline="530">sisi4s::EACcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1MpiCommunicator_1a8c3f5cae509d21ca04c38cbda27abf3a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int sisi4s::MpiCommunicator::getProcesses</definition>
+        <argsstring>() const</argsstring>
+        <name>getProcesses</name>
+        <qualifiedname>sisi4s::MpiCommunicator::getProcesses</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="75" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="75" bodyend="77"/>
+        <references refid="classsisi4s_1_1MpiCommunicator_1ac6cf9fdbbb8d03172d58437084220f97" compoundref="MpiCommunicator_8hpp" startline="80">processes</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::MpiCommunicator</label>
+        <link refid="classsisi4s_1_1MpiCommunicator"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" line="15" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/MpiCommunicator.hpp" bodystart="15" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1MpiCommunicator_1acf97e26d4d096c1ab248bb09864ebd26" prot="public" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>allReduce</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1a9e2b81f7b5f964584b006b816bf81f21" prot="public" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>barrier</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1a512182e1902b11373c679b92504d86bd" prot="protected" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>comm</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1a4920d7e68dfa8c38de024795a264527f" prot="public" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>gather</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1a8c3f5cae509d21ca04c38cbda27abf3a" prot="public" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>getProcesses</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1a0e6f9439058e7c3685f2f05a40cda46a" prot="public" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>getRank</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1a939fde42ae3d99c1b204d6551a32ccfc" prot="public" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>MpiCommunicator</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1a4709286aa093b23e8fa2911ef5d759ab" prot="public" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>MpiCommunicator</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1ac6cf9fdbbb8d03172d58437084220f97" prot="protected" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>processes</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1aa62d56e1a0e614260baf5830fcb743c8" prot="protected" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>rank</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1a27c1b97bc4e7ae60135dc41a13b226e3" prot="public" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>reduce</name></member>
+      <member refid="classsisi4s_1_1MpiCommunicator_1a8c3385248e49389232e40c70d0f1a73e" prot="public" virt="non-virtual"><scope>sisi4s::MpiCommunicator</scope><name>~MpiCommunicator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

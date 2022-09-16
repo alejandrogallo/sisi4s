@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1CoulombVertexReader" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::CoulombVertexReader</compoundname>
+    <basecompoundref refid="classsisi4s_1_1Algorithm" prot="public" virt="non-virtual">sisi4s::Algorithm</basecompoundref>
+    <includes refid="CoulombVertexReader_8hpp" local="no">CoulombVertexReader.hpp</includes>
+    <innerclass refid="classsisi4s_1_1CoulombVertexReader_1_1Chunk" prot="public">sisi4s::CoulombVertexReader::Chunk</innerclass>
+    <innerclass refid="classsisi4s_1_1CoulombVertexReader_1_1Header" prot="public">sisi4s::CoulombVertexReader::Header</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexReader_1a17637f654624c83f9310fd11a559fc03" prot="public" static="yes" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">AlgorithmRegistrar</ref>&lt; <ref refid="classsisi4s_1_1CoulombVertexReader" kindref="compound">CoulombVertexReader</ref> &gt;</type>
+        <definition>AlgorithmRegistrar&lt; CoulombVertexReader &gt; CoulombVertexReader::registrar_</definition>
+        <argsstring></argsstring>
+        <name>registrar_</name>
+        <qualifiedname>sisi4s::CoulombVertexReader::registrar_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" line="18" column="72" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexReader_1a7dec1c54bb462d0d41341b8a581ca538" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string sisi4s::CoulombVertexReader::getName</definition>
+        <argsstring>()</argsstring>
+        <name>getName</name>
+        <qualifiedname>sisi4s::CoulombVertexReader::getName</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1ad88a11462d7efa2cd6ee1dd2884d7a68">getName</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" line="18" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexReader_1aac61b8b5e7fdb200c4261db7bb45189a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CoulombVertexReader::CoulombVertexReader</definition>
+        <argsstring>(std::vector&lt; Argument &gt; const &amp;argumentList)</argsstring>
+        <name>CoulombVertexReader</name>
+        <qualifiedname>sisi4s::CoulombVertexReader::CoulombVertexReader</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref> &gt; const &amp;</type>
+          <declname>argumentList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" line="19" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.cxx" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexReader_1a218d5d79d1f814d7383bc87838546f31" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>CoulombVertexReader::~CoulombVertexReader</definition>
+        <argsstring>()</argsstring>
+        <name>~CoulombVertexReader</name>
+        <qualifiedname>sisi4s::CoulombVertexReader::~CoulombVertexReader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" line="22" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.cxx" bodystart="26" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexReader_1ab7a866749df48712c5b9b02d892be4d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CoulombVertexReader::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>sisi4s::CoulombVertexReader::run</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1aacd7ce50628f515d50d178213db8b320">run</reimplements>
+        <briefdescription>
+<para>Reads the Full Coulomb Vertex <formula id="6">$\Gamma_{pG}^q$</formula> and the occupied and virtual orbital energies <formula id="30">$\varepsilon_i, \varepsilon_a$</formula> from binary data file, and stores them in the CTF Tensors GammaGqr, epsi, epsa. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" line="29" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.cxx" bodystart="29" bodyend="108"/>
+        <references refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" compoundref="Algorithm_8cxx" startline="303" endline="312">sisi4s::Algorithm::allocatedTensorArgument</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Chunk_1a91b8bbf29812527e060d717e5fa96308" compoundref="CoulombVertexReader_8hpp" startline="50">sisi4s::CoulombVertexReader::Chunk::EPSILONS_MAGIC</references>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">sisi4s::Algorithm::getTextArgument</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1a163292add0d88caaaef64e5062e73564" compoundref="CoulombVertexReader_8cxx" startline="155" endline="164">handleUnrestricted</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Chunk_1ac44e163605862cf38a070382d51e83ad" compoundref="CoulombVertexReader_8hpp" startline="47">sisi4s::CoulombVertexReader::Chunk::IMAGS_MAGIC</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Header_1ae8fc0b0e820d493fb5a36faed5b343ce" compoundref="CoulombVertexReader_8hpp" startline="38">sisi4s::CoulombVertexReader::Header::magic</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Header_1a152e15bfb21e830584f2414b03ff9bec" compoundref="CoulombVertexReader_8hpp" startline="40">sisi4s::CoulombVertexReader::Header::MAGIC</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Chunk_1a86313da6682a26e3d857fbd56f9ea950" compoundref="CoulombVertexReader_8hpp" startline="44">sisi4s::CoulombVertexReader::Chunk::magic</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Header_1ac405cef174db0e9842dce87c1f20a7e3" compoundref="CoulombVertexReader_8hpp" startline="39">sisi4s::CoulombVertexReader::Header::NG</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Header_1ae7bd27744d611a8b13813ac20f0acf92" compoundref="CoulombVertexReader_8hpp" startline="39">sisi4s::CoulombVertexReader::Header::No</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Header_1a2dd4eb74eddde938fe63c7baeab09a9f" compoundref="CoulombVertexReader_8hpp" startline="39">sisi4s::CoulombVertexReader::Header::Nv</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Chunk_1a018fb9c47e0d0653fde508bbee44980d" compoundref="CoulombVertexReader_8hpp" startline="46">sisi4s::CoulombVertexReader::Chunk::REALS_MAGIC</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Chunk_1a888643db6c210eb7d04f67e533c03cc9" compoundref="CoulombVertexReader_8hpp" startline="45">sisi4s::CoulombVertexReader::Chunk::size</references>
+        <references refid="namespacesisi4s_1a20c6b0ad3767206173edfb7bf525e5a7" compoundref="ComplexTensor_8cxx" startline="76" endline="96">sisi4s::toComplexTensor</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexReader_1aac17c1f0bfabec70d85b88618ff7c5d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CoulombVertexReader::dryRun</definition>
+        <argsstring>()</argsstring>
+        <name>dryRun</name>
+        <qualifiedname>sisi4s::CoulombVertexReader::dryRun</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de">dryRun</reimplements>
+        <briefdescription>
+<para>Dry run for reading the Coulomb vertex from binary data file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" line="34" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.cxx" bodystart="110" bodyend="153"/>
+        <references refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" compoundref="Algorithm_8cxx" startline="303" endline="312">sisi4s::Algorithm::allocatedTensorArgument</references>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">sisi4s::Algorithm::getTextArgument</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Header_1ae8fc0b0e820d493fb5a36faed5b343ce" compoundref="CoulombVertexReader_8hpp" startline="38">sisi4s::CoulombVertexReader::Header::magic</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Header_1a152e15bfb21e830584f2414b03ff9bec" compoundref="CoulombVertexReader_8hpp" startline="40">sisi4s::CoulombVertexReader::Header::MAGIC</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Header_1ac405cef174db0e9842dce87c1f20a7e3" compoundref="CoulombVertexReader_8hpp" startline="39">sisi4s::CoulombVertexReader::Header::NG</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Header_1ae7bd27744d611a8b13813ac20f0acf92" compoundref="CoulombVertexReader_8hpp" startline="39">sisi4s::CoulombVertexReader::Header::No</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1_1Header_1a2dd4eb74eddde938fe63c7baeab09a9f" compoundref="CoulombVertexReader_8hpp" startline="39">sisi4s::CoulombVertexReader::Header::Nv</references>
+        <references refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" compoundref="SourceLocation_8hpp" startline="46">SOURCE_LOCATION</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexReader_1a163292add0d88caaaef64e5062e73564" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombVertexReader::handleUnrestricted</definition>
+        <argsstring>()</argsstring>
+        <name>handleUnrestricted</name>
+        <qualifiedname>sisi4s::CoulombVertexReader::handleUnrestricted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" line="53" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.cxx" bodystart="155" bodyend="164"/>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1afeba637ffd23f0adf95f74119ddf7429" compoundref="CoulombVertexReader_8cxx" startline="201" endline="229">unrestrictEigenEnergies</references>
+        <references refid="classsisi4s_1_1CoulombVertexReader_1ad0d3f8452eb37567d355ae122eda5f7c" compoundref="CoulombVertexReader_8cxx" startline="166" endline="199">unrestrictVertex</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexReader_1ab7a866749df48712c5b9b02d892be4d9" compoundref="CoulombVertexReader_8cxx" startline="29" endline="108">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexReader_1ad0d3f8452eb37567d355ae122eda5f7c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombVertexReader::unrestrictVertex</definition>
+        <argsstring>()</argsstring>
+        <name>unrestrictVertex</name>
+        <qualifiedname>sisi4s::CoulombVertexReader::unrestrictVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" line="54" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.cxx" bodystart="166" bodyend="199"/>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexReader_1a163292add0d88caaaef64e5062e73564" compoundref="CoulombVertexReader_8cxx" startline="155" endline="164">handleUnrestricted</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexReader_1afeba637ffd23f0adf95f74119ddf7429" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombVertexReader::unrestrictEigenEnergies</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>unrestrictEigenEnergies</name>
+        <qualifiedname>sisi4s::CoulombVertexReader::unrestrictEigenEnergies</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" line="55" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.cxx" bodystart="201" bodyend="229"/>
+        <references refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" compoundref="Algorithm_8cxx" startline="188" endline="200">sisi4s::Algorithm::getTensorArgument</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexReader_1a163292add0d88caaaef64e5062e73564" compoundref="CoulombVertexReader_8cxx" startline="155" endline="164">handleUnrestricted</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Reads the Coulomb vertex <formula id="6">$\Gamma_{pG}^q$</formula> and the occupied and virtual orbital energies <formula id="30">$\varepsilon_i, \varepsilon_a$</formula> from binary data file, and stores them in the CTF Tensors GammaGqr, epsi, epsa. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::CoulombVertexReader</label>
+        <link refid="classsisi4s_1_1CoulombVertexReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CoulombVertexReader &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+        <childnode refid="5" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CoulombVertexReader &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="4">
+        <label>sisi4s::AlgorithmFactory</label>
+        <link refid="classsisi4s_1_1AlgorithmFactory"/>
+      </node>
+      <node id="5">
+        <label>sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::CoulombVertexReader</label>
+        <link refid="classsisi4s_1_1CoulombVertexReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+registrar_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" line="16" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexReader.hpp" bodystart="16" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>Algorithm</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>allocateContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>allocatedTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>arguments</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>checkArgumentsOrDie</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexReader_1aac61b8b5e7fdb200c4261db7bb45189a" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>CoulombVertexReader</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexReader_1aac17c1f0bfabec70d85b88618ff7c5d8" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexReader</scope><name>dryRun</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getArgumentData</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a407d54400b4b652a5b1b8d79b9c57175" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getGivenArgumentNames</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a98c473d7c36973fb5dbd29b6dce3f09e" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexReader_1a7dec1c54bb462d0d41341b8a581ca538" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getName</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aedbdee78ab6ed424c34121218b6cdf68" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getRealArgumentFromInteger</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getRealArgumentFromTensor</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getTensorArgumentFromReal</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexReader_1a163292add0d88caaaef64e5062e73564" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>handleUnrestricted</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexReader_1a17637f654624c83f9310fd11a559fc03" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>registrar_</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexReader_1ab7a866749df48712c5b9b02d892be4d9" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexReader</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>setIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>setRealArgument</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexReader_1afeba637ffd23f0adf95f74119ddf7429" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>unrestrictEigenEnergies</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexReader_1ad0d3f8452eb37567d355ae122eda5f7c" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>unrestrictVertex</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexReader</scope><name>~Algorithm</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexReader_1a218d5d79d1f814d7383bc87838546f31" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexReader</scope><name>~CoulombVertexReader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

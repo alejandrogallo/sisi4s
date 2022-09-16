@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1FlopsCounter" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::FlopsCounter</compoundname>
+    <includes refid="FlopsCounter_8hpp" local="no">FlopsCounter.hpp</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1FlopsCounter_1a09f5f226f85412521df4a06e761697dc" prot="protected" static="no" mutable="no">
+        <type>int64_t *</type>
+        <definition>int64_t* sisi4s::FlopsCounter::flops</definition>
+        <argsstring></argsstring>
+        <name>flops</name>
+        <qualifiedname>sisi4s::FlopsCounter::flops</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.hpp" line="12" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.hpp" bodystart="12" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FlopsCounter_1af6712c8a7dc80e6e7d71c5587c388d95" compoundref="FlopsCounter_8cxx" startline="10" endline="12">~FlopsCounter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FlopsCounter_1a473cdac098ec911c055d597d9fba89e6" prot="protected" static="no" mutable="no">
+        <type>MPI_Comm</type>
+        <definition>MPI_Comm sisi4s::FlopsCounter::comm</definition>
+        <argsstring></argsstring>
+        <name>comm</name>
+        <qualifiedname>sisi4s::FlopsCounter::comm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.hpp" line="13" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.hpp" bodystart="13" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FlopsCounter_1af6712c8a7dc80e6e7d71c5587c388d95" compoundref="FlopsCounter_8cxx" startline="10" endline="12">~FlopsCounter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1FlopsCounter_1adbfb0f7c01df02ce461065003c7b64a0" prot="protected" static="no" mutable="no">
+        <type>CTF::Flop_counter</type>
+        <definition>CTF::Flop_counter sisi4s::FlopsCounter::counter</definition>
+        <argsstring></argsstring>
+        <name>counter</name>
+        <qualifiedname>sisi4s::FlopsCounter::counter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.hpp" line="14" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.hpp" bodystart="14" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1FlopsCounter_1af6712c8a7dc80e6e7d71c5587c388d95" compoundref="FlopsCounter_8cxx" startline="10" endline="12">~FlopsCounter</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1FlopsCounter_1ae3c7abb5eab002a891f7e654affa2fc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FlopsCounter::FlopsCounter</definition>
+        <argsstring>(int64_t *flops, MPI_Comm comm=MPI_COMM_SELF)</argsstring>
+        <name>FlopsCounter</name>
+        <qualifiedname>sisi4s::FlopsCounter::FlopsCounter</qualifiedname>
+        <param>
+          <type>int64_t *</type>
+          <declname>flops</declname>
+        </param>
+        <param>
+          <type>MPI_Comm</type>
+          <declname>comm</declname>
+          <defval>MPI_COMM_SELF</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.hpp" line="9" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.cxx" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1FlopsCounter_1af6712c8a7dc80e6e7d71c5587c388d95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FlopsCounter::~FlopsCounter</definition>
+        <argsstring>()</argsstring>
+        <name>~FlopsCounter</name>
+        <qualifiedname>sisi4s::FlopsCounter::~FlopsCounter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.hpp" line="10" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.cxx" bodystart="10" bodyend="12"/>
+        <references refid="classsisi4s_1_1FlopsCounter_1a473cdac098ec911c055d597d9fba89e6" compoundref="FlopsCounter_8hpp" startline="13">comm</references>
+        <references refid="classsisi4s_1_1FlopsCounter_1adbfb0f7c01df02ce461065003c7b64a0" compoundref="FlopsCounter_8hpp" startline="14">counter</references>
+        <references refid="classsisi4s_1_1FlopsCounter_1a09f5f226f85412521df4a06e761697dc" compoundref="FlopsCounter_8hpp" startline="12">flops</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::FlopsCounter</label>
+        <link refid="classsisi4s_1_1FlopsCounter"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.hpp" line="7" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/FlopsCounter.hpp" bodystart="7" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1FlopsCounter_1a473cdac098ec911c055d597d9fba89e6" prot="protected" virt="non-virtual"><scope>sisi4s::FlopsCounter</scope><name>comm</name></member>
+      <member refid="classsisi4s_1_1FlopsCounter_1adbfb0f7c01df02ce461065003c7b64a0" prot="protected" virt="non-virtual"><scope>sisi4s::FlopsCounter</scope><name>counter</name></member>
+      <member refid="classsisi4s_1_1FlopsCounter_1a09f5f226f85412521df4a06e761697dc" prot="protected" virt="non-virtual"><scope>sisi4s::FlopsCounter</scope><name>flops</name></member>
+      <member refid="classsisi4s_1_1FlopsCounter_1ae3c7abb5eab002a891f7e654affa2fc0" prot="public" virt="non-virtual"><scope>sisi4s::FlopsCounter</scope><name>FlopsCounter</name></member>
+      <member refid="classsisi4s_1_1FlopsCounter_1af6712c8a7dc80e6e7d71c5587c388d95" prot="public" virt="non-virtual"><scope>sisi4s::FlopsCounter</scope><name>~FlopsCounter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

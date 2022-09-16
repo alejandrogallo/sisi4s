@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1Scanner" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::Scanner</compoundname>
+    <includes refid="Scanner_8hpp" local="no">Scanner.hpp</includes>
+      <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1Scanner_1ae076ebb67806f60647f2139e989b0a29" prot="protected" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int constexpr</type>
+        <definition>unsigned int constexpr sisi4s::Scanner::BUFFER_SIZE</definition>
+        <argsstring></argsstring>
+        <name>BUFFER_SIZE</name>
+        <qualifiedname>sisi4s::Scanner::BUFFER_SIZE</qualifiedname>
+        <initializer>= 128*1024*1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="16" column="35" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="16" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Scanner_1a53ba3d14540c658ba3b7966266eda597" compoundref="Scanner_8hpp" startline="23" endline="45">refillBuffer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Scanner_1a8e6785c00f0da10287f0e6c1e1885ff5" prot="protected" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int constexpr</type>
+        <definition>unsigned int constexpr sisi4s::Scanner::REFILL_SIZE</definition>
+        <argsstring></argsstring>
+        <name>REFILL_SIZE</name>
+        <qualifiedname>sisi4s::Scanner::REFILL_SIZE</qualifiedname>
+        <initializer>= 128</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="17" column="35" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="17" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Scanner_1a53ba3d14540c658ba3b7966266eda597" compoundref="Scanner_8hpp" startline="23" endline="45">refillBuffer</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1Scanner_1a636a024e8bdfba40b633c4a6f6bd5e34" prot="protected" static="no" mutable="no">
+        <type>std::istream *</type>
+        <definition>std::istream* sisi4s::Scanner::stream</definition>
+        <argsstring></argsstring>
+        <name>stream</name>
+        <qualifiedname>sisi4s::Scanner::stream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="19" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="19" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Scanner_1a53ba3d14540c658ba3b7966266eda597" compoundref="Scanner_8hpp" startline="23" endline="45">refillBuffer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Scanner_1a8f3bae7850aecea40e861a39d071a675" prot="protected" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* sisi4s::Scanner::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <qualifiedname>sisi4s::Scanner::buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="20" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="20" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Scanner_1a53ba3d14540c658ba3b7966266eda597" compoundref="Scanner_8hpp" startline="23" endline="45">refillBuffer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Scanner_1a91fb4f0e561c0a76808537f6b44fc17e" prot="protected" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * sisi4s::Scanner::pos</definition>
+        <argsstring></argsstring>
+        <name>pos</name>
+        <qualifiedname>sisi4s::Scanner::pos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="20" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="20" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" compoundref="Scanner_8hpp" startline="58" endline="75">nextLine</referencedby>
+        <referencedby refid="classsisi4s_1_1Scanner_1a53ba3d14540c658ba3b7966266eda597" compoundref="Scanner_8hpp" startline="23" endline="45">refillBuffer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Scanner_1a9e3348718e46ed753445018c21ceba82" prot="protected" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * sisi4s::Scanner::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <qualifiedname>sisi4s::Scanner::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="20" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="20" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Scanner_1a53ba3d14540c658ba3b7966266eda597" compoundref="Scanner_8hpp" startline="23" endline="45">refillBuffer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Scanner_1a11a95550511a86f046fe5f619f84420c" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::Scanner::eof</definition>
+        <argsstring></argsstring>
+        <name>eof</name>
+        <qualifiedname>sisi4s::Scanner::eof</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="21" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="21" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1Scanner_1a53ba3d14540c658ba3b7966266eda597" compoundref="Scanner_8hpp" startline="23" endline="45">refillBuffer</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classsisi4s_1_1Scanner_1acc5cfa44744fce8f37ca8ac298d3fff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename NumberType</type>
+          </param>
+        </templateparamlist>
+        <type>class</type>
+        <definition>friend class NumberScanner</definition>
+        <argsstring></argsstring>
+        <name>NumberScanner</name>
+        <qualifiedname>sisi4s::Scanner::NumberScanner</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1NumberScanner" kindref="compound">NumberScanner</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="78" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1Scanner_1a53ba3d14540c658ba3b7966266eda597" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sisi4s::Scanner::refillBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>refillBuffer</name>
+        <qualifiedname>sisi4s::Scanner::refillBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="23" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="23" bodyend="45"/>
+        <references refid="classsisi4s_1_1Scanner_1a8f3bae7850aecea40e861a39d071a675" compoundref="Scanner_8hpp" startline="20">buffer</references>
+        <references refid="classsisi4s_1_1Scanner_1ae076ebb67806f60647f2139e989b0a29" compoundref="Scanner_8hpp" startline="16">BUFFER_SIZE</references>
+        <references refid="classsisi4s_1_1Scanner_1a9e3348718e46ed753445018c21ceba82" compoundref="Scanner_8hpp" startline="20">end</references>
+        <references refid="classsisi4s_1_1Scanner_1a11a95550511a86f046fe5f619f84420c" compoundref="Scanner_8hpp" startline="21">eof</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1Scanner_1a91fb4f0e561c0a76808537f6b44fc17e" compoundref="Scanner_8hpp" startline="20">pos</references>
+        <references refid="classsisi4s_1_1Scanner_1a8e6785c00f0da10287f0e6c1e1885ff5" compoundref="Scanner_8hpp" startline="17">REFILL_SIZE</references>
+        <references refid="classsisi4s_1_1Scanner_1a636a024e8bdfba40b633c4a6f6bd5e34" compoundref="Scanner_8hpp" startline="19">stream</references>
+        <referencedby refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" compoundref="Scanner_8hpp" startline="58" endline="75">nextLine</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1Scanner_1a85b1a182c5b0d52afff697bbdd3f5694" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::Scanner::Scanner</definition>
+        <argsstring>(std::istream *stream_)</argsstring>
+        <name>Scanner</name>
+        <qualifiedname>sisi4s::Scanner::Scanner</qualifiedname>
+        <param>
+          <type>std::istream *</type>
+          <declname>stream_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="48" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="48" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string sisi4s::Scanner::nextLine</definition>
+        <argsstring>(char const delimiter=&apos;\n&apos;)</argsstring>
+        <name>nextLine</name>
+        <qualifiedname>sisi4s::Scanner::nextLine</qualifiedname>
+        <param>
+          <type>char const</type>
+          <declname>delimiter</declname>
+          <defval>&apos;\n&apos;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="58" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="58" bodyend="75"/>
+        <references refid="classsisi4s_1_1Scanner_1a91fb4f0e561c0a76808537f6b44fc17e" compoundref="Scanner_8hpp" startline="20">pos</references>
+        <references refid="classsisi4s_1_1Scanner_1a53ba3d14540c658ba3b7966266eda597" compoundref="Scanner_8hpp" startline="23" endline="45">refillBuffer</references>
+        <referencedby refid="classsisi4s_1_1TensorIo_1a13b772a1fa48fa72bc12dc28fbed3f04" compoundref="TensorIo_8cxx" startline="43" endline="126">sisi4s::TensorIo::readText</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::Scanner</label>
+        <link refid="classsisi4s_1_1Scanner"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" line="14" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/Scanner.hpp" bodystart="14" bodyend="79"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Scanner_1a8f3bae7850aecea40e861a39d071a675" prot="protected" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>buffer</name></member>
+      <member refid="classsisi4s_1_1Scanner_1ae076ebb67806f60647f2139e989b0a29" prot="protected" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>BUFFER_SIZE</name></member>
+      <member refid="classsisi4s_1_1Scanner_1a9e3348718e46ed753445018c21ceba82" prot="protected" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>end</name></member>
+      <member refid="classsisi4s_1_1Scanner_1a11a95550511a86f046fe5f619f84420c" prot="protected" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>eof</name></member>
+      <member refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" prot="public" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>nextLine</name></member>
+      <member refid="classsisi4s_1_1Scanner_1acc5cfa44744fce8f37ca8ac298d3fff1" prot="public" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>NumberScanner</name></member>
+      <member refid="classsisi4s_1_1Scanner_1a91fb4f0e561c0a76808537f6b44fc17e" prot="protected" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>pos</name></member>
+      <member refid="classsisi4s_1_1Scanner_1a8e6785c00f0da10287f0e6c1e1885ff5" prot="protected" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>REFILL_SIZE</name></member>
+      <member refid="classsisi4s_1_1Scanner_1a53ba3d14540c658ba3b7966266eda597" prot="protected" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>refillBuffer</name></member>
+      <member refid="classsisi4s_1_1Scanner_1a85b1a182c5b0d52afff697bbdd3f5694" prot="public" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>Scanner</name></member>
+      <member refid="classsisi4s_1_1Scanner_1a636a024e8bdfba40b633c4a6f6bd5e34" prot="protected" virt="non-virtual"><scope>sisi4s::Scanner</scope><name>stream</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

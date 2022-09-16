@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1ParseError" kind="class" language="C++" prot="public">
+    <compoundname>CLI::ParseError</compoundname>
+    <basecompoundref refid="classCLI_1_1Error" prot="public" virt="non-virtual">CLI::Error</basecompoundref>
+    <derivedcompoundref refid="classCLI_1_1ArgumentMismatch" prot="public" virt="non-virtual">CLI::ArgumentMismatch</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1ConfigError" prot="public" virt="non-virtual">CLI::ConfigError</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1ConversionError" prot="public" virt="non-virtual">CLI::ConversionError</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1ExcludesError" prot="public" virt="non-virtual">CLI::ExcludesError</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1ExtrasError" prot="public" virt="non-virtual">CLI::ExtrasError</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1FileError" prot="public" virt="non-virtual">CLI::FileError</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1HorribleError" prot="public" virt="non-virtual">CLI::HorribleError</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1InvalidError" prot="public" virt="non-virtual">CLI::InvalidError</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1RequiredError" prot="public" virt="non-virtual">CLI::RequiredError</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1RequiresError" prot="public" virt="non-virtual">CLI::RequiresError</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1RuntimeError" prot="public" virt="non-virtual">CLI::RuntimeError</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1Success" prot="public" virt="non-virtual">CLI::Success</derivedcompoundref>
+    <derivedcompoundref refid="classCLI_1_1ValidationError" prot="public" virt="non-virtual">CLI::ValidationError</derivedcompoundref>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classCLI_1_1ParseError_1a744c6dd40b9d7966d6da28244a320bff" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CLI::ParseError::ParseError</definition>
+        <argsstring>(std::string ename, std::string msg, int exit_code)</argsstring>
+        <name>ParseError</name>
+        <qualifiedname>CLI::ParseError::ParseError</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>ename</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>exit_code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="677" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="677" bodyend="677"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1ParseError_1ab9e8c4673f422502f62173e68193a7f0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CLI::ParseError::ParseError</definition>
+        <argsstring>(std::string ename, std::string msg, ExitCodes exit_code)</argsstring>
+        <name>ParseError</name>
+        <qualifiedname>CLI::ParseError::ParseError</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>ename</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceCLI_1a1d8108a219533f0b0361640a017f037e" kindref="member">ExitCodes</ref></type>
+          <declname>exit_code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="677" column="40" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="677" bodyend="677"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCLI_1_1ParseError_1a7e0db457bd2a6b54efe67cfa20bdbcdf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CLI::ParseError::ParseError</definition>
+        <argsstring>(std::string msg, ExitCodes exit_code)</argsstring>
+        <name>ParseError</name>
+        <qualifiedname>CLI::ParseError::ParseError</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceCLI_1a1d8108a219533f0b0361640a017f037e" kindref="member">ExitCodes</ref></type>
+          <declname>exit_code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="677" column="75" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="677" bodyend="677"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1ParseError_1af4f3a073b76e8533e3ac36339efa74d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CLI::ParseError::ParseError</definition>
+        <argsstring>(std::string msg, int exit_code)</argsstring>
+        <name>ParseError</name>
+        <qualifiedname>CLI::ParseError::ParseError</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>exit_code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="677" column="94" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="677" bodyend="677"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Anything that can error in Parse. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>CLI::ArgumentMismatch</label>
+        <link refid="classCLI_1_1ArgumentMismatch"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>CLI::CallForAllHelp</label>
+        <link refid="classCLI_1_1CallForAllHelp"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>CLI::CallForHelp</label>
+        <link refid="classCLI_1_1CallForHelp"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>CLI::CallForVersion</label>
+        <link refid="classCLI_1_1CallForVersion"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CLI::ConfigError</label>
+        <link refid="classCLI_1_1ConfigError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CLI::ConversionError</label>
+        <link refid="classCLI_1_1ConversionError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CLI::Error</label>
+        <link refid="classCLI_1_1Error"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>CLI::ExcludesError</label>
+        <link refid="classCLI_1_1ExcludesError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>CLI::ExtrasError</label>
+        <link refid="classCLI_1_1ExtrasError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>CLI::FileError</label>
+        <link refid="classCLI_1_1FileError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>CLI::HorribleError</label>
+        <link refid="classCLI_1_1HorribleError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>CLI::InvalidError</label>
+        <link refid="classCLI_1_1InvalidError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CLI::ParseError</label>
+        <link refid="classCLI_1_1ParseError"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>CLI::RequiredError</label>
+        <link refid="classCLI_1_1RequiredError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>CLI::RequiresError</label>
+        <link refid="classCLI_1_1RequiresError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>CLI::RuntimeError</label>
+        <link refid="classCLI_1_1RuntimeError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>CLI::Success</label>
+        <link refid="classCLI_1_1Success"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>CLI::ValidationError</label>
+        <link refid="classCLI_1_1ValidationError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::runtime_error</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>CLI::Error</label>
+        <link refid="classCLI_1_1Error"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CLI::ParseError</label>
+        <link refid="classCLI_1_1ParseError"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>std::runtime_error</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="676" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="676" bodyend="678"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1Error_1a7b30cbdb0c6f3ef3d5550df7d8e18904" prot="public" virt="non-virtual"><scope>CLI::ParseError</scope><name>Error</name></member>
+      <member refid="classCLI_1_1Error_1a52187308eced1fc96f270ef384dbd7a2" prot="public" virt="non-virtual"><scope>CLI::ParseError</scope><name>Error</name></member>
+      <member refid="classCLI_1_1Error_1a24faca884e953e6366bdb8d84d631588" prot="public" virt="non-virtual"><scope>CLI::ParseError</scope><name>get_exit_code</name></member>
+      <member refid="classCLI_1_1Error_1a725f16d721c2320ba75b4d6c99d2056a" prot="public" virt="non-virtual"><scope>CLI::ParseError</scope><name>get_name</name></member>
+      <member refid="classCLI_1_1ParseError_1a744c6dd40b9d7966d6da28244a320bff" prot="protected" virt="non-virtual"><scope>CLI::ParseError</scope><name>ParseError</name></member>
+      <member refid="classCLI_1_1ParseError_1ab9e8c4673f422502f62173e68193a7f0" prot="protected" virt="non-virtual"><scope>CLI::ParseError</scope><name>ParseError</name></member>
+      <member refid="classCLI_1_1ParseError_1a7e0db457bd2a6b54efe67cfa20bdbcdf" prot="public" virt="non-virtual"><scope>CLI::ParseError</scope><name>ParseError</name></member>
+      <member refid="classCLI_1_1ParseError_1af4f3a073b76e8533e3ac36339efa74d1" prot="public" virt="non-virtual"><scope>CLI::ParseError</scope><name>ParseError</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Interpolation_8hpp" kind="file" language="C++">
+    <compoundname>Interpolation.hpp</compoundname>
+    <includes refid="MathFunctions_8hpp" local="no">math/MathFunctions.hpp</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">string</includes>
+    <includedby refid="FiniteSizeCorrection_8cxx" local="no">FiniteSizeCorrection.cxx</includedby>
+    <includedby refid="FiniteSizeCorrection_8hpp" local="no">FiniteSizeCorrection.hpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Interpolation.hpp</label>
+        <link refid="Interpolation_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cmath</label>
+      </node>
+      <node id="6">
+        <label>complex</label>
+      </node>
+      <node id="14">
+        <label>cstdint</label>
+      </node>
+      <node id="10">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="13">
+        <label>ctime</label>
+      </node>
+      <node id="19">
+        <label>fstream</label>
+      </node>
+      <node id="15">
+        <label>iomanip</label>
+      </node>
+      <node id="17">
+        <label>iostream</label>
+      </node>
+      <node id="5">
+        <label>ostream</label>
+      </node>
+      <node id="16">
+        <label>sstream</label>
+      </node>
+      <node id="18">
+        <label>streambuf</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>FiniteSizeCorrection.cxx</label>
+        <link refid="FiniteSizeCorrection_8cxx"/>
+      </node>
+      <node id="3">
+        <label>FiniteSizeCorrection.hpp</label>
+        <link refid="FiniteSizeCorrection_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Interpolation.hpp</label>
+        <link refid="Interpolation_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsisi4s_1_1Inter1D" prot="public">sisi4s::Inter1D</innerclass>
+    <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>INTERPOLATION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INTERPOLATION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MathFunctions_8hpp" kindref="compound">math/MathFunctions.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>unify<sp/>interpolation<sp/>routines</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="12" refid="classsisi4s_1_1Inter1D" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Inter1D" kindref="compound">Inter1D</ref>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*when<sp/>you<sp/>creat<sp/>an<sp/>instance<sp/>of<sp/>this<sp/>class,<sp/>you<sp/>need<sp/>to<sp/>specify<sp/>the<sp/>size</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/><sp/><sp/><sp/>of<sp/>the<sp/>data<sp/>set<sp/>you<sp/>are<sp/>interpolating<sp/>on,<sp/>and<sp/>the<sp/>corresponding<sp/>x<sp/>and<sp/>y</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classsisi4s_1_1Inter1D_1a374590a5bd9b44c3787a58b63b8458d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a374590a5bd9b44c3787a58b63b8458d3" kindref="member">Inter1D</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*x,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*y){</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref><sp/>=<sp/>size;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>];</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>];</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>];</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref><sp/>=<sp/>x;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref><sp/>=<sp/>y;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*x<sp/>and<sp/>y<sp/>are<sp/>arrays<sp/>of<sp/>the<sp/>same<sp/>length,<sp/>containing<sp/>the<sp/>x<sp/>data<sp/>and<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>the<sp/>corresponding<sp/>values<sp/>of<sp/>the<sp/>function<sp/>y.<sp/>They<sp/>two<sp/>must<sp/>be<sp/>sorted<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>from<sp/>min<sp/>to<sp/>max<sp/>according<sp/>to<sp/>x.N<sp/>is<sp/>the<sp/>length<sp/>of<sp/>the<sp/>two<sp/>arrays.<sp/>y1d0<sp/><sp/><sp/><sp/><sp/>is<sp/>the<sp/>1st<sp/>derivative<sp/>of<sp/>the<sp/>function<sp/>at<sp/>the<sp/>first<sp/>point,<sp/>and<sp/>y1dn<sp/>is</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>the<sp/>1st<sp/>derivative<sp/>of<sp/>the<sp/>function<sp/>at<sp/>the<sp/>end<sp/>of<sp/>the<sp/>data.<sp/>User<sp/>can</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>specify<sp/>them<sp/>two<sp/>when<sp/>the<sp/>BoundaryCondition<sp/>is<sp/>set<sp/>to<sp/>&quot;M&quot;<sp/>which<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>stands<sp/>for<sp/>Manual,<sp/>or<sp/>it<sp/>can<sp/>be<sp/>set<sp/>to<sp/>&quot;N&quot;<sp/>which<sp/>stands<sp/>for<sp/>&quot;Natural&quot;.<sp/><sp/><sp/><sp/><sp/>This<sp/>function<sp/>returns<sp/>an<sp/>array<sp/>of<sp/>the<sp/>second<sp/>derivatives<sp/>at<sp/>each<sp/>x<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>points,<sp/>which<sp/>can<sp/>be<sp/>used<sp/>in<sp/>CubicSpline_getValue()<sp/>function<sp/>to<sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>inquire<sp/>the<sp/>value<sp/>at<sp/>certain<sp/>point(s).</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classsisi4s_1_1Inter1D_1aa6373f49148397cef6d09a6dc985a1a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Inter1D_1aa6373f49148397cef6d09a6dc985a1a1" kindref="member">cubicSpline</ref>(<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>y1d0=0.,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>y1dn=0.,</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>boundaryCondition=</highlight><highlight class="stringliteral">&quot;M&quot;</highlight><highlight class="normal">)<sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>];</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>qn(0.),<sp/>un(0.),<sp/>sig(0.),<sp/>p(0.);<sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(boundaryCondition<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;N&quot;</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Interpolation::cubicSpline&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Natural&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[0]<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u[0]<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(boundaryCondition<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;M&quot;</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Interpolation::cubicSpline&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Manual<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>y1d0<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[0]<sp/>=<sp/>-0.5;<sp/></highlight><highlight class="comment">//does<sp/>not<sp/>really<sp/>matter,<sp/>T.B.C</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u[0]<sp/>=<sp/>(3./(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[1]-<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[0]))*(((<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>[1]-<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>[0]))</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[1]-<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[0])-y1d0);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qn<sp/>=<sp/>0.5;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>un<sp/>=<sp/>(3./(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-1]-<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-2]))*((<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-1]-<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-2])</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-1]-<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-2])-y1dn);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(1);<sp/>i<sp/>&lt;<sp/><ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-1;<sp/>i++){</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sig<sp/>=<sp/>(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[i]-<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[i-1])/(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[i+1]-<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[i-1]);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p<sp/>=<sp/>sig*<ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[i-1]<sp/>+<sp/>2.;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[i]<sp/>=<sp/>(sig<sp/>-<sp/>1.)/p;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u[i]<sp/>=<sp/>(6.*((<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>[i+1]-<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>[i])/(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[i+1]-<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[i])-</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>[i]-<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>[i-1])/(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[i]-<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[i-1]))</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[i+1]-<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[i-1])-sig*u[i-1])/p;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-1]<sp/>=<sp/>(un<sp/>-<sp/>qn*u[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-2])<sp/>/<sp/>(qn*<ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-2]+1.);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>t=<ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-2;<sp/>t<sp/>&gt;=0;<sp/>t--)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[t]<sp/>=<sp/><ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[t]*<ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[t+1]+u[t];</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//The<sp/>max(x)<sp/>should<sp/>not<sp/>larger<sp/>than<sp/>max(xv).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="classsisi4s_1_1Inter1D_1a09df214d5aab2db417ef87280fe54200" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/><ref refid="classsisi4s_1_1Inter1D_1a09df214d5aab2db417ef87280fe54200" kindref="member">getValue</ref>(<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>xinterp){</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//LOG(1,&quot;getValue&quot;)<sp/>&lt;&lt;<sp/>&quot;n=<sp/>&quot;<sp/>&lt;&lt;<sp/>n<sp/>&lt;&lt;<sp/>std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//int<sp/>n=1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yinterp(0.);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>h,a,b;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>klow,<sp/>khigh,<sp/>k;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//y=<sp/>new<sp/>double[n];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//for<sp/>(int<sp/>i(0);<sp/>i&lt;n;<sp/>++i){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>klow<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>khigh<sp/>=<sp/><ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>-1;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((khigh-klow)<sp/>&gt;<sp/>1){</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>k<sp/>=<sp/>(khigh<sp/>+<sp/>klow)/2;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[k-1]<sp/>&gt;<sp/>xinterp)<sp/>khigh<sp/>=<sp/>k;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>klow<sp/>=<sp/>k;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>h<sp/>=<sp/><ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[khigh-1]-<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[klow-1];</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" kindref="member">abs</ref>(h)<sp/>&lt;<sp/>1e-12){</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,</highlight><highlight class="stringliteral">&quot;CubicSpline_getValue&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Same<sp/>x<sp/>points<sp/>in<sp/>x<sp/>data!&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;</highlight><highlight class="stringliteral">&quot;STOP!&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit(0);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>a<sp/>=<sp/>(<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[khigh-1]-xinterp)/h;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b<sp/>=<sp/>(xinterp<sp/>-<sp/><ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>[klow-1])/h;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>yinterp<sp/>=<sp/>a*<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>[klow-1]+<sp/>b*<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>[khigh-1]<sp/>+<sp/>((a*a*a-a)*<ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[klow-1]</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+(b*b*b-b)*<ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>[khigh-1])*(h*h)/6.;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>yinterp;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93" refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Inter1D_1a22eefce3044205689f68e642ef692803" kindref="member">N</ref>;</highlight></codeline>
+<codeline lineno="94" refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*<ref refid="classsisi4s_1_1Inter1D_1a46bcdeecc2b246577e8186bc648bd805" kindref="member">xv</ref>,<sp/>*<ref refid="classsisi4s_1_1Inter1D_1a1c1591e8224b4f8f457b4adfa2a054fa" kindref="member">yv</ref>,<sp/>*<ref refid="classsisi4s_1_1Inter1D_1a4dea0ffcf7b98fd98468f80b9b21c7df" kindref="member">y2d</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/Interpolation.hpp"/>
+  </compounddef>
+</doxygen>

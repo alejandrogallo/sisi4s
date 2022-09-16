@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1detail_1_1is__tuple__like" kind="class" language="C++" prot="public">
+    <compoundname>CLI::detail::is_tuple_like</compoundname>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename S</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classCLI_1_1detail_1_1is__tuple__like_1ad1cf4b28e4267524bb4e65aabf5ffd40" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool CLI::detail::is_tuple_like&lt; S &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>CLI::detail::is_tuple_like::value</qualifiedname>
+        <initializer>= decltype(test&lt;S&gt;(0))::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1119" column="27" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classCLI_1_1detail_1_1is__tuple__like_1a4609d0977b70fa692b8e5fb3d8ba7c9c" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename SS</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::is_tuple_like&lt; S &gt;::test</definition>
+        <argsstring>(int) -&gt; decltype(std::tuple_size&lt; typename std::decay&lt; SS &gt;::type &gt;::value, std::true_type{})</argsstring>
+        <name>test</name>
+        <qualifiedname>CLI::detail::is_tuple_like::test</qualifiedname>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1115" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1detail_1_1is__tuple__like_1a44d422c44755ae57f0ffe8e2e2b93b9f" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::is_tuple_like&lt; S &gt;::test</definition>
+        <argsstring>(...) -&gt; std::false_type</argsstring>
+        <name>test</name>
+        <qualifiedname>CLI::detail::is_tuple_like::test</qualifiedname>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1116" column="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::detail::is_tuple_like&lt; S &gt;</label>
+        <link refid="classCLI_1_1detail_1_1is__tuple__like"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1111" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1111" bodyend="1120"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1detail_1_1is__tuple__like_1a4609d0977b70fa692b8e5fb3d8ba7c9c" prot="private" virt="non-virtual"><scope>CLI::detail::is_tuple_like</scope><name>test</name></member>
+      <member refid="classCLI_1_1detail_1_1is__tuple__like_1a44d422c44755ae57f0ffe8e2e2b93b9f" prot="private" virt="non-virtual"><scope>CLI::detail::is_tuple_like</scope><name>test</name></member>
+      <member refid="classCLI_1_1detail_1_1is__tuple__like_1ad1cf4b28e4267524bb4e65aabf5ffd40" prot="public" virt="non-virtual"><scope>CLI::detail::is_tuple_like</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

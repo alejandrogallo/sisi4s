@@ -1,0 +1,1088 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="ScaLapack_8hpp" kind="file" language="C++">
+    <compoundname>ScaLapack.hpp</compoundname>
+    <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
+    <includedby refid="BlacsWorld_8cxx" local="no">BlacsWorld.cxx</includedby>
+    <includedby refid="ScaLapackHermitianEigenSystem_8hpp" local="no">ScaLapackHermitianEigenSystem.hpp</includedby>
+    <includedby refid="ScaLapackHermitianEigenSystemDc_8hpp" local="no">ScaLapackHermitianEigenSystemDc.hpp</includedby>
+    <includedby refid="ScaLapackMatrix_8cxx" local="no">ScaLapackMatrix.cxx</includedby>
+    <includedby refid="ScaLapackSingularValueDecomposition_8hpp" local="no">ScaLapackSingularValueDecomposition.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>ScaLapack.hpp</label>
+        <link refid="ScaLapack_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>complex</label>
+      </node>
+      <node id="4">
+        <label>ostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>CoulombVertexSingularVectors.cxx</label>
+        <link refid="CoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="6">
+        <label>DoublesAmplitudesDecomposition.cxx</label>
+        <link refid="DoublesAmplitudesDecomposition_8cxx"/>
+      </node>
+      <node id="7">
+        <label>ParticleHoleCoulombVertexSingularVectors.cxx</label>
+        <link refid="ParticleHoleCoulombVertexSingularVectors_8cxx"/>
+      </node>
+      <node id="1">
+        <label>ScaLapack.hpp</label>
+        <link refid="ScaLapack_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>PseudoInverseHermitianSvd.cxx</label>
+        <link refid="PseudoInverseHermitianSvd_8cxx"/>
+      </node>
+      <node id="11">
+        <label>PseudoInverseSvd.cxx</label>
+        <link refid="PseudoInverseSvd_8cxx"/>
+      </node>
+      <node id="2">
+        <label>BlacsWorld.cxx</label>
+        <link refid="BlacsWorld_8cxx"/>
+      </node>
+      <node id="3">
+        <label>ScaLapackHermitianEigenSystem.hpp</label>
+        <link refid="ScaLapackHermitianEigenSystem_8hpp"/>
+      </node>
+      <node id="4">
+        <label>ScaLapackHermitianEigenSystemDc.hpp</label>
+        <link refid="ScaLapackHermitianEigenSystemDc_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>ScaLapackMatrix.cxx</label>
+        <link refid="ScaLapackMatrix_8cxx"/>
+      </node>
+      <node id="10">
+        <label>ScaLapackSingularValueDecomposition.hpp</label>
+        <link refid="ScaLapackSingularValueDecomposition_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ScaLapack_8hpp_1a785bef3d5f1a75fdec0ab094023598ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void descinit_</definition>
+        <argsstring>(int *descriptor, const int *globalRows, const int *globalColumns, const int *blockRows, const int *blockColumns, const int *rowOffset, const int *columnOffset, const int *context, const int *leadingDimensionSize, int *info)</argsstring>
+        <name>descinit_</name>
+        <param>
+          <type>int *</type>
+          <declname>descriptor</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>globalRows</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>globalColumns</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>blockRows</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>blockColumns</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>rowOffset</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>columnOffset</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>leadingDimensionSize</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="10" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="10" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1aba716574a34a26860840095f2c1fb2c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int numroc_</definition>
+        <argsstring>(const int *globalSize, const int *blockSize, const int *iproc, const int *isrcproc, const int *nprocs)</argsstring>
+        <name>numroc_</name>
+        <param>
+          <type>const int *</type>
+          <declname>globalSize</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>blockSize</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>iproc</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>isrcproc</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>nprocs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="19" column="7" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="19" declcolumn="7"/>
+        <referencedby refid="classsisi4s_1_1ScaLapackDescriptor_1a504c665e16ce96bf271d4adf81d3634f" compoundref="ScaLapackMatrix_8cxx" startline="9" endline="33">sisi4s::ScaLapackDescriptor::ScaLapackDescriptor</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1ac4325b5dd5fe6fc506aa35d8ca1df48c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int indxl2g_</definition>
+        <argsstring>(const int *localIndex, const int *blockSize, const int *iproc, const int *isrcproc, const int *nprocs)</argsstring>
+        <name>indxl2g_</name>
+        <param>
+          <type>const int *</type>
+          <declname>localIndex</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>blockSize</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>iproc</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>isrcproc</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>nprocs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="23" column="7" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="23" declcolumn="7"/>
+        <referencedby refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" compoundref="ScaLapackMatrix_8cxx" startline="166" endline="173">sisi4s::ScaLapackMatrix&lt; F &gt;::getGlobalIndex</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1a25cd6721cb19d003cdf4f82e6896489f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int indxg2l_</definition>
+        <argsstring>(const int *globalIndex, const int *blockSize, const int *iproc, const int *isrcproc, const int *nprocs)</argsstring>
+        <name>indxg2l_</name>
+        <param>
+          <type>const int *</type>
+          <declname>globalIndex</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>blockSize</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>iproc</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>isrcproc</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>nprocs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="27" column="7" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="27" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1a463ffd19cb4d9aec3d7accfa967f3616" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdsyev_</definition>
+        <argsstring>(const char *jobz, const char *upperLower, const int *m, const double *a, const int *ia, const int *ja, const int *desca, double *lambda, double *z, const int *iz, const int *jz, const int *descz, double *work, const int *lwork, int *info)</argsstring>
+        <name>pdsyev_</name>
+        <param>
+          <type>const char *</type>
+          <declname>jobz</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>upperLower</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ia</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ja</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>desca</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>lambda</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>iz</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>jz</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descz</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lwork</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="32" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="32" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1ScaLapackHermitianEigenSystem_3_01double_01_4_1a0ed81dc7eff381e4825f74d699143d76" compoundref="ScaLapackHermitianEigenSystem_8hpp" startline="18" endline="41">sisi4s::ScaLapackHermitianEigenSystem&lt; double &gt;::ScaLapackHermitianEigenSystem</referencedby>
+        <referencedby refid="classsisi4s_1_1ScaLapackHermitianEigenSystem_3_01double_01_4_1aab28801befe6ff01532fa39c0bcc5ed1" compoundref="ScaLapackHermitianEigenSystem_8hpp" startline="48" endline="61">sisi4s::ScaLapackHermitianEigenSystem&lt; double &gt;::solve</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1af354fd99d736878fd23bdf09683aa6f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pzheev_</definition>
+        <argsstring>(const char *jobz, const char *upperLower, const int *m, const sisi4s::complex *a, const int *ia, const int *ja, const int *desca, double *lambda, sisi4s::complex *z, const int *iz, const int *jz, const int *descz, sisi4s::complex *work, const int *lwork, double *realWork, const int *lRealCount, int *info)</argsstring>
+        <name>pzheev_</name>
+        <param>
+          <type>const char *</type>
+          <declname>jobz</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>upperLower</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ia</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ja</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>desca</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>lambda</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>iz</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>jz</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descz</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lwork</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>realWork</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lRealCount</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="41" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="41" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1ScaLapackHermitianEigenSystem_3_01complex_01_4_1abf8a5d5c9e197b353f00301dcc70186c" compoundref="ScaLapackHermitianEigenSystem_8hpp" startline="73" endline="101">sisi4s::ScaLapackHermitianEigenSystem&lt; complex &gt;::ScaLapackHermitianEigenSystem</referencedby>
+        <referencedby refid="classsisi4s_1_1ScaLapackHermitianEigenSystem_3_01complex_01_4_1a71aa1679c53b1775f00ff64fd0c2b18e" compoundref="ScaLapackHermitianEigenSystem_8hpp" startline="110" endline="123">sisi4s::ScaLapackHermitianEigenSystem&lt; complex &gt;::solve</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1a0c07dbe3581a7dc329d9d49e3d1098a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdsyevd_</definition>
+        <argsstring>(const char *jobz, const char *upperLower, const int *m, const double *a, const int *ia, const int *ja, const int *desca, double *lambda, double *z, const int *iz, const int *jz, const int *descz, double *work, const int *lwork, int *iwork, const int *liwork, int *info)</argsstring>
+        <name>pdsyevd_</name>
+        <param>
+          <type>const char *</type>
+          <declname>jobz</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>upperLower</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ia</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ja</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>desca</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>lambda</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>iz</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>jz</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descz</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lwork</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>iwork</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>liwork</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="52" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="52" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1aca65e9d7ae9aa12de5ee47caa644c947" compoundref="ScaLapackHermitianEigenSystemDc_8hpp" startline="21" endline="52">sisi4s::ScaLapackHermitianEigenSystemDc&lt; double &gt;::ScaLapackHermitianEigenSystemDc</referencedby>
+        <referencedby refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4_1a2206b1129be420da0861ee33d12dec79" compoundref="ScaLapackHermitianEigenSystemDc_8hpp" startline="61" endline="77">sisi4s::ScaLapackHermitianEigenSystemDc&lt; double &gt;::solve</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1ab21cb1d728da740f1f3812a81245aa01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pzheevd_</definition>
+        <argsstring>(const char *jobz, const char *upperLower, const int *m, const sisi4s::complex *a, const int *ia, const int *ja, const int *desca, double *lambda, sisi4s::complex *z, const int *iz, const int *jz, const int *descz, sisi4s::complex *work, const int *lwork, double *realWork, const int *lRealCount, int *iwork, const int *liwork, int *info)</argsstring>
+        <name>pzheevd_</name>
+        <param>
+          <type>const char *</type>
+          <declname>jobz</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>upperLower</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ia</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ja</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>desca</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>lambda</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>iz</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>jz</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descz</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lwork</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>realWork</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lRealCount</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>iwork</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>liwork</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="62" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="62" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a3356a9562c3cab8716c3f316404c462a" compoundref="ScaLapackHermitianEigenSystemDc_8hpp" startline="89" endline="125">sisi4s::ScaLapackHermitianEigenSystemDc&lt; complex &gt;::ScaLapackHermitianEigenSystemDc</referencedby>
+        <referencedby refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a403b665901b5b6a2a1077529507767e5" compoundref="ScaLapackHermitianEigenSystemDc_8hpp" startline="136" endline="153">sisi4s::ScaLapackHermitianEigenSystemDc&lt; complex &gt;::solve</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1aac62294388a22dad9cd785e3bb454a05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdgesvd_</definition>
+        <argsstring>(const char *jobu, const char *jobvt, const int *m, const int *n, const double *a, const int *ia, const int *ja, const int *desca, double *s, double *u, const int *iu, const int *ju, const int *descu, double *vt, const int *ivt, const int *jvt, const int *descvt, double *work, const int *lwork, int *info)</argsstring>
+        <name>pdgesvd_</name>
+        <param>
+          <type>const char *</type>
+          <declname>jobu</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>jobvt</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ia</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ja</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>desca</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>iu</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ju</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descu</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>vt</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ivt</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>jvt</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descvt</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lwork</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="74" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="74" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1ScaLapackSingularValueDecomposition_3_01double_01_4_1a9583fbb2e87bf29ab9860588b25ff18b" compoundref="ScaLapackSingularValueDecomposition_8hpp" startline="18" endline="42">sisi4s::ScaLapackSingularValueDecomposition&lt; double &gt;::ScaLapackSingularValueDecomposition</referencedby>
+        <referencedby refid="classsisi4s_1_1ScaLapackSingularValueDecomposition_3_01double_01_4_1a4f213a7ed2f1f904388ab8445b072c28" compoundref="ScaLapackSingularValueDecomposition_8hpp" startline="49" endline="63">sisi4s::ScaLapackSingularValueDecomposition&lt; double &gt;::decompose</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1af130b46d871af27f5d62d0c0203a2063" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pzgesvd_</definition>
+        <argsstring>(const char *jobu, const char *jobvt, const int *m, const int *n, const sisi4s::complex *a, const int *ia, const int *ja, const int *desca, double *s, sisi4s::complex *u, const int *iu, const int *ju, const int *descu, sisi4s::complex *vt, const int *ivt, const int *jvt, const int *descvt, sisi4s::complex *work, const int *lwork, double *rwork, int *info)</argsstring>
+        <name>pzgesvd_</name>
+        <param>
+          <type>const char *</type>
+          <declname>jobu</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>jobvt</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ia</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ja</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>desca</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>iu</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ju</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descu</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>vt</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ivt</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>jvt</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descvt</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>work</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>lwork</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>rwork</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="83" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="83" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1ScaLapackSingularValueDecomposition_3_01complex_01_4_1a8e665f57fb6053cbe8e5e9c02e6e3a0e" compoundref="ScaLapackSingularValueDecomposition_8hpp" startline="75" endline="101">sisi4s::ScaLapackSingularValueDecomposition&lt; complex &gt;::ScaLapackSingularValueDecomposition</referencedby>
+        <referencedby refid="classsisi4s_1_1ScaLapackSingularValueDecomposition_3_01complex_01_4_1a5e47b2f5ae8bc851f96d650a50cc2abc" compoundref="ScaLapackSingularValueDecomposition_8hpp" startline="109" endline="123">sisi4s::ScaLapackSingularValueDecomposition&lt; complex &gt;::decompose</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1ad00fee8633db1d63daddddc7ed3814ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pdgemm_</definition>
+        <argsstring>(const char *opA, const char *opB, const int *m, const int *n, const int *k, const double *alpha, const double *a, const int *ia, const int *ja, const int *desca, const double *b, const int *ib, const int *jb, const int *descb, const double *beta, double *C, const int *ic, const int *jc, const int *descc)</argsstring>
+        <name>pdgemm_</name>
+        <param>
+          <type>const char *</type>
+          <declname>opA</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>opB</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ia</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ja</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>desca</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ib</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>jb</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descb</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>C</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ic</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>jc</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="94" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="94" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="ScaLapack_8hpp_1adb4c4a730e13df500c723afc7619fd1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pzgemm_</definition>
+        <argsstring>(const char *opA, const char *opB, const int *m, const int *n, const int *k, const sisi4s::complex *alpha, const sisi4s::complex *a, const int *ia, const int *ja, const int *desca, const sisi4s::complex *b, const int *ib, const int *jb, const int *descb, const sisi4s::complex *beta, sisi4s::complex *C, const int *ic, const int *jc, const int *descc)</argsstring>
+        <name>pzgemm_</name>
+        <param>
+          <type>const char *</type>
+          <declname>opA</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>opB</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ia</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ja</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>desca</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ib</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>jb</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descb</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> *</type>
+          <declname>C</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>ic</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>jc</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>descc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" line="103" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp" declline="103" declcolumn="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2016,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SCA_LAPACK_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCA_LAPACK_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>use<sp/>define<sp/>for<sp/>name<sp/>mangling:<sp/>underscore<sp/>or<sp/>not</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="10" refid="ScaLapack_8hpp_1a785bef3d5f1a75fdec0ab094023598ca" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1a785bef3d5f1a75fdec0ab094023598ca" kindref="member">descinit_</ref>(</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descriptor,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*globalRows,<sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*globalColumns,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*blockRows,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*blockColumns,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*rowOffset,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*columnOffset,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*context,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*leadingDimensionSize,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="19" refid="ScaLapack_8hpp_1aba716574a34a26860840095f2c1fb2c7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1aba716574a34a26860840095f2c1fb2c7" kindref="member">numroc_</ref>(</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*globalSize,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*blockSize,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iproc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*isrcproc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*nprocs</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="23" refid="ScaLapack_8hpp_1ac4325b5dd5fe6fc506aa35d8ca1df48c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1ac4325b5dd5fe6fc506aa35d8ca1df48c" kindref="member">indxl2g_</ref>(</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*localIndex,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*blockSize,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iproc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*isrcproc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*nprocs</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="27" refid="ScaLapack_8hpp_1a25cd6721cb19d003cdf4f82e6896489f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1a25cd6721cb19d003cdf4f82e6896489f" kindref="member">indxg2l_</ref>(</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*globalIndex,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*blockSize,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iproc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*isrcproc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*nprocs</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="ScaLapack_8hpp_1a463ffd19cb4d9aec3d7accfa967f3616" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1a463ffd19cb4d9aec3d7accfa967f3616" kindref="member">pdsyev_</ref>(</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*upperLower,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ia,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ja,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*desca,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*lambda,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*z,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*jz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descz,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*work,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lwork,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="41" refid="ScaLapack_8hpp_1af354fd99d736878fd23bdf09683aa6f1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1af354fd99d736878fd23bdf09683aa6f1" kindref="member">pzheev_</ref>(</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*upperLower,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ia,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ja,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*desca,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*lambda,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*z,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*jz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descz,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*work,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lwork,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*realWork,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lRealCount,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="ScaLapack_8hpp_1a0c07dbe3581a7dc329d9d49e3d1098a1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1a0c07dbe3581a7dc329d9d49e3d1098a1" kindref="member">pdsyevd_</ref>(</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*upperLower,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ia,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ja,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*desca,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*lambda,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*z,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*jz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descz,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*work,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lwork,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iwork,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*liwork,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="62" refid="ScaLapack_8hpp_1ab21cb1d728da740f1f3812a81245aa01" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1ab21cb1d728da740f1f3812a81245aa01" kindref="member">pzheevd_</ref>(</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*upperLower,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ia,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ja,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*desca,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*lambda,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*z,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*jz,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descz,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*work,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lwork,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*realWork,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lRealCount,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iwork,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*liwork,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="ScaLapack_8hpp_1aac62294388a22dad9cd785e3bb454a05" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1aac62294388a22dad9cd785e3bb454a05" kindref="member">pdgesvd_</ref>(</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobu,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobvt,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ia,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ja,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*desca,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*s,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*u,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iu,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ju,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descu,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*vt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ivt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*jvt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descvt,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*work,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lwork,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="83" refid="ScaLapack_8hpp_1af130b46d871af27f5d62d0c0203a2063" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1af130b46d871af27f5d62d0c0203a2063" kindref="member">pzgesvd_</ref>(</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobu,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*jobvt,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ia,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ja,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*desca,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*s,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*u,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*iu,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ju,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descu,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*vt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ivt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*jvt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descvt,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*work,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*lwork,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*rwork,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*info</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="ScaLapack_8hpp_1ad00fee8633db1d63daddddc7ed3814ae" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1ad00fee8633db1d63daddddc7ed3814ae" kindref="member">pdgemm_</ref>(</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*opA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*opB,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*k,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*<ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ia,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ja,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*desca,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*b,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ib,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*jb,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descb,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*beta,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*C,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ic,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*jc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descc</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="103" refid="ScaLapack_8hpp_1adb4c4a730e13df500c723afc7619fd1d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1adb4c4a730e13df500c723afc7619fd1d" kindref="member">pzgemm_</ref>(</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*opA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*opB,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*k,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*<ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ia,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ja,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*desca,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*b,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ib,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*jb,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descb,</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*beta,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref><sp/>*C,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*ic,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*jc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*descc</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/ScaLapack.hpp"/>
+  </compounddef>
+</doxygen>

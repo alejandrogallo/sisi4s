@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</compoundname>
+    <basecompoundref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" prot="public" virt="non-virtual">sisi4s::ClusterSinglesDoublesAlgorithm</basecompoundref>
+    <derivedcompoundref refid="classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals" prot="public" virt="non-virtual">sisi4s::UccsdtqAmplitudesFromCoulombIntegrals</derivedcompoundref>
+    <includes refid="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8hpp" local="no">ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1a79a8821b763a27462c369fa27fd29431" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>int constexpr</type>
+        <definition>int constexpr sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::DEFAULT_MAX_ITERATIONS</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_MAX_ITERATIONS</name>
+        <qualifiedname>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::DEFAULT_MAX_ITERATIONS</qualifiedname>
+        <initializer>= 16</initializer>
+        <briefdescription>
+<para>Defines the default number of iterations (16). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" line="51" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" bodystart="51" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1a3dec5575b0b30cead4a4965230969d73" compoundref="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8cxx" startline="41" endline="90">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1ab11f9133dc6534372cbd3afa152dcd63" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>double constexpr</type>
+        <definition>double constexpr sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::DEFAULT_LEVEL_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_LEVEL_SHIFT</name>
+        <qualifiedname>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::DEFAULT_LEVEL_SHIFT</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" line="53" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1a80386025da3214906154b5b12cf354dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ClusterSinglesDoublesTriplesQuadruplesAlgorithm::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</definition>
+        <argsstring>(std::vector&lt; Argument &gt; const &amp;argumentList)</argsstring>
+        <name>ClusterSinglesDoublesTriplesQuadruplesAlgorithm</name>
+        <qualifiedname>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref> &gt; const &amp;</type>
+          <declname>argumentList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" line="31" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1ae2a5e841b1513911f83ed7df2a371611" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>ClusterSinglesDoublesTriplesQuadruplesAlgorithm::~ClusterSinglesDoublesTriplesQuadruplesAlgorithm</definition>
+        <argsstring>()</argsstring>
+        <name>~ClusterSinglesDoublesTriplesQuadruplesAlgorithm</name>
+        <qualifiedname>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::~ClusterSinglesDoublesTriplesQuadruplesAlgorithm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" line="34" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx" bodystart="19" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1ad01820e6d569c2444dc5d0aa3bb3359e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ClusterSinglesDoublesTriplesQuadruplesAlgorithm::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::run</qualifiedname>
+        <reimplements refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4a874bc6491b38c023de6936e298d2f0">run</reimplements>
+        <reimplementedby refid="classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals_1a4a885361e41dd79f4c6714283cb4bd89">run</reimplementedby>
+        <briefdescription>
+<para>Calculates the energy of a ClusterSinglesDoubles algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" line="38" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx" bodystart="28" bodyend="38"/>
+        <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="38" endline="54">sisi4s::Algorithm::getArgumentData</references>
+        <references refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ac4e86100aee3802ce4a75a737eff7ec0" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="917" endline="923">sisi4s::ClusterSinglesDoublesAlgorithm::getDataName</references>
+        <references refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" compoundref="Algorithm_8cxx" startline="387" endline="390">sisi4s::Algorithm::setRealArgument</references>
+        <referencedby refid="classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals_1a4a885361e41dd79f4c6714283cb4bd89" compoundref="UccsdtqAmplitudesFromCoulombIntegrals_8cxx" startline="30" endline="32">sisi4s::UccsdtqAmplitudesFromCoulombIntegrals::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1ad6b8108df65f8a770210ab9ba0509ce0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::getAbbreviation</definition>
+        <argsstring>()=0</argsstring>
+        <name>getAbbreviation</name>
+        <qualifiedname>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::getAbbreviation</qualifiedname>
+        <reimplements refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ab3f7208a643558d8c36324038e0d3130">getAbbreviation</reimplements>
+        <reimplementedby refid="classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals_1a980453b2f6667bd5716d3167759561b4">getAbbreviation</reimplementedby>
+        <briefdescription>
+<para>Returns the abbreviation of the concrete algorithm, e.g. &quot;Ccd&quot;, &quot;Dcd&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" line="46" column="25"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1a3dec5575b0b30cead4a4965230969d73" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>F</type>
+        <definition>F ClusterSinglesDoublesTriplesQuadruplesAlgorithm::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::run</qualifiedname>
+        <reimplements refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4a874bc6491b38c023de6936e298d2f0">run</reimplements>
+        <reimplementedby refid="classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals_1a4a885361e41dd79f4c6714283cb4bd89">run</reimplementedby>
+        <briefdescription>
+<para>Calculates the energy of a ClusterSinglesDoubles algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" line="57" column="7" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx" bodystart="41" bodyend="90"/>
+        <references refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1a79a8821b763a27462c369fa27fd29431" compoundref="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8hpp" startline="51">DEFAULT_MAX_ITERATIONS</references>
+        <references refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a8327421acb8285d0fc20f9605cfa5937" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="306" endline="337">sisi4s::ClusterSinglesDoublesAlgorithm::estimateAmplitudesFromResiduum</references>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+        <references refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a110026d41b3740bb8bdbad146ccfd785" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="907" endline="914">sisi4s::ClusterSinglesDoublesAlgorithm::getCapitalizedAbbreviation</references>
+        <references refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a9dceabd979aefa0f1e012c4e62e60847" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="145" endline="248">sisi4s::ClusterSinglesDoublesAlgorithm::getEnergy</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a2d9bf8bbaba99dce4acf5b3413f843eb">sisi4s::ClusterSinglesDoublesAlgorithm::getResiduum</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">sisi4s::Algorithm::getTextArgument</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+        <references refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ae62a6db326edd595700ad5bbf4029ba7" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="288" endline="302">sisi4s::ClusterSinglesDoublesAlgorithm::storeAmplitudes</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains all the necessary tools for an algorithm with singles, doubles and triples amplitudes. It calculates the energy from the amplitudes <formula id="2">$T_{a}^{i}$</formula>, <formula id="3">$T_{ab}^{ij}$</formula> <formula id="10">$T_{abc}^{ijk}$</formula> and the Coulomb integrals <formula id="7">$V_{ij}^{ab}$</formula>. For calculating the amplitudes it calls the iteration routine of the actual algorithm. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="2">
+        <label>sisi4s::ClusterSinglesDoublesAlgorithm</label>
+        <link refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</label>
+        <link refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>sisi4s::UccsdtqAmplitudesFromCoulombIntegrals</label>
+        <link refid="classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="2">
+        <label>sisi4s::ClusterSinglesDoublesAlgorithm</label>
+        <link refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</label>
+        <link refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" line="26" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp" bodystart="27" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>Algorithm</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>allocateContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>allocatedTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>arguments</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a907cf5c343b8647588b8545ce489f2d6" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>calculateExcitationEnergies</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>checkArgumentsOrDie</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1aca642fac031d6cf872f37fca186aa4cf" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>ClusterSinglesDoublesAlgorithm</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1a80386025da3214906154b5b12cf354dd" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>ClusterSinglesDoublesTriplesQuadruplesAlgorithm</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a02eb026b75d6ea58467eb12301e5e56f" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>createAmplitudes</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a36189181b2981707339c7b0cc961fabd" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>DEFAULT_AMPLITUDES_CONVERGENCE</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a1f05fc3f863fc5c5523d511af19dad39" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>DEFAULT_ENERGY_CONVERGENCE</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1ab11f9133dc6534372cbd3afa152dcd63" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>DEFAULT_LEVEL_SHIFT</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1a79a8821b763a27462c369fa27fd29431" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>DEFAULT_MAX_ITERATIONS</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ade1d1692d84a624ce299bbc2f847da8e" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>dryAmplitudesFromResiduum</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de" prot="public" virt="virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>dryRun</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a8327421acb8285d0fc20f9605cfa5937" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>estimateAmplitudesFromResiduum</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1ad6b8108df65f8a770210ab9ba0509ce0" prot="public" virt="pure-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getAbbreviation</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getArgumentData</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a110026d41b3740bb8bdbad146ccfd785" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getCapitalizedAbbreviation</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a407d54400b4b652a5b1b8d79b9c57175" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getContainerArgument</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ac4e86100aee3802ce4a75a737eff7ec0" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getDataName</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a9dceabd979aefa0f1e012c4e62e60847" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getEnergy</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getGivenArgumentNames</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a98c473d7c36973fb5dbd29b6dce3f09e" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ad88a11462d7efa2cd6ee1dd2884d7a68" prot="public" virt="pure-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getName</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aedbdee78ab6ed424c34121218b6cdf68" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getRealArgumentFromInteger</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getRealArgumentFromTensor</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a2d9bf8bbaba99dce4acf5b3413f843eb" prot="protected" virt="pure-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getResiduum</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1add6dd5f71a2c0cead782b537e700d2e6" prot="protected" virt="pure-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getResiduum</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getTensorArgumentFromReal</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1ad01820e6d569c2444dc5d0aa3bb3359e" prot="public" virt="virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1a3dec5575b0b30cead4a4965230969d73" prot="protected" virt="virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>setIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>setRealArgument</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1aa15c5a3edcb4102f112028ff53f27179" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>sliceAmplitudesFromCoupledCoulombFactors</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a8a2987d0d8c7c99eaab459300874b788" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>sliceAmplitudesFromCoupledCoulombFactors</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4cc0b4527b8b77bdde36752e3aca89cc" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>sliceCoupledCoulombIntegrals</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ab7ec5d52d0acd1f0ed68f97c5d6dbbca" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>sliceCoupledCoulombIntegrals</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ace3ba8780a7038d91d7308183b98cc53" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>sliceIntoResiduum</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a9ad1e0b28af752a5e662bd10aa44351a" prot="public" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>sliceIntoResiduum</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ae62a6db326edd595700ad5bbf4029ba7" prot="protected" virt="non-virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>storeAmplitudes</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" prot="public" virt="virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>~Algorithm</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ae9a26c9301b58c31814252d646cc939e" prot="public" virt="virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>~ClusterSinglesDoublesAlgorithm</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1ae2a5e841b1513911f83ed7df2a371611" prot="public" virt="virtual"><scope>sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</scope><name>~ClusterSinglesDoublesTriplesQuadruplesAlgorithm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

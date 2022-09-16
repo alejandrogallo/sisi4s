@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="namespaceCLI_1_1enums" kind="namespace" language="C++">
+    <compoundname>CLI::enums</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceCLI_1_1enums_1a0d566286e31ca3fb0f2a97de03492e65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>typename std::enable_if&lt;std::is_enum&lt;T&gt;::value&gt;::type</defval>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; CLI::enums::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;in, const T &amp;item)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>CLI::enums::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>output streaming for enumerations </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="148" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="148" bodyend="151"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Include the items in this namespace to get free conversion of enums to/from streams. (This is available inside <ref refid="namespaceCLI" kindref="compound">CLI</ref> as well, so CLI11 will use this without a using statement). </para>
+    </detaileddescription>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="144" column="1"/>
+  </compounddef>
+</doxygen>

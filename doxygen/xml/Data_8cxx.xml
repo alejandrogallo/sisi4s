@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Data_8cxx" kind="file" language="C++">
+    <compoundname>Data.cxx</compoundname>
+    <includes refid="Data_8hpp" local="no">Data.hpp</includes>
+    <includes local="no">sstream</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>Data.cxx</label>
+        <link refid="Data_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>cmath</label>
+      </node>
+      <node id="17">
+        <label>complex</label>
+      </node>
+      <node id="6">
+        <label>cstdint</label>
+      </node>
+      <node id="21">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="5">
+        <label>ctime</label>
+      </node>
+      <node id="14">
+        <label>fstream</label>
+      </node>
+      <node id="8">
+        <label>iomanip</label>
+      </node>
+      <node id="12">
+        <label>iostream</label>
+      </node>
+      <node id="18">
+        <label>map</label>
+      </node>
+      <node id="7">
+        <label>ostream</label>
+      </node>
+      <node id="9">
+        <label>sstream</label>
+      </node>
+      <node id="13">
+        <label>streambuf</label>
+      </node>
+      <node id="11">
+        <label>string</label>
+      </node>
+      <node id="19">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2015,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Data_8hpp" kindref="compound">Data.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="classsisi4s_1_1Data_1a451ecabfc1b04d8fe42d9e7830e18631" refkind="member"><highlight class="normal">Data::Data(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name_):<sp/>name(name_),<sp/>stage(MENTIONED)<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>std::stringstream<sp/>sStream;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>sStream<sp/>&lt;&lt;<sp/>name_<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>of<sp/>yet<sp/>unknown<sp/>type&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data_1aed57921e32429b6456ed4af469e35b46" kindref="member">typeName</ref><sp/>=<sp/>sStream.str();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data_1ab919572bad2952b419b4ca41feb8c0bf" kindref="member">dataMap</ref>[name_]<sp/>=<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">std::map&lt;std::string,<sp/>Data<sp/>*&gt;<sp/><ref refid="classsisi4s_1_1Data_1ab919572bad2952b419b4ca41feb8c0bf" kindref="member">Data::dataMap</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TypedData_1ab058426313681f75cc7319cf81b9a179" kindref="member">TypedData::nextId</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/Data.cxx"/>
+  </compounddef>
+</doxygen>

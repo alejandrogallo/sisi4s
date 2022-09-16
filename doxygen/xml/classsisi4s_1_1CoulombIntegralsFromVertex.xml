@@ -1,0 +1,787 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1CoulombIntegralsFromVertex" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::CoulombIntegralsFromVertex</compoundname>
+    <basecompoundref refid="classsisi4s_1_1Algorithm" prot="public" virt="non-virtual">sisi4s::Algorithm</basecompoundref>
+    <includes refid="CoulombIntegralsFromVertex_8hpp" local="no">CoulombIntegralsFromVertex.hpp</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a2228c3ce4a4aacd92c040a3e28f9a1b8" prot="public" static="yes" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">AlgorithmRegistrar</ref>&lt; <ref refid="classsisi4s_1_1CoulombIntegralsFromVertex" kindref="compound">CoulombIntegralsFromVertex</ref> &gt;</type>
+        <definition>AlgorithmRegistrar&lt; CoulombIntegralsFromVertex &gt; CoulombIntegralsFromVertex::registrar_</definition>
+        <argsstring></argsstring>
+        <name>registrar_</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::registrar_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="18" column="72" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a7b8e1be1cb608e801eb9ecd0989deb20" prot="protected" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::CoulombIntegralsFromVertex::GammaGai</definition>
+        <argsstring></argsstring>
+        <name>GammaGai</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::GammaGai</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="45" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a31bb4f471271e4f21343b7e97767bf98" prot="protected" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::CoulombIntegralsFromVertex::GammaGia</definition>
+        <argsstring></argsstring>
+        <name>GammaGia</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::GammaGia</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="46" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="46" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a75bbcf5512f115c9f3ff8f4ecb79cb4d" prot="protected" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::CoulombIntegralsFromVertex::GammaGab</definition>
+        <argsstring></argsstring>
+        <name>GammaGab</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::GammaGab</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="47" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="47" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1add0864b873baf6d61807277ca2b08b99" prot="protected" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::CoulombIntegralsFromVertex::GammaGij</definition>
+        <argsstring></argsstring>
+        <name>GammaGij</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::GammaGij</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="48" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="48" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a44d478d453d2b8762adf3d74662d67fc" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::syms</definition>
+        <argsstring></argsstring>
+        <name>syms</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::syms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="49" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" compoundref="CoulombIntegralsFromVertex_8cxx" startline="910" endline="982">dryCalculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a741403057f2c05bfc928a4e1083fca28" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::vvvv</definition>
+        <argsstring></argsstring>
+        <name>vvvv</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::vvvv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="49" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a2b3807eb14e538cdbe06f23c78f9854a" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::vovo</definition>
+        <argsstring></argsstring>
+        <name>vovo</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::vovo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="49" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" compoundref="CoulombIntegralsFromVertex_8cxx" startline="910" endline="982">dryCalculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a6a5e0d7c4f02197bf3e76436e51f4ae0" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::vvoo</definition>
+        <argsstring></argsstring>
+        <name>vvoo</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::vvoo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="49" column="31" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" compoundref="CoulombIntegralsFromVertex_8cxx" startline="910" endline="982">dryCalculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a08aff63658094f497e0e86c93a35ef61" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::voov</definition>
+        <argsstring></argsstring>
+        <name>voov</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::voov</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="49" column="36" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" compoundref="CoulombIntegralsFromVertex_8cxx" startline="910" endline="982">dryCalculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a30e72d9ecfa9070851d510ec229bd0d1" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::oovv</definition>
+        <argsstring></argsstring>
+        <name>oovv</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::oovv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="49" column="41" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" compoundref="CoulombIntegralsFromVertex_8cxx" startline="910" endline="982">dryCalculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a28b3a0e242bce05842554fe38846d72e" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::oooo</definition>
+        <argsstring></argsstring>
+        <name>oooo</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::oooo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="49" column="46" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" compoundref="CoulombIntegralsFromVertex_8cxx" startline="910" endline="982">dryCalculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1aefc828f2721d1cae37a99012e56ed146" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::ooov</definition>
+        <argsstring></argsstring>
+        <name>ooov</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::ooov</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="49" column="51" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" compoundref="CoulombIntegralsFromVertex_8cxx" startline="910" endline="982">dryCalculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1abf1501b041b85730540ee45ff3a93e8b" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::vooo</definition>
+        <argsstring></argsstring>
+        <name>vooo</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::vooo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="49" column="56" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" compoundref="CoulombIntegralsFromVertex_8cxx" startline="910" endline="982">dryCalculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a1e51a64775a384ab6e1f13e8634317ad" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::vvvo</definition>
+        <argsstring></argsstring>
+        <name>vvvo</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::vvvo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="50" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1af5fd2fb9ba2ae26cd2ceec6a4d16cd6f" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::ovoo</definition>
+        <argsstring></argsstring>
+        <name>ovoo</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::ovoo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="50" column="34" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1ae4347e55aaf1c7a45e456135d9e5a352" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::ovov</definition>
+        <argsstring></argsstring>
+        <name>ovov</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::ovov</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="50" column="39" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a6f57998553f422e2f4b224ca90601a2e" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::ovvv</definition>
+        <argsstring></argsstring>
+        <name>ovvv</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::ovvv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="50" column="44" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a1c58d18c4bfe00cdfdd6359efa69627c" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::vvov</definition>
+        <argsstring></argsstring>
+        <name>vvov</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::vvov</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="50" column="49" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1aa2e2a9dc091605a0ffd81fdf5e9d1be5" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::ovvo</definition>
+        <argsstring></argsstring>
+        <name>ovvo</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::ovvo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="50" column="54" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a9dd483085b8f779a77348c20b4b44f31" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::oovo</definition>
+        <argsstring></argsstring>
+        <name>oovo</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::oovo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="50" column="59" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a86aff5beef1370c66250c19580652e02" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; int, 4 &gt;</type>
+        <definition>std::array&lt;int,4&gt; sisi4s::CoulombIntegralsFromVertex::vovv</definition>
+        <argsstring></argsstring>
+        <name>vovv</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::vovv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="50" column="64" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1CoulombIntegralsFromVertex_1aa8be0cefb9816502b66b15c422c1370b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string sisi4s::CoulombIntegralsFromVertex::getName</definition>
+        <argsstring>()</argsstring>
+        <name>getName</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::getName</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1ad88a11462d7efa2cd6ee1dd2884d7a68">getName</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="18" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombIntegralsFromVertex_1acdcd1ac18ed1f82f2255b07381ad6ac6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CoulombIntegralsFromVertex::CoulombIntegralsFromVertex</definition>
+        <argsstring>(std::vector&lt; Argument &gt; const &amp;argumentList)</argsstring>
+        <name>CoulombIntegralsFromVertex</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::CoulombIntegralsFromVertex</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref> &gt; const &amp;</type>
+          <declname>argumentList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="19" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.cxx" bodystart="18" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombIntegralsFromVertex_1ad0572798d4fa94b683abd12ef59a1e69" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>CoulombIntegralsFromVertex::~CoulombIntegralsFromVertex</definition>
+        <argsstring>()</argsstring>
+        <name>~CoulombIntegralsFromVertex</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::~CoulombIntegralsFromVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="22" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.cxx" bodystart="23" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsFromVertex::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::run</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1aacd7ce50628f515d50d178213db8b320">run</reimplements>
+        <briefdescription>
+<para>Calculates Coulomb integrals Vabcd,Vabij,Vaibj,Vabci,Vijka,Vijkl from GammaGai,GammaGab,GammaGij Coulomb Vertices. Arguments can be any combination of the sort PPPP, PHPH, PPHH, HHHH, HHHP, PPPHCoulombIntegrals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="29" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.cxx" bodystart="26" bodyend="127"/>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="541" endline="908">calculateComplexIntegrals</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">calculateRealIntegrals</references>
+        <references refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" compoundref="Emitter_8hpp" startline="31">EMIT</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a75bbcf5512f115c9f3ff8f4ecb79cb4d" compoundref="CoulombIntegralsFromVertex_8hpp" startline="47">GammaGab</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a7b8e1be1cb608e801eb9ecd0989deb20" compoundref="CoulombIntegralsFromVertex_8hpp" startline="45">GammaGai</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a31bb4f471271e4f21343b7e97767bf98" compoundref="CoulombIntegralsFromVertex_8hpp" startline="46">GammaGia</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1add0864b873baf6d61807277ca2b08b99" compoundref="CoulombIntegralsFromVertex_8hpp" startline="48">GammaGij</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a28b3a0e242bce05842554fe38846d72e" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aefc828f2721d1cae37a99012e56ed146" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">ooov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a9dd483085b8f779a77348c20b4b44f31" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">oovo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a30e72d9ecfa9070851d510ec229bd0d1" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oovv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1af5fd2fb9ba2ae26cd2ceec6a4d16cd6f" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovoo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1ae4347e55aaf1c7a45e456135d9e5a352" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aa2e2a9dc091605a0ffd81fdf5e9d1be5" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovvo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6f57998553f422e2f4b224ca90601a2e" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovvv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a44d478d453d2b8762adf3d74662d67fc" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">syms</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abf1501b041b85730540ee45ff3a93e8b" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a08aff63658094f497e0e86c93a35ef61" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">voov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a2b3807eb14e538cdbe06f23c78f9854a" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vovo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a86aff5beef1370c66250c19580652e02" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vovv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6a5e0d7c4f02197bf3e76436e51f4ae0" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvoo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a1c58d18c4bfe00cdfdd6359efa69627c" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vvov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a1e51a64775a384ab6e1f13e8634317ad" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vvvo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a741403057f2c05bfc928a4e1083fca28" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvvv</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsFromVertex::dryRun</definition>
+        <argsstring>()</argsstring>
+        <name>dryRun</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::dryRun</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de">dryRun</reimplements>
+        <briefdescription>
+<para>Dry run for calculating Coulomb integrals Vabcd,Vabij,Vaibj,Vabci,Vijka Vijkl from GammaGai,GammaGab,GammaGij Coulomb Vertices. Arguments can be any combination of the sort PPPP, PHPH, PPHH, HHHH, HHHP, PPPHCoulombIntegrals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="37" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.cxx" bodystart="129" bodyend="185"/>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" compoundref="CoulombIntegralsFromVertex_8cxx" startline="910" endline="982">dryCalculateComplexIntegrals</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="474" endline="539">dryCalculateRealIntegrals</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a75bbcf5512f115c9f3ff8f4ecb79cb4d" compoundref="CoulombIntegralsFromVertex_8hpp" startline="47">GammaGab</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a7b8e1be1cb608e801eb9ecd0989deb20" compoundref="CoulombIntegralsFromVertex_8hpp" startline="45">GammaGai</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a31bb4f471271e4f21343b7e97767bf98" compoundref="CoulombIntegralsFromVertex_8hpp" startline="46">GammaGia</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1add0864b873baf6d61807277ca2b08b99" compoundref="CoulombIntegralsFromVertex_8hpp" startline="48">GammaGij</references>
+        <references refid="classsisi4s_1_1DryTensor_1a68a01073a9cf74ab62d43dda8e05462c" compoundref="DryTensor_8hpp" startline="87" endline="89">sisi4s::DryTensor&lt; F &gt;::get_name</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" compoundref="Algorithm_8cxx" startline="188" endline="200">sisi4s::Algorithm::getTensorArgument</references>
+        <references refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" compoundref="DryTensor_8hpp" startline="92">sisi4s::DryTensor&lt; F &gt;::lens</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a28b3a0e242bce05842554fe38846d72e" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aefc828f2721d1cae37a99012e56ed146" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">ooov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a30e72d9ecfa9070851d510ec229bd0d1" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oovv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a44d478d453d2b8762adf3d74662d67fc" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">syms</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abf1501b041b85730540ee45ff3a93e8b" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a08aff63658094f497e0e86c93a35ef61" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">voov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a2b3807eb14e538cdbe06f23c78f9854a" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vovo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6a5e0d7c4f02197bf3e76436e51f4ae0" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvoo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a1e51a64775a384ab6e1f13e8634317ad" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vvvo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a741403057f2c05bfc928a4e1083fca28" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvvv</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsFromVertex::calculateRealIntegrals</definition>
+        <argsstring>()</argsstring>
+        <name>calculateRealIntegrals</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::calculateRealIntegrals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="39" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.cxx" bodystart="187" bodyend="472"/>
+        <references refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" compoundref="Algorithm_8cxx" startline="303" endline="312">sisi4s::Algorithm::allocatedTensorArgument</references>
+        <references refid="namespacesisi4s_1a77d868359a18a73cfe184f25fad2f59b" compoundref="ComplexTensor_8cxx" startline="39" endline="51">sisi4s::fromComplexTensor</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a75bbcf5512f115c9f3ff8f4ecb79cb4d" compoundref="CoulombIntegralsFromVertex_8hpp" startline="47">GammaGab</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a7b8e1be1cb608e801eb9ecd0989deb20" compoundref="CoulombIntegralsFromVertex_8hpp" startline="45">GammaGai</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1add0864b873baf6d61807277ca2b08b99" compoundref="CoulombIntegralsFromVertex_8hpp" startline="48">GammaGij</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a28b3a0e242bce05842554fe38846d72e" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aefc828f2721d1cae37a99012e56ed146" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">ooov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a9dd483085b8f779a77348c20b4b44f31" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">oovo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a30e72d9ecfa9070851d510ec229bd0d1" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oovv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1af5fd2fb9ba2ae26cd2ceec6a4d16cd6f" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovoo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1ae4347e55aaf1c7a45e456135d9e5a352" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aa2e2a9dc091605a0ffd81fdf5e9d1be5" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovvo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6f57998553f422e2f4b224ca90601a2e" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovvv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a44d478d453d2b8762adf3d74662d67fc" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">syms</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abf1501b041b85730540ee45ff3a93e8b" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a08aff63658094f497e0e86c93a35ef61" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">voov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a2b3807eb14e538cdbe06f23c78f9854a" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vovo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a86aff5beef1370c66250c19580652e02" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vovv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6a5e0d7c4f02197bf3e76436e51f4ae0" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvoo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a1c58d18c4bfe00cdfdd6359efa69627c" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vvov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a1e51a64775a384ab6e1f13e8634317ad" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vvvo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a741403057f2c05bfc928a4e1083fca28" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvvv</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsFromVertex::calculateComplexIntegrals</definition>
+        <argsstring>()</argsstring>
+        <name>calculateComplexIntegrals</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::calculateComplexIntegrals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="40" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.cxx" bodystart="541" bodyend="908"/>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a75bbcf5512f115c9f3ff8f4ecb79cb4d" compoundref="CoulombIntegralsFromVertex_8hpp" startline="47">GammaGab</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a7b8e1be1cb608e801eb9ecd0989deb20" compoundref="CoulombIntegralsFromVertex_8hpp" startline="45">GammaGai</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a31bb4f471271e4f21343b7e97767bf98" compoundref="CoulombIntegralsFromVertex_8hpp" startline="46">GammaGia</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1add0864b873baf6d61807277ca2b08b99" compoundref="CoulombIntegralsFromVertex_8hpp" startline="48">GammaGij</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a28b3a0e242bce05842554fe38846d72e" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aefc828f2721d1cae37a99012e56ed146" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">ooov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a9dd483085b8f779a77348c20b4b44f31" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">oovo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a30e72d9ecfa9070851d510ec229bd0d1" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oovv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1af5fd2fb9ba2ae26cd2ceec6a4d16cd6f" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovoo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1ae4347e55aaf1c7a45e456135d9e5a352" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aa2e2a9dc091605a0ffd81fdf5e9d1be5" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovvo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6f57998553f422e2f4b224ca90601a2e" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">ovvv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a44d478d453d2b8762adf3d74662d67fc" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">syms</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abf1501b041b85730540ee45ff3a93e8b" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a08aff63658094f497e0e86c93a35ef61" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">voov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a2b3807eb14e538cdbe06f23c78f9854a" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vovo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a86aff5beef1370c66250c19580652e02" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vovv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6a5e0d7c4f02197bf3e76436e51f4ae0" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvoo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a1c58d18c4bfe00cdfdd6359efa69627c" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vvov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a1e51a64775a384ab6e1f13e8634317ad" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vvvo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a741403057f2c05bfc928a4e1083fca28" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvvv</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="26" endline="127">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsFromVertex::dryCalculateRealIntegrals</definition>
+        <argsstring>()</argsstring>
+        <name>dryCalculateRealIntegrals</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::dryCalculateRealIntegrals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="42" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.cxx" bodystart="474" bodyend="539"/>
+        <references refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" compoundref="Algorithm_8cxx" startline="303" endline="312">sisi4s::Algorithm::allocatedTensorArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a28b3a0e242bce05842554fe38846d72e" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aefc828f2721d1cae37a99012e56ed146" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">ooov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a30e72d9ecfa9070851d510ec229bd0d1" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oovv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a44d478d453d2b8762adf3d74662d67fc" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">syms</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abf1501b041b85730540ee45ff3a93e8b" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a08aff63658094f497e0e86c93a35ef61" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">voov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a2b3807eb14e538cdbe06f23c78f9854a" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vovo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6a5e0d7c4f02197bf3e76436e51f4ae0" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvoo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a1e51a64775a384ab6e1f13e8634317ad" compoundref="CoulombIntegralsFromVertex_8hpp" startline="50">vvvo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a741403057f2c05bfc928a4e1083fca28" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvvv</references>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombIntegralsFromVertex::dryCalculateComplexIntegrals</definition>
+        <argsstring>()</argsstring>
+        <name>dryCalculateComplexIntegrals</name>
+        <qualifiedname>sisi4s::CoulombIntegralsFromVertex::dryCalculateComplexIntegrals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="43" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.cxx" bodystart="910" bodyend="982"/>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a28b3a0e242bce05842554fe38846d72e" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aefc828f2721d1cae37a99012e56ed146" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">ooov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a30e72d9ecfa9070851d510ec229bd0d1" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">oovv</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a44d478d453d2b8762adf3d74662d67fc" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">syms</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abf1501b041b85730540ee45ff3a93e8b" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vooo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a08aff63658094f497e0e86c93a35ef61" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">voov</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a2b3807eb14e538cdbe06f23c78f9854a" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vovo</references>
+        <references refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6a5e0d7c4f02197bf3e76436e51f4ae0" compoundref="CoulombIntegralsFromVertex_8hpp" startline="49">vvoo</references>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" compoundref="CoulombIntegralsFromVertex_8cxx" startline="129" endline="185">dryRun</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Caclulates the Coulomb Integrals <formula id="11">$V_{ij}^{ab}, V_{bj}^{ai},
+V_{kl}^{ij}, V_{cd}^{ab}, V_{ka}^{ij}, V_{ci}^{ab}$</formula> (if given) from the Coulomb Vertex <formula id="12">$\Gamma_{rG}^q$</formula> and stores them in CTF Tensors Vabij, Vaibj, Vijkl, Vabcd, Vijka, and Vabci respectively. The arguments of the integrals are PPPP, PPHH, HHHH, PHPH, HHHP, and PPPHCoulombIntegrals. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::CoulombIntegralsFromVertex</label>
+        <link refid="classsisi4s_1_1CoulombIntegralsFromVertex"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CoulombIntegralsFromVertex &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+        <childnode refid="5" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CoulombIntegralsFromVertex &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="4">
+        <label>sisi4s::AlgorithmFactory</label>
+        <link refid="classsisi4s_1_1AlgorithmFactory"/>
+      </node>
+      <node id="5">
+        <label>sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::CoulombIntegralsFromVertex</label>
+        <link refid="classsisi4s_1_1CoulombIntegralsFromVertex"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+registrar_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" line="16" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombIntegralsFromVertex.hpp" bodystart="16" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>Algorithm</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>allocateContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>allocatedTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>arguments</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>calculateComplexIntegrals</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>calculateRealIntegrals</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>checkArgumentsOrDie</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1acdcd1ac18ed1f82f2255b07381ad6ac6" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>CoulombIntegralsFromVertex</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>dryCalculateComplexIntegrals</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>dryCalculateRealIntegrals</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a115e0139087a1b49ee4f1180a64483e4" prot="public" virt="virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>dryRun</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a75bbcf5512f115c9f3ff8f4ecb79cb4d" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>GammaGab</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a7b8e1be1cb608e801eb9ecd0989deb20" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>GammaGai</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a31bb4f471271e4f21343b7e97767bf98" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>GammaGia</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1add0864b873baf6d61807277ca2b08b99" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>GammaGij</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getArgumentData</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a407d54400b4b652a5b1b8d79b9c57175" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getGivenArgumentNames</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a98c473d7c36973fb5dbd29b6dce3f09e" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aa8be0cefb9816502b66b15c422c1370b" prot="public" virt="virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getName</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aedbdee78ab6ed424c34121218b6cdf68" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getRealArgumentFromInteger</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getRealArgumentFromTensor</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getTensorArgumentFromReal</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a28b3a0e242bce05842554fe38846d72e" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>oooo</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aefc828f2721d1cae37a99012e56ed146" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>ooov</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a9dd483085b8f779a77348c20b4b44f31" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>oovo</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a30e72d9ecfa9070851d510ec229bd0d1" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>oovv</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1af5fd2fb9ba2ae26cd2ceec6a4d16cd6f" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>ovoo</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1ae4347e55aaf1c7a45e456135d9e5a352" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>ovov</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aa2e2a9dc091605a0ffd81fdf5e9d1be5" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>ovvo</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6f57998553f422e2f4b224ca90601a2e" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>ovvv</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a2228c3ce4a4aacd92c040a3e28f9a1b8" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>registrar_</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" prot="public" virt="virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>setIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>setRealArgument</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a44d478d453d2b8762adf3d74662d67fc" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>syms</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abf1501b041b85730540ee45ff3a93e8b" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>vooo</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a08aff63658094f497e0e86c93a35ef61" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>voov</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a2b3807eb14e538cdbe06f23c78f9854a" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>vovo</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a86aff5beef1370c66250c19580652e02" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>vovv</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a6a5e0d7c4f02197bf3e76436e51f4ae0" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>vvoo</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a1c58d18c4bfe00cdfdd6359efa69627c" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>vvov</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a1e51a64775a384ab6e1f13e8634317ad" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>vvvo</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a741403057f2c05bfc928a4e1083fca28" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>vvvv</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" prot="public" virt="virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>~Algorithm</name></member>
+      <member refid="classsisi4s_1_1CoulombIntegralsFromVertex_1ad0572798d4fa94b683abd12ef59a1e69" prot="public" virt="virtual"><scope>sisi4s::CoulombIntegralsFromVertex</scope><name>~CoulombIntegralsFromVertex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

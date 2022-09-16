@@ -1,0 +1,545 @@
+
+.. contents::
+
+
+
+1 Introduction
+--------------
+
+``SiSi4S`` is a massively-parallel quantum chemistry code
+that aims to bring coupled-cluster theories to solid state
+systems.
+``SiSi4S`` is based partially on the unpublished version of the `CC4S <https://github.com/cc4s/cc4s>`_
+code and is used as a testing ground by some developers.
+
+2 Building
+----------
+
+``SiSi4S`` depends on several libraries to build.
+In principle, ``SiSi4S`` can build all the dependencies itself, with the exception of the boost libraries,
+which are available in most ``HPC`` systems.
+
+2.1 TODO Intel compiler
+~~~~~~~~~~~~~~~~~~~~~~~
+
+2.2 TODO Libint
+~~~~~~~~~~~~~~~
+
+- ``BOOST_CPATH``
+
+2.3 TODO CTF
+~~~~~~~~~~~~
+
+3 TODO Developer's corner
+-------------------------
+
+3.1 TODO Writing documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+3.2 TODO Adding new algorithms
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+4 Technical details
+-------------------
+
+.. _binary-tensor-file-format:
+
+4.1 Binary tensor file format
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- all integers in the headers are encoded in
+  `little endian <https://en.wikipedia.org/wiki/Endianness>`_.
+
+.. _header:
+
+4.1.1 Header
+^^^^^^^^^^^^
+
+.. table::
+
+    +--------+----------------------------+-----------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Offset | Content                    | Type      | Size | Description                                                                                                                                                                                           |
+    +========+============================+===========+======+=======================================================================================================================================================================================================+
+    |     +0 | "TENS"                     | char      |    4 | magic                                                                                                                                                                                                 |
+    +--------+----------------------------+-----------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |     +4 | version                    | integer   |    4 | version number in hex, e.g. 1.0 = 0x00010000 = 65536                                                                                                                                                  |
+    +--------+----------------------------+-----------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |     +8 | number type                | character |    4 | "uint", "UINT", "sint", "SINT" for unsigned or signed integers, respectively, "IEEE" for IEEE floating point numbers. Capital case integer types refer to big-, lower case to little endian encoding. |
+    +--------+----------------------------+-----------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |    +12 | bytes per number           | integer   |    4 | Integer numbers may be 1,2,4,8 or 16 bytes in size while IEEE floats may be 4,8 or 16 bytes referring to single,double or quadruple precision.                                                        |
+    +--------+----------------------------+-----------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |    +16 | numbers per tensor element | integer   |    4 | 1,2,4 or 8 for real, complex, quaternionic or octonionic tensors                                                                                                                                      |
+    +--------+----------------------------+-----------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |    +20 | order :math:`N`            | integer   |    4 | the number of dimensions                                                                                                                                                                              |
+    +--------+----------------------------+-----------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |    +24 | flags                      | integer   |    4 | 32 bit flags defined below (0 for dense tensor)                                                                                                                                                       |
+    +--------+----------------------------+-----------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |    +28 | zero                       | bytes     |    4 | reserved for future use                                                                                                                                                                               |
+    +--------+----------------------------+-----------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |    +32 | \                          | \         | \    | \                                                                                                                                                                                                     |
+    +--------+----------------------------+-----------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+<note>TODO: alignment of data chunks or not</note>
+
+.. _tensor-flags:
+
+4.1.1.1 Tensor flags
+::::::::::::::::::::
+
+.. table::
+
+    +------+-------------------------+----+
+    | Bit  | 31 - 1                  |  0 |
+    +======+=========================+====+
+    | Flag | reserved for future use | IX |
+    +------+-------------------------+----+
+
+.. table::
+
+    +------+------------------------------------+
+    | Flag | Description                        |
+    +======+====================================+
+    | IX   | data stored in (index,value) pairs |
+    +------+------------------------------------+
+
+.. _dimension-information:
+
+4.1.2 Dimension information
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After the tensor header, dimension headers follow for each dimension,
+starting with the leftmost index.
+
+.. table::
+
+    +--------+------------+-----------+------+-------------------------------------+
+    | Offset | Content    | Type      | Size | Description                         |
+    +========+============+===========+======+=====================================+
+    |     +0 | length     | integer   |    4 | the length the respective dimension |
+    +--------+------------+-----------+------+-------------------------------------+
+    |     +4 | index name | character |    1 | index name for later reference      |
+    +--------+------------+-----------+------+-------------------------------------+
+    |     +5 | flags      | integer   |    1 | 8-bit flags of this dimension       |
+    +--------+------------+-----------+------+-------------------------------------+
+    |     +6 | zero       | bytes     |    2 | reserved for future use             |
+    +--------+------------+-----------+------+-------------------------------------+
+    |     +8 | \          | \         | \    | \                                   |
+    +--------+------------+-----------+------+-------------------------------------+
+
+.. _dimension-flags:
+
+4.1.2.1 Dimension flags
+:::::::::::::::::::::::
+
+.. table::
+
+    +------+-------------------------+----+
+    | Bit  |                     7-1 |  0 |
+    +======+=========================+====+
+    | Flag | reserved for future use | SP |
+    +------+-------------------------+----+
+
+.. table::
+
+    +------+----------------------------------+
+    | Flag | Description                      |
+    +======+==================================+
+    | SP   | whether this dimension is sparse |
+    +------+----------------------------------+
+
+Note that sparsity in any dimension does not require the tensor to be
+stored in the (index,value) format, although that would be the usual
+case.
+
+.. _variable-chunks:
+
+4.1.3 Variable chunks
+^^^^^^^^^^^^^^^^^^^^^
+
+After the fixed chunks for each tensor dimension come the variable
+chunks providing additional information on the structure of the tensor
+data, such as on symmetry relations. Each variable chunk provides the
+same header information including information on its total size, such
+that implementations can skip ignored or unknown chunks.
+
+.. table::
+
+    +--------+------------+------------+------+-----------------------------------------------+
+    | Offset | Content    | Type       | Size | Description                                   |
+    +========+============+============+======+===============================================+
+    |     +0 | magic      | characters |    8 | identifying the respective chunk              |
+    +--------+------------+------------+------+-----------------------------------------------+
+    |     +8 | total size | integer    |    8 | including all fields, must be a multiple of 8 |
+    +--------+------------+------------+------+-----------------------------------------------+
+    |    +16 | \          | \          | \    | \                                             |
+    +--------+------------+------------+------+-----------------------------------------------+
+
+.. _symmetry-chunk:
+
+4.1.3.1 Symmetry chunk
+::::::::::::::::::::::
+
+Symmetry information for each known symmetry operation on the tensor's
+index order. Each symmetry operation consists of a permutation
+:math:`\sigma(a,b,\ldots)` of the indices and a subsequent operation :math:`s(x)` on
+the elements, which leave the tensor invariant. For instance,
+anti-symmetry when interchanging the first two indices in a tensor of
+fourth order is specified by 
+
+.. math::
+
+    T_{ijkl} =
+    s\left(T_{\sigma(i,j,k,l)}\right)\,, \text{ with } s(x) = -x \text{ and
+    } \sigma = \left(\begin{array}{rrrr} 1&2&3&4\\
+    2&1&3&4 \end{array}\right)\,.
+
+.. table::
+
+    +---------------------------------------+----------------------------------------+------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |                                Offset | Content                                | Type       | Size                               | Description                                                                                                                                                                       |
+    +=======================================+========================================+============+====================================+===================================================================================================================================================================================+
+    |                                    +0 | "SYMMETRY"                             | characters | 8                                  | magic                                                                                                                                                                             |
+    +---------------------------------------+----------------------------------------+------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |                                    +8 | size of symmetry information           | integer    | 8                                  | including all fields, must be a multiple of 8                                                                                                                                     |
+    +---------------------------------------+----------------------------------------+------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |                                   +16 | flags                                  | integer    | 1                                  | 8-bit flags of this symmetry                                                                                                                                                      |
+    +---------------------------------------+----------------------------------------+------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |                                   +17 | length :math:`n` of the operation code | integer    | 1                                  | characters in the code of the operation :math:`s(x)`                                                                                                                              |
+    +---------------------------------------+----------------------------------------+------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |                                   +18 | symmetry operation code                | characters | :math:`n`                          | code of the symmetry operation, e.g. "-x" for :math:`s(x)=-x`                                                                                                                     |
+    +---------------------------------------+----------------------------------------+------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |                               +$n$+18 | index map of :math:`\sigma`            | characters | :math:`N`                          | the symmetry permutation of the index names given in the dimension information, e.g. "bacd" for a transposition of the first two indices for a tensor with the index names "abcd" |
+    +---------------------------------------+----------------------------------------+------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    |                           +$N$+$n$+18 | padding zeros                          | bytes      | pad$\ :sub:`8`\(N$+$n:math:`+18`)$ | padding to align the chunks in multiples of 4 bytes                                                                                                                               |
+    +---------------------------------------+----------------------------------------+------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | +align$\ :sub:`8`\(N$+$n:math:`+18`)$ | \                                      | \          | \                                  | \                                                                                                                                                                                 |
+    +---------------------------------------+----------------------------------------+------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+where align:math:`_a(N)=a\lceil N/a \rceil` and pad$\ :sub:`a`\(N)=$align:math:`_a`(:math:`N`)-:math:`N`.
+
+.. _symmetry-flags:
+
+4.1.3.1.1 Symmetry flags
+''''''''''''''''''''''''
+
+.. table::
+
+    +------+-------------------------+----+
+    | Bit  |                     7-1 |  0 |
+    +======+=========================+====+
+    | Flag | reserved for future use | PK |
+    +------+-------------------------+----+
+
+.. table::
+
+    +------+---------------------------------------------------------------------------------------------------------+
+    | Flag | Description                                                                                             |
+    +======+=========================================================================================================+
+    | PK   | whether the tensor data in this file is packed exploiting this symmetry to reduce the number of entries |
+    +------+---------------------------------------------------------------------------------------------------------+
+
+.. _tensor-data:
+
+4.1.4 Tensor data
+^^^^^^^^^^^^^^^^^
+
+The global index :math:`I` of each tensor value is given by
+
+::
+
+    I=a+bN_0 + cN_0N_1 + \ldots\,,
+
+where :math:`N_0,N_1,\ldots` is the length of each dimension and
+:math:`a,b,\ldots` is the index in each dimension in the order given in the
+dimension information.
+
+.. _sequential-values:
+
+4.1.4.1 Sequential values
+:::::::::::::::::::::::::
+
+If the IX flag is 0 the tensor values are given in a continuous sequence
+of ascending global index :math:`I`.
+
+<note>TODO: define symmetry packing for a single transposition
+symmetry.</note>
+
+If the tensor data is packed according to more than one symmetry, only
+index-value storage is supported in version 1.0.
+
+.. table::
+
+    +-------------------------------------------------------------------------+----------------+----------------+---------------------------------------------------------------------+-----------------------------------------------+
+    |                                                                  Offset | Content        | Type           | Size                                                                | Description                                   |
+    +=========================================================================+================+================+=====================================================================+===============================================+
+    |                                                                      +0 | "DENSDATA"     | characters     | 8                                                                   | identifying the respective chunk              |
+    +-------------------------------------------------------------------------+----------------+----------------+---------------------------------------------------------------------+-----------------------------------------------+
+    |                                                                      +8 | total size     | integer        | 8                                                                   | including all fields, must be a multiple of 8 |
+    +-------------------------------------------------------------------------+----------------+----------------+---------------------------------------------------------------------+-----------------------------------------------+
+    |                                                                     +16 | :math:`T(0)`   | tensor element | :math:`\frac{\rm bytes}{\rm number}\frac{\rm numbers}{\rm element}` | tensor value at :math:`I=0`                   |
+    +-------------------------------------------------------------------------+----------------+----------------+---------------------------------------------------------------------+-----------------------------------------------+
+    | +16+:math:`\frac{\rm bytes}{\rm number}\frac{\rm numbers}{\rm element}` | :math:`T(1)`   | tensor element | :math:`\frac{\rm bytes}{\rm number}\frac{\rm numbers}{\rm element}` | tensor value at :math:`I=1`                   |
+    +-------------------------------------------------------------------------+----------------+----------------+---------------------------------------------------------------------+-----------------------------------------------+
+    |                                                          :math:`\vdots` | :math:`\vdots` | tensor element | :math:`\frac{\rm bytes}{\rm number}\frac{\rm numbers}{\rm element}` | :math:`\vdots`                                |
+    +-------------------------------------------------------------------------+----------------+----------------+---------------------------------------------------------------------+-----------------------------------------------+
+
+.. _index-value-storage:
+
+4.1.4.2 Index-value storage
+:::::::::::::::::::::::::::
+
+If the IX flag is 1 the tensor values are given in pairs of index and
+value.
+
+.. table::
+
+    +-------------------------------------------------------------------+-----------------+----------------+---------------------------------------------------------------------+---------------------------------+
+    | Offset                                                            | Content         | Type           | Size                                                                | Description                     |
+    +===================================================================+=================+================+=====================================================================+=================================+
+    | +0                                                                | number of pairs | integer        | 8                                                                   | number of non-zero pairs stored |
+    +-------------------------------------------------------------------+-----------------+----------------+---------------------------------------------------------------------+---------------------------------+
+    | +8                                                                | :math:`I_0`     | integer        | 8                                                                   | global index of first value     |
+    +-------------------------------------------------------------------+-----------------+----------------+---------------------------------------------------------------------+---------------------------------+
+    | +16                                                               | :math:`T(I_0)`  | tensor element | :math:`\frac{\rm bytes}{\rm number}\frac{\rm numbers}{\rm element}` | value of first pair             |
+    +-------------------------------------------------------------------+-----------------+----------------+---------------------------------------------------------------------+---------------------------------+
+    | +$\frac{\rm bytes}{\rm number}\frac{\rm numbers}{\rm element}$+16 | :math:`I_1`     | integer        | 8                                                                   | global index of second value    |
+    +-------------------------------------------------------------------+-----------------+----------------+---------------------------------------------------------------------+---------------------------------+
+    | +$\frac{\rm bytes}{\rm number}\frac{\rm numbers}{\rm element}$+24 | :math:`T(I_1)`  | tensor element | :math:`\frac{\rm bytes}{\rm number}\frac{\rm numbers}{\rm element}` | value of second pair            |
+    +-------------------------------------------------------------------+-----------------+----------------+---------------------------------------------------------------------+---------------------------------+
+    | :math:`\ldots`                                                    | \               | \              | \                                                                   | \                               |
+    +-------------------------------------------------------------------+-----------------+----------------+---------------------------------------------------------------------+---------------------------------+
+
+.. _fourier-transformed-overlap-densities:
+
+4.2 Fourier Transformed Overlap Densities
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``FTOD`` is one of the possible input files, providing information on
+the orbitals and the eigenenergies of the reference system. The file
+provides the Fourier transformed overlap densities :math:`\chi_q^p({\bf G})`
+given by \\[
+
+::
+
+    \chi_q^p({\bf G}) = \int{\rm d}{\bf x}\,
+      \sqrt{\frac{4\pi}{{\bf G}^2}} {\rm e}^{{\rm i}{\bf G}\cdot{\bf r}}\,
+      \psi_p^\ast({\bf x})\psi_q({\bf x}),
+
+\\] such that the Coulomb integrals :math:`V_{sr}^{pq}` can be decomposed into
+:math:`V_{sr}^{pq}=\int\frac[[file:\rm d}{\bf G]]{(2\pi)^3}\,\chi_s^p({\bf
+G}){\chi_q^r}^\ast({\bf G})`. The file is a line based text file of the
+following structure
+
+There is also a binary version ``FTODDUMP`` of this file.
+
+.. _header:
+
+4.2.1 Header
+^^^^^^^^^^^^
+
+- The first line is reserved for comments. It is ignored by cc4s
+
+- The second line provides information on the size of the system. The
+  columns are white-space separated and they specify
+
+  1. the number of occupied orbitals :math:`n_{\rm o}`
+
+  2. the number of virtual orbitals :math:`n_{\rm v}`
+
+  3. the number of plane waves :math:`n_{\rm G}`
+
+  4. the number of spins per orbital, 1 or 2
+
+  5. the number of :math:`{\bf k}` points per orbital.
+
+- The third is line is again reserved for comments usually explaining
+  the structure of the data to follow.
+
+.. _overlap-densities:
+
+4.2.2 Overlap densities
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The rest of the file contains lines of at least 6 numbers, again in
+white-space separated columns:
+
+1. The real part of the overlap density, :math:`{\rm Re}\left(\chi_q^p({\bf
+      G})\right)`, if the plane wave index :math:`G`, contained in the third
+   column, is non-zero,
+   the eigenenergy :math:`\varepsilon_p`, otherwise.
+
+2. The imaginary part of the overlap density, :math:`{\rm
+      Im}\left(\chi_q^p({\bf G})\right)`, if the plane wave index in
+   non-zero. It is ignored otherwise.
+
+3. The plane wave index :math:`G` ranging from 1 to :math:`n_{\rm G}`
+
+4. The orbital index :math:`p`, ranging from 1 to :math:`n_{\rm o}+n_{\rm v}`
+
+5. The orbital index :math:`q`, ranging from 1 to :math:`n_{\rm o}+n_{\rm v}`
+
+6. The spin index, which is currently ignored.
+
+There is no order required by cc4s but it could be beneficial to list
+all overlap densities before all eigenenergies for future or other
+implementations. Overlap densities that are not listed in the file are
+assumed to be zero.
+
+.. _fourier-transformed-overlap-densities---binary:
+
+4.3 Fourier Transformed Overlap Densities - Binary
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``FTODDUMP`` is one of the possible input files, providing information
+on the orbitals and the eigenenergies of the reference system. The file
+provides the Fourier transformed overlap densities :math:`\Gamma_{q\bf G}^p`
+given by \\[
+
+::
+
+    \Gamma_{q\bf G}^p = \int{\rm d}{\bf x}\,
+      \sqrt{\frac{4\pi}{{\bf G}^2}} {\rm e}^{{\rm i}{\bf G}\cdot{\bf r}}\,
+      \psi_p^\ast({\bf x})\psi_q({\bf x}),
+
+\\] such that the Coulomb integrals :math:`V_{sr}^{pq}` can be decomposed into
+:math:`V_{sr}^{pq}=\int\frac[[file:\rm d}{\bf G]]{(2\pi)^3}\,{\Gamma^\ast}_s^{p\bf
+G}\Gamma_{r\bf G}^q`. The file is binary. There is also a text version
+``FTOD`` of this file.
+
+The file consists of chunks, each starting with a unique character
+sequence for identification, called magic. The header must come as first
+chunk. The order of the other chunks is arbitrary. The fields within a
+chunk are given by their respective offset relative to the start of the
+chunk.
+
+.. _header:
+
+4.3.1 Header
+^^^^^^^^^^^^
+
+.. table::
+
+    +--------+-----------------------------------------------+-----------+------+
+    | Offset | Content                                       | Type      | Size |
+    +========+===============================================+===========+======+
+    |     +0 | "``cc4sFTOD``" (magic)                        | character |    8 |
+    +--------+-----------------------------------------------+-----------+------+
+    |     +8 | number of occupied orbitals :math:`n_{\rm o}` | integer   |    4 |
+    +--------+-----------------------------------------------+-----------+------+
+    |    +12 | number of virtual orbitals :math:`n_{\rm v}`  | integer   |    4 |
+    +--------+-----------------------------------------------+-----------+------+
+    |    +16 | number of plane waves :math:`n_{\rm G}`       | integer   |    4 |
+    +--------+-----------------------------------------------+-----------+------+
+    |    +20 | number of spins, 1 or 2                       | integer   |    4 |
+    +--------+-----------------------------------------------+-----------+------+
+    |    +24 | number of ${\bf k}$-points                    | integer   |    4 |
+    +--------+-----------------------------------------------+-----------+------+
+    |    +28 | reserved for future use                       | zero      |    4 |
+    +--------+-----------------------------------------------+-----------+------+
+    |    +32 | \                                             | \         | \    |
+    +--------+-----------------------------------------------+-----------+------+
+
+.. _data-chunks:
+
+4.3.2 Data Chunks
+^^^^^^^^^^^^^^^^^
+
+Each chunk starts with an 8 character magic and an 8 byte integer giving
+the size of the entire chunk, including the magic and the size field.
+The size is provided so that implementations can skip chunks unknown to
+them.
+
+.. _real-part-of-chi:
+
+4.3.2.1 Real part of :math:`\chi`
+:::::::::::::::::::::::::::::::::
+
+.. table::
+
+    +-----------------------------------------------------------+-----------------------------------+-----------+--------+---+
+    | Offset                                                    | Content                           | Type      |   Size | \ |
+    +===========================================================+===================================+===========+========+===+
+    | +0                                                        | "``FTODreal``" (magic)            | character |      8 | \ |
+    +-----------------------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +8                                                        | size of this chunk in bytes       | integer   |      8 | \ |
+    +-----------------------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +16                                                       | ${\rm Re}(:math:`\chi`\ :sub:`1`\ | 1(1))$    | double | 8 |
+    +-----------------------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +24                                                       | ${\rm Re}(:math:`\chi`\ :sub:`1`\ | 1(2))$    | double | 8 |
+    +-----------------------------------------------------------+-----------------------------------+-----------+--------+---+
+    | :math:`\vdots`                                            | :math:`\vdots`                    | double    |      8 | \ |
+    +-----------------------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +16+8:math:`n_{\rm G}`                                    | ${\rm Re}(:math:`\chi`\ :sub:`1`\ | 2(1))$    | double | 8 |
+    +-----------------------------------------------------------+-----------------------------------+-----------+--------+---+
+    | :math:`\vdots`                                            | :math:`\vdots`                    | double    |      8 | \ |
+    +-----------------------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +16+8$n\ :sub:`\rm G`\(n\ :sub:`\rm o`\+n\ :sub:`\rm v`\) | 2$                                | \         | \      | \ |
+    +-----------------------------------------------------------+-----------------------------------+-----------+--------+---+
+
+.. _imaginary-part-of-chi:
+
+4.3.2.2 Imaginary part of :math:`\chi`
+::::::::::::::::::::::::::::::::::::::
+
+Analogous to the real part chunk but with the magic "``FTODimag``".
+
+.. _real-part-of-chi_ia:
+
+4.3.2.3 Real part of :math:`\chi_i^a`
+:::::::::::::::::::::::::::::::::::::
+
+.. table::
+
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+    | Offset                                      | Content                           | Type      |   Size | \ |
+    +=============================================+===================================+===========+========+===+
+    | +0                                          | "``FTIAreal``" (magic)            | character |      8 | \ |
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +8                                          | size of this chunk in bytes       | integer   |      8 | \ |
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +16                                         | ${\rm Re}(:math:`\chi`\ :sub:`1`\ | 1(1))$    | double | 8 |
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +24                                         | ${\rm Re}(:math:`\chi`\ :sub:`1`\ | 1(2))$    | double | 8 |
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+    | :math:`\vdots`                              | :math:`\vdots`                    | double    |      8 | \ |
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +16+8:math:`n_{\rm G}`                      | ${\rm Re}(:math:`\chi`\ :sub:`1`\ | 2(1))$    | double | 8 |
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+    | :math:`\vdots`                              | :math:`\vdots`                    | double    |      8 | \ |
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +16+8:math:`n_{\rm G}n_{\rm v}`             | ${\rm Re}(:math:`\chi`\ :sub:`2`\ | 1(1))$    | double | 8 |
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+    | :math:`\vdots`                              | :math:`\vdots`                    | double    |      8 | \ |
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+    | +16+8:math:`n_{\rm G}(n_{\rm o} n_{\rm v})` | \                                 | \         | \      | \ |
+    +---------------------------------------------+-----------------------------------+-----------+--------+---+
+
+.. _imaginary-part-of-chi_ia:
+
+4.3.2.4 Imaginary part of :math:`\chi_i^a`
+::::::::::::::::::::::::::::::::::::::::::
+
+Analogous to the real part chunk but with the magic "``FTIAimag``".
+
+.. _eigenenergies-varepsilon_p:
+
+4.3.2.5 Eigenenergies :math:`\varepsilon_p`
+:::::::::::::::::::::::::::::::::::::::::::
+
+.. table::
+
+    +------------------------------------+-----------------------------+-----------+------+
+    |                             Offset | Content                     | Type      | Size |
+    +====================================+=============================+===========+======+
+    |                                 +0 | "``FTODepsi``" (magic)      | character |    8 |
+    +------------------------------------+-----------------------------+-----------+------+
+    |                                 +8 | size of this chunk in bytes | integer   |    8 |
+    +------------------------------------+-----------------------------+-----------+------+
+    |                                +16 | :math:`\varepsilon_1`       | double    |    8 |
+    +------------------------------------+-----------------------------+-----------+------+
+    |                                +24 | :math:`\varepsilon_2`       | double    |    8 |
+    +------------------------------------+-----------------------------+-----------+------+
+    |                     :math:`\vdots` | :math:`\vdots`              | double    |    8 |
+    +------------------------------------+-----------------------------+-----------+------+
+    | +16+8:math:`(n_{\rm o}+n_{\rm v})` | \                           | \         | \    |
+    +------------------------------------+-----------------------------+-----------+------+

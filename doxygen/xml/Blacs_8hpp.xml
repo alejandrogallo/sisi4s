@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Blacs_8hpp" kind="file" language="C++">
+    <compoundname>Blacs.hpp</compoundname>
+    <includedby refid="BlacsWorld_8cxx" local="no">BlacsWorld.cxx</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>Blacs.hpp</label>
+        <link refid="Blacs_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BlacsWorld.cxx</label>
+        <link refid="BlacsWorld_8cxx"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="Blacs_8hpp_1ab37e53063503886d05f9b279e895b693" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Cblacs_get</definition>
+        <argsstring>(int context, int request, int *value)</argsstring>
+        <name>Cblacs_get</name>
+        <param>
+          <type>int</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp" line="6" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp" declline="6" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1BlacsWorld_1a720328f15e7797f099bb8554720a2164" compoundref="BlacsWorld_8cxx" startline="9" endline="22">sisi4s::BlacsWorld::BlacsWorld</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="Blacs_8hpp_1af112f990dbc189ac1d2092c0f2ea5d06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Cblacs_gridinit</definition>
+        <argsstring>(int *context, char const *order, int np_row, int np_col)</argsstring>
+        <name>Cblacs_gridinit</name>
+        <param>
+          <type>int *</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>np_row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>np_col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp" line="7" column="7" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp" declline="7" declcolumn="7"/>
+        <referencedby refid="classsisi4s_1_1BlacsWorld_1a720328f15e7797f099bb8554720a2164" compoundref="BlacsWorld_8cxx" startline="9" endline="22">sisi4s::BlacsWorld::BlacsWorld</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="Blacs_8hpp_1a23cee1588893f7d3dadcec251d90d563" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Cblacs_gridinfo</definition>
+        <argsstring>(int context, int *np_row, int *np_col, int *my_row, int *my_col)</argsstring>
+        <name>Cblacs_gridinfo</name>
+        <param>
+          <type>int</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>np_row</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>np_col</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>my_row</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>my_col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp" line="8" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp" declline="8" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1BlacsWorld_1a720328f15e7797f099bb8554720a2164" compoundref="BlacsWorld_8cxx" startline="9" endline="22">sisi4s::BlacsWorld::BlacsWorld</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="Blacs_8hpp_1a515699b23fa31b466e5127bebef78ad0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Cblacs_gridexit</definition>
+        <argsstring>(int ictxt)</argsstring>
+        <name>Cblacs_gridexit</name>
+        <param>
+          <type>int</type>
+          <declname>ictxt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp" line="11" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp" declline="11" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1BlacsWorld_1ac926df5a02d94ef079f265dd64f3cb1e" compoundref="BlacsWorld_8cxx" startline="24" endline="26">sisi4s::BlacsWorld::~BlacsWorld</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="Blacs_8hpp_1a59fd00f9c40d4ca4f1fbf24ec51520eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Cblacs_barrier</definition>
+        <argsstring>(int ictxt, char const *order)</argsstring>
+        <name>Cblacs_barrier</name>
+        <param>
+          <type>int</type>
+          <declname>ictxt</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>order</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp" line="12" column="8" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp" declline="12" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1BlacsWorld_1a932972e47385c0df0f9e9f10da7e46da" compoundref="BlacsWorld_8cxx" startline="28" endline="30">sisi4s::BlacsWorld::barrier</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2016,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>BLACS_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLACS_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="6" refid="Blacs_8hpp_1ab37e53063503886d05f9b279e895b693" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Blacs_8hpp_1ab37e53063503886d05f9b279e895b693" kindref="member">Cblacs_get</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>context,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>request,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*value);</highlight></codeline>
+<codeline lineno="7" refid="Blacs_8hpp_1af112f990dbc189ac1d2092c0f2ea5d06" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="Blacs_8hpp_1af112f990dbc189ac1d2092c0f2ea5d06" kindref="member">Cblacs_gridinit</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*context,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*order,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>np_row,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>np_col);</highlight></codeline>
+<codeline lineno="8" refid="Blacs_8hpp_1a23cee1588893f7d3dadcec251d90d563" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Blacs_8hpp_1a23cee1588893f7d3dadcec251d90d563" kindref="member">Cblacs_gridinfo</ref>(</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>context,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*np_row,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*np_col,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*my_row,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*my_col</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="11" refid="Blacs_8hpp_1a515699b23fa31b466e5127bebef78ad0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Blacs_8hpp_1a515699b23fa31b466e5127bebef78ad0" kindref="member">Cblacs_gridexit</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ictxt);</highlight></codeline>
+<codeline lineno="12" refid="Blacs_8hpp_1a59fd00f9c40d4ca4f1fbf24ec51520eb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Blacs_8hpp_1a59fd00f9c40d4ca4f1fbf24ec51520eb" kindref="member">Cblacs_barrier</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ictxt,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*order);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/Blacs.hpp"/>
+  </compounddef>
+</doxygen>

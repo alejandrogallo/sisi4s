@@ -1,0 +1,913 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1CoulombVertexDecomposition" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::CoulombVertexDecomposition</compoundname>
+    <basecompoundref refid="classsisi4s_1_1Algorithm" prot="public" virt="non-virtual">sisi4s::Algorithm</basecompoundref>
+    <includes refid="CoulombVertexDecomposition_8hpp" local="no">CoulombVertexDecomposition.hpp</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a718cfcba94c189708c3a8ae39c532309" prot="public" static="yes" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">AlgorithmRegistrar</ref>&lt; <ref refid="classsisi4s_1_1CoulombVertexDecomposition" kindref="compound">CoulombVertexDecomposition</ref> &gt;</type>
+        <definition>AlgorithmRegistrar&lt; CoulombVertexDecomposition &gt; CoulombVertexDecomposition::registrar_</definition>
+        <argsstring></argsstring>
+        <name>registrar_</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::registrar_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="24" column="72" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a25855914a84044adf08d1f9ae15c5533" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>int64_t constexpr</type>
+        <definition>int64_t constexpr sisi4s::CoulombVertexDecomposition::DEFAULT_RANK_SIZE</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_RANK_SIZE</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::DEFAULT_RANK_SIZE</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="37" column="30" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a2d5f35d10b348ce007fe85f2cdce9bde" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>double constexpr</type>
+        <definition>double constexpr sisi4s::CoulombVertexDecomposition::DEFAULT_RANK_FACTOR</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_RANK_FACTOR</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::DEFAULT_RANK_FACTOR</qualifiedname>
+        <initializer>= 3.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="39" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1aaa65034ca3ba142b17e5b37f5159caf6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t sisi4s::CoulombVertexDecomposition::DEFAULT_MAX_ITERATIONS</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_MAX_ITERATIONS</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::DEFAULT_MAX_ITERATIONS</qualifiedname>
+        <initializer>= 32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="97" column="30" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="97" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1afdc566018f5ffa4699ff754f1abfe090" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double sisi4s::CoulombVertexDecomposition::DEFAULT_DELTA</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_DELTA</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::DEFAULT_DELTA</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="98" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="98" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1ac1842c29920c1b75f22cd66f166fff6f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double sisi4s::CoulombVertexDecomposition::DEFAULT_SWAMPING_THRESHOLD</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_SWAMPING_THRESHOLD</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::DEFAULT_SWAMPING_THRESHOLD</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="99" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="99" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a351646adb448ba08baa4db1411b69567" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double sisi4s::CoulombVertexDecomposition::DEFAULT_REGULARIZATION_FRICTION</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_REGULARIZATION_FRICTION</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::DEFAULT_REGULARIZATION_FRICTION</qualifiedname>
+        <initializer>= 0.125</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="100" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="100" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a10c5962670833a8914fd31baf5f25d2d" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool sisi4s::CoulombVertexDecomposition::DEFAULT_REAL_FACTOR_ORBITALS</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_REAL_FACTOR_ORBITALS</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::DEFAULT_REAL_FACTOR_ORBITALS</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="101" column="27" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="101" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a2d174ec6503e2d111b5b5b91b8b75732" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool sisi4s::CoulombVertexDecomposition::DEFAULT_NORMALIZED_FACTOR_ORBITALS</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_NORMALIZED_FACTOR_ORBITALS</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::DEFAULT_NORMALIZED_FACTOR_ORBITALS</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="102" column="27" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="102" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a0cff00d7fe53f7fefb5505b21dfef7bb" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool sisi4s::CoulombVertexDecomposition::DEFAULT_WRITE_SUB_ITERATIONS</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_WRITE_SUB_ITERATIONS</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::DEFAULT_WRITE_SUB_ITERATIONS</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="103" column="27" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="103" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1adaf768c7f53cb3bdd16bb5aa329d5eeb" prot="public" static="yes" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string CoulombVertexDecomposition::SYMMETRIC</definition>
+        <argsstring></argsstring>
+        <name>SYMMETRIC</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::SYMMETRIC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="105" column="30" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="105" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" compoundref="CoulombVertexDecomposition_8cxx" startline="373" endline="390">computeOutgoingPi</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" prot="public" static="yes" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string CoulombVertexDecomposition::HERMITIAN</definition>
+        <argsstring></argsstring>
+        <name>HERMITIAN</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::HERMITIAN</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="106" column="30" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="106" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" compoundref="CoulombVertexDecomposition_8cxx" startline="373" endline="390">computeOutgoingPi</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a55ac10ef01705047aa95f615e87bd799" prot="public" static="yes" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string CoulombVertexDecomposition::PSEUDO_INVERSE</definition>
+        <argsstring></argsstring>
+        <name>PSEUDO_INVERSE</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::PSEUDO_INVERSE</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="107" column="30" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="107" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" compoundref="CoulombVertexDecomposition_8cxx" startline="373" endline="390">computeOutgoingPi</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t sisi4s::CoulombVertexDecomposition::rank</definition>
+        <argsstring></argsstring>
+        <name>rank</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::rank</qualifiedname>
+        <briefdescription>
+<para>The rank <formula id="16">$N_R$</formula> of the tensor rank decomposition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="35" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double sisi4s::CoulombVertexDecomposition::Delta</definition>
+        <argsstring></argsstring>
+        <name>Delta</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::Delta</qualifiedname>
+        <briefdescription>
+<para>The Frobenius norm of the difference between <formula id="17">$\Gamma^q_{rG}$</formula> and its decomposition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="45" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" compoundref="CoulombVertexDecomposition_8cxx" startline="234" endline="260">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" compoundref="CoulombVertexDecomposition_8cxx" startline="392" endline="400">getDelta</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a820133d0349fd920ffe91fcea789adb8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::CoulombVertexDecomposition::realFactorOrbitals</definition>
+        <argsstring></argsstring>
+        <name>realFactorOrbitals</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::realFactorOrbitals</qualifiedname>
+        <briefdescription>
+<para>Whether the factor orbitals <formula id="13">$\Pi_{qR}$</formula> are required to be real. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="51" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="51" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a4f33e932456c08552f3c53c9798ca8b5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::CoulombVertexDecomposition::normalizedFactorOrbitals</definition>
+        <argsstring></argsstring>
+        <name>normalizedFactorOrbitals</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::normalizedFactorOrbitals</qualifiedname>
+        <briefdescription>
+<para>Whether the factor orbitals <formula id="13">$\Pi_{qR}$</formula> are required to be normalized, i.e. <formula id="18">${\Pi^\ast}^{qR}\Pi_{qR} = \delta{qq}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="57" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="57" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a8d3447e10df5b61bafff1a98d814e2a3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::CoulombVertexDecomposition::writeSubIterations</definition>
+        <argsstring></argsstring>
+        <name>writeSubIterations</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::writeSubIterations</qualifiedname>
+        <briefdescription>
+<para>Whether to write Delta after each part of one RALS iteration, where Delta is the Frobenius norm of <formula id="19">${\Pi^\ast}^{qR}Pi_{rR}\Lambda_{GR} - \Gamma^q_{rG}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="65" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="65" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" prot="public" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::CoulombVertexDecomposition::GammaGqr</definition>
+        <argsstring></argsstring>
+        <name>GammaGqr</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::GammaGqr</qualifiedname>
+        <briefdescription>
+<para>The full Coulomb vertex <formula id="17">$\Gamma^q_{rG}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="70" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="70" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" compoundref="CoulombVertexDecomposition_8cxx" startline="262" endline="283">dryFit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" compoundref="CoulombVertexDecomposition_8cxx" startline="234" endline="260">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" prot="public" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;complex&gt;* sisi4s::CoulombVertexDecomposition::composedGammaGqr</definition>
+        <argsstring></argsstring>
+        <name>composedGammaGqr</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::composedGammaGqr</qualifiedname>
+        <briefdescription>
+<para>The fit <formula id="20">${\Pi^\ast}^{qR}\Pi_{rR}\Lambda_{GR}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="74" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="74" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9a0534c7fbf919273df65232d6d7dcd6" compoundref="CoulombVertexDecomposition_8cxx" startline="29" endline="38">~CoulombVertexDecomposition</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" compoundref="CoulombVertexDecomposition_8cxx" startline="262" endline="283">dryFit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" compoundref="CoulombVertexDecomposition_8cxx" startline="392" endline="400">getDelta</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" prot="public" static="no" mutable="no">
+        <type>CTF::Matrix&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Matrix&lt;complex&gt;* sisi4s::CoulombVertexDecomposition::PiqR</definition>
+        <argsstring></argsstring>
+        <name>PiqR</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::PiqR</qualifiedname>
+        <briefdescription>
+<para>The conjugated factor orbitals <formula id="21">${\Pi^\ast}^{qR} = (\Pi_{qR})^\ast$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="79" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="79" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9a0534c7fbf919273df65232d6d7dcd6" compoundref="CoulombVertexDecomposition_8cxx" startline="29" endline="38">~CoulombVertexDecomposition</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" compoundref="CoulombVertexDecomposition_8cxx" startline="373" endline="390">computeOutgoingPi</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" compoundref="CoulombVertexDecomposition_8cxx" startline="262" endline="283">dryFit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" compoundref="CoulombVertexDecomposition_8cxx" startline="234" endline="260">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" compoundref="CoulombVertexDecomposition_8cxx" startline="392" endline="400">getDelta</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" prot="public" static="no" mutable="no">
+        <type>CTF::Matrix&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Matrix&lt;complex&gt;* sisi4s::CoulombVertexDecomposition::PirR</definition>
+        <argsstring></argsstring>
+        <name>PirR</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::PirR</qualifiedname>
+        <briefdescription>
+<para>The factor orbitals <formula id="22">$\Pi_{rR} = ({\Pi^\ast}^{rR})^\ast$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="83" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="83" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" compoundref="CoulombVertexDecomposition_8cxx" startline="373" endline="390">computeOutgoingPi</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" compoundref="CoulombVertexDecomposition_8cxx" startline="262" endline="283">dryFit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" compoundref="CoulombVertexDecomposition_8cxx" startline="234" endline="260">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" compoundref="CoulombVertexDecomposition_8cxx" startline="392" endline="400">getDelta</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" prot="public" static="no" mutable="no">
+        <type>CTF::Matrix&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+        <definition>CTF::Matrix&lt;complex&gt;* sisi4s::CoulombVertexDecomposition::LambdaGR</definition>
+        <argsstring></argsstring>
+        <name>LambdaGR</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::LambdaGR</qualifiedname>
+        <briefdescription>
+<para>The full Coulomb factors <formula id="14">$\Lambda_{GR}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="87" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="87" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" compoundref="CoulombVertexDecomposition_8cxx" startline="262" endline="283">dryFit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" compoundref="CoulombVertexDecomposition_8cxx" startline="234" endline="260">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" compoundref="CoulombVertexDecomposition_8cxx" startline="392" endline="400">getDelta</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CoulombVertexDecomposition_1acd0aaf72344c9483f0ee107e965cb485" prot="public" static="no" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator" kindref="compound">AlternatingLeastSquaresRegularizationEstimator</ref> *</type>
+        <definition>AlternatingLeastSquaresRegularizationEstimator* sisi4s::CoulombVertexDecomposition::regularizationEstimator</definition>
+        <argsstring></argsstring>
+        <name>regularizationEstimator</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::regularizationEstimator</qualifiedname>
+        <briefdescription>
+<para>Estimator for the regularization parameter during the alternating least squares fits. They estimate the regularization parameter <formula id="23">$\lambda$</formula> in each iteration from the swamping factor in the previous iteration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="95" column="52" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="95" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9a0534c7fbf919273df65232d6d7dcd6" compoundref="CoulombVertexDecomposition_8cxx" startline="29" endline="38">~CoulombVertexDecomposition</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" compoundref="CoulombVertexDecomposition_8cxx" startline="234" endline="260">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1a27975858ae53ca536b96fc01cb750da2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string sisi4s::CoulombVertexDecomposition::getName</definition>
+        <argsstring>()</argsstring>
+        <name>getName</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::getName</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1ad88a11462d7efa2cd6ee1dd2884d7a68">getName</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="24" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1a92dfc7906c3df2cfd0724033211822f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CoulombVertexDecomposition::CoulombVertexDecomposition</definition>
+        <argsstring>(std::vector&lt; Argument &gt; const &amp;argumentList)</argsstring>
+        <name>CoulombVertexDecomposition</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::CoulombVertexDecomposition</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref> &gt; const &amp;</type>
+          <declname>argumentList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="25" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="20" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1a9a0534c7fbf919273df65232d6d7dcd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>CoulombVertexDecomposition::~CoulombVertexDecomposition</definition>
+        <argsstring>()</argsstring>
+        <name>~CoulombVertexDecomposition</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::~CoulombVertexDecomposition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="28" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="29" bodyend="38"/>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" compoundref="CoulombVertexDecomposition_8hpp" startline="74">composedGammaGqr</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" compoundref="CoulombVertexDecomposition_8hpp" startline="79">PiqR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1acd0aaf72344c9483f0ee107e965cb485" compoundref="CoulombVertexDecomposition_8hpp" startline="95">regularizationEstimator</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CoulombVertexDecomposition::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::run</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1aacd7ce50628f515d50d178213db8b320">run</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="29" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="40" bodyend="145"/>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" compoundref="CoulombVertexDecomposition_8hpp" startline="74">composedGammaGqr</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" compoundref="CoulombVertexDecomposition_8cxx" startline="373" endline="390">computeOutgoingPi</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1afdc566018f5ffa4699ff754f1abfe090" compoundref="CoulombVertexDecomposition_8hpp" startline="98">DEFAULT_DELTA</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1aaa65034ca3ba142b17e5b37f5159caf6" compoundref="CoulombVertexDecomposition_8hpp" startline="97">DEFAULT_MAX_ITERATIONS</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a2d174ec6503e2d111b5b5b91b8b75732" compoundref="CoulombVertexDecomposition_8hpp" startline="102">DEFAULT_NORMALIZED_FACTOR_ORBITALS</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a2d5f35d10b348ce007fe85f2cdce9bde" compoundref="CoulombVertexDecomposition_8hpp" startline="39">DEFAULT_RANK_FACTOR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a25855914a84044adf08d1f9ae15c5533" compoundref="CoulombVertexDecomposition_8hpp" startline="37">DEFAULT_RANK_SIZE</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a10c5962670833a8914fd31baf5f25d2d" compoundref="CoulombVertexDecomposition_8hpp" startline="101">DEFAULT_REAL_FACTOR_ORBITALS</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a351646adb448ba08baa4db1411b69567" compoundref="CoulombVertexDecomposition_8hpp" startline="100">DEFAULT_REGULARIZATION_FRICTION</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ac1842c29920c1b75f22cd66f166fff6f" compoundref="CoulombVertexDecomposition_8hpp" startline="99">DEFAULT_SWAMPING_THRESHOLD</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a0cff00d7fe53f7fefb5505b21dfef7bb" compoundref="CoulombVertexDecomposition_8hpp" startline="103">DEFAULT_WRITE_SUB_ITERATIONS</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" compoundref="CoulombVertexDecomposition_8hpp" startline="45">Delta</references>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" compoundref="CoulombVertexDecomposition_8cxx" startline="234" endline="260">fit</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" compoundref="CoulombVertexDecomposition_8hpp" startline="70">GammaGqr</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" compoundref="Algorithm_8cxx" startline="117" endline="129">sisi4s::Algorithm::getRealArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">sisi4s::Algorithm::getTextArgument</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" compoundref="CoulombVertexDecomposition_8hpp" startline="106">HERMITIAN</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" compoundref="CoulombVertexDecomposition_8hpp" startline="87">LambdaGR</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4f33e932456c08552f3c53c9798ca8b5" compoundref="CoulombVertexDecomposition_8hpp" startline="57">normalizedFactorOrbitals</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ac8955814dd0e4158d01fc10da8259f58" compoundref="CoulombVertexDecomposition_8cxx" startline="285" endline="299">normalizePi</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" compoundref="CoulombVertexDecomposition_8hpp" startline="79">PiqR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" compoundref="CoulombVertexDecomposition_8hpp" startline="83">PirR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a55ac10ef01705047aa95f615e87bd799" compoundref="CoulombVertexDecomposition_8hpp" startline="107">PSEUDO_INVERSE</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" compoundref="CoulombVertexDecomposition_8hpp" startline="35">rank</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a820133d0349fd920ffe91fcea789adb8" compoundref="CoulombVertexDecomposition_8hpp" startline="51">realFactorOrbitals</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a7d82ab4745622f23dad2c094c368f915" compoundref="CoulombVertexDecomposition_8cxx" startline="301" endline="310">realizePi</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1acd0aaf72344c9483f0ee107e965cb485" compoundref="CoulombVertexDecomposition_8hpp" startline="95">regularizationEstimator</references>
+        <references refid="namespacesisi4s_1ad79e22ef8ca23c70e5d0edcd8dd1532c" compoundref="RandomTensor_8hpp" startline="53" endline="64">sisi4s::setRandomTensor</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1adaf768c7f53cb3bdd16bb5aa329d5eeb" compoundref="CoulombVertexDecomposition_8hpp" startline="105">SYMMETRIC</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a8d3447e10df5b61bafff1a98d814e2a3" compoundref="CoulombVertexDecomposition_8hpp" startline="65">writeSubIterations</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CoulombVertexDecomposition::dryRun</definition>
+        <argsstring>()</argsstring>
+        <name>dryRun</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::dryRun</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de">dryRun</reimplements>
+        <briefdescription>
+<para>The dryRun estimates resource consumption, especially memory and processor time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="30" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="147" bodyend="231"/>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" compoundref="CoulombVertexDecomposition_8hpp" startline="74">composedGammaGqr</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a2d174ec6503e2d111b5b5b91b8b75732" compoundref="CoulombVertexDecomposition_8hpp" startline="102">DEFAULT_NORMALIZED_FACTOR_ORBITALS</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a2d5f35d10b348ce007fe85f2cdce9bde" compoundref="CoulombVertexDecomposition_8hpp" startline="39">DEFAULT_RANK_FACTOR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a25855914a84044adf08d1f9ae15c5533" compoundref="CoulombVertexDecomposition_8hpp" startline="37">DEFAULT_RANK_SIZE</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a10c5962670833a8914fd31baf5f25d2d" compoundref="CoulombVertexDecomposition_8hpp" startline="101">DEFAULT_REAL_FACTOR_ORBITALS</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" compoundref="CoulombVertexDecomposition_8cxx" startline="262" endline="283">dryFit</references>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" compoundref="CoulombVertexDecomposition_8hpp" startline="70">GammaGqr</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" compoundref="Algorithm_8cxx" startline="117" endline="129">sisi4s::Algorithm::getRealArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" compoundref="Algorithm_8cxx" startline="188" endline="200">sisi4s::Algorithm::getTensorArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">sisi4s::Algorithm::getTextArgument</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" compoundref="CoulombVertexDecomposition_8hpp" startline="106">HERMITIAN</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" compoundref="CoulombVertexDecomposition_8hpp" startline="87">LambdaGR</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4f33e932456c08552f3c53c9798ca8b5" compoundref="CoulombVertexDecomposition_8hpp" startline="57">normalizedFactorOrbitals</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" compoundref="CoulombVertexDecomposition_8hpp" startline="79">PiqR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" compoundref="CoulombVertexDecomposition_8hpp" startline="83">PirR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a55ac10ef01705047aa95f615e87bd799" compoundref="CoulombVertexDecomposition_8hpp" startline="107">PSEUDO_INVERSE</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" compoundref="CoulombVertexDecomposition_8hpp" startline="35">rank</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a820133d0349fd920ffe91fcea789adb8" compoundref="CoulombVertexDecomposition_8hpp" startline="51">realFactorOrbitals</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1adaf768c7f53cb3bdd16bb5aa329d5eeb" compoundref="CoulombVertexDecomposition_8hpp" startline="105">SYMMETRIC</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombVertexDecomposition::fit</definition>
+        <argsstring>(int64_t iterationsCount)</argsstring>
+        <name>fit</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::fit</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>iterationsCount</declname>
+        </param>
+        <briefdescription>
+<para>Performs one iteration in fitting the factor orbitals and the Coulomb factors according to the given algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="114" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="234" bodyend="260"/>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" compoundref="CoulombVertexDecomposition_8hpp" startline="45">Delta</references>
+        <references refid="namespacesisi4s_1abf3c4be1dfed55e71db97d40eff3ce87">sisi4s::fitRegularizedAlternatingLeastSquaresFactor</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" compoundref="CoulombVertexDecomposition_8hpp" startline="70">GammaGqr</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" compoundref="CoulombVertexDecomposition_8cxx" startline="392" endline="400">getDelta</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" compoundref="CoulombVertexDecomposition_8hpp" startline="87">LambdaGR</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" compoundref="CoulombVertexDecomposition_8hpp" startline="79">PiqR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" compoundref="CoulombVertexDecomposition_8hpp" startline="83">PirR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1acd0aaf72344c9483f0ee107e965cb485" compoundref="CoulombVertexDecomposition_8hpp" startline="95">regularizationEstimator</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombVertexDecomposition::dryFit</definition>
+        <argsstring>(DryTensor&lt; complex &gt; *GammaGqr, DryTensor&lt; complex &gt; *PiqR, DryTensor&lt; complex &gt; *PirR, DryTensor&lt; complex &gt; *LambdaGR, DryTensor&lt; complex &gt; *composedGammaGqr)</argsstring>
+        <name>dryFit</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::dryFit</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+          <declname>GammaGqr</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+          <declname>PiqR</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+          <declname>PirR</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+          <declname>LambdaGR</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; *</type>
+          <declname>composedGammaGqr</declname>
+        </param>
+        <briefdescription>
+<para>Performs a dry run of one iteration in fitting the factor orbitals and the Coulomb factors according to the given algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="119" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="262" bodyend="283"/>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" compoundref="CoulombVertexDecomposition_8hpp" startline="74">composedGammaGqr</references>
+        <references refid="namespacesisi4s_1abfc549a8ae34264be9b654324c1ae036" compoundref="CanonicalPolyadicDecomposition_8cxx" startline="70" endline="102">sisi4s::dryComposeCanonicalPolyadicDecompositionTensors</references>
+        <references refid="namespacesisi4s_1a7e043fcaaf8e99a86eb9920cf43cc228" compoundref="RegularizedAlternatingLeastSquares_8cxx" startline="123" endline="143">sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" compoundref="CoulombVertexDecomposition_8hpp" startline="70">GammaGqr</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" compoundref="CoulombVertexDecomposition_8hpp" startline="87">LambdaGR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" compoundref="CoulombVertexDecomposition_8hpp" startline="79">PiqR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" compoundref="CoulombVertexDecomposition_8hpp" startline="83">PirR</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" compoundref="CoulombVertexDecomposition_8cxx" startline="147" endline="231">dryRun</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1ac8955814dd0e4158d01fc10da8259f58" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombVertexDecomposition::normalizePi</definition>
+        <argsstring>(CTF::Tensor&lt; complex &gt; &amp;Pi)</argsstring>
+        <name>normalizePi</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::normalizePi</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <declname>Pi</declname>
+        </param>
+        <briefdescription>
+<para>Normalizes the given factor orbitals, such that <formula id="24">${\Pi^\ast}^{qR}\Pi_{qR} = \delta_{qq}$</formula>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="129" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="285" bodyend="299"/>
+        <references refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" compoundref="MathFunctions_8hpp" startline="13" endline="15">sisi4s::Pi</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1a7d82ab4745622f23dad2c094c368f915" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombVertexDecomposition::realizePi</definition>
+        <argsstring>(CTF::Tensor&lt; complex &gt; &amp;Pi)</argsstring>
+        <name>realizePi</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::realizePi</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <declname>Pi</declname>
+        </param>
+        <briefdescription>
+<para>Discards the imaginary part of the given factor orbitals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="133" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="301" bodyend="310"/>
+        <references refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" compoundref="MathFunctions_8hpp" startline="13" endline="15">sisi4s::Pi</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombVertexDecomposition::iterateQuadraticFactor</definition>
+        <argsstring>(int iterationsCount)</argsstring>
+        <name>iterateQuadraticFactor</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::iterateQuadraticFactor</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>iterationsCount</declname>
+        </param>
+        <briefdescription>
+<para>Solves the quadratically occurring factor Pi iteratively similar to the Babylonian algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>{ Currently <formula id="25">$\Pi_{qR}Pi_{rR}\Lambda_{GR}$</formula> is solved for instead of <formula id="26">${\Pi^\ast}^{qR}Pi_{rR}\Lambda_{GR}$</formula>. } </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="143" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="312" bodyend="371"/>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" compoundref="CoulombVertexDecomposition_8cxx" startline="373" endline="390">computeOutgoingPi</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" compoundref="CoulombVertexDecomposition_8hpp" startline="45">Delta</references>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="namespacesisi4s_1ac2bf3b584b1380ce33fc334c17610fed">sisi4s::fitAlternatingLeastSquaresFactor</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" compoundref="CoulombVertexDecomposition_8hpp" startline="70">GammaGqr</references>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" compoundref="CoulombVertexDecomposition_8cxx" startline="392" endline="400">getDelta</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">sisi4s::Algorithm::getTextArgument</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" compoundref="CoulombVertexDecomposition_8hpp" startline="87">LambdaGR</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4f33e932456c08552f3c53c9798ca8b5" compoundref="CoulombVertexDecomposition_8hpp" startline="57">normalizedFactorOrbitals</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ac8955814dd0e4158d01fc10da8259f58" compoundref="CoulombVertexDecomposition_8cxx" startline="285" endline="299">normalizePi</references>
+        <references refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" compoundref="MathFunctions_8hpp" startline="13" endline="15">sisi4s::Pi</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" compoundref="CoulombVertexDecomposition_8hpp" startline="79">PiqR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" compoundref="CoulombVertexDecomposition_8hpp" startline="83">PirR</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a820133d0349fd920ffe91fcea789adb8" compoundref="CoulombVertexDecomposition_8hpp" startline="51">realFactorOrbitals</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a7d82ab4745622f23dad2c094c368f915" compoundref="CoulombVertexDecomposition_8cxx" startline="301" endline="310">realizePi</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a8d3447e10df5b61bafff1a98d814e2a3" compoundref="CoulombVertexDecomposition_8hpp" startline="65">writeSubIterations</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" compoundref="CoulombVertexDecomposition_8cxx" startline="234" endline="260">fit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CoulombVertexDecomposition::computeOutgoingPi</definition>
+        <argsstring>()</argsstring>
+        <name>computeOutgoingPi</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::computeOutgoingPi</qualifiedname>
+        <briefdescription>
+<para>Takes the incoming factor orbitals and computes the outgoing factor orbitals according to the chosen ansatz. The ansatz is specified as the string argument ansatz and can be one of the following: &quot;symmetric&quot;, &quot;hermitian&quot;, &quot;pseudoInverse&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="152" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="373" bodyend="390"/>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="classsisi4s_1_1IterativePseudoInverse_1a1549bac3e662a0bdf1cf6ab25608dff4" compoundref="IterativePseudoInverse_8cxx" startline="138" endline="140">sisi4s::IterativePseudoInverse&lt; F &gt;::get</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">sisi4s::Algorithm::getTextArgument</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" compoundref="CoulombVertexDecomposition_8hpp" startline="106">HERMITIAN</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" compoundref="CoulombVertexDecomposition_8hpp" startline="79">PiqR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" compoundref="CoulombVertexDecomposition_8hpp" startline="83">PirR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a55ac10ef01705047aa95f615e87bd799" compoundref="CoulombVertexDecomposition_8hpp" startline="107">PSEUDO_INVERSE</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1adaf768c7f53cb3bdd16bb5aa329d5eeb" compoundref="CoulombVertexDecomposition_8hpp" startline="105">SYMMETRIC</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double CoulombVertexDecomposition::getDelta</definition>
+        <argsstring>()</argsstring>
+        <name>getDelta</name>
+        <qualifiedname>sisi4s::CoulombVertexDecomposition::getDelta</qualifiedname>
+        <briefdescription>
+<para>Computes and returns the difference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="157" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.cxx" bodystart="392" bodyend="400"/>
+        <references refid="namespacesisi4s_1a73e63f2894299063b2902d0f4f67fe27">sisi4s::composeCanonicalPolyadicDecompositionTensors</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" compoundref="CoulombVertexDecomposition_8hpp" startline="74">composedGammaGqr</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" compoundref="CoulombVertexDecomposition_8hpp" startline="45">Delta</references>
+        <references refid="namespacesisi4s_1a072b9097a4466552d4ee05cea48af554" compoundref="MathFunctions_8hpp" startline="68" endline="76">sisi4s::frobeniusNorm</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" compoundref="CoulombVertexDecomposition_8hpp" startline="87">LambdaGR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" compoundref="CoulombVertexDecomposition_8hpp" startline="79">PiqR</references>
+        <references refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" compoundref="CoulombVertexDecomposition_8hpp" startline="83">PirR</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" compoundref="CoulombVertexDecomposition_8cxx" startline="234" endline="260">fit</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">iterateQuadraticFactor</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Decomposes the Coulomb vertex <formula id="12">$\Gamma_{rG}^q$</formula> into the factor orbitals <formula id="13">$\Pi_{qR}$</formula> and the Coulom factors <formula id="14">$\Lambda_{GR}$</formula>. The decomposition is done with a regularized alternating least squares (RALS) algorithm, requiring only a few dozen steps for sufficient convergence. Note that currently the employed fit is <formula id="15">$\Pi_{qR}\Pi_{rR}\Lambda_{GR}$</formula> rather than the form with <formula id="13">$\Pi_{qR}$</formula> conjugated. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::CoulombVertexDecomposition</label>
+        <link refid="classsisi4s_1_1CoulombVertexDecomposition"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::CoulombVertexDecomposition &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+        <childnode refid="5" relation="template-instance">
+          <edgelabel>&lt; sisi4s::CoulombVertexDecomposition &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="4">
+        <label>sisi4s::AlgorithmFactory</label>
+        <link refid="classsisi4s_1_1AlgorithmFactory"/>
+      </node>
+      <node id="5">
+        <label>sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>sisi4s::AlternatingLeastSquaresRegularizationEstimator</label>
+        <link refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::CoulombVertexDecomposition</label>
+        <link refid="classsisi4s_1_1CoulombVertexDecomposition"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+registrar_</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>+regularizationEstimator</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" line="22" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexDecomposition.hpp" bodystart="22" bodyend="158"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>Algorithm</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>allocateContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>allocatedTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>arguments</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>checkArgumentsOrDie</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>composedGammaGqr</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>computeOutgoingPi</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a92dfc7906c3df2cfd0724033211822f2" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>CoulombVertexDecomposition</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1afdc566018f5ffa4699ff754f1abfe090" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>DEFAULT_DELTA</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1aaa65034ca3ba142b17e5b37f5159caf6" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>DEFAULT_MAX_ITERATIONS</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a2d174ec6503e2d111b5b5b91b8b75732" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>DEFAULT_NORMALIZED_FACTOR_ORBITALS</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a2d5f35d10b348ce007fe85f2cdce9bde" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>DEFAULT_RANK_FACTOR</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a25855914a84044adf08d1f9ae15c5533" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>DEFAULT_RANK_SIZE</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a10c5962670833a8914fd31baf5f25d2d" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>DEFAULT_REAL_FACTOR_ORBITALS</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a351646adb448ba08baa4db1411b69567" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>DEFAULT_REGULARIZATION_FRICTION</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1ac1842c29920c1b75f22cd66f166fff6f" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>DEFAULT_SWAMPING_THRESHOLD</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a0cff00d7fe53f7fefb5505b21dfef7bb" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>DEFAULT_WRITE_SUB_ITERATIONS</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1aec996f4f95bccb51e6d705936675ce97" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>Delta</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>dryFit</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1afe2db43c1a0ebdd3b494fafa105641d4" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>dryRun</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>fit</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>GammaGqr</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getArgumentData</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a407d54400b4b652a5b1b8d79b9c57175" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getContainerArgument</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getDelta</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getGivenArgumentNames</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a98c473d7c36973fb5dbd29b6dce3f09e" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a27975858ae53ca536b96fc01cb750da2" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getName</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aedbdee78ab6ed424c34121218b6cdf68" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getRealArgumentFromInteger</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getRealArgumentFromTensor</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getTensorArgumentFromReal</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1ae3e5c8bc003015708a9097319bb02a80" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>HERMITIAN</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>iterateQuadraticFactor</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>LambdaGR</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a4f33e932456c08552f3c53c9798ca8b5" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>normalizedFactorOrbitals</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1ac8955814dd0e4158d01fc10da8259f58" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>normalizePi</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>PiqR</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>PirR</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a55ac10ef01705047aa95f615e87bd799" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>PSEUDO_INVERSE</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a4402b635313503fd4d8440540d7f5a65" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>rank</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a820133d0349fd920ffe91fcea789adb8" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>realFactorOrbitals</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a7d82ab4745622f23dad2c094c368f915" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>realizePi</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a718cfcba94c189708c3a8ae39c532309" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>registrar_</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1acd0aaf72344c9483f0ee107e965cb485" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>regularizationEstimator</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>setIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>setRealArgument</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1adaf768c7f53cb3bdd16bb5aa329d5eeb" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>SYMMETRIC</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a8d3447e10df5b61bafff1a98d814e2a3" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>writeSubIterations</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>~Algorithm</name></member>
+      <member refid="classsisi4s_1_1CoulombVertexDecomposition_1a9a0534c7fbf919273df65232d6d7dcd6" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexDecomposition</scope><name>~CoulombVertexDecomposition</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

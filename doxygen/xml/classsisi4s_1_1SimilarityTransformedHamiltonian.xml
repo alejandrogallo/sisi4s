@@ -1,0 +1,1990 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1SimilarityTransformedHamiltonian" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::SimilarityTransformedHamiltonian</compoundname>
+    <includes refid="SimilarityTransformedHamiltonian_8hpp" local="no">SimilarityTransformedHamiltonian.hpp</includes>
+    <innerclass refid="structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactor" prot="public">sisi4s::SimilarityTransformedHamiltonian::StructureFactor</innerclass>
+    <innerclass refid="structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings" prot="public">sisi4s::SimilarityTransformedHamiltonian::StructureFactorSettings</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+        <defval><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref></defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Dressing</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Dressing</qualifiedname>
+        <enumvalue id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69ab47558ea380c5efa38d1fb90e40f4514" prot="public">
+          <name>CCSD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69a84953fe2e7a673c0cd71ffda7d0cc694" prot="public">
+          <name>CCSDT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69a2aaac8241f455447fae8ba69466d3908" prot="public">
+          <name>NONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69a6e763e54359eed1c3ebe2f2e4161c716" prot="public">
+          <name>RPA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69a329caab1ff338f0c7f8a466bd002559d" prot="public">
+          <name>GENERAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The kind of dressing of the Similarity transformed hamiltonian, i.e., the nature of T, if T is the coupled cluster excitation operator, then some matrices elements of H will be identically 0. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="23" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="23" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" prot="public" static="no">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian</ref></type>
+        <definition>typedef SimilarityTransformedHamiltonian sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::STH</definition>
+        <argsstring></argsstring>
+        <name>STH</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::STH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="15" column="46" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac2c6d3d00ce68e37923dd5fe49084a31" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::_useStantonIntermediatesUCCSD</definition>
+        <argsstring></argsstring>
+        <name>_useStantonIntermediatesUCCSD</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::_useStantonIntermediatesUCCSD</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="144" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5f2f50bab8400d014367d7c3e0d04bf9" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; StantonIntermediatesUCCSD&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::stantonIntermediatesUccsd</definition>
+        <argsstring></argsstring>
+        <name>stantonIntermediatesUccsd</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::stantonIntermediatesUccsd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="145" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1acfd3b6b122fce13ede6843fd471c80c9" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::No</definition>
+        <argsstring></argsstring>
+        <name>No</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::No</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="148" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a64589c8dc04be3171d06998aef86797f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Nv</definition>
+        <argsstring></argsstring>
+        <name>Nv</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Nv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="148" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae2adcff4261695f8ff7c0557d933f6e4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::useRightApplyIntermediates</definition>
+        <argsstring></argsstring>
+        <name>useRightApplyIntermediates</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::useRightApplyIntermediates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="149" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8c4c8b1aa39d1126c1907e99612fefc7" prot="private" static="no" mutable="no">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69" kindref="member">Dressing</ref></type>
+        <definition>Dressing sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::dressing</definition>
+        <argsstring></argsstring>
+        <name>dressing</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::dressing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="150" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a99f51f64eced4339bf0c97554db5663e" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wij</definition>
+        <argsstring></argsstring>
+        <name>Wij</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wij</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="157" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a416e6b11218991c9b2895ddd95f375a5" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wab</definition>
+        <argsstring></argsstring>
+        <name>Wab</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wab</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="157" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a721d2c504ecdd43b225ecb0494145991" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wia</definition>
+        <argsstring></argsstring>
+        <name>Wia</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wia</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="157" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa4874dfba848ed8fb55ec507aabb157c" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wai</definition>
+        <argsstring></argsstring>
+        <name>Wai</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wai</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="157" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3af039be79791b1c4461ea043c57c266" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wabij</definition>
+        <argsstring></argsstring>
+        <name>Wabij</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wabij</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="160" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a56e53b2716a44f8caddd9ad6daab2952" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wijab</definition>
+        <argsstring></argsstring>
+        <name>Wijab</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wijab</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="160" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6f2d6cc6acf415b148b6e0869b3bb815" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wabcd</definition>
+        <argsstring></argsstring>
+        <name>Wabcd</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wabcd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="160" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2a7515b1ad2ca8e96a69a748ab4dddbc" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wabci</definition>
+        <argsstring></argsstring>
+        <name>Wabci</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wabci</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="160" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7c9860f517db41bd717651217ea44d8e" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Waibc</definition>
+        <argsstring></argsstring>
+        <name>Waibc</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Waibc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="160" column="32" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4481de6c0c08bbc90e400ba2f9a36366" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wiabj</definition>
+        <argsstring></argsstring>
+        <name>Wiabj</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wiabj</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="160" column="38" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1add9df727bcc8949b1dd47b853d00f8fb" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wiajk</definition>
+        <argsstring></argsstring>
+        <name>Wiajk</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wiajk</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="160" column="44" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a87f97104b0a5066a1654c10e9fb81f26" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wijka</definition>
+        <argsstring></argsstring>
+        <name>Wijka</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wijka</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="160" column="50" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a41d917424352ecef7b2084346779b76b" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wijkl</definition>
+        <argsstring></argsstring>
+        <name>Wijkl</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wijkl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="160" column="56" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5fadc58b0d8cd11dacf341106b08d271" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Wabcijk</definition>
+        <argsstring></argsstring>
+        <name>Wabcijk</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Wabcijk</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="163" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae0745a5de66fc4049c5b165125aa11cc" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt;F&gt; &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Tau_abij</definition>
+        <argsstring></argsstring>
+        <name>Tau_abij</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Tau_abij</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="166" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7c38ce7b98d73901e72c969c2185f8f4" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt;* sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Tai</definition>
+        <argsstring></argsstring>
+        <name>Tai</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Tai</qualifiedname>
+        <initializer>=nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="176" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a73a4463539a78e50a3f3df25d5bc9b1b" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Tabij</definition>
+        <argsstring></argsstring>
+        <name>Tabij</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Tabij</qualifiedname>
+        <initializer>=nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="176" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac5ead1e0d7cec40d4203932e0b8e7368" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Tabcijk</definition>
+        <argsstring></argsstring>
+        <name>Tabcijk</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Tabcijk</qualifiedname>
+        <initializer>=nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="176" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a14c56ed2cbf6f0de9ed28efe2438859e" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Tabcdijkl</definition>
+        <argsstring></argsstring>
+        <name>Tabcdijkl</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Tabcdijkl</qualifiedname>
+        <initializer>=nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="176" column="27" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a12708d93eef0738bbe294b0f3a5da7ce" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Fij</definition>
+        <argsstring></argsstring>
+        <name>Fij</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Fij</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="179" column="2" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4ed2b5541a2f86a3168f1b4535b7c670" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Fab</definition>
+        <argsstring></argsstring>
+        <name>Fab</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Fab</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="179" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a42b6c9d37042aadbd5a111cdc0136447" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Fia</definition>
+        <argsstring></argsstring>
+        <name>Fia</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Fia</qualifiedname>
+        <initializer>=nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="179" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1af751d666b68a9b54df34d708f2862703" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vabcd</definition>
+        <argsstring></argsstring>
+        <name>Vabcd</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vabcd</qualifiedname>
+        <initializer>=nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="182" column="2" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0cd804f8a757c461e8afd652af123739" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Viajb</definition>
+        <argsstring></argsstring>
+        <name>Viajb</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Viajb</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="183" column="2" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1abc8adce161c904eeb0839cb8ac4d752c" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vijab</definition>
+        <argsstring></argsstring>
+        <name>Vijab</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vijab</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="183" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2e99653738bfab5fcdb26f62e2ce1c0e" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vijkl</definition>
+        <argsstring></argsstring>
+        <name>Vijkl</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vijkl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="183" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3bb03ba3469c18b70adfb04dd4416b7b" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vijka</definition>
+        <argsstring></argsstring>
+        <name>Vijka</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vijka</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="183" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac03eba3df5b5d2add03a0595e3469ada" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Viabc</definition>
+        <argsstring></argsstring>
+        <name>Viabc</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Viabc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="183" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9daf3ab9bbd5c88a1c5f89567c4fda95" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Viajk</definition>
+        <argsstring></argsstring>
+        <name>Viajk</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Viajk</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="183" column="32" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7fc6e2b4676d4626176a4b0920910b5d" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vabic</definition>
+        <argsstring></argsstring>
+        <name>Vabic</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vabic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="183" column="38" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a53def589fe5397e22a660845548d1f94" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vaibc</definition>
+        <argsstring></argsstring>
+        <name>Vaibc</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vaibc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="183" column="44" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab45ee94d20354881f7363c7fe0748b91" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vaibj</definition>
+        <argsstring></argsstring>
+        <name>Vaibj</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vaibj</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="184" column="8" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a520e4b05012bc5da7eceb8118a2bd5c0" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Viabj</definition>
+        <argsstring></argsstring>
+        <name>Viabj</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Viabj</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="184" column="14" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ad3f96253c134fedacbf12a64ce388d68" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vijak</definition>
+        <argsstring></argsstring>
+        <name>Vijak</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vijak</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="184" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6f3ef7e38ed3e08fb52e861e2eb50427" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vaijb</definition>
+        <argsstring></argsstring>
+        <name>Vaijb</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vaijb</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="184" column="26" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab9106a3049ebda04176aa9adeee458b9" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vabci</definition>
+        <argsstring></argsstring>
+        <name>Vabci</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vabci</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="184" column="32" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a72b2774ec8ecf0ce6733c4673c7e19fb" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt;F&gt; * sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::Vabij</definition>
+        <argsstring></argsstring>
+        <name>Vabij</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::Vabij</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="184" column="38" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5bc27d1f9763efc99e8821143222562d" prot="private" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> &gt; *</type>
+        <definition>CTF::Tensor&lt;sisi4s::complex&gt;* sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::GammaGqr</definition>
+        <argsstring></argsstring>
+        <name>GammaGqr</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::GammaGqr</qualifiedname>
+        <initializer>=nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="189" column="7" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab79ca8722eb8d13a36dbe6b1ac1822a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::SimilarityTransformedHamiltonian</definition>
+        <argsstring>(int No_, int Nv_)</argsstring>
+        <name>SimilarityTransformedHamiltonian</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::SimilarityTransformedHamiltonian</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>No_</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Nv_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="31" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ad1d29a333206e01a34ba0a09d566aa17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::~SimilarityTransformedHamiltonian</definition>
+        <argsstring>()</argsstring>
+        <name>~SimilarityTransformedHamiltonian</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::~SimilarityTransformedHamiltonian</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="32" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1aaaac9e3af31040b1431874afadd614be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SFockVector" kindref="compound">SFockVector</ref>&lt; F &gt;</type>
+        <definition>SFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApplyHirata_RPA</definition>
+        <argsstring>(SFockVector&lt; F &gt; &amp;v)</argsstring>
+        <name>rightApplyHirata_RPA</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApplyHirata_RPA</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SFockVector" kindref="compound">SFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="35" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="448" bodyend="519"/>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+        <references refid="SimilarityTransformedHamiltonian_8cxx_1a0f41965a4999bf2971314b18041ac59d" compoundref="SimilarityTransformedHamiltonian_8cxx" startline="34">ST_DEBUG</references>
+        <referencedby refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1ade4d95a7d53a8b596e67d584e98d7f02" compoundref="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" startline="46" endline="241">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1ec58dc95f23feeea01e44b74d1c9337" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApplyIntermediates</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;v)</argsstring>
+        <name>rightApplyIntermediates</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApplyIntermediates</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="38" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="871" bodyend="976"/>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa2a9c3fa1f229c6063ef44984682fa4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApplyHirata</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;v)</argsstring>
+        <name>rightApplyHirata</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApplyHirata</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="39" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="522" bodyend="868"/>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+        <references refid="SimilarityTransformedHamiltonian_8cxx_1a0f41965a4999bf2971314b18041ac59d" compoundref="SimilarityTransformedHamiltonian_8cxx" startline="34">ST_DEBUG</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a426990914551a8bb96e80565602cd6f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApply</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;v)</argsstring>
+        <name>rightApply</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApply</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="40" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="59" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a89a7bd8e042fd5bd61e8ae29ced9b050" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::leftApplyHirata</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;v)</argsstring>
+        <name>leftApplyHirata</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::leftApplyHirata</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="41" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1474" bodyend="1535"/>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a97c1a2efb9749a4681cd0ee90cf9f46b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::leftApplyIntermediates</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;v)</argsstring>
+        <name>leftApplyIntermediates</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::leftApplyIntermediates</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="42" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1403" bodyend="1471"/>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab89ba872da1f38fdf3f5dbd2ed7cabba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::leftApply</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;v)</argsstring>
+        <name>leftApply</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::leftApply</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="43" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa28c602a049f8bb994958fc9986bc8fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDTFockVector" kindref="compound">SDTFockVector</ref>&lt; F &gt;</type>
+        <definition>SDTFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApplyHirata</definition>
+        <argsstring>(SDTFockVector&lt; F &gt; &amp;v)</argsstring>
+        <name>rightApplyHirata</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApplyHirata</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDTFockVector" kindref="compound">SDTFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="46" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1545" bodyend="2737"/>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+        <references refid="SimilarityTransformedHamiltonian_8cxx_1a0f41965a4999bf2971314b18041ac59d" compoundref="SimilarityTransformedHamiltonian_8cxx" startline="34">ST_DEBUG</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1b80fa4bc541fe6615912a9acb84f8ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDTFockVector" kindref="compound">SDTFockVector</ref>&lt; F &gt;</type>
+        <definition>SDTFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApply</definition>
+        <argsstring>(SDTFockVector&lt; F &gt; &amp;v)</argsstring>
+        <name>rightApply</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApply</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDTFockVector" kindref="compound">SDTFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="47" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1538" bodyend="1542"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2c0860086c2acd3c6a7e5d80cc846b2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApply_CCSD_IP</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;)</argsstring>
+        <name>rightApply_CCSD_IP</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApply_CCSD_IP</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <defname>R</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="50" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="67" bodyend="74"/>
+        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="46" endline="335">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a183b97771c52286f5828cb4181ccfba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApplyHirata_CCSD_IP</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;)</argsstring>
+        <name>rightApplyHirata_CCSD_IP</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApplyHirata_CCSD_IP</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <defname>R</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="51" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="131" bodyend="257"/>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1add53c6e3185b107737ddcac71f7bf5dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApplyIntermediates_CCSD_IP</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;)</argsstring>
+        <name>rightApplyIntermediates_CCSD_IP</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApplyIntermediates_CCSD_IP</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <defname>R</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="52" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="79" bodyend="127"/>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1abddef4c3b1842ca082ef1a6b377de129" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApply_CCSD_EA</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;)</argsstring>
+        <name>rightApply_CCSD_EA</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApply_CCSD_EA</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <defname>R</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="54" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="260" bodyend="265"/>
+        <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1ab3fa58fddbd938517fed45a270cbd77e" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="46" endline="383">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a418082e5d7a3353ed4b88f0f469b886e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApplyHirata_CCSD_EA</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;)</argsstring>
+        <name>rightApplyHirata_CCSD_EA</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApplyHirata_CCSD_EA</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <defname>R</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="55" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="315" bodyend="445"/>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4a603349fcc7009b809df17c2f0faada" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; SimilarityTransformedHamiltonian::rightApplyIntermediates_CCSD_EA</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;)</argsstring>
+        <name>rightApplyIntermediates_CCSD_EA</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::rightApplyIntermediates_CCSD_EA</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <defname>R</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="56" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="269" bodyend="311"/>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a38e4e848464faa11aabcb3883af74b33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactor" kindref="compound">StructureFactor</ref></type>
+        <definition>SimilarityTransformedHamiltonian&lt; F &gt;::StructureFactor SimilarityTransformedHamiltonian::structureFactor</definition>
+        <argsstring>(SDFockVector&lt; F &gt; &amp;t, const StructureFactorSettings &amp;s={ .onlySingles=false,.onlyDoubles=false,.hartreeInOneBody=false,.fockInOneBody=false })</argsstring>
+        <name>structureFactor</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::structureFactor</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings" kindref="compound">StructureFactorSettings</ref> &amp;</type>
+          <declname>s</declname>
+          <defval>{ .onlySingles=false,.onlyDoubles=false,.hartreeInOneBody=false,.fockInOneBody=false }</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="65" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="2770" bodyend="4060"/>
+        <references refid="namespacesisi4s_1a065b48a575e1c9dd06da30d0aed8c7c1" compoundref="ComplexTensor_8cxx" startline="142" endline="146">sisi4s::conjugate</references>
+        <references refid="SimilarityTransformedHamiltonian_8cxx_1a8a8a507de3f2114529dcd0affa66b44c">DEFINE_AND_CAST</references>
+        <references refid="structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings_1ac59fcaf133d3156e69ad3cd6c6e3c0ea" compoundref="SimilarityTransformedHamiltonian_8hpp" startline="64">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::StructureFactorSettings::fockInOneBody</references>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings_1a3c6259bb80532b1ebdaf8efc5601caf9" compoundref="SimilarityTransformedHamiltonian_8hpp" startline="63">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::StructureFactorSettings::hartreeInOneBody</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings_1a6d9eb17997eb108538e3b440dbaf6210" compoundref="SimilarityTransformedHamiltonian_8hpp" startline="62">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::StructureFactorSettings::onlyDoubles</references>
+        <references refid="structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings_1af2e8622e4395d23374663e01c1c7a544" compoundref="SimilarityTransformedHamiltonian_8hpp" startline="61">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::StructureFactorSettings::onlySingles</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a3376046bb91bb0e6c548a5d9b7a4e31e" compoundref="AngularMomentum_8hpp" startline="8">am::S</references>
+        <references refid="SimilarityTransformedHamiltonian_8cxx_1a0f41965a4999bf2971314b18041ac59d" compoundref="SimilarityTransformedHamiltonian_8cxx" startline="34">ST_DEBUG</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5aa010d6b89f250fb9feffa380c386aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getIJ</definition>
+        <argsstring>()</argsstring>
+        <name>getIJ</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getIJ</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="75" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="980" bodyend="1006"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a79b3432be1e15a5e38d5259681586ae2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getAB</definition>
+        <argsstring>()</argsstring>
+        <name>getAB</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getAB</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="76" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1010" bodyend="1036"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a352bddf1ee2817517cc7044c76770f99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getAI</definition>
+        <argsstring>()</argsstring>
+        <name>getAI</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getAI</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="77" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1040" bodyend="1093"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac837b9a3c7d811eb7575b547f8fc7248" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getAI_RPA</definition>
+        <argsstring>()</argsstring>
+        <name>getAI_RPA</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getAI_RPA</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="78" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1097" bodyend="1134"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="SimilarityTransformedHamiltonian_8cxx_1a0f41965a4999bf2971314b18041ac59d" compoundref="SimilarityTransformedHamiltonian_8cxx" startline="34">ST_DEBUG</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6fe5d594f3f3355e6d8f95f01347e6a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getIA</definition>
+        <argsstring>()</argsstring>
+        <name>getIA</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getIA</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="79" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1139" bodyend="1156"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2011f79f3f3a7cd59f77060d5bd8911c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getABIJ</definition>
+        <argsstring>()</argsstring>
+        <name>getABIJ</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getABIJ</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="82" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/sthamiltonian/wabij.cxx" bodystart="15" bodyend="170"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="wabij_8cxx_1a0f41965a4999bf2971314b18041ac59d" compoundref="wabij_8cxx" startline="8">ST_DEBUG</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a113b2ecdb45c25b7773b467ae88c7fe5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getABIJ_RPA</definition>
+        <argsstring>()</argsstring>
+        <name>getABIJ_RPA</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getABIJ_RPA</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="83" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/sthamiltonian/wabij.cxx" bodystart="174" bodyend="235"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9f572c3f268eea49f933005845941d95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getIJAB</definition>
+        <argsstring>()</argsstring>
+        <name>getIJAB</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getIJAB</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="84" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1160" bodyend="1167"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a60a8be03b83c2d45c0f476010dcab6f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getABCD</definition>
+        <argsstring>()</argsstring>
+        <name>getABCD</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getABCD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="85" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1171" bodyend="1188"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9f47f7b27417c42c13e7f47312254106" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getABCI</definition>
+        <argsstring>()</argsstring>
+        <name>getABCI</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getABCI</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="86" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1192" bodyend="1276"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="SimilarityTransformedHamiltonian_8cxx_1a0f41965a4999bf2971314b18041ac59d" compoundref="SimilarityTransformedHamiltonian_8cxx" startline="34">ST_DEBUG</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1aac07991549e4c53c0a16986961f52f9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getAIBC</definition>
+        <argsstring>()</argsstring>
+        <name>getAIBC</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getAIBC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="87" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1280" bodyend="1290"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0ceaddb68fa21131e11d6180bcbfd9de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getIABJ</definition>
+        <argsstring>()</argsstring>
+        <name>getIABJ</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getIABJ</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="88" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1294" bodyend="1312"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0d522702b4bbf527a5c35d4c4472bb2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getIAJK</definition>
+        <argsstring>()</argsstring>
+        <name>getIAJK</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getIAJK</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="89" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1316" bodyend="1364"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac556fe75cde8a0154b34b049d28686dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getIJKA</definition>
+        <argsstring>()</argsstring>
+        <name>getIJKA</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getIJKA</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="90" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1368" bodyend="1379"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1aafd4f4ef13f797be1b9ce5a3ccb0ad5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getIJKL</definition>
+        <argsstring>()</argsstring>
+        <name>getIJKL</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getIJKL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="91" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="1383" bodyend="1400"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a95dae9a8b2353dae5d73bb8042be0387" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getABCIJK</definition>
+        <argsstring>()</argsstring>
+        <name>getABCIJK</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getABCIJK</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="94" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/sthamiltonian/wabcijk.cxx" bodystart="15" bodyend="459"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="wabcijk_8cxx_1a0f41965a4999bf2971314b18041ac59d" compoundref="wabcijk_8cxx" startline="8">ST_DEBUG</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a653807f50fec047e0f40caedd1b41cb7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setTai</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setTai</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setTai</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="97" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0265aa2efea36f4b6c2ac8f29281f64c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setTabij</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setTabij</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setTabij</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="98" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a902963fa7bb4593131036d2dff965bce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setTabcijk</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setTabcijk</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setTabcijk</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="99" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7dab039a3f004cea74271032e11c7682" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setTabcdijkl</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setTabcdijkl</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setTabcdijkl</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="100" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2f5c6619285c60ef906f3ffbba6c3cb4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setFij</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setFij</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setFij</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="103" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a37c0ec75b14ab132a60f89878a6f2f15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setFab</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setFab</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setFab</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="104" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a33cfecd62e10944e67bad7c244ad4223" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setFia</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setFia</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setFia</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="105" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="105" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a712fc80b6f6d34930192fb02d35a36f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVabcd</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVabcd</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVabcd</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="106" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1aca0cdb9054fe772d37352405990cacbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setViajb</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setViajb</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setViajb</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="107" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa6fd8113fbf7a985375f56fb24ee2486" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVijab</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVijab</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVijab</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="108" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="108" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1adcd05a54cc2ce85fbce73bd568912be6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVijkl</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVijkl</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVijkl</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="109" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a966b78f5189cfe3f0264834ea9d3467a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVijka</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVijka</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVijka</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="110" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2470f0c9a23d79616584da23a463126e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setViabc</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setViabc</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setViabc</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="111" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="111" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a51d3da1443274d82be74a7c761df5bd3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setViajk</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setViajk</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setViajk</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="112" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5d782a4fde9d1390162188d64d0c522a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVabic</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVabic</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVabic</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="113" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a505f8ffc09e5278dc4290de6ba35f704" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVaibc</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVaibc</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVaibc</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="114" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a67147dba9b92e8a79c197755517aef75" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVaibj</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVaibj</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVaibj</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="115" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a93aae233dcecf69198005eef3f7f6566" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setViabj</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setViabj</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setViabj</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="116" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae5b777191c45dc16856ad96c9cd0e791" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVijak</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVijak</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVijak</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="117" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="117" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7ea7dd348050f0078d9e1af120b5c2ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVaijb</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVaijb</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVaijb</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="118" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1d6b5271cc97a56a94bba39116c4a790" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVabci</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVabci</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVabci</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="119" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="119" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9c1d5688cf48fc14551593933270a55e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setVabij</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; *t)</argsstring>
+        <name>setVabij</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setVabij</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="120" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="120" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1acc6344ce4e9426f5343943c6ddd0e4e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setGammaGqr</definition>
+        <argsstring>(CTF::Tensor&lt; sisi4s::complex &gt; *t)</argsstring>
+        <name>setGammaGqr</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setGammaGqr</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="124" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac4532d0cb8c1b426880052d93a7c630a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setRightApplyIntermediates</definition>
+        <argsstring>(bool t)</argsstring>
+        <name>setRightApplyIntermediates</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setRightApplyIntermediates</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="126" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="126" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3f29787aa62d758f3ca0c0b9dd1413ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::setDressing</definition>
+        <argsstring>(Dressing d)</argsstring>
+        <name>setDressing</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::setDressing</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69" kindref="member">Dressing</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="128" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac300534e48e150c12ee264a4f1273c69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getTauABIJ</definition>
+        <argsstring>()</argsstring>
+        <name>getTauABIJ</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getTauABIJ</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="130" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="40" bodyend="56"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae8ee68fd7f9e4e9d7a15af3beb3a77ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kindref="member">STH</ref> &amp;</type>
+        <definition>STH &amp; sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::useStantonIntermediatesUCCSD</definition>
+        <argsstring>(bool s)</argsstring>
+        <name>useStantonIntermediatesUCCSD</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::useStantonIntermediatesUCCSD</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="132" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="132" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a74fe2b80e50cfe49ce6156297b410765" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::useStantonIntermediatesUCCSD</definition>
+        <argsstring>()</argsstring>
+        <name>useStantonIntermediatesUCCSD</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::useStantonIntermediatesUCCSD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="136" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="136" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1acaa9d3c2cf4eab7591f254cc78ac7997" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::getAbbreviation</definition>
+        <argsstring>() const</argsstring>
+        <name>getAbbreviation</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getAbbreviation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="140" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="140" bodyend="140"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsisi4s_1_1SimilarityTransformedHamiltonian_1a21dd1dfcf8647c0e242bfbddee370287" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; StantonIntermediatesUCCSD&lt; F &gt; &gt; SimilarityTransformedHamiltonian::getStantonIntermediatesUCCSD</definition>
+        <argsstring>()</argsstring>
+        <name>getStantonIntermediatesUCCSD</name>
+        <qualifiedname>sisi4s::SimilarityTransformedHamiltonian::getStantonIntermediatesUCCSD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="146" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.cxx" bodystart="2741" bodyend="2766"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1SimilarityTransformedHamiltonian"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="13" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="13" bodyend="192"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac2c6d3d00ce68e37923dd5fe49084a31" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>_useStantonIntermediatesUCCSD</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69ab47558ea380c5efa38d1fb90e40f4514" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>CCSD</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69a84953fe2e7a673c0cd71ffda7d0cc694" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>CCSDT</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8c4c8b1aa39d1126c1907e99612fefc7" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>dressing</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Dressing</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4ed2b5541a2f86a3168f1b4535b7c670" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Fab</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a42b6c9d37042aadbd5a111cdc0136447" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Fia</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a12708d93eef0738bbe294b0f3a5da7ce" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Fij</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5bc27d1f9763efc99e8821143222562d" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>GammaGqr</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69a329caab1ff338f0c7f8a466bd002559d" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>GENERAL</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a79b3432be1e15a5e38d5259681586ae2" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getAB</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1acaa9d3c2cf4eab7591f254cc78ac7997" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getAbbreviation</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a60a8be03b83c2d45c0f476010dcab6f9" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getABCD</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9f47f7b27417c42c13e7f47312254106" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getABCI</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a95dae9a8b2353dae5d73bb8042be0387" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getABCIJK</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2011f79f3f3a7cd59f77060d5bd8911c" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getABIJ</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a113b2ecdb45c25b7773b467ae88c7fe5" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getABIJ_RPA</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a352bddf1ee2817517cc7044c76770f99" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getAI</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac837b9a3c7d811eb7575b547f8fc7248" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getAI_RPA</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aac07991549e4c53c0a16986961f52f9a" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getAIBC</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6fe5d594f3f3355e6d8f95f01347e6a2" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getIA</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0ceaddb68fa21131e11d6180bcbfd9de" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getIABJ</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0d522702b4bbf527a5c35d4c4472bb2f" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getIAJK</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5aa010d6b89f250fb9feffa380c386aa" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getIJ</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9f572c3f268eea49f933005845941d95" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getIJAB</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac556fe75cde8a0154b34b049d28686dd" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getIJKA</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aafd4f4ef13f797be1b9ce5a3ccb0ad5c" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getIJKL</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a21dd1dfcf8647c0e242bfbddee370287" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getStantonIntermediatesUCCSD</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac300534e48e150c12ee264a4f1273c69" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>getTauABIJ</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab89ba872da1f38fdf3f5dbd2ed7cabba" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>leftApply</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a89a7bd8e042fd5bd61e8ae29ced9b050" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>leftApplyHirata</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a97c1a2efb9749a4681cd0ee90cf9f46b" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>leftApplyIntermediates</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1acfd3b6b122fce13ede6843fd471c80c9" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>No</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69a2aaac8241f455447fae8ba69466d3908" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>NONE</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a64589c8dc04be3171d06998aef86797f" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Nv</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a426990914551a8bb96e80565602cd6f6" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApply</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1b80fa4bc541fe6615912a9acb84f8ec" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApply</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1abddef4c3b1842ca082ef1a6b377de129" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApply_CCSD_EA</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2c0860086c2acd3c6a7e5d80cc846b2b" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApply_CCSD_IP</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa2a9c3fa1f229c6063ef44984682fa4b" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApplyHirata</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa28c602a049f8bb994958fc9986bc8fe" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApplyHirata</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a418082e5d7a3353ed4b88f0f469b886e" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApplyHirata_CCSD_EA</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a183b97771c52286f5828cb4181ccfba0" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApplyHirata_CCSD_IP</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aaaac9e3af31040b1431874afadd614be" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApplyHirata_RPA</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1ec58dc95f23feeea01e44b74d1c9337" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApplyIntermediates</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4a603349fcc7009b809df17c2f0faada" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApplyIntermediates_CCSD_EA</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1add53c6e3185b107737ddcac71f7bf5dc" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>rightApplyIntermediates_CCSD_IP</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69a6e763e54359eed1c3ebe2f2e4161c716" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>RPA</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3f29787aa62d758f3ca0c0b9dd1413ae" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setDressing</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a37c0ec75b14ab132a60f89878a6f2f15" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setFab</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a33cfecd62e10944e67bad7c244ad4223" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setFia</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2f5c6619285c60ef906f3ffbba6c3cb4" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setFij</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1acc6344ce4e9426f5343943c6ddd0e4e0" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setGammaGqr</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac4532d0cb8c1b426880052d93a7c630a" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setRightApplyIntermediates</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7dab039a3f004cea74271032e11c7682" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setTabcdijkl</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a902963fa7bb4593131036d2dff965bce" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setTabcijk</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0265aa2efea36f4b6c2ac8f29281f64c" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setTabij</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a653807f50fec047e0f40caedd1b41cb7" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setTai</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a712fc80b6f6d34930192fb02d35a36f3" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVabcd</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1d6b5271cc97a56a94bba39116c4a790" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVabci</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5d782a4fde9d1390162188d64d0c522a" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVabic</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9c1d5688cf48fc14551593933270a55e" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVabij</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a505f8ffc09e5278dc4290de6ba35f704" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVaibc</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a67147dba9b92e8a79c197755517aef75" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVaibj</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7ea7dd348050f0078d9e1af120b5c2ec" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVaijb</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2470f0c9a23d79616584da23a463126e" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setViabc</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a93aae233dcecf69198005eef3f7f6566" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setViabj</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aca0cdb9054fe772d37352405990cacbe" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setViajb</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a51d3da1443274d82be74a7c761df5bd3" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setViajk</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa6fd8113fbf7a985375f56fb24ee2486" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVijab</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae5b777191c45dc16856ad96c9cd0e791" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVijak</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a966b78f5189cfe3f0264834ea9d3467a" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVijka</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1adcd05a54cc2ce85fbce73bd568912be6" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>setVijkl</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab79ca8722eb8d13a36dbe6b1ac1822a7" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>SimilarityTransformedHamiltonian</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5f2f50bab8400d014367d7c3e0d04bf9" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>stantonIntermediatesUccsd</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>STH</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a38e4e848464faa11aabcb3883af74b33" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>structureFactor</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a14c56ed2cbf6f0de9ed28efe2438859e" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Tabcdijkl</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac5ead1e0d7cec40d4203932e0b8e7368" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Tabcijk</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a73a4463539a78e50a3f3df25d5bc9b1b" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Tabij</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7c38ce7b98d73901e72c969c2185f8f4" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Tai</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae0745a5de66fc4049c5b165125aa11cc" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Tau_abij</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae2adcff4261695f8ff7c0557d933f6e4" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>useRightApplyIntermediates</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae8ee68fd7f9e4e9d7a15af3beb3a77ca" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>useStantonIntermediatesUCCSD</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a74fe2b80e50cfe49ce6156297b410765" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>useStantonIntermediatesUCCSD</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1af751d666b68a9b54df34d708f2862703" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vabcd</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab9106a3049ebda04176aa9adeee458b9" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vabci</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7fc6e2b4676d4626176a4b0920910b5d" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vabic</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a72b2774ec8ecf0ce6733c4673c7e19fb" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vabij</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a53def589fe5397e22a660845548d1f94" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vaibc</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab45ee94d20354881f7363c7fe0748b91" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vaibj</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6f3ef7e38ed3e08fb52e861e2eb50427" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vaijb</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac03eba3df5b5d2add03a0595e3469ada" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Viabc</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a520e4b05012bc5da7eceb8118a2bd5c0" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Viabj</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0cd804f8a757c461e8afd652af123739" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Viajb</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9daf3ab9bbd5c88a1c5f89567c4fda95" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Viajk</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1abc8adce161c904eeb0839cb8ac4d752c" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vijab</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ad3f96253c134fedacbf12a64ce388d68" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vijak</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3bb03ba3469c18b70adfb04dd4416b7b" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vijka</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2e99653738bfab5fcdb26f62e2ce1c0e" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Vijkl</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a416e6b11218991c9b2895ddd95f375a5" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wab</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6f2d6cc6acf415b148b6e0869b3bb815" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wabcd</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2a7515b1ad2ca8e96a69a748ab4dddbc" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wabci</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5fadc58b0d8cd11dacf341106b08d271" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wabcijk</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3af039be79791b1c4461ea043c57c266" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wabij</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa4874dfba848ed8fb55ec507aabb157c" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wai</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7c9860f517db41bd717651217ea44d8e" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Waibc</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a721d2c504ecdd43b225ecb0494145991" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wia</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4481de6c0c08bbc90e400ba2f9a36366" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wiabj</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1add9df727bcc8949b1dd47b853d00f8fb" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wiajk</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a99f51f64eced4339bf0c97554db5663e" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wij</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a56e53b2716a44f8caddd9ad6daab2952" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wijab</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a87f97104b0a5066a1654c10e9fb81f26" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wijka</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a41d917424352ecef7b2084346779b76b" prot="private" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>Wijkl</name></member>
+      <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ad1d29a333206e01a34ba0a09d566aa17" prot="public" virt="non-virtual"><scope>sisi4s::SimilarityTransformedHamiltonian</scope><name>~SimilarityTransformedHamiltonian</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::UccsdAmplitudesFromCoulombIntegrals</compoundname>
+    <basecompoundref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" prot="public" virt="non-virtual">sisi4s::ClusterSinglesDoublesAlgorithm</basecompoundref>
+    <includes refid="UccsdAmplitudesFromCoulombIntegrals_8hpp" local="no">UccsdAmplitudesFromCoulombIntegrals.hpp</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a5b1360f2fa8fbf2d3b366ee5caebaa07" prot="public" static="yes" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">AlgorithmRegistrar</ref>&lt; <ref refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals" kindref="compound">UccsdAmplitudesFromCoulombIntegrals</ref> &gt;</type>
+        <definition>AlgorithmRegistrar&lt; UccsdAmplitudesFromCoulombIntegrals &gt; UccsdAmplitudesFromCoulombIntegrals::registrar_</definition>
+        <argsstring></argsstring>
+        <name>registrar_</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::registrar_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="14" column="72" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a5f54ddc5f43c0cc716a44ad2c595936d" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::UccsdAmplitudesFromCoulombIntegrals::usingIntermediates</definition>
+        <argsstring></argsstring>
+        <name>usingIntermediates</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::usingIntermediates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="32" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" bodystart="32" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a10a145b2a213255c27cadb9a1751f520" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="85" endline="222">getResiduumTemplate</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a1668977da91bbd8d13f2ac92e6149b11" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="25" endline="64">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a42922f6e000853e2815cbd2c8fa5c82a" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::UccsdAmplitudesFromCoulombIntegrals::onlyPpl</definition>
+        <argsstring></argsstring>
+        <name>onlyPpl</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::onlyPpl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="33" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" bodystart="33" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a10a145b2a213255c27cadb9a1751f520" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="85" endline="222">getResiduumTemplate</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a1668977da91bbd8d13f2ac92e6149b11" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="25" endline="64">run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a246b38783dcc184c9af31ac67e59c86e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string sisi4s::UccsdAmplitudesFromCoulombIntegrals::getName</definition>
+        <argsstring>()</argsstring>
+        <name>getName</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::getName</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1ad88a11462d7efa2cd6ee1dd2884d7a68">getName</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="14" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a9e15dee0de9aec5e1f26e378900da207" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UccsdAmplitudesFromCoulombIntegrals::UccsdAmplitudesFromCoulombIntegrals</definition>
+        <argsstring>(std::vector&lt; Argument &gt; const &amp;argumentList)</argsstring>
+        <name>UccsdAmplitudesFromCoulombIntegrals</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::UccsdAmplitudesFromCoulombIntegrals</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref> &gt; const &amp;</type>
+          <declname>argumentList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="15" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.cxx" bodystart="17" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ae84b94b2f0e72c0d3adc5bd74b3ccd82" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>UccsdAmplitudesFromCoulombIntegrals::~UccsdAmplitudesFromCoulombIntegrals</definition>
+        <argsstring>()</argsstring>
+        <name>~UccsdAmplitudesFromCoulombIntegrals</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::~UccsdAmplitudesFromCoulombIntegrals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="18" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.cxx" bodystart="22" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a1668977da91bbd8d13f2ac92e6149b11" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void UccsdAmplitudesFromCoulombIntegrals::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::run</qualifiedname>
+        <reimplements refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4a874bc6491b38c023de6936e298d2f0">run</reimplements>
+        <briefdescription>
+<para>Calculates the energy of a ClusterSinglesDoubles algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="20" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.cxx" bodystart="25" bodyend="64"/>
+        <references refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" compoundref="Algorithm_8hpp" startline="72" endline="81">sisi4s::Algorithm::checkArgumentsOrDie</references>
+        <references refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ae3921eb9f91c5eb8ef4d9b10a140ae05" compoundref="UccsdAmplitudesFromCoulombIntegrals_8hpp" startline="21" endline="21">getAbbreviation</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a42922f6e000853e2815cbd2c8fa5c82a" compoundref="UccsdAmplitudesFromCoulombIntegrals_8hpp" startline="33">onlyPpl</references>
+        <references refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4a874bc6491b38c023de6936e298d2f0" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="29" endline="39">sisi4s::ClusterSinglesDoublesAlgorithm::run</references>
+        <references refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" compoundref="Algorithm_8cxx" startline="392" endline="395">sisi4s::Algorithm::setIntegerArgument</references>
+        <references refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a5f54ddc5f43c0cc716a44ad2c595936d" compoundref="UccsdAmplitudesFromCoulombIntegrals_8hpp" startline="32">usingIntermediates</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ae3921eb9f91c5eb8ef4d9b10a140ae05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string sisi4s::UccsdAmplitudesFromCoulombIntegrals::getAbbreviation</definition>
+        <argsstring>()</argsstring>
+        <name>getAbbreviation</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::getAbbreviation</qualifiedname>
+        <reimplements refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ab3f7208a643558d8c36324038e0d3130">getAbbreviation</reimplements>
+        <briefdescription>
+<para>Returns the abbreviation of the concrete algorithm, e.g. &quot;Ccd&quot;, &quot;Dcd&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="21" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" bodystart="21" bodyend="21"/>
+        <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ab05d29d143fa01c77c655e0d0e878251" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="66" endline="76">getResiduum</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a10a145b2a213255c27cadb9a1751f520" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="85" endline="222">getResiduumTemplate</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a1668977da91bbd8d13f2ac92e6149b11" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="25" endline="64">run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ac69efb64d37389e3ebe7212bd9516d7b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::shared_ptr&lt; <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; double &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; FockVector&lt; double &gt; &gt; UccsdAmplitudesFromCoulombIntegrals::getResiduum</definition>
+        <argsstring>(const int iteration, const std::shared_ptr&lt; const FockVector&lt; double &gt; &gt; &amp;amplitudes)</argsstring>
+        <name>getResiduum</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::getResiduum</qualifiedname>
+        <reimplements refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a2d9bf8bbaba99dce4acf5b3413f843eb">getResiduum</reimplements>
+        <param>
+          <type>const int</type>
+          <declname>iteration</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; const <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; double &gt; &gt; &amp;</type>
+          <declname>amplitudes</declname>
+        </param>
+        <briefdescription>
+<para>Implements the iterate method with the DRCCD iteration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Iteration number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="28" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.cxx" bodystart="78" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ab05d29d143fa01c77c655e0d0e878251" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::shared_ptr&lt; <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; FockVector&lt; sisi4s::complex &gt; &gt; UccsdAmplitudesFromCoulombIntegrals::getResiduum</definition>
+        <argsstring>(const int iteration, const std::shared_ptr&lt; const FockVector&lt; complex &gt; &gt; &amp;amplitudes)</argsstring>
+        <name>getResiduum</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::getResiduum</qualifiedname>
+        <reimplements refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1add6dd5f71a2c0cead782b537e700d2e6">getResiduum</reimplements>
+        <param>
+          <type>const int</type>
+          <declname>iteration</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; const <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &gt; &amp;</type>
+          <declname>amplitudes</declname>
+        </param>
+        <briefdescription>
+<para>Computes and returns the residuum of the given amplitudes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="35" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.cxx" bodystart="66" bodyend="76"/>
+        <references refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ae3921eb9f91c5eb8ef4d9b10a140ae05" compoundref="UccsdAmplitudesFromCoulombIntegrals_8hpp" startline="21" endline="21">getAbbreviation</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a10a145b2a213255c27cadb9a1751f520" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>std::shared_ptr&lt; <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; F &gt; &gt;</type>
+        <definition>std::shared_ptr&lt; FockVector&lt; F &gt; &gt; UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate</definition>
+        <argsstring>(const int iteration, const std::shared_ptr&lt; const FockVector&lt; F &gt; &gt; &amp;amplitudes)</argsstring>
+        <name>getResiduumTemplate</name>
+        <qualifiedname>sisi4s::UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>iteration</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; const <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; F &gt; &gt; &amp;</type>
+          <declname>amplitudes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="40" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.cxx" bodystart="85" bodyend="222"/>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ae3921eb9f91c5eb8ef4d9b10a140ae05" compoundref="UccsdAmplitudesFromCoulombIntegrals_8hpp" startline="21" endline="21">getAbbreviation</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a2ee765cd9bdcdbec52e323808a758ebc" compoundref="AngularMomentum_8hpp" startline="9">am::H</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a42922f6e000853e2815cbd2c8fa5c82a" compoundref="UccsdAmplitudesFromCoulombIntegrals_8hpp" startline="33">onlyPpl</references>
+        <references refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a5f54ddc5f43c0cc716a44ad2c595936d" compoundref="UccsdAmplitudesFromCoulombIntegrals_8hpp" startline="32">usingIntermediates</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="2">
+        <label>sisi4s::ClusterSinglesDoublesAlgorithm</label>
+        <link refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::UccsdAmplitudesFromCoulombIntegrals</label>
+        <link refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::UccsdAmplitudesFromCoulombIntegrals &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="5" relation="protected-inheritance">
+        </childnode>
+        <childnode refid="6" relation="template-instance">
+          <edgelabel>&lt; sisi4s::UccsdAmplitudesFromCoulombIntegrals &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="5">
+        <label>sisi4s::AlgorithmFactory</label>
+        <link refid="classsisi4s_1_1AlgorithmFactory"/>
+      </node>
+      <node id="6">
+        <label>sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="5" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::ClusterSinglesDoublesAlgorithm</label>
+        <link refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::UccsdAmplitudesFromCoulombIntegrals</label>
+        <link refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>+registrar_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" line="12" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp" bodystart="12" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>Algorithm</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>allocateContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>allocatedTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>arguments</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a907cf5c343b8647588b8545ce489f2d6" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>calculateExcitationEnergies</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>checkArgumentsOrDie</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1aca642fac031d6cf872f37fca186aa4cf" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>ClusterSinglesDoublesAlgorithm</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a02eb026b75d6ea58467eb12301e5e56f" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>createAmplitudes</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a36189181b2981707339c7b0cc961fabd" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>DEFAULT_AMPLITUDES_CONVERGENCE</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a1f05fc3f863fc5c5523d511af19dad39" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>DEFAULT_ENERGY_CONVERGENCE</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a3aacc57ae04f6f54e2e30e64e34e3e45" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>DEFAULT_LEVEL_SHIFT</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ac342808772869d43a6c6c4e0e29976f9" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>DEFAULT_MAX_ITERATIONS</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ade1d1692d84a624ce299bbc2f847da8e" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>dryAmplitudesFromResiduum</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de" prot="public" virt="virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>dryRun</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a8327421acb8285d0fc20f9605cfa5937" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>estimateAmplitudesFromResiduum</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ae3921eb9f91c5eb8ef4d9b10a140ae05" prot="public" virt="virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getAbbreviation</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getArgumentData</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a110026d41b3740bb8bdbad146ccfd785" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getCapitalizedAbbreviation</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a407d54400b4b652a5b1b8d79b9c57175" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getContainerArgument</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ac4e86100aee3802ce4a75a737eff7ec0" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getDataName</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a9dceabd979aefa0f1e012c4e62e60847" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getEnergy</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getGivenArgumentNames</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a98c473d7c36973fb5dbd29b6dce3f09e" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a246b38783dcc184c9af31ac67e59c86e" prot="public" virt="virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getName</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aedbdee78ab6ed424c34121218b6cdf68" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getRealArgumentFromInteger</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getRealArgumentFromTensor</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ac69efb64d37389e3ebe7212bd9516d7b" prot="protected" virt="virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getResiduum</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ab05d29d143fa01c77c655e0d0e878251" prot="protected" virt="virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getResiduum</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a10a145b2a213255c27cadb9a1751f520" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getResiduumTemplate</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getTensorArgumentFromReal</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a42922f6e000853e2815cbd2c8fa5c82a" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>onlyPpl</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a5b1360f2fa8fbf2d3b366ee5caebaa07" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>registrar_</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a1668977da91bbd8d13f2ac92e6149b11" prot="public" virt="virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>setIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>setRealArgument</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1aa15c5a3edcb4102f112028ff53f27179" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>sliceAmplitudesFromCoupledCoulombFactors</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a8a2987d0d8c7c99eaab459300874b788" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>sliceAmplitudesFromCoupledCoulombFactors</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4cc0b4527b8b77bdde36752e3aca89cc" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>sliceCoupledCoulombIntegrals</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ab7ec5d52d0acd1f0ed68f97c5d6dbbca" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>sliceCoupledCoulombIntegrals</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ace3ba8780a7038d91d7308183b98cc53" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>sliceIntoResiduum</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a9ad1e0b28af752a5e662bd10aa44351a" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>sliceIntoResiduum</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ae62a6db326edd595700ad5bbf4029ba7" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>storeAmplitudes</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a9e15dee0de9aec5e1f26e378900da207" prot="public" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>UccsdAmplitudesFromCoulombIntegrals</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a5f54ddc5f43c0cc716a44ad2c595936d" prot="protected" virt="non-virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>usingIntermediates</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" prot="public" virt="virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>~Algorithm</name></member>
+      <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ae9a26c9301b58c31814252d646cc939e" prot="public" virt="virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>~ClusterSinglesDoublesAlgorithm</name></member>
+      <member refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1ae84b94b2f0e72c0d3adc5bd74b3ccd82" prot="public" virt="virtual"><scope>sisi4s::UccsdAmplitudesFromCoulombIntegrals</scope><name>~UccsdAmplitudesFromCoulombIntegrals</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

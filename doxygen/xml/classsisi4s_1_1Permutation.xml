@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1Permutation" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::Permutation</compoundname>
+    <basecompoundref refid="classsisi4s_1_1Map" prot="public" virt="non-virtual">sisi4s::Map&lt; N &gt;</basecompoundref>
+    <includes refid="Permutation_8hpp" local="no">Permutation.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1Permutation_1a1a808e3fd038179f2b5dc38947984cbe" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int64_t</type>
+        <definition>constexpr int64_t sisi4s::Permutation&lt; N &gt;::ORDER</definition>
+        <argsstring></argsstring>
+        <name>ORDER</name>
+        <qualifiedname>sisi4s::Permutation::ORDER</qualifiedname>
+        <initializer>= N * <ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref>&lt;N-1&gt;::ORDER</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" line="75" column="30" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1Permutation_1aa155018e22082de05f6f29bb11a4f3cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::Permutation&lt; N &gt;::Permutation</definition>
+        <argsstring>(const int64_t p)</argsstring>
+        <name>Permutation</name>
+        <qualifiedname>sisi4s::Permutation::Permutation</qualifiedname>
+        <param>
+          <type>const int64_t</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" line="57" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" bodystart="57" bodyend="67"/>
+        <references refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" compoundref="Permutation_8hpp" startline="32">sisi4s::Map&lt; N &gt;::images</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1Permutation_1a14c55ad470ef27dc0945b00b7a864b95" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int sisi4s::Permutation&lt; N &gt;::invariantElementsCount</definition>
+        <argsstring>() const</argsstring>
+        <name>invariantElementsCount</name>
+        <qualifiedname>sisi4s::Permutation::invariantElementsCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" line="69" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" bodystart="69" bodyend="73"/>
+        <references refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" compoundref="Permutation_8hpp" startline="32">sisi4s::Map&lt; N &gt;::images</references>
+        <referencedby refid="classsisi4s_1_1CcsdPerturbativeTriples_1ad094260a4c533e1734768a72b3ae0161" compoundref="CcsdPerturbativeTriples_8cxx" startline="126" endline="239">sisi4s::CcsdPerturbativeTriples::run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsisi4s_1_1Permutation_1a2265f4efc9b226e493309c61c9033434" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::Permutation&lt; N &gt;::Permutation</definition>
+        <argsstring>()</argsstring>
+        <name>Permutation</name>
+        <qualifiedname>sisi4s::Permutation::Permutation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" line="77" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" bodystart="77" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classsisi4s_1_1Permutation_1a9b7b36e592e41092911f8fe405a4412c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref></type>
+        <definition>Permutation operator*</definition>
+        <argsstring>(const Permutation &amp;, const Permutation &amp;)</argsstring>
+        <name>operator*</name>
+        <qualifiedname>sisi4s::Permutation::operator*</qualifiedname>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref> &amp;</type>
+          <defname>sigma</defname>
+        </param>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref> &amp;</type>
+          <defname>tau</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" line="79" column="24" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" bodystart="95" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="friend" id="classsisi4s_1_1Permutation_1aacab7da4b025ac47d6f4e6a11155e35d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref></type>
+        <definition>Permutation operator/</definition>
+        <argsstring>(const Permutation &amp;, const Permutation &amp;)</argsstring>
+        <name>operator/</name>
+        <qualifiedname>sisi4s::Permutation::operator/</qualifiedname>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref> &amp;</type>
+          <defname>sigma</defname>
+        </param>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref> &amp;</type>
+          <defname>tau</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" line="80" column="24" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" bodystart="121" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="friend" id="classsisi4s_1_1Permutation_1a67047a494fa8dbccc3ef080a62300b51" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref></type>
+        <definition>Permutation operator/</definition>
+        <argsstring>(const int, const Permutation &amp;)</argsstring>
+        <name>operator/</name>
+        <qualifiedname>sisi4s::Permutation::operator/</qualifiedname>
+        <param>
+          <type>const int</type>
+        </param>
+        <param>
+          <type>const <ref refid="classsisi4s_1_1Permutation" kindref="compound">Permutation</ref> &amp;</type>
+          <defname>tau</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" line="81" column="24" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" bodystart="113" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::Map&lt; N &gt;</label>
+        <link refid="classsisi4s_1_1Map"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::Permutation&lt; N &gt;</label>
+        <link refid="classsisi4s_1_1Permutation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>sisi4s::Map&lt; N &gt;</label>
+        <link refid="classsisi4s_1_1Map"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::Permutation&lt; N &gt;</label>
+        <link refid="classsisi4s_1_1Permutation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" line="55" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/Permutation.hpp" bodystart="55" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Map_1a8e4c296f29b7b4a43227e5c5a6069fc4" prot="public" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>images</name></member>
+      <member refid="classsisi4s_1_1Permutation_1a14c55ad470ef27dc0945b00b7a864b95" prot="public" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>invariantElementsCount</name></member>
+      <member refid="classsisi4s_1_1Map_1aefe5ec7e2dfe11ee33b3cb84d5004617" prot="public" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>Map</name></member>
+      <member refid="classsisi4s_1_1Map_1a2f1592886cdb071c433e0f9ddab03623" prot="public" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>Map</name></member>
+      <member refid="classsisi4s_1_1Map_1a9208fddf11da3501cf8a440e9844c8ef" prot="public" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>Map</name></member>
+      <member refid="classsisi4s_1_1Map_1a9d80b1a6a802d9c5c41ac71f448422f2" prot="public" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>operator()</name></member>
+      <member refid="classsisi4s_1_1Map_1ac7c6b50e7c00d470bdbd16915947a618" prot="public" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>operator()</name></member>
+      <member refid="classsisi4s_1_1Permutation_1a9b7b36e592e41092911f8fe405a4412c" prot="private" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>operator*</name></member>
+      <member refid="classsisi4s_1_1Permutation_1aacab7da4b025ac47d6f4e6a11155e35d" prot="private" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>operator/</name></member>
+      <member refid="classsisi4s_1_1Permutation_1a67047a494fa8dbccc3ef080a62300b51" prot="private" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>operator/</name></member>
+      <member refid="classsisi4s_1_1Map_1a372a33e2d2050626cacec19326abbafa" prot="public" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>operator==</name></member>
+      <member refid="classsisi4s_1_1Permutation_1a1a808e3fd038179f2b5dc38947984cbe" prot="public" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>ORDER</name></member>
+      <member refid="classsisi4s_1_1Permutation_1aa155018e22082de05f6f29bb11a4f3cd" prot="public" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>Permutation</name></member>
+      <member refid="classsisi4s_1_1Permutation_1a2265f4efc9b226e493309c61c9033434" prot="private" virt="non-virtual"><scope>sisi4s::Permutation</scope><name>Permutation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

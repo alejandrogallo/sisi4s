@@ -1,0 +1,2273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="namespaceCLI_1_1detail" kind="namespace" language="C++">
+    <compoundname>CLI::detail</compoundname>
+    <innerclass refid="structCLI_1_1detail_1_1AppFriend" prot="public">CLI::detail::AppFriend</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1element__type" prot="public">CLI::detail::element_type</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1element__type_3_01T_00_01typename_01std_1_1enable__if_3_01is__copyable__p095259d742d782941ef6a8bf79b7548e" prot="public">CLI::detail::element_type&lt; T, typename std::enable_if&lt; is_copyable_ptr&lt; T &gt;::value &gt;::type &gt;</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1element__value__type" prot="public">CLI::detail::element_value_type</innerclass>
+    <innerclass refid="classCLI_1_1detail_1_1ExistingDirectoryValidator" prot="public">CLI::detail::ExistingDirectoryValidator</innerclass>
+    <innerclass refid="classCLI_1_1detail_1_1ExistingFileValidator" prot="public">CLI::detail::ExistingFileValidator</innerclass>
+    <innerclass refid="classCLI_1_1detail_1_1ExistingPathValidator" prot="public">CLI::detail::ExistingPathValidator</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1has__find" prot="public">CLI::detail::has_find</innerclass>
+    <innerclass refid="classCLI_1_1detail_1_1IPV4Validator" prot="public">CLI::detail::IPV4Validator</innerclass>
+    <innerclass refid="classCLI_1_1detail_1_1is__complex" prot="public">CLI::detail::is_complex</innerclass>
+    <innerclass refid="classCLI_1_1detail_1_1is__direct__constructible" prot="public">CLI::detail::is_direct_constructible</innerclass>
+    <innerclass refid="classCLI_1_1detail_1_1is__istreamable" prot="public">CLI::detail::is_istreamable</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1is__mutable__container" prot="public">CLI::detail::is_mutable_container</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1is__mutable__container_3_01T_00_01conditional__t_3_01false_00_01void__t_34f912c4cf53fe26abfba2fd2b47c408d" prot="public">CLI::detail::is_mutable_container&lt; T, conditional_t&lt; false, void_t&lt; typename T::value_type, decltype(std::declval&lt; T &gt;().end()), decltype(std::declval&lt; T &gt;().clear()), decltype(std::declval&lt; T &gt;().insert(std::declval&lt; decltype(std::declval&lt; T &gt;().end())&gt;(), std::declval&lt; const typename T::value_type &amp; &gt;()))&gt;, void &gt; &gt;</innerclass>
+    <innerclass refid="classCLI_1_1detail_1_1is__ostreamable" prot="public">CLI::detail::is_ostreamable</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1is__readable__container" prot="public">CLI::detail::is_readable_container</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1is__readable__container_3_01T_00_01conditional__t_3_01false_00_01void__t_a11f17935a0aadb8dce82cbccb9f2c68" prot="public">CLI::detail::is_readable_container&lt; T, conditional_t&lt; false, void_t&lt; decltype(std::declval&lt; T &gt;().end()), decltype(std::declval&lt; T &gt;().begin())&gt;, void &gt; &gt;</innerclass>
+    <innerclass refid="classCLI_1_1detail_1_1is__tuple__like" prot="public">CLI::detail::is_tuple_like</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1is__wrapper" prot="public">CLI::detail::is_wrapper</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1is__wrapper_3_01T_00_01conditional__t_3_01false_00_01void__t_3_01typename64a0c6feb904f77c98810c843e4d2f1f" prot="public">CLI::detail::is_wrapper&lt; T, conditional_t&lt; false, void_t&lt; typename T::value_type &gt;, void &gt; &gt;</innerclass>
+    <innerclass refid="classCLI_1_1detail_1_1NonexistentPathValidator" prot="public">CLI::detail::NonexistentPathValidator</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1pair__adaptor" prot="public">CLI::detail::pair_adaptor</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1pair__adaptor_3_01T_00_01conditional__t_3_01false_00_01void__t_3_01typenac7f3d35561ff46242630d08443185a90" prot="public">CLI::detail::pair_adaptor&lt; T, conditional_t&lt; false, void_t&lt; typename T::value_type::first_type, typename T::value_type::second_type &gt;, void &gt; &gt;</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1subtype__count" prot="public">CLI::detail::subtype_count</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1subtype__count__min" prot="public">CLI::detail::subtype_count_min</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1type__count" prot="public">CLI::detail::type_count</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1type__count_3_01T_00_01typename_01std_1_1enable__if_3_01is__complex_3_01Tcc27862bfce937e7a184d4899b689962" prot="public">CLI::detail::type_count&lt; T, typename std::enable_if&lt; is_complex&lt; T &gt;::value &gt;::type &gt;</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1type__count_3_01T_00_01typename_01std_1_1enable__if_3_01is__mutable__contb2a5be46bc2085412bb046a9416235bc" prot="public">CLI::detail::type_count&lt; T, typename std::enable_if&lt; is_mutable_container&lt; T &gt;::value &gt;::type &gt;</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1type__count_3_01T_00_01typename_01std_1_1enable__if_3_01is__wrapper_3_01Tafeacc1b065a285344dc61402947bdc3" prot="public">CLI::detail::type_count&lt; T, typename std::enable_if&lt; is_wrapper&lt; T &gt;::value &amp;&amp;!is_complex&lt; T &gt;::value &amp;&amp;!is_tuple_like&lt; T &gt;::value &amp;&amp;!is_mutable_container&lt; T &gt;::value &gt;::type &gt;</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1type__count_3_01T_00_01typename_01std_1_1enable__if_3_9is__wrapper_3_01T_e23863d22d2e4c34f6869731ca2da588" prot="public">CLI::detail::type_count&lt; T, typename std::enable_if&lt;!is_wrapper&lt; T &gt;::value &amp;&amp;!is_tuple_like&lt; T &gt;::value &amp;&amp;!is_complex&lt; T &gt;::value &amp;&amp;!std::is_void&lt; T &gt;::value &gt;::type &gt;</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1type__count__base" prot="public">CLI::detail::type_count_base</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1type__count__base_3_01T_00_01typename_01std_1_1enable__if_3_01is__mutablea4c3104627fe84803e06115cc7149e3c" prot="public">CLI::detail::type_count_base&lt; T, typename std::enable_if&lt; is_mutable_container&lt; T &gt;::value &gt;::type &gt;</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1type__count__base_3_01T_00_01typename_01std_1_1enable__if_3_01is__tuple__95c1a0ec6f7c1496130700c874085e8b" prot="public">CLI::detail::type_count_base&lt; T, typename std::enable_if&lt; is_tuple_like&lt; T &gt;::value &amp;&amp;!is_mutable_container&lt; T &gt;::value &gt;::type &gt;</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1type__count__base_3_01T_00_01typename_01std_1_1enable__if_3_9is__tuple__l80d36c9114ac17288799bef466c7bc7c" prot="public">CLI::detail::type_count_base&lt; T, typename std::enable_if&lt;!is_tuple_like&lt; T &gt;::value &amp;&amp;!is_mutable_container&lt; T &gt;::value &amp;&amp;!std::is_void&lt; T &gt;::value &gt;::type &gt;</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1wrapped__type" prot="public">CLI::detail::wrapped_type</innerclass>
+    <innerclass refid="structCLI_1_1detail_1_1wrapped__type_3_01T_00_01def_00_01typename_01std_1_1enable__if_3_01is__wr7fdd281434af22fc0a3e380b9a3bffc8" prot="public">CLI::detail::wrapped_type&lt; T, def, typename std::enable_if&lt; is_wrapper&lt; T &gt;::value &gt;::type &gt;</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceCLI_1_1detail_1af27dda5da343e609526e3dacf435b1c6" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>enabler</name>
+        <qualifiedname>CLI::detail::enabler</qualifiedname>
+        <briefdescription>
+<para>Simple empty scoped class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="885" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="885" bodyend="885"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceCLI_1_1detail_1a20a9a67e5f06ba0dc3f2ded2fed16f55" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>path_type</name>
+        <qualifiedname>CLI::detail::path_type</qualifiedname>
+        <enumvalue id="namespaceCLI_1_1detail_1a20a9a67e5f06ba0dc3f2ded2fed16f55a357f5c155c9da6842b84ad1066996928" prot="public">
+          <name>nonexistent</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1_1detail_1a20a9a67e5f06ba0dc3f2ded2fed16f55a8c7dd922ad47494fc02c388e12c00eac" prot="public">
+          <name>file</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1_1detail_1a20a9a67e5f06ba0dc3f2ded2fed16f55a5f8f22b8cdbaeee8cf857673a9b6ba20" prot="public">
+          <name>directory</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para><ref refid="namespaceCLI" kindref="compound">CLI</ref> enumeration of different file types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2919" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2919" bodyend="2919"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceCLI_1_1detail_1aba10771e3ff645fe1305be4cae517573" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Classifier</name>
+        <qualifiedname>CLI::detail::Classifier</qualifiedname>
+        <enumvalue id="namespaceCLI_1_1detail_1aba10771e3ff645fe1305be4cae517573ab50339a10e1de285ac99d4c3990b8693" prot="public">
+          <name>NONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1_1detail_1aba10771e3ff645fe1305be4cae517573a2b1681c49e27b242d19b93c5c3620cb6" prot="public">
+          <name>POSITIONAL_MARK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1_1detail_1aba10771e3ff645fe1305be4cae517573aa35c2b02966b1563e5bf7b81b8b0cf77" prot="public">
+          <name>SHORT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1_1detail_1aba10771e3ff645fe1305be4cae517573ac1fabfea54ec6011e694f211f3ffebf3" prot="public">
+          <name>LONG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1_1detail_1aba10771e3ff645fe1305be4cae517573a0693f2b4d4f0740bc76a2d65566b4fda" prot="public">
+          <name>WINDOWS_STYLE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1_1detail_1aba10771e3ff645fe1305be4cae517573ac4fb22412f02354dbe5574e37caf50a7" prot="public">
+          <name>SUBCOMMAND</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceCLI_1_1detail_1aba10771e3ff645fe1305be4cae517573ab447b0bfeb6e4502fb6a0c4223fb8d00" prot="public">
+          <name>SUBCOMMAND_TERMINATOR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="5264" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="5264" bodyend="5264"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceCLI_1_1detail_1a99abe3824b1f1bea457ad0ae635f5c51" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int CLI::detail::expected_max_vector_size</definition>
+        <argsstring></argsstring>
+        <name>expected_max_vector_size</name>
+        <qualifiedname>CLI::detail::expected_max_vector_size</qualifiedname>
+        <initializer>{1 &lt;&lt; 29}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a constant defining an expected max vector size defined to be a big number that could be multiplied by 4 and not produce overflow for some expected uses </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="161" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="161" bodyend="-1"/>
+        <referencedby refid="classCLI_1_1App_1a73c9decd5eb2b0c7eeda63cc4bd5048e" compoundref="CLI11_8hpp" startline="7900" endline="8057">CLI::App::_parse_arg</referencedby>
+        <referencedby refid="classCLI_1_1App_1ae2908ce3eded7e3d6bb2e6fdd2410576" compoundref="CLI11_8hpp" startline="7096" endline="7130">CLI::App::_validate</referencedby>
+        <referencedby refid="classCLI_1_1Option_1a66d22991355232198a3da4b395847eba" compoundref="CLI11_8hpp" startline="4286" endline="4305">CLI::Option::expected</referencedby>
+        <referencedby refid="classCLI_1_1Option_1a996b69fbb68a6d62829855816c30ed38" compoundref="CLI11_8hpp" startline="4646" endline="4649">CLI::Option::get_items_expected_max</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1a9f11b9ee12c8ccb8bf9670be1b47a3b1" compoundref="CLI11_8hpp" startline="9015" endline="9048">CLI::Formatter::make_option_opts</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1afd69c393a40e9b1212f3552a1f48a414" compoundref="CLI11_8hpp" startline="9052" endline="9062">CLI::Formatter::make_option_usage</referencedby>
+        <referencedby refid="classCLI_1_1Option_1a421a54aa82da9a5231b9457387afebbb" compoundref="CLI11_8hpp" startline="4565" endline="4576">CLI::Option::multi_option_policy</referencedby>
+        <referencedby refid="classCLI_1_1Option_1a8914e4810b213c5e23359d61a70c5ac1" compoundref="CLI11_8hpp" startline="4992" endline="5009">CLI::Option::type_size</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceCLI_1_1detail_1a01c35a876e2917ffdc1ee618e0c06619" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="namespaceCLI_1_1detail_1af27dda5da343e609526e3dacf435b1c6" kindref="member">enabler</ref></type>
+        <definition>constexpr enabler CLI::detail::dummy</definition>
+        <argsstring></argsstring>
+        <name>dummy</name>
+        <qualifiedname>CLI::detail::dummy</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+<para>An instance to use in EnableIf. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="888" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="888" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1a4f49cb830f2873a1edd72cefa95785f1" compoundref="BasisSetExtrapolation_8cxx" startline="334" endline="460">sisi4s::BasisSetExtrapolation::fitF12</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" prot="public" static="no" mutable="no">
+        <type>return</type>
+        <definition>return CLI::detail::str</definition>
+        <argsstring></argsstring>
+        <name>str</name>
+        <qualifiedname>CLI::detail::str</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1621" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1621" bodyend="-1"/>
+        <referencedby refid="namespaceCLI_1_1detail_1a087ee4080a89a2bd4a5444479af06543" compoundref="CLI11_8hpp" startline="533" endline="542">add_quotes_if_needed</referencedby>
+        <referencedby refid="classCLI_1_1Option_1abe1ad866ef9d96e23ae84def8c8b031c" compoundref="CLI11_8hpp" startline="4904" endline="4910">CLI::Option::add_result</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1ac24078bb1f5e51808a5001a47d2b40c3" compoundref="CLI11_8hpp" startline="520" endline="530">escape_detect</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a59fbb1952b19838d8377ab714dc33e4c" compoundref="CLI11_8hpp" startline="454" endline="460">find_and_modify</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1ab39b1977d7375250cc57d90723cf1554" compoundref="CLI11_8hpp" startline="391" endline="401">find_and_replace</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1aef5e2e24cdf5eb20ac37c5fdabec8f62" compoundref="CLI11_8hpp" startline="2462" endline="2486">get_default_flag_values</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a53b46b96102830769cc02952392e782f" compoundref="CLI11_8hpp" startline="366" endline="369">is_separator</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1ac89ce22647a9f697b800d9c47b9d956f" compoundref="CLI11_8hpp" startline="372" endline="374">isalpha</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1aa06bf54cb3fb347d68d23d31384af42f" compoundref="CLI11_8hpp" startline="227" endline="231">ltrim</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1ab113af781dbc286b22cdfeedd5204e68" compoundref="CLI11_8hpp" startline="2870" endline="2890">CLI::Validator::operator!</referencedby>
+        <referencedby refid="classCLI_1_1Validator_1a97241be1f8ac1c8d2fabdcf2ec761f49" compoundref="CLI11_8hpp" startline="2733" endline="2744">CLI::Validator::operator()</referencedby>
+        <referencedby refid="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" compoundref="BasisParser_8cxx" startline="72" endline="96">nwchem::BasisSetParser::parseFile</referencedby>
+        <referencedby refid="structShellParser_1a56f3162c870481b312406801f061ee68" compoundref="MoReader_8cxx" startline="84" endline="108">ShellParser::parseString</referencedby>
+        <referencedby refid="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" compoundref="Parsing_8cxx" startline="21" endline="31">pars::parseVector</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a00aa494e4005562328fae48564194d8f" compoundref="CLI11_8hpp" startline="268" endline="276">remove_quotes</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a5359a7a0e33366a12e15523b100f591a" compoundref="CLI11_8hpp" startline="385" endline="388">remove_underscore</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a32d84ce1a65de779e88fdf4aa3b54ea6" compoundref="CLI11_8hpp" startline="241" endline="245">rtrim</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a53c98c658b23ec5530f755118d632f90" compoundref="CLI11_8hpp" startline="464" endline="514">split_up</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1ae83709ec148057ec53df4383645727e9" compoundref="CLI11_8hpp" startline="377" endline="382">to_lower</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a621323632158048f6168deacc432b838" compoundref="CLI11_8hpp" startline="256" endline="256">trim</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a5c7b00a328b3b2da564794081646c251" compoundref="CLI11_8hpp" startline="262" endline="265">trim_copy</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1ac75f9ea4aa9649b9b3890bdcbc64b75a" compoundref="CLI11_8hpp" startline="360" endline="363">valid_alias_name_string</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a4274628d24f9e3fbc719284f1db263b8" compoundref="CLI11_8hpp" startline="348" endline="357">valid_name_string</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ac18d5005c4b8cfaabf73e46294eac82a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; CLI::detail::split</definition>
+        <argsstring>(const std::string &amp;s, char delim)</argsstring>
+        <name>split</name>
+        <qualifiedname>CLI::detail::split</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>delim</declname>
+        </param>
+        <briefdescription>
+<para>Split a string by a delim. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="164" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="164" bodyend="178"/>
+        <referencedby refid="classCLI_1_1detail_1_1IPV4Validator_1aef7e0d0bb6a0e68a0dcb5434c4dbf657" compoundref="CLI11_8hpp" startline="3028" endline="3046">CLI::detail::IPV4Validator::IPV4Validator</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1ac14bea0d3812e39fd7ab0be7a4ee9a10" compoundref="CLI11_8hpp" startline="8493" endline="8515">generate_parents</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ab351f13ec104e2cba19ec6baf4a552f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::join</definition>
+        <argsstring>(const T &amp;v, std::string delim=&quot;,&quot;)</argsstring>
+        <name>join</name>
+        <qualifiedname>CLI::detail::join</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>delim</declname>
+          <defval>&quot;,&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Simple function to join a string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="181" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="181" bodyend="191"/>
+        <referencedby refid="classCLI_1_1CheckedTransformer_1af11e8936b4c0707ff94338908622e111" compoundref="CLI11_8hpp" startline="3438" endline="3488">CLI::CheckedTransformer::CheckedTransformer</referencedby>
+        <referencedby refid="classCLI_1_1App_1a4e0c00ce18bbfca1ae890a653bbd2b93" compoundref="CLI11_8hpp" startline="7339" endline="7465">CLI::App::_process_requirements</referencedby>
+        <referencedby refid="structCLI_1_1ConfigItem_1af76892225a187445bced0d220ae9e52b" compoundref="CLI11_8hpp" startline="2542" endline="2546">CLI::ConfigItem::fullname</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a320e031a5eb12297a140d2d6fc73362a" compoundref="CLI11_8hpp" startline="3182" endline="3200">generate_map</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a75f66945cfe53b556e4c311f9a88a155" compoundref="CLI11_8hpp" startline="3169" endline="3179">generate_set</referencedby>
+        <referencedby refid="classCLI_1_1Option_1ab84751fbf9037efaed5b64fed17fe57f" compoundref="CLI11_8hpp" startline="4686" endline="4739">CLI::Option::get_name</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1a3aac4a7ce4ca139704e632915892024c" compoundref="CLI11_8hpp" startline="8866" endline="8906">CLI::Formatter::make_usage</referencedby>
+        <referencedby refid="namespaceCLI_1_1FailureMessage_1ab2a36cd7fb3b91628be43f31647f3c38" compoundref="CLI11_8hpp" startline="8356" endline="8372">CLI::FailureMessage::simple</referencedby>
+        <referencedby refid="classsisi4s_1_1LapackMatrix_1a362dd68db532ce88dc845a6bab0cb33c" compoundref="LapackMatrix_8hpp" startline="96" endline="113">sisi4s::LapackMatrix&lt; F &gt;::write</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a8597debec6c8bc164109538253ffc623" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename Callable</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>typename std::enable_if&lt;!std::is_constructible&lt;std::string, Callable&gt;::value&gt;::type</defval>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::join</definition>
+        <argsstring>(const T &amp;v, Callable func, std::string delim=&quot;,&quot;)</argsstring>
+        <name>join</name>
+        <qualifiedname>CLI::detail::join</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>Callable</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>delim</declname>
+          <defval>&quot;,&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Simple function to join a string from processed elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="197" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="197" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1af74b520ee1011d38fde77f907ddfea40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::rjoin</definition>
+        <argsstring>(const T &amp;v, std::string delim=&quot;,&quot;)</argsstring>
+        <name>rjoin</name>
+        <qualifiedname>CLI::detail::rjoin</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>delim</declname>
+          <defval>&quot;,&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Join a string in reverse order. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="214" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="214" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1aa06bf54cb3fb347d68d23d31384af42f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string &amp;</type>
+        <definition>std::string &amp; CLI::detail::ltrim</definition>
+        <argsstring>(std::string &amp;str)</argsstring>
+        <name>ltrim</name>
+        <qualifiedname>CLI::detail::ltrim</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Trim whitespace from left of string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="227" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="227" bodyend="231"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="namespaceCLI_1_1detail_1a621323632158048f6168deacc432b838" compoundref="CLI11_8hpp" startline="256" endline="256">trim</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a64abd8fa0d1461f840198fb92e64ca44" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string &amp;</type>
+        <definition>std::string &amp; CLI::detail::ltrim</definition>
+        <argsstring>(std::string &amp;str, const std::string &amp;filter)</argsstring>
+        <name>ltrim</name>
+        <qualifiedname>CLI::detail::ltrim</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+<para>Trim anything from left of string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="234" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="234" bodyend="238"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="namespaceCLI_1_1detail_1a86c8be4c04334eea7717547ed6816533" compoundref="CLI11_8hpp" startline="3717" endline="3760">split_program_name</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a32d84ce1a65de779e88fdf4aa3b54ea6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string &amp;</type>
+        <definition>std::string &amp; CLI::detail::rtrim</definition>
+        <argsstring>(std::string &amp;str)</argsstring>
+        <name>rtrim</name>
+        <qualifiedname>CLI::detail::rtrim</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Trim whitespace from right of string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="241" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="241" bodyend="245"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" compoundref="CLI11_8hpp" startline="3538" endline="3607">CLI::AsNumberWithUnit::AsNumberWithUnit</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a621323632158048f6168deacc432b838" compoundref="CLI11_8hpp" startline="256" endline="256">trim</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1aec077653ff0ab1e6369072d9aeebdd93" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string &amp;</type>
+        <definition>std::string &amp; CLI::detail::rtrim</definition>
+        <argsstring>(std::string &amp;str, const std::string &amp;filter)</argsstring>
+        <name>rtrim</name>
+        <qualifiedname>CLI::detail::rtrim</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+<para>Trim anything from right of string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="248" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="248" bodyend="253"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="namespaceCLI_1_1detail_1a86c8be4c04334eea7717547ed6816533" compoundref="CLI11_8hpp" startline="3717" endline="3760">split_program_name</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a621323632158048f6168deacc432b838" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string &amp;</type>
+        <definition>std::string &amp; CLI::detail::trim</definition>
+        <argsstring>(std::string &amp;str)</argsstring>
+        <name>trim</name>
+        <qualifiedname>CLI::detail::trim</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Trim whitespace from string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="256" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="256" bodyend="256"/>
+        <references refid="namespaceCLI_1_1detail_1aa06bf54cb3fb347d68d23d31384af42f" compoundref="CLI11_8hpp" startline="227" endline="231">ltrim</references>
+        <references refid="namespaceCLI_1_1detail_1a32d84ce1a65de779e88fdf4aa3b54ea6" compoundref="CLI11_8hpp" startline="241" endline="245">rtrim</references>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" compoundref="CLI11_8hpp" startline="3538" endline="3607">CLI::AsNumberWithUnit::AsNumberWithUnit</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a1395eecde5af65b73e3670529df0e17b" compoundref="CLI11_8hpp" startline="8568" endline="8698">CLI::ConfigBase::from_config</referencedby>
+        <referencedby refid="classCLI_1_1App_1a187f08c5326d89319802162e33faff4e" compoundref="CLI11_8hpp" startline="6442" endline="6467">CLI::App::parse</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a53c98c658b23ec5530f755118d632f90" compoundref="CLI11_8hpp" startline="464" endline="514">split_up</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a5c7b00a328b3b2da564794081646c251" compoundref="CLI11_8hpp" startline="262" endline="265">trim_copy</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a0f03e175032897c99f1ae0e0f1cde27a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string &amp;</type>
+        <definition>std::string &amp; CLI::detail::trim</definition>
+        <argsstring>(std::string &amp;str, const std::string filter)</argsstring>
+        <name>trim</name>
+        <qualifiedname>CLI::detail::trim</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+<para>Trim anything from string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="259" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="259" bodyend="259"/>
+        <references refid="namespaceCLI_1_1detail_1aa06bf54cb3fb347d68d23d31384af42f" compoundref="CLI11_8hpp" startline="227" endline="231">ltrim</references>
+        <references refid="namespaceCLI_1_1detail_1a32d84ce1a65de779e88fdf4aa3b54ea6" compoundref="CLI11_8hpp" startline="241" endline="245">rtrim</references>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="namespaceCLI_1_1detail_1a86c8be4c04334eea7717547ed6816533" compoundref="CLI11_8hpp" startline="3717" endline="3760">split_program_name</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a5c7b00a328b3b2da564794081646c251" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::detail::trim_copy</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>trim_copy</name>
+        <qualifiedname>CLI::detail::trim_copy</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Make a copy of the string and then trim it. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="262" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="262" bodyend="265"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <references refid="namespaceCLI_1_1detail_1a621323632158048f6168deacc432b838" compoundref="CLI11_8hpp" startline="256" endline="256">trim</references>
+        <referencedby refid="classCLI_1_1ConfigBase_1a1395eecde5af65b73e3670529df0e17b" compoundref="CLI11_8hpp" startline="8568" endline="8698">CLI::ConfigBase::from_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a00aa494e4005562328fae48564194d8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string &amp;</type>
+        <definition>std::string &amp; CLI::detail::remove_quotes</definition>
+        <argsstring>(std::string &amp;str)</argsstring>
+        <name>remove_quotes</name>
+        <qualifiedname>CLI::detail::remove_quotes</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>remove quotes at the front and back of a string either &apos;&quot;&apos; or &apos;\&apos;&apos; </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="268" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="268" bodyend="276"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="classCLI_1_1ConfigBase_1a1395eecde5af65b73e3670529df0e17b" compoundref="CLI11_8hpp" startline="8568" endline="8698">CLI::ConfigBase::from_config</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1ac14bea0d3812e39fd7ab0be7a4ee9a10" compoundref="CLI11_8hpp" startline="8493" endline="8515">generate_parents</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a6f983b056b683129ec20e53d8c6141ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::detail::fix_newlines</definition>
+        <argsstring>(const std::string &amp;leader, std::string input)</argsstring>
+        <name>fix_newlines</name>
+        <qualifiedname>CLI::detail::fix_newlines</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>leader</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a leader to the beginning of all new lines (nothing is added at the start of the first line). <computeroutput>&quot;; &quot;</computeroutput> would be for ini files</para>
+<para>Can&apos;t use Regex, or this would be a subs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="282" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="282" bodyend="292"/>
+        <referencedby refid="namespaceCLI_1_1detail_1a7d78342c07cdd65a9f7aafa857679394" compoundref="CLI11_8hpp" startline="318" endline="333">format_aliases</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a09bd3735d1104a453e5376a43140d5a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::detail::trim_copy</definition>
+        <argsstring>(const std::string &amp;str, const std::string &amp;filter)</argsstring>
+        <name>trim_copy</name>
+        <qualifiedname>CLI::detail::trim_copy</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+<para>Make a copy of the string and then trim it, any filter string can be used (any char in string is filtered) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="295" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="295" bodyend="298"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <references refid="namespaceCLI_1_1detail_1a621323632158048f6168deacc432b838" compoundref="CLI11_8hpp" startline="256" endline="256">trim</references>
+        <referencedby refid="namespaceCLI_1_1detail_1a001565020c65971162bae8cc2ba7d3e1" compoundref="CLI11_8hpp" startline="2450" endline="2459">split_names</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a4b73b36dbab9c829a299be49799fbb40" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; CLI::detail::format_help</definition>
+        <argsstring>(std::ostream &amp;out, std::string name, const std::string &amp;description, std::size_t wid)</argsstring>
+        <name>format_help</name>
+        <qualifiedname>CLI::detail::format_help</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>wid</declname>
+        </param>
+        <briefdescription>
+<para>Print a two part &quot;help&quot; string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="300" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="300" bodyend="315"/>
+        <referencedby refid="classCLI_1_1Formatter_1a1503e498cef1cab66a01d84bac59b5d8" compoundref="CLI11_8hpp" startline="3908" endline="3913">CLI::Formatter::make_option</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1a82a62cd4b9833cab20e82c4d099c0c7f" compoundref="CLI11_8hpp" startline="8982" endline="8986">CLI::Formatter::make_subcommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a7d78342c07cdd65a9f7aafa857679394" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; CLI::detail::format_aliases</definition>
+        <argsstring>(std::ostream &amp;out, const std::vector&lt; std::string &gt; &amp;aliases, std::size_t wid)</argsstring>
+        <name>format_aliases</name>
+        <qualifiedname>CLI::detail::format_aliases</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>aliases</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>wid</declname>
+        </param>
+        <briefdescription>
+<para>Print subcommand aliases. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="318" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="318" bodyend="333"/>
+        <references refid="namespaceCLI_1_1detail_1a6f983b056b683129ec20e53d8c6141ab" compoundref="CLI11_8hpp" startline="282" endline="292">fix_newlines</references>
+        <referencedby refid="classCLI_1_1Formatter_1ade54fd392e2c9f5364744dca82408e60" compoundref="CLI11_8hpp" startline="8988" endline="9006">CLI::Formatter::make_expanded</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a3a05d1129df69e88135e178137b1fd89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CLI::detail::valid_first_char</definition>
+        <argsstring>(T c)</argsstring>
+        <name>valid_first_char</name>
+        <qualifiedname>CLI::detail::valid_first_char</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Verify the first character of an option<itemizedlist>
+<listitem><para>is a trigger character, ! has special meaning and new lines would just be annoying to deal with </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="337" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="337" bodyend="337"/>
+        <referencedby refid="classCLI_1_1App_1a8b461d2233ec4121259011b5ed24b336" compoundref="CLI11_8hpp" startline="6183" endline="6199">CLI::App::add_subcommand</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a2f845e274b0701ae700150328804badf" compoundref="CLI11_8hpp" startline="2490" endline="2522">get_names</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a0de15b0ba0d12c9170d15693477808ed" compoundref="CLI11_8hpp" startline="2418" endline="2431">split_long</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a1e6f215bcb727ff49f126ac3e1a13e40" compoundref="CLI11_8hpp" startline="2408" endline="2415">split_short</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1aadbd2b5b93afe2f10427dd6e32639b0c" compoundref="CLI11_8hpp" startline="2434" endline="2447">split_windows_style</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a4274628d24f9e3fbc719284f1db263b8" compoundref="CLI11_8hpp" startline="348" endline="357">valid_name_string</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a841371d5dbb0a52f453de4cc1d00cc51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CLI::detail::valid_later_char</definition>
+        <argsstring>(T c)</argsstring>
+        <name>valid_later_char</name>
+        <qualifiedname>CLI::detail::valid_later_char</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Verify following characters of an option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="340" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="340" bodyend="345"/>
+        <referencedby refid="classCLI_1_1App_1a8b461d2233ec4121259011b5ed24b336" compoundref="CLI11_8hpp" startline="6183" endline="6199">CLI::App::add_subcommand</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a4274628d24f9e3fbc719284f1db263b8" compoundref="CLI11_8hpp" startline="348" endline="357">valid_name_string</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a4274628d24f9e3fbc719284f1db263b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::detail::valid_name_string</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>valid_name_string</name>
+        <qualifiedname>CLI::detail::valid_name_string</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Verify an option/subcommand name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="348" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="348" bodyend="357"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <references refid="namespaceCLI_1_1detail_1a3a05d1129df69e88135e178137b1fd89" compoundref="CLI11_8hpp" startline="337" endline="337">valid_first_char</references>
+        <references refid="namespaceCLI_1_1detail_1a841371d5dbb0a52f453de4cc1d00cc51" compoundref="CLI11_8hpp" startline="340" endline="345">valid_later_char</references>
+        <referencedby refid="classCLI_1_1App_1a8b461d2233ec4121259011b5ed24b336" compoundref="CLI11_8hpp" startline="6183" endline="6199">CLI::App::add_subcommand</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a2f845e274b0701ae700150328804badf" compoundref="CLI11_8hpp" startline="2490" endline="2522">get_names</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ac75f9ea4aa9649b9b3890bdcbc64b75a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::detail::valid_alias_name_string</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>valid_alias_name_string</name>
+        <qualifiedname>CLI::detail::valid_alias_name_string</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Verify an app name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="360" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="360" bodyend="363"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="classCLI_1_1App_1a5e114076a7cfa20a5895e9f6e8fd7dd5" compoundref="CLI11_8hpp" startline="6166" endline="6176">CLI::App::add_option_group</referencedby>
+        <referencedby refid="classCLI_1_1App_1ad5d02ee857879c6abd007c8293a1151a" compoundref="CLI11_8hpp" startline="5587" endline="5603">CLI::App::alias</referencedby>
+        <referencedby refid="classCLI_1_1OptionBase_1a17077e6cf3e228a4978fb4be525bc80d" compoundref="CLI11_8hpp" startline="4000" endline="4006">CLI::OptionBase&lt; CRTP &gt;::group</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a53b46b96102830769cc02952392e782f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::detail::is_separator</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>is_separator</name>
+        <qualifiedname>CLI::detail::is_separator</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>check if a string is a container segment separator (empty or &quot;%%&quot;) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="366" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="366" bodyend="369"/>
+        <references refid="BasisParser_8cxx_1a4734d9b1ccef308c95a49557a14fd702" compoundref="BasisParser_8cxx" startline="14">sep</references>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ac89ce22647a9f697b800d9c47b9d956f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::detail::isalpha</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>isalpha</name>
+        <qualifiedname>CLI::detail::isalpha</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Verify that str consists of letters only. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="372" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="372" bodyend="374"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" compoundref="CLI11_8hpp" startline="3538" endline="3607">CLI::AsNumberWithUnit::AsNumberWithUnit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ae83709ec148057ec53df4383645727e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::detail::to_lower</definition>
+        <argsstring>(std::string str)</argsstring>
+        <name>to_lower</name>
+        <qualifiedname>CLI::detail::to_lower</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Return a lower case version of a string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="377" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="377" bodyend="382"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" compoundref="CLI11_8hpp" startline="3538" endline="3607">CLI::AsNumberWithUnit::AsNumberWithUnit</referencedby>
+        <referencedby refid="classCLI_1_1Option_1a6a87a518665bbddf17512edccd962ba3" compoundref="CLI11_8hpp" startline="4797" endline="4824">CLI::Option::check_name</referencedby>
+        <referencedby refid="classCLI_1_1App_1a3ba6eb33f3ee9cd1a126385fa44f2c16" compoundref="CLI11_8hpp" startline="6995" endline="7021">CLI::App::check_name</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a356b9c9cc904af2b0a918fd55e86cd9c" compoundref="CLI11_8hpp" startline="422" endline="450">find_member</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a1395eecde5af65b73e3670529df0e17b" compoundref="CLI11_8hpp" startline="8568" endline="8698">CLI::ConfigBase::from_config</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1ac14bea0d3812e39fd7ab0be7a4ee9a10" compoundref="CLI11_8hpp" startline="8493" endline="8515">generate_parents</referencedby>
+        <referencedby refid="namespaceCLI_1a0c52326d2681814c22aa1a93ce43375e" compoundref="CLI11_8hpp" startline="3500" endline="3500">CLI::ignore_case</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1a9e6b7c4c6eee50b11fe1ca785002db04" compoundref="CLI11_8hpp" startline="8940" endline="8980">CLI::Formatter::make_subcommands</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1af45abf683b881127298aa28b3c4e6cf5" compoundref="CLI11_8hpp" startline="1670" endline="1710">to_flag_value</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a5359a7a0e33366a12e15523b100f591a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::detail::remove_underscore</definition>
+        <argsstring>(std::string str)</argsstring>
+        <name>remove_underscore</name>
+        <qualifiedname>CLI::detail::remove_underscore</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>remove underscores from a string </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="385" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="385" bodyend="388"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="classCLI_1_1Option_1a6a87a518665bbddf17512edccd962ba3" compoundref="CLI11_8hpp" startline="4797" endline="4824">CLI::Option::check_name</referencedby>
+        <referencedby refid="classCLI_1_1App_1a3ba6eb33f3ee9cd1a126385fa44f2c16" compoundref="CLI11_8hpp" startline="6995" endline="7021">CLI::App::check_name</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a356b9c9cc904af2b0a918fd55e86cd9c" compoundref="CLI11_8hpp" startline="422" endline="450">find_member</referencedby>
+        <referencedby refid="namespaceCLI_1a111b6f05d21b9b84e7ba933ade79884c" compoundref="CLI11_8hpp" startline="3503" endline="3503">CLI::ignore_underscore</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ab39b1977d7375250cc57d90723cf1554" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::detail::find_and_replace</definition>
+        <argsstring>(std::string str, std::string from, std::string to)</argsstring>
+        <name>find_and_replace</name>
+        <qualifiedname>CLI::detail::find_and_replace</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+<para>Find and replace a substring with another substring. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="391" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="391" bodyend="401"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="classCLI_1_1Formatter_1ade54fd392e2c9f5364744dca82408e60" compoundref="CLI11_8hpp" startline="8988" endline="9006">CLI::Formatter::make_expanded</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a86c8be4c04334eea7717547ed6816533" compoundref="CLI11_8hpp" startline="3717" endline="3760">split_program_name</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a53c98c658b23ec5530f755118d632f90" compoundref="CLI11_8hpp" startline="464" endline="514">split_up</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ae89da9fa11d234a8bf504d6ec85133cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::detail::has_default_flag_values</definition>
+        <argsstring>(const std::string &amp;flags)</argsstring>
+        <name>has_default_flag_values</name>
+        <qualifiedname>CLI::detail::has_default_flag_values</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>check if the flag definitions has possible false flags </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="404" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="404" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a73b9afbe8a438ab30291d35f1f24c87c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::detail::remove_default_flag_values</definition>
+        <argsstring>(std::string &amp;flags)</argsstring>
+        <name>remove_default_flag_values</name>
+        <qualifiedname>CLI::detail::remove_default_flag_values</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="408" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="408" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a356b9c9cc904af2b0a918fd55e86cd9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ptrdiff_t</type>
+        <definition>std::ptrdiff_t CLI::detail::find_member</definition>
+        <argsstring>(std::string name, const std::vector&lt; std::string &gt; names, bool ignore_case=false, bool ignore_underscore=false)</argsstring>
+        <name>find_member</name>
+        <qualifiedname>CLI::detail::find_member</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt;</type>
+          <declname>names</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ignore_case</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ignore_underscore</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Check if a string is a member of a list of strings and optionally ignore case or ignore underscores. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="422" column="23" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="422" bodyend="450"/>
+        <references refid="namespaceCLI_1a0c52326d2681814c22aa1a93ce43375e" compoundref="CLI11_8hpp" startline="3500" endline="3500">CLI::ignore_case</references>
+        <references refid="namespaceCLI_1a111b6f05d21b9b84e7ba933ade79884c" compoundref="CLI11_8hpp" startline="3503" endline="3503">CLI::ignore_underscore</references>
+        <references refid="namespaceCLI_1_1detail_1a5359a7a0e33366a12e15523b100f591a" compoundref="CLI11_8hpp" startline="385" endline="388">remove_underscore</references>
+        <references refid="namespaceCLI_1_1detail_1ae83709ec148057ec53df4383645727e9" compoundref="CLI11_8hpp" startline="377" endline="382">to_lower</references>
+        <referencedby refid="classCLI_1_1Option_1a4d2329268bae134aa58e704fa61f4b57" compoundref="CLI11_8hpp" startline="4837" endline="4842">CLI::Option::check_fname</referencedby>
+        <referencedby refid="classCLI_1_1Option_1a481001137137be0d6a4e5998866d604a" compoundref="CLI11_8hpp" startline="4832" endline="4834">CLI::Option::check_lname</referencedby>
+        <referencedby refid="classCLI_1_1Option_1acfa639ba77f034615c7e66028da1fc3b" compoundref="CLI11_8hpp" startline="4827" endline="4829">CLI::Option::check_sname</referencedby>
+        <referencedby refid="classCLI_1_1Option_1a4eb6212ac30a0b139da52d258a3a1790" compoundref="CLI11_8hpp" startline="4846" endline="4887">CLI::Option::get_flag_value</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a59fbb1952b19838d8377ab714dc33e4c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Callable</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::find_and_modify</definition>
+        <argsstring>(std::string str, std::string trigger, Callable modify)</argsstring>
+        <name>find_and_modify</name>
+        <qualifiedname>CLI::detail::find_and_modify</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>trigger</declname>
+        </param>
+        <param>
+          <type>Callable</type>
+          <declname>modify</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Find a trigger string and call a modify callable function that takes the current string and starting position of the trigger and returns the position in the string to search for the next trigger string </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="454" column="32" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="454" bodyend="460"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="classCLI_1_1App_1a187f08c5326d89319802162e33faff4e" compoundref="CLI11_8hpp" startline="6442" endline="6467">CLI::App::parse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a53c98c658b23ec5530f755118d632f90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; CLI::detail::split_up</definition>
+        <argsstring>(std::string str, char delimiter=&apos;\0&apos;)</argsstring>
+        <name>split_up</name>
+        <qualifiedname>CLI::detail::split_up</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>delimiter</declname>
+          <defval>&apos;\0&apos;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Split a string &apos;&quot;one two&quot; &quot;three&quot;&apos; into &apos;one two&apos;, &apos;three&apos; Quote characters can be <lsquo/> <rsquo/> or " </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="464" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="464" bodyend="514"/>
+        <references refid="namespaceCLI_1_1detail_1ab39b1977d7375250cc57d90723cf1554" compoundref="CLI11_8hpp" startline="391" endline="401">find_and_replace</references>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <references refid="namespaceCLI_1_1detail_1a621323632158048f6168deacc432b838" compoundref="CLI11_8hpp" startline="256" endline="256">trim</references>
+        <referencedby refid="classCLI_1_1ConfigBase_1a1395eecde5af65b73e3670529df0e17b" compoundref="CLI11_8hpp" startline="8568" endline="8698">CLI::ConfigBase::from_config</referencedby>
+        <referencedby refid="classCLI_1_1App_1a187f08c5326d89319802162e33faff4e" compoundref="CLI11_8hpp" startline="6442" endline="6467">CLI::App::parse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ac24078bb1f5e51808a5001a47d2b40c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t CLI::detail::escape_detect</definition>
+        <argsstring>(std::string &amp;str, std::size_t offset)</argsstring>
+        <name>escape_detect</name>
+        <qualifiedname>CLI::detail::escape_detect</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function detects an equal or colon followed by an escaped quote after an argument then modifies the string to replace the equality with a space. This is needed to allow the split up function to work properly and is intended to be used with the find_and_modify function the return value is the offset+1 which is required by the find_and_modify function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="520" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="520" bodyend="530"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+        <referencedby refid="classCLI_1_1App_1a187f08c5326d89319802162e33faff4e" compoundref="CLI11_8hpp" startline="6442" endline="6467">CLI::App::parse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a087ee4080a89a2bd4a5444479af06543" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string &amp;</type>
+        <definition>std::string &amp; CLI::detail::add_quotes_if_needed</definition>
+        <argsstring>(std::string &amp;str)</argsstring>
+        <name>add_quotes_if_needed</name>
+        <qualifiedname>CLI::detail::add_quotes_if_needed</qualifiedname>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Add quotes if the string contains spaces. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="533" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="533" bodyend="542"/>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a65d0ac7d1e313c85e8027b8e7a82d29a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; is_istreamable&lt; T &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CLI::detail::from_stream</definition>
+        <argsstring>(const std::string &amp;istring, T &amp;obj)</argsstring>
+        <name>from_stream</name>
+        <qualifiedname>CLI::detail::from_stream</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>istring</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+<para>Templated operation to get a value from a stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1061" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1061" bodyend="1066"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; std::is_convertible&lt; T, std::string &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto CLI::detail::to_string</definition>
+        <argsstring>(T &amp;&amp;value) -&gt; decltype(std::forward&lt; T &gt;(value))</argsstring>
+        <name>to_string</name>
+        <qualifiedname>CLI::detail::to_string</qualifiedname>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Convert an object to a string (directly forward if this can become a string) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1124" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1124" bodyend="1126"/>
+        <referencedby refid="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" compoundref="CLI11_8hpp" startline="3538" endline="3607">CLI::AsNumberWithUnit::AsNumberWithUnit</referencedby>
+        <referencedby refid="classCLI_1_1Bound_1a2cb653c274038fbd5bd66d12bdc6f7f5" compoundref="CLI11_8hpp" startline="3131" endline="3149">CLI::Bound::Bound</referencedby>
+        <referencedby refid="classCLI_1_1CheckedTransformer_1af11e8936b4c0707ff94338908622e111" compoundref="CLI11_8hpp" startline="3438" endline="3488">CLI::CheckedTransformer::CheckedTransformer</referencedby>
+        <referencedby refid="classCLI_1_1Option_1ad54a6c2a78d84970977f84212a7a6a7b" compoundref="CLI11_8hpp" startline="5060" endline="5084">CLI::Option::default_val</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a320e031a5eb12297a140d2d6fc73362a" compoundref="CLI11_8hpp" startline="3182" endline="3200">generate_map</referencedby>
+        <referencedby refid="classsisi4s_1_1CcsdEquationOfMotionDavidson_1a418beaea4a3a3fe7cf890ba392a7d6ef" compoundref="CcsdEquationOfMotionDavidson_8cxx" startline="77" endline="495">sisi4s::CcsdEquationOfMotionDavidson::run</referencedby>
+        <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1ab3fa58fddbd938517fed45a270cbd77e" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="46" endline="383">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
+        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="46" endline="335">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
+        <referencedby refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1ade4d95a7d53a8b596e67d584e98d7f02" compoundref="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" startline="46" endline="241">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa::run</referencedby>
+        <referencedby refid="classsisi4s_1_1EigenSystemDavidsonMono_1ae374662234b193df4dbfadedbce69beb" compoundref="EigenSystemDavidson_8hpp" startline="149" endline="459">sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a4e5965e3013bad7369e985e2f2fd42f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; std::is_constructible&lt; std::string, T &gt;::value &amp;&amp;!std::is_convertible&lt; T, std::string &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::to_string</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>to_string</name>
+        <qualifiedname>CLI::detail::to_string</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Construct a string from the object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1132" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1132" bodyend="1134"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a9c070858740ce15aaecb1c5f04e21a09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt;!std::is_convertible&lt; std::string, T &gt;::value &amp;&amp;!std::is_constructible&lt; std::string, T &gt;::value &amp;&amp;is_ostreamable&lt; T &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::to_string</definition>
+        <argsstring>(T &amp;&amp;value)</argsstring>
+        <name>to_string</name>
+        <qualifiedname>CLI::detail::to_string</qualifiedname>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Convert an object to a string (streaming must be supported for that type) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>convert a readable container to a string</para>
+<para>If conversion is not supported, return an empty string (streaming is not supported for that type) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1141" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1141" bodyend="1145"/>
+        <referencedby refid="classCLI_1_1ArgumentMismatch_1a76c9d5822d9b0a2825a54a22e04e05ff" compoundref="CLI11_8hpp" startline="792" endline="795">CLI::ArgumentMismatch::AtLeast</referencedby>
+        <referencedby refid="classCLI_1_1ArgumentMismatch_1ae13fac165ff6b4fdc588d364dbaa85bf" compoundref="CLI11_8hpp" startline="796" endline="799">CLI::ArgumentMismatch::AtMost</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a1bcb244a7701fc68da3a863b58daf615" compoundref="CLI11_8hpp" startline="1177" endline="1179">checked_to_string</referencedby>
+        <referencedby refid="classCLI_1_1Option_1a4eb6212ac30a0b139da52d258a3a1790" compoundref="CLI11_8hpp" startline="4846" endline="4887">CLI::Option::get_flag_value</referencedby>
+        <referencedby refid="classCLI_1_1App_1a8bba3b53cf7f222aefd592457dd37508" compoundref="CLI11_8hpp" startline="6250" endline="6257">CLI::App::get_subcommand</referencedby>
+        <referencedby refid="classCLI_1_1App_1a4b5075daadca7c1f7aa1781bc3c9024f" compoundref="CLI11_8hpp" startline="6278" endline="6285">CLI::App::get_subcommand_ptr</referencedby>
+        <referencedby refid="classCLI_1_1Formatter_1a0f45c98dab9502d8241c24f9ea250ede" compoundref="CLI11_8hpp" startline="8840" endline="8864">CLI::Formatter::make_description</referencedby>
+        <referencedby refid="classCLI_1_1RequiredError_1a1283b251494d088d860a89bc2a8bce7f" compoundref="CLI11_8hpp" startline="756" endline="778">CLI::RequiredError::Option</referencedby>
+        <referencedby refid="classCLI_1_1RequiredError_1af31b1d4286ced90b386783e13f8421b2" compoundref="CLI11_8hpp" startline="748" endline="754">CLI::RequiredError::Subcommand</referencedby>
+        <referencedby refid="classCLI_1_1ArgumentMismatch_1ad98dd3c8796e1fa4c3e6e426aa28e766" compoundref="CLI11_8hpp" startline="800" endline="802">CLI::ArgumentMismatch::TypedAtLeast</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a9a74f119a795b25c40db74ffa21d3c2d" compoundref="CLI11_8hpp" startline="1191" endline="1193">value_string</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a1bcb244a7701fc68da3a863b58daf615" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T1</type>
+          </param>
+          <param>
+            <type>typename T2</type>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; std::is_same&lt; T1, T2 &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto CLI::detail::checked_to_string</definition>
+        <argsstring>(T &amp;&amp;value) -&gt; decltype(to_string(std::forward&lt; T &gt;(value)))</argsstring>
+        <name>checked_to_string</name>
+        <qualifiedname>CLI::detail::checked_to_string</qualifiedname>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>special template overload </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1177" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1177" bodyend="1179"/>
+        <references refid="namespaceCLI_1_1detail_1a9c070858740ce15aaecb1c5f04e21a09" compoundref="CLI11_8hpp" startline="1141" endline="1145">to_string</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ae396058c9ea28259db0c05376bf9c1de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T1</type>
+          </param>
+          <param>
+            <type>typename T2</type>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt;!std::is_same&lt; T1, T2 &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::checked_to_string</definition>
+        <argsstring>(T &amp;&amp;)</argsstring>
+        <name>checked_to_string</name>
+        <qualifiedname>CLI::detail::checked_to_string</qualifiedname>
+        <param>
+          <type>T &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>special template overload </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1186" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1186" bodyend="1188"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a9a74f119a795b25c40db74ffa21d3c2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::value_string</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>value_string</name>
+        <qualifiedname>CLI::detail::value_string</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>get a string as a convertible value for arithmetic types </para>
+        </briefdescription>
+        <detaileddescription>
+<para>get a string as a convertible value for enumerations </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1191" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1191" bodyend="1193"/>
+        <references refid="namespaceCLI_1_1detail_1a9c070858740ce15aaecb1c5f04e21a09" compoundref="CLI11_8hpp" startline="1141" endline="1145">to_string</references>
+        <referencedby refid="classCLI_1_1CheckedTransformer_1af11e8936b4c0707ff94338908622e111" compoundref="CLI11_8hpp" startline="3438" endline="3488">CLI::CheckedTransformer::CheckedTransformer</referencedby>
+        <referencedby refid="classCLI_1_1IsMember_1a778da19fa2481912c7fcfe6b3c8b453a" compoundref="CLI11_8hpp" startline="3311" endline="3351">CLI::IsMember::IsMember</referencedby>
+        <referencedby refid="classCLI_1_1Transformer_1aef311ee89c54f64e3e78651bd2db826c" compoundref="CLI11_8hpp" startline="3380" endline="3412">CLI::Transformer::Transformer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a130e048f492ea4619246e2f4cabaf4ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt;!std::is_enum&lt; T &gt;::value &amp;&amp;!std::is_arithmetic&lt; T &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto CLI::detail::value_string</definition>
+        <argsstring>(const T &amp;value) -&gt; decltype(to_string(value))</argsstring>
+        <name>value_string</name>
+        <qualifiedname>CLI::detail::value_string</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>for other types just use the regular to_string function </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1202" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1202" bodyend="1204"/>
+        <references refid="namespaceCLI_1_1detail_1a9c070858740ce15aaecb1c5f04e21a09" compoundref="CLI11_8hpp" startline="1141" endline="1145">to_string</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1af707c0c0e160b2bef8795044d0b021db" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>std::size_t</type>
+            <declname>I</declname>
+            <defname>I</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr std::enable_if&lt; I==<ref refid="structCLI_1_1detail_1_1type__count__base" kindref="compound">type_count_base</ref>&lt; T &gt;::value, int &gt;::type</type>
+        <definition>constexpr std::enable_if&lt; I==type_count_base&lt; T &gt;::value, int &gt;::type CLI::detail::tuple_type_size</definition>
+        <argsstring>()</argsstring>
+        <name>tuple_type_size</name>
+        <qualifiedname>CLI::detail::tuple_type_size</qualifiedname>
+        <briefdescription>
+<para>0 if the index &gt; tuple size </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1275" column="43" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1275" bodyend="1277"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a917380ad4b65ab0637c74807bda4a353" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CLI::detail::if</definition>
+        <argsstring>(str.back()==&apos;,&apos;) str.pop_back()</argsstring>
+        <name>if</name>
+        <qualifiedname>CLI::detail::if</qualifiedname>
+        <param>
+          <type>str.</type>
+          <declname>back</declname>
+          <array>()</array>
+          <defval>=&apos;,&apos;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1619" column="5" declfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" declline="1619" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ab0016b18143fb689dade45457359ba3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; classify_object&lt; T &gt;::value==object_category::tuple_value &amp;&amp;type_count_base&lt; T &gt;::value &gt;</type>
+            <defval>2</defval>
+          </param>
+          <param>
+            <type>detail::enabler</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::type_name</definition>
+        <argsstring>()</argsstring>
+        <name>type_name</name>
+        <qualifiedname>CLI::detail::type_name</qualifiedname>
+        <briefdescription>
+<para>Print type name for tuples with 2 or more elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1628" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1628" bodyend="1632"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a397d777acde370a61fdfc1022a97508b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; classify_object&lt; T &gt;::value==object_category::container_value||classify_object&lt; T &gt;::value==object_category::wrapper_value, detail::enabler &gt;</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::type_name</definition>
+        <argsstring>()</argsstring>
+        <name>type_name</name>
+        <qualifiedname>CLI::detail::type_name</qualifiedname>
+        <briefdescription>
+<para>get the type name for a type that has a value_type member </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1639" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1639" bodyend="1641"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1af6685ecdb07b40a316035bb4af9b02e6" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; std::is_unsigned&lt; T &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CLI::detail::integral_conversion</definition>
+        <argsstring>(const std::string &amp;input, T &amp;output) noexcept</argsstring>
+        <name>integral_conversion</name>
+        <qualifiedname>CLI::detail::integral_conversion</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+<para>Convert to an unsigned integral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert to a signed integral. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1647" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1647" bodyend="1655"/>
+        <referencedby refid="namespaceCLI_1_1detail_1af286727de86fce444325681379e2c511" compoundref="CLI11_8hpp" startline="1717" endline="1719">lexical_cast</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1af45abf683b881127298aa28b3c4e6cf5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::int64_t</type>
+        <definition>std::int64_t CLI::detail::to_flag_value</definition>
+        <argsstring>(std::string val)</argsstring>
+        <name>to_flag_value</name>
+        <qualifiedname>CLI::detail::to_flag_value</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Convert a flag into an integer value typically binary flags. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1670" column="21" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1670" bodyend="1710"/>
+        <references refid="namespaceCLI_1_1detail_1ae83709ec148057ec53df4383645727e9" compoundref="CLI11_8hpp" startline="377" endline="382">to_lower</references>
+        <referencedby refid="classCLI_1_1Option_1a4eb6212ac30a0b139da52d258a3a1790" compoundref="CLI11_8hpp" startline="4846" endline="4887">CLI::Option::get_flag_value</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1af286727de86fce444325681379e2c511" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; classify_object&lt; T &gt;::value==object_category::integral_value||classify_object&lt; T &gt;::value==object_category::unsigned_integral, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CLI::detail::lexical_cast</definition>
+        <argsstring>(const std::string &amp;input, T &amp;output)</argsstring>
+        <name>lexical_cast</name>
+        <qualifiedname>CLI::detail::lexical_cast</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+<para>Integer conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Non-string parsable by a stream.</para>
+<para>Non-string convertible from an int.</para>
+<para>Assignable from double.</para>
+<para>Assignable from int.</para>
+<para>Assignable from double or int.</para>
+<para>wrapper types</para>
+<para>Enumerations.</para>
+<para>String and similar constructible and copy assignment.</para>
+<para>String and similar direct assignment.</para>
+<para>complex</para>
+<para>Floats.</para>
+<para>Boolean values.</para>
+<para>char values </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1717" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1717" bodyend="1719"/>
+        <references refid="namespaceCLI_1_1detail_1af6685ecdb07b40a316035bb4af9b02e6" compoundref="CLI11_8hpp" startline="1647" endline="1655">integral_conversion</references>
+        <referencedby refid="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" compoundref="CLI11_8hpp" startline="3538" endline="3607">CLI::AsNumberWithUnit::AsNumberWithUnit</referencedby>
+        <referencedby refid="classCLI_1_1Bound_1a2cb653c274038fbd5bd66d12bdc6f7f5" compoundref="CLI11_8hpp" startline="3131" endline="3149">CLI::Bound::Bound</referencedby>
+        <referencedby refid="classCLI_1_1CheckedTransformer_1af11e8936b4c0707ff94338908622e111" compoundref="CLI11_8hpp" startline="3438" endline="3488">CLI::CheckedTransformer::CheckedTransformer</referencedby>
+        <referencedby refid="classCLI_1_1detail_1_1IPV4Validator_1aef7e0d0bb6a0e68a0dcb5434c4dbf657" compoundref="CLI11_8hpp" startline="3028" endline="3046">CLI::detail::IPV4Validator::IPV4Validator</referencedby>
+        <referencedby refid="classCLI_1_1IsMember_1a778da19fa2481912c7fcfe6b3c8b453a" compoundref="CLI11_8hpp" startline="3311" endline="3351">CLI::IsMember::IsMember</referencedby>
+        <referencedby refid="classCLI_1_1Transformer_1aef311ee89c54f64e3e78651bd2db826c" compoundref="CLI11_8hpp" startline="3380" endline="3412">CLI::Transformer::Transformer</referencedby>
+        <referencedby refid="classCLI_1_1TypeValidator_1a6775254809cf2c22a0194767d7b17633" compoundref="CLI11_8hpp" startline="3071" endline="3079">CLI::TypeValidator&lt; DesiredType &gt;::TypeValidator</referencedby>
+        <referencedby refid="classCLI_1_1App_1ae57cc5d74770a14633dbb17973255b14" compoundref="CLI11_8hpp" startline="6045" endline="6053">CLI::App::add_flag</referencedby>
+        <referencedby refid="classCLI_1_1App_1ab22c360f5d16d201329f260c927a1c9e" compoundref="CLI11_8hpp" startline="6076" endline="6089">CLI::App::add_flag_callback</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a2382165480a50710d41e421dd54079a7" compoundref="CLI11_8hpp" startline="8422" endline="8464">convert_arg_for_ini</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1ab6647281bf64bba7b07737297ae1895d" compoundref="CLI11_8hpp" startline="1941" endline="1943">lexical_assign</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ab6647281bf64bba7b07737297ae1895d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename AssignTo</type>
+          </param>
+          <param>
+            <type>typename ConvertTo</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; std::is_same&lt; AssignTo, ConvertTo &gt;::value &amp;&amp;(classify_object&lt; AssignTo &gt;::value==object_category::string_assignable||classify_object&lt; AssignTo &gt;::value==object_category::string_constructible), detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CLI::detail::lexical_assign</definition>
+        <argsstring>(const std::string &amp;input, AssignTo &amp;output)</argsstring>
+        <name>lexical_assign</name>
+        <qualifiedname>CLI::detail::lexical_assign</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>AssignTo &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+<para>Assign a value through lexical cast operations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assign a value from a lexical cast through constructing a value and move assigning it.</para>
+<para>Assign a value converted from a string in lexical cast to the output value directly.</para>
+<para>Assign a value through lexical cast operations Strings can be empty so we need to do a little different</para>
+<para>Assign a value through lexical cast operations for int compatible values mainly for atomic operations on some compilers </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1941" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1941" bodyend="1943"/>
+        <references refid="namespaceCLI_1_1detail_1af286727de86fce444325681379e2c511" compoundref="CLI11_8hpp" startline="1717" endline="1719">lexical_cast</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a1e6f215bcb727ff49f126ac3e1a13e40" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::detail::split_short</definition>
+        <argsstring>(const std::string &amp;current, std::string &amp;name, std::string &amp;rest)</argsstring>
+        <name>split_short</name>
+        <qualifiedname>CLI::detail::split_short</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>current</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>rest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2408" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2408" bodyend="2415"/>
+        <references refid="namespaceCLI_1_1detail_1a3a05d1129df69e88135e178137b1fd89" compoundref="CLI11_8hpp" startline="337" endline="337">valid_first_char</references>
+        <referencedby refid="classCLI_1_1App_1a73c9decd5eb2b0c7eeda63cc4bd5048e" compoundref="CLI11_8hpp" startline="7900" endline="8057">CLI::App::_parse_arg</referencedby>
+        <referencedby refid="classCLI_1_1App_1addab9d99dce6a2f96b5c8748d20ebea8" compoundref="CLI11_8hpp" startline="7196" endline="7218">CLI::App::_recognize</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a0de15b0ba0d12c9170d15693477808ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::detail::split_long</definition>
+        <argsstring>(const std::string &amp;current, std::string &amp;name, std::string &amp;value)</argsstring>
+        <name>split_long</name>
+        <qualifiedname>CLI::detail::split_long</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>current</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2418" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2418" bodyend="2431"/>
+        <references refid="namespaceCLI_1_1detail_1a3a05d1129df69e88135e178137b1fd89" compoundref="CLI11_8hpp" startline="337" endline="337">valid_first_char</references>
+        <referencedby refid="classCLI_1_1App_1a73c9decd5eb2b0c7eeda63cc4bd5048e" compoundref="CLI11_8hpp" startline="7900" endline="8057">CLI::App::_parse_arg</referencedby>
+        <referencedby refid="classCLI_1_1App_1addab9d99dce6a2f96b5c8748d20ebea8" compoundref="CLI11_8hpp" startline="7196" endline="7218">CLI::App::_recognize</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1aadbd2b5b93afe2f10427dd6e32639b0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CLI::detail::split_windows_style</definition>
+        <argsstring>(const std::string &amp;current, std::string &amp;name, std::string &amp;value)</argsstring>
+        <name>split_windows_style</name>
+        <qualifiedname>CLI::detail::split_windows_style</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>current</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2434" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2434" bodyend="2447"/>
+        <references refid="namespaceCLI_1_1detail_1a3a05d1129df69e88135e178137b1fd89" compoundref="CLI11_8hpp" startline="337" endline="337">valid_first_char</references>
+        <referencedby refid="classCLI_1_1App_1a73c9decd5eb2b0c7eeda63cc4bd5048e" compoundref="CLI11_8hpp" startline="7900" endline="8057">CLI::App::_parse_arg</referencedby>
+        <referencedby refid="classCLI_1_1App_1addab9d99dce6a2f96b5c8748d20ebea8" compoundref="CLI11_8hpp" startline="7196" endline="7218">CLI::App::_recognize</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a001565020c65971162bae8cc2ba7d3e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; CLI::detail::split_names</definition>
+        <argsstring>(std::string current)</argsstring>
+        <name>split_names</name>
+        <qualifiedname>CLI::detail::split_names</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>current</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2450" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2450" bodyend="2459"/>
+        <references refid="namespaceCLI_1_1detail_1a09bd3735d1104a453e5376a43140d5a8" compoundref="CLI11_8hpp" startline="295" endline="298">trim_copy</references>
+        <referencedby refid="classCLI_1_1Option_1a35e90f0fc810ccca676f7fa39bf4cc27" compoundref="CLI11_8hpp" startline="4254" endline="4257">CLI::Option::Option</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1aef5e2e24cdf5eb20ac37c5fdabec8f62" compoundref="CLI11_8hpp" startline="2462" endline="2486">get_default_flag_values</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1aef5e2e24cdf5eb20ac37c5fdabec8f62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt;</type>
+        <definition>std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; CLI::detail::get_default_flag_values</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>get_default_flag_values</name>
+        <qualifiedname>CLI::detail::get_default_flag_values</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>extract default flag values either {def} or starting with a ! </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2462" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2462" bodyend="2486"/>
+        <references refid="namespaceCLI_1_1detail_1a001565020c65971162bae8cc2ba7d3e1" compoundref="CLI11_8hpp" startline="2450" endline="2459">split_names</references>
+        <references refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" compoundref="CLI11_8hpp" startline="1621">str</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a2f845e274b0701ae700150328804badf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::tuple&lt; std::vector&lt; std::string &gt;, std::vector&lt; std::string &gt;, std::string &gt;</type>
+        <definition>std::tuple&lt; std::vector&lt; std::string &gt;, std::vector&lt; std::string &gt;, std::string &gt; CLI::detail::get_names</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;input)</argsstring>
+        <name>get_names</name>
+        <qualifiedname>CLI::detail::get_names</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Get a vector of short names, one of long names, and a single name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2490" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2490" bodyend="2522"/>
+        <references refid="classCLI_1_1BadNameString_1a4c84dfdba8d943ad494daead50c9097d" compoundref="CLI11_8hpp" startline="651" endline="651">CLI::BadNameString::BadLongName</references>
+        <references refid="classCLI_1_1BadNameString_1abd6369da75ae466d1eeef28bf764d6a7" compoundref="CLI11_8hpp" startline="652" endline="654">CLI::BadNameString::DashesOnly</references>
+        <references refid="classCLI_1_1BadNameString_1ac798ab322c49c3f922e325d269070c38" compoundref="CLI11_8hpp" startline="655" endline="657">CLI::BadNameString::MultiPositionalNames</references>
+        <references refid="classCLI_1_1BadNameString_1a5c63c850d783ad2b132085266269bcdc" compoundref="CLI11_8hpp" startline="650" endline="650">CLI::BadNameString::OneCharName</references>
+        <references refid="namespaceCLI_1_1detail_1a3a05d1129df69e88135e178137b1fd89" compoundref="CLI11_8hpp" startline="337" endline="337">valid_first_char</references>
+        <references refid="namespaceCLI_1_1detail_1a4274628d24f9e3fbc719284f1db263b8" compoundref="CLI11_8hpp" startline="348" endline="357">valid_name_string</references>
+        <referencedby refid="classCLI_1_1Option_1a35e90f0fc810ccca676f7fa39bf4cc27" compoundref="CLI11_8hpp" startline="4254" endline="4257">CLI::Option::Option</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a197be0b62b4d4deef0f5cac600a6b759" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespaceCLI_1_1detail_1a20a9a67e5f06ba0dc3f2ded2fed16f55" kindref="member">path_type</ref></type>
+        <definition>path_type CLI::detail::check_path</definition>
+        <argsstring>(const char *file) noexcept</argsstring>
+        <name>check_path</name>
+        <qualifiedname>CLI::detail::check_path</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>get the type of the path from a file name </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="2948" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="2948" bodyend="2961"/>
+        <references refid="namespaceCLI_1_1detail_1a20a9a67e5f06ba0dc3f2ded2fed16f55a8c7dd922ad47494fc02c388e12c00eac">file</references>
+        <referencedby refid="classCLI_1_1detail_1_1ExistingDirectoryValidator_1a75f836841c9a0b7f2eaccb32f25d59f4" compoundref="CLI11_8hpp" startline="2983" endline="2994">CLI::detail::ExistingDirectoryValidator::ExistingDirectoryValidator</referencedby>
+        <referencedby refid="classCLI_1_1detail_1_1ExistingFileValidator_1a93a39cd927968e7868fc2c145f2793e3" compoundref="CLI11_8hpp" startline="2966" endline="2977">CLI::detail::ExistingFileValidator::ExistingFileValidator</referencedby>
+        <referencedby refid="classCLI_1_1detail_1_1ExistingPathValidator_1ae0e2b8aca632fce3e902fcf99e2b8ad4" compoundref="CLI11_8hpp" startline="3000" endline="3008">CLI::detail::ExistingPathValidator::ExistingPathValidator</referencedby>
+        <referencedby refid="classCLI_1_1detail_1_1NonexistentPathValidator_1a1708ec7b5892f369b64be668870df677" compoundref="CLI11_8hpp" startline="3014" endline="3022">CLI::detail::NonexistentPathValidator::NonexistentPathValidator</referencedby>
+        <referencedby refid="classCLI_1_1App_1a7a15e5743d4a8eccac57955ed5a6a3b6" compoundref="CLI11_8hpp" startline="7223" endline="7253">CLI::App::_process_config_file</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a86c8be4c04334eea7717547ed6816533" compoundref="CLI11_8hpp" startline="3717" endline="3760">split_program_name</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a0c6cf48feae9d909d52e7b4c346cba29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt; is_copyable_ptr&lt; typename std::remove_reference&lt; T &gt;::type &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto CLI::detail::smart_deref</definition>
+        <argsstring>(T value) -&gt; decltype(*value)</argsstring>
+        <name>smart_deref</name>
+        <qualifiedname>CLI::detail::smart_deref</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3158" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3158" bodyend="3160"/>
+        <referencedby refid="classCLI_1_1CheckedTransformer_1af11e8936b4c0707ff94338908622e111" compoundref="CLI11_8hpp" startline="3438" endline="3488">CLI::CheckedTransformer::CheckedTransformer</referencedby>
+        <referencedby refid="classCLI_1_1IsMember_1a778da19fa2481912c7fcfe6b3c8b453a" compoundref="CLI11_8hpp" startline="3311" endline="3351">CLI::IsMember::IsMember</referencedby>
+        <referencedby refid="classCLI_1_1Transformer_1aef311ee89c54f64e3e78651bd2db826c" compoundref="CLI11_8hpp" startline="3380" endline="3412">CLI::Transformer::Transformer</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a320e031a5eb12297a140d2d6fc73362a" compoundref="CLI11_8hpp" startline="3182" endline="3200">generate_map</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1a75f66945cfe53b556e4c311f9a88a155" compoundref="CLI11_8hpp" startline="3169" endline="3179">generate_set</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1aa4b4a0a97c9b07110595765887647385" compoundref="CLI11_8hpp" startline="3213" endline="3220">search</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a2251a4a057c21bee2577c1ee670a848d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt;!is_copyable_ptr&lt; typename std::remove_reference&lt; T &gt;::type &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>std::remove_reference&lt; T &gt;::type &amp;</type>
+        <definition>std::remove_reference&lt; T &gt;::type &amp; CLI::detail::smart_deref</definition>
+        <argsstring>(T &amp;value)</argsstring>
+        <name>smart_deref</name>
+        <qualifiedname>CLI::detail::smart_deref</qualifiedname>
+        <param>
+          <type>T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3165" column="39" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3165" bodyend="3167"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a75f66945cfe53b556e4c311f9a88a155" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::generate_set</definition>
+        <argsstring>(const T &amp;set)</argsstring>
+        <name>generate_set</name>
+        <qualifiedname>CLI::detail::generate_set</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>set</declname>
+        </param>
+        <briefdescription>
+<para>Generate a string representation of a set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3169" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3169" bodyend="3179"/>
+        <references refid="structCLI_1_1detail_1_1pair__adaptor_1ab46a8b1544ac182fe15948fe94a75bd6" compoundref="CLI11_8hpp" startline="958" endline="960">CLI::detail::pair_adaptor&lt; T, _ &gt;::first</references>
+        <references refid="namespaceCLI_1_1detail_1ab351f13ec104e2cba19ec6baf4a552f6" compoundref="CLI11_8hpp" startline="181" endline="191">join</references>
+        <references refid="namespaceCLI_1_1detail_1a0c6cf48feae9d909d52e7b4c346cba29" compoundref="CLI11_8hpp" startline="3158" endline="3160">smart_deref</references>
+        <referencedby refid="classCLI_1_1IsMember_1a778da19fa2481912c7fcfe6b3c8b453a" compoundref="CLI11_8hpp" startline="3311" endline="3351">CLI::IsMember::IsMember</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a320e031a5eb12297a140d2d6fc73362a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string CLI::detail::generate_map</definition>
+        <argsstring>(const T &amp;map, bool key_only=false)</argsstring>
+        <name>generate_map</name>
+        <qualifiedname>CLI::detail::generate_map</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>key_only</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Generate a string representation of a map. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3182" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3182" bodyend="3200"/>
+        <references refid="namespaceCLI_1_1detail_1ab351f13ec104e2cba19ec6baf4a552f6" compoundref="CLI11_8hpp" startline="181" endline="191">join</references>
+        <references refid="namespaceCLI_1_1detail_1a0c6cf48feae9d909d52e7b4c346cba29" compoundref="CLI11_8hpp" startline="3158" endline="3160">smart_deref</references>
+        <references refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" compoundref="CLI11_8hpp" startline="1124" endline="1126">to_string</references>
+        <referencedby refid="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" compoundref="CLI11_8hpp" startline="3538" endline="3607">CLI::AsNumberWithUnit::AsNumberWithUnit</referencedby>
+        <referencedby refid="classCLI_1_1CheckedTransformer_1af11e8936b4c0707ff94338908622e111" compoundref="CLI11_8hpp" startline="3438" endline="3488">CLI::CheckedTransformer::CheckedTransformer</referencedby>
+        <referencedby refid="classCLI_1_1Transformer_1aef311ee89c54f64e3e78651bd2db826c" compoundref="CLI11_8hpp" startline="3380" endline="3412">CLI::Transformer::Transformer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1aa4b4a0a97c9b07110595765887647385" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename V</type>
+          </param>
+          <param>
+            <type>enable_if_t&lt;!has_find&lt; T, V &gt;::value, detail::enabler &gt;</type>
+            <defval>detail::dummy</defval>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto CLI::detail::search</definition>
+        <argsstring>(const T &amp;set, const V &amp;val) -&gt; std::pair&lt; bool, decltype(std::begin(detail::smart_deref(set)))&gt;</argsstring>
+        <name>search</name>
+        <qualifiedname>CLI::detail::search</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>set</declname>
+        </param>
+        <param>
+          <type>const V &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>A search function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A search function that uses the built in find function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3213" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3213" bodyend="3220"/>
+        <references refid="namespaceCLI_1_1detail_1a0c6cf48feae9d909d52e7b4c346cba29" compoundref="CLI11_8hpp" startline="3158" endline="3160">smart_deref</references>
+        <referencedby refid="classCLI_1_1CheckedTransformer_1af11e8936b4c0707ff94338908622e111" compoundref="CLI11_8hpp" startline="3438" endline="3488">CLI::CheckedTransformer::CheckedTransformer</referencedby>
+        <referencedby refid="classCLI_1_1IsMember_1a778da19fa2481912c7fcfe6b3c8b453a" compoundref="CLI11_8hpp" startline="3311" endline="3351">CLI::IsMember::IsMember</referencedby>
+        <referencedby refid="classCLI_1_1Transformer_1aef311ee89c54f64e3e78651bd2db826c" compoundref="CLI11_8hpp" startline="3380" endline="3412">CLI::Transformer::Transformer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1abcb81a667288aa66a4576a06b9322092" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename V</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto CLI::detail::search</definition>
+        <argsstring>(const T &amp;set, const V &amp;val, const std::function&lt; V(V)&gt; &amp;filter_function) -&gt; std::pair&lt; bool, decltype(std::begin(detail::smart_deref(set)))&gt;</argsstring>
+        <name>search</name>
+        <qualifiedname>CLI::detail::search</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>set</declname>
+        </param>
+        <param>
+          <type>const V &amp;</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type>const std::function&lt; V(V)&gt; &amp;</type>
+          <declname>filter_function</declname>
+        </param>
+        <briefdescription>
+<para>A search function with a filter function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3232" column="6" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3232" bodyend="3248"/>
+        <references refid="structCLI_1_1detail_1_1pair__adaptor_1ab46a8b1544ac182fe15948fe94a75bd6" compoundref="CLI11_8hpp" startline="958" endline="960">CLI::detail::pair_adaptor&lt; T, _ &gt;::first</references>
+        <references refid="namespaceCLI_1_1detail_1abcb81a667288aa66a4576a06b9322092" compoundref="CLI11_8hpp" startline="3232" endline="3248">search</references>
+        <references refid="namespaceCLI_1_1detail_1a0c6cf48feae9d909d52e7b4c346cba29" compoundref="CLI11_8hpp" startline="3158" endline="3160">smart_deref</references>
+        <referencedby refid="namespaceCLI_1_1detail_1abcb81a667288aa66a4576a06b9322092" compoundref="CLI11_8hpp" startline="3232" endline="3248">search</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a569135c6e266940a5f914698b9deef66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::enable_if&lt; std::is_signed&lt; T &gt;::value, T &gt;::type</type>
+        <definition>std::enable_if&lt; std::is_signed&lt; T &gt;::value, T &gt;::type CLI::detail::overflowCheck</definition>
+        <argsstring>(const T &amp;a, const T &amp;b)</argsstring>
+        <name>overflowCheck</name>
+        <qualifiedname>CLI::detail::overflowCheck</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Do a check for overflow on signed numbers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3255" column="40" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3255" bodyend="3261"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a5e6108f5b3abd0b0d42123cef8a0dac0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::enable_if&lt;!std::is_signed&lt; T &gt;::value, T &gt;::type</type>
+        <definition>std::enable_if&lt;!std::is_signed&lt; T &gt;::value, T &gt;::type CLI::detail::overflowCheck</definition>
+        <argsstring>(const T &amp;a, const T &amp;b)</argsstring>
+        <name>overflowCheck</name>
+        <qualifiedname>CLI::detail::overflowCheck</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Do a check for overflow on unsigned numbers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3264" column="40" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3264" bodyend="3266"/>
+        <referencedby refid="namespaceCLI_1_1detail_1a58ce723daebf6cd298565eb365d1b157" compoundref="CLI11_8hpp" startline="3269" endline="3282">checked_multiply</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a58ce723daebf6cd298565eb365d1b157" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::enable_if&lt; std::is_integral&lt; T &gt;::value, bool &gt;::type</type>
+        <definition>std::enable_if&lt; std::is_integral&lt; T &gt;::value, bool &gt;::type CLI::detail::checked_multiply</definition>
+        <argsstring>(T &amp;a, T b)</argsstring>
+        <name>checked_multiply</name>
+        <qualifiedname>CLI::detail::checked_multiply</qualifiedname>
+        <param>
+          <type>T &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Performs a *= b; if it doesn&apos;t cause integer overflow. Returns false otherwise. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3269" column="45" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3269" bodyend="3282"/>
+        <references refid="namespaceCLI_1_1detail_1a5e6108f5b3abd0b0d42123cef8a0dac0" compoundref="CLI11_8hpp" startline="3264" endline="3266">overflowCheck</references>
+        <referencedby refid="classCLI_1_1AsNumberWithUnit_1af5d2fc29cd92c1821e653a97f91b00cb" compoundref="CLI11_8hpp" startline="3538" endline="3607">CLI::AsNumberWithUnit::AsNumberWithUnit</referencedby>
+        <referencedby refid="classCLI_1_1App_1a73c9decd5eb2b0c7eeda63cc4bd5048e" compoundref="CLI11_8hpp" startline="7900" endline="8057">CLI::App::_parse_arg</referencedby>
+        <referencedby refid="classCLI_1_1Option_1a996b69fbb68a6d62829855816c30ed38" compoundref="CLI11_8hpp" startline="4646" endline="4649">CLI::Option::get_items_expected_max</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ab57caa0d0973cd0f50fa3ab21e4a7afc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::enable_if&lt; std::is_floating_point&lt; T &gt;::value, bool &gt;::type</type>
+        <definition>std::enable_if&lt; std::is_floating_point&lt; T &gt;::value, bool &gt;::type CLI::detail::checked_multiply</definition>
+        <argsstring>(T &amp;a, T b)</argsstring>
+        <name>checked_multiply</name>
+        <qualifiedname>CLI::detail::checked_multiply</qualifiedname>
+        <param>
+          <type>T &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Performs a *= b; if it doesn&apos;t equal infinity. Returns false otherwise. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3286" column="33" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3286" bodyend="3293"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a86c8be4c04334eea7717547ed6816533" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::pair&lt; std::string, std::string &gt;</type>
+        <definition>std::pair&lt; std::string, std::string &gt; CLI::detail::split_program_name</definition>
+        <argsstring>(std::string commandline)</argsstring>
+        <name>split_program_name</name>
+        <qualifiedname>CLI::detail::split_program_name</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>commandline</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Split a string into a program name and command line arguments the string is assumed to contain a file name followed by other arguments the return value contains is a pair with the first argument containing the program name and the second everything else. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="3717" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="3717" bodyend="3760"/>
+        <references refid="namespaceCLI_1_1detail_1a197be0b62b4d4deef0f5cac600a6b759" compoundref="CLI11_8hpp" startline="2948" endline="2961">check_path</references>
+        <references refid="namespaceCLI_1_1detail_1ab39b1977d7375250cc57d90723cf1554" compoundref="CLI11_8hpp" startline="391" endline="401">find_and_replace</references>
+        <references refid="namespaceCLI_1_1detail_1a64abd8fa0d1461f840198fb92e64ca44" compoundref="CLI11_8hpp" startline="234" endline="238">ltrim</references>
+        <references refid="namespaceCLI_1_1detail_1aec077653ff0ab1e6369072d9aeebdd93" compoundref="CLI11_8hpp" startline="248" endline="253">rtrim</references>
+        <references refid="namespaceCLI_1_1detail_1a0f03e175032897c99f1ae0e0f1cde27a" compoundref="CLI11_8hpp" startline="259" endline="259">trim</references>
+        <referencedby refid="classCLI_1_1App_1a187f08c5326d89319802162e33faff4e" compoundref="CLI11_8hpp" startline="6442" endline="6467">CLI::App::parse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a2382165480a50710d41e421dd54079a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::detail::convert_arg_for_ini</definition>
+        <argsstring>(const std::string &amp;arg, char stringQuote=&apos;&quot;&apos;, char characterQuote = &apos;\&apos;&apos;) </argsstring>
+        <name>convert_arg_for_ini</name>
+        <qualifiedname>CLI::detail::convert_arg_for_ini</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>stringQuote</declname>
+          <defval>&apos;&quot;&apos;</defval>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>characterQuote</declname>
+          <defval>&apos;\&apos;&apos;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8422" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8422" bodyend="8464"/>
+        <references refid="namespaceCLI_1_1detail_1af286727de86fce444325681379e2c511" compoundref="CLI11_8hpp" startline="1717" endline="1719">lexical_cast</references>
+        <referencedby refid="namespaceCLI_1_1detail_1a0b12b08c7bc02a39431b3da4f123e93d" compoundref="CLI11_8hpp" startline="8467" endline="8491">ini_join</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1a0b12b08c7bc02a39431b3da4f123e93d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string CLI::detail::ini_join</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;args, char sepChar=&apos;,&apos;, char arrayStart=&apos;[&apos;, char arrayEnd=&apos;]&apos;, char stringQuote=&apos;&quot;&apos;, char characterQuote = &apos;\&apos;&apos;) </argsstring>
+        <name>ini_join</name>
+        <qualifiedname>CLI::detail::ini_join</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>args</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>sepChar</declname>
+          <defval>&apos;,&apos;</defval>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>arrayStart</declname>
+          <defval>&apos;[&apos;</defval>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>arrayEnd</declname>
+          <defval>&apos;]&apos;</defval>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>stringQuote</declname>
+          <defval>&apos;&quot;&apos;</defval>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>characterQuote</declname>
+          <defval>&apos;\&apos;&apos;</defval>
+        </param>
+        <briefdescription>
+<para>Comma separated join, adds quotes if needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8467" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8467" bodyend="8491"/>
+        <references refid="namespaceCLI_1_1detail_1a2382165480a50710d41e421dd54079a7" compoundref="CLI11_8hpp" startline="8422" endline="8464">convert_arg_for_ini</references>
+        <referencedby refid="classCLI_1_1ConfigBase_1a5832f6f03212648fa08a8ff83bc9bc08" compoundref="CLI11_8hpp" startline="8701" endline="8789">CLI::ConfigBase::to_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1ac14bea0d3812e39fd7ab0be7a4ee9a10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; CLI::detail::generate_parents</definition>
+        <argsstring>(const std::string &amp;section, std::string &amp;name, char parentSeparator)</argsstring>
+        <name>generate_parents</name>
+        <qualifiedname>CLI::detail::generate_parents</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>section</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>parentSeparator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8493" column="20" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8493" bodyend="8515"/>
+        <references refid="namespaceCLI_1_1detail_1a00aa494e4005562328fae48564194d8f" compoundref="CLI11_8hpp" startline="268" endline="276">remove_quotes</references>
+        <references refid="namespaceCLI_1_1detail_1ac18d5005c4b8cfaabf73e46294eac82a" compoundref="CLI11_8hpp" startline="164" endline="178">split</references>
+        <references refid="namespaceCLI_1_1detail_1ae83709ec148057ec53df4383645727e9" compoundref="CLI11_8hpp" startline="377" endline="382">to_lower</references>
+        <referencedby refid="namespaceCLI_1_1detail_1af3c3c6f67c8fef09def5f328856dd154" compoundref="CLI11_8hpp" startline="8519" endline="8565">checkParentSegments</referencedby>
+        <referencedby refid="classCLI_1_1ConfigBase_1a1395eecde5af65b73e3670529df0e17b" compoundref="CLI11_8hpp" startline="8568" endline="8698">CLI::ConfigBase::from_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceCLI_1_1detail_1af3c3c6f67c8fef09def5f328856dd154" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CLI::detail::checkParentSegments</definition>
+        <argsstring>(std::vector&lt; ConfigItem &gt; &amp;output, const std::string &amp;currentSection, char parentSeparator)</argsstring>
+        <name>checkParentSegments</name>
+        <qualifiedname>CLI::detail::checkParentSegments</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="structCLI_1_1ConfigItem" kindref="compound">ConfigItem</ref> &gt; &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>currentSection</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>parentSeparator</declname>
+        </param>
+        <briefdescription>
+<para>assuming non default segments do a check on the close and open of the segments in a configItem structure </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="8519" column="1" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="8519" bodyend="8565"/>
+        <references refid="namespaceCLI_1_1detail_1ac14bea0d3812e39fd7ab0be7a4ee9a10" compoundref="CLI11_8hpp" startline="8493" endline="8515">generate_parents</references>
+        <referencedby refid="classCLI_1_1ConfigBase_1a1395eecde5af65b73e3670529df0e17b" compoundref="CLI11_8hpp" startline="8568" endline="8698">CLI::ConfigBase::from_config</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="158" column="1"/>
+  </compounddef>
+</doxygen>

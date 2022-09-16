@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Parsing_8hpp" kind="file" language="C++">
+    <compoundname>Parsing.hpp</compoundname>
+    <includes local="no">regex</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="BasisParser_8hpp" local="no">BasisParser.hpp</includedby>
+    <includedby refid="MoReader_8cxx" local="no">MoReader.cxx</includedby>
+    <includedby refid="MosParser_8hpp" local="no">MosParser.hpp</includedby>
+    <includedby refid="MovecsParser_8hpp" local="no">MovecsParser.hpp</includedby>
+    <includedby refid="Parsing_8cxx" local="no">Parsing.cxx</includedby>
+    <includedby refid="TensorSlicer_8cxx" local="no">TensorSlicer.cxx</includedby>
+    <includedby refid="XyzParser_8hpp" local="no">XyzParser.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Parsing.hpp</label>
+        <link refid="Parsing_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>regex</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>MoReader.cxx</label>
+        <link refid="MoReader_8cxx"/>
+      </node>
+      <node id="10">
+        <label>TensorSlicer.cxx</label>
+        <link refid="TensorSlicer_8cxx"/>
+      </node>
+      <node id="3">
+        <label>BasisParser.cxx</label>
+        <link refid="BasisParser_8cxx"/>
+      </node>
+      <node id="2">
+        <label>BasisParser.hpp</label>
+        <link refid="BasisParser_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>MovecsParser.cxx</label>
+        <link refid="MovecsParser_8cxx"/>
+      </node>
+      <node id="7">
+        <label>MovecsParser.hpp</label>
+        <link refid="MovecsParser_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>MosParser.cxx</label>
+        <link refid="MosParser_8cxx"/>
+      </node>
+      <node id="5">
+        <label>MosParser.hpp</label>
+        <link refid="MosParser_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Parsing.cxx</label>
+        <link refid="Parsing_8cxx"/>
+      </node>
+      <node id="1">
+        <label>Parsing.hpp</label>
+        <link refid="Parsing_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>XyzParser.hpp</label>
+        <link refid="XyzParser_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structpars_1_1Regex" prot="public">pars::Regex</innerclass>
+    <innernamespace refid="namespacepars">pars</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_ALEJANDROS_PARSING_LIBRAY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_ALEJANDROS_PARSING_LIBRAY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;regex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepars" kindref="compound">pars</ref><sp/>{</highlight></codeline>
+<codeline lineno="9" refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref><sp/>=<sp/>std::string;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="namespacepars_1a71161c67c796117fe14c18beb97b4de2" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref><sp/><ref refid="namespacepars_1a71161c67c796117fe14c18beb97b4de2" kindref="member">oneOrMore</ref>(</highlight><highlight class="stringliteral">&quot;+&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="12" refid="namespacepars_1a72111858645844fb868e50ec9690c1ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a72111858645844fb868e50ec9690c1ff" kindref="member">newline</ref>(</highlight><highlight class="stringliteral">&quot;\\n&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="13" refid="namespacepars_1ae39cb76e387922ec4333d99af4a120c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1ae39cb76e387922ec4333d99af4a120c3" kindref="member">anyChar</ref>(</highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="14" refid="namespacepars_1abe86e53e1495e1d56babbbf67a8aa49d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1abe86e53e1495e1d56babbbf67a8aa49d" kindref="member">tab</ref>(</highlight><highlight class="stringliteral">&quot;\\t&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="15" refid="namespacepars_1a6dd95daa3e3817a64dd5b6d4fff8d417" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a6dd95daa3e3817a64dd5b6d4fff8d417" kindref="member">anyOf</ref>(</highlight><highlight class="stringliteral">&quot;*&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="16" refid="namespacepars_1a832dec230b6f898fda8c99bf54323d18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a832dec230b6f898fda8c99bf54323d18" kindref="member">optional</ref>(</highlight><highlight class="stringliteral">&quot;?&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="17" refid="namespacepars_1a2fea7aec0ef4f24e5b90e588d96f4cc2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a2fea7aec0ef4f24e5b90e588d96f4cc2" kindref="member">eof</ref>(</highlight><highlight class="stringliteral">&quot;$&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18" refid="namespacepars_1abb95bf38925d724f1c91dc07e8d14363" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1abb95bf38925d724f1c91dc07e8d14363" kindref="member">orOf</ref>(</highlight><highlight class="stringliteral">&quot;|&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="19" refid="namespacepars_1a07f6fdb3a7f7f358ee1330f866f144db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a07f6fdb3a7f7f358ee1330f866f144db" kindref="member">bof</ref>(</highlight><highlight class="stringliteral">&quot;^&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>begin<sp/>of<sp/>line</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="namespacepars_1a1a44c61d2f6af6a405a812bca290ce82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a1a44c61d2f6af6a405a812bca290ce82" kindref="member">alnum</ref>(</highlight><highlight class="stringliteral">&quot;[[:alnum:]]&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>lowercase<sp/>letters,<sp/>uppercase<sp/>letters,<sp/>and<sp/>digits</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac" kindref="member">alpha</ref>(</highlight><highlight class="stringliteral">&quot;[[:alpha:]]&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>lowercase<sp/>letters<sp/>and<sp/>uppercase<sp/>letters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="namespacepars_1a1cce466723c30e92152dd3a9ede48df0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a1cce466723c30e92152dd3a9ede48df0" kindref="member">blank</ref>(</highlight><highlight class="stringliteral">&quot;[[:blank:]]&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>space<sp/>or<sp/>tab</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="namespacepars_1ab32da78e64f3d45d6b505c3f84de986c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1ab32da78e64f3d45d6b505c3f84de986c" kindref="member">cntrl</ref>(</highlight><highlight class="stringliteral">&quot;[[:cntrl:]]&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>the<sp/>file<sp/>format<sp/>escape<sp/>characters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="namespacepars_1aa92e8770e3c0ac070ea65b8e6f97dc65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1aa92e8770e3c0ac070ea65b8e6f97dc65" kindref="member">digit</ref>(</highlight><highlight class="stringliteral">&quot;[[:digit:]]&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>digits</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>lowercase<sp/>letters,<sp/>uppercase<sp/>letters,<sp/>digits,<sp/>and<sp/>punctuation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="namespacepars_1a434757a083535f72af16aa2fada294a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a434757a083535f72af16aa2fada294a1" kindref="member">graph</ref>(</highlight><highlight class="stringliteral">&quot;[[:graph:]]&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="27" refid="namespacepars_1a020cf386310223423b06c230ee658c13" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a020cf386310223423b06c230ee658c13" kindref="member">lower</ref>(</highlight><highlight class="stringliteral">&quot;[[:lower:]]&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>lowercase<sp/>letters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="namespacepars_1a8e4122733980cf5623d19f2ba68ccf12" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a8e4122733980cf5623d19f2ba68ccf12" kindref="member">upper</ref>(</highlight><highlight class="stringliteral">&quot;[[:upper:]]&quot;</highlight><highlight class="normal">)<sp/><sp/></highlight><highlight class="comment">//<sp/>uppercase<sp/>characters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>lowercase<sp/>letters,<sp/>uppercase<sp/>letters,<sp/>digits,<sp/>punctuation,<sp/>and<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="namespacepars_1ae984e547a97d4f7ad42367cc43206cf1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1ae984e547a97d4f7ad42367cc43206cf1" kindref="member">print</ref>(</highlight><highlight class="stringliteral">&quot;[[:print:]]&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="31" refid="namespacepars_1aea75776b14e4bfd141b0e8eff1fecacf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1aea75776b14e4bfd141b0e8eff1fecacf" kindref="member">punct</ref>(</highlight><highlight class="stringliteral">&quot;[[:punct:]]&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>punctuation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="namespacepars_1ab0cd9d42489ff12a2f9b9fb1c6feba11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1ab0cd9d42489ff12a2f9b9fb1c6feba11" kindref="member">space</ref>(</highlight><highlight class="stringliteral">&quot;[[:space:]]&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="namespacepars_1a49672d7ab0be76130761093f235ee31f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a49672d7ab0be76130761093f235ee31f" kindref="member">xdigit</ref>(</highlight><highlight class="stringliteral">&quot;[[:xdigit:]]&quot;</highlight><highlight class="normal">)<sp/><sp/></highlight><highlight class="comment">//<sp/>hexadecimal<sp/>digits<sp/>(with<sp/>upper<sp/>and<sp/>lower)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="namespacepars_1abd0d3ec23684cfcbfd53a65509861855" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1abd0d3ec23684cfcbfd53a65509861855" kindref="member">realNumber</ref>(</highlight><highlight class="stringliteral">&quot;[-eE+\\d.]+&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>real<sp/>number<sp/>TODO:<sp/>improve</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" refkind="member"><highlight class="normal"><sp/><sp/>std::function&lt;<ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>(<ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>)&gt;<sp/><ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">capture</ref>([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>&amp;<sp/>i)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal"><sp/>+<sp/>i<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">;<sp/>})</highlight></codeline>
+<codeline lineno="39" refid="namespacepars_1a56722e3642335e4646823756ceb888ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="namespacepars_1a56722e3642335e4646823756ceb888ca" kindref="member">group</ref>([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>&amp;<sp/>i)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;(?:&quot;</highlight><highlight class="normal"><sp/>+<sp/>i<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">;<sp/>})</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref><sp/><ref refid="namespacepars_1abf63d88b9d2972448bb8e2e8f3e86300" kindref="member">oneOf</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Str&gt;&amp;);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="structpars_1_1Regex" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structpars_1_1Regex" kindref="compound">Regex</ref><sp/>{</highlight></codeline>
+<codeline lineno="45" refid="structpars_1_1Regex_1abf07e459897fa63a5e8a60b114d9db31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="structpars_1_1Regex_1abf07e459897fa63a5e8a60b114d9db31" kindref="member">s</ref>;</highlight></codeline>
+<codeline lineno="46" refid="structpars_1_1Regex_1a79e1cba281b5ea7efe06b5de947037ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::regex<sp/><ref refid="structpars_1_1Regex_1a79e1cba281b5ea7efe06b5de947037ff" kindref="member">r</ref>;</highlight></codeline>
+<codeline lineno="47" refid="structpars_1_1Regex_1a7647ffaed79773ca21321d89826ae92d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structpars_1_1Regex_1a7647ffaed79773ca21321d89826ae92d" kindref="member">Regex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>s_):<sp/><ref refid="structpars_1_1Regex_1abf07e459897fa63a5e8a60b114d9db31" kindref="member">s</ref>(s_),<sp/><ref refid="structpars_1_1Regex_1a79e1cba281b5ea7efe06b5de947037ff" kindref="member">r</ref>(s_)<sp/>{}</highlight></codeline>
+<codeline lineno="48" refid="structpars_1_1Regex_1a4fbc92e97f81f0af9e1a6eb42c906d06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structpars_1_1Regex_1a4fbc92e97f81f0af9e1a6eb42c906d06" kindref="member">Regex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;s_):<sp/><ref refid="structpars_1_1Regex_1abf07e459897fa63a5e8a60b114d9db31" kindref="member">s</ref>(s_),<sp/><ref refid="structpars_1_1Regex_1a79e1cba281b5ea7efe06b5de947037ff" kindref="member">r</ref>(s_)<sp/>{}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="52" refid="namespacepars_1a1d1569c27bdb1bd91a7e8205da521b14" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;F&gt;<sp/><ref refid="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" kindref="member">parseVector</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/Parsing.hpp"/>
+  </compounddef>
+</doxygen>

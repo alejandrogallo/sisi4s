@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1IterativePseudoInverse" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::IterativePseudoInverse</compoundname>
+    <includes refid="IterativePseudoInverse_8hpp" local="no">IterativePseudoInverse.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1IterativePseudoInverse_1adf3f5d360eecebe0008c65c8d819d104" prot="protected" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt;</type>
+        <definition>CTF::Tensor&lt;F&gt; sisi4s::IterativePseudoInverse&lt; F &gt;::matrix</definition>
+        <argsstring></argsstring>
+        <name>matrix</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::matrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="26" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1IterativePseudoInverse_1a088d8bd21cd6d007c8d06d58dcad3a70" prot="protected" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt;</type>
+        <definition>CTF::Tensor&lt;F&gt; sisi4s::IterativePseudoInverse&lt; F &gt;::square</definition>
+        <argsstring></argsstring>
+        <name>square</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::square</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="27" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1IterativePseudoInverse_1a0e03ed26e0d132a8ccd733a76ea9657f" prot="protected" static="no" mutable="no">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt;</type>
+        <definition>CTF::Tensor&lt;F&gt; sisi4s::IterativePseudoInverse&lt; F &gt;::inverse</definition>
+        <argsstring></argsstring>
+        <name>inverse</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::inverse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="27" column="24" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1IterativePseudoInverse_1a5ef764d97fb2f95f0cf11065fb1bedde" prot="protected" static="no" mutable="no">
+        <type>F</type>
+        <definition>F sisi4s::IterativePseudoInverse&lt; F &gt;::alpha</definition>
+        <argsstring></argsstring>
+        <name>alpha</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::alpha</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="28" column="7" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1IterativePseudoInverse_1a322434ac65e06514eb48cc0b38c9b2d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IterativePseudoInverse::IterativePseudoInverse</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; const &amp;matrix, F accuracy=1e-10)</argsstring>
+        <name>IterativePseudoInverse</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::IterativePseudoInverse</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; const &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>accuracy</declname>
+          <defval>1e-10</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="13" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.cxx" bodystart="16" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1IterativePseudoInverse_1a1549bac3e662a0bdf1cf6ab25608dff4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+        <definition>Tensor&lt; F &gt; &amp; IterativePseudoInverse::get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::get</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="14" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.cxx" bodystart="138" bodyend="140"/>
+        <references refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" compoundref="DiisMixer_8cxx" startline="16" endline="32">inverse</references>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a59e8ee0fafdcbcd77c58dacc579b2b90" compoundref="CoulombVertexDecomposition_8cxx" startline="373" endline="390">sisi4s::CoulombVertexDecomposition::computeOutgoingPi</referencedby>
+        <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a1998a3534a76b40320d273d324b2470e" compoundref="IterativePseudoInverse_8cxx" startline="164" endline="197">sisi4s::IterativePseudoInverse&lt; F &gt;::test</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classsisi4s_1_1IterativePseudoInverse_1a1998a3534a76b40320d273d324b2470e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>template void sisi4s::IterativePseudoInverse&lt; F &gt;::test</definition>
+        <argsstring>(CTF::World *world)</argsstring>
+        <name>test</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::test</qualifiedname>
+        <param>
+          <type>CTF::World *</type>
+          <declname>world</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="16" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.cxx" bodystart="164" bodyend="197"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+        <references refid="classsisi4s_1_1IterativePseudoInverse_1a1549bac3e662a0bdf1cf6ab25608dff4" compoundref="IterativePseudoInverse_8cxx" startline="138" endline="140">sisi4s::IterativePseudoInverse&lt; F &gt;::get</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="namespacesisi4s_1ad79e22ef8ca23c70e5d0edcd8dd1532c" compoundref="RandomTensor_8hpp" startline="53" endline="64">sisi4s::setRandomTensor</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1IterativePseudoInverse_1a96558b1a79ac7e0bcdeb64127855241e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IterativePseudoInverse::iterate</definition>
+        <argsstring>(F accuracy=1e-10)</argsstring>
+        <name>iterate</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::iterate</qualifiedname>
+        <param>
+          <type>F</type>
+          <declname>accuracy</declname>
+          <defval>1e-10</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="18" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.cxx" bodystart="65" bodyend="104"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="namespacepars_1aeacba27dd76dc4dea5604c90285023ac">pars::alpha</references>
+        <references refid="namespacesisi4s_1a065b48a575e1c9dd06da30d0aed8c7c1" compoundref="ComplexTensor_8cxx" startline="142" endline="146">sisi4s::conjugate</references>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+        <references refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" compoundref="DiisMixer_8cxx" startline="16" endline="32">inverse</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1IterativePseudoInverse_1a206b9b605d859aec9f8abbc15e919ed1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IterativePseudoInverse::iterateQuadratically</definition>
+        <argsstring>(F accuracy=1e-10)</argsstring>
+        <name>iterateQuadratically</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::iterateQuadratically</qualifiedname>
+        <param>
+          <type>F</type>
+          <declname>accuracy</declname>
+          <defval>1e-10</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="19" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.cxx" bodystart="107" bodyend="135"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+        <references refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" compoundref="DiisMixer_8cxx" startline="16" endline="32">inverse</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="classsisi4s_1_1IterativePseudoInverse_1af6511bbc35933ac7db7171776d3c8053" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void sisi4s::IterativePseudoInverse&lt; F &gt;::setRandom</definition>
+        <argsstring>(F &amp;value, std::mt19937 &amp;random, std::normal_distribution&lt; F &gt; &amp;normalDistribution)</argsstring>
+        <name>setRandom</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::setRandom</qualifiedname>
+        <param>
+          <type>F &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>std::mt19937 &amp;</type>
+          <declname>random</declname>
+        </param>
+        <param>
+          <type>std::normal_distribution&lt; F &gt; &amp;</type>
+          <declname>normalDistribution</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="20" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1IterativePseudoInverse_1a78e7ff75a3667a5c1f704410d2ccc288" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IterativePseudoInverse::generateHilbertMatrix</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; &amp;matrix)</argsstring>
+        <name>generateHilbertMatrix</name>
+        <qualifiedname>sisi4s::IterativePseudoInverse::generateHilbertMatrix</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="24" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.cxx" bodystart="150" bodyend="161"/>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::IterativePseudoInverse&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1IterativePseudoInverse"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" line="11" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/IterativePseudoInverse.hpp" bodystart="11" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1a5ef764d97fb2f95f0cf11065fb1bedde" prot="protected" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>alpha</name></member>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1a78e7ff75a3667a5c1f704410d2ccc288" prot="protected" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>generateHilbertMatrix</name></member>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1a1549bac3e662a0bdf1cf6ab25608dff4" prot="public" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>get</name></member>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1a0e03ed26e0d132a8ccd733a76ea9657f" prot="protected" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>inverse</name></member>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1a96558b1a79ac7e0bcdeb64127855241e" prot="protected" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>iterate</name></member>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1a206b9b605d859aec9f8abbc15e919ed1" prot="protected" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>iterateQuadratically</name></member>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1a322434ac65e06514eb48cc0b38c9b2d8" prot="public" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>IterativePseudoInverse</name></member>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1adf3f5d360eecebe0008c65c8d819d104" prot="protected" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>matrix</name></member>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1af6511bbc35933ac7db7171776d3c8053" prot="protected" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>setRandom</name></member>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1a088d8bd21cd6d007c8d06d58dcad3a70" prot="protected" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>square</name></member>
+      <member refid="classsisi4s_1_1IterativePseudoInverse_1a1998a3534a76b40320d273d324b2470e" prot="public" virt="non-virtual"><scope>sisi4s::IterativePseudoInverse</scope><name>test</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="PseudoInverseHermitianSvd_8cxx" kind="file" language="C++">
+    <compoundname>PseudoInverseHermitianSvd.cxx</compoundname>
+    <includes refid="PseudoInverseHermitianSvd_8hpp" local="no">math/PseudoInverseHermitianSvd.hpp</includes>
+    <includes refid="MathFunctions_8hpp" local="no">math/MathFunctions.hpp</includes>
+    <includes refid="ComplexTensor_8hpp" local="no">math/ComplexTensor.hpp</includes>
+    <includes refid="BlacsWorld_8hpp" local="no">util/BlacsWorld.hpp</includes>
+    <includes refid="ScaLapackMatrix_8hpp" local="no">util/ScaLapackMatrix.hpp</includes>
+    <includes refid="ScaLapackHermitianEigenSystemDc_8hpp" local="no">util/ScaLapackHermitianEigenSystemDc.hpp</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes local="no">memory</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>extern/ScaLapack.hpp</label>
+        <link refid="ScaLapack_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>math/ComplexTensor.hpp</label>
+        <link refid="ComplexTensor_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>PseudoInverseHermitianSvd.cxx</label>
+        <link refid="PseudoInverseHermitianSvd_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>math/PseudoInverseHermitianSvd.hpp</label>
+        <link refid="PseudoInverseHermitianSvd_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>util/BlacsWorld.hpp</label>
+        <link refid="BlacsWorld_8hpp"/>
+      </node>
+      <node id="21">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>util/ScaLapackHermitianEigenSystemDc.hpp</label>
+        <link refid="ScaLapackHermitianEigenSystemDc_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>util/ScaLapackMatrix.hpp</label>
+        <link refid="ScaLapackMatrix_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>util/SourceLocation.hpp</label>
+        <link refid="SourceLocation_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cmath</label>
+      </node>
+      <node id="6">
+        <label>complex</label>
+      </node>
+      <node id="14">
+        <label>cstdint</label>
+      </node>
+      <node id="22">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="13">
+        <label>ctime</label>
+      </node>
+      <node id="19">
+        <label>fstream</label>
+      </node>
+      <node id="15">
+        <label>iomanip</label>
+      </node>
+      <node id="17">
+        <label>iostream</label>
+      </node>
+      <node id="31">
+        <label>memory</label>
+      </node>
+      <node id="5">
+        <label>ostream</label>
+      </node>
+      <node id="23">
+        <label>random</label>
+      </node>
+      <node id="10">
+        <label>sstream</label>
+      </node>
+      <node id="18">
+        <label>streambuf</label>
+      </node>
+      <node id="9">
+        <label>string</label>
+      </node>
+      <node id="20">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="PseudoInverseHermitianSvd_8hpp" kindref="compound">math/PseudoInverseHermitianSvd.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MathFunctions_8hpp" kindref="compound">math/MathFunctions.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ComplexTensor_8hpp" kindref="compound">math/ComplexTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="BlacsWorld_8hpp" kindref="compound">util/BlacsWorld.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapackMatrix_8hpp" kindref="compound">util/ScaLapackMatrix.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapackHermitianEigenSystemDc_8hpp" kindref="compound">util/ScaLapackHermitianEigenSystemDc.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">CTF;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::make_shared;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="17" refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a802882a537b9187871ab0dda73ae4b29" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1PseudoInverseHermitianSvd" kindref="compound">PseudoInverseHermitianSvd&lt;F&gt;::PseudoInverseHermitianSvd</ref>(</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>Matrix&lt;F&gt;<sp/>&amp;A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">):</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(A)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>CTF<sp/>matrices<sp/>into<sp/>ScaLapack<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>blacsWorld(A.wrld-&gt;rank,<sp/>A.wrld-&gt;np);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>scaA(make_shared&lt;<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref>&gt;(A,<sp/>&amp;blacsWorld));</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>scaU(make_shared&lt;<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref>&gt;(*scaA));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>solve<sp/>hermitian<sp/>eigenvectors<sp/>problem<sp/>using<sp/>ScaLapack</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc" kindref="compound">ScaLapackHermitianEigenSystemDc&lt;F&gt;</ref><sp/>eigenSystem(scaA,<sp/>scaU);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*lambda(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[scaA-&gt;lens[0]]);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>eigenSystem.solve(lambda);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Vector" kindref="compound">Vector&lt;F&gt;</ref><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a63b52edf34a3f352a74a7e8ccc95750d" kindref="member">D</ref>(A.lens[0],<sp/>*A.wrld,<sp/></highlight><highlight class="stringliteral">&quot;Lambda&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localLambdaCount(A.wrld-&gt;rank<sp/>==<sp/>0<sp/>?<sp/>A.lens[0]<sp/>:<sp/>0);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*lambdaValues(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>[localLambdaCount]);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>int64_t<sp/>*lambdaIndices(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[localLambdaCount]);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>smallLambda(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>i(0);<sp/>i<sp/>&lt;<sp/>localLambdaCount;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>lambdaIndices[i]<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>smallLambda<sp/>|=<sp/><ref refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" kindref="member">std::abs</ref>(lambda[i])<sp/>&lt;<sp/>1e3*epsilon;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>lambdaValues[i]<sp/>=<sp/>(<ref refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" kindref="member">std::abs</ref>(lambda[i])<sp/>&gt;<sp/>epsilon)<sp/>?<sp/>1/lambda[i]<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(smallLambda)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;PseudoInverseHermitianSvd&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;WARNING:<sp/>Very<sp/>small<sp/>eigenvalues<sp/>occurred&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a63b52edf34a3f352a74a7e8ccc95750d" kindref="member">D</ref>.write(localLambdaCount,<sp/>lambdaIndices,<sp/>lambdaValues);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>Matrix&lt;F&gt;<sp/>U(A);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>scaU-&gt;write(U);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>conjU(U);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a065b48a575e1c9dd06da30d0aed8c7c1" kindref="member">conjugate</ref>(conjU);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>lambdaIndices;<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>lambdaValues;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>lambda;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>compose<sp/>the<sp/>pseudo<sp/>inverse<sp/>from<sp/>S<sp/>and<sp/>the<sp/>unitary<sp/>transforms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a935f62789ac01a8da13ebc048e8972a6" kindref="member">inverse</ref>[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>=<sp/>U[</highlight><highlight class="stringliteral">&quot;ik&quot;</highlight><highlight class="normal">]<sp/>*<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a63b52edf34a3f352a74a7e8ccc95750d" kindref="member">D</ref>[</highlight><highlight class="stringliteral">&quot;k&quot;</highlight><highlight class="normal">]<sp/>*<sp/>conjU[</highlight><highlight class="stringliteral">&quot;jk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="59" refid="classsisi4s_1_1PseudoInverseHermitianSvd_1ae3640b9b174409b6b5718045a24cc753" refkind="member"><highlight class="normal">Matrix&lt;F&gt;<sp/>&amp;<ref refid="classsisi4s_1_1PseudoInverseHermitianSvd_1ae3640b9b174409b6b5718045a24cc753" kindref="member">PseudoInverseHermitianSvd&lt;F&gt;::get</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><ref refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a802882a537b9187871ab0dda73ae4b29" kindref="member">PseudoInverseHermitianSvd&lt;sisi4s::Float64&gt;::PseudoInverseHermitianSvd</ref>(</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>Matrix&lt;sisi4s::Float64&gt;<sp/>&amp;matrix,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">Matrix&lt;sisi4s::Float64&gt;<sp/>&amp;<ref refid="classsisi4s_1_1PseudoInverseHermitianSvd_1ae3640b9b174409b6b5718045a24cc753" kindref="member">PseudoInverseHermitianSvd&lt;sisi4s::Float64&gt;::get</ref>();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><ref refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a802882a537b9187871ab0dda73ae4b29" kindref="member">PseudoInverseHermitianSvd&lt;sisi4s::Complex64&gt;::PseudoInverseHermitianSvd</ref>(</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>Matrix&lt;sisi4s::Complex64&gt;<sp/>&amp;matrix,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">Matrix&lt;sisi4s::Complex64&gt;<sp/>&amp;<ref refid="classsisi4s_1_1PseudoInverseHermitianSvd_1ae3640b9b174409b6b5718045a24cc753" kindref="member">PseudoInverseHermitianSvd&lt;sisi4s::Complex64&gt;::get</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="80" refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a634cf1b84317485331402fb97285ddc5" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a634cf1b84317485331402fb97285ddc5" kindref="member">DryPseudoInverseHermitianSvd&lt;F&gt;::DryPseudoInverseHermitianSvd</ref>(</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;F&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix_</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">):</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(matrix_)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="88" refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a20b16bbf7672a641dfdfc42ddba39d98" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;F&gt;</ref><sp/>&amp;<ref refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a20b16bbf7672a641dfdfc42ddba39d98" kindref="member">DryPseudoInverseHermitianSvd&lt;F&gt;::get</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a634cf1b84317485331402fb97285ddc5" kindref="member">DryPseudoInverseHermitianSvd&lt;sisi4s::Float64&gt;::DryPseudoInverseHermitianSvd</ref>(</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;sisi4s::Float64&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;sisi4s::Float64&gt;</ref><sp/>&amp;<ref refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a20b16bbf7672a641dfdfc42ddba39d98" kindref="member">DryPseudoInverseHermitianSvd&lt;sisi4s::Float64&gt;::get</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a634cf1b84317485331402fb97285ddc5" kindref="member">DryPseudoInverseHermitianSvd&lt;sisi4s::Complex64&gt;::DryPseudoInverseHermitianSvd</ref>(</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;sisi4s::Complex64&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;sisi4s::Complex64&gt;</ref><sp/>&amp;<ref refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a20b16bbf7672a641dfdfc42ddba39d98" kindref="member">DryPseudoInverseHermitianSvd&lt;sisi4s::Complex64&gt;::get</ref>();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.cxx"/>
+  </compounddef>
+</doxygen>

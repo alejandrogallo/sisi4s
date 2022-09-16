@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1PseudoInverseHermitianSvd" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::PseudoInverseHermitianSvd</compoundname>
+    <includes refid="PseudoInverseHermitianSvd_8hpp" local="no">PseudoInverseHermitianSvd.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1PseudoInverseHermitianSvd_1a935f62789ac01a8da13ebc048e8972a6" prot="protected" static="no" mutable="no">
+        <type>CTF::Matrix&lt; F &gt;</type>
+        <definition>CTF::Matrix&lt;F&gt; sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::inverse</definition>
+        <argsstring></argsstring>
+        <name>inverse</name>
+        <qualifiedname>sisi4s::PseudoInverseHermitianSvd::inverse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" line="20" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" bodystart="20" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a802882a537b9187871ab0dda73ae4b29" compoundref="PseudoInverseHermitianSvd_8cxx" startline="17" endline="56">sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::PseudoInverseHermitianSvd</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1PseudoInverseHermitianSvd_1a802882a537b9187871ab0dda73ae4b29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>template PseudoInverseHermitianSvd::PseudoInverseHermitianSvd</definition>
+        <argsstring>(CTF::Matrix&lt; F &gt; &amp;matrix, double epsilon=1-12)</argsstring>
+        <name>PseudoInverseHermitianSvd</name>
+        <qualifiedname>sisi4s::PseudoInverseHermitianSvd::PseudoInverseHermitianSvd</qualifiedname>
+        <param>
+          <type>CTF::Matrix&lt; F &gt; &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>epsilon</declname>
+          <defval>1-12</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" line="14" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.cxx" bodystart="17" bodyend="56"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="namespacesisi4s_1a065b48a575e1c9dd06da30d0aed8c7c1" compoundref="ComplexTensor_8cxx" startline="142" endline="146">sisi4s::conjugate</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a63b52edf34a3f352a74a7e8ccc95750d" compoundref="AngularMomentum_8hpp" startline="8">am::D</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+        <references refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a935f62789ac01a8da13ebc048e8972a6" compoundref="PseudoInverseHermitianSvd_8hpp" startline="20">sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::inverse</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1PseudoInverseHermitianSvd_1ae3640b9b174409b6b5718045a24cc753" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CTF::Matrix&lt; F &gt; &amp;</type>
+        <definition>template Matrix&lt; sisi4s::Complex64 &gt; &amp; PseudoInverseHermitianSvd::get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <qualifiedname>sisi4s::PseudoInverseHermitianSvd::get</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" line="17" column="17" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.cxx" bodystart="59" bodyend="61"/>
+        <references refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" compoundref="DiisMixer_8cxx" startline="16" endline="32">inverse</references>
+        <referencedby refid="classsisi4s_1_1PseudoInverse_1a4902449aaca951a940f64fcdf4422a24" compoundref="PseudoInverse_8cxx" startline="20" endline="28">sisi4s::PseudoInverse::run</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::PseudoInverseHermitianSvd&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1PseudoInverseHermitianSvd"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" line="12" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/math/PseudoInverseHermitianSvd.hpp" bodystart="12" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1PseudoInverseHermitianSvd_1ae3640b9b174409b6b5718045a24cc753" prot="public" virt="non-virtual"><scope>sisi4s::PseudoInverseHermitianSvd</scope><name>get</name></member>
+      <member refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a935f62789ac01a8da13ebc048e8972a6" prot="protected" virt="non-virtual"><scope>sisi4s::PseudoInverseHermitianSvd</scope><name>inverse</name></member>
+      <member refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a802882a537b9187871ab0dda73ae4b29" prot="public" virt="non-virtual"><scope>sisi4s::PseudoInverseHermitianSvd</scope><name>PseudoInverseHermitianSvd</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

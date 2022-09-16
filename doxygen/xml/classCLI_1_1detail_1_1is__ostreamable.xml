@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classCLI_1_1detail_1_1is__ostreamable" kind="class" language="C++" prot="public">
+    <compoundname>CLI::detail::is_ostreamable</compoundname>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename S</type>
+        <defval>std::ostringstream</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classCLI_1_1detail_1_1is__ostreamable_1a113a31466024f86e78eb6f3b3b705bbc" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool CLI::detail::is_ostreamable&lt; T, S &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>CLI::detail::is_ostreamable::value</qualifiedname>
+        <initializer>= decltype(test&lt;T, S&gt;(0))::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1034" column="27" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1034" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classCLI_1_1detail_1_1is__ostreamable_1ab6db6082fb033143d5a66281ffd4d20e" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TT</type>
+          </param>
+          <param>
+            <type>typename SS</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::is_ostreamable&lt; T, S &gt;::test</definition>
+        <argsstring>(int) -&gt; decltype(std::declval&lt; SS &amp; &gt;()&lt;&lt; std::declval&lt; TT &gt;(), std::true_type())</argsstring>
+        <name>test</name>
+        <qualifiedname>CLI::detail::is_ostreamable::test</qualifiedname>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1029" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classCLI_1_1detail_1_1is__ostreamable_1a654c7c3e32593df84ef6403173eec2f9" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename</type>
+          </param>
+          <param>
+            <type>typename</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::is_ostreamable&lt; T, S &gt;::test</definition>
+        <argsstring>(...) -&gt; std::false_type</argsstring>
+        <name>test</name>
+        <qualifiedname>CLI::detail::is_ostreamable::test</qualifiedname>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1031" column="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::detail::is_ostreamable&lt; T, S &gt;</label>
+        <link refid="classCLI_1_1detail_1_1is__ostreamable"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="1027" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="1027" bodyend="1035"/>
+    <listofallmembers>
+      <member refid="classCLI_1_1detail_1_1is__ostreamable_1ab6db6082fb033143d5a66281ffd4d20e" prot="private" virt="non-virtual"><scope>CLI::detail::is_ostreamable</scope><name>test</name></member>
+      <member refid="classCLI_1_1detail_1_1is__ostreamable_1a654c7c3e32593df84ef6403173eec2f9" prot="private" virt="non-virtual"><scope>CLI::detail::is_ostreamable</scope><name>test</name></member>
+      <member refid="classCLI_1_1detail_1_1is__ostreamable_1a113a31466024f86e78eb6f3b3b705bbc" prot="public" virt="non-virtual"><scope>CLI::detail::is_ostreamable</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

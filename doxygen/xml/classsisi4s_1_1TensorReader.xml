@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1TensorReader" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::TensorReader</compoundname>
+    <basecompoundref refid="classsisi4s_1_1Algorithm" prot="public" virt="non-virtual">sisi4s::Algorithm</basecompoundref>
+    <includes refid="TensorReader_8hpp" local="no">TensorReader.hpp</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1TensorReader_1af8efef52f7ecb84190952809d7bdcc30" prot="public" static="yes" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">AlgorithmRegistrar</ref>&lt; <ref refid="classsisi4s_1_1TensorReader" kindref="compound">TensorReader</ref> &gt;</type>
+        <definition>AlgorithmRegistrar&lt; TensorReader &gt; sisi4s::TensorReader::registrar_</definition>
+        <argsstring></argsstring>
+        <name>registrar_</name>
+        <qualifiedname>sisi4s::TensorReader::registrar_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.hpp" line="10" column="72" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.hpp" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1TensorReader_1aefd52d0fa9c22cb4f96bc7dce7073885" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string sisi4s::TensorReader::getName</definition>
+        <argsstring>()</argsstring>
+        <name>getName</name>
+        <qualifiedname>sisi4s::TensorReader::getName</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1ad88a11462d7efa2cd6ee1dd2884d7a68">getName</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.hpp" line="10" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.hpp" bodystart="10" bodyend="10"/>
+        <referencedby refid="classsisi4s_1_1TensorReader_1a8c763af7429934cf13a90448360868fb" compoundref="TensorReader_8cxx" startline="27" endline="40">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1TensorReader_1a16d2bde80287b0e270b21813eceacc0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::TensorReader::TensorReader</definition>
+        <argsstring>(std::vector&lt; Argument &gt; const &amp;argumentList)</argsstring>
+        <name>TensorReader</name>
+        <qualifiedname>sisi4s::TensorReader::TensorReader</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref> &gt; const &amp;</type>
+          <declname>argumentList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.hpp" line="11" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.cxx" bodystart="21" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1TensorReader_1aeca06bec4bea67321447aba761c68da3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>sisi4s::TensorReader::~TensorReader</definition>
+        <argsstring>()</argsstring>
+        <name>~TensorReader</name>
+        <qualifiedname>sisi4s::TensorReader::~TensorReader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.hpp" line="14" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.cxx" bodystart="24" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1TensorReader_1a8c763af7429934cf13a90448360868fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void sisi4s::TensorReader::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>sisi4s::TensorReader::run</qualifiedname>
+        <reimplements refid="classsisi4s_1_1Algorithm_1aacd7ce50628f515d50d178213db8b320">run</reimplements>
+        <briefdescription>
+<para>Reads real tensor data into the tensor <ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.hpp" line="18" column="18" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.cxx" bodystart="27" bodyend="40"/>
+        <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="38" endline="54">sisi4s::Algorithm::getArgumentData</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1TensorReader_1aefd52d0fa9c22cb4f96bc7dce7073885" compoundref="TensorReader_8hpp" startline="10" endline="10">getName</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" compoundref="Sisi4s_8hpp" startline="34">sisi4s::Sisi4s::world</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1TensorReader_1ad0249ec92061f12cc888a8e276ed7a3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>Tensor&lt; F &gt; * sisi4s::TensorReader::read</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>read</name>
+        <qualifiedname>sisi4s::TensorReader::read</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.cxx" line="43" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.cxx" bodystart="43" bodyend="67"/>
+        <references refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" compoundref="Emitter_8hpp" startline="31">EMIT</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">sisi4s::Algorithm::getTextArgument</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1TensorReader_1a06cb6bf3bdbf7025405c64360a7054e9" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; *</type>
+        <definition>CTF::Tensor&lt; F &gt; * sisi4s::TensorReader::read</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>read</name>
+        <qualifiedname>sisi4s::TensorReader::read</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.hpp" line="21" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::TensorReader</label>
+        <link refid="classsisi4s_1_1TensorReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>sisi4s::AlgorithmRegistrar&lt; sisi4s::TensorReader &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+        <childnode refid="5" relation="template-instance">
+          <edgelabel>&lt; sisi4s::TensorReader &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::Algorithm</label>
+        <link refid="classsisi4s_1_1Algorithm"/>
+      </node>
+      <node id="4">
+        <label>sisi4s::AlgorithmFactory</label>
+        <link refid="classsisi4s_1_1AlgorithmFactory"/>
+      </node>
+      <node id="5">
+        <label>sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;</label>
+        <link refid="classsisi4s_1_1AlgorithmRegistrar"/>
+        <childnode refid="4" relation="protected-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::TensorReader</label>
+        <link refid="classsisi4s_1_1TensorReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+registrar_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.hpp" line="8" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/TensorReader.hpp" bodystart="8" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>Algorithm</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>allocateContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>allocatedTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" prot="protected" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>arguments</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>checkArgumentsOrDie</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de" prot="public" virt="virtual"><scope>sisi4s::TensorReader</scope><name>dryRun</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getArgumentData</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getBooleanArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a407d54400b4b652a5b1b8d79b9c57175" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getContainerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getGivenArgumentNames</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a98c473d7c36973fb5dbd29b6dce3f09e" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1TensorReader_1aefd52d0fa9c22cb4f96bc7dce7073885" prot="public" virt="virtual"><scope>sisi4s::TensorReader</scope><name>getName</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aedbdee78ab6ed424c34121218b6cdf68" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getRealArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" prot="protected" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getRealArgumentFromInteger</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a89e59623f1c238a871a4fba19371be7d" prot="protected" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getRealArgumentFromTensor</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getTensorArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aa2eef3800acfc99b1653503b1b2d830f" prot="protected" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getTensorArgumentFromReal</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>getTextArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1TensorReader_1a06cb6bf3bdbf7025405c64360a7054e9" prot="protected" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>read</name></member>
+      <member refid="classsisi4s_1_1TensorReader_1ad0249ec92061f12cc888a8e276ed7a3a" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>read</name></member>
+      <member refid="classsisi4s_1_1TensorReader_1af8efef52f7ecb84190952809d7bdcc30" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>registrar_</name></member>
+      <member refid="classsisi4s_1_1TensorReader_1a8c763af7429934cf13a90448360868fb" prot="public" virt="virtual"><scope>sisi4s::TensorReader</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>setIntegerArgument</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>setRealArgument</name></member>
+      <member refid="classsisi4s_1_1TensorReader_1a16d2bde80287b0e270b21813eceacc0c" prot="public" virt="non-virtual"><scope>sisi4s::TensorReader</scope><name>TensorReader</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" prot="public" virt="virtual"><scope>sisi4s::TensorReader</scope><name>~Algorithm</name></member>
+      <member refid="classsisi4s_1_1TensorReader_1aeca06bec4bea67321447aba761c68da3" prot="public" virt="virtual"><scope>sisi4s::TensorReader</scope><name>~TensorReader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

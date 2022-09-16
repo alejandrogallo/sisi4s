@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1InputFileParser" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>sisi4s::InputFileParser</compoundname>
+    <includes refid="Parser_8hpp" local="no">Parser.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="namespacesisi4s_1af30d29af55f9e24682fe564ead1a2628" kindref="member">InputFileFormat</ref></type>
+        <declname>fmt</declname>
+        <defname>fmt</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classsisi4s_1_1InputFileParser_1acf8d611a20d83a27868a599712d319d9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>InputFileParser::InputFileParser</definition>
+        <argsstring>(std::string const &amp;fileName)</argsstring>
+        <name>InputFileParser</name>
+        <qualifiedname>sisi4s::InputFileParser::InputFileParser</qualifiedname>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new interpreter for a <ref refid="namespacesisi4s" kindref="compound">sisi4s</ref> file of the given name. Upon creation the file will be openend but not yet read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/Parser.hpp" line="28" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/Parser.cxx" bodystart="15" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1InputFileParser_1af3b56d8e7e706fa892dae46399c07c6a" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::vector&lt; <ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref> * &gt;</type>
+        <definition>std::vector&lt; Algorithm * &gt; InputFileParser::parse</definition>
+        <argsstring>()=0</argsstring>
+        <name>parse</name>
+        <qualifiedname>sisi4s::InputFileParser::parse</qualifiedname>
+        <briefdescription>
+<para>Parses the <ref refid="namespacesisi4s" kindref="compound">sisi4s</ref> algorithms contained in the stream. This method must be called with the same stream content on all processes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/Parser.hpp" line="34" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/Parser.cxx" bodystart="22" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Parser for <ref refid="namespacesisi4s" kindref="compound">sisi4s</ref> files specifying the calculation plan, i.e. which algorithms to use in which order. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::InputFileParser&lt; fmt &gt;</label>
+        <link refid="classsisi4s_1_1InputFileParser"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/Parser.hpp" line="22" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/Parser.hpp" bodystart="22" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1InputFileParser_1acf8d611a20d83a27868a599712d319d9" prot="private" virt="non-virtual"><scope>sisi4s::InputFileParser</scope><name>InputFileParser</name></member>
+      <member refid="classsisi4s_1_1InputFileParser_1af3b56d8e7e706fa892dae46399c07c6a" prot="private" virt="pure-virtual"><scope>sisi4s::InputFileParser</scope><name>parse</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

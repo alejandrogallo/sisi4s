@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1ScaLapackMatrix" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::ScaLapackMatrix</compoundname>
+    <basecompoundref refid="classsisi4s_1_1ScaLapackDescriptor" prot="public" virt="non-virtual">sisi4s::ScaLapackDescriptor</basecompoundref>
+    <includes refid="ScaLapackMatrix_8hpp" local="no">ScaLapackMatrix.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+        <defval>double</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1ScaLapackMatrix_1a7297e85d9e8d57a48c6c73b2ea43c6f2" prot="protected" static="no" mutable="no">
+        <type><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref> *</type>
+        <definition>BlacsWorld* sisi4s::ScaLapackMatrix&lt; F &gt;::blacsWorld</definition>
+        <argsstring></argsstring>
+        <name>blacsWorld</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::blacsWorld</qualifiedname>
+        <briefdescription>
+<para>The <ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref> specifying the processor grid this matrix is distributed over. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="101" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" prot="protected" static="no" mutable="no">
+        <type>int64_t *</type>
+        <definition>int64_t* sisi4s::ScaLapackMatrix&lt; F &gt;::localIndices</definition>
+        <argsstring></argsstring>
+        <name>localIndices</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::localIndices</qualifiedname>
+        <briefdescription>
+<para>The global indices within the local matrix elements owned by this process. The global index of an element in row i and in column j of the full matrix is (i + lens[0]*j). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="107" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" bodystart="107" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ScaLapackMatrix_1a58e0e5fe1a17f29513b62956994a9dad" compoundref="ScaLapackMatrix_8cxx" startline="94" endline="113">sisi4s::ScaLapackMatrix&lt; complex &gt;::ScaLapackMatrix</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" prot="protected" static="no" mutable="no">
+        <type>F *</type>
+        <definition>F* sisi4s::ScaLapackMatrix&lt; F &gt;::localValues</definition>
+        <argsstring></argsstring>
+        <name>localValues</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::localValues</qualifiedname>
+        <briefdescription>
+<para>The block data owned by this process. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="112" column="7" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" bodystart="112" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1ScaLapackMatrix_1a58e0e5fe1a17f29513b62956994a9dad" compoundref="ScaLapackMatrix_8cxx" startline="94" endline="113">sisi4s::ScaLapackMatrix&lt; complex &gt;::ScaLapackMatrix</referencedby>
+        <referencedby refid="classsisi4s_1_1ScaLapackMatrix_1acb1fdd23f443bdaf48e0ee6a53e00c97" compoundref="ScaLapackMatrix_8hpp" startline="65" endline="67">sisi4s::ScaLapackMatrix&lt; F &gt;::getLocalValues</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ScaLapackMatrix::ScaLapackMatrix</definition>
+        <argsstring>(ScaLapackMatrix&lt; F &gt; &amp;A)</argsstring>
+        <name>ScaLapackMatrix</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::ScaLapackMatrix</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix</ref>&lt; F &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+<para>Copies the content ScaLapack matrix inheriting its distribution and its <ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="29" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.cxx" bodystart="36" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ScaLapackMatrix_1af72b9014d2b6581ef50923a100a5e82d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ScaLapackMatrix::ScaLapackMatrix</definition>
+        <argsstring>(CTF::Matrix&lt; F &gt; &amp;A, BlacsWorld *blacsWorld, int blockSize=64)</argsstring>
+        <name>ScaLapackMatrix</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::ScaLapackMatrix</qualifiedname>
+        <param>
+          <type>CTF::Matrix&lt; F &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref> *</type>
+          <declname>blacsWorld</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>blockSize</declname>
+          <defval>64</defval>
+        </param>
+        <briefdescription>
+<para>Construct a ScaLapack matrix from the content of a CTF::Matrix in the given <ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="34" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.cxx" bodystart="58" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ScaLapackMatrix_1a58e0e5fe1a17f29513b62956994a9dad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ScaLapackMatrix::ScaLapackMatrix</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; &amp;A, int lens[2], BlacsWorld *blacsWorld, int blockSize=64)</argsstring>
+        <name>ScaLapackMatrix</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::ScaLapackMatrix</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lens</declname>
+          <array>[2]</array>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref> *</type>
+          <declname>blacsWorld</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>blockSize</declname>
+          <defval>64</defval>
+        </param>
+        <briefdescription>
+<para>Contructs a ScaLapack matrix from the matricized content of a CTF::Tensor in the given <ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref> by copying each entry of the tensor into the matrix with the same respective global index, i.e.: matrix[I + lens[0]*J] = A[i + A.lens[0]*j + A.lens[0]*A.lens[1]*k + ...] The caller is responsible for compatible shapes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="44" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.cxx" bodystart="94" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>template ScaLapackMatrix::~ScaLapackMatrix</definition>
+        <argsstring>()</argsstring>
+        <name>~ScaLapackMatrix</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::~ScaLapackMatrix</qualifiedname>
+        <briefdescription>
+<para>Frees all resources associated with the ScaLapack matrix on all processes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="51" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.cxx" bodystart="127" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ScaLapackMatrix_1a5dfe0272ad96e2f06ad062f970268331" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const int *</type>
+        <definition>const int * sisi4s::ScaLapackMatrix&lt; F &gt;::getDescriptor</definition>
+        <argsstring>() const</argsstring>
+        <name>getDescriptor</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::getDescriptor</qualifiedname>
+        <briefdescription>
+<para>Returns a pointer to a ScaLapack matrix descriptor, i.e. the first 9 integers of the class <ref refid="classsisi4s_1_1ScaLapackDescriptor" kindref="compound">ScaLapackDescriptor</ref>, which are in the format ScaLapack routines expect it. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="58" column="15" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" bodystart="58" bodyend="60"/>
+        <references refid="classsisi4s_1_1ScaLapackDescriptor_1a636d1b470ac27033f5dcb38a5f06e54c" compoundref="ScaLapackMatrix_8hpp" startline="12">sisi4s::ScaLapackDescriptor::dataType</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ScaLapackMatrix_1acb1fdd23f443bdaf48e0ee6a53e00c97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const F *</type>
+        <definition>const F * sisi4s::ScaLapackMatrix&lt; F &gt;::getLocalValues</definition>
+        <argsstring>() const</argsstring>
+        <name>getLocalValues</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::getLocalValues</qualifiedname>
+        <briefdescription>
+<para>Returns the pointer to the block data owned by this process. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="65" column="13" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" bodystart="65" bodyend="67"/>
+        <references refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" compoundref="ScaLapackMatrix_8hpp" startline="112">sisi4s::ScaLapackMatrix&lt; F &gt;::localValues</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ScaLapackMatrix_1aceb1286acf884889bbf1888b35bc55da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>F *</type>
+        <definition>F * sisi4s::ScaLapackMatrix&lt; F &gt;::getLocalValues</definition>
+        <argsstring>()</argsstring>
+        <name>getLocalValues</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::getLocalValues</qualifiedname>
+        <briefdescription>
+<para>Returns the pointer to the mutable block data owned by this process. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="73" column="7" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" bodystart="73" bodyend="75"/>
+        <references refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" compoundref="ScaLapackMatrix_8hpp" startline="112">sisi4s::ScaLapackMatrix&lt; F &gt;::localValues</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaLapackMatrix::write</definition>
+        <argsstring>(CTF::Matrix&lt; F &gt; &amp;A)</argsstring>
+        <name>write</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::write</qualifiedname>
+        <param>
+          <type>CTF::Matrix&lt; F &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+<para>Writes the content of the <ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix</ref> to the given CTF::Matrix. The CTF::Matrix must be allocated in the correct shape. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="81" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.cxx" bodystart="140" bodyend="144"/>
+        <references refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" compoundref="ScaLapackMatrix_8cxx" startline="140" endline="144">sisi4s::ScaLapackMatrix&lt; F &gt;::write</references>
+        <referencedby refid="classsisi4s_1_1PseudoInverseSvd_1a1ca24b0fb0e2ac3b36718b5c68c95c42" compoundref="PseudoInverseSvd_8cxx" startline="14" endline="60">sisi4s::PseudoInverseSvd&lt; F &gt;::PseudoInverseSvd</referencedby>
+        <referencedby refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" compoundref="ScaLapackMatrix_8cxx" startline="140" endline="144">sisi4s::ScaLapackMatrix&lt; F &gt;::write</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1ScaLapackMatrix_1af2708b0e5317ca33ce4bd970eaf910e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScaLapackMatrix::write</definition>
+        <argsstring>(CTF::Tensor&lt; F &gt; &amp;A)</argsstring>
+        <name>write</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::write</qualifiedname>
+        <param>
+          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+<para>Writes the matricized content of the <ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix</ref> to the given CTF::Tensor, i.e.: A[i + A.lens[0]*j + A.lens[0]*A.lens[1]*k + ...] = matrix[I + lens[0]*J] The caller is responsible for compatible shapes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="88" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.cxx" bodystart="147" bodyend="151"/>
+        <references refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" compoundref="ScaLapackMatrix_8cxx" startline="140" endline="144">sisi4s::ScaLapackMatrix&lt; F &gt;::write</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ScaLapackMatrix::getGlobalIndex</definition>
+        <argsstring>(int localIndex, int dimension)</argsstring>
+        <name>getGlobalIndex</name>
+        <qualifiedname>sisi4s::ScaLapackMatrix::getGlobalIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>localIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dimension</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves the global row or column index within the full matrix from the given row or column index within the local block. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="95" column="9" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.cxx" bodystart="166" bodyend="173"/>
+        <references refid="ScaLapack_8hpp_1ac4325b5dd5fe6fc506aa35d8ca1df48c">indxl2g_</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>sisi4s::ScaLapackMatrix&lt; complex &gt;</label>
+        <link refid="classsisi4s_1_1ScaLapackMatrix"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; complex &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>sisi4s::ScaLapackMatrix&lt; double &gt;</label>
+        <link refid="classsisi4s_1_1ScaLapackMatrix"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; double &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sisi4s::ScaLapackDescriptor</label>
+        <link refid="classsisi4s_1_1ScaLapackDescriptor"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::ScaLapackMatrix&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1ScaLapackMatrix"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>sisi4s::BlacsWorld</label>
+        <link refid="classsisi4s_1_1BlacsWorld"/>
+      </node>
+      <node id="2">
+        <label>sisi4s::ScaLapackDescriptor</label>
+        <link refid="classsisi4s_1_1ScaLapackDescriptor"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::ScaLapackMatrix&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1ScaLapackMatrix"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>#blacsWorld</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" line="23" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/ScaLapackMatrix.hpp" bodystart="23" bodyend="113"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1ScaLapackDescriptor_1a9c6b43e51a9a6e200859a81cc73483e6" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>blacsContext</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1a7297e85d9e8d57a48c6c73b2ea43c6f2" prot="protected" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>blacsWorld</name></member>
+      <member refid="classsisi4s_1_1ScaLapackDescriptor_1a86ec3dd5c5d2e042de5711e5c21c3a74" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>blockSize</name></member>
+      <member refid="classsisi4s_1_1ScaLapackDescriptor_1a636d1b470ac27033f5dcb38a5f06e54c" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>dataType</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1a5dfe0272ad96e2f06ad062f970268331" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>getDescriptor</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" prot="protected" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>getGlobalIndex</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1acb1fdd23f443bdaf48e0ee6a53e00c97" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>getLocalValues</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1aceb1286acf884889bbf1888b35bc55da" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>getLocalValues</name></member>
+      <member refid="classsisi4s_1_1ScaLapackDescriptor_1ab895910fe3d39be1e9d529d58cece907" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>lens</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" prot="protected" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>localIndices</name></member>
+      <member refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>localLens</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" prot="protected" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>localValues</name></member>
+      <member refid="classsisi4s_1_1ScaLapackDescriptor_1ab46d8269b88725c3b2e18f1b97a505a2" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>offset</name></member>
+      <member refid="classsisi4s_1_1ScaLapackDescriptor_1a504c665e16ce96bf271d4adf81d3634f" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>ScaLapackDescriptor</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>ScaLapackMatrix</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1af72b9014d2b6581ef50923a100a5e82d" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>ScaLapackMatrix</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1a58e0e5fe1a17f29513b62956994a9dad" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>ScaLapackMatrix</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>write</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1af2708b0e5317ca33ce4bd970eaf910e8" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>write</name></member>
+      <member refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" prot="public" virt="non-virtual"><scope>sisi4s::ScaLapackMatrix</scope><name>~ScaLapackMatrix</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

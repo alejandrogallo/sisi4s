@@ -1,0 +1,469 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="FockMatrixFromCoulombIntegrals_8cxx" kind="file" language="C++">
+    <compoundname>FockMatrixFromCoulombIntegrals.cxx</compoundname>
+    <includes refid="FockMatrixFromCoulombIntegrals_8hpp" local="no">algorithms/FockMatrixFromCoulombIntegrals.hpp</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includes refid="MathFunctions_8hpp" local="no">math/MathFunctions.hpp</includes>
+    <includes local="no">algorithm</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes refid="Emitter_8hpp" local="no">util/Emitter.hpp</includes>
+    <includes refid="SharedPointer_8hpp" local="no">util/SharedPointer.hpp</includes>
+    <includes refid="Integrals_8hpp" local="no">util/Integrals.hpp</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">numeric</includes>
+    <includes local="no">map</includes>
+    <includes local="no">set</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>FockMatrixFromCoulombIntegrals.cxx</label>
+        <link refid="FockMatrixFromCoulombIntegrals_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/FockMatrixFromCoulombIntegrals.hpp</label>
+        <link refid="FockMatrixFromCoulombIntegrals_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>util/Emitter.hpp</label>
+        <link refid="Emitter_8hpp"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>util/Integrals.hpp</label>
+        <link refid="Integrals_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>util/SharedPointer.hpp</label>
+        <link refid="SharedPointer_8hpp"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>algorithm</label>
+      </node>
+      <node id="48">
+        <label>array</label>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="19">
+        <label>complex</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="23">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="7">
+        <label>ctime</label>
+      </node>
+      <node id="41">
+        <label>exception</label>
+      </node>
+      <node id="16">
+        <label>fstream</label>
+      </node>
+      <node id="31">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>iomanip</label>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="38">
+        <label>iterator</label>
+      </node>
+      <node id="40">
+        <label>limits</label>
+      </node>
+      <node id="35">
+        <label>locale</label>
+      </node>
+      <node id="20">
+        <label>map</label>
+      </node>
+      <node id="30">
+        <label>memory</label>
+      </node>
+      <node id="32">
+        <label>numeric</label>
+      </node>
+      <node id="9">
+        <label>ostream</label>
+      </node>
+      <node id="36">
+        <label>set</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="39">
+        <label>stdexcept</label>
+      </node>
+      <node id="15">
+        <label>streambuf</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="42">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="43">
+        <label>sys/types.h</label>
+      </node>
+      <node id="33">
+        <label>tuple</label>
+      </node>
+      <node id="37">
+        <label>type_traits</label>
+      </node>
+      <node id="34">
+        <label>utility</label>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+      <node id="46">
+        <label>yaml-cpp/yaml.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="FockMatrixFromCoulombIntegrals_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" prot="public" static="no">
+        <name>LOGGER</name>
+        <param><defname>_l</defname></param>
+        <initializer><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(_l, &quot;FockMatrixFromCoulombIntegrals&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FockMatrixFromCoulombIntegrals.cxx" line="17" column="24" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FockMatrixFromCoulombIntegrals.cxx" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="FockMatrixFromCoulombIntegrals_8hpp" kindref="compound">algorithms/FockMatrixFromCoulombIntegrals.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MathFunctions_8hpp" kindref="compound">math/MathFunctions.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Emitter_8hpp" kindref="compound">util/Emitter.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Integrals_8hpp" kindref="compound">util/Integrals.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;numeric&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="FockMatrixFromCoulombIntegrals_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOGGER(_l)<sp/>LOG(_l,<sp/>&quot;FockMatrixFromCoulombIntegrals&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="structsisi4s_1_1FockMatrixFromCoulombIntegrals" kindref="compound">FockMatrixFromCoulombIntegrals</ref>);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="structsisi4s_1_1FockMatrixFromCoulombIntegrals_1af22bad265cfdf61263dce910fc6bb6bd" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FockMatrixFromCoulombIntegrals::run()<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>phph(getTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;PHPHCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(phph-&gt;lens[1]),<sp/>Nv(phph-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>vv({Nv,<sp/>Nv}),<sp/>oo({No,<sp/>No}),<sp/>ov({No,<sp/>Nv}),<sp/>vo({Nv,<sp/>No});</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>syms({NS,<sp/>NS});</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="FockMatrixFromCoulombIntegrals_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;No:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>No<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="FockMatrixFromCoulombIntegrals_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Nv:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Nv<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ij:<sp/>HH<sp/>HHHH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>fij(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;double&gt;(2,<sp/>oo.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>));</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>hh(getTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;HHMatrix&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>hhhh(getTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;HHHHCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>(*fij)[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>(*hh)[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>(*fij)[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+2.0)*(*hhhh)[</highlight><highlight class="stringliteral">&quot;ikjk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>(*fij)[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)*(*hhhh)[</highlight><highlight class="stringliteral">&quot;ikkj&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;HHFockMatrix&quot;</highlight><highlight class="normal">,<sp/>fij);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ab:<sp/>PP<sp/>PHPH<sp/>PHHP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>fab(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;double&gt;(2,<sp/>vv.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>));</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>pp(getTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;PPMatrix&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>phhp(getTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;PHHPCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>(*fab)[</highlight><highlight class="stringliteral">&quot;ab&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>(*pp)[</highlight><highlight class="stringliteral">&quot;ab&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>(*fab)[</highlight><highlight class="stringliteral">&quot;ab&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+2.0)*(*phph)[</highlight><highlight class="stringliteral">&quot;akbk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>(*fab)[</highlight><highlight class="stringliteral">&quot;ab&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)*(*phhp)[</highlight><highlight class="stringliteral">&quot;akkb&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;PPFockMatrix&quot;</highlight><highlight class="normal">,<sp/>fab);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ai:<sp/>PH<sp/>PHHH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>fai(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;double&gt;(2,<sp/>vo.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ph(getTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;PHMatrix&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>phhh(getTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;PHHHCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>(*fai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>(*ph)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>(*fai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+2.0)*(*phhh)[</highlight><highlight class="stringliteral">&quot;akik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>(*fai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)*(*phhh)[</highlight><highlight class="stringliteral">&quot;akki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;PHFockMatrix&quot;</highlight><highlight class="normal">,<sp/>fai);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ia:<sp/>HP<sp/>HHPH<sp/>HHHP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>fia(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;double&gt;(2,<sp/>ov.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>));</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>(*fia)[</highlight><highlight class="stringliteral">&quot;ia&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*fai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;HPFockMatrix&quot;</highlight><highlight class="normal">,<sp/>fia);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>epsi(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;double&gt;(1,<sp/>oo.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>(*epsi)[</highlight><highlight class="stringliteral">&quot;i&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*fij)[</highlight><highlight class="stringliteral">&quot;ii&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>epsi);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>epsa(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;double&gt;(1,<sp/>vv.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>));</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>(*epsa)[</highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*fab)[</highlight><highlight class="stringliteral">&quot;aa&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>epsa);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>CTF::Scalar&lt;double&gt;<sp/>energy;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>energy[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">]<sp/><sp/>=<sp/>(+2.0)<sp/>*<sp/>(*hh)[</highlight><highlight class="stringliteral">&quot;ii&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>energy[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+2.0)<sp/>*<sp/>(*hhhh)[</highlight><highlight class="stringliteral">&quot;ikik&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>energy[</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*hhhh)[</highlight><highlight class="stringliteral">&quot;ikki&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dEnergy(energy.get_val());</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;energy&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>dEnergy</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;No&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>No</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Nv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>Nv</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;FockMatrixFromCoulombIntegrals&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;energy=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>dEnergy<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/FockMatrixFromCoulombIntegrals.cxx"/>
+  </compounddef>
+</doxygen>

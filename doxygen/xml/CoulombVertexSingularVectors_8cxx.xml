@@ -1,0 +1,496 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="CoulombVertexSingularVectors_8cxx" kind="file" language="C++">
+    <compoundname>CoulombVertexSingularVectors.cxx</compoundname>
+    <includes refid="CoulombVertexSingularVectors_8hpp" local="no">algorithms/CoulombVertexSingularVectors.hpp</includes>
+    <includes refid="MathFunctions_8hpp" local="no">math/MathFunctions.hpp</includes>
+    <includes refid="ComplexTensor_8hpp" local="no">math/ComplexTensor.hpp</includes>
+    <includes refid="DryTensor_8hpp" local="no">DryTensor.hpp</includes>
+    <includes refid="BlacsWorld_8hpp" local="no">util/BlacsWorld.hpp</includes>
+    <includes refid="ScaLapackMatrix_8hpp" local="no">util/ScaLapackMatrix.hpp</includes>
+    <includes refid="ScaLapackHermitianEigenSystemDc_8hpp" local="no">util/ScaLapackHermitianEigenSystemDc.hpp</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes local="no">memory</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CoulombVertexSingularVectors.cxx</label>
+        <link refid="CoulombVertexSingularVectors_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/CoulombVertexSingularVectors.hpp</label>
+        <link refid="CoulombVertexSingularVectors_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>extern/ScaLapack.hpp</label>
+        <link refid="ScaLapack_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>math/ComplexTensor.hpp</label>
+        <link refid="ComplexTensor_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>util/BlacsWorld.hpp</label>
+        <link refid="BlacsWorld_8hpp"/>
+      </node>
+      <node id="22">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>util/ScaLapackHermitianEigenSystemDc.hpp</label>
+        <link refid="ScaLapackHermitianEigenSystemDc_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>util/ScaLapackMatrix.hpp</label>
+        <link refid="ScaLapackMatrix_8hpp"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>util/SourceLocation.hpp</label>
+        <link refid="SourceLocation_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="19">
+        <label>complex</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="23">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="7">
+        <label>ctime</label>
+      </node>
+      <node id="48">
+        <label>exception</label>
+      </node>
+      <node id="16">
+        <label>fstream</label>
+      </node>
+      <node id="37">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>iomanip</label>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="45">
+        <label>iterator</label>
+      </node>
+      <node id="47">
+        <label>limits</label>
+      </node>
+      <node id="41">
+        <label>locale</label>
+      </node>
+      <node id="20">
+        <label>map</label>
+      </node>
+      <node id="33">
+        <label>memory</label>
+      </node>
+      <node id="38">
+        <label>numeric</label>
+      </node>
+      <node id="9">
+        <label>ostream</label>
+      </node>
+      <node id="43">
+        <label>set</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="46">
+        <label>stdexcept</label>
+      </node>
+      <node id="15">
+        <label>streambuf</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="49">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="50">
+        <label>sys/types.h</label>
+      </node>
+      <node id="39">
+        <label>tuple</label>
+      </node>
+      <node id="44">
+        <label>type_traits</label>
+      </node>
+      <node id="40">
+        <label>utility</label>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CoulombVertexSingularVectors_8hpp" kindref="compound">algorithms/CoulombVertexSingularVectors.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MathFunctions_8hpp" kindref="compound">math/MathFunctions.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ComplexTensor_8hpp" kindref="compound">math/ComplexTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DryTensor_8hpp" kindref="compound">DryTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="BlacsWorld_8hpp" kindref="compound">util/BlacsWorld.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapackMatrix_8hpp" kindref="compound">util/ScaLapackMatrix.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapackHermitianEigenSystemDc_8hpp" kindref="compound">util/ScaLapackHermitianEigenSystemDc.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">CTF;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::shared_ptr;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::make_shared;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1CoulombVertexSingularVectors" kindref="compound">CoulombVertexSingularVectors</ref>);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="classsisi4s_1_1CoulombVertexSingularVectors_1ac4bcb383260a2abcf59491f588f1d3af" refkind="member"><highlight class="normal">CoulombVertexSingularVectors::CoulombVertexSingularVectors(</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="classsisi4s_1_1CoulombVertexSingularVectors_1a9ba4842b987e3ec037440e6e61cb1988" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1CoulombVertexSingularVectors_1a9ba4842b987e3ec037440e6e61cb1988" kindref="member">CoulombVertexSingularVectors::~CoulombVertexSingularVectors</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classsisi4s_1_1CoulombVertexSingularVectors_1a5de084a1b69bb70516fd835a02f34207" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexSingularVectors_1a5de084a1b69bb70516fd835a02f34207" kindref="member">CoulombVertexSingularVectors::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>the<sp/>Coulomb<sp/>vertex<sp/>GammaGqr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Its<sp/>singular<sp/>value<sp/>decomposition<sp/>is<sp/>U.Sigma.W*</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>where<sp/>W*<sp/>is<sp/>a<sp/>matrix<sp/>with<sp/>the<sp/>compound<sp/>orbital<sp/>index<sp/>(q,r)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*GammaGqr(<sp/>getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;FullCoulombVertex&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>construct<sp/>the<sp/>conjugate<sp/>of<sp/>the<sp/>Coulomb<sp/>vertex<sp/>GammaGqr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>conjGammaGqr(*GammaGqr);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a065b48a575e1c9dd06da30d0aed8c7c1" kindref="member">conjugate</ref>(conjGammaGqr);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>contract<sp/>away<sp/>the<sp/>orbitals<sp/>away,<sp/>leaving<sp/>U.Sigma^2.U*</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NG(GammaGqr-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>Matrix&lt;complex&gt;<sp/>USSUT(NG,<sp/>NG,<sp/>*GammaGqr-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;USSUT&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;CoulombVertexSingularVectors&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Contracting<sp/>over<sp/>orbitals<sp/>of<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>GammaGqr-&gt;get_name()<sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>to<sp/>get<sp/>U.Sigma^2.U*,<sp/>with<sp/>NG=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>NG<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>USSUT[</highlight><highlight class="stringliteral">&quot;GH&quot;</highlight><highlight class="normal">]<sp/>=<sp/>conjGammaGqr[</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*GammaGqr)[</highlight><highlight class="stringliteral">&quot;Hqr&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>ScaLapack<sp/>routines<sp/>to<sp/>diagonalise<sp/>the<sp/>USSUT<sp/>matrix,<sp/>i.e.<sp/>find<sp/>U</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>world(USSUT.wrld-&gt;rank,<sp/>USSUT.wrld-&gt;np);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>scaUSSUT(make_shared&lt;<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;complex&gt;</ref>&gt;(USSUT,<sp/>&amp;world));</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>scaU(make_shared&lt;<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;complex&gt;</ref>&gt;(*scaUSSUT));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4" kindref="compound">ScaLapackHermitianEigenSystemDc&lt;complex&gt;</ref><sp/>eigenSystem(scaUSSUT,<sp/>scaU);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*SS(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[NG]);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>eigenSystem.<ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a403b665901b5b6a2a1077529507767e5" kindref="member">solve</ref>(SS);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>number<sp/>of<sp/>field<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NF(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;fieldVariablesSize&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexSingularVectors_1a546d6ffc521ecbf216e6c6edcf12fc8d" kindref="member">DEFAULT_FIELD_VARIABLES_SIZE</ref>));</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>fieldVariables<sp/>not<sp/>given<sp/>use<sp/>reduction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(NF<sp/>==<sp/><ref refid="classsisi4s_1_1CoulombVertexSingularVectors_1a546d6ffc521ecbf216e6c6edcf12fc8d" kindref="member">DEFAULT_FIELD_VARIABLES_SIZE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>reduction(<ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;fieldVariablesRank&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexSingularVectors_1af43e658b9acbebfcbda79b981bfd3641" kindref="member">DEFAULT_FIELD_VARIABLES_RANK</ref>));</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>NF<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(NG<sp/>*<sp/>reduction<sp/>+<sp/>0.5);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>singular<sp/>vectors<sp/>back<sp/>to<sp/>CTF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>Matrix&lt;complex&gt;<sp/>U(USSUT);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>scaU-&gt;write(U);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a065b48a575e1c9dd06da30d0aed8c7c1" kindref="member">conjugate</ref>(U);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slice<sp/>singular<sp/>vectors<sp/>U<sp/>corresponding<sp/>to<sp/>NF<sp/>largest<sp/>singular<sp/>values<sp/>S</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;CoulombVertexSingularVectors&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Using<sp/>NF=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>NF<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>field<sp/>variables<sp/>to<sp/>approximate<sp/>NG=&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>NG<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>grid<sp/>points&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start[]<sp/>=<sp/>{0,<sp/>NG-NF},<sp/>end[]<sp/>=<sp/>{NG,<sp/>NG};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex&gt;(</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CoulombVertexSingularVectors&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref>(U.slice(start,<sp/>end))</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>singular<sp/>values<sp/>back<sp/>to<sp/>CTF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>int64_t<sp/>SIndicesCount(GammaGqr-&gt;wrld-&gt;rank<sp/>==<sp/>0<sp/>?<sp/>NG<sp/>:<sp/>0);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>int64_t<sp/>*SIndices(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[SIndicesCount]);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>index(0);<sp/>index<sp/>&lt;<sp/>SIndicesCount;<sp/>++index)<sp/>{<sp/>SIndices[index]<sp/>=<sp/>index;<sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sym[]={NS};</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>*singularValues(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref>(1,&amp;NG,sym,<sp/>*GammaGqr-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;singularValues&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>singularValues-&gt;write(SIndicesCount,<sp/>SIndices,<sp/>SS);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;CoulombVertexSingularValues&quot;</highlight><highlight class="normal">,<sp/>singularValues);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>SIndices;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>SS;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classsisi4s_1_1CoulombVertexSingularVectors_1a6cc4f8c5951079462e26d01a04e935ee" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexSingularVectors_1a6cc4f8c5951079462e26d01a04e935ee" kindref="member">CoulombVertexSingularVectors::dryRun</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>the<sp/>Coulomb<sp/>vertex<sp/>GammaGqr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*GammaGqr(</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;FullCoulombVertex&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>conjGammaGqr(*GammaGqr,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NG(GammaGqr-&gt;<ref refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" kindref="member">lens</ref>[0]);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>number<sp/>of<sp/>field<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NF(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;fieldVariables&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexSingularVectors_1a546d6ffc521ecbf216e6c6edcf12fc8d" kindref="member">DEFAULT_FIELD_VARIABLES_SIZE</ref>));</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>fieldVariables<sp/>not<sp/>given<sp/>use<sp/>reduction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(NF<sp/>==<sp/><ref refid="classsisi4s_1_1CoulombVertexSingularVectors_1a546d6ffc521ecbf216e6c6edcf12fc8d" kindref="member">DEFAULT_FIELD_VARIABLES_SIZE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>reduction(<ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;reduction&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1CoulombVertexSingularVectors_1af43e658b9acbebfcbda79b981bfd3641" kindref="member">DEFAULT_FIELD_VARIABLES_RANK</ref>));</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>NF<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(NG<sp/>*<sp/>reduction<sp/>+<sp/>0.5);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex,<sp/>DryTensor&lt;complex&gt;&gt;(</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CoulombVertexSingularVectors&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;complex&gt;</ref>(NG,<sp/>NF,<sp/>NS,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CoulombVertexSingularVectors.cxx"/>
+  </compounddef>
+</doxygen>

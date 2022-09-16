@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1DryScalar" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::DryScalar</compoundname>
+    <basecompoundref refid="classsisi4s_1_1DryTensor" prot="public" virt="non-virtual">sisi4s::DryTensor&lt; double &gt;</basecompoundref>
+    <includes refid="DryTensor_8hpp" local="no">DryTensor.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+        <defval>double</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1DryScalar_1ab3a2a96e8e5424d677f6a5c7a12f345a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>template DryScalar::DryScalar</definition>
+        <argsstring>(SourceLocation const &amp;location=SourceLocation())</argsstring>
+        <name>DryScalar</name>
+        <qualifiedname>sisi4s::DryScalar::DryScalar</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref> const &amp;</type>
+          <declname>location</declname>
+          <defval><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/DryTensor.hpp" line="127" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/DryTensor.cxx" bodystart="53" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1DryScalar_1addd7c655dfdc9b63ff8a03ae10d62334" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DryScalar::DryScalar</definition>
+        <argsstring>(F const value, SourceLocation const &amp;location=SourceLocation())</argsstring>
+        <name>DryScalar</name>
+        <qualifiedname>sisi4s::DryScalar::DryScalar</qualifiedname>
+        <param>
+          <type>F const</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref> const &amp;</type>
+          <declname>location</declname>
+          <defval><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/DryTensor.hpp" line="128" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/DryTensor.cxx" bodystart="70" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::DryTensor&lt; double &gt;</label>
+        <link refid="classsisi4s_1_1DryTensor"/>
+        <childnode refid="3" relation="template-instance">
+          <edgelabel>&lt; double &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::DryScalar&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1DryScalar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sisi4s::DryTensor&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1DryTensor"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>sisi4s::DryTensor&lt; double &gt;</label>
+        <link refid="classsisi4s_1_1DryTensor"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+location</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="template-instance">
+          <edgelabel>&lt; double &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::DryScalar&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1DryScalar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>sisi4s::DryTensor&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1DryTensor"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>+location</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sisi4s::SourceLocation</label>
+        <link refid="classsisi4s_1_1SourceLocation"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/DryTensor.hpp" line="125" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/DryTensor.hpp" bodystart="125" bodyend="129"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1DryTensor_1a4b868527a168b83fbf8bd4812e44a231" prot="protected" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>allocate</name></member>
+      <member refid="classsisi4s_1_1DryScalar_1ab3a2a96e8e5424d677f6a5c7a12f345a" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>DryScalar</name></member>
+      <member refid="classsisi4s_1_1DryScalar_1addd7c655dfdc9b63ff8a03ae10d62334" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>DryScalar</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a2c7cab4c52a2b10c9231d5ff0eeb20ec" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>DryTensor</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a55b1cfa428643ee7f99e009f6b3f2148" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>DryTensor</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a982ca944b4b70a986c585cf9f99700c8" prot="protected" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>free</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a68a01073a9cf74ab62d43dda8e05462c" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>get_name</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a1a2f6c0db46f964635cfa2ec425aa089" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>getElementsCount</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>lens</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a200e726e112b7435d454f55f8b89c484" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>location</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1aefa5466ce16b86ad8d3f2a5f83257aa1" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>name</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a89f315195d67bfb273eb5e273e7de7ec" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>order</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a85c0e6a1635bb24e46a3f28dee1af5d7" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>set_name</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1adc2b8950dd408af928813f4df2966644" prot="protected" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>size</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a49c8005b841ac6617f2352643ae26193" prot="public" virt="non-virtual"><scope>sisi4s::DryScalar</scope><name>syms</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1a018bdb94ca9e6db40cb89eb2ad59ab02" prot="public" virt="virtual"><scope>sisi4s::DryScalar</scope><name>use</name></member>
+      <member refid="classsisi4s_1_1DryTensor_1ab3235f1d280ded35d62abd643343b2d9" prot="public" virt="virtual"><scope>sisi4s::DryScalar</scope><name>~DryTensor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

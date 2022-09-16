@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structCLI_1_1detail_1_1pair__adaptor" kind="struct" language="C++" prot="public">
+    <compoundname>CLI::detail::pair_adaptor</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::false_type</basecompoundref>
+    <includes refid="CLI11_8hpp" local="no">CLI11.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename _</type>
+        <defval>void</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structCLI_1_1detail_1_1pair__adaptor_1a024ff3813a5217cc3ce9e9096015b5df" prot="public" static="no">
+        <type>typename T::value_type</type>
+        <definition>using CLI::detail::pair_adaptor&lt; T, _ &gt;::value_type =  typename T::value_type</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>CLI::detail::pair_adaptor::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="953" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="953" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structCLI_1_1detail_1_1pair__adaptor_1a8bcb95c4adfe14cc502c0446b0f01fc1" prot="public" static="no">
+        <type>typename std::remove_const&lt; <ref refid="structCLI_1_1detail_1_1pair__adaptor_1a024ff3813a5217cc3ce9e9096015b5df" kindref="member">value_type</ref> &gt;::type</type>
+        <definition>using CLI::detail::pair_adaptor&lt; T, _ &gt;::first_type =  typename std::remove_const&lt;value_type&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>first_type</name>
+        <qualifiedname>CLI::detail::pair_adaptor::first_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="954" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="954" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structCLI_1_1detail_1_1pair__adaptor_1a5efab96578f39e5d5183aeb23a5ae52b" prot="public" static="no">
+        <type>typename std::remove_const&lt; <ref refid="structCLI_1_1detail_1_1pair__adaptor_1a024ff3813a5217cc3ce9e9096015b5df" kindref="member">value_type</ref> &gt;::type</type>
+        <definition>using CLI::detail::pair_adaptor&lt; T, _ &gt;::second_type =  typename std::remove_const&lt;value_type&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>second_type</name>
+        <qualifiedname>CLI::detail::pair_adaptor::second_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="955" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="955" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structCLI_1_1detail_1_1pair__adaptor_1ab46a8b1544ac182fe15948fe94a75bd6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Q</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::pair_adaptor&lt; T, _ &gt;::first</definition>
+        <argsstring>(Q &amp;&amp;pair_value) -&gt; decltype(std::forward&lt; Q &gt;(pair_value))</argsstring>
+        <name>first</name>
+        <qualifiedname>CLI::detail::pair_adaptor::first</qualifiedname>
+        <param>
+          <type>Q &amp;&amp;</type>
+          <declname>pair_value</declname>
+        </param>
+        <briefdescription>
+<para>Get the first value (really just the underlying value) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="958" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="958" bodyend="960"/>
+        <referencedby refid="namespaceCLI_1_1detail_1a75f66945cfe53b556e4c311f9a88a155" compoundref="CLI11_8hpp" startline="3169" endline="3179">CLI::detail::generate_set</referencedby>
+        <referencedby refid="namespaceCLI_1_1detail_1abcb81a667288aa66a4576a06b9322092" compoundref="CLI11_8hpp" startline="3232" endline="3248">CLI::detail::search</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="structCLI_1_1detail_1_1pair__adaptor_1a69f2f87359de8d01c72ac645c6ada8c8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Q</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto CLI::detail::pair_adaptor&lt; T, _ &gt;::second</definition>
+        <argsstring>(Q &amp;&amp;pair_value) -&gt; decltype(std::forward&lt; Q &gt;(pair_value))</argsstring>
+        <name>second</name>
+        <qualifiedname>CLI::detail::pair_adaptor::second</qualifiedname>
+        <param>
+          <type>Q &amp;&amp;</type>
+          <declname>pair_value</declname>
+        </param>
+        <briefdescription>
+<para>Get the second value (really just the underlying value) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="962" column="29" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="962" bodyend="964"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Adaptor for set-like structure: This just wraps a normal container in a few utilities that do almost nothing. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CLI::detail::pair_adaptor&lt; T, _ &gt;</label>
+        <link refid="structCLI_1_1detail_1_1pair__adaptor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::false_type</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CLI::detail::pair_adaptor&lt; T, _ &gt;</label>
+        <link refid="structCLI_1_1detail_1_1pair__adaptor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::false_type</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" line="952" column="16" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/extern/CLI11.hpp" bodystart="952" bodyend="965"/>
+    <listofallmembers>
+      <member refid="structCLI_1_1detail_1_1pair__adaptor_1ab46a8b1544ac182fe15948fe94a75bd6" prot="public" virt="non-virtual"><scope>CLI::detail::pair_adaptor</scope><name>first</name></member>
+      <member refid="structCLI_1_1detail_1_1pair__adaptor_1a8bcb95c4adfe14cc502c0446b0f01fc1" prot="public" virt="non-virtual"><scope>CLI::detail::pair_adaptor</scope><name>first_type</name></member>
+      <member refid="structCLI_1_1detail_1_1pair__adaptor_1a69f2f87359de8d01c72ac645c6ada8c8" prot="public" virt="non-virtual"><scope>CLI::detail::pair_adaptor</scope><name>second</name></member>
+      <member refid="structCLI_1_1detail_1_1pair__adaptor_1a5efab96578f39e5d5183aeb23a5ae52b" prot="public" virt="non-virtual"><scope>CLI::detail::pair_adaptor</scope><name>second_type</name></member>
+      <member refid="structCLI_1_1detail_1_1pair__adaptor_1a024ff3813a5217cc3ce9e9096015b5df" prot="public" virt="non-virtual"><scope>CLI::detail::pair_adaptor</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

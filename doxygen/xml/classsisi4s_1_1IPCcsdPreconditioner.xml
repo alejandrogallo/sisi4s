@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1IPCcsdPreconditioner" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::IPCcsdPreconditioner</compoundname>
+    <basecompoundref refid="classsisi4s_1_1CcsdPreconditioner" prot="public" virt="non-virtual">sisi4s::CcsdPreconditioner&lt; F &gt;</basecompoundref>
+    <includes refid="CcsdPreconditioner_8hpp" local="no">CcsdPreconditioner.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1IPCcsdPreconditioner_1a7abf0881240840d5a75fa9ada3aa0eb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IPCcsdPreconditioner::calculateDiagonal</definition>
+        <argsstring>()</argsstring>
+        <name>calculateDiagonal</name>
+        <qualifiedname>sisi4s::IPCcsdPreconditioner::calculateDiagonal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.hpp" line="105" column="10" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" bodystart="575" bodyend="601"/>
+        <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
+        <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1IPCcsdPreconditioner_1a2e97db095cdebec9c83d1b60295605ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &gt;</type>
+        <definition>std::vector&lt; SDFockVector&lt; F &gt; &gt; IPCcsdPreconditioner::getInitialBasis</definition>
+        <argsstring>(int eigenVectorsCount)</argsstring>
+        <name>getInitialBasis</name>
+        <qualifiedname>sisi4s::IPCcsdPreconditioner::getInitialBasis</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>eigenVectorsCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.hpp" line="108" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" bodystart="605" bodyend="711"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="classsisi4s_1_1FockVector_1a7f7a9ea49d5eb503a988858d1b9e76cb" compoundref="FockVector_8hpp" startline="242" endline="255">sisi4s::FockVector&lt; F &gt;::dot</references>
+        <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+        <references refid="classsisi4s_1_1MpiCommunicator_1a4920d7e68dfa8c38de024795a264527f" compoundref="MpiCommunicator_8hpp" startline="55" endline="70">sisi4s::MpiCommunicator::gather</references>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="classsisi4s_1_1MpiCommunicator_1a0e6f9439058e7c3685f2f05a40cda46a" compoundref="MpiCommunicator_8hpp" startline="72" endline="74">sisi4s::MpiCommunicator::getRank</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="namespacesisi4s_1a40947d88c4989cacff153a78af67f686" compoundref="MathFunctions_8hpp" startline="24" endline="26">sisi4s::sqrt</references>
+        <references refid="classsisi4s_1_1FockVector_1af3f1a3e793e9dc55958b795c7672f9de" compoundref="FockVector_8hpp" startline="337" endline="361">sisi4s::FockVector&lt; F &gt;::write</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1IPCcsdPreconditioner_1a7a64a258bc792326104e2eef5f69933e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
+        <definition>SDFockVector&lt; F &gt; IPCcsdPreconditioner::getCorrection</definition>
+        <argsstring>(const complex eigenValue, SDFockVector&lt; F &gt; &amp;residuum)</argsstring>
+        <name>getCorrection</name>
+        <qualifiedname>sisi4s::IPCcsdPreconditioner::getCorrection</qualifiedname>
+        <param>
+          <type>const <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref></type>
+          <declname>eigenValue</declname>
+        </param>
+        <param>
+          <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &amp;</type>
+          <declname>residuum</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.hpp" line="111" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.cxx" bodystart="715" bodyend="752"/>
+        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
+        <references refid="classsisi4s_1_1FockVector_1a931498ce2090f83bcff10de589035874" compoundref="FockVector_8hpp" startline="31">sisi4s::FockVector&lt; F &gt;::componentIndices</references>
+        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
+        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="classsisi4s_1_1FockVector_1ad754c5d7c0cb7ab1a487f1f640d7d877" compoundref="FockVector_8hpp" startline="260" endline="262">sisi4s::FockVector&lt; F &gt;::getComponentsCount</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::CcsdPreconditioner&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1CcsdPreconditioner"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::IPCcsdPreconditioner&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1IPCcsdPreconditioner"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>sisi4s::CcsdPreconditioner&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1CcsdPreconditioner"/>
+      </node>
+      <node id="1">
+        <label>sisi4s::IPCcsdPreconditioner&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1IPCcsdPreconditioner"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.hpp" line="102" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/CcsdPreconditioner.hpp" bodystart="102" bodyend="113"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1IPCcsdPreconditioner_1a7abf0881240840d5a75fa9ada3aa0eb7" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>calculateDiagonal</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a9ae198c111525ea966d34a0f8c7b4d28" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>CcsdPreconditioner</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1aadf065fe242b09a94cbf58a370e82b70" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>diagonalH</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a4e4731cd5dfe0ececbb293dc7f96c978" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>Fab</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a143d12b41a94712c29d1c114bc9c2fa9" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>Fij</name></member>
+      <member refid="classsisi4s_1_1IPCcsdPreconditioner_1a7a64a258bc792326104e2eef5f69933e" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>getCorrection</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a4c7be99d9f26627b2a51cc34cd1d750c" prot="public" virt="non-virtual" ambiguityscope="sisi4s::CcsdPreconditioner::"><scope>sisi4s::IPCcsdPreconditioner</scope><name>getCorrection</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a29ac0b00a098edfe1d72c32a009f2b99" prot="public" virt="non-virtual" ambiguityscope="sisi4s::CcsdPreconditioner::"><scope>sisi4s::IPCcsdPreconditioner</scope><name>getCorrection</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a582ef69310de6c4e8bbf1e8fef95f5c1" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>getDiagonal</name></member>
+      <member refid="classsisi4s_1_1IPCcsdPreconditioner_1a2e97db095cdebec9c83d1b60295605ec" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>getInitialBasis</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1ad561bac7a4155408c4561486489988bf" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setFab</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a024ec5e4a5ce89888973da8a3d692208" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setFij</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a19133e109b422e13ab030ad1fa4eae43" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setRandom</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1ad7ba8769f2568541d4cb014ac7e3e4e4" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setRandomSigma</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1af37e2f53fd52ddd2240d7bc49948970b" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setSpinFlip</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1ab03903b0d26d12793e2f8b3cf624d997" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setTabij</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a389ecef7e3bcec064d24177c3c1c1f55" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setTai</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1ac192f4b05255d8c4514a51c13396ee65" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setVabcd</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a343e43626dc94dd99156d7b81603db5c" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setViajb</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1ad9f39ec050254ebca6bb56d3bd5ba126" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setVijab</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a9a8662ee892c05df0f569a62c1b02518" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>setVijkl</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a916122e385cf3003bcaf7ad7b5d4485e" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>Tabij</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a25d24b368c157095fb975de63567d94a" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>Tai</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a5aafdff11999909d426ebe9449d1f6b3" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>V</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a122c9a4156939f77d69699997b304b60" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>Vabcd</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a2f5ba5ed7c9fb2fc737fc222e1bdaabf" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>Viajb</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a6e76e5784c5ab54a735c137b6592e73a" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>Vijab</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a22ad7c4d41be2fa0fced6648dcd4604d" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>Vijkl</name></member>
+      <member refid="classsisi4s_1_1CcsdPreconditioner_1a07c07b2f5da029985545bd31e2701743" prot="public" virt="non-virtual"><scope>sisi4s::IPCcsdPreconditioner</scope><name>~CcsdPreconditioner</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1OneBodyReducedDensityMatrix" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>sisi4s::OneBodyReducedDensityMatrix</compoundname>
+    <derivedcompoundref refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix" prot="public" virt="non-virtual">sisi4s::CisOneBodyReducedDensityMatrix&lt; F &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix" prot="public" virt="non-virtual">sisi4s::EomOneBodyReducedDensityMatrix&lt; F &gt;</derivedcompoundref>
+    <includes refid="OneBodyReducedDensityMatrix_8hpp" local="no">OneBodyReducedDensityMatrix.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1OneBodyReducedDensityMatrix_1a3aafe6eaf76d03dd131a82af3a2e90e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::OneBodyReducedDensityMatrix&lt; F &gt;::~OneBodyReducedDensityMatrix</definition>
+        <argsstring>()</argsstring>
+        <name>~OneBodyReducedDensityMatrix</name>
+        <qualifiedname>sisi4s::OneBodyReducedDensityMatrix::~OneBodyReducedDensityMatrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/OneBodyReducedDensityMatrix.hpp" line="16" column="5" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/OneBodyReducedDensityMatrix.hpp" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1OneBodyReducedDensityMatrix_1a6cce97b9bf1b175729a391865915f854" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>virtual std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; sisi4s::OneBodyReducedDensityMatrix&lt; F &gt;::getIA</definition>
+        <argsstring>()=0</argsstring>
+        <name>getIA</name>
+        <qualifiedname>sisi4s::OneBodyReducedDensityMatrix::getIA</qualifiedname>
+        <reimplementedby refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a054e4c309108960fd9e788efddfbb633">getIA</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/OneBodyReducedDensityMatrix.hpp" line="17" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1OneBodyReducedDensityMatrix_1a9cd6063593814f9fb02e1285ffac96fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>virtual std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; sisi4s::OneBodyReducedDensityMatrix&lt; F &gt;::getAI</definition>
+        <argsstring>()=0</argsstring>
+        <name>getAI</name>
+        <qualifiedname>sisi4s::OneBodyReducedDensityMatrix::getAI</qualifiedname>
+        <reimplementedby refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a46262e8796397e744bfa453d60a201c3">getAI</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/OneBodyReducedDensityMatrix.hpp" line="18" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1OneBodyReducedDensityMatrix_1aae149a4cb1d475bf4000960d57438e7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>virtual std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; sisi4s::OneBodyReducedDensityMatrix&lt; F &gt;::getIJ</definition>
+        <argsstring>()=0</argsstring>
+        <name>getIJ</name>
+        <qualifiedname>sisi4s::OneBodyReducedDensityMatrix::getIJ</qualifiedname>
+        <reimplementedby refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix_1acefb7d5f57433d191a9e16155e809ef7">getIJ</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a27c6e71785292cb8bc37d5132de2edfa">getIJ</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/OneBodyReducedDensityMatrix.hpp" line="19" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1OneBodyReducedDensityMatrix_1a8994dab43017686e5fc55f4b32614eff" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; <ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &gt;</type>
+        <definition>virtual std::shared_ptr&lt; CTF::Tensor&lt; F &gt; &gt; sisi4s::OneBodyReducedDensityMatrix&lt; F &gt;::getAB</definition>
+        <argsstring>()=0</argsstring>
+        <name>getAB</name>
+        <qualifiedname>sisi4s::OneBodyReducedDensityMatrix::getAB</qualifiedname>
+        <reimplementedby refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix_1a5c94f295edc4f5180768ccc4afd569b0">getAB</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1a761b105a982b278a197d8376a2beee90">getAB</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/OneBodyReducedDensityMatrix.hpp" line="20" column="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::CisOneBodyReducedDensityMatrix&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sisi4s::EomOneBodyReducedDensityMatrix&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sisi4s::OneBodyReducedDensityMatrix&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1OneBodyReducedDensityMatrix"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::OneBodyReducedDensityMatrix&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1OneBodyReducedDensityMatrix"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/OneBodyReducedDensityMatrix.hpp" line="13" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/algorithms/OneBodyReducedDensityMatrix.hpp" bodystart="13" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a8994dab43017686e5fc55f4b32614eff" prot="public" virt="pure-virtual"><scope>sisi4s::OneBodyReducedDensityMatrix</scope><name>getAB</name></member>
+      <member refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a9cd6063593814f9fb02e1285ffac96fb" prot="public" virt="pure-virtual"><scope>sisi4s::OneBodyReducedDensityMatrix</scope><name>getAI</name></member>
+      <member refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a6cce97b9bf1b175729a391865915f854" prot="public" virt="pure-virtual"><scope>sisi4s::OneBodyReducedDensityMatrix</scope><name>getIA</name></member>
+      <member refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1aae149a4cb1d475bf4000960d57438e7f" prot="public" virt="pure-virtual"><scope>sisi4s::OneBodyReducedDensityMatrix</scope><name>getIJ</name></member>
+      <member refid="classsisi4s_1_1OneBodyReducedDensityMatrix_1a3aafe6eaf76d03dd131a82af3a2e90e7" prot="public" virt="non-virtual"><scope>sisi4s::OneBodyReducedDensityMatrix</scope><name>~OneBodyReducedDensityMatrix</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

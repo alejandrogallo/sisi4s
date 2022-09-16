@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classsisi4s_1_1RangeParser" kind="class" language="C++" prot="public">
+    <compoundname>sisi4s::RangeParser</compoundname>
+    <includes refid="RangeParser_8hpp" local="no">RangeParser.hpp</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1RangeParser_1a86aff8d07cb1c2c6c1efb637395e506b" prot="protected" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string sisi4s::RangeParser::rawRange</definition>
+        <argsstring></argsstring>
+        <name>rawRange</name>
+        <qualifiedname>sisi4s::RangeParser::rawRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" line="85" column="25" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" bodystart="85" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1RangeParser_1a54820a829847e966af461d9befaa3d1e" compoundref="RangeParser_8hpp" startline="62" endline="82">parse</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1RangeParser_1a89975832acb75804b34ffb5c083924df" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; sisi4s::RangeParser::parsedRange</definition>
+        <argsstring></argsstring>
+        <name>parsedRange</name>
+        <qualifiedname>sisi4s::RangeParser::parsedRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" line="86" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" bodystart="86" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1RangeParser_1a0841413f2d569e23dd4f47ab9fc46889" compoundref="RangeParser_8hpp" startline="22" endline="24">getRange</referencedby>
+        <referencedby refid="classsisi4s_1_1RangeParser_1a54820a829847e966af461d9befaa3d1e" compoundref="RangeParser_8hpp" startline="62" endline="82">parse</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsisi4s_1_1RangeParser_1a2c4d07ffefaf8b61f0f591e91bcb5617" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>sisi4s::RangeParser::RangeParser</definition>
+        <argsstring>(const std::string &amp;rawRange_)</argsstring>
+        <name>RangeParser</name>
+        <qualifiedname>sisi4s::RangeParser::RangeParser</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>rawRange_</declname>
+        </param>
+        <briefdescription>
+<para>Constructor from a string, it will parse the string automatically. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" line="16" column="7" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" bodystart="16" bodyend="18"/>
+        <references refid="classsisi4s_1_1RangeParser_1a54820a829847e966af461d9befaa3d1e" compoundref="RangeParser_8hpp" startline="62" endline="82">parse</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1RangeParser_1a0841413f2d569e23dd4f47ab9fc46889" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt; int &gt; sisi4s::RangeParser::getRange</definition>
+        <argsstring>() const</argsstring>
+        <name>getRange</name>
+        <qualifiedname>sisi4s::RangeParser::getRange</qualifiedname>
+        <briefdescription>
+<para>Get the range in the form of a vector of integers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" line="22" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" bodystart="22" bodyend="24"/>
+        <references refid="classsisi4s_1_1RangeParser_1a89975832acb75804b34ffb5c083924df" compoundref="RangeParser_8hpp" startline="86">parsedRange</references>
+        <referencedby refid="namespacesisi4s_1aba780556b3986877ef9eed5b576fab06" compoundref="RangeParser_8hpp" startline="90" endline="93">sisi4s::operator&lt;&lt;</referencedby>
+        <referencedby refid="classsisi4s_1_1CcsdEquationOfMotionDavidson_1a418beaea4a3a3fe7cf890ba392a7d6ef" compoundref="CcsdEquationOfMotionDavidson_8cxx" startline="77" endline="495">sisi4s::CcsdEquationOfMotionDavidson::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1RangeParser_1ab04f16adb51602f68154b2b015caccf4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt; int &gt; sisi4s::RangeParser::atomicRangeToRange</definition>
+        <argsstring>(const std::string &amp;atomicRange)</argsstring>
+        <name>atomicRangeToRange</name>
+        <qualifiedname>sisi4s::RangeParser::atomicRangeToRange</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>atomicRange</declname>
+        </param>
+        <briefdescription>
+<para>Parse individual range atoms. For example this method will map &quot;2&quot; into std::vector&lt;int&gt;{2} and &quot;2-3&quot; into std::vector&lt;int&gt;{2,3}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" line="31" column="19" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" bodystart="31" bodyend="53"/>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <referencedby refid="classsisi4s_1_1RangeParser_1a54820a829847e966af461d9befaa3d1e" compoundref="RangeParser_8hpp" startline="62" endline="82">parse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1RangeParser_1a54820a829847e966af461d9befaa3d1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sisi4s::RangeParser::parse</definition>
+        <argsstring>()</argsstring>
+        <name>parse</name>
+        <qualifiedname>sisi4s::RangeParser::parse</qualifiedname>
+        <briefdescription>
+<para>Main parser method, it will parse a comma separated string of range delimiters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>E.g. it will turn &quot;2  ,3  , 4, 8-10&quot; into {2,3,4,8,9,10}. Note that it is supposed to be whitespace safe. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" line="62" column="12" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" bodystart="62" bodyend="82"/>
+        <references refid="classsisi4s_1_1RangeParser_1ab04f16adb51602f68154b2b015caccf4" compoundref="RangeParser_8hpp" startline="31" endline="53">atomicRangeToRange</references>
+        <references refid="classsisi4s_1_1RangeParser_1a89975832acb75804b34ffb5c083924df" compoundref="RangeParser_8hpp" startline="86">parsedRange</references>
+        <references refid="classsisi4s_1_1RangeParser_1a86aff8d07cb1c2c6c1efb637395e506b" compoundref="RangeParser_8hpp" startline="85">rawRange</references>
+        <references refid="namespacepars_1ab0cd9d42489ff12a2f9b9fb1c6feba11">pars::space</references>
+        <referencedby refid="classsisi4s_1_1RangeParser_1a2c4d07ffefaf8b61f0f591e91bcb5617" compoundref="RangeParser_8hpp" startline="16" endline="18">RangeParser</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class to parse a string of comma separated range delimiters. Note: It only works for unsigned integers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>sisi4s::RangeParser</label>
+        <link refid="classsisi4s_1_1RangeParser"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" line="10" column="3" bodyfile="/home/runner/work/SiSi4S/SiSi4S/src/util/RangeParser.hpp" bodystart="10" bodyend="87"/>
+    <listofallmembers>
+      <member refid="classsisi4s_1_1RangeParser_1ab04f16adb51602f68154b2b015caccf4" prot="public" virt="non-virtual"><scope>sisi4s::RangeParser</scope><name>atomicRangeToRange</name></member>
+      <member refid="classsisi4s_1_1RangeParser_1a0841413f2d569e23dd4f47ab9fc46889" prot="public" virt="non-virtual"><scope>sisi4s::RangeParser</scope><name>getRange</name></member>
+      <member refid="classsisi4s_1_1RangeParser_1a54820a829847e966af461d9befaa3d1e" prot="public" virt="non-virtual"><scope>sisi4s::RangeParser</scope><name>parse</name></member>
+      <member refid="classsisi4s_1_1RangeParser_1a89975832acb75804b34ffb5c083924df" prot="protected" virt="non-virtual"><scope>sisi4s::RangeParser</scope><name>parsedRange</name></member>
+      <member refid="classsisi4s_1_1RangeParser_1a2c4d07ffefaf8b61f0f591e91bcb5617" prot="public" virt="non-virtual"><scope>sisi4s::RangeParser</scope><name>RangeParser</name></member>
+      <member refid="classsisi4s_1_1RangeParser_1a86aff8d07cb1c2c6c1efb637395e506b" prot="protected" virt="non-virtual"><scope>sisi4s::RangeParser</scope><name>rawRange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
