@@ -68,6 +68,8 @@ AC_ARG_WITH(scalapack,
             [AS_HELP_STRING([--with-scalapack=<lib>],
                             [use SCALAPACK library <lib>|auto|no])])
 
+ax_scalapack_ok=no
+
 case $with_scalapack in
     auto | "")
         ax_scalapack_ok=auto
@@ -99,7 +101,7 @@ if test "x$SCALAPACK_LIBS" != x; then
     AC_TRY_LINK_FUNC([$pcheev],
                      [ax_scalapack_ok=yes],
                      [SCALAPACK_LIBS=""])
-    AC_MSG_RESULT($ax_scalapack_ok)
+    AC_MSG_RESULT([$ax_scalapack_ok])
     LIBS="$save_LIBS"
 fi
 

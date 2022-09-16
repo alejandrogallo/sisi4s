@@ -15,6 +15,10 @@ all: doxygen sphinx
 
 doxygen: $(DOXYGEN_INDEX)
 
+noinst_PROGRAMS = index.rst manual.rst
+index_rst_SOURCES = $(top_srcdir)/README.rst
+manual_rst_SOURCES = ./manual.org
+
 $(DOXYGEN_INDEX): Doxyfile $(DX_HTML_EXTRA_STYLESHEET)
 	mkdir -p $(@D)
 	doxygen $<
@@ -28,6 +32,10 @@ sphinx: $(SPHINX_BUILD_DIR)/index.html
 
 index.rst: $(top_srcdir)/README.rst
 	cp $< $@
+
+$(builddir)/manual.rst: manual.org
+	$(EMACS_HTML) $< -f org-rst-export-to-rst
+	mv $(dir $<)/manual.rst $@
 
 clean-local:
 	rm -rfv sphinx doxygen/ index.rst manual.rst \
