@@ -1,4 +1,14 @@
 include SiSi4S.mk
 
-SUBDIRS = src docs
+SUBDIRS = src
+
+if WITH_DOCS
+SUBDIRS += docs
+endif
+
+.PHONY: sisi4s
+
+sisi4s: src/sisi4s
+src/sisi4s:
+	$(MAKE) -C src
 

@@ -92,6 +92,13 @@ AC_ARG_ENABLE([cuda],
                               [Build with cuda])],
                               [WITH_CUDA=yes],
                               [WITH_CUDA=no])
+
+AC_ARG_ENABLE([docs],
+              [AS_HELP_STRING([--enable-docs],
+                              [Enable building documentation])],
+                              [build_docs=yes],
+                              [build_docs=no])
+
 AC_ARG_VAR([NVCC],
            [Path to the nvidia cuda compiler.])
 AC_ARG_VAR([CUDA_LDFLAGS],
@@ -266,6 +273,20 @@ if test x${WITH_CUDA} = xyes; then
   # TODO: make sure to find cuda and cudart
   # AC_SEARCH_LIBS([cudaMalloc], [cuda cudart], [FOUND_CUDA=yes])
   CC3S_CUBLAS
+fi
+
+dnl -----------------------------------------------------------------------
+dnl Docs
+AM_CONDITIONAL([WITH_DOCS], [test x${build_docs} = xyes])
+if test x${build_docs} == xyes; then
+  AC_CHECK_PROGS([DOXYGEN], [doxygen])
+  AC_CHECK_PROGS([DOT], [dot])
+  AX_PROG_EMACS
+  AX_ELISP_CHECK_FEATURE([org])
+  AX_ELISP_CHECK_FBOUNDP([package-initialize], [package])
+  AX_ELISP_CHECK_FBOUNDP([package-install], [package])
+  AX_ELISP_CHECK_FBOUNDP([string-join], [subr-x])
+  AX_ELISP_CHECK_BOUNDP([org-babel-post-tangle-hook], [ob])
 fi
 
 
