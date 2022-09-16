@@ -139,15 +139,27 @@ CXXFLAGS="${CXXFLAGS} ${OPENMP_CXXFLAGS}"
 LDFLAGS="${LDFLAGS} ${OPENMP_CXXFLAGS}"
 
 dnl -----------------------------------------------------------------------
+
+AC_MSG_RESULT([
+                    LINEAR ALGEBRA LIBRARIES
+                    ------------------------
+])
+
 AX_BLAS([LIBS="${LIBS} ${BLAS_LIBS}"],
         [AC_MSG_FAILURE([Could not find BLAS library.])])
 AX_LAPACK([LIBS="${LIBS} ${LAPACK_LIBS}"],
           [AC_MSG_FAILURE([Could not find LAPACK library.])])
-LIBS="${LIBS} -lscalapack -lgfortran"
+
+SISI_SCALAPACK([LIBS="${LIBS} ${SCALAPACK_LIBS}"],
+               [AC_MSG_FAILURE([could not find a working scalapack installation.])])
 
 dnl -----------------------------------------------------------------------
 dnl CXX checks
 dnl
+AC_MSG_RESULT([
+                          C++ features test
+                          -----------------
+])
 AX_CXX_STATIC_CAST
 AX_CXX_TEMPLATES
 AX_CXX_TYPENAME
@@ -281,6 +293,7 @@ AC_MSG_RESULT([
                        CPPFLAGS=$CPPFLAGS
                        LDFLAGS=$LDFLAGS
                        BLAS_LIBS=${BLAS_LIBS}
+                       SCALAPACK_LIBS=${SCALAPACK_LIBS}
                        LIBS=${LIBS}
 ])
 

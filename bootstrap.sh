@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -eu
 cd `git rev-parse --show-toplevel`
 
 type -a autoreconf > /dev/null ||
