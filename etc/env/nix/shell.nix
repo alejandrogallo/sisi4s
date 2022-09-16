@@ -69,6 +69,7 @@ pkgs.mkShell rec {
 
         cmake
         gdb
+        perl
 
         # for libint
         gmpxx.out

@@ -242,7 +242,7 @@ T *TensorIo::readBinaryHeader(MPI_File &file, int64_t &offset) {
   BinaryTensorHeader header;
   MPI_File_read_at(file, offset, &header, sizeof(header), MPI_BYTE, &status);
   offset += sizeof(header);
-  if (strncmp(header.magic, header.MAGIC, sizeof(header.magic)) != 0)
+  if (strncmp(header.magic, BinaryTensorHeaderBase::MAGIC, sizeof(header.magic)) != 0)
     throw new EXCEPTION("Invalid file format");
   if (header.version > header.VERSION)
     throw new EXCEPTION("Incompatible file format version");
