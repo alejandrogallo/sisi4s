@@ -101,6 +101,7 @@ pkgs.mkShell rec {
     LD=${LD}
     export BOOST_PATH="${pkgs.boost.out}"
     export BOOST_CPATH="${pkgs.boost.dev}"
+    export BOOST_ROOT="${pkgs.boost.dev}"
     ''
     + (if mkl then mkl-pkg.shellHook else openblas.shellHook)
     + (if cuda then cuda-pkg.shellHook else "")
