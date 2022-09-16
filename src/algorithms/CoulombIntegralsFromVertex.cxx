@@ -1,3 +1,4 @@
+#include <system_error>
 #include <algorithms/CoulombIntegralsFromVertex.hpp>
 #include <math/Complex.hpp>
 #include <math/ComplexTensor.hpp>

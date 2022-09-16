@@ -1,3 +1,4 @@
+#include <system_error>
 #include <libint2.hpp>
 #include <string>
 #include <algorithms/NuclearRepulsionEnergy.hpp>

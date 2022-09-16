@@ -1,6 +1,6 @@
 # SYNOPSIS  -*- mode: autoconf; -*-
 #
-# 	SISI_LAPACK([ACTION-IF-FOUND[, ACTION-IF-NOT-FOUND]])
+# 	SISI_SCALAPACK([ACTION-IF-FOUND[, ACTION-IF-NOT-FOUND]])
 #
 # DESCRIPTION
 #
@@ -86,7 +86,7 @@ esac
 dnl Get fortran linker names of SCALAPACK functions to check for.
 AC_F77_FUNC(pcheev)
 
-mkl_scalapack_lib="mkl_scalapack_lp64"
+mkl_scalapack_lib="-lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64"
 
 
 ax_blas_save_LIBS="$LIBS"
@@ -109,11 +109,10 @@ if test -d "${MKLROOT}" ; then
     save_LIBS="$LIBS"
     LIBS="$mkl_scalapack_lib $LIBS"
     AC_MSG_CHECKING([for $pcheev in $mkl_scalapack_lib])
-    AC_CHECK_LIB([$mkl_scalapack_lib],
-                 [$pcheev],
-                 [ax_scalapack_ok=yes
-                  SCALAPACK_LIBS="-l$mkl_scalapack_lib"],
-                 [SCALAPACK_LIBS=""])
+    AC_TRY_LINK_FUNC([$pcheev],
+                     [ax_scalapack_ok=yes
+                      SCALAPACK_LIBS="$mkl_scalapack_lib"],
+                     [SCALAPACK_LIBS=""])
     AC_MSG_RESULT($ax_scalapack_ok)
     LIBS="$save_LIBS"
 fi
