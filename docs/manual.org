@@ -14,7 +14,44 @@ code and is used as a testing ground by some developers.
 In principle, {{{sisi4s}}} can build all the dependencies itself, with the exception of the boost libraries,
 which are available in most =HPC= systems.
 
-** TODO Intel compiler
+** Intel tools
+
+*** Intel compiler
+
+In general, the configure script should make a good job of finding the correct intel
+compiler and the correct [[https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-mkl-for-dpcpp/top.html
+][=mkl=]] libraries.
+
+This section documents past instances of issues and correct solutions to the building.
+
+Make sure to provide correct =mpi= wrapper scripts to the configure script, for instance
+supply =MPICXX= and =CXX= variables to the =./configure= script:
+
+#+begin_src sh
+./configure MPICXX=mpiicc CXX=icc
+#+end_src
+
+
+*** =MKL= libraries
+
+Typically, the module systems in HPC clusters will export shell variables
+with names prefixed by =MKL=, for instance
+
+- =MKLROOT=
+- =MKL_HOME=
+- =MKL_PARTS_HOME=
+
+It is possible that the configure script can not discover the =BLAS= libraries,
+in which case you can test the following
+
+#+begin_src sh
+./configure \
+    MPICXX=mpiicc \
+    CXX=icc \
+    --with-blas="-L${MKL_HOME}/lib/intel64/ -mkl -lmkl_intel_lp64"
+#+end_src
+
+
 
 ** TODO Libint
 
