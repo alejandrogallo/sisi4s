@@ -209,5 +209,5 @@ StantonIntermediatesUCCSD<F>::getRabij(){
 }
 
 // instantiate
-template class StantonIntermediatesUCCSD<sisi4s::complex>;
-template class StantonIntermediatesUCCSD<double>;
+template class sisi4s::StantonIntermediatesUCCSD<sisi4s::complex>;
+template class sisi4s::StantonIntermediatesUCCSD<double>;

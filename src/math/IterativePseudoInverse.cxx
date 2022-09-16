@@ -22,8 +22,9 @@ IterativePseudoInverse<F>::IterativePseudoInverse(
                             (int)matrix_.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix_.wrld
   ),
-  inverse(
-    2, std::array<int,2>{{matrix_.lens[0], matrix_.lens[1]}}.data(),
+  inverse(2,
+          std::array<int,2>{{(int)matrix_.lens[0],
+                             (int)matrix_.lens[1]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix_.wrld
   ),
   alpha()
@@ -46,9 +47,9 @@ IterativePseudoInverse<F>::IterativePseudoInverse(
   // and it gives (-0,-0). That's why in complex case it works while in real
   // case it doesn't (max=infinity).
   // Anyway, it doesn't make sense to compare if a number is larger than
-  // abs(-infinity). 
+  // abs(-infinity).
   // F max(-std::numeric_limits<F>::infinity());
-  // A temporary fix: set max default to double type 0. 
+  // A temporary fix: set max default to double type 0.
   double max(0.);
   for (int i(0); i < square.lens[0]; ++i) {
     if (abs(normValues[i]) > abs(max)) max = abs(normValues[i]);
@@ -207,17 +208,20 @@ DryIterativePseudoInverse<F>::DryIterativePseudoInverse(
   DryTensor<F> const &matrix_
 ):
   matrix(matrix_),
-  square(
-    2, std::array<int,2>{{matrix_.lens[0], matrix_.lens[0]}}.data(),
+  square(2,
+         std::array<int,2>{{(int)matrix_.lens[0],
+                            (int)matrix_.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), SOURCE_LOCATION
   ),
-  inverse(
-    2, std::array<int,2>{{matrix_.lens[0], matrix_.lens[1]}}.data(),
+  inverse(2,
+          std::array<int,2>{{(int)matrix_.lens[0],
+                             (int) matrix_.lens[1]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), SOURCE_LOCATION
   )
 {
-  DryTensor<F> conjugate(
-    2, std::array<int,2>{{matrix_.lens[0], matrix_.lens[1]}}.data(),
+  DryTensor<F> conjugate(2,
+                         std::array<int,2>{{(int)matrix_.lens[0],
+                                            (int)matrix_.lens[1]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), SOURCE_LOCATION
   );
   DryVector<F> rowAbsNorms(square.lens[0]);
@@ -234,4 +238,3 @@ class sisi4s::DryIterativePseudoInverse<sisi4s::Float64>;
 
 template
 class sisi4s::DryIterativePseudoInverse<sisi4s::Complex64>;
-

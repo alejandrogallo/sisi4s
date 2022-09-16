@@ -459,5 +459,5 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
 }
 
 // instantiate
-template class SimilarityTransformedHamiltonian<sisi4s::complex>;
-template class SimilarityTransformedHamiltonian<double>;
+template class sisi4s::SimilarityTransformedHamiltonian<sisi4s::complex>;
+template class sisi4s::SimilarityTransformedHamiltonian<double>;

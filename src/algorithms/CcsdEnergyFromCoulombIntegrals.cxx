@@ -394,17 +394,20 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         //slice loop starts here
         for (int m(0); m < numberSlices; m++){
           for (int n(m); n < numberSlices; n++){
-            int lenscd[] = {
-              realSlicedGammaGab[n]->lens[1], realSlicedGammaGab[m]->lens[1],
-              realSlicedGammaGab[n]->lens[2], realSlicedGammaGab[m]->lens[2]
-            };
+            int lenscd[] = {(int)realSlicedGammaGab[n]->lens[1],
+                            (int)realSlicedGammaGab[m]->lens[1],
+                            (int)realSlicedGammaGab[n]->lens[2],
+                            (int)realSlicedGammaGab[m]->lens[2]};
             int syms[] = {NS, NS, NS, NS};
             auto Vxycd(new Tensor<>(4, lenscd, syms, *realDressedGammaGab.wrld, "Vxycd"));
 
             (*Vxycd)["xycd"]  = (*realSlicedGammaGab[n])["Gxc"] * (*realSlicedGammaGab[m])["Gyd"];
             (*Vxycd)["xycd"] += (*imagSlicedGammaGab[n])["Gxc"] * (*imagSlicedGammaGab[m])["Gyd"];
 
-            int lensij[] = { Vxycd->lens[0], Vxycd->lens[1], No, No};
+            int lensij[] = {(int)Vxycd->lens[0],
+                            (int)Vxycd->lens[1],
+                            (int)No,
+                            (int)No};
             Tensor<> Rxyij(4, lensij, syms, *Vxycd->wrld, "Rxyij");
 
             // Contract sliced Vxycd with T2 and T1 Amplitudes using Xabij
@@ -781,7 +784,10 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
                        sliceCoupledCoulombIntegrals(amplitudes, a, b, integralsSliceSize)
                        );
             Vxycd->set_name("Vxycd");
-            int lens[] = { Vxycd->lens[0], Vxycd->lens[1], No, No };
+            int lens[] = {(int)Vxycd->lens[0],
+                          (int)Vxycd->lens[1],
+                          (int)No,
+                          (int)No};
             int syms[] = {NS, NS, NS, NS};
             Tensor<complex> Rxyij(4, lens, syms, *Vxycd->wrld, "Rxyij");
 

@@ -230,7 +230,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   LOG(0, getCapitalizedAbbreviation()) << std::setprecision(10) <<
     "energy= " << e << std::setprecision(ss) << std::endl;
   if ( isArgumentGiven("PairEnergy")) {
-    int oo[] = { Tabij->lens[2], Tabij->lens[2] };
+    int oo[] = { (int)Tabij->lens[2], (int)Tabij->lens[2] };
     int syms[] = { NS, NS};
     auto pairEnergy(new Tensor<F>( 2, oo, syms, *Sisi4s::world, "pairEnergies"));
     if (antisymmetrized) {
@@ -475,9 +475,10 @@ Tensor<double> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
   fromComplexTensor(rightGamma, realRightGamma, imagRightGamma);
 
   // Allocate sliced Coulomb integrals
-  int lens[] = {
-    leftGamma.lens[1], rightGamma.lens[1], leftGamma.lens[2], rightGamma.lens[2]
-  };
+  int lens[] = {(int)leftGamma.lens[1],
+                (int)rightGamma.lens[1],
+                (int)leftGamma.lens[2],
+                (int)rightGamma.lens[2]};
   int syms[] = { NS, NS, NS, NS };
   auto Vxycd(new Tensor<>(4, lens, syms, *GammaGqr->wrld, "Vxycd"));
 
@@ -543,9 +544,10 @@ Tensor<sisi4s::complex> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombInte
   auto rightGamma(DressedGammaGab.slice(rightGammaStart, rightGammaEnd));
 
   // Allocate sliced Coulomb integrals
-  int lens[] = {
-    leftGamma.lens[1], rightGamma.lens[1], leftGamma.lens[2], rightGamma.lens[2]
-  };
+  int lens[] = {(int)leftGamma.lens[1],
+                (int)rightGamma.lens[1],
+                (int)leftGamma.lens[2],
+                (int)rightGamma.lens[2]};
   int syms[] = { NS, NS, NS, NS };
   auto Vxycd(new Tensor<complex>(4, lens, syms, *GammaGqr->wrld, "Vxycd"));
 

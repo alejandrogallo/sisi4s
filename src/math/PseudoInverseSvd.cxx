@@ -19,7 +19,10 @@ PseudoInverseSvd<F>::PseudoInverseSvd(
   // convert CTF matrices into ScaLapack matrices
   BlacsWorld blacsWorld(A.wrld->rank, A.wrld->np);
   // TODO: only works for quadratic matrices
-  ScaLapackMatrix<F> ScaA(A, std::array<int,2>{{A.lens[0],A.lens[1]}}.data(), &blacsWorld);
+  ScaLapackMatrix<F>
+    ScaA(A,
+         std::array<int,2>({(int)A.lens[0], (int)A.lens[1]}).data(),
+         &blacsWorld);
   ScaLapackMatrix<F> ScaU(ScaA);
   ScaLapackMatrix<F> ScaVT(ScaA);
 
@@ -92,15 +95,17 @@ DryMatrix<F> &DryPseudoInverseSvd<F>::get() {
 
 // instantiate
 template
-DryPseudoInverseSvd<sisi4s::Float64>::DryPseudoInverseSvd(
-  DryTensor<sisi4s::Float64> const &matrix
-);
-template
-DryMatrix<sisi4s::Float64> &DryPseudoInverseSvd<sisi4s::Float64>::get();
+sisi4s::DryPseudoInverseSvd<sisi4s::Float64>::DryPseudoInverseSvd(
+sisi4s::DryTensor<sisi4s::Float64> const &matrix);
 
 template
-DryPseudoInverseSvd<sisi4s::Complex64>::DryPseudoInverseSvd(
+sisi4s::DryMatrix<sisi4s::Float64>
+&sisi4s::DryPseudoInverseSvd<sisi4s::Float64>::get();
+
+template
+sisi4s::DryPseudoInverseSvd<sisi4s::Complex64>::DryPseudoInverseSvd(
   DryTensor<sisi4s::Complex64> const &matrix
 );
 template
-DryMatrix<sisi4s::Complex64> &DryPseudoInverseSvd<sisi4s::Complex64>::get();
+sisi4s::DryMatrix<sisi4s::Complex64>
+&sisi4s::DryPseudoInverseSvd<sisi4s::Complex64>::get();

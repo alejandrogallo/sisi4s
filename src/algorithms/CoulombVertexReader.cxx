@@ -166,9 +166,9 @@ void CoulombVertexReader::handleUnrestricted() {
 void CoulombVertexReader::unrestrictVertex() {
   auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
   // The field variable NG remains the same
-  int vertexLens[] = {
-    GammaGqr->lens[0], 2*GammaGqr->lens[1], 2*GammaGqr->lens[2]
-  };
+  int vertexLens[] = {static_cast<int>(GammaGqr->lens[0]),
+                      static_cast<int>(2*GammaGqr->lens[1]),
+                      static_cast<int>(2*GammaGqr->lens[2])};
   auto uGammaGqr(
     new Tensor<complex>(3, vertexLens, GammaGqr->sym, *Sisi4s::world, "uGammaGqr")
   );
@@ -200,7 +200,7 @@ void CoulombVertexReader::unrestrictVertex() {
 
 void CoulombVertexReader::unrestrictEigenEnergies(const std::string &name) {
   auto eps(getTensorArgument(name + "EigenEnergies"));
-  int lens[] = { 2*eps->lens[0] };
+  int lens[] = { static_cast<int>(2*eps->lens[0]) };
   auto uEps(
     new Tensor<>(
       1, lens, eps->sym, *Sisi4s::world, ("u" + name + "EigenEnergies").c_str()

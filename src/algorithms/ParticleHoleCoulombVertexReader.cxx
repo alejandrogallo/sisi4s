@@ -33,9 +33,9 @@ struct Unrestricter {
   CTF::Tensor<sisi4s::complex>*
   doVertex(CTF::Tensor<sisi4s::complex> *GammaGqr) const {
     // The field variable NG remains the same
-    int vertexLens[] = {
-      GammaGqr->lens[0], 2*GammaGqr->lens[1], 2*GammaGqr->lens[2]
-    };
+    int vertexLens[] = {static_cast<int>(GammaGqr->lens[0]),
+                        static_cast<int>(2*GammaGqr->lens[1]),
+                        static_cast<int>(2*GammaGqr->lens[2])};
     auto uGammaGqr(
       new Tensor<sisi4s::complex>(3, vertexLens, GammaGqr->sym, *Sisi4s::world, "uGammaGqr")
     );
@@ -66,7 +66,7 @@ struct Unrestricter {
 
   CTF::Tensor<double>*
   doEigenEnergies(CTF::Tensor<double> *eps) const {
-    int lens[] = { 2*eps->lens[0] };
+    int lens[] = { static_cast<int>(2*eps->lens[0]) };
     auto uEps(
       new Tensor<double>(
         1,

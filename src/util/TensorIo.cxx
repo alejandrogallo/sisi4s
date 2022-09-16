@@ -11,6 +11,7 @@
 using namespace CTF;
 using namespace sisi4s;
 
+
 template <typename F, typename T>
 T *TensorIo::readBinary(std::string const &fileName) {
   // open the file

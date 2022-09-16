@@ -4061,6 +4061,6 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
 
 // instantiate
 template
-class SimilarityTransformedHamiltonian<sisi4s::complex>;
+class sisi4s::SimilarityTransformedHamiltonian<sisi4s::complex>;
 template
-class SimilarityTransformedHamiltonian<double>;
+class sisi4s::SimilarityTransformedHamiltonian<double>;

@@ -622,13 +622,13 @@ void CoulombIntegralsFromGaussian::run() {
     lens[2] = No; lens[3] = No;
     auto Vhhhh(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Sisi4s::world, "Vhhhh"));
     int sliceStart[] = {0, 0};
-    int sliceEnd[] = {Np, No};
+    int sliceEnd[] = {Np, (int)No};
     auto Cocc(C->slice(sliceStart, sliceEnd));
     (*Vhhhh)["klij"] = (*Vijkm)["klpq"] * Cocc["qi"] * Cocc["pj"];
     if ( isArgumentGiven("Spins") ){
       LOGGER(1) << "unrestricted case: Vhhhh\n";
-      auto S(getTensorArgument("Spins"));  
-      int sS[] = {0}; int sE[] = {No};
+      auto S(getTensorArgument("Spins"));
+      int sS[] = {0}; int sE[] = {(int)No};
       auto Socc(S->slice(sS, sE));
       std::vector<int> l(2);
       l[0] = No; l[1] = No;
@@ -660,8 +660,8 @@ void CoulombIntegralsFromGaussian::run() {
     (*Vpphh)["abij"] = Cvirt["qa"] * (*Vijkm)["ijpq"] * Cvirt["pb"];
     if ( isArgumentGiven("Spins") ){
       LOGGER(1) << "unrestricted case: Vpphh\n";
-      auto S(getTensorArgument("Spins"));  
-      int sS[] = {0}; int sE[] = {No};
+      auto S(getTensorArgument("Spins"));
+      int sS[] = {0}; int sE[] = {(int)No};
       auto Socc(S->slice(sS, sE));
       sS[0] = No; sE[0] = C->lens[1];
       auto Svirt(S->slice(sS, sE));

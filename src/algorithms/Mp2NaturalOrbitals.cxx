@@ -45,9 +45,9 @@ void Mp2NaturalOrbitals::run() {
   int64_t Nv(epsa->lens[0]);
   int64_t No(epsi->lens[0]);
   int64_t Np(orbs->lens[1]);
-  std::array<int,2> vv({{ Nv, Nv }});
+  std::array<int,2> vv({{ (int)Nv, (int)Nv }});
   std::array<int,2> syms({{ NS, NS }});
-  std::array<int,2> pp({{ Np, Np}});
+  std::array<int,2> pp({{ (int)Np, (int)Np}});
   auto rotationMatrix(new Tensor<>(2, pp.data(), syms.data(), *Vabij->wrld, "rotationMatrix"));
   auto Tabij(new Tensor<>(Vabij));
 
@@ -164,7 +164,7 @@ void Mp2NaturalOrbitals::run() {
     for (int64_t i(0); i < No; i++)
       unity[i+i*No] = 1.0;
 
-    std::array<int,2> oo({{ No, No }});
+    std::array<int,2> oo({{ (int)No, (int)No }});
     auto newunity(new Tensor<>(2, oo.data(), syms.data(), *Vabij->wrld, "new"));
     index.resize(rank_m * No*No);
     std::iota(index.begin(), index.end(), 0);
@@ -176,8 +176,8 @@ void Mp2NaturalOrbitals::run() {
     std::iota(index.begin(), index.end(), 0);
     virtualRotor.write(index.size(), index.data(), RabMatrix.data());
 
-    int dstStart[] = {0, 0}; int dstEnd[]= {No,No};
-    int srcStart[] = {0, 0}; int srcEnd[]= {No,No};
+    int dstStart[] = {0, 0}; int dstEnd[]= {(int)No,(int)No};
+    int srcStart[] = {0, 0}; int srcEnd[]= {(int)No,(int)No};
     rotationMatrix->slice(dstStart, dstEnd, 1.0, newunity, srcStart, srcEnd, 1.0);
     srcEnd[0]   = Nv;    srcEnd[1]   = Nv;
     dstStart[0] = No;    dstStart[1] = No;
@@ -425,7 +425,7 @@ void Mp2NaturalOrbitals::run() {
     for (int64_t i(0); i < No; i++)
       unity[i+i*No] = 1.0;
 
-    std::array<int,2> oo({{ No, No }});
+    std::array<int,2> oo({{ (int)No, (int)No }});
     auto newunity(new Tensor<>(2, oo.data(), syms.data(), *Vabij->wrld, "new"));
     index.resize(rank_m * No*No);
     std::iota(index.begin(), index.end(), 0);
@@ -444,8 +444,8 @@ void Mp2NaturalOrbitals::run() {
     betaRotor->write(index.size(), index.data(), Rbeta.data());
 
 
-    int dstStart[] = {0, 0}; int dstEnd[]= {No,No};
-    int srcStart[] = {0, 0}; int srcEnd[]= {No,No};
+    int dstStart[] = {0, 0}; int dstEnd[]= {(int)No,(int)No};
+    int srcStart[] = {0, 0}; int srcEnd[]= {(int)No,(int)No};
     rotationMatrix->slice(dstStart, dstEnd, 1.0, newunity, srcStart, srcEnd, 1.0);
     srcEnd[0]   = Nalpha;    srcEnd[1]   = Nalpha;
     dstStart[0] = No;        dstStart[1] = No;

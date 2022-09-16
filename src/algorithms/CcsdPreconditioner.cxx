@@ -752,11 +752,11 @@ IPCcsdPreconditioner<F>::getCorrection(
 }
 
 // instantiate
-template class CcsdPreconditioner<double>;
-template class CcsdPreconditioner<sisi4s::complex>;
+template class sisi4s::CcsdPreconditioner<double>;
+template class sisi4s::CcsdPreconditioner<sisi4s::complex>;
 
-template class IPCcsdPreconditioner<double>;
-template class IPCcsdPreconditioner<sisi4s::complex>;
+template class sisi4s::IPCcsdPreconditioner<double>;
+template class sisi4s::IPCcsdPreconditioner<sisi4s::complex>;
 
-template class EACcsdPreconditioner<double>;
-template class EACcsdPreconditioner<sisi4s::complex>;
+template class sisi4s::EACcsdPreconditioner<double>;
+template class sisi4s::EACcsdPreconditioner<sisi4s::complex>;

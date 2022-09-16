@@ -11,7 +11,7 @@
 using namespace CTF;
 using namespace sisi4s;
 
-template <typename F=double>
+template <typename F>
 void sisi4s::fitAlternatingLeastSquaresFactor(
   Tensor<F> &T, char const *indicesT,
   Tensor<F> &B, char const idxB, Tensor<F> &C, char const idxC,
@@ -20,7 +20,7 @@ void sisi4s::fitAlternatingLeastSquaresFactor(
   Tensor<F> conjB(B);
   Tensor<F> conjC(C);
   Univar_Function<F> fConj(&conj<F>);
-  conjB.sum(1.0, B,"jR", 0.0,"jR", fConj); 
+  conjB.sum(1.0, B,"jR", 0.0,"jR", fConj);
   conjC.sum(1.0, C,"kR", 0.0,"kR", fConj);
 
   Matrix<F> BB(B.lens[1], B.lens[1], NS, *T.wrld, "BBRS", T.profile);
@@ -57,7 +57,7 @@ void sisi4s::fitAlternatingLeastSquaresFactor(
 );
 
 
-template <typename F=double>
+template <typename F>
 void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
   Tensor<F> &T, char const *indicesT,
   Tensor<F> &B, char const idxB, Tensor<F> &C, char const idxC,
@@ -68,7 +68,7 @@ void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
   Tensor<F> conjB(B);
   Tensor<F> conjC(C);
   Univar_Function<F> fConj(&conj<F>);
-  conjB.sum(1.0, B,"jR", 0.0,"jR", fConj); 
+  conjB.sum(1.0, B,"jR", 0.0,"jR", fConj);
   conjC.sum(1.0, C,"kR", 0.0,"kR", fConj);
 
   Matrix<F> BB(B.lens[1], B.lens[1], NS, *T.wrld, "BBRS", T.profile);
@@ -119,7 +119,7 @@ void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
 );
 
 
-template <typename F=double>
+template <typename F>
 void sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor(
   DryTensor<F> &T, char const *indicesT,
   DryTensor<F> &B, char const idxB, DryTensor<F> &C, char const idxC,
@@ -155,4 +155,3 @@ void sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor(
   DryTensor<complex> &B, char const idxB, DryTensor<complex> &C, char const idxC,
   DryTensor<complex> &A, char const idxA
 );
-

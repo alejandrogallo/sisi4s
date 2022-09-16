@@ -29,7 +29,9 @@ void ApproximateCoulombVertex::run() {
   );
   Tensor<complex> UTGF(*UGF);
   conjugate(UTGF);
-  int lens[] = { UGF->lens[1], GammaGqr->lens[1], GammaGqr->lens[2] };
+  int lens[] = { static_cast<int>(UGF->lens[1]),
+                 static_cast<int>(GammaGqr->lens[1]),
+                 static_cast<int>(GammaGqr->lens[2]) };
   int syms[] = { NS, NS, NS };
   Tensor<complex> *GammaFqr = new Tensor<complex>(
     3, lens, syms, *GammaGqr->wrld, "GammaFqr"
@@ -53,7 +55,9 @@ void ApproximateCoulombVertex::dryRun() {
     )
   );
   DryTensor<complex> UTGF(*UGF);
-  int lens[] = { UGF->lens[1], GammaGqr->lens[1], GammaGqr->lens[2] };
+  int lens[] = { static_cast<int>(UGF->lens[1]),
+                 static_cast<int>(GammaGqr->lens[1]),
+                 static_cast<int>(GammaGqr->lens[2]) };
   int syms[] = { NS, NS, NS };
   DryTensor<complex> *GammaFqr = new DryTensor<complex>(
     3, lens, syms, SOURCE_LOCATION
