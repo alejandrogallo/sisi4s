@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+set -eu
+
+read -ep "Folder path    : " folder_path
+read -ep "Test name      : " test_name
+read -ep "Input file     : " input_file
+read -ep "Tags           : " tags
+
+mkdir -vp $folder_path
+
+[[ -f $input_file ]] && cp $input_file $folder_path
+
+################################################################################
+
+cat <<EOF > $folder_path/test.json
+{
+  "name": "${test_name}",
+  "resources": [],
+  "tags": "$tags"
+}
+EOF
+
+################################################################################
+
+cat <<EOF > $folder_path/run.py
+#!/usr/bin/env python3
+
+from testis import call
+
+call("{SISI4S_RUN} -i in.yaml")
+EOF
+chmod +x $folder_path/run.py
+
+################################################################################
+
+cat <<EOF > $folder_path/check.py
+#!/usr/bin/env python3
+
+from testis import read_yaml, compare_energies
+
+out = read_yaml("sisi4s.out.yaml")
+
+compare_energies("correct.out.yaml",
+                 "sisi4s.out.yaml",
+                 accuracy=1e-7)
+EOF
+chmod +x $folder_path/check.py
+
+################################################################################
+
+cat <<EOF
+
+    new test created in $folder_path
+
+    files created:
+        - check.py
+        - run.py
+        - test.json
+
+EOF

@@ -298,6 +298,8 @@ AC_CONFIG_FILES([
                  docs/Doxyfile
                  docs/config.el
                  docs/conf.py
+                 integration-tests/config.mk
+                 integration-tests/Makefile
                  .dir-locals.el
                ])
 AC_CONFIG_HEADERS([config.h])

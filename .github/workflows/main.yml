@@ -13,6 +13,7 @@ jobs:
     env:
       WITH_CURRENT_SHELL: "nix-shell etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
       WITH_SHELL: "nix-shell ../../etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
+      NJ: 4
 
 
     strategy:
@@ -50,47 +51,53 @@ jobs:
     - name: Bootstraping
       run: $WITH_CURRENT_SHELL './bootstrap.sh'
 
-    - name: Configure (${{matrix.compiler}})
+    - name: Configure
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
         $WITH_SHELL '../../configure'
 
-    - name: CTF (${{matrix.compiler}})
+    - name: CTF
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make ctf'
+        $WITH_SHELL 'make -j$NJ ctf'
 
-    - name: LIBINT (${{matrix.compiler}})
+    - name: LIBINT
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make libint'
+        $WITH_SHELL 'make -j$NJ libint'
 
-    - name: EIGEN (${{matrix.compiler}})
+    - name: EIGEN
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make eigen'
+        $WITH_SHELL 'make -j$NJ eigen'
 
-    - name: YAMLCPP (${{matrix.compiler}})
+    - name: YAMLCPP
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make yamlcpp'
+        $WITH_SHELL 'make -j$NJ yamlcpp'
 
-    - name: Extern (${{matrix.compiler}})
+    - name: Extern
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make extern'
+        $WITH_SHELL 'make -j$NJ extern'
 
-    - name: Make main (${{matrix.compiler}})
+    - name: sisi4s
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make sisi4s'
+        $WITH_SHELL 'make -j$NJ sisi4s'
+
+    - name: Run integration tests
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make -C integration-tests/ pyyaml run'
 
   documentation:
     runs-on: ubuntu-latest

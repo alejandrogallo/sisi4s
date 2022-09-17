@@ -1,0 +1,95 @@
+include config.mk
+PYTHON ?= python3
+SISI4S_PATH ?=
+NP ?= 1
+SISI4S_RUN ?= mpirun -np $(NP) $(SISI4S_PATH)
+ifneq ($(MAKECMDGOALS),data)
+ifneq ($(MAKECMDGOALS),pyyaml)
+#OUTPUT_NAME ?= $(shell md5sum "$(SISI4S_PATH)" | cut -d ' ' -f1).testis
+OUTPUT_NAME ?= ""
+endif
+endif
+TAGS ?= essential
+TESTMATCH ?= .*
+
+TESTIS = @abs_srcdir@/testis.py
+SRC_TEST_FOLDERS = $(shell find @abs_srcdir@ -name test.json | xargs dirname)
+TEST_FOLDERS = $(patsubst @abs_srcdir@/%,@abs_builddir@/%,$(SRC_TEST_FOLDERS))
+TESTIS_LINKS = $(patsubst %,%/testis.py,$(TEST_FOLDERS))
+BINARY_LINKS = $(patsubst %,%/sisi4s,$(TEST_FOLDERS))
+
+
+link: $(TEST_FOLDERS) $(TESTIS_LINKS) $(BINARY_LINKS)
+$(TESTIS_LINKS): $(TESTIS)
+	ln -rs $< $@
+
+$(BINARY_LINKS):
+	mkdir -p $(@D)
+	ln -rs $(SISI4S_PATH) $@
+
+@abs_builddir@/%: @abs_srcdir@/%
+	mkdir -p $(@D)
+	cp -r $< $@
+	ln -rs $< $@/src
+
+ifneq ($(MAKECMDGOALS),data)
+ifneq ($(MAKECMDGOALS),pyyaml)
+ifeq ($(SISI4S_RUN),)
+$(error DEAR USER: Please define the SISI4S_RUN environment variable)
+else
+export SISI4S_PATH SISI4S_RUN
+endif
+endif
+endif
+
+$(info SISI4S_PATH = $(SISI4S_PATH))
+$(info SISI4S_RUN = $(SISI4S_RUN))
+
+list:
+	@echo $(TEST_FOLDERS) | tr " " "\n"
+
+test: link
+test:
+	$(PYTHON) $(TESTIS) -rc . -n $(OUTPUT_NAME) \
+		--rx "$(TESTMATCH)" \
+		--tags "$(TAGS)"
+
+check: link
+check:
+	$(PYTHON) $(TESTIS) -c . -n $(OUTPUT_NAME) \
+		--rx "$(TESTMATCH)" \
+		--tags "$(TAGS)"
+
+run: link
+run:
+	$(PYTHON) $(TESTIS) -r . -n $(OUTPUT_NAME) \
+		--rx "$(TESTMATCH)" \
+		--tags "$(TAGS)"
+
+data:
+	$(PYTHON) $(TESTIS) . \
+		--rx "$(TESTMATCH)" \
+		--tags "$(TAGS)"
+
+clean:
+	-@find . -name '*.testis'   -type d -exec rm -vr {} \;
+	-@find . -name __pycache__  -type d -exec rm -vr {} \;
+	-@rm -v $(TESTIS_LINKS)
+
+clean-store:
+	-@find . -name testis-store -type d -exec rm -vr {} \;
+
+clean-all: clean clean-store
+	rm -vrf lib
+	rm -vfr pyyaml
+
+gdb: SISI4S_RUN="gdb $(SISI4S_PATH)"
+
+pyyaml: lib/python/yaml
+lib/python/yaml:
+	git clone https://github.com/yaml/pyyaml
+	mkdir -p $(@D)
+	ln -rs pyyaml/lib/yaml/ $@
+
+
+.PHONY: test check all gdb clean data pyyaml clean-all list
