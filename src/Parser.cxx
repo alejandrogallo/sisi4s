@@ -14,7 +14,7 @@ using namespace sisi4s;
 
 InputFileParser<InputFileFormat::YAML>::InputFileParser(
   std::string const& fileName_
-): fileName(fileName_) {};
+): fileName(fileName_) {}
 
 InputFileParser<InputFileFormat::YAML>::~InputFileParser() {}
 
@@ -36,12 +36,12 @@ InputFileParser<InputFileFormat::YAML>::parse() {
         try {
           int value = it->second.as<int>();
           valueName = (new IntegerData(value))->getName();
-        } catch (YAML::TypedBadConversion<int> const c) {
+        } catch (YAML::TypedBadConversion<int> const& c) {
 
           try {
             double value = it->second.as<double>();
             valueName = (new RealData(value))->getName();
-          } catch (YAML::TypedBadConversion<double> const c) {
+          } catch (YAML::TypedBadConversion<double> const& c) {
 
             try {
               std::string value = it->second.as<std::string>();
@@ -54,7 +54,7 @@ InputFileParser<InputFileFormat::YAML>::parse() {
               } else {
                 valueName = (new TextData(value))->getName();
               }
-            } catch (YAML::TypedBadConversion<std::string> const c) {
+            } catch (YAML::TypedBadConversion<std::string> const& c) {
               throw c;
             }
 
