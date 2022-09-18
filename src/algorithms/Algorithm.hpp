@@ -170,18 +170,36 @@ namespace sisi4s {
    * used in the algorith declaration within the .hpp file.
    * Note that name is a symbol name not a string.
    */
-  #define ALGORITHM_REGISTRAR_DECLARATION(NAME) \
-    virtual std::string getName() { return #NAME; } \
-    static AlgorithmRegistrar<NAME> registrar_
+#define ALGORITHM_REGISTRAR_DECLARATION(NAME)     \
+  virtual std::string getName() { return #NAME; } \
+  static AlgorithmRegistrar<NAME> registrar_
   /**
    * \brief Auxiliary macro defining the algorithm registrar for
    * the algorithm type of the given name. This macro is to be
    * used in the algorithm definition within the .cxx file.
    * Note that name is a symbol name not a string.
    */
-  #define ALGORITHM_REGISTRAR_DEFINITION(NAME) \
-    AlgorithmRegistrar<NAME> NAME::registrar_(#NAME)
+#define ALGORITHM_REGISTRAR_DEFINITION(NAME)        \
+  AlgorithmRegistrar<NAME> NAME::registrar_(#NAME)
+
+#define IMPLEMENT_ALGORITHM(NAME, ...)            \
+  ALGORITHM_REGISTRAR_DEFINITION(NAME);           \
+  void NAME::run() {                              \
+    __VA_ARGS__                                   \
+      }                                           \
+  class Algorithm
+
+#define DEFINE_ALGORITHM_HEADER(NAME, ...)        \
+  class NAME: public Algorithm {                  \
+  public:                                         \
+  ALGORITHM_REGISTRAR_DECLARATION(NAME);          \
+  NAME(std::vector<Argument> const &argumentList) \
+    : Algorithm(argumentList) {}                  \
+  ~NAME(){}                                       \
+  virtual void run();                             \
+  __VA_ARGS__                                     \
+  }
+
 }
 
 #endif
-
