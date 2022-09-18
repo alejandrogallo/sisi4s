@@ -23,18 +23,13 @@
 namespace sisi4s {
   class Sisi4s {
   public:
-    Sisi4s();
-    ~Sisi4s();
     void run();
     void dryRun();
-
-    static bool isDebugged();
 
     // static properties, accessible from everywhere
     static CTF::World *world;
     static Options *options;
 
-  protected:
     void printBanner();
     void printStatistics();
     void listHosts();
@@ -43,7 +38,9 @@ namespace sisi4s {
 
 #endif
 
-/*!  * \mainpage
+/*!
+ *
+ * \mainpage
  * \section intro Introduction
  *
  * Coupled Cluster For Solids (SISI4S) is is a parallel quantum
@@ -56,5 +53,10 @@ namespace sisi4s {
  * The software is available on https://github.com/alejandrogallo/sisi4s
  * and maybe obtained via the command
  *
+ *
+ * ~~~
  *   git clone git@github.com:alejandrogallo/sisi4s.git
+ * ~~~
+ *
+ *
  */

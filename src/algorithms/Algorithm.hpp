@@ -112,10 +112,11 @@ namespace sisi4s {
 
   class AlgorithmFactory {
   public:
-    typedef std::map<
-      std::string,
-      std::function<Algorithm *(std::vector<Argument> const &)>
-    > AlgorithmMap;
+
+    using AlgorithmMap
+      = std::map<std::string,
+                 std::function<Algorithm *(std::vector<Argument> const &)>
+                 >;
 
     /**
      * \brief Creates an algorithm object of the algorithm type specified
@@ -131,6 +132,14 @@ namespace sisi4s {
       return iterator != getAlgorithmMap()->end() ?
         iterator->second(arguments) : nullptr;
     }
+
+    static std::vector<std::string>
+    getAlgorithmNames() {
+      std::vector<std::string> result;
+      for (auto const& kv: *algorithmMap) result.push_back(kv.first);
+      return result;
+    }
+
   protected:
     static AlgorithmMap *getAlgorithmMap() {
       return algorithmMap ? algorithmMap : (algorithmMap = new AlgorithmMap);
