@@ -30,18 +30,17 @@
  *
  */
 #include <string>
-#include <system_error>
+#include <iostream>
 #include <vector>
-#include <libint2.hpp>
+#include <numeric>      // std::iota
+#include <util/Libint.hpp>
 #include <algorithms/HartreeFockFromGaussian.hpp>
 #include <algorithms/OneBodyFromGaussian.hpp>
 #include <util/CTF.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
-#include <iostream>
 #include <Eigen/Eigenvalues>
 #include <util/CTF.hpp>
-#include <numeric>      // std::iota
 #include <util/Emitter.hpp>
 #include <algorithms/HartreeFockFromCoulombIntegrals.hpp>
 #define LOGGER(_l) LOG(_l, "HartreeFockFromGaussian")
