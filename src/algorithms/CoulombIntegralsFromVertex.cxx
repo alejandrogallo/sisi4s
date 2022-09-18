@@ -27,8 +27,8 @@ void CoulombIntegralsFromVertex::run() {
   Tensor<complex> *GammaGqr( getTensorArgument<complex>("CoulombVertex"));
 
   // Read the Particle/Hole Eigenenergies
-  Tensor<> *epsi(getTensorArgument<>("HoleEigenEnergies"));
-  Tensor<> *epsa(getTensorArgument<>("ParticleEigenEnergies"));
+  Tensor<double> *epsi(getTensorArgument<>("HoleEigenEnergies"));
+  Tensor<double> *epsa(getTensorArgument<>("ParticleEigenEnergies"));
 
   LOG(0, "Integrals") <<
     "Reading Coulomb integrals form vertex " << GammaGqr->get_name()
@@ -189,91 +189,91 @@ void CoulombIntegralsFromVertex::calculateRealIntegrals() {
     LOG(0, "CoulombIntegrals") << "Calculating antisymmetrized integrals"
       << std::endl;
   }
-  Tensor<> *Vaibj(
+  Tensor<double> *Vaibj(
     isArgumentGiven("PHPHCoulombIntegrals") ?
-    new Tensor<>(4, vovo.data(), syms.data(), *Sisi4s::world, "Vaibj") : nullptr
+    new Tensor<double>(4, vovo.data(), syms.data(), *Sisi4s::world, "Vaibj") : nullptr
   );
-  Tensor<> *Vabij(
+  Tensor<double> *Vabij(
     isArgumentGiven("PPHHCoulombIntegrals") ?
-    new Tensor<>(4, vvoo.data(), syms.data(), *Sisi4s::world, "Vabij") : nullptr
+    new Tensor<double>(4, vvoo.data(), syms.data(), *Sisi4s::world, "Vabij") : nullptr
   );
-  Tensor<> *Vijkl(
+  Tensor<double> *Vijkl(
     isArgumentGiven("HHHHCoulombIntegrals") ?
-    new Tensor<>(4, oooo.data(), syms.data(), *Sisi4s::world, "Vijkl") : nullptr
+    new Tensor<double>(4, oooo.data(), syms.data(), *Sisi4s::world, "Vijkl") : nullptr
   );
-  Tensor<> *Vijka(
+  Tensor<double> *Vijka(
     isArgumentGiven("HHHPCoulombIntegrals") ?
-    new Tensor<>(4, ooov.data(), syms.data(), *Sisi4s::world, "Vijka") : nullptr
+    new Tensor<double>(4, ooov.data(), syms.data(), *Sisi4s::world, "Vijka") : nullptr
   );
-  Tensor<> *Vabcd(
+  Tensor<double> *Vabcd(
     isArgumentGiven("PPPPCoulombIntegrals") ?
-    new Tensor<>(4, vvvv.data(), syms.data(), *Sisi4s::world, "Vabcd") : nullptr
+    new Tensor<double>(4, vvvv.data(), syms.data(), *Sisi4s::world, "Vabcd") : nullptr
   );
-  Tensor<> *Vabci(
+  Tensor<double> *Vabci(
     isArgumentGiven("PPPHCoulombIntegrals") ?
-    new Tensor<>(4, vvvo.data(), syms.data(), *Sisi4s::world, "Vabci") : nullptr
+    new Tensor<double>(4, vvvo.data(), syms.data(), *Sisi4s::world, "Vabci") : nullptr
   );
 
 
   // Initialization of tensors created from already existing ones
-  Tensor<> *Vaijk(
+  Tensor<double> *Vaijk(
     isArgumentGiven("PHHHCoulombIntegrals") ?
-    new Tensor<>(4, vooo.data(), syms.data(), *Sisi4s::world, "Vaijk") : nullptr
+    new Tensor<double>(4, vooo.data(), syms.data(), *Sisi4s::world, "Vaijk") : nullptr
   );
-  Tensor<> *Vijab(
+  Tensor<double> *Vijab(
     isArgumentGiven("HHPPCoulombIntegrals") ?
-    new Tensor<>(4, oovv.data(), syms.data(), *Sisi4s::world, "Vijab") : nullptr
+    new Tensor<double>(4, oovv.data(), syms.data(), *Sisi4s::world, "Vijab") : nullptr
   );
-  Tensor<> *Vaijb(
+  Tensor<double> *Vaijb(
     isArgumentGiven("PHHPCoulombIntegrals") ?
-    new Tensor<>(4, voov.data(), syms.data(), *Sisi4s::world, "Vaijb") : nullptr
+    new Tensor<double>(4, voov.data(), syms.data(), *Sisi4s::world, "Vaijb") : nullptr
   );
-  Tensor<> *Viajk(
+  Tensor<double> *Viajk(
     isArgumentGiven("HPHHCoulombIntegrals") ?
-    new Tensor<>(4, ovoo.data(), syms.data(), *Sisi4s::world, "Viajk") : nullptr
+    new Tensor<double>(4, ovoo.data(), syms.data(), *Sisi4s::world, "Viajk") : nullptr
   );
-  Tensor<> *Viajb(
+  Tensor<double> *Viajb(
     isArgumentGiven("HPHPCoulombIntegrals") ?
-    new Tensor<>(4, ovov.data(), syms.data(), *Sisi4s::world, "Viajb") : nullptr
+    new Tensor<double>(4, ovov.data(), syms.data(), *Sisi4s::world, "Viajb") : nullptr
   );
-  Tensor<> *Viabc(
+  Tensor<double> *Viabc(
     isArgumentGiven("HPPPCoulombIntegrals") ?
-    new Tensor<>(4, ovvv.data(), syms.data(), *Sisi4s::world, "Viabc") : nullptr
+    new Tensor<double>(4, ovvv.data(), syms.data(), *Sisi4s::world, "Viabc") : nullptr
   );
-  Tensor<> *Vabic(
+  Tensor<double> *Vabic(
     isArgumentGiven("PPHPCoulombIntegrals") ?
-    new Tensor<>(4, vvov.data(), syms.data(), *Sisi4s::world, "Vabic") : nullptr
+    new Tensor<double>(4, vvov.data(), syms.data(), *Sisi4s::world, "Vabic") : nullptr
   );
-  Tensor<> *Viabj(
+  Tensor<double> *Viabj(
     isArgumentGiven("HPPHCoulombIntegrals") ?
-    new Tensor<>(4, ovvo.data(), syms.data(), *Sisi4s::world, "Viabj") : nullptr
+    new Tensor<double>(4, ovvo.data(), syms.data(), *Sisi4s::world, "Viabj") : nullptr
   );
-  Tensor<> *Vijak(
+  Tensor<double> *Vijak(
     isArgumentGiven("HHPHCoulombIntegrals") ?
-    new Tensor<>(4, oovo.data(), syms.data(), *Sisi4s::world, "Vijak") : nullptr
+    new Tensor<double>(4, oovo.data(), syms.data(), *Sisi4s::world, "Vijak") : nullptr
   );
-  Tensor<> *Vaibc(
+  Tensor<double> *Vaibc(
     isArgumentGiven("PHPPCoulombIntegrals") ?
-    new Tensor<>(4, vovv.data(), syms.data(), *Sisi4s::world, "Vijak") : nullptr
+    new Tensor<double>(4, vovv.data(), syms.data(), *Sisi4s::world, "Vijak") : nullptr
   );
 
 
   // Split GammaGab,GammaGai,GammaGia,GammaGij into real and imaginary parts
-  Tensor<> realGammaGai(3, GammaGai->lens, GammaGai->sym,
+  Tensor<double> realGammaGai(3, GammaGai->lens, GammaGai->sym,
                         *GammaGai->wrld, "RealGammaGai");
-  Tensor<> imagGammaGai(3, GammaGai->lens, GammaGai->sym,
+  Tensor<double> imagGammaGai(3, GammaGai->lens, GammaGai->sym,
                         *GammaGai->wrld, "ImagGammaGai");
   fromComplexTensor(*GammaGai, realGammaGai, imagGammaGai);
 
-  Tensor<> realGammaGab(3, GammaGab->lens, GammaGab->sym,
+  Tensor<double> realGammaGab(3, GammaGab->lens, GammaGab->sym,
                         *GammaGab->wrld, "RealGammaGab");
-  Tensor<> imagGammaGab(3, GammaGab->lens, GammaGab->sym,
+  Tensor<double> imagGammaGab(3, GammaGab->lens, GammaGab->sym,
                         *GammaGab->wrld, "ImagGammaGab");
   fromComplexTensor(*GammaGab, realGammaGab, imagGammaGab);
 
-  Tensor<> realGammaGij(3, GammaGij->lens, GammaGij->sym,
+  Tensor<double> realGammaGij(3, GammaGij->lens, GammaGij->sym,
                         *GammaGij->wrld, "RealGammaGij");
-  Tensor<> imagGammaGij(3, GammaGij->lens, GammaGij->sym,
+  Tensor<double> imagGammaGij(3, GammaGij->lens, GammaGij->sym,
                         *GammaGij->wrld, "ImagGammaGij");
   fromComplexTensor(*GammaGij, realGammaGij, imagGammaGij);
 
@@ -640,7 +640,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
     nullptr
   );
 
-  Univar_Function<complex> fConj(conj<complex>);
+  CTF::Univar_Function<complex> fConj(conj<complex>);
 
   Tensor<complex> conjTransposeGammaGai(false, *GammaGai);
   conjTransposeGammaGai.sum(1.0,*GammaGia,"Gia", 0.0,"Gai", fConj);

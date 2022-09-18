@@ -238,8 +238,8 @@ void CcsdtEquationOfMotionDavidson::run() {
   CTF::Tensor<F> *Vaijb(&cVaijb);
   toComplexTensor(*pVaijb, *Vaijb);
 
-  //CTF::Tensor<> *Vabij(
-      //getTensorArgument<double, CTF::Tensor<>>("PPHHCoulombIntegrals"));
+  //CTF::Tensor<double> *Vabij(
+      //getTensorArgument<double, CTF::Tensor<double>>("PPHHCoulombIntegrals"));
 
 
   // HF terms

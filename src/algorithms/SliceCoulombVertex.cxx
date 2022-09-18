@@ -24,7 +24,7 @@ void SliceCoulombVertex::run() {
   Tensor<complex> *GammaGqr( getTensorArgument<complex>("CoulombVertex"));
 
   // Read the Particle/Hole Eigenenergies
-  Tensor<> *epsi(getTensorArgument<>("HoleEigenEnergies"));
+  Tensor<double> *epsi(getTensorArgument<>("HoleEigenEnergies"));
 
   // Compute the No,Nv,NG,Np
   int NG(GammaGqr->lens[0]);

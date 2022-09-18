@@ -25,9 +25,9 @@ void ParticleHoleCoulombIntegrals::run() {
                             ("ParticleHoleCoulombVertex"));
 
   // allocate real and imag part of GammaGai
-  Tensor<> realGammaGai(3, GammaGai->lens, GammaGai->sym, 
+  Tensor<double> realGammaGai(3, GammaGai->lens, GammaGai->sym, 
                         *GammaGai->wrld, "RealGammaGai");
-  Tensor<> imagGammaGai(3, GammaGai->lens, GammaGai->sym, 
+  Tensor<double> imagGammaGai(3, GammaGai->lens, GammaGai->sym, 
                         *GammaGai->wrld, "ImagGammaGai");
 
   // split into real and imaginary parts
@@ -39,13 +39,13 @@ void ParticleHoleCoulombIntegrals::run() {
   int vvoo[] = { Nv, Nv, No, No };
   int oovv[] = { No, No, Nv, Nv };
   int syms[] = { NS, NS, NS, NS };
-  Tensor<> *Vabij(
+  Tensor<double> *Vabij(
     isArgumentGiven("PPHHCoulombIntegrals") ?
-    new Tensor<>(4, vvoo, syms, *Sisi4s::world, "Vabij") : nullptr
+    new Tensor<double>(4, vvoo, syms, *Sisi4s::world, "Vabij") : nullptr
   );
-  Tensor<> *Vijab(
+  Tensor<double> *Vijab(
     isArgumentGiven("HHPPCoulombIntegrals") ?
-    new Tensor<>(4, oovv, syms, *Sisi4s::world, "Vijab") : nullptr
+    new Tensor<double>(4, oovv, syms, *Sisi4s::world, "Vijab") : nullptr
   );
   if (Vabij) {
     allocatedTensorArgument("PPHHCoulombIntegrals", Vabij);

@@ -19,28 +19,28 @@ UPerturbativeTriples::~UPerturbativeTriples() {
 }
 
 void UPerturbativeTriples::run() {
-  Tensor<>  *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<>  *epsa(getTensorArgument("ParticleEigenEnergies"));
-  Tensor<> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  Tensor<> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
-  Tensor<> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
-  Tensor<> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
-  Tensor<>   *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
+  Tensor<double>  *epsi(getTensorArgument("HoleEigenEnergies"));
+  Tensor<double>  *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
+  Tensor<double> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
+  Tensor<double> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
+  Tensor<double> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
+  Tensor<double>   *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
 
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
 
   int vvvooo[] = { Nv, Nv, Nv, No, No, No };
   int   syms[] = { NS, NS, NS, NS, NS, NS };
-  Tensor<> SVabcijk(6, vvvooo, syms, *Vabij->wrld, "SVabcijk");
+  Tensor<double> SVabcijk(6, vvvooo, syms, *Vabij->wrld, "SVabcijk");
   // TODO: erase 0.5
   SVabcijk["abcijk"]  = 0.5 * (*Tai)["ai"] * (*Vabij)["bcjk"];
 
-  Tensor<> DVabcijk(6, vvvooo, syms, *Vabij->wrld, "DVabcijk");
+  Tensor<double> DVabcijk(6, vvvooo, syms, *Vabij->wrld, "DVabcijk");
   DVabcijk["abcijk"]  =          (*Tabij)["adij"] * (*Vabci)["bcdk"];
   DVabcijk["abcijk"] += (-1.0) * (*Tabij)["abil"] * (*Vijka)["jklc"];
 
-  Tensor<> Tabcijk(6, vvvooo, syms, *Vabij->wrld, "Tabcijk");
+  Tensor<double> Tabcijk(6, vvvooo, syms, *Vabij->wrld, "Tabcijk");
 
   /* AUTOMATIC
                Tabij["adij"]   Vabci["bcdk"]

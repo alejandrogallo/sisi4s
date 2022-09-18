@@ -61,12 +61,12 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
 // IMPORTANT: we do not dress the coulomb integrals anymore
 //    auto Vabci(getTensorArgument("PPPHCoulombIntegrals"));
 
-//    Tensor<> Xabcd(false, *Vabcd);
+//    Tensor<double> Xabcd(false, *Vabcd);
     // Build Xabcd intermediate
 //    Xabcd["abcd"]  = ( 1.0) * (*Vabcd)["abcd"];
 //    Xabcd["abcd"] += (-1.0) * (*Vabci)["cdak"] * (*Tai)["bk"];
 //    Xabcd["abcd"] += (-1.0) * (*Vabci)["dcbk"] * (*Tai)["ak"];
-    Tensor<> Xabij(*Tabij);
+    Tensor<double> Xabij(*Tabij);
     Xabij["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
     if (slicedPPL == 0) {
   //    (*Rabij)["abij"]  = Xabcd["abcd"] * Xabij["cdij"];
@@ -153,16 +153,16 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
       "Solving T2 Amplitude Equations" << std::endl;
 
     // Define intermediates
-    Tensor<> Lac(2, vv.data(), syms.data(), *Vabij->wrld, "Lac");
-    Tensor<> Kac(2, vv.data(), syms.data(), *Vabij->wrld, "Kac");
-    Tensor<> Lki(2, oo.data(), syms.data(), *Vabij->wrld, "Lki");
-    Tensor<> Kki(2, oo.data(), syms.data(), *Vabij->wrld, "Kki");
-    Tensor<> Kck(2, vo.data(), syms.data(), *Vabij->wrld, "Kck");
+    Tensor<double> Lac(2, vv.data(), syms.data(), *Vabij->wrld, "Lac");
+    Tensor<double> Kac(2, vv.data(), syms.data(), *Vabij->wrld, "Kac");
+    Tensor<double> Lki(2, oo.data(), syms.data(), *Vabij->wrld, "Lki");
+    Tensor<double> Kki(2, oo.data(), syms.data(), *Vabij->wrld, "Kki");
+    Tensor<double> Kck(2, vo.data(), syms.data(), *Vabij->wrld, "Kck");
 
-    Tensor<> Xklij(false, *Vijkl);
-    Tensor<> Xakci(false, *Vaibj);
-    Tensor<> Xabcd(false, *Vabcd);
-    Tensor<> Xakic(4, voov.data(), syms.data(), *Vabij->wrld, "Xakic");
+    Tensor<double> Xklij(false, *Vijkl);
+    Tensor<double> Xakci(false, *Vaibj);
+    Tensor<double> Xabcd(false, *Vabcd);
+    Tensor<double> Xakic(4, voov.data(), syms.data(), *Vabij->wrld, "Xakic");
 
     // Build Kac
     Kac["ac"]  = (-2.0) * (*Vabij)["cdkl"] * (*Tabij)["adkl"];
@@ -289,8 +289,10 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
   return residuum;
 }
 
-PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
-  const int i, const PTR(const FockVector<sisi4s::complex>) &amplitudes
+PTR(FockVector<sisi4s::complex>)
+CcsdEnergyFromCoulombIntegralsReference::getResiduum(
+  const int i,
+  const PTR(const FockVector<sisi4s::complex>) &amplitudes
 ) {
   throw new EXCEPTION("This is not implemented");
 }

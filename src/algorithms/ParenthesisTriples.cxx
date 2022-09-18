@@ -613,13 +613,13 @@ void ParenthesisTriples::run(){
     Tensor<complex> GammaGai(GammaGqr->slice(GaiStart,GaiEnd));
     Tensor<complex> GammaGab(GammaGqr->slice(GabStart,GabEnd));
 
-    Tensor<> realGammaGai(3, GammaGai.lens, GammaGai.sym,
+    Tensor<double> realGammaGai(3, GammaGai.lens, GammaGai.sym,
                         *GammaGai.wrld, "RealGammaGai");
-    Tensor<> imagGammaGai(3, GammaGai.lens, GammaGai.sym,
+    Tensor<double> imagGammaGai(3, GammaGai.lens, GammaGai.sym,
                         *GammaGai.wrld, "ImagGammaGai");
-    Tensor<> realGammaGab(3, GammaGab.lens, GammaGab.sym,
+    Tensor<double> realGammaGab(3, GammaGab.lens, GammaGab.sym,
                         *GammaGai.wrld, "RealGammaGab");
-    Tensor<> imagGammaGab(3, GammaGab.lens, GammaGab.sym,
+    Tensor<double> imagGammaGab(3, GammaGab.lens, GammaGab.sym,
                         *GammaGab.wrld, "ImagGammaGab");
 
     fromComplexTensor(GammaGai, realGammaGai, imagGammaGai);

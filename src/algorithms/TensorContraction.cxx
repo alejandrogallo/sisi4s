@@ -17,9 +17,9 @@ TensorContraction::~TensorContraction() {
  * \brief Testing environement
  */
 void TensorContraction::run() {
-  Tensor<> *A(getTensorArgument<>("A"));
-  Tensor<> *B(getTensorArgument<>("B"));
-  Tensor<> *C(getTensorArgument<>("Result"));
+  Tensor<double> *A(getTensorArgument<>("A"));
+  Tensor<double> *B(getTensorArgument<>("B"));
+  Tensor<double> *C(getTensorArgument<>("Result"));
   C->contract(
     getRealArgument("alpha", 1.0),
     *A, getTextArgument("AIndex").c_str(),

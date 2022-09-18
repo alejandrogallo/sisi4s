@@ -46,12 +46,12 @@ void DoublesAmplitudesDecomposition::dryRun() {
 }
 
 void DoublesAmplitudesDecomposition::diagonlizeAmplitudes() {
-  Tensor<> *Tabij(getTensorArgument<>("DoublesAmplitudes"));
+  Tensor<double> *Tabij(getTensorArgument<>("DoublesAmplitudes"));
 
   // reorder to Taibj
   Nv = Tabij->lens[0]; No = Tabij->lens[2];
   int lens[] = { Nv,No, Nv,No };
-  Taibj = make_shared<Tensor<>>(4, lens, Tabij->sym, *Tabij->wrld, "Taibj");
+  Taibj = make_shared<Tensor<double>>(4, lens, Tabij->sym, *Tabij->wrld, "Taibj");
   (*Taibj)["aibj"] = (*Tabij)["abij"];
 
   // T(ai)(bj) = U.Lambda.U^T, seen as a matrix with compound indices
@@ -71,7 +71,7 @@ void DoublesAmplitudesDecomposition::diagonlizeAmplitudes() {
 
   // write matrix U(ai)(F) back to CTF as tensor UaiF
   int ULens[3] = { Nv, No, NvNo };
-  UaiF = make_shared<Tensor<>>(3, ULens, Tabij->sym, *Tabij->wrld, "UaiF");
+  UaiF = make_shared<Tensor<double>>(3, ULens, Tabij->sym, *Tabij->wrld, "UaiF");
   scaU->write(*UaiF);
   scaU.reset();
 
@@ -86,7 +86,7 @@ void DoublesAmplitudesDecomposition::diagonlizeAmplitudes() {
   sqrtLambdaF = make_shared<Tensor<complex>>(1, &NvNo, UaiF->sym, *UaiF->wrld);
   sqrtLambdaF->set_name("sqrtLambda");
   sqrtLambdaF->write(lambdasCount, lambdaIndices, sqrtLambdas);
-  LambdaF = new Tensor<>(1, &NvNo, UaiF->sym, *UaiF->wrld);
+  LambdaF = new Tensor<double>(1, &NvNo, UaiF->sym, *UaiF->wrld);
   LambdaF->set_name("Lambda");
   LambdaF->write(lambdasCount, lambdaIndices, lambdas);
   delete[] lambdaIndices;
@@ -121,7 +121,7 @@ void DoublesAmplitudesDecomposition::sliceLargestEigenValues() {
 
   // slice eigen vectors U and values Lambda corresponding to NF largest values
   int LaiFLens[] = { Nv, No, NF };
-  auto LaiF(make_shared<Tensor<>>(3, LaiFLens, UaiF->sym, *UaiF->wrld, "LaiF"));
+  auto LaiF(make_shared<Tensor<double>>(3, LaiFLens, UaiF->sym, *UaiF->wrld, "LaiF"));
   auto LF(make_shared<Tensor<complex>>(1, &NF, UaiF->sym, *UaiF->wrld, "LF"));
   {
     int lowerStart[] = { 0, 0, 0 };
@@ -160,7 +160,7 @@ void DoublesAmplitudesDecomposition::sliceLargestEigenValues() {
   allocatedTensorArgument<complex>("DoublesAmplitudesVertex", LFai);
 
   // recompose for testing
-  Tensor<> *Tabij(getTensorArgument<>("DoublesAmplitudes"));
+  Tensor<double> *Tabij(getTensorArgument<>("DoublesAmplitudes"));
   double tNorm(frobeniusNorm(*Tabij));
   Tensor<complex> cTabij(4, Tabij->lens, Tabij->sym, *Tabij->wrld, "cTabij");
   toComplexTensor(*Tabij, cTabij);

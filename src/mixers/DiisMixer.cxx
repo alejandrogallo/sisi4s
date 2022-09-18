@@ -131,7 +131,6 @@ void DiisMixer<F>::append(
   int dim(count+1);
   std::array<int,2> upperLeftBegin{{0, 0}};
   std::array<int,2> lowerRightEnd{{count+1, count+1}};
-  std::array<int,2> firstColEnd{{count+1,1}};
   std::vector<F> column(count+1);
   std::vector<F> matrix(dim*dim);
   B->slice(upperLeftBegin.data(), lowerRightEnd.data()).read_all(matrix.data());

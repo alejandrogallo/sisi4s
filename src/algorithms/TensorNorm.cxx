@@ -20,7 +20,7 @@ TensorNorm::~TensorNorm() {
  * \brief Testing environement
  */
 void TensorNorm::run() {
-  Tensor<> *A(getTensorArgument("Data"));
+  Tensor<double> *A(getTensorArgument("Data"));
   double norm(frobeniusNorm(*A));
   LOG(0, "TensorNorm") << "norm = " << norm << std::endl;
   if (isArgumentGiven("Norm")) setRealArgument("Norm", norm);

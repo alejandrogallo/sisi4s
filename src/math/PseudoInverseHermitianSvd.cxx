@@ -14,10 +14,9 @@ using std::make_shared;
 
 
 template <typename F>
-PseudoInverseHermitianSvd<F>::PseudoInverseHermitianSvd(
-  Matrix<F> &A, double epsilon
-):
-  inverse(A)
+PseudoInverseHermitianSvd<F>::PseudoInverseHermitianSvd(CTF::Matrix<F> &A,
+                                                        double epsilon)
+  : inverse(A)
 {
   // convert CTF matrices into ScaLapack matrices
   BlacsWorld blacsWorld(A.wrld->rank, A.wrld->np);
@@ -29,7 +28,7 @@ PseudoInverseHermitianSvd<F>::PseudoInverseHermitianSvd(
   double *lambda(new double[scaA->lens[0]]);
   eigenSystem.solve(lambda);
 
-  Vector<F> D(A.lens[0], *A.wrld, "Lambda");
+  CTF::Vector<F> D(A.lens[0], *A.wrld, "Lambda");
   int localLambdaCount(A.wrld->rank == 0 ? A.lens[0] : 0);
   F *lambdaValues(new F[localLambdaCount]);
   int64_t *lambdaIndices(new int64_t[localLambdaCount]);
@@ -44,7 +43,7 @@ PseudoInverseHermitianSvd<F>::PseudoInverseHermitianSvd(
       << "WARNING: Very small eigenvalues occurred" << std::endl;
   }
   D.write(localLambdaCount, lambdaIndices, lambdaValues);
-  Matrix<F> U(A);
+  CTF::Matrix<F> U(A);
   scaU->write(U);
   auto conjU(U);
   conjugate(conjU);
@@ -56,24 +55,25 @@ PseudoInverseHermitianSvd<F>::PseudoInverseHermitianSvd(
 }
 
 template <typename F>
-Matrix<F> &PseudoInverseHermitianSvd<F>::get() {
+CTF::Matrix<F> &PseudoInverseHermitianSvd<F>::get() {
   return inverse;
 }
 
 // instantiate
 template
 PseudoInverseHermitianSvd<sisi4s::Float64>::PseudoInverseHermitianSvd(
-  Matrix<sisi4s::Float64> &matrix, double epsilon
-);
+  CTF::Matrix<sisi4s::Float64> &matrix,
+  double epsilon);
 template
-Matrix<sisi4s::Float64> &PseudoInverseHermitianSvd<sisi4s::Float64>::get();
+CTF::Matrix<sisi4s::Float64> &PseudoInverseHermitianSvd<sisi4s::Float64>::get();
 
 template
 PseudoInverseHermitianSvd<sisi4s::Complex64>::PseudoInverseHermitianSvd(
-  Matrix<sisi4s::Complex64> &matrix, double epsilon
+  CTF::Matrix<sisi4s::Complex64> &matrix,
+  double epsilon
 );
 template
-Matrix<sisi4s::Complex64> &PseudoInverseHermitianSvd<sisi4s::Complex64>::get();
+CTF::Matrix<sisi4s::Complex64> &PseudoInverseHermitianSvd<sisi4s::Complex64>::get();
 
 
 template <typename F>

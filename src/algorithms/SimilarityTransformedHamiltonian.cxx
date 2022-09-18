@@ -2808,8 +2808,8 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
 
   ST_DEBUG("casting gammas")
 #define DEFINE_AND_CAST(_c) \
-  CTF::Tensor<> real##_c(3, _c->lens, _c->sym, *_c->wrld, "Real##_c"); \
-  CTF::Tensor<> imag##_c(3, _c->lens, _c->sym, *_c->wrld, "Imag##_c"); \
+  CTF::Tensor<double> real##_c(3, _c->lens, _c->sym, *_c->wrld, "Real##_c"); \
+  CTF::Tensor<double> imag##_c(3, _c->lens, _c->sym, *_c->wrld, "Imag##_c"); \
   fromComplexTensor(*_c, real##_c, imag##_c);
   DEFINE_AND_CAST(Cai)
   DEFINE_AND_CAST(Cia)

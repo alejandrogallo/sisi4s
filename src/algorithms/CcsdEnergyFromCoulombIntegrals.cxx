@@ -80,28 +80,40 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     Tensor<complex> GammaGij(GammaGqr->slice(GijStart,GijEnd));
 
     // Split GammaGab,GammaGai,GammaGia,GammaGij into real and imaginary parts
-    Tensor<> realGammaGai(
-      3, GammaGai.lens, GammaGai.sym, *GammaGai.wrld, "RealGammaGai"
-    );
-    Tensor<> imagGammaGai(
-      3, GammaGai.lens, GammaGai.sym, *GammaGai.wrld, "ImagGammaGai"
-    );
+    Tensor<double> realGammaGai(3,
+                                GammaGai.lens,
+                                GammaGai.sym,
+                                *GammaGai.wrld,
+                                "RealGammaGai");
+    Tensor<double> imagGammaGai(3,
+                                GammaGai.lens,
+                                GammaGai.sym,
+                                *GammaGai.wrld,
+                                "ImagGammaGai");
     fromComplexTensor(GammaGai, realGammaGai, imagGammaGai);
 
-    Tensor<> realGammaGab(
-      3, GammaGab.lens, GammaGab.sym, *GammaGab.wrld, "RealGammaGab"
-    );
-    Tensor<> imagGammaGab(
-      3, GammaGab.lens, GammaGab.sym, *GammaGab.wrld, "ImagGammaGab"
-    );
+    Tensor<double> realGammaGab(3,
+                                GammaGab.lens,
+                                GammaGab.sym,
+                                *GammaGab.wrld,
+                                "RealGammaGab");
+    Tensor<double> imagGammaGab(3,
+                                GammaGab.lens,
+                                GammaGab.sym,
+                                *GammaGab.wrld,
+                                "ImagGammaGab");
     fromComplexTensor(GammaGab, realGammaGab, imagGammaGab);
 
-    Tensor<> realGammaGij(
-    3, GammaGij.lens, GammaGij.sym, *GammaGij.wrld, "RealGammaGij"
-    );
-    Tensor<> imagGammaGij(
-      3, GammaGij.lens, GammaGij.sym, *GammaGij.wrld, "ImagGammaGij"
-    );
+    Tensor<double> realGammaGij(3,
+                                GammaGij.lens,
+                                GammaGij.sym,
+                                *GammaGij.wrld,
+                                "RealGammaGij");
+    Tensor<double> imagGammaGij(3,
+                                GammaGij.lens,
+                                GammaGij.sym,
+                                *GammaGij.wrld,
+                                "ImagGammaGij");
     fromComplexTensor(GammaGij, realGammaGij, imagGammaGij);
 
     std::array<int,4> syms({{ NS, NS, NS, NS }});
@@ -122,16 +134,16 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
       "Solving T2 Amplitude Equations" << std::endl;
 
     // Intermediates used both by T1 and T2
-    Tensor<> Kac(2, vv.data(), syms.data(), *Vabij->wrld, "Kac");
-    Tensor<> Kki(2, oo.data(), syms.data(), *Vabij->wrld, "Kki");
-    Tensor<> Xabij(*Tabij);
+    Tensor<double> Kac(2, vv.data(), syms.data(), *Vabij->wrld, "Kac");
+    Tensor<double> Kki(2, oo.data(), syms.data(), *Vabij->wrld, "Kki");
+    Tensor<double> Xabij(*Tabij);
     Xabij.set_name("Xabij");
     Xabij["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
 
     {
       // Intermediates used for T2 amplitudes
-      Tensor<> Lac(2, vv.data(), syms.data(), *Vabij->wrld, "Lac");
-      Tensor<> Lki(2, oo.data(), syms.data(), *Vabij->wrld, "Lki");
+      Tensor<double> Lac(2, vv.data(), syms.data(), *Vabij->wrld, "Lac");
+      Tensor<double> Lki(2, oo.data(), syms.data(), *Vabij->wrld, "Lki");
 
       // Build Kac
       Kac["ac"]  = (-2.0) * (*Vabij)["cdkl"] * Xabij["adkl"];
@@ -142,7 +154,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         Lac["ac"]  = Kac["ac"];
       } else {
         // Intermediate tensor Yabij=T2-2*T1*T1
-        Tensor<> Yabij(*Tabij);
+        Tensor<double> Yabij(*Tabij);
         Yabij.set_name("Yabij");
         Yabij["abij"] += ( 2.0) * (*Tai)["ai"] * (*Tai)["bj"];
         Lac["ac"]      = (-1.0) * (*Vabij)["cdkl"] * Yabij["adkl"]; // Use Yabij in DCSD
@@ -162,7 +174,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         Lki["ki"]  = ( 1.0) *   Kki   ["ki"];
       } else {
         // Intermediate tensor Yabij=T2-2*T1*T1
-        Tensor<> Yabij(*Tabij);
+        Tensor<double> Yabij(*Tabij);
         Yabij.set_name("Yabij");
         Yabij["abij"] += ( 2.0) * (*Tai)["ai"] * (*Tai)["bj"];
         Lki["ki"]      = ( 1.0) * (*Vabij)["cdkl"] * Yabij["cdil"]; // Use Yabij in DCSD
@@ -180,8 +192,8 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
     {
       // Contract Coulomb integrals with T2 amplitudes
-      Tensor<> realDressedGammaGai(realGammaGai);
-      Tensor<> imagDressedGammaGai(imagGammaGai);
+      Tensor<double> realDressedGammaGai(realGammaGai);
+      Tensor<double> imagDressedGammaGai(imagGammaGai);
       realDressedGammaGai.set_name("realDressedGammaGai");
       imagDressedGammaGai.set_name("imagDressedGammaGai");
 
@@ -198,10 +210,10 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
     {
       // Build Xakic
-      Tensor<> Xakic(4, voov.data(), syms.data(), *Vabij->wrld, "Xakic");
+      Tensor<double> Xakic(4, voov.data(), syms.data(), *Vabij->wrld, "Xakic");
 
-      Tensor<> realDressedGammaGai(realGammaGai);
-      Tensor<> imagDressedGammaGai(imagGammaGai);
+      Tensor<double> realDressedGammaGai(realGammaGai);
+      Tensor<double> imagDressedGammaGai(imagGammaGai);
       realDressedGammaGai.set_name("realDressedGammaGai");
       imagDressedGammaGai.set_name("imagDressedGammaGai");
 
@@ -216,7 +228,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
       Xakic["akic"] += ( 1.0) * imagDressedGammaGai["Gai"] * imagGammaGai["Gck"];
 
       // Intermediate tensor Yabij=T2-2*T1*T1
-      Tensor<> Yabij(*Tabij);
+      Tensor<double> Yabij(*Tabij);
       Yabij.set_name("Yabij");
       Yabij["abij"] += ( 2.0) * (*Tai)["ai"] * (*Tai)["bj"];
 
@@ -234,17 +246,17 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
     {
       // Build Xakci
-      Tensor<> Xakci(false, *Vaibj);
+      Tensor<double> Xakci(false, *Vaibj);
       Xakci.set_name("Xakci");
 
       // Construct dressed Coulomb vertex GammaGab and GammaGij
-      Tensor<> realDressedGammaGab(realGammaGab);
-      Tensor<> imagDressedGammaGab(imagGammaGab);
+      Tensor<double> realDressedGammaGab(realGammaGab);
+      Tensor<double> imagDressedGammaGab(imagGammaGab);
       realDressedGammaGab.set_name("realDressedGammaGab");
       imagDressedGammaGab.set_name("imagDressedGammaGab");
 
-      Tensor<> realDressedGammaGij(realGammaGij);
-      Tensor<> imagDressedGammaGij(imagGammaGij);
+      Tensor<double> realDressedGammaGij(realGammaGij);
+      Tensor<double> imagDressedGammaGij(imagGammaGij);
       realDressedGammaGij.set_name("realDressedGammaGij");
       imagDressedGammaGij.set_name("imagDressedGammaGij");
 
@@ -281,7 +293,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
     {
       // Build Xklij intermediate
-      Tensor<> Xklij(false, *Vijkl);
+      Tensor<double> Xklij(false, *Vijkl);
       Xklij.set_name("Xklij");
 
       Xklij["klij"]  = (*Vijkl)["klij"];
@@ -367,8 +379,8 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         LOG(1, getCapitalizedAbbreviation()) <<
           "No. of slices for Vabcd evaluation: " << numberSlices << std::endl;
 
-        Tensor<> realDressedGammaGab(realGammaGab);
-        Tensor<> imagDressedGammaGab(imagGammaGab);
+        Tensor<double> realDressedGammaGab(realGammaGab);
+        Tensor<double> imagDressedGammaGab(imagGammaGab);
         realDressedGammaGab.set_name("realDressedGammaGab");
         imagDressedGammaGab.set_name("imagDressedGammaGab");
         // Construct dressed Coulomb vertex GammaGab
@@ -398,7 +410,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
                             (int)realSlicedGammaGab[n]->lens[2],
                             (int)realSlicedGammaGab[m]->lens[2]};
             int syms[] = {NS, NS, NS, NS};
-            auto Vxycd(new Tensor<>(4, lenscd, syms, *realDressedGammaGab.wrld, "Vxycd"));
+            auto Vxycd(new Tensor<double>(4, lenscd, syms, *realDressedGammaGab.wrld, "Vxycd"));
 
             (*Vxycd)["xycd"]  = (*realSlicedGammaGab[n])["Gxc"] * (*realSlicedGammaGab[m])["Gyd"];
             (*Vxycd)["xycd"] += (*imagSlicedGammaGab[n])["Gxc"] * (*imagSlicedGammaGab[m])["Gyd"];
@@ -407,7 +419,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
                             (int)Vxycd->lens[1],
                             (int)No,
                             (int)No};
-            Tensor<> Rxyij(4, lensij, syms, *Vxycd->wrld, "Rxyij");
+            Tensor<double> Rxyij(4, lensij, syms, *Vxycd->wrld, "Rxyij");
 
             // Contract sliced Vxycd with T2 and T1 Amplitudes using Xabij
             Rxyij["xyij"] = (*Vxycd)["xycd"] * Xabij["cdij"];
@@ -430,7 +442,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         "Solving T1 Amplitude Equations" << std::endl;
 
       // Intermediates used for T1 amplitudes
-      Tensor<> Kck(2, vo.data(), syms.data(), *Vabij->wrld, "Kck");
+      Tensor<double> Kck(2, vo.data(), syms.data(), *Vabij->wrld, "Kck");
 
       // Contract Kac and Kki with T1 amplitudes
       (*Rai)["ai"] += ( 1.0) * Kac["ac"] * (*Tai)["ci"];
@@ -521,7 +533,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     auto GammaGai( new Tensor<complex>(GammaGqr->slice(GaiStart, GaiEnd)) );
     auto GammaGab( new Tensor<complex>(GammaGqr->slice(GabStart, GabEnd)) );
 
-    Univar_Function<complex> fConj(conj<complex>);
+    CTF::Univar_Function<complex> fConj(conj<complex>);
 
     Tensor<complex> conjTransposeGammaGai(false, *GammaGai);
     conjTransposeGammaGai.sum(1.0,*GammaGia,"Gia", 0.0,"Gai", fConj);

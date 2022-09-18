@@ -68,28 +68,28 @@ void CcsdPerturbativeTriples::sliceTensors() {
   Tensor<complex> GammaFai(GammaFqr->slice(FaiStart,FaiEnd));
   Tensor<complex> GammaFab(GammaFqr->slice(FabStart,FabEnd));
   // Split GammaFai,GammaFab into real and imaginary parts
-  Tensor<> unslicedRealGammaFai(
+  Tensor<double> unslicedRealGammaFai(
     3, GammaFai.lens, GammaFai.sym, *GammaFai.wrld, "RealGammaFai"
   );
-  Tensor<> unslicedImagGammaFai(unslicedRealGammaFai);
+  Tensor<double> unslicedImagGammaFai(unslicedRealGammaFai);
   fromComplexTensor(GammaFai, unslicedRealGammaFai, unslicedImagGammaFai);
   // slice real and imag GammaFai in dimension 2, i.e. in i
   realGammaFai = new SlicedCtfTensor<>(unslicedRealGammaFai, {2});
   imagGammaFai = new SlicedCtfTensor<>(unslicedImagGammaFai, {2});
 
-  realGammaFab = new Tensor<>(
+  realGammaFab = new Tensor<double>(
     3, GammaFab.lens, GammaFab.sym, *GammaFab.wrld, "RealGammaFab"
   );
-  imagGammaFab = new Tensor<>(*realGammaFab);
+  imagGammaFab = new Tensor<double>(*realGammaFab);
   fromComplexTensor(GammaFab, *realGammaFab, *imagGammaFab);
 }
 
-Tensor<> &CcsdPerturbativeTriples::getSinglesContribution(const Map<3> &i) {
+Tensor<double> &CcsdPerturbativeTriples::getSinglesContribution(const Map<3> &i) {
   (*SVabc)["abc"] = 0.5 * (*Tai)({i(0)})["ai"] * (*Vabij)({i(1),i(2)})["bcjk"];
   return *SVabc;
 }
 
-Tensor<> &CcsdPerturbativeTriples::getDoublesContribution(const Map<3> &i) {
+Tensor<double> &CcsdPerturbativeTriples::getDoublesContribution(const Map<3> &i) {
   (*SVabc)["abc"] =
     (*Tabij)({i(0),i(1)})["adij"] *
     (*realGammaFab)["Fbd"] * (*realGammaFai)({i(2)})["Fck"];
@@ -101,12 +101,12 @@ Tensor<> &CcsdPerturbativeTriples::getDoublesContribution(const Map<3> &i) {
   return *SVabc;
 }
 
-Tensor<> &CcsdPerturbativeTriples::getEnergyDenominator(const Map<3> &i) {
+Tensor<double> &CcsdPerturbativeTriples::getEnergyDenominator(const Map<3> &i) {
   // reuse SVabc to hold the energy denominator
-  Tensor<> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<> *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
+  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
   // NOTE: due to a bug we first to feed the sliced vector into a scalar
-  Scalar<> eps(*epsi->wrld);
+  CTF::Scalar<double> eps(*epsi->wrld);
   int epsiStart[] = { i(0) }, epsiEnd[] = { i(0)+1 };
   eps[""] = epsi->slice(epsiStart,epsiEnd)["i"];
   (*SVabc)["abc"]  = eps.get_val();
@@ -123,25 +123,25 @@ Tensor<> &CcsdPerturbativeTriples::getEnergyDenominator(const Map<3> &i) {
 }
 
 void CcsdPerturbativeTriples::run() {
-  Tensor<>  *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<>  *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double>  *epsi(getTensorArgument("HoleEigenEnergies"));
+  Tensor<double>  *epsa(getTensorArgument("ParticleEigenEnergies"));
   No = epsi->lens[0];
   Nv = epsa->lens[0];
   int vvv[] = { Nv, Nv, Nv };
   int syms[] = { NS, NS, NS };
   // doubles amplitudes contracted with V for current i,j,k
-  DVabc = new Tensor<>(3, vvv, syms, *epsi->wrld, "DVabc");
+  DVabc = new Tensor<double>(3, vvv, syms, *epsi->wrld, "DVabc");
   // unconnected singles amplitudes and V for current i,j,k
-  SVabc = new Tensor<>(3, vvv, syms, *epsi->wrld, "SVabc");
+  SVabc = new Tensor<double>(3, vvv, syms, *epsi->wrld, "SVabc");
   // triples amplitudes considering all permutations of a,b,c for given i,j,k
-  Tensor<> Tabc(3, vvv, syms, *epsi->wrld, "Tabc");
+  Tensor<double> Tabc(3, vvv, syms, *epsi->wrld, "Tabc");
 
   sliceTensors();
 
   // D.V for all permutations of a,b,c together with i,j,k
-  Tensor<> *piDVabc[Permutation<3>::ORDER];
+  Tensor<double> *piDVabc[Permutation<3>::ORDER];
   for (int p(0); p < Permutation<3>::ORDER; ++p) {
-    piDVabc[p] = new Tensor<>(3, vvv, syms, *epsi->wrld, "piDVabc");
+    piDVabc[p] = new Tensor<double>(3, vvv, syms, *epsi->wrld, "piDVabc");
   }
   // spin factors and Fermion sign depending on the number of
   // invariant indices when permuting a,b,c keeping i,j,k fixed.
@@ -151,7 +151,7 @@ void CcsdPerturbativeTriples::run() {
   // true if the permutation Pi leaves the current indices i,j,k invariant
   bool givesDistinctIndexPermutation[Permutation<3>::ORDER];
 
-  Scalar<> energy(*Sisi4s::world);
+  CTF::Scalar<double> energy(*Sisi4s::world);
   energy[""] = 0.0;
   // indices i,j,k as map with 3 elements i(0),...,i(2)
   Map<3> i;
@@ -184,7 +184,7 @@ void CcsdPerturbativeTriples::run() {
         }
 
         // energy denominator is invariant under all permutations
-        Bivar_Function<> fDivide(&divide<double>);
+        CTF::Bivar_Function<double> fDivide(&divide<double>);
         DVabc->contract(
           1.0, *DVabc,"abc", getEnergyDenominator(i),"abc", 0.0,"abc", fDivide
         );

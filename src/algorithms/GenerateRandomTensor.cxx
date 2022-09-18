@@ -24,7 +24,7 @@ void GenerateRandomTensor::run() {
   int nv(getIntegerArgument("Nv")), no(getIntegerArgument("No")); 
   int lens[] = { nv, nv, no, no };
   int syms[] = { NS, NS, NS, NS };
-  Tensor<> *C(new Tensor<>(4, lens, syms, *Sisi4s::world, "C"));
+  Tensor<double> *C(new Tensor<double>(4, lens, syms, *Sisi4s::world, "C"));
   DefaultRandomEngine random;
   std::normal_distribution<double> normalDistribution(0.0, 1.0);
   setRandomTensor(*C, normalDistribution, random);

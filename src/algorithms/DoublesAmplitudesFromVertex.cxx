@@ -29,11 +29,11 @@ void DoublesAmplitudesFromVertex::run() {
   // allocate amplitudes
   int syms[] = { NS, NS, NS, NS };
   int vvoo[] = { Nv, Nv, No, No };
-  Tensor<> *Tabij(new Tensor<>(4, vvoo, syms, *Sisi4s::world, "Tabij"));
+  Tensor<double> *Tabij(new Tensor<>(4, vvoo, syms, *Sisi4s::world, "Tabij"));
 
   // split YLai into real and imaginary parts
-  Tensor<> realYLai(3, YLai->lens, YLai->sym, *YLai->wrld, "realYLai");
-  Tensor<> imagYLai(3, YLai->lens, YLai->sym, *YLai->wrld, "imagYLai");
+  Tensor<double> realYLai(3, YLai->lens, YLai->sym, *YLai->wrld, "realYLai");
+  Tensor<double> imagYLai(3, YLai->lens, YLai->sym, *YLai->wrld, "imagYLai");
   fromComplexTensor(*YLai, realYLai, imagYLai);
 
   (*Tabij)["abij"]  = realYLai["Lai"] * realYLai["Lbj"];

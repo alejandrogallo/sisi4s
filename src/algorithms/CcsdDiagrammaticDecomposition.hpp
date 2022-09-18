@@ -19,11 +19,11 @@ namespace sisi4s {
   protected:
     void evaluateEnergy(
       std::string diagramType, 
-      CTF::Tensor<> &deltaabij, CTF::Tensor<> &deltaai,
-      CTF::Tensor<> &Rabij, CTF::Tensor<> &Rai
+      CTF::Tensor<double> &deltaabij, CTF::Tensor<> &deltaai,
+      CTF::Tensor<double> &Rabij, CTF::Tensor<> &Rai
     );
    void sliceIntoResiduum(
-     CTF::Tensor<> &Rxyij, int a, int b, CTF::Tensor<> &Rabij
+     CTF::Tensor<double> &Rxyij, int a, int b, CTF::Tensor<> &Rabij
    ); 
   }; 
 }
