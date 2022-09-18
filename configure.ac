@@ -126,6 +126,8 @@ AC_MSG_NOTICE([
 AC_PROG_CXX
 AX_MPI([], [AC_MSG_FAILURE([No MPI C++ compiler found.])])
 AX_COMPILER_VENDOR
+
+CXX_VENDOR=$ax_cv_cxx_compiler_vendor
 CXX="${MPICXX}"
 
 AM_PROG_AR
