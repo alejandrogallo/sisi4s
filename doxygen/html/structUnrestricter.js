@@ -1,5 +1,5 @@
 var structUnrestricter =
 [
-    [ "doEigenEnergies", "structUnrestricter.html#af7a54cae24fa0ee95e3e4acf181b76ee", null ],
-    [ "doVertex", "structUnrestricter.html#a561cc4d54b8081555acc00a70c532dd7", null ]
+    [ "doEigenEnergies", "structUnrestricter.html#a7c13c6368ca5c0b725abdf582ff69262", null ],
+    [ "doVertex", "structUnrestricter.html#ae630d9ae0cf31af5f42085b26acbc3eb", null ]
 ];

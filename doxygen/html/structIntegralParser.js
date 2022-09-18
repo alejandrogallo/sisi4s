@@ -1,7 +1,7 @@
 var structIntegralParser =
 [
     [ "IntegralParser", "structIntegralParser.html#ab75cbe9ea6d2495a9bc3675e73e90d2a", null ],
-    [ "allocateTensor", "structIntegralParser.html#aaa0ff061412095a607599da3acae240c", null ],
+    [ "allocateTensor", "structIntegralParser.html#ab40f18e20fbaf0214a92e69ad5cb1845", null ],
     [ "match", "structIntegralParser.html#ab63ba0ca24350293941b29288d5f0864", null ],
     [ "chemistName", "structIntegralParser.html#a42c506cb6dbd6fb2d1aece52e614975f", null ],
     [ "dimension", "structIntegralParser.html#a3abd0dac8e5b32c7c57b12180add840e", null ],

@@ -9,60 +9,58 @@
     <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
     <includes local="no">fstream</includes>
     <includes local="no">iomanip</includes>
-    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <incdepgraph>
-      <node id="26">
+      <node id="27">
         <label>Options.hpp</label>
         <link refid="Options_8hpp"/>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
       </node>
-      <node id="25">
+      <node id="26">
         <label>Sisi4s.hpp</label>
         <link refid="Sisi4s_8hpp"/>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
       </node>
-      <node id="27">
+      <node id="28">
         <label>extern/CLI11.hpp</label>
         <link refid="CLI11_8hpp"/>
-        <childnode refid="28" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
         <childnode refid="30" relation="include">
         </childnode>
         <childnode refid="31" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
         <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="33" relation="include">
         </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="34" relation="include">
+        <childnode refid="35" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="35" relation="include">
+        <childnode refid="36" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
@@ -80,6 +78,8 @@
         </childnode>
         <childnode refid="44" relation="include">
         </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>math/Complex.hpp</label>
@@ -95,7 +95,7 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>util/BinaryTensorFormat.hpp</label>
         <link refid="BinaryTensorFormat_8hpp"/>
         <childnode refid="6" relation="include">
@@ -105,10 +105,10 @@
         <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="23">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="23" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
       <node id="19">
@@ -153,18 +153,24 @@
         <childnode refid="21" relation="include">
         </childnode>
       </node>
+      <node id="22">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>TensorIo.cxx</label>
         <link refid="TensorIo_8cxx"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
@@ -197,7 +203,7 @@
         <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="35">
+      <node id="36">
         <label>algorithm</label>
       </node>
       <node id="14">
@@ -212,19 +218,19 @@
       <node id="21">
         <label>cstring</label>
       </node>
-      <node id="23">
+      <node id="24">
         <label>ctf.hpp</label>
       </node>
       <node id="10">
         <label>ctime</label>
       </node>
-      <node id="42">
+      <node id="43">
         <label>exception</label>
       </node>
       <node id="18">
         <label>fstream</label>
       </node>
-      <node id="29">
+      <node id="30">
         <label>functional</label>
       </node>
       <node id="12">
@@ -236,34 +242,34 @@
       <node id="20">
         <label>istream</label>
       </node>
-      <node id="38">
+      <node id="39">
         <label>iterator</label>
       </node>
-      <node id="41">
+      <node id="42">
         <label>limits</label>
       </node>
-      <node id="34">
+      <node id="35">
         <label>locale</label>
       </node>
-      <node id="31">
+      <node id="32">
         <label>map</label>
       </node>
-      <node id="28">
+      <node id="29">
         <label>memory</label>
       </node>
-      <node id="30">
+      <node id="31">
         <label>numeric</label>
       </node>
       <node id="5">
         <label>ostream</label>
       </node>
-      <node id="36">
+      <node id="37">
         <label>set</label>
       </node>
       <node id="13">
         <label>sstream</label>
       </node>
-      <node id="39">
+      <node id="40">
         <label>stdexcept</label>
       </node>
       <node id="17">
@@ -272,22 +278,22 @@
       <node id="15">
         <label>string</label>
       </node>
-      <node id="43">
+      <node id="44">
         <label>sys/stat.h</label>
       </node>
-      <node id="44">
+      <node id="45">
         <label>sys/types.h</label>
       </node>
-      <node id="32">
+      <node id="33">
         <label>tuple</label>
       </node>
-      <node id="37">
+      <node id="38">
         <label>type_traits</label>
       </node>
-      <node id="33">
+      <node id="34">
         <label>utility</label>
       </node>
-      <node id="40">
+      <node id="41">
         <label>vector</label>
       </node>
     </incdepgraph>
@@ -304,307 +310,306 @@
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">CTF;</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="16" refid="classsisi4s_1_1TensorIo_1a671dcc77e7ded146d8e18ccca6f58051" refkind="member"><highlight class="normal">T<sp/>*TensorIo::readBinary(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName)<sp/>{</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>open<sp/>the<sp/>file</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/>MPI_File<sp/>file;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mpiError(</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_File_open(</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;comm,<sp/>fileName.c_str(),<sp/>MPI_MODE_RDONLY,</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MPI_INFO_NULL,<sp/>&amp;file</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mpiError)<sp/>{</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>explanation;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>explanation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>open<sp/>file<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>fileName<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(explanation.str());</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/>int64_t<sp/>offset(0);</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/>T<sp/>*A(readBinaryHeader&lt;F,T&gt;(file,<sp/>offset));</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>dense<sp/>data</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/>A-&gt;read_dense_from_file(file,<sp/>offset);</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>done</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/>MPI_File_close(&amp;file);</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>A;</highlight></codeline>
-<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="43" refid="classsisi4s_1_1TensorIo_1a13b772a1fa48fa72bc12dc28fbed3f04" refkind="member"><highlight class="normal">T<sp/>*<ref refid="classsisi4s_1_1TensorIo_1a13b772a1fa48fa72bc12dc28fbed3f04" kindref="member">TensorIo::readText</ref>(</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter,</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/>int64_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>bufferSize</highlight></codeline>
-<codeline lineno="47"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/>std::ifstream<sp/>stream(fileName.c_str());</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stream.fail())<sp/>{</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>explanation;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>explanation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>open<sp/>file<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>fileName<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(explanation.str());</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Scanner" kindref="compound">Scanner</ref><sp/>scanner(&amp;stream);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/>std::string<sp/>name(scanner.<ref refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" kindref="member">nextLine</ref>(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/>std::stringstream<sp/>lineStream(scanner.<ref refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" kindref="member">nextLine</ref>());</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>order;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/>lineStream<sp/>&gt;&gt;<sp/>order;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[order];</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[order];</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>order;<sp/>++dim)<sp/>{</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>lineStream<sp/>&gt;&gt;<sp/>lens[dim];</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>syms[dim]<sp/>=<sp/>NS;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/>std::string<sp/>rowIndexOrder(scanner.<ref refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" kindref="member">nextLine</ref>(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/>std::string<sp/>columnIndexOrder(scanner.<ref refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" kindref="member">nextLine</ref>());</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>storedLens[order];</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>storedIndex(0);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>columnIndexOrder.length();<sp/>++dim)<sp/>{</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>i,j,k<sp/>...<sp/>assumed<sp/>in<sp/>indexOrder<sp/>strings</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>storedLens[storedIndex]<sp/>=<sp/>lens[columnIndexOrder[dim]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>++storedIndex;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>rowIndexOrder.length();<sp/>++dim)<sp/>{</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>storedLens[storedIndex]<sp/>=<sp/>lens[rowIndexOrder[dim]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>++storedIndex;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/>T<sp/>*B(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>T(order,<sp/>storedLens,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/>name.c_str()));</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/>int64_t<sp/>indexCount(1);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>B-&gt;order;<sp/>++dim)<sp/>{</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>indexCount<sp/>*=<sp/>B-&gt;lens[dim];</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>the<sp/>values<sp/>only<sp/>on<sp/>root</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/>int64_t<sp/>localBufferSize(B-&gt;wrld-&gt;rank<sp/>==<sp/>0<sp/>?<sp/>bufferSize<sp/>:<sp/>0);</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/>int64_t<sp/>*indices(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[localBufferSize]);</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*values(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>[localBufferSize]);</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/>int64_t<sp/>index(0);</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorReader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;indexCount=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>indexCount<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1NumberScanner" kindref="compound">NumberScanner&lt;F&gt;</ref><sp/>numberScanner(&amp;scanner);</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(index<sp/>&lt;<sp/>indexCount)<sp/>{</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>elementsCount(std::min(bufferSize,<sp/>indexCount-index));</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>localElementsCount(B-&gt;wrld-&gt;rank<sp/>==<sp/>0<sp/>?<sp/>elementsCount<sp/>:<sp/>0);</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>i(0);<sp/>i<sp/>&lt;<sp/>localElementsCount;<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>indices[i]<sp/>=<sp/>index+i;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>values[i]<sp/>=<sp/>numberScanner.nextNumber();</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>until<sp/>all<sp/>processes<sp/>finished<sp/>reading<sp/>this<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_Barrier(<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;comm);</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorReader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;writing<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>elementsCount<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>values<sp/>to<sp/>tensor...&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>B-&gt;write(localElementsCount,<sp/>indices,<sp/>values);</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>index<sp/>+=<sp/>elementsCount;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>indices;</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>values;</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>indexOrder[B-&gt;order<sp/>+<sp/>1];</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>B-&gt;order;<sp/>++dim)<sp/>{</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>indexOrder[dim]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal"><sp/>+<sp/>dim;</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/>indexOrder[B-&gt;order]<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/>std::string<sp/>storedIndexOrder(columnIndexOrder<sp/>+<sp/>rowIndexOrder);</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(std::string(indexOrder)<sp/>!=<sp/>storedIndexOrder)<sp/>{</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>T<sp/>*A(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>T(order,<sp/>lens,<sp/>syms,<sp/>*B-&gt;wrld,<sp/>B-&gt;get_name()));</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>(*A)[indexOrder]<sp/>=<sp/>(*B)[storedIndexOrder.c_str()];</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>B;</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>A;</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B;</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="129" refid="classsisi4s_1_1TensorIo_1a43689ec201b3d4ce11b4012cd7b42463" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TensorIo_1a43689ec201b3d4ce11b4012cd7b42463" kindref="member">TensorIo::writeBinary</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/>T<sp/>&amp;A)<sp/>{</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/>MPI_File<sp/>file;</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/>MPI_Status<sp/>status;</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/>MPI_File_open(</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>A.wrld-&gt;comm,<sp/>fileName.c_str(),<sp/>MPI_MODE_CREATE<sp/>|<sp/>MPI_MODE_WRONLY,</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_INFO_NULL,<sp/>&amp;file</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/>int64_t<sp/>offset(0);</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>truncate<sp/>possibly<sp/>existing<sp/>file</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/>MPI_File_set_size(file,<sp/>offset);</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>header</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorHeader" kindref="compound">BinaryTensorHeader</ref><sp/>header(A);</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/>MPI_File_write_at(file,<sp/>offset,<sp/>&amp;header,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header),<sp/>MPI_BYTE,<sp/>&amp;status);</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/>offset<sp/>+=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>status<sp/>checking</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>dimension<sp/>header<sp/>for<sp/>each<sp/>dimension</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>A.order;<sp/>++dim)<sp/>{</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorDimensionHeader" kindref="compound">BinaryTensorDimensionHeader</ref><sp/>dimensionHeader(A.lens[dim],<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">+dim);</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_File_write_at(</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>file,<sp/>offset,<sp/>&amp;dimensionHeader,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dimensionHeader),<sp/>MPI_BYTE,<sp/>&amp;status</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>offset<sp/>+=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dimensionHeader);</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>dense<sp/>data</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/>A.write_dense_to_file(file,<sp/>offset);</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>done</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/>MPI_File_close(&amp;file);</highlight></codeline>
-<codeline lineno="160"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="163" refid="classsisi4s_1_1TensorIo_1a594423f6049ceca20a1ca67c670ec992" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TensorIo_1a594423f6049ceca20a1ca67c670ec992" kindref="member">TensorIo::writeText</ref>(</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/>T<sp/>&amp;A,</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;givenRowIndexOrder,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;columnIndexOrder,</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter</highlight></codeline>
-<codeline lineno="167"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>defaultIndexOrder[A.order<sp/>+<sp/>1];</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>A.order;<sp/>++dim)<sp/>defaultIndexOrder[dim]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal"><sp/>+<sp/>dim;</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/>defaultIndexOrder[A.order]<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/>std::string<sp/>rowIndexOrder(</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>givenRowIndexOrder<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>columnIndexOrder<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>?</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>defaultIndexOrder<sp/>:<sp/>givenRowIndexOrder</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>(</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>rowIndexOrder.length()+columnIndexOrder.length()<sp/>==<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal">(A.order),</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Number<sp/>of<sp/>indices<sp/>in<sp/>rowIndexOrder<sp/>and<sp/>columnIndexOrder<sp/>must<sp/>match<sp/>tensor<sp/>order&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>indexOrder[A.order+1];</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[A.order];</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[A.order];</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/>int64_t<sp/>columnElementsCount(1);</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>columnOrder(columnIndexOrder.length());</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>columnOrder;<sp/>++dim)<sp/>{</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>indexOrder[dim]<sp/>=<sp/>columnIndexOrder[dim];</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>lens[dim]<sp/>=<sp/>A.lens[columnIndexOrder[dim]-</highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>syms[dim]<sp/>=<sp/>NS;</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>columnElementsCount<sp/>*=<sp/>lens[dim];</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/>int64_t<sp/>rowElementsCount(1);</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rowOrder(rowIndexOrder.length());</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>rowOrder;<sp/>++dim)<sp/>{</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>indexOrder[columnOrder+dim]<sp/>=<sp/>rowIndexOrder[dim];</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>lens[columnOrder+dim]<sp/>=<sp/>A.lens[rowIndexOrder[dim]-</highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>syms[columnOrder+dim]<sp/>=<sp/>NS;</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>rowElementsCount<sp/>*=<sp/>lens[columnOrder+dim];</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/>indexOrder[A.order]<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/>T<sp/>B(A.order,<sp/>lens,<sp/>syms,<sp/>*A.wrld,<sp/></highlight><highlight class="stringliteral">&quot;DataOrdered&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>reorder<sp/>indices<sp/>for<sp/>writing:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/>B[indexOrder]<sp/>=<sp/>A[defaultIndexOrder];</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/>int64_t<sp/>valuesCount;</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*values;</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>unpack<sp/>symmetries<sp/>for<sp/>writing</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>implement<sp/>memory<sp/>scalable<sp/>version</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/>B.read_all(&amp;valuesCount,<sp/>&amp;values,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>(</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>rowElementsCount*columnElementsCount<sp/>==<sp/>valuesCount,</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Wrong<sp/>number<sp/>of<sp/>elements<sp/>read&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"></highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>only<sp/>the<sp/>root<sp/>writes<sp/>the<sp/>file</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(A.wrld-&gt;rank<sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ofstream<sp/>file(fileName.c_str());</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>A.get_name()<sp/>&lt;&lt;<sp/>delimiter<sp/>&lt;&lt;<sp/>A.order;</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>A.order;<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>delimiter<sp/>&lt;&lt;<sp/>A.lens[i];</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>rowIndexOrder<sp/>&lt;&lt;<sp/>delimiter<sp/>&lt;&lt;<sp/>columnIndexOrder<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="221"><highlight class="normal"></highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>the<sp/>actual<sp/>data</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>index(0);</highlight></codeline>
-<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Writer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;rows=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>rowElementsCount</highlight></codeline>
-<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>columns=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>columnElementsCount<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>std::setprecision(16);</highlight></codeline>
-<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>row(0);<sp/>row<sp/>&lt;<sp/>rowElementsCount;<sp/>++row)<sp/>{</highlight></codeline>
-<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>values[index++];</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>column(1);<sp/>column<sp/>&lt;<sp/>columnElementsCount;<sp/>++column)<sp/>{</highlight></codeline>
-<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>delimiter<sp/>&lt;&lt;<sp/>values[index++];</highlight></codeline>
-<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="235"><highlight class="normal"><sp/><sp/>free(values);</highlight></codeline>
-<codeline lineno="236"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="237"><highlight class="normal"></highlight></codeline>
-<codeline lineno="238"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="239" refid="classsisi4s_1_1TensorIo_1a76f8a675658b0c0ca47579d67b829336" refkind="member"><highlight class="normal">T<sp/>*<ref refid="classsisi4s_1_1TensorIo_1a76f8a675658b0c0ca47579d67b829336" kindref="member">TensorIo::readBinaryHeader</ref>(MPI_File<sp/>&amp;file,<sp/>int64_t<sp/>&amp;offset)<sp/>{</highlight></codeline>
-<codeline lineno="240"><highlight class="normal"><sp/><sp/>MPI_Status<sp/>status;</highlight></codeline>
-<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>reade<sp/>header</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="242"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorHeader" kindref="compound">BinaryTensorHeader</ref><sp/>header;</highlight></codeline>
-<codeline lineno="243"><highlight class="normal"><sp/><sp/>MPI_File_read_at(file,<sp/>offset,<sp/>&amp;header,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header),<sp/>MPI_BYTE,<sp/>&amp;status);</highlight></codeline>
-<codeline lineno="244"><highlight class="normal"><sp/><sp/>offset<sp/>+=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header);</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1a00a557624efcc196db32788e316e7096" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1af0433538dbccb23d1dad071aedf752ed" kindref="member">BinaryTensorHeaderBase::MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1a00a557624efcc196db32788e316e7096" kindref="member">magic</ref>))<sp/>!=<sp/>0)</highlight></codeline>
-<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>file<sp/>format&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1a8b405fd20c9c0b9abb970403978e002a" kindref="member">version</ref><sp/>&gt;<sp/>header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ae47df96a30e9cf08b7e70c077ebfadba" kindref="member">VERSION</ref>)</highlight></codeline>
-<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Incompatible<sp/>file<sp/>format<sp/>version&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="249"><highlight class="normal"></highlight></codeline>
-<codeline lineno="250"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>dimension<sp/>headers</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref>];</highlight></codeline>
-<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref>];</highlight></codeline>
-<codeline lineno="253"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref>;<sp/>++dim)<sp/>{</highlight></codeline>
-<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorDimensionHeader" kindref="compound">BinaryTensorDimensionHeader</ref><sp/>dimensionHeader;</highlight></codeline>
-<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_File_read_at(</highlight></codeline>
-<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>file,<sp/>offset,<sp/>&amp;dimensionHeader,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dimensionHeader),<sp/>MPI_BYTE,<sp/>&amp;status</highlight></codeline>
-<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>offset<sp/>+=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dimensionHeader);</highlight></codeline>
-<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>lens[dim]<sp/>=<sp/>dimensionHeader.<ref refid="classsisi4s_1_1BinaryTensorDimensionHeader_1a07e8160f02123b4823bb90872a755839" kindref="member">length</ref>;</highlight></codeline>
-<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>syms[dim]<sp/>=<sp/>NS;</highlight></codeline>
-<codeline lineno="261"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="262"><highlight class="normal"></highlight></codeline>
-<codeline lineno="263"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>tensor</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="264"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>T(header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref>,<sp/>lens,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>);</highlight></codeline>
-<codeline lineno="265"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="15" refid="classsisi4s_1_1TensorIo_1a671dcc77e7ded146d8e18ccca6f58051" refkind="member"><highlight class="normal">T<sp/>*TensorIo::readBinary(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>open<sp/>the<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>MPI_File<sp/>file;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mpiError(</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_File_open(</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;comm,<sp/>fileName.c_str(),<sp/>MPI_MODE_RDONLY,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MPI_INFO_NULL,<sp/>&amp;file</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mpiError)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>explanation;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>explanation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>open<sp/>file<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>fileName<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(explanation.str());</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>int64_t<sp/>offset(0);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>T<sp/>*A(readBinaryHeader&lt;F,T&gt;(file,<sp/>offset));</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>dense<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>A-&gt;read_dense_from_file(file,<sp/>offset);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>done</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>MPI_File_close(&amp;file);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>A;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="42" refid="classsisi4s_1_1TensorIo_1a13b772a1fa48fa72bc12dc28fbed3f04" refkind="member"><highlight class="normal">T<sp/>*<ref refid="classsisi4s_1_1TensorIo_1a13b772a1fa48fa72bc12dc28fbed3f04" kindref="member">TensorIo::readText</ref>(</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>int64_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>bufferSize</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>std::ifstream<sp/>stream(fileName.c_str());</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stream.fail())<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>explanation;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>explanation<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>open<sp/>file<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>fileName<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(explanation.str());</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Scanner" kindref="compound">Scanner</ref><sp/>scanner(&amp;stream);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>std::string<sp/>name(scanner.<ref refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" kindref="member">nextLine</ref>(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>std::stringstream<sp/>lineStream(scanner.<ref refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" kindref="member">nextLine</ref>());</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>order;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>lineStream<sp/>&gt;&gt;<sp/>order;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[order];</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[order];</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>order;<sp/>++dim)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>lineStream<sp/>&gt;&gt;<sp/>lens[dim];</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>syms[dim]<sp/>=<sp/>NS;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>std::string<sp/>rowIndexOrder(scanner.<ref refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" kindref="member">nextLine</ref>(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>std::string<sp/>columnIndexOrder(scanner.<ref refid="classsisi4s_1_1Scanner_1a4989c87d57ff8490d134f520eac38412" kindref="member">nextLine</ref>());</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>storedLens[order];</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>storedIndex(0);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>columnIndexOrder.length();<sp/>++dim)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>i,j,k<sp/>...<sp/>assumed<sp/>in<sp/>indexOrder<sp/>strings</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>storedLens[storedIndex]<sp/>=<sp/>lens[columnIndexOrder[dim]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>++storedIndex;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>rowIndexOrder.length();<sp/>++dim)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>storedLens[storedIndex]<sp/>=<sp/>lens[rowIndexOrder[dim]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>++storedIndex;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>T<sp/>*B(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>T(order,<sp/>storedLens,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/>name.c_str()));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>int64_t<sp/>indexCount(1);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>B-&gt;order;<sp/>++dim)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>indexCount<sp/>*=<sp/>B-&gt;lens[dim];</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>the<sp/>values<sp/>only<sp/>on<sp/>root</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>int64_t<sp/>localBufferSize(B-&gt;wrld-&gt;rank<sp/>==<sp/>0<sp/>?<sp/>bufferSize<sp/>:<sp/>0);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>int64_t<sp/>*indices(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[localBufferSize]);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*values(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>[localBufferSize]);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>int64_t<sp/>index(0);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorReader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;indexCount=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>indexCount<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1NumberScanner" kindref="compound">NumberScanner&lt;F&gt;</ref><sp/>numberScanner(&amp;scanner);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(index<sp/>&lt;<sp/>indexCount)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>elementsCount(std::min(bufferSize,<sp/>indexCount-index));</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>localElementsCount(B-&gt;wrld-&gt;rank<sp/>==<sp/>0<sp/>?<sp/>elementsCount<sp/>:<sp/>0);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>i(0);<sp/>i<sp/>&lt;<sp/>localElementsCount;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>indices[i]<sp/>=<sp/>index+i;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>values[i]<sp/>=<sp/>numberScanner.nextNumber();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>until<sp/>all<sp/>processes<sp/>finished<sp/>reading<sp/>this<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_Barrier(<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;comm);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorReader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;writing<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>elementsCount<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>values<sp/>to<sp/>tensor...&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>B-&gt;write(localElementsCount,<sp/>indices,<sp/>values);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>index<sp/>+=<sp/>elementsCount;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>indices;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>values;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>indexOrder[B-&gt;order<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>B-&gt;order;<sp/>++dim)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>indexOrder[dim]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal"><sp/>+<sp/>dim;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>indexOrder[B-&gt;order]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>std::string<sp/>storedIndexOrder(columnIndexOrder<sp/>+<sp/>rowIndexOrder);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(std::string(indexOrder)<sp/>!=<sp/>storedIndexOrder)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>T<sp/>*A(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>T(order,<sp/>lens,<sp/>syms,<sp/>*B-&gt;wrld,<sp/>B-&gt;get_name()));</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>(*A)[indexOrder]<sp/>=<sp/>(*B)[storedIndexOrder.c_str()];</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>B;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>A;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="128" refid="classsisi4s_1_1TensorIo_1a43689ec201b3d4ce11b4012cd7b42463" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TensorIo_1a43689ec201b3d4ce11b4012cd7b42463" kindref="member">TensorIo::writeBinary</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/>T<sp/>&amp;A)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>MPI_File<sp/>file;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>MPI_Status<sp/>status;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>MPI_File_open(</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>A.wrld-&gt;comm,<sp/>fileName.c_str(),<sp/>MPI_MODE_CREATE<sp/>|<sp/>MPI_MODE_WRONLY,</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_INFO_NULL,<sp/>&amp;file</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>int64_t<sp/>offset(0);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>truncate<sp/>possibly<sp/>existing<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>MPI_File_set_size(file,<sp/>offset);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>header</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorHeader" kindref="compound">BinaryTensorHeader</ref><sp/>header(A);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>MPI_File_write_at(file,<sp/>offset,<sp/>&amp;header,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header),<sp/>MPI_BYTE,<sp/>&amp;status);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>offset<sp/>+=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>status<sp/>checking</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>dimension<sp/>header<sp/>for<sp/>each<sp/>dimension</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>A.order;<sp/>++dim)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorDimensionHeader" kindref="compound">BinaryTensorDimensionHeader</ref><sp/>dimensionHeader(A.lens[dim],<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal">+dim);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_File_write_at(</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>file,<sp/>offset,<sp/>&amp;dimensionHeader,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dimensionHeader),<sp/>MPI_BYTE,<sp/>&amp;status</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>offset<sp/>+=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dimensionHeader);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>dense<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>A.write_dense_to_file(file,<sp/>offset);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>done</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>MPI_File_close(&amp;file);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="162" refid="classsisi4s_1_1TensorIo_1a594423f6049ceca20a1ca67c670ec992" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TensorIo_1a594423f6049ceca20a1ca67c670ec992" kindref="member">TensorIo::writeText</ref>(</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/>T<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;givenRowIndexOrder,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;columnIndexOrder,</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>defaultIndexOrder[A.order<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>A.order;<sp/>++dim)<sp/>defaultIndexOrder[dim]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal"><sp/>+<sp/>dim;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>defaultIndexOrder[A.order]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>std::string<sp/>rowIndexOrder(</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>givenRowIndexOrder<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>columnIndexOrder<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>?</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>defaultIndexOrder<sp/>:<sp/>givenRowIndexOrder</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>(</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>rowIndexOrder.length()+columnIndexOrder.length()<sp/>==<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal">(A.order),</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Number<sp/>of<sp/>indices<sp/>in<sp/>rowIndexOrder<sp/>and<sp/>columnIndexOrder<sp/>must<sp/>match<sp/>tensor<sp/>order&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>indexOrder[A.order+1];</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[A.order];</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[A.order];</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>int64_t<sp/>columnElementsCount(1);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>columnOrder(columnIndexOrder.length());</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>columnOrder;<sp/>++dim)<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>indexOrder[dim]<sp/>=<sp/>columnIndexOrder[dim];</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>lens[dim]<sp/>=<sp/>A.lens[columnIndexOrder[dim]-</highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>syms[dim]<sp/>=<sp/>NS;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>columnElementsCount<sp/>*=<sp/>lens[dim];</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>int64_t<sp/>rowElementsCount(1);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rowOrder(rowIndexOrder.length());</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>rowOrder;<sp/>++dim)<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>indexOrder[columnOrder+dim]<sp/>=<sp/>rowIndexOrder[dim];</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>lens[columnOrder+dim]<sp/>=<sp/>A.lens[rowIndexOrder[dim]-</highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>syms[columnOrder+dim]<sp/>=<sp/>NS;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>rowElementsCount<sp/>*=<sp/>lens[columnOrder+dim];</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>indexOrder[A.order]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>T<sp/>B(A.order,<sp/>lens,<sp/>syms,<sp/>*A.wrld,<sp/></highlight><highlight class="stringliteral">&quot;DataOrdered&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>reorder<sp/>indices<sp/>for<sp/>writing:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>B[indexOrder]<sp/>=<sp/>A[defaultIndexOrder];</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>int64_t<sp/>valuesCount;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*values;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>unpack<sp/>symmetries<sp/>for<sp/>writing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>implement<sp/>memory<sp/>scalable<sp/>version</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>B.read_all(&amp;valuesCount,<sp/>&amp;values,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>(</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>rowElementsCount*columnElementsCount<sp/>==<sp/>valuesCount,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Wrong<sp/>number<sp/>of<sp/>elements<sp/>read&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>only<sp/>the<sp/>root<sp/>writes<sp/>the<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(A.wrld-&gt;rank<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ofstream<sp/>file(fileName.c_str());</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>A.get_name()<sp/>&lt;&lt;<sp/>delimiter<sp/>&lt;&lt;<sp/>A.order;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>A.order;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>delimiter<sp/>&lt;&lt;<sp/>A.lens[i];</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>rowIndexOrder<sp/>&lt;&lt;<sp/>delimiter<sp/>&lt;&lt;<sp/>columnIndexOrder<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>the<sp/>actual<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>index(0);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Writer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;rows=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>rowElementsCount</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>columns=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>columnElementsCount<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>std::setprecision(16);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>row(0);<sp/>row<sp/>&lt;<sp/>rowElementsCount;<sp/>++row)<sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>values[index++];</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>column(1);<sp/>column<sp/>&lt;<sp/>columnElementsCount;<sp/>++column)<sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>delimiter<sp/>&lt;&lt;<sp/>values[index++];</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>file<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>free(values);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="238" refid="classsisi4s_1_1TensorIo_1a76f8a675658b0c0ca47579d67b829336" refkind="member"><highlight class="normal">T<sp/>*<ref refid="classsisi4s_1_1TensorIo_1a76f8a675658b0c0ca47579d67b829336" kindref="member">TensorIo::readBinaryHeader</ref>(MPI_File<sp/>&amp;file,<sp/>int64_t<sp/>&amp;offset)<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>MPI_Status<sp/>status;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>reade<sp/>header</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorHeader" kindref="compound">BinaryTensorHeader</ref><sp/>header;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>MPI_File_read_at(file,<sp/>offset,<sp/>&amp;header,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header),<sp/>MPI_BYTE,<sp/>&amp;status);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>offset<sp/>+=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1a00a557624efcc196db32788e316e7096" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1af0433538dbccb23d1dad071aedf752ed" kindref="member">BinaryTensorHeaderBase::MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1a00a557624efcc196db32788e316e7096" kindref="member">magic</ref>))<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>file<sp/>format&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1a8b405fd20c9c0b9abb970403978e002a" kindref="member">version</ref><sp/>&gt;<sp/>header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ae47df96a30e9cf08b7e70c077ebfadba" kindref="member">VERSION</ref>)</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Incompatible<sp/>file<sp/>format<sp/>version&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>dimension<sp/>headers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref>];</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref>];</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref>;<sp/>++dim)<sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorDimensionHeader" kindref="compound">BinaryTensorDimensionHeader</ref><sp/>dimensionHeader;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_File_read_at(</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>file,<sp/>offset,<sp/>&amp;dimensionHeader,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dimensionHeader),<sp/>MPI_BYTE,<sp/>&amp;status</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>offset<sp/>+=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dimensionHeader);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>lens[dim]<sp/>=<sp/>dimensionHeader.<ref refid="classsisi4s_1_1BinaryTensorDimensionHeader_1a07e8160f02123b4823bb90872a755839" kindref="member">length</ref>;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>syms[dim]<sp/>=<sp/>NS;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>tensor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>T(header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref>,<sp/>lens,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
 <codeline lineno="266"><highlight class="normal"></highlight></codeline>
 <codeline lineno="267"><highlight class="normal"></highlight></codeline>
-<codeline lineno="268"><highlight class="normal"></highlight></codeline>
-<codeline lineno="269"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="270"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="271"><highlight class="normal"><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>*TensorIo::readBinary&lt;Float64&gt;(</highlight></codeline>
-<codeline lineno="272"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName</highlight></codeline>
-<codeline lineno="273"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="274"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="275"><highlight class="normal"><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;Complex&lt;Float64&gt;</ref>&gt;<sp/>*TensorIo::readBinary&lt;Complex&lt;Float64&gt;&gt;(</highlight></codeline>
-<codeline lineno="276"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName</highlight></codeline>
-<codeline lineno="277"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="278"><highlight class="normal"></highlight></codeline>
-<codeline lineno="279"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="280"><highlight class="normal"><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>*TensorIo::readText&lt;Float64&gt;(</highlight></codeline>
-<codeline lineno="281"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,</highlight></codeline>
-<codeline lineno="282"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter,</highlight></codeline>
-<codeline lineno="283"><highlight class="normal"><sp/><sp/>int64_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>bufferSize</highlight></codeline>
-<codeline lineno="284"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="285"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="286"><highlight class="normal"><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;Complex&lt;Float64&gt;</ref>&gt;<sp/>*TensorIo::readText&lt;Complex&lt;Float64&gt;&gt;(</highlight></codeline>
-<codeline lineno="287"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,</highlight></codeline>
-<codeline lineno="288"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter,</highlight></codeline>
-<codeline lineno="289"><highlight class="normal"><sp/><sp/>int64_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>bufferSize</highlight></codeline>
-<codeline lineno="290"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="291"><highlight class="normal"></highlight></codeline>
-<codeline lineno="292"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TensorIo::writeBinary&lt;Float64&gt;(</highlight></codeline>
-<codeline lineno="293"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>&amp;A</highlight></codeline>
-<codeline lineno="294"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="295"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TensorIo::writeBinary&lt;Complex&lt;Float64&gt;&gt;(</highlight></codeline>
-<codeline lineno="296"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;Complex&lt;Float64&gt;</ref>&gt;<sp/>&amp;A</highlight></codeline>
-<codeline lineno="297"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="298"><highlight class="normal"></highlight></codeline>
-<codeline lineno="299"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TensorIo::writeText&lt;Float64&gt;(</highlight></codeline>
-<codeline lineno="300"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>&amp;A,</highlight></codeline>
-<codeline lineno="301"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;rowIndexOrder,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;columnIndexOrder,</highlight></codeline>
-<codeline lineno="302"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter</highlight></codeline>
-<codeline lineno="303"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="304"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TensorIo::writeText&lt;Complex&lt;Float64&gt;&gt;(</highlight></codeline>
-<codeline lineno="305"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;Complex&lt;Float64&gt;</ref>&gt;<sp/>&amp;A,</highlight></codeline>
-<codeline lineno="306"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;rowIndexOrder,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;columnIndexOrder,</highlight></codeline>
-<codeline lineno="307"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter</highlight></codeline>
-<codeline lineno="308"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>*TensorIo::readBinary&lt;Float64&gt;(</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName</highlight></codeline>
+<codeline lineno="272"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Complex&lt;Float64&gt;</ref>&gt;<sp/>*TensorIo::readBinary&lt;Complex&lt;Float64&gt;&gt;(</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName</highlight></codeline>
+<codeline lineno="276"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>*TensorIo::readText&lt;Float64&gt;(</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter,</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/>int64_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>bufferSize</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Complex&lt;Float64&gt;</ref>&gt;<sp/>*TensorIo::readText&lt;Complex&lt;Float64&gt;&gt;(</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter,</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/>int64_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>bufferSize</highlight></codeline>
+<codeline lineno="289"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TensorIo::writeBinary&lt;Float64&gt;(</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>&amp;A</highlight></codeline>
+<codeline lineno="293"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TensorIo::writeBinary&lt;Complex&lt;Float64&gt;&gt;(</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Complex&lt;Float64&gt;</ref>&gt;<sp/>&amp;A</highlight></codeline>
+<codeline lineno="296"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TensorIo::writeText&lt;Float64&gt;(</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>&amp;A,</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;rowIndexOrder,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;columnIndexOrder,</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter</highlight></codeline>
+<codeline lineno="302"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TensorIo::writeText&lt;Complex&lt;Float64&gt;&gt;(</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Complex&lt;Float64&gt;</ref>&gt;<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;rowIndexOrder,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;columnIndexOrder,</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;delimiter</highlight></codeline>
+<codeline lineno="307"><highlight class="normal">);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/util/TensorIo.cxx"/>
   </compounddef>

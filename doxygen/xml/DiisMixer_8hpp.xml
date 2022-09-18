@@ -4,7 +4,7 @@
     <compoundname>DiisMixer.hpp</compoundname>
     <includes refid="Mixer_8hpp" local="no">mixers/Mixer.hpp</includes>
     <includes refid="SharedPointer_8hpp" local="no">util/SharedPointer.hpp</includes>
-    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includedby refid="DiisMixer_8cxx" local="no">DiisMixer.cxx</includedby>
     <incdepgraph>
       <node id="4">
@@ -24,25 +24,25 @@
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
-      <node id="31">
+      <node id="32">
         <label>Options.hpp</label>
         <link refid="Options_8hpp"/>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="32" relation="include">
+        <childnode refid="33" relation="include">
         </childnode>
       </node>
-      <node id="30">
+      <node id="31">
         <label>Sisi4s.hpp</label>
         <link refid="Sisi4s_8hpp"/>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="31" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -59,40 +59,38 @@
         <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="32">
+      <node id="33">
         <label>extern/CLI11.hpp</label>
         <link refid="CLI11_8hpp"/>
-        <childnode refid="29" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
         <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
         <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
         </childnode>
         <childnode refid="40" relation="include">
         </childnode>
@@ -100,15 +98,17 @@
         </childnode>
         <childnode refid="42" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
         <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="44" relation="include">
         </childnode>
         <childnode refid="45" relation="include">
         </childnode>
         <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
         </childnode>
       </node>
       <node id="18">
@@ -119,7 +119,7 @@
         <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="26">
+      <node id="27">
         <label>math/ComplexTensor.hpp</label>
         <link refid="ComplexTensor_8hpp"/>
         <childnode refid="18" relation="include">
@@ -133,31 +133,31 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="25">
+      <node id="26">
         <label>math/FockVector.hpp</label>
         <link refid="FockVector_8hpp"/>
-        <childnode refid="26" relation="include">
-        </childnode>
         <childnode refid="27" relation="include">
         </childnode>
         <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
-        <childnode refid="30" relation="include">
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="38" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="27">
+      <node id="28">
         <label>math/MathFunctions.hpp</label>
         <link refid="MathFunctions_8hpp"/>
         <childnode refid="18" relation="include">
@@ -176,7 +176,7 @@
         <link refid="DiisMixer_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
@@ -188,20 +188,20 @@
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="23">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="23" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>util/Exception.hpp</label>
         <link refid="Exception_8hpp"/>
         <childnode refid="13" relation="include">
@@ -225,10 +225,16 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="28">
+      <node id="29">
         <label>util/SharedPointer.hpp</label>
         <link refid="SharedPointer_8hpp"/>
-        <childnode refid="29" relation="include">
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -247,7 +253,7 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="38">
+      <node id="39">
         <label>algorithm</label>
       </node>
       <node id="12">
@@ -259,19 +265,19 @@
       <node id="8">
         <label>cstdint</label>
       </node>
-      <node id="23">
+      <node id="24">
         <label>ctf.hpp</label>
       </node>
       <node id="7">
         <label>ctime</label>
       </node>
-      <node id="44">
+      <node id="45">
         <label>exception</label>
       </node>
       <node id="16">
         <label>fstream</label>
       </node>
-      <node id="33">
+      <node id="34">
         <label>functional</label>
       </node>
       <node id="10">
@@ -280,34 +286,34 @@
       <node id="14">
         <label>iostream</label>
       </node>
-      <node id="41">
+      <node id="42">
         <label>iterator</label>
       </node>
-      <node id="43">
+      <node id="44">
         <label>limits</label>
       </node>
-      <node id="37">
+      <node id="38">
         <label>locale</label>
       </node>
       <node id="20">
         <label>map</label>
       </node>
-      <node id="29">
+      <node id="30">
         <label>memory</label>
       </node>
-      <node id="34">
+      <node id="35">
         <label>numeric</label>
       </node>
       <node id="9">
         <label>ostream</label>
       </node>
-      <node id="39">
+      <node id="40">
         <label>set</label>
       </node>
       <node id="11">
         <label>sstream</label>
       </node>
-      <node id="42">
+      <node id="43">
         <label>stdexcept</label>
       </node>
       <node id="15">
@@ -316,19 +322,19 @@
       <node id="13">
         <label>string</label>
       </node>
-      <node id="45">
+      <node id="46">
         <label>sys/stat.h</label>
       </node>
-      <node id="46">
+      <node id="47">
         <label>sys/types.h</label>
       </node>
-      <node id="35">
+      <node id="36">
         <label>tuple</label>
       </node>
-      <node id="40">
+      <node id="41">
         <label>type_traits</label>
       </node>
-      <node id="36">
+      <node id="37">
         <label>utility</label>
       </node>
       <node id="21">
@@ -362,7 +368,7 @@
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
@@ -385,7 +391,7 @@
 <codeline lineno="39" refid="classsisi4s_1_1DiisMixer_1abf50da4af38e051f8ede8ceca8e3e828" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)&gt;<sp/><ref refid="classsisi4s_1_1DiisMixer_1abf50da4af38e051f8ede8ceca8e3e828" kindref="member">amplitudes</ref>;</highlight></codeline>
 <codeline lineno="43" refid="classsisi4s_1_1DiisMixer_1adaa1f7416b9b099de7a17a893e48b4cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)&gt;<sp/><ref refid="classsisi4s_1_1DiisMixer_1adaa1f7416b9b099de7a17a893e48b4cc" kindref="member">residua</ref>;</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)<sp/>B;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>)<sp/>B;</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"></highlight></codeline>
 <codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nextIndex;</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"></highlight></codeline>

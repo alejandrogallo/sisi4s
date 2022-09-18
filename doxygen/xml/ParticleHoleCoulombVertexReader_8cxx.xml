@@ -8,7 +8,7 @@
     <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
     <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
     <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
-    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includes local="no">fstream</includes>
     <incdepgraph>
       <node id="4">
@@ -28,13 +28,13 @@
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
-      <node id="25">
+      <node id="26">
         <label>DryTensor.hpp</label>
         <link refid="DryTensor_8hpp"/>
-        <childnode refid="26" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
@@ -45,22 +45,22 @@
         <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="30">
         <label>Options.hpp</label>
         <link refid="Options_8hpp"/>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="30" relation="include">
+        <childnode refid="31" relation="include">
         </childnode>
       </node>
-      <node id="28">
+      <node id="29">
         <label>Sisi4s.hpp</label>
         <link refid="Sisi4s_8hpp"/>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -82,15 +82,15 @@
         <link refid="ParticleHoleCoulombVertexReader_8cxx"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
@@ -102,7 +102,7 @@
         <link refid="ParticleHoleCoulombVertexReader_8hpp"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
@@ -111,40 +111,38 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="30">
+      <node id="31">
         <label>extern/CLI11.hpp</label>
         <link refid="CLI11_8hpp"/>
-        <childnode refid="31" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
         <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
         <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="36" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
         </childnode>
         <childnode refid="39" relation="include">
         </childnode>
@@ -152,15 +150,17 @@
         </childnode>
         <childnode refid="41" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
         <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="43" relation="include">
         </childnode>
         <childnode refid="44" relation="include">
         </childnode>
         <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
         </childnode>
       </node>
       <node id="18">
@@ -171,7 +171,7 @@
         <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="27">
+      <node id="28">
         <label>math/ComplexTensor.hpp</label>
         <link refid="ComplexTensor_8hpp"/>
         <childnode refid="18" relation="include">
@@ -185,13 +185,13 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="23">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="23" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>util/Exception.hpp</label>
         <link refid="Exception_8hpp"/>
         <childnode refid="13" relation="include">
@@ -215,7 +215,7 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="26">
+      <node id="27">
         <label>util/SourceLocation.hpp</label>
         <link refid="SourceLocation_8hpp"/>
         <childnode refid="13" relation="include">
@@ -223,6 +223,12 @@
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -241,7 +247,7 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="37">
+      <node id="38">
         <label>algorithm</label>
       </node>
       <node id="12">
@@ -253,19 +259,19 @@
       <node id="8">
         <label>cstdint</label>
       </node>
-      <node id="23">
+      <node id="24">
         <label>ctf.hpp</label>
       </node>
       <node id="7">
         <label>ctime</label>
       </node>
-      <node id="43">
+      <node id="44">
         <label>exception</label>
       </node>
       <node id="16">
         <label>fstream</label>
       </node>
-      <node id="32">
+      <node id="33">
         <label>functional</label>
       </node>
       <node id="10">
@@ -274,34 +280,34 @@
       <node id="14">
         <label>iostream</label>
       </node>
-      <node id="40">
+      <node id="41">
         <label>iterator</label>
       </node>
-      <node id="42">
+      <node id="43">
         <label>limits</label>
       </node>
-      <node id="36">
+      <node id="37">
         <label>locale</label>
       </node>
       <node id="20">
         <label>map</label>
       </node>
-      <node id="31">
+      <node id="32">
         <label>memory</label>
       </node>
-      <node id="33">
+      <node id="34">
         <label>numeric</label>
       </node>
       <node id="9">
         <label>ostream</label>
       </node>
-      <node id="38">
+      <node id="39">
         <label>set</label>
       </node>
       <node id="11">
         <label>sstream</label>
       </node>
-      <node id="41">
+      <node id="42">
         <label>stdexcept</label>
       </node>
       <node id="15">
@@ -310,19 +316,19 @@
       <node id="13">
         <label>string</label>
       </node>
-      <node id="44">
+      <node id="45">
         <label>sys/stat.h</label>
       </node>
-      <node id="45">
+      <node id="46">
         <label>sys/types.h</label>
       </node>
-      <node id="34">
+      <node id="35">
         <label>tuple</label>
       </node>
-      <node id="39">
+      <node id="40">
         <label>type_traits</label>
       </node>
-      <node id="35">
+      <node id="36">
         <label>utility</label>
       </node>
       <node id="21">
@@ -341,244 +347,251 @@
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">CTF;</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Header::MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sisi4sFTOD&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Chunk::REALS_MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;FTODreal&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Chunk::IMAGS_MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;FTODimag&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Chunk::REALSIA_MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;FTIAreal&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Chunk::IMAGSIA_MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;FTIAimag&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Chunk::EPSILONS_MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;FTODepsi&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader" kindref="compound">ParticleHoleCoulombVertexReader</ref>);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22" refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a9f1e2b8070a7799106c26f11c70836d0" refkind="member"><highlight class="normal">ParticleHoleCoulombVertexReader::ParticleHoleCoulombVertexReader(</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
-<codeline lineno="24"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28" refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1ac6508661960ec4f254d67967a137bf9b" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1ac6508661960ec4f254d67967a137bf9b" kindref="member">ParticleHoleCoulombVertexReader::~ParticleHoleCoulombVertexReader</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31" refid="structUnrestricter" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structUnrestricter" kindref="compound">Unrestricter</ref><sp/>{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/>CTF::Tensor&lt;sisi4s::complex&gt;*</highlight></codeline>
-<codeline lineno="34" refid="structUnrestricter_1a561cc4d54b8081555acc00a70c532dd7" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structUnrestricter_1a561cc4d54b8081555acc00a70c532dd7" kindref="member">doVertex</ref>(CTF::Tensor&lt;sisi4s::complex&gt;<sp/>*GammaGqr)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>field<sp/>variable<sp/>NG<sp/>remains<sp/>the<sp/>same</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertexLens[]<sp/>=<sp/>{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(GammaGqr-&gt;lens[0]),</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2*GammaGqr-&gt;lens[1]),</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2*GammaGqr-&gt;lens[2])};</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>uGammaGqr(</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref>(3,<sp/>vertexLens,<sp/>GammaGqr-&gt;sym,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;uGammaGqr&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*upUnrestrictedStates(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[GammaGqr-&gt;lens[1]]);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>q(0);<sp/>q<sp/>&lt;<sp/>GammaGqr-&gt;lens[1];<sp/>++q)<sp/>{</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>upUnrestrictedStates[q]<sp/>=<sp/>2*q;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*upUp[]<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>upUnrestrictedStates,<sp/>upUnrestrictedStates<sp/>};</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>uGammaGqr[G,<sp/>upUn[q],<sp/>upUn[r]]<sp/>=<sp/>GammaGqr[G,q,r]<sp/>with<sp/>upUn[q]<sp/>=<sp/>2q.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>the<sp/>behavior<sp/>of<sp/>all<sp/>below<sp/>permute<sp/>calls<sp/>is<sp/>documented<sp/>differently</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>in<sp/>v1.4.1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>uGammaGqr-&gt;permute(1.0,<sp/>*GammaGqr,<sp/>upUp,<sp/>1.0);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>upUnrestrictedStates;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*downUnrestrictedStates(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[GammaGqr-&gt;lens[1]]);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>q(0);<sp/>q<sp/>&lt;<sp/>GammaGqr-&gt;lens[1];<sp/>++q)<sp/>{</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>downUnrestrictedStates[q]<sp/>=<sp/>2*q+1;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*downDown[]<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>downUnrestrictedStates,<sp/>downUnrestrictedStates<sp/>};</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>uGammaGqr[G,<sp/>dnUn[q],<sp/>dnUn[r]]<sp/>=<sp/>GammaGqr[G,q,r]<sp/>with<sp/>dnUn[q]<sp/>=<sp/>2q+1.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>uGammaGqr-&gt;permute(1.0,<sp/>*GammaGqr,<sp/>downDown,<sp/>1.0);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>downUnrestrictedStates;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>overwrite<sp/>restricted<sp/>vertex</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>uGammaGqr;</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/>CTF::Tensor&lt;double&gt;*</highlight></codeline>
-<codeline lineno="68" refid="structUnrestricter_1af7a54cae24fa0ee95e3e4acf181b76ee" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structUnrestricter_1af7a54cae24fa0ee95e3e4acf181b76ee" kindref="member">doEigenEnergies</ref>(CTF::Tensor&lt;double&gt;<sp/>*eps)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[]<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2*eps-&gt;lens[0])<sp/>};</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>uEps(</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;double&gt;</ref>(</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lens,</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps-&gt;sym,</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="stringliteral">&quot;u&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::string{eps-&gt;get_name()}).c_str()</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*upUnrestrictedStates(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[eps-&gt;lens[0]]);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>eps-&gt;lens[0];<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>upUnrestrictedStates[i]<sp/>=<sp/>2*i;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>uEps[upUn[i]]<sp/>=<sp/>eps[i]<sp/>with<sp/>upUn[i]<sp/>=<sp/>2i</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>uEps-&gt;permute(1.0,<sp/>*eps,<sp/>&amp;upUnrestrictedStates,<sp/>1.0);</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>upUnrestrictedStates;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*downUnrestrictedStates(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[eps-&gt;lens[0]]);</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>eps-&gt;lens[0];<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>downUnrestrictedStates[i]<sp/>=<sp/>2*i<sp/>+<sp/>1;</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>uEps[dnUn[i]]<sp/>=<sp/>eps[i]<sp/>with<sp/>dnUn[i]<sp/>=<sp/>2i+1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>uEps-&gt;permute(1.0,<sp/>*eps,<sp/>&amp;downUnrestrictedStates,<sp/>1.0);</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>downUnrestrictedStates;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>overwrite<sp/>restricted<sp/>eigen<sp/>energies</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>eigen<sp/>energies<sp/>should<sp/>be<sp/>given<sp/>after<sp/>handleUnrestricted</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>uEps;</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103" refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a58665fc9e95f299e4daec496b5d64764" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a58665fc9e95f299e4daec496b5d64764" kindref="member">ParticleHoleCoulombVertexReader::run</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/>std::string<sp/>fileName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Reading<sp/>Coulomb<sp/>vertex<sp/>from<sp/>file<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>fileName<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/>MPI_File<sp/>file;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mpiError(</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_File_open(</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;comm,<sp/>fileName.c_str(),<sp/>MPI_MODE_RDONLY,</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MPI_INFO_NULL,<sp/>&amp;file</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mpiError)<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>open<sp/>file&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>header:<sp/>obtain<sp/>NG,No,Nv,Np</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header" kindref="compound">Header</ref><sp/>header;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/>MPI_Status<sp/>status;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/>MPI_File_read(file,<sp/>&amp;header,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header),<sp/>MPI_BYTE,<sp/>&amp;status);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a84ea2b1bb3d886ae9b7a66174d2cb2ea" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1aafb862ee9499c84ab2b0f87a8652fa04" kindref="member">Header::MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a84ea2b1bb3d886ae9b7a66174d2cb2ea" kindref="member">magic</ref>))<sp/>!=<sp/>0)</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>file<sp/>format&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NG(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a5db5cd13459530275cd7888c37ceef5b" kindref="member">NG</ref>);</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1af254a6e141e2e37ea7fce09a7533bb5d" kindref="member">No</ref>);</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1ab75addd6c3178e876981002b57c04ac0" kindref="member">Nv</ref>);</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(No<sp/>+<sp/>Nv);</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>NG,<sp/>No,<sp/>Nv,<sp/>Np</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;NG=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>NG<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;No=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>No<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Nv=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Nv<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Np=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Np<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocate<sp/>output<sp/>tensors</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertexLens[]<sp/>=<sp/>{<sp/>NG,<sp/>Nv,<sp/>No<sp/>};</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertexSyms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>*epsi(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Vector" kindref="compound">Vector&lt;&gt;</ref>(No,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;epsi&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>*epsa(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Vector" kindref="compound">Vector&lt;&gt;</ref>(Nv,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;epsa&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref><sp/>*GammaGai(</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref>(</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>3,<sp/>vertexLens,<sp/>vertexSyms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;GammaGai&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Enter<sp/>the<sp/>allocated<sp/>data<sp/>(and<sp/>by<sp/>that<sp/>type<sp/>the<sp/>output<sp/>data<sp/>to<sp/>tensors)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>epsi);</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>epsa);</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;sisi4s::complex&gt;(</highlight><highlight class="stringliteral">&quot;ParticleHoleCoulombVertex&quot;</highlight><highlight class="normal">,<sp/>GammaGai);</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Real<sp/>and<sp/>imaginary<sp/>parts<sp/>are<sp/>read<sp/>in<sp/>seperately</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>realGammaGai(</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>3,<sp/>vertexLens,<sp/>vertexSyms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;RealGammaGai&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;&gt;</ref><sp/>imagGammaGai(</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>3,<sp/>vertexLens,<sp/>vertexSyms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;ImagGammaGai&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/>int64_t<sp/>offset(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header));</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/>MPI_Offset<sp/>fileSize;</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/>MPI_File_get_size(file,<sp/>&amp;fileSize);</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk" kindref="compound">Chunk</ref><sp/>chunk;</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(offset<sp/>&lt;<sp/>fileSize)<sp/>{</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_File_read_at(file,<sp/>offset,<sp/>&amp;chunk,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk),<sp/>MPI_BYTE,<sp/>&amp;status);</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a2ea52bb7bedac63854537fb9b9d8ce17" kindref="member">Chunk::REALSIA_MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>))<sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>dirty<sp/>fix<sp/>for<sp/>bug<sp/>in<sp/>particle<sp/>hole<sp/>FTODDUMP</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1ac7db9470d293880686a257a68c9a7d46" kindref="member">size</ref><sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk)<sp/>+<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)<sp/>*<sp/>Nv*No*NG;</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;reading<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>realGammaGai.get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>realGammaGai.read_dense_from_file(file,<sp/>offset+</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk));</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a72d292e8bd25ae52e7f359b91df6b52e" kindref="member">Chunk::IMAGSIA_MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>))<sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>dirty<sp/>fix<sp/>for<sp/>bug<sp/>in<sp/>particle<sp/>hole<sp/>FTODDUMP</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1ac7db9470d293880686a257a68c9a7d46" kindref="member">size</ref><sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk)<sp/>+<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)<sp/>*<sp/>Nv*No*NG;</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;reading<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>imagGammaGai.get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>imagGammaGai.read_dense_from_file(file,<sp/>offset+</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk));</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a6c058756c3c1880b08b8cca57627dacf" kindref="member">Chunk::EPSILONS_MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>))<sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;reading<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>epsi-&gt;get_name()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>epsa-&gt;get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>epsi-&gt;read_dense_from_file(file,<sp/>offset+</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk));</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>epsa-&gt;read_dense_from_file(file,<sp/>offset+</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk)+No*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>offset<sp/>+=<sp/>chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1ac7db9470d293880686a257a68c9a7d46" kindref="member">size</ref>;</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/>MPI_File_close(&amp;file);</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"></highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Combine<sp/>to<sp/>complex<sp/>tensor</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a20c6b0ad3767206173edfb7bf525e5a7" kindref="member">toComplexTensor</ref>(realGammaGai,<sp/>imagGammaGai,<sp/>*GammaGai);</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"></highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>handle<sp/>unrestricted</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>unrestricted(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;unrestricted&quot;</highlight><highlight class="normal">,<sp/>0));</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><ref refid="structUnrestricter" kindref="compound">Unrestricter</ref><sp/>u;</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(unrestricted)<sp/>{</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Enter<sp/>the<sp/>allocated<sp/>data<sp/>(and<sp/>by<sp/>that<sp/>type<sp/>the<sp/>output<sp/>data<sp/>to<sp/>tensors)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Unrestricting<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>epsi-&gt;get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>u.<ref refid="structUnrestricter_1af7a54cae24fa0ee95e3e4acf181b76ee" kindref="member">doEigenEnergies</ref>(epsi));</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Unrestricting<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>epsa-&gt;get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>u.<ref refid="structUnrestricter_1af7a54cae24fa0ee95e3e4acf181b76ee" kindref="member">doEigenEnergies</ref>(epsa));</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Unrestricting<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>GammaGai-&gt;get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>allocatedTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;ParticleHoleCoulombVertex&quot;</highlight><highlight class="normal">,<sp/>u.<ref refid="structUnrestricter_1a561cc4d54b8081555acc00a70c532dd7" kindref="member">doVertex</ref>(GammaGai));</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"></highlight></codeline>
-<codeline lineno="200"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"></highlight></codeline>
-<codeline lineno="202" refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a40c6504c5033fd62719b0ff512521401" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a40c6504c5033fd62719b0ff512521401" kindref="member">ParticleHoleCoulombVertexReader::dryRun</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/>std::string<sp/>fileName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Reading<sp/>particle<sp/>hole<sp/>Coulomb<sp/>vertex<sp/>from<sp/>file<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>fileName<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/>std::ifstream<sp/>file(fileName.c_str(),<sp/>std::ios::binary|std::ios::in);</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file.is_open())<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>open<sp/>file&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>header</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header" kindref="compound">Header</ref><sp/>header;</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/>file.read(</highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;header),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header));</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a84ea2b1bb3d886ae9b7a66174d2cb2ea" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1aafb862ee9499c84ab2b0f87a8652fa04" kindref="member">Header::MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a84ea2b1bb3d886ae9b7a66174d2cb2ea" kindref="member">magic</ref>))<sp/>!=<sp/>0)</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>file<sp/>format&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/>file.close();</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"></highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NG(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a5db5cd13459530275cd7888c37ceef5b" kindref="member">NG</ref>);</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1af254a6e141e2e37ea7fce09a7533bb5d" kindref="member">No</ref>);</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1ab75addd6c3178e876981002b57c04ac0" kindref="member">Nv</ref>);</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(No<sp/>+<sp/>Nv);</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"></highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>NG,<sp/>No,<sp/>Nv,<sp/>Np</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="221"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;NG=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>NG<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;No=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>No<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="223"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Nv=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Nv<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="224"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Np=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Np<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="225"><highlight class="normal"></highlight></codeline>
-<codeline lineno="226"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocate<sp/>output<sp/>tensors</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertexLens[]<sp/>=<sp/>{<sp/>NG,<sp/>Nv,<sp/>No<sp/>};</highlight></codeline>
-<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertexSyms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*epsi(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector&lt;&gt;</ref>(No,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>));</highlight></codeline>
-<codeline lineno="230"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*epsa(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector&lt;&gt;</ref>(Nv,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>));</highlight></codeline>
-<codeline lineno="231"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*GammaGai(</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>(3,<sp/>vertexLens,<sp/>vertexSyms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>)</highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Enter<sp/>the<sp/>allocated<sp/>data<sp/>(and<sp/>by<sp/>that<sp/>type<sp/>the<sp/>output<sp/>data<sp/>to<sp/>tensors)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="235"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>epsi);</highlight></codeline>
-<codeline lineno="236"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>epsa);</highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex,<sp/>DryTensor&lt;complex&gt;&gt;(</highlight></codeline>
-<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;ParticleHoleCoulombVertex&quot;</highlight><highlight class="normal">,<sp/>GammaGai</highlight></codeline>
-<codeline lineno="239"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="240"><highlight class="normal"></highlight></codeline>
-<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Real<sp/>and<sp/>imaginary<sp/>parts<sp/>are<sp/>read<sp/>in<sp/>seperately</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="242"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>realGammaGai(3,<sp/>vertexLens,<sp/>vertexSyms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
-<codeline lineno="243"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>imagGammaGai(3,<sp/>vertexLens,<sp/>vertexSyms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
-<codeline lineno="244"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Header::MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sisi4sFTOD&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Chunk::REALS_MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;FTODreal&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Chunk::IMAGS_MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;FTODimag&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Chunk::REALSIA_MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;FTIAreal&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Chunk::IMAGSIA_MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;FTIAimag&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*ParticleHoleCoulombVertexReader::Chunk::EPSILONS_MAGIC<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;FTODepsi&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader" kindref="compound">ParticleHoleCoulombVertexReader</ref>);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a9f1e2b8070a7799106c26f11c70836d0" refkind="member"><highlight class="normal">ParticleHoleCoulombVertexReader::ParticleHoleCoulombVertexReader(</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1ac6508661960ec4f254d67967a137bf9b" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1ac6508661960ec4f254d67967a137bf9b" kindref="member">ParticleHoleCoulombVertexReader::~ParticleHoleCoulombVertexReader</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="structUnrestricter" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structUnrestricter" kindref="compound">Unrestricter</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref>*</highlight></codeline>
+<codeline lineno="33" refid="structUnrestricter_1ae630d9ae0cf31af5f42085b26acbc3eb" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structUnrestricter_1ae630d9ae0cf31af5f42085b26acbc3eb" kindref="member">doVertex</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref><sp/>*GammaGqr)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>field<sp/>variable<sp/>NG<sp/>remains<sp/>the<sp/>same</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertexLens[]<sp/>=<sp/>{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(GammaGqr-&gt;lens[0]),</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2*GammaGqr-&gt;lens[1]),</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2*GammaGqr-&gt;lens[2])};</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>uGammaGqr(</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref>(3,<sp/>vertexLens,<sp/>GammaGqr-&gt;sym,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;uGammaGqr&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*upUnrestrictedStates(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[GammaGqr-&gt;lens[1]]);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>q(0);<sp/>q<sp/>&lt;<sp/>GammaGqr-&gt;lens[1];<sp/>++q)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>upUnrestrictedStates[q]<sp/>=<sp/>2*q;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*upUp[]<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>upUnrestrictedStates,<sp/>upUnrestrictedStates<sp/>};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>uGammaGqr[G,<sp/>upUn[q],<sp/>upUn[r]]<sp/>=<sp/>GammaGqr[G,q,r]<sp/>with<sp/>upUn[q]<sp/>=<sp/>2q.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>the<sp/>behavior<sp/>of<sp/>all<sp/>below<sp/>permute<sp/>calls<sp/>is<sp/>documented<sp/>differently</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>in<sp/>v1.4.1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>uGammaGqr-&gt;permute(1.0,<sp/>*GammaGqr,<sp/>upUp,<sp/>1.0);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>upUnrestrictedStates;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*downUnrestrictedStates(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[GammaGqr-&gt;lens[1]]);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>q(0);<sp/>q<sp/>&lt;<sp/>GammaGqr-&gt;lens[1];<sp/>++q)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>downUnrestrictedStates[q]<sp/>=<sp/>2*q+1;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*downDown[]<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>downUnrestrictedStates,<sp/>downUnrestrictedStates<sp/>};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>uGammaGqr[G,<sp/>dnUn[q],<sp/>dnUn[r]]<sp/>=<sp/>GammaGqr[G,q,r]<sp/>with<sp/>dnUn[q]<sp/>=<sp/>2q+1.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>uGammaGqr-&gt;permute(1.0,<sp/>*GammaGqr,<sp/>downDown,<sp/>1.0);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>downUnrestrictedStates;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>overwrite<sp/>restricted<sp/>vertex</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>uGammaGqr;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref>*</highlight></codeline>
+<codeline lineno="67" refid="structUnrestricter_1a7c13c6368ca5c0b725abdf582ff69262" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structUnrestricter_1a7c13c6368ca5c0b725abdf582ff69262" kindref="member">doEigenEnergies</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>*eps)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[]<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2*eps-&gt;lens[0])<sp/>};</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>uEps(</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref>(</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lens,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps-&gt;sym,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="stringliteral">&quot;u&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::string{eps-&gt;get_name()}).c_str()</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*upUnrestrictedStates(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[eps-&gt;lens[0]]);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>eps-&gt;lens[0];<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>upUnrestrictedStates[i]<sp/>=<sp/>2*i;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>uEps[upUn[i]]<sp/>=<sp/>eps[i]<sp/>with<sp/>upUn[i]<sp/>=<sp/>2i</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>uEps-&gt;permute(1.0,<sp/>*eps,<sp/>&amp;upUnrestrictedStates,<sp/>1.0);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>upUnrestrictedStates;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*downUnrestrictedStates(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[eps-&gt;lens[0]]);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>eps-&gt;lens[0];<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>downUnrestrictedStates[i]<sp/>=<sp/>2*i<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>uEps[dnUn[i]]<sp/>=<sp/>eps[i]<sp/>with<sp/>dnUn[i]<sp/>=<sp/>2i+1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>uEps-&gt;permute(1.0,<sp/>*eps,<sp/>&amp;downUnrestrictedStates,<sp/>1.0);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>downUnrestrictedStates;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>overwrite<sp/>restricted<sp/>eigen<sp/>energies</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>eigen<sp/>energies<sp/>should<sp/>be<sp/>given<sp/>after<sp/>handleUnrestricted</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>uEps;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a58665fc9e95f299e4daec496b5d64764" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a58665fc9e95f299e4daec496b5d64764" kindref="member">ParticleHoleCoulombVertexReader::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>std::string<sp/>fileName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Reading<sp/>Coulomb<sp/>vertex<sp/>from<sp/>file<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>fileName<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>MPI_File<sp/>file;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mpiError(</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_File_open(</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;comm,<sp/>fileName.c_str(),<sp/>MPI_MODE_RDONLY,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MPI_INFO_NULL,<sp/>&amp;file</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mpiError)<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>open<sp/>file&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>header:<sp/>obtain<sp/>NG,No,Nv,Np</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header" kindref="compound">Header</ref><sp/>header;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>MPI_Status<sp/>status;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>MPI_File_read(file,<sp/>&amp;header,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header),<sp/>MPI_BYTE,<sp/>&amp;status);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a84ea2b1bb3d886ae9b7a66174d2cb2ea" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1aafb862ee9499c84ab2b0f87a8652fa04" kindref="member">Header::MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a84ea2b1bb3d886ae9b7a66174d2cb2ea" kindref="member">magic</ref>))<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>file<sp/>format&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NG(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a5db5cd13459530275cd7888c37ceef5b" kindref="member">NG</ref>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1af254a6e141e2e37ea7fce09a7533bb5d" kindref="member">No</ref>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1ab75addd6c3178e876981002b57c04ac0" kindref="member">Nv</ref>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(No<sp/>+<sp/>Nv);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>NG,<sp/>No,<sp/>Nv,<sp/>Np</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;NG=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>NG<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;No=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>No<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Nv=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Nv<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Np=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Np<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocate<sp/>output<sp/>tensors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertexLens[]<sp/>=<sp/>{<sp/>NG,<sp/>Nv,<sp/>No<sp/>};</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertexSyms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>*epsi(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Vector&lt;double&gt;(No,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;epsi&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>*epsa(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Vector&lt;double&gt;(Nv,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;epsa&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref><sp/>*GammaGai(</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref>(</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>3,<sp/>vertexLens,<sp/>vertexSyms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;GammaGai&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Enter<sp/>the<sp/>allocated<sp/>data<sp/>(and<sp/>by<sp/>that<sp/>type<sp/>the<sp/>output<sp/>data<sp/>to<sp/>tensors)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>epsi);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>epsa);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;sisi4s::complex&gt;(</highlight><highlight class="stringliteral">&quot;ParticleHoleCoulombVertex&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GammaGai);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Real<sp/>and<sp/>imaginary<sp/>parts<sp/>are<sp/>read<sp/>in<sp/>seperately</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>realGammaGai(3,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vertexLens,</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vertexSyms,</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;RealGammaGai&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>imagGammaGai(3,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vertexLens,</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vertexSyms,</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;ImagGammaGai&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>int64_t<sp/>offset(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header));</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>MPI_Offset<sp/>fileSize;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>MPI_File_get_size(file,<sp/>&amp;fileSize);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk" kindref="compound">Chunk</ref><sp/>chunk;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(offset<sp/>&lt;<sp/>fileSize)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_File_read_at(file,<sp/>offset,<sp/>&amp;chunk,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk),<sp/>MPI_BYTE,<sp/>&amp;status);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a2ea52bb7bedac63854537fb9b9d8ce17" kindref="member">Chunk::REALSIA_MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>))<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>dirty<sp/>fix<sp/>for<sp/>bug<sp/>in<sp/>particle<sp/>hole<sp/>FTODDUMP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1ac7db9470d293880686a257a68c9a7d46" kindref="member">size</ref><sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk)<sp/>+<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)<sp/>*<sp/>Nv*No*NG;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;reading<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>realGammaGai.get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>realGammaGai.read_dense_from_file(file,<sp/>offset+</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk));</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a72d292e8bd25ae52e7f359b91df6b52e" kindref="member">Chunk::IMAGSIA_MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>))<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>dirty<sp/>fix<sp/>for<sp/>bug<sp/>in<sp/>particle<sp/>hole<sp/>FTODDUMP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1ac7db9470d293880686a257a68c9a7d46" kindref="member">size</ref><sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk)<sp/>+<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)<sp/>*<sp/>Nv*No*NG;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;reading<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>imagGammaGai.get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>imagGammaGai.read_dense_from_file(file,<sp/>offset+</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk));</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a6c058756c3c1880b08b8cca57627dacf" kindref="member">Chunk::EPSILONS_MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1a5e69752a44342582fa02653f476d13b8" kindref="member">magic</ref>))<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;reading<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>epsi-&gt;get_name()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>epsa-&gt;get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>epsi-&gt;read_dense_from_file(file,<sp/>offset+</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk));</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>epsa-&gt;read_dense_from_file(file,<sp/>offset+</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(chunk)+No*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>offset<sp/>+=<sp/>chunk.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk_1ac7db9470d293880686a257a68c9a7d46" kindref="member">size</ref>;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>MPI_File_close(&amp;file);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Combine<sp/>to<sp/>complex<sp/>tensor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" kindref="member">toComplexTensor</ref>(realGammaGai,<sp/>imagGammaGai,<sp/>*GammaGai);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>handle<sp/>unrestricted</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>unrestricted(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;unrestricted&quot;</highlight><highlight class="normal">,<sp/>0));</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><ref refid="structUnrestricter" kindref="compound">Unrestricter</ref><sp/>u;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(unrestricted)<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Enter<sp/>the<sp/>allocated<sp/>data<sp/>(and<sp/>by<sp/>that<sp/>type<sp/>the<sp/>output<sp/>data<sp/>to<sp/>tensors)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Unrestricting<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>epsi-&gt;get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>u.<ref refid="structUnrestricter_1a7c13c6368ca5c0b725abdf582ff69262" kindref="member">doEigenEnergies</ref>(epsi));</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Unrestricting<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>epsa-&gt;get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>u.<ref refid="structUnrestricter_1a7c13c6368ca5c0b725abdf582ff69262" kindref="member">doEigenEnergies</ref>(epsa));</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Unrestricting<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>GammaGai-&gt;get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>allocatedTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;ParticleHoleCoulombVertex&quot;</highlight><highlight class="normal">,<sp/>u.<ref refid="structUnrestricter_1ae630d9ae0cf31af5f42085b26acbc3eb" kindref="member">doVertex</ref>(GammaGai));</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209" refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a40c6504c5033fd62719b0ff512521401" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a40c6504c5033fd62719b0ff512521401" kindref="member">ParticleHoleCoulombVertexReader::dryRun</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>std::string<sp/>fileName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Reading<sp/>particle<sp/>hole<sp/>Coulomb<sp/>vertex<sp/>from<sp/>file<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>fileName<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>std::ifstream<sp/>file(fileName.c_str(),<sp/>std::ios::binary|std::ios::in);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file.is_open())<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>open<sp/>file&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>header</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header" kindref="compound">Header</ref><sp/>header;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>file.read(</highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;header),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header));</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strncmp(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a84ea2b1bb3d886ae9b7a66174d2cb2ea" kindref="member">magic</ref>,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1aafb862ee9499c84ab2b0f87a8652fa04" kindref="member">Header::MAGIC</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a84ea2b1bb3d886ae9b7a66174d2cb2ea" kindref="member">magic</ref>))<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>file<sp/>format&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>file.close();</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NG(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1a5db5cd13459530275cd7888c37ceef5b" kindref="member">NG</ref>);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1af254a6e141e2e37ea7fce09a7533bb5d" kindref="member">No</ref>);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(header.<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header_1ab75addd6c3178e876981002b57c04ac0" kindref="member">Nv</ref>);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(No<sp/>+<sp/>Nv);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>NG,<sp/>No,<sp/>Nv,<sp/>Np</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;NG=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>NG<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;No=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>No<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Nv=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Nv<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;Reader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Np=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Np<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocate<sp/>output<sp/>tensors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertexLens[]<sp/>=<sp/>{<sp/>NG,<sp/>Nv,<sp/>No<sp/>};</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vertexSyms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*epsi(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector&lt;&gt;</ref>(No,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>));</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>*epsa(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector&lt;&gt;</ref>(Nv,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>));</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*GammaGai(</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>(3,<sp/>vertexLens,<sp/>vertexSyms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>)</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Enter<sp/>the<sp/>allocated<sp/>data<sp/>(and<sp/>by<sp/>that<sp/>type<sp/>the<sp/>output<sp/>data<sp/>to<sp/>tensors)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>epsi);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a388052a12509b8b641f17bbe8d41f8f3" kindref="member">allocatedTensorArgument</ref>(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">,<sp/>epsa);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex,<sp/>DryTensor&lt;complex&gt;&gt;(</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;ParticleHoleCoulombVertex&quot;</highlight><highlight class="normal">,<sp/>GammaGai</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Real<sp/>and<sp/>imaginary<sp/>parts<sp/>are<sp/>read<sp/>in<sp/>seperately</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>realGammaGai(3,<sp/>vertexLens,<sp/>vertexSyms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;&gt;</ref><sp/>imagGammaGai(3,<sp/>vertexLens,<sp/>vertexSyms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref>);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/ParticleHoleCoulombVertexReader.cxx"/>
   </compounddef>

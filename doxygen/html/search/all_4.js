@@ -77,7 +77,7 @@ var searchData=
   ['distance_74',['distance',['../classsisi4s_1_1Vector.html#ab43048a9eee60f5064956c080acba338',1,'sisi4s::Vector']]],
   ['distribution_75',['Distribution',['../structCoulombIntegralsProvider.html#a7c5d559c7d5691b5c4a527825460eed0',1,'CoulombIntegralsProvider']]],
   ['divide_76',['divide',['../namespacesisi4s.html#a4669111dd0ce1279c5e4c2ef1d764afb',1,'sisi4s']]],
-  ['doeigenenergies_77',['doEigenEnergies',['../structUnrestricter.html#af7a54cae24fa0ee95e3e4acf181b76ee',1,'Unrestricter']]],
+  ['doeigenenergies_77',['doEigenEnergies',['../structUnrestricter.html#a7c13c6368ca5c0b725abdf582ff69262',1,'Unrestricter']]],
   ['doroundrobindistribution_78',['doRoundRobinDistribution',['../structCoulombIntegralsProvider.html#a8df812f1629b44e584240c394eddf730',1,'CoulombIntegralsProvider']]],
   ['dosimpledistribution_79',['doSimpleDistribution',['../structCoulombIntegralsProvider.html#a1f722245277ca761c4910a53665ff492',1,'CoulombIntegralsProvider']]],
   ['dot_80',['dot',['../namespacesisi4s.html#a92d239b67d4a13717f4e7f93ad9591f2',1,'sisi4s::dot()'],['../classsisi4s_1_1Vector.html#a8d8a0dd7fa816afad751865285eec6be',1,'sisi4s::Vector::dot()'],['../classsisi4s_1_1FockVector.html#a7f7a9ea49d5eb503a988858d1b9e76cb',1,'sisi4s::FockVector::dot()']]],
@@ -88,7 +88,7 @@ var searchData=
   ['doublesamplitudesfromvertex_2ecxx_85',['DoublesAmplitudesFromVertex.cxx',['../DoublesAmplitudesFromVertex_8cxx.html',1,'']]],
   ['doublesamplitudesfromvertex_2ehpp_86',['DoublesAmplitudesFromVertex.hpp',['../DoublesAmplitudesFromVertex_8hpp.html',1,'']]],
   ['doublescontribution_87',['doublesContribution',['../classsisi4s_1_1ParenthesisTriples.html#a04ca6faf70e57b3cd25336597f20a261',1,'sisi4s::ParenthesisTriples']]],
-  ['dovertex_88',['doVertex',['../structUnrestricter.html#a561cc4d54b8081555acc00a70c532dd7',1,'Unrestricter']]],
+  ['dovertex_88',['doVertex',['../structUnrestricter.html#ae630d9ae0cf31af5f42085b26acbc3eb',1,'Unrestricter']]],
   ['downtr_89',['downTr',['../namespacesisi4s.html#af13987c51f965d40686aa1e90bfb1ae6',1,'sisi4s']]],
   ['drccdenergyfromcoulombintegrals_90',['DrccdEnergyFromCoulombIntegrals',['../classsisi4s_1_1DrccdEnergyFromCoulombIntegrals.html#a6f4870682c16b95111d061a9bad6678b',1,'sisi4s::DrccdEnergyFromCoulombIntegrals::DrccdEnergyFromCoulombIntegrals()'],['../classsisi4s_1_1DrccdEnergyFromCoulombIntegrals.html',1,'sisi4s::DrccdEnergyFromCoulombIntegrals']]],
   ['drccdenergyfromcoulombintegrals_2ecxx_91',['DrccdEnergyFromCoulombIntegrals.cxx',['../DrccdEnergyFromCoulombIntegrals_8cxx.html',1,'']]],
@@ -123,6 +123,6 @@ var searchData=
   ['dsyev_5f_120',['dsyev_',['../Lapack_8hpp.html#a5dd7884f39150c29793947da3b7a78f4',1,'Lapack.hpp']]],
   ['dsysv_5f_121',['dsysv_',['../Lapack_8hpp.html#aaacdf33c1d8272c5fd148b2e002c12a6',1,'Lapack.hpp']]],
   ['dummy_122',['dummy',['../namespaceCLI_1_1detail.html#a01c35a876e2917ffdc1ee618e0c06619',1,'CLI::detail']]],
-  ['dvabc_123',['DVabc',['../classsisi4s_1_1CcsdPerturbativeTriples.html#a96393b8c6df583155302ec341efea97d',1,'sisi4s::CcsdPerturbativeTriples']]],
+  ['dvabc_123',['DVabc',['../classsisi4s_1_1CcsdPerturbativeTriples.html#a3dc369ba55cc0135a17957316470d7d8',1,'sisi4s::CcsdPerturbativeTriples']]],
   ['dvec_124',['dvec',['../namespacesisi4s.html#afa9c0a1edb7f927ade8c48edeebb1b36',1,'sisi4s']]]
 ];

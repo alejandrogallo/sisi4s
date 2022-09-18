@@ -403,6 +403,44 @@
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/Float.hpp" line="31" column="29" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/Float.hpp" bodystart="31" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="typedef" id="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>CTF::Tensor&lt; F &gt;</type>
+        <definition>using sisi4s::Tensor = typedef CTF::Tensor&lt;F&gt;</definition>
+        <argsstring></argsstring>
+        <name>Tensor</name>
+        <qualifiedname>sisi4s::Tensor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" line="9" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacesisi4s_1a8bc5ec282e4873c8ebc9e265d2a08990" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>CTF::Matrix&lt; F &gt;</type>
+        <definition>using sisi4s::Matrix = typedef CTF::Matrix&lt;F&gt;</definition>
+        <argsstring></argsstring>
+        <name>Matrix</name>
+        <qualifiedname>sisi4s::Matrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" line="12" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
       </sectiondef>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespacesisi4s_1aeeda71beb90d864c4ecd8884ef0047d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -456,16 +494,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPerturbativeTriples.cxx" line="27" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPerturbativeTriples.cxx" bodystart="27" bodyend="33"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPerturbativeTriples.cxx" line="26" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPerturbativeTriples.cxx" bodystart="26" bodyend="32"/>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a28d00a7f10c4ac7cbdc7fbdd071e8318" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1ab2414ae2ca7d376f6379d91727cd66a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacesisi4s_1ab0457f55e1460236bab6deb9d7635f0a" kindref="member">MatrixColumnMajor</ref></type>
         <definition>MatrixColumnMajor sisi4s::toEigenMatrix</definition>
-        <argsstring>(CTF::Tensor&lt; double &gt; &amp;ctf)</argsstring>
+        <argsstring>(Tensor&lt; double &gt; &amp;ctf)</argsstring>
         <name>toEigenMatrix</name>
         <qualifiedname>sisi4s::toEigenMatrix</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>ctf</declname>
         </param>
         <briefdescription>
@@ -475,11 +513,11 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/HartreeFockFromCoulombIntegrals.hpp" line="27" column="21" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/HartreeFockFromCoulombIntegrals.cxx" bodystart="20" bodyend="37" declfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/HartreeFockFromCoulombIntegrals.hpp" declline="27" declcolumn="21"/>
-        <referencedby refid="HartreeFockFromCoulombIntegrals_8cxx_1ae422e45f52820531f53afd437275fc5d" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="59" endline="67">getFockMatrix</referencedby>
+        <referencedby refid="HartreeFockFromCoulombIntegrals_8cxx_1ad975fce2e7f66fbfc1fa217992c552c5" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="59" endline="67">getFockMatrix</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="69" endline="265">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="219" endline="513">sisi4s::HartreeFockFromGaussian::run</referencedby>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a73e63f2894299063b2902d0f4f67fe27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1a5f1a1c319b7f345b0fbac3d446635845" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename F</type>
@@ -488,23 +526,23 @@
         </templateparamlist>
         <type>void</type>
         <definition>void sisi4s::composeCanonicalPolyadicDecompositionTensors</definition>
-        <argsstring>(CTF::Tensor&lt; F &gt; &amp;A, CTF::Tensor&lt; F &gt; &amp;B, CTF::Tensor&lt; F &gt; &amp;C, CTF::Tensor&lt; F &gt; &amp;T)</argsstring>
+        <argsstring>(Tensor&lt; F &gt; &amp;A, Tensor&lt; F &gt; &amp;B, Tensor&lt; F &gt; &amp;C, Tensor&lt; F &gt; &amp;T)</argsstring>
         <name>composeCanonicalPolyadicDecompositionTensors</name>
         <qualifiedname>sisi4s::composeCanonicalPolyadicDecompositionTensors</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>A</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>B</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>C</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>T</declname>
         </param>
         <briefdescription>
@@ -514,7 +552,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/CanonicalPolyadicDecomposition.hpp" line="13" column="8" declfile="/home/runner/work/sisi4s/sisi4s/src/math/CanonicalPolyadicDecomposition.hpp" declline="13" declcolumn="8"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/CanonicalPolyadicDecomposition.hpp" line="13" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/CanonicalPolyadicDecomposition.cxx" bodystart="12" bodyend="54" declfile="/home/runner/work/sisi4s/sisi4s/src/math/CanonicalPolyadicDecomposition.hpp" declline="13" declcolumn="8"/>
+        <references refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" compoundref="Exception_8hpp" startline="11">Assert</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">sisi4s::ParticleHoleCoulombVertexDecomposition::fit</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" compoundref="CoulombVertexDecomposition_8cxx" startline="392" endline="400">sisi4s::CoulombVertexDecomposition::getDelta</referencedby>
       </memberdef>
@@ -561,7 +601,7 @@
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a1d7aed53263c884eccb9c64c0cfcfd0a" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="192" endline="215">sisi4s::ParticleHoleCoulombVertexDecomposition::dryFit</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" compoundref="CoulombVertexDecomposition_8cxx" startline="262" endline="283">sisi4s::CoulombVertexDecomposition::dryFit</referencedby>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a21fb3aa5ddffa42109990b275c1508c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1ab14ed3164e19d771549f3af9f21a00d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename F</type>
@@ -570,11 +610,11 @@
         </templateparamlist>
         <type>void</type>
         <definition>void sisi4s::contractWithCanonicalPolyadicDecompositionTensors</definition>
-        <argsstring>(CTF::Tensor&lt; F &gt; &amp;T, char const *indicesT, CTF::Tensor&lt; F &gt; &amp;B, char const idxB, CTF::Tensor&lt; F &gt; &amp;C, char const idxC, CTF::Tensor&lt; F &gt; &amp;A, char const idxA)</argsstring>
+        <argsstring>(Tensor&lt; F &gt; &amp;T, char const *indicesT, Tensor&lt; F &gt; &amp;B, char const idxB, Tensor&lt; F &gt; &amp;C, char const idxC, Tensor&lt; F &gt; &amp;A, char const idxA)</argsstring>
         <name>contractWithCanonicalPolyadicDecompositionTensors</name>
         <qualifiedname>sisi4s::contractWithCanonicalPolyadicDecompositionTensors</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>T</declname>
         </param>
         <param>
@@ -582,7 +622,7 @@
           <declname>indicesT</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>B</declname>
         </param>
         <param>
@@ -590,7 +630,7 @@
           <declname>idxB</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>C</declname>
         </param>
         <param>
@@ -598,7 +638,7 @@
           <declname>idxC</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>A</declname>
         </param>
         <param>
@@ -678,7 +718,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/CanonicalPolyadicDecomposition.hpp" line="40" column="8" declfile="/home/runner/work/sisi4s/sisi4s/src/math/CanonicalPolyadicDecomposition.hpp" declline="40" declcolumn="8"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/CanonicalPolyadicDecomposition.hpp" line="40" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/CanonicalPolyadicDecomposition.cxx" bodystart="118" bodyend="170" declfile="/home/runner/work/sisi4s/sisi4s/src/math/CanonicalPolyadicDecomposition.hpp" declline="40" declcolumn="8"/>
+        <references refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" compoundref="Exception_8hpp" startline="11">Assert</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <referencedby refid="namespacesisi4s_1a7aeaa0a35be34eeeb8537d428a75e97d" compoundref="RegularizedAlternatingLeastSquares_8cxx" startline="15" endline="43">fitAlternatingLeastSquaresFactor</referencedby>
+        <referencedby refid="namespacesisi4s_1a8ca8aaa549414abe940b2f7ecc1f549d" compoundref="RegularizedAlternatingLeastSquares_8cxx" startline="61" endline="103">fitRegularizedAlternatingLeastSquaresFactor</referencedby>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1a3c57f2c3b6b413ec8c8cbac80a1bbaca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -852,22 +896,22 @@
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/Complex.hpp" line="26" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/Complex.hpp" bodystart="26" bodyend="28"/>
         <references refid="namespacesisi4s_1ab40f034e81921db1e3447d2f623c0506" compoundref="Complex_8hpp" startline="21" endline="23">absSqr</references>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a77d868359a18a73cfe184f25fad2f59b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void sisi4s::fromComplexTensor</definition>
-        <argsstring>(CTF::Tensor&lt; complex &gt; &amp;c, CTF::Tensor&lt; double &gt; &amp;r, CTF::Tensor&lt; double &gt; &amp;i)</argsstring>
+        <argsstring>(Tensor&lt; complex &gt; &amp;c, Tensor&lt; double &gt; &amp;r, Tensor&lt; double &gt; &amp;i)</argsstring>
         <name>fromComplexTensor</name>
         <qualifiedname>sisi4s::fromComplexTensor</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>r</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>i</declname>
         </param>
         <briefdescription>
@@ -877,42 +921,42 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="13" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="39" bodyend="51" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="13" declcolumn="8"/>
-        <references refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" compoundref="ComplexTensor_8cxx" startline="6">AssertCompatibleTensorShapes</references>
-        <references refid="namespacesisi4s_1a77d868359a18a73cfe184f25fad2f59b" compoundref="ComplexTensor_8cxx" startline="39" endline="51">fromComplexTensor</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="13" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="40" bodyend="52" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="13" declcolumn="8"/>
+        <references refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" compoundref="ComplexTensor_8cxx" startline="7">AssertCompatibleTensorShapes</references>
+        <references refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" compoundref="ComplexTensor_8cxx" startline="40" endline="52">fromComplexTensor</references>
         <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ab8ed521c3bf0c49835954ac0e7655425" compoundref="AngularMomentum_8hpp" startline="9">am::I</references>
-        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="32">Indices</references>
+        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="33">Indices</references>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" compoundref="FiniteSizeCorrection_8cxx" startline="337" endline="466">sisi4s::FiniteSizeCorrection::calculateComplexStructureFactor</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="187" endline="472">sisi4s::CoulombIntegralsFromVertex::calculateRealIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="186" endline="471">sisi4s::CoulombIntegralsFromVertex::calculateRealIntegrals</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" compoundref="FiniteSizeCorrection_8cxx" startline="124" endline="334">sisi4s::FiniteSizeCorrection::calculateRealStructureFactor</referencedby>
-        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a2d64bea9206ccbf8349e7d515f9a7f5b" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="254" endline="296">sisi4s::ParticleHoleCoulombVertexDecomposition::evaluateMp2</referencedby>
-        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1a3d9834f6a2ed4100e47b32e498914129" compoundref="BasisSetExtrapolation_8cxx" startline="55" endline="267">sisi4s::BasisSetExtrapolation::evaluateQGG</referencedby>
-        <referencedby refid="namespacesisi4s_1a77d868359a18a73cfe184f25fad2f59b" compoundref="ComplexTensor_8cxx" startline="39" endline="51">fromComplexTensor</referencedby>
-        <referencedby refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegrals_1a5ec0fe08374df8bf74029a3eee23942c" compoundref="CcsdEnergyFromCoulombIntegrals_8cxx" startline="30" endline="461">sisi4s::CcsdEnergyFromCoulombIntegrals::getResiduum</referencedby>
-        <referencedby refid="classsisi4s_1_1CcsdDiagrammaticDecomposition_1a88ea20dff4ea90e58247c8437c9f661f" compoundref="CcsdDiagrammaticDecomposition_8cxx" startline="33" endline="416">sisi4s::CcsdDiagrammaticDecomposition::run</referencedby>
-        <referencedby refid="classsisi4s_1_1DoublesAmplitudesFromVertex_1ac84baa2cdf181d22f093b777fe95a23d" compoundref="DoublesAmplitudesFromVertex_8cxx" startline="22" endline="44">sisi4s::DoublesAmplitudesFromVertex::run</referencedby>
-        <referencedby refid="classsisi4s_1_1FromComplexTensor_1aaf3fa74437f68d888f812cb739b399b5" compoundref="FromComplexTensor_8cxx" startline="21" endline="32">sisi4s::FromComplexTensor::run</referencedby>
-        <referencedby refid="classsisi4s_1_1ParenthesisTriples_1a13c648b58b994e20cb35843b25b23312" compoundref="ParenthesisTriples_8cxx" startline="549" endline="765">sisi4s::ParenthesisTriples::run</referencedby>
-        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1aa15c5a3edcb4102f112028ff53f27179" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="565" endline="727">sisi4s::ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors</referencedby>
-        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4cc0b4527b8b77bdde36752e3aca89cc" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="408" endline="489">sisi4s::ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals</referencedby>
-        <referencedby refid="classsisi4s_1_1CcsdPerturbativeTriples_1a91a20736900b7a0c000ff7352ef38301" compoundref="CcsdPerturbativeTriples_8cxx" startline="37" endline="86">sisi4s::CcsdPerturbativeTriples::sliceTensors</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ae8dc9156a24e3e2cc3499e2b31e1448b" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="254" endline="296">sisi4s::ParticleHoleCoulombVertexDecomposition::evaluateMp2</referencedby>
+        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1a3d9834f6a2ed4100e47b32e498914129" compoundref="BasisSetExtrapolation_8cxx" startline="53" endline="265">sisi4s::BasisSetExtrapolation::evaluateQGG</referencedby>
+        <referencedby refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" compoundref="ComplexTensor_8cxx" startline="40" endline="52">fromComplexTensor</referencedby>
+        <referencedby refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegrals_1a5ec0fe08374df8bf74029a3eee23942c" compoundref="CcsdEnergyFromCoulombIntegrals_8cxx" startline="29" endline="472">sisi4s::CcsdEnergyFromCoulombIntegrals::getResiduum</referencedby>
+        <referencedby refid="classsisi4s_1_1CcsdDiagrammaticDecomposition_1a88ea20dff4ea90e58247c8437c9f661f" compoundref="CcsdDiagrammaticDecomposition_8cxx" startline="32" endline="415">sisi4s::CcsdDiagrammaticDecomposition::run</referencedby>
+        <referencedby refid="classsisi4s_1_1DoublesAmplitudesFromVertex_1ac84baa2cdf181d22f093b777fe95a23d" compoundref="DoublesAmplitudesFromVertex_8cxx" startline="21" endline="43">sisi4s::DoublesAmplitudesFromVertex::run</referencedby>
+        <referencedby refid="classsisi4s_1_1FromComplexTensor_1aaf3fa74437f68d888f812cb739b399b5" compoundref="FromComplexTensor_8cxx" startline="20" endline="31">sisi4s::FromComplexTensor::run</referencedby>
+        <referencedby refid="classsisi4s_1_1ParenthesisTriples_1a13c648b58b994e20cb35843b25b23312" compoundref="ParenthesisTriples_8cxx" startline="548" endline="764">sisi4s::ParenthesisTriples::run</referencedby>
+        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1aa15c5a3edcb4102f112028ff53f27179" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="564" endline="726">sisi4s::ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors</referencedby>
+        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4cc0b4527b8b77bdde36752e3aca89cc" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="407" endline="488">sisi4s::ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1CcsdPerturbativeTriples_1a91a20736900b7a0c000ff7352ef38301" compoundref="CcsdPerturbativeTriples_8cxx" startline="36" endline="85">sisi4s::CcsdPerturbativeTriples::sliceTensors</referencedby>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a21e9bbf0dda98b5d19a6eea4d8297d38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1a41d0ed33fae9ffd4daee5515290bca54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void sisi4s::fromComplexTensor</definition>
-        <argsstring>(CTF::Tensor&lt; double &gt; &amp;c, CTF::Tensor&lt; double &gt; &amp;r, CTF::Tensor&lt; double &gt; &amp;i)</argsstring>
+        <argsstring>(Tensor&lt; double &gt; &amp;c, Tensor&lt; double &gt; &amp;r, Tensor&lt; double &gt; &amp;i)</argsstring>
         <name>fromComplexTensor</name>
         <qualifiedname>sisi4s::fromComplexTensor</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>r</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>i</declname>
         </param>
         <briefdescription>
@@ -921,23 +965,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="18" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="53" bodyend="61" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="18" declcolumn="8"/>
-        <references refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" compoundref="ComplexTensor_8cxx" startline="6">AssertCompatibleTensorShapes</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="18" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="54" bodyend="62" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="18" declcolumn="8"/>
+        <references refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" compoundref="ComplexTensor_8cxx" startline="7">AssertCompatibleTensorShapes</references>
         <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ab8ed521c3bf0c49835954ac0e7655425" compoundref="AngularMomentum_8hpp" startline="9">am::I</references>
-        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="32">Indices</references>
+        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="33">Indices</references>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a6dade22e010d5ee743aec8d14256cb88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1a4250fb84afe218d327351f6e6e92bb2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void sisi4s::fromComplexTensor</definition>
-        <argsstring>(CTF::Tensor&lt; complex &gt; &amp;c, CTF::Tensor&lt; double &gt; &amp;r)</argsstring>
+        <argsstring>(Tensor&lt; complex &gt; &amp;c, Tensor&lt; double &gt; &amp;r)</argsstring>
         <name>fromComplexTensor</name>
         <qualifiedname>sisi4s::fromComplexTensor</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>r</declname>
         </param>
         <briefdescription>
@@ -947,26 +991,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="26" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="63" bodyend="74" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="26" declcolumn="8"/>
-        <references refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" compoundref="ComplexTensor_8cxx" startline="19">AssertCompatibleTensorShape</references>
-        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="32">Indices</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="26" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="64" bodyend="75" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="26" declcolumn="8"/>
+        <references refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" compoundref="ComplexTensor_8cxx" startline="20">AssertCompatibleTensorShape</references>
+        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="33">Indices</references>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a20c6b0ad3767206173edfb7bf525e5a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void sisi4s::toComplexTensor</definition>
-        <argsstring>(CTF::Tensor&lt; double &gt; &amp;r, CTF::Tensor&lt; double &gt; &amp;i, CTF::Tensor&lt; complex &gt; &amp;c)</argsstring>
+        <argsstring>(Tensor&lt; double &gt; &amp;r, Tensor&lt; double &gt; &amp;i, Tensor&lt; complex &gt; &amp;c)</argsstring>
         <name>toComplexTensor</name>
         <qualifiedname>sisi4s::toComplexTensor</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>r</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>i</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -976,38 +1020,38 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="37" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="76" bodyend="96" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="37" declcolumn="8"/>
-        <references refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" compoundref="ComplexTensor_8cxx" startline="6">AssertCompatibleTensorShapes</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="37" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="77" bodyend="97" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="37" declcolumn="8"/>
+        <references refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" compoundref="ComplexTensor_8cxx" startline="7">AssertCompatibleTensorShapes</references>
         <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ab8ed521c3bf0c49835954ac0e7655425" compoundref="AngularMomentum_8hpp" startline="9">am::I</references>
-        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="32">Indices</references>
-        <references refid="namespacesisi4s_1a20c6b0ad3767206173edfb7bf525e5a7" compoundref="ComplexTensor_8cxx" startline="76" endline="96">toComplexTensor</references>
+        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="33">Indices</references>
+        <references refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" compoundref="ComplexTensor_8cxx" startline="77" endline="97">toComplexTensor</references>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" compoundref="FiniteSizeCorrection_8cxx" startline="337" endline="466">sisi4s::FiniteSizeCorrection::calculateComplexStructureFactor</referencedby>
-        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a907cf5c343b8647588b8545ce489f2d6" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="354" endline="375">sisi4s::ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies</referencedby>
+        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ae4959c22cc14927799d18483a690b71f" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="353" endline="374">sisi4s::ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" compoundref="FiniteSizeCorrection_8cxx" startline="124" endline="334">sisi4s::FiniteSizeCorrection::calculateRealStructureFactor</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdEquationOfMotionDavidson_1a418beaea4a3a3fe7cf890ba392a7d6ef" compoundref="CcsdEquationOfMotionDavidson_8cxx" startline="77" endline="495">sisi4s::CcsdEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson_1a12e416e743f23f8ec453a9ee2f9a8aad" compoundref="CcsdtEquationOfMotionDavidson_8cxx" startline="46" endline="361">sisi4s::CcsdtEquationOfMotionDavidson::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombVertexReader_1ab7a866749df48712c5b9b02d892be4d9" compoundref="CoulombVertexReader_8cxx" startline="29" endline="108">sisi4s::CoulombVertexReader::run</referencedby>
-        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a58665fc9e95f299e4daec496b5d64764" compoundref="ParticleHoleCoulombVertexReader_8cxx" startline="103" endline="200">sisi4s::ParticleHoleCoulombVertexReader::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexReader_1ab7a866749df48712c5b9b02d892be4d9" compoundref="CoulombVertexReader_8cxx" startline="28" endline="107">sisi4s::CoulombVertexReader::run</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a58665fc9e95f299e4daec496b5d64764" compoundref="ParticleHoleCoulombVertexReader_8cxx" startline="102" endline="207">sisi4s::ParticleHoleCoulombVertexReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1ab3fa58fddbd938517fed45a270cbd77e" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="46" endline="383">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="46" endline="335">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1ade4d95a7d53a8b596e67d584e98d7f02" compoundref="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" startline="46" endline="241">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa::run</referencedby>
-        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1aa15c5a3edcb4102f112028ff53f27179" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="565" endline="727">sisi4s::ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors</referencedby>
-        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4cc0b4527b8b77bdde36752e3aca89cc" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="408" endline="489">sisi4s::ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals</referencedby>
-        <referencedby refid="classsisi4s_1_1DoublesAmplitudesDecomposition_1aaffeb4b10fc0077f103ac5861dd495e2" compoundref="DoublesAmplitudesDecomposition_8cxx" startline="99" endline="172">sisi4s::DoublesAmplitudesDecomposition::sliceLargestEigenValues</referencedby>
-        <referencedby refid="namespacesisi4s_1a20c6b0ad3767206173edfb7bf525e5a7" compoundref="ComplexTensor_8cxx" startline="76" endline="96">toComplexTensor</referencedby>
+        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1aa15c5a3edcb4102f112028ff53f27179" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="564" endline="726">sisi4s::ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors</referencedby>
+        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4cc0b4527b8b77bdde36752e3aca89cc" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="407" endline="488">sisi4s::ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals</referencedby>
+        <referencedby refid="classsisi4s_1_1DoublesAmplitudesDecomposition_1aaffeb4b10fc0077f103ac5861dd495e2" compoundref="DoublesAmplitudesDecomposition_8cxx" startline="98" endline="171">sisi4s::DoublesAmplitudesDecomposition::sliceLargestEigenValues</referencedby>
+        <referencedby refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" compoundref="ComplexTensor_8cxx" startline="77" endline="97">toComplexTensor</referencedby>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a7e188159cd98f0d401ab23369c49d34f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1add6f24ee3967bb84399e82f2081681a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void sisi4s::toComplexTensor</definition>
-        <argsstring>(CTF::Tensor&lt; double &gt; &amp;r, CTF::Tensor&lt; complex &gt; &amp;c)</argsstring>
+        <argsstring>(Tensor&lt; double &gt; &amp;r, Tensor&lt; complex &gt; &amp;c)</argsstring>
         <name>toComplexTensor</name>
         <qualifiedname>sisi4s::toComplexTensor</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>r</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -1016,22 +1060,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="42" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="98" bodyend="118" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="42" declcolumn="8"/>
-        <references refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" compoundref="ComplexTensor_8cxx" startline="19">AssertCompatibleTensorShape</references>
-        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="32">Indices</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="42" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="99" bodyend="119" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="42" declcolumn="8"/>
+        <references refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" compoundref="ComplexTensor_8cxx" startline="20">AssertCompatibleTensorShape</references>
+        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="33">Indices</references>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a5881a605777746bffe040bb39da1b048" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1a014e33dae327f57e5b44d284a6f82219" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void sisi4s::toComplexTensor</definition>
-        <argsstring>(CTF::Tensor&lt; double &gt; &amp;r, CTF::Tensor&lt; double &gt; &amp;c)</argsstring>
+        <argsstring>(Tensor&lt; double &gt; &amp;r, Tensor&lt; double &gt; &amp;c)</argsstring>
         <name>toComplexTensor</name>
         <qualifiedname>sisi4s::toComplexTensor</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>r</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -1040,18 +1084,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="47" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="120" bodyend="127" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="47" declcolumn="8"/>
-        <references refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" compoundref="ComplexTensor_8cxx" startline="19">AssertCompatibleTensorShape</references>
-        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="32">Indices</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="47" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="121" bodyend="128" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="47" declcolumn="8"/>
+        <references refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" compoundref="ComplexTensor_8cxx" startline="20">AssertCompatibleTensorShape</references>
+        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="33">Indices</references>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a065b48a575e1c9dd06da30d0aed8c7c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1ab3f1696a0e7735d418f8996311daa8c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void sisi4s::conjugate</definition>
-        <argsstring>(CTF::Tensor&lt; double &gt; &amp;c)</argsstring>
+        <argsstring>(Tensor&lt; double &gt; &amp;c)</argsstring>
         <name>conjugate</name>
         <qualifiedname>sisi4s::conjugate</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; double &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; double &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -1060,25 +1104,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="52" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="142" bodyend="146" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="52" declcolumn="8"/>
-        <referencedby refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a802882a537b9187871ab0dda73ae4b29" compoundref="PseudoInverseHermitianSvd_8cxx" startline="17" endline="56">sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::PseudoInverseHermitianSvd</referencedby>
-        <referencedby refid="structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI_1a9b8f3c2cf11778ba71bdcc2881885059" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="59" endline="111">sisi4s::NaturalTransitionOrbitalsFromRhoAI::buildTransformations</referencedby>
-        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1a3d9834f6a2ed4100e47b32e498914129" compoundref="BasisSetExtrapolation_8cxx" startline="55" endline="267">sisi4s::BasisSetExtrapolation::evaluateQGG</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="52" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="143" bodyend="147" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="52" declcolumn="8"/>
+        <referencedby refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a802882a537b9187871ab0dda73ae4b29" compoundref="PseudoInverseHermitianSvd_8cxx" startline="17" endline="55">sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::PseudoInverseHermitianSvd</referencedby>
+        <referencedby refid="structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI_1a664dfd859b6247f83ddb5c29c330554e" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="58" endline="110">sisi4s::NaturalTransitionOrbitalsFromRhoAI::buildTransformations</referencedby>
+        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1a3d9834f6a2ed4100e47b32e498914129" compoundref="BasisSetExtrapolation_8cxx" startline="53" endline="265">sisi4s::BasisSetExtrapolation::evaluateQGG</referencedby>
         <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a96558b1a79ac7e0bcdeb64127855241e" compoundref="IterativePseudoInverse_8cxx" startline="65" endline="104">sisi4s::IterativePseudoInverse&lt; F &gt;::iterate</referencedby>
-        <referencedby refid="classsisi4s_1_1ApproximateCoulombVertex_1ac064920a1f03e21e008998ebd59f485c" compoundref="ApproximateCoulombVertex_8cxx" startline="22" endline="46">sisi4s::ApproximateCoulombVertex::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombVertexSingularVectors_1a5de084a1b69bb70516fd835a02f34207" compoundref="CoulombVertexSingularVectors_8cxx" startline="28" endline="85">sisi4s::CoulombVertexSingularVectors::run</referencedby>
-        <referencedby refid="structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI_1ad5b6b43420a088153556e2497bfd1c2f" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="114" endline="134">sisi4s::NaturalTransitionOrbitalsFromRhoAI::run</referencedby>
-        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a09b13599f6597caa907c8d7d2f785ac2" compoundref="ParticleHoleCoulombVertexSingularVectors_8cxx" startline="28" endline="73">sisi4s::ParticleHoleCoulombVertexSingularVectors::run</referencedby>
+        <referencedby refid="classsisi4s_1_1ApproximateCoulombVertex_1ac064920a1f03e21e008998ebd59f485c" compoundref="ApproximateCoulombVertex_8cxx" startline="21" endline="45">sisi4s::ApproximateCoulombVertex::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexSingularVectors_1a5de084a1b69bb70516fd835a02f34207" compoundref="CoulombVertexSingularVectors_8cxx" startline="27" endline="84">sisi4s::CoulombVertexSingularVectors::run</referencedby>
+        <referencedby refid="structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI_1ad5b6b43420a088153556e2497bfd1c2f" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="113" endline="133">sisi4s::NaturalTransitionOrbitalsFromRhoAI::run</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a09b13599f6597caa907c8d7d2f785ac2" compoundref="ParticleHoleCoulombVertexSingularVectors_8cxx" startline="27" endline="72">sisi4s::ParticleHoleCoulombVertexSingularVectors::run</referencedby>
         <referencedby refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a38e4e848464faa11aabcb3883af74b33" compoundref="SimilarityTransformedHamiltonian_8cxx" startline="2770" endline="4060">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::structureFactor</referencedby>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a84ac475b5387a7bc84d0d10bedb6de49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1a900cd067a0e92de9ff85372102f9c596" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void sisi4s::conjugate</definition>
-        <argsstring>(CTF::Tensor&lt; complex &gt; &amp;c)</argsstring>
+        <argsstring>(Tensor&lt; complex &gt; &amp;c)</argsstring>
         <name>conjugate</name>
         <qualifiedname>sisi4s::conjugate</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -1087,9 +1131,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="56" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="129" bodyend="140" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="56" declcolumn="8"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" line="56" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="130" bodyend="141" declfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.hpp" declline="56" declcolumn="8"/>
         <references refid="namespacesisi4s_1abc3ea35f1434b9c5021b9195449d1f9b" compoundref="MathFunctions_8hpp" startline="34" endline="36">conj</references>
-        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="32">Indices</references>
+        <references refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" compoundref="ComplexTensor_8cxx" startline="33">Indices</references>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1a309771251a73107cf5eedbe665fa5a6a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1399,8 +1443,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/FockVector.hpp" line="549" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/FockVector.hpp" bodystart="549" bodyend="558"/>
-        <references refid="classsisi4s_1_1FockVector_1a9fb1ce7dc46b1982cf04f9cc4328afe7" compoundref="FockVector_8hpp" startline="30">sisi4s::FockVector&lt; F &gt;::componentTensors</references>
-        <references refid="classsisi4s_1_1FockVector_1ac37c525c89799fb6e2fa419acb4edf4a" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
+        <references refid="classsisi4s_1_1FockVector_1a76a336f18f4fc9a70c6b31406b8d6717" compoundref="FockVector_8hpp" startline="30">sisi4s::FockVector&lt; F &gt;::componentTensors</references>
+        <references refid="classsisi4s_1_1FockVector_1aebf4e090f20a7bb83c434396b274c89c" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
         <references refid="classsisi4s_1_1FockVector_1a12f7974afa01def06d0fff6b08c06756" compoundref="FockVector_8hpp" startline="115" endline="117">sisi4s::FockVector&lt; F &gt;::getIndices</references>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1ab52936dd14e46acf16cadc4a7dbd0e61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -1469,10 +1513,10 @@
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" line="13" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" bodystart="13" bodyend="15"/>
         <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">sisi4s::CoulombVertexDecomposition::iterateQuadraticFactor</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1ac8955814dd0e4158d01fc10da8259f58" compoundref="CoulombVertexDecomposition_8cxx" startline="285" endline="299">sisi4s::CoulombVertexDecomposition::normalizePi</referencedby>
-        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaae154aa2544a2f07d611709210edf7e" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="218" endline="234">sisi4s::ParticleHoleCoulombVertexDecomposition::normalizePi</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a7d82ab4745622f23dad2c094c368f915" compoundref="CoulombVertexDecomposition_8cxx" startline="301" endline="310">sisi4s::CoulombVertexDecomposition::realizePi</referencedby>
-        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abb36b166b6e1c02e32edcc08f155e06f" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="236" endline="245">sisi4s::ParticleHoleCoulombVertexDecomposition::realizePi</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1af8f3367c22f6260e0db4b313c0199594" compoundref="CoulombVertexDecomposition_8cxx" startline="285" endline="299">sisi4s::CoulombVertexDecomposition::normalizePi</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a855080c758691aa6da9c3dc594b19aec" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="218" endline="234">sisi4s::ParticleHoleCoulombVertexDecomposition::normalizePi</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a463569751d49f8acd966ef1f028db483" compoundref="CoulombVertexDecomposition_8cxx" startline="301" endline="310">sisi4s::CoulombVertexDecomposition::realizePi</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1afc78716f341f73a6cdeba7659184e338" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="236" endline="245">sisi4s::ParticleHoleCoulombVertexDecomposition::realizePi</referencedby>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1a9b9e76b0c2b3fdfe2be4324883376fda" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1522,11 +1566,11 @@
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" compoundref="FiniteSizeCorrection_8cxx" startline="337" endline="466">sisi4s::FiniteSizeCorrection::calculateComplexStructureFactor</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" compoundref="FiniteSizeCorrection_8cxx" startline="124" endline="334">sisi4s::FiniteSizeCorrection::calculateRealStructureFactor</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1abe853aa5dccd41090fc1d8282937d60a" compoundref="FiniteSizeCorrection_8cxx" startline="528" endline="545">sisi4s::FiniteSizeCorrection::constructFibonacciGrid</referencedby>
-        <referencedby refid="classsisi4s_1_1DoublesAmplitudesDecomposition_1a95e0f3d1c64b08842dc5c212f054b6c7" compoundref="DoublesAmplitudesDecomposition_8cxx" startline="49" endline="97">sisi4s::DoublesAmplitudesDecomposition::diagonlizeAmplitudes</referencedby>
+        <referencedby refid="classsisi4s_1_1DoublesAmplitudesDecomposition_1a95e0f3d1c64b08842dc5c212f054b6c7" compoundref="DoublesAmplitudesDecomposition_8cxx" startline="48" endline="96">sisi4s::DoublesAmplitudesDecomposition::diagonlizeAmplitudes</referencedby>
         <referencedby refid="classsisi4s_1_1UegVertexGenerator_1afa4445fb2a105da1c171a0c77df8292a" compoundref="UegVertexGenerator_8cxx" startline="25" endline="44">sisi4s::UegVertexGenerator::evalMadelung</referencedby>
-        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1a3d9834f6a2ed4100e47b32e498914129" compoundref="BasisSetExtrapolation_8cxx" startline="55" endline="267">sisi4s::BasisSetExtrapolation::evaluateQGG</referencedby>
-        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1a4f49cb830f2873a1edd72cefa95785f1" compoundref="BasisSetExtrapolation_8cxx" startline="334" endline="460">sisi4s::BasisSetExtrapolation::fitF12</referencedby>
-        <referencedby refid="namespacesisi4s_1a072b9097a4466552d4ee05cea48af554" compoundref="MathFunctions_8hpp" startline="68" endline="76">frobeniusNorm</referencedby>
+        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1a3d9834f6a2ed4100e47b32e498914129" compoundref="BasisSetExtrapolation_8cxx" startline="53" endline="265">sisi4s::BasisSetExtrapolation::evaluateQGG</referencedby>
+        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1a4f49cb830f2873a1edd72cefa95785f1" compoundref="BasisSetExtrapolation_8cxx" startline="335" endline="461">sisi4s::BasisSetExtrapolation::fitF12</referencedby>
+        <referencedby refid="namespacesisi4s_1aae36a475bbea733a01982cbf5f741cc1" compoundref="MathFunctions_8hpp" startline="68" endline="76">frobeniusNorm</referencedby>
         <referencedby refid="NuclearRepulsionEnergy_8cxx_1aaceb2c1481a73d85f851e6d8b4a2e9da" compoundref="NuclearRepulsionEnergy_8cxx" startline="15" endline="31">getEnergy</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a885a0ffef1ab5a039a69e40e8e8b1c09" compoundref="CcsdPreconditioner_8cxx" startline="162" endline="318">sisi4s::CcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
         <referencedby refid="classsisi4s_1_1IPCcsdPreconditioner_1a2e97db095cdebec9c83d1b60295605ec" compoundref="CcsdPreconditioner_8cxx" startline="605" endline="711">sisi4s::IPCcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
@@ -1561,7 +1605,7 @@
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" line="29" column="12" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" bodystart="29" bodyend="31"/>
         <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">abs</references>
-        <referencedby refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a802882a537b9187871ab0dda73ae4b29" compoundref="PseudoInverseHermitianSvd_8cxx" startline="17" endline="56">sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::PseudoInverseHermitianSvd</referencedby>
+        <referencedby refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a802882a537b9187871ab0dda73ae4b29" compoundref="PseudoInverseHermitianSvd_8cxx" startline="17" endline="55">sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::PseudoInverseHermitianSvd</referencedby>
         <referencedby refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">abs</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a8aefba0b3f2b4c128f69d6e5eaf5a1fc" compoundref="CcsdPreconditioner_8cxx" startline="350" endline="391">sisi4s::CcsdPreconditioner&lt; F &gt;::getCorrection</referencedby>
         <referencedby refid="classsisi4s_1_1IPCcsdPreconditioner_1a7a64a258bc792326104e2eef5f69933e" compoundref="CcsdPreconditioner_8cxx" startline="715" endline="752">sisi4s::IPCcsdPreconditioner&lt; F &gt;::getCorrection</referencedby>
@@ -1578,11 +1622,11 @@
         <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01double_01_4_1_1EigenValueComparator_1aa0492d44d415b014e40eb7ed0110f248" compoundref="LapackGeneralEigenSystem_8hpp" startline="24" endline="33">sisi4s::LapackGeneralEigenSystem&lt; double &gt;::EigenValueComparator::operator()</referencedby>
         <referencedby refid="classEomDiagonalValueComparator_1afea547026c2f888a54dca308ccaae0bf" compoundref="CcsdPreconditioner_8cxx" startline="63" endline="81">EomDiagonalValueComparator&lt; F &gt;::operator()</referencedby>
         <referencedby refid="namespaceCLI_1_1detail_1a569135c6e266940a5f914698b9deef66" compoundref="CLI11_8hpp" startline="3255" endline="3261">CLI::detail::overflowCheck</referencedby>
-        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a69e386caf7acdf30c11b476d522d7a9d" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="42" endline="141">sisi4s::ClusterSinglesDoublesAlgorithm::run</referencedby>
-        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1aa86fb955293c874f806a98263ab39213" compoundref="ClusterSinglesDoublesTriplesAlgorithm_8cxx" startline="41" endline="108">sisi4s::ClusterSinglesDoublesTriplesAlgorithm::run</referencedby>
+        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a69e386caf7acdf30c11b476d522d7a9d" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="41" endline="140">sisi4s::ClusterSinglesDoublesAlgorithm::run</referencedby>
+        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1aa86fb955293c874f806a98263ab39213" compoundref="ClusterSinglesDoublesTriplesAlgorithm_8cxx" startline="40" endline="107">sisi4s::ClusterSinglesDoublesTriplesAlgorithm::run</referencedby>
         <referencedby refid="classsisi4s_1_1UegVertexGenerator_1a7f2b63e4e37a5f74313403b5a41d5cbf" compoundref="UegVertexGenerator_8cxx" startline="65" endline="261">sisi4s::UegVertexGenerator::run</referencedby>
         <referencedby refid="classsisi4s_1_1EigenSystemDavidsonMono_1ae374662234b193df4dbfadedbce69beb" compoundref="EigenSystemDavidson_8hpp" startline="149" endline="459">sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;::run</referencedby>
-        <referencedby refid="classsisi4s_1_1DoublesAmplitudesDecomposition_1aaffeb4b10fc0077f103ac5861dd495e2" compoundref="DoublesAmplitudesDecomposition_8cxx" startline="99" endline="172">sisi4s::DoublesAmplitudesDecomposition::sliceLargestEigenValues</referencedby>
+        <referencedby refid="classsisi4s_1_1DoublesAmplitudesDecomposition_1aaffeb4b10fc0077f103ac5861dd495e2" compoundref="DoublesAmplitudesDecomposition_8cxx" startline="98" endline="171">sisi4s::DoublesAmplitudesDecomposition::sliceLargestEigenValues</referencedby>
         <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a1998a3534a76b40320d273d324b2470e" compoundref="IterativePseudoInverse_8cxx" startline="164" endline="197">sisi4s::IterativePseudoInverse&lt; F &gt;::test</referencedby>
         <referencedby refid="classCLI_1_1Option_1a81d7f38453c88d417fb5333b5ef39959" compoundref="CLI11_8hpp" startline="5011" endline="5033">CLI::Option::type_size</referencedby>
       </memberdef>
@@ -1610,11 +1654,11 @@
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" line="34" column="12" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" bodystart="34" bodyend="36"/>
         <references refid="namespacesisi4s_1aa8b450b30cd5b37aaf1fe14ba54b6d86" compoundref="MathFunctions_8hpp" startline="39" endline="41">conj</references>
         <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1ad33b6438b8401c3f6c72cad5230ad801" compoundref="LapackGeneralEigenSystem_8hpp" startline="244" endline="257">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::biorthogonalError</referencedby>
-        <referencedby refid="namespacesisi4s_1a84ac475b5387a7bc84d0d10bedb6de49" compoundref="ComplexTensor_8cxx" startline="129" endline="140">conjugate</referencedby>
+        <referencedby refid="namespacesisi4s_1a900cd067a0e92de9ff85372102f9c596" compoundref="ComplexTensor_8cxx" startline="130" endline="141">conjugate</referencedby>
         <referencedby refid="namespacesisi4s_1a92d239b67d4a13717f4e7f93ad9591f2" compoundref="MathFunctions_8hpp" startline="45" endline="47">dot</referencedby>
         <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1a6ff1cce7cf64d7659d0804317f5b62bf" compoundref="LapackGeneralEigenSystem_8hpp" startline="229" endline="242">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::leftEigenError</referencedby>
-        <referencedby refid="NaturalTransitionOrbitalsFromRhoAI_8cxx_1a17a4374cc872225dc976a9c910f9e694" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="43" endline="55">logOverlap</referencedby>
-        <referencedby refid="NaturalTransitionOrbitalsFromRhoAI_8cxx_1a66116addded68ea64321206849fd47f4" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="30" endline="40">logVectorNorms</referencedby>
+        <referencedby refid="NaturalTransitionOrbitalsFromRhoAI_8cxx_1a17a4374cc872225dc976a9c910f9e694" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="42" endline="54">logOverlap</referencedby>
+        <referencedby refid="NaturalTransitionOrbitalsFromRhoAI_8cxx_1a66116addded68ea64321206849fd47f4" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="29" endline="39">logVectorNorms</referencedby>
         <referencedby refid="namespacesisi4s_1a9fa5b3be804515448387f0d0a362aee4" compoundref="MathFunctions_8hpp" startline="53" endline="55">realDot</referencedby>
         <referencedby refid="classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4_1ac6d8679f777fa5ce0c872076f7b26b8a" compoundref="LapackGeneralEigenSystem_8hpp" startline="215" endline="228">sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::rightEigenError</referencedby>
         <referencedby refid="classsisi4s_1_1EigenSystemDavidsonMono_1ae374662234b193df4dbfadedbce69beb" compoundref="EigenSystemDavidson_8hpp" startline="149" endline="459">sisi4s::EigenSystemDavidsonMono&lt; H, P, V &gt;::run</referencedby>
@@ -1668,7 +1712,7 @@
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" line="45" column="12" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" bodystart="45" bodyend="47"/>
         <references refid="namespacesisi4s_1abc3ea35f1434b9c5021b9195449d1f9b" compoundref="MathFunctions_8hpp" startline="34" endline="36">conj</references>
-        <referencedby refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" compoundref="DiisMixer_8cxx" startline="91" endline="164">sisi4s::DiisMixer&lt; F &gt;::append</referencedby>
+        <referencedby refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" compoundref="DiisMixer_8cxx" startline="92" endline="164">sisi4s::DiisMixer&lt; F &gt;::append</referencedby>
         <referencedby refid="classsisi4s_1_1Vector_1a8d8a0dd7fa816afad751865285eec6be" compoundref="Vector_8hpp" startline="105" endline="111">sisi4s::Vector&lt; F, D &gt;::dot</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="547" endline="907">sisi4s::FiniteSizeCorrection::interpolation3D</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a5debe508e1f3f2713edc13d922058da1" compoundref="FiniteSizeCorrection_8cxx" startline="917" endline="942">sisi4s::FiniteSizeCorrection::IsInSmallBZ</referencedby>
@@ -1760,7 +1804,7 @@
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" line="63" column="12" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" bodystart="63" bodyend="65"/>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a072b9097a4466552d4ee05cea48af554" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1aae36a475bbea733a01982cbf5f741cc1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename F</type>
@@ -1768,11 +1812,11 @@
         </templateparamlist>
         <type>double</type>
         <definition>double sisi4s::frobeniusNorm</definition>
-        <argsstring>(CTF::Tensor&lt; F &gt; &amp;t)</argsstring>
+        <argsstring>(Tensor&lt; F &gt; &amp;t)</argsstring>
         <name>frobeniusNorm</name>
         <qualifiedname>sisi4s::frobeniusNorm</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -1784,13 +1828,14 @@
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" line="68" column="17" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" bodystart="68" bodyend="76"/>
         <references refid="namespacesisi4s_1a40947d88c4989cacff153a78af67f686" compoundref="MathFunctions_8hpp" startline="24" endline="26">sqrt</references>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">sisi4s::ParticleHoleCoulombVertexDecomposition::fit</referencedby>
+        <referencedby refid="namespacesisi4s_1a8ca8aaa549414abe940b2f7ecc1f549d" compoundref="RegularizedAlternatingLeastSquares_8cxx" startline="61" endline="103">fitRegularizedAlternatingLeastSquaresFactor</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a6b726a7a86ef6edab94bbd836fd1f246" compoundref="CoulombVertexDecomposition_8cxx" startline="392" endline="400">sisi4s::CoulombVertexDecomposition::getDelta</referencedby>
-        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaae154aa2544a2f07d611709210edf7e" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="218" endline="234">sisi4s::ParticleHoleCoulombVertexDecomposition::normalizePi</referencedby>
-        <referencedby refid="classsisi4s_1_1ComplexTensorNorm_1a391ff0c1f973a4c3a3591d3bcd2a10c7" compoundref="ComplexTensorNorm_8cxx" startline="24" endline="29">sisi4s::ComplexTensorNorm::run</referencedby>
-        <referencedby refid="classsisi4s_1_1TensorNorm_1af5498afcb9dbcadb2ed71069cdc3f106" compoundref="TensorNorm_8cxx" startline="23" endline="28">sisi4s::TensorNorm::run</referencedby>
-        <referencedby refid="classsisi4s_1_1DoublesAmplitudesDecomposition_1aaffeb4b10fc0077f103ac5861dd495e2" compoundref="DoublesAmplitudesDecomposition_8cxx" startline="99" endline="172">sisi4s::DoublesAmplitudesDecomposition::sliceLargestEigenValues</referencedby>
+        <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a855080c758691aa6da9c3dc594b19aec" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="218" endline="234">sisi4s::ParticleHoleCoulombVertexDecomposition::normalizePi</referencedby>
+        <referencedby refid="classsisi4s_1_1ComplexTensorNorm_1a391ff0c1f973a4c3a3591d3bcd2a10c7" compoundref="ComplexTensorNorm_8cxx" startline="23" endline="28">sisi4s::ComplexTensorNorm::run</referencedby>
+        <referencedby refid="classsisi4s_1_1TensorNorm_1af5498afcb9dbcadb2ed71069cdc3f106" compoundref="TensorNorm_8cxx" startline="22" endline="27">sisi4s::TensorNorm::run</referencedby>
+        <referencedby refid="classsisi4s_1_1DoublesAmplitudesDecomposition_1aaffeb4b10fc0077f103ac5861dd495e2" compoundref="DoublesAmplitudesDecomposition_8cxx" startline="98" endline="171">sisi4s::DoublesAmplitudesDecomposition::sliceLargestEigenValues</referencedby>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1a4695cd08e397ad149f1eb2731f9627f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1a1e9d78005344619227766a9c62020617" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename F</type>
@@ -1798,7 +1843,7 @@
         </templateparamlist>
         <type>void</type>
         <definition>void sisi4s::symmetrize</definition>
-        <argsstring>(std::string indices, std::string permuted, CTF::Tensor&lt; F &gt; &amp;t, F prefactor=1)</argsstring>
+        <argsstring>(std::string indices, std::string permuted, Tensor&lt; F &gt; &amp;t, F prefactor=1)</argsstring>
         <name>symmetrize</name>
         <qualifiedname>sisi4s::symmetrize</qualifiedname>
         <param>
@@ -1810,7 +1855,7 @@
           <declname>permuted</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>t</declname>
         </param>
         <param>
@@ -1827,7 +1872,7 @@
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" line="85" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/MathFunctions.hpp" bodystart="85" bodyend="88"/>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1aa9ed24988d04cac58fb1a71d6bac740a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1a064f1996a620381ea305851bf71b734b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename F</type>
@@ -1835,11 +1880,11 @@
         </templateparamlist>
         <type>void</type>
         <definition>void sisi4s::checkAntisymmetry</definition>
-        <argsstring>(CTF::Tensor&lt; F &gt; &amp;t)</argsstring>
+        <argsstring>(Tensor&lt; F &gt; &amp;t)</argsstring>
         <name>checkAntisymmetry</name>
         <qualifiedname>sisi4s::checkAntisymmetry</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -2029,7 +2074,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/RandomTensor.hpp" line="14" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/RandomTensor.hpp" bodystart="14" bodyend="23"/>
-        <referencedby refid="namespacesisi4s_1ad79e22ef8ca23c70e5d0edcd8dd1532c" compoundref="RandomTensor_8hpp" startline="53" endline="64">setRandomTensor</referencedby>
+        <referencedby refid="namespacesisi4s_1adb5622106d23e3d14c736c4793512e5c" compoundref="RandomTensor_8hpp" startline="53" endline="64">setRandomTensor</referencedby>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1a2261732db2670a035671ccf20c24fde5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -2065,7 +2110,7 @@
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/RandomTensor.hpp" line="28" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/RandomTensor.hpp" bodystart="28" bodyend="38"/>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1ad79e22ef8ca23c70e5d0edcd8dd1532c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1adb5622106d23e3d14c736c4793512e5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename F</type>
@@ -2079,11 +2124,11 @@
         </templateparamlist>
         <type>void</type>
         <definition>void sisi4s::setRandomTensor</definition>
-        <argsstring>(CTF::Tensor&lt; F &gt; &amp;t, Distribution &amp;distribution, RandomEngine &amp;randomEngine)</argsstring>
+        <argsstring>(Tensor&lt; F &gt; &amp;t, Distribution &amp;distribution, RandomEngine &amp;randomEngine)</argsstring>
         <name>setRandomTensor</name>
         <qualifiedname>sisi4s::setRandomTensor</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>t</declname>
         </param>
         <param>
@@ -2105,13 +2150,13 @@
         <references refid="namespacesisi4s_1a2e93670459c4d5d087e89f55952bbe62" compoundref="RandomTensor_8hpp" startline="14" endline="23">setRandom</references>
         <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a885a0ffef1ab5a039a69e40e8e8b1c09" compoundref="CcsdPreconditioner_8cxx" startline="162" endline="318">sisi4s::CcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">sisi4s::CoulombVertexDecomposition::run</referencedby>
-        <referencedby refid="classsisi4s_1_1GenerateRandomComplexMatrix_1a336f654cde6a8de4a1ea6d21e2e2f792" compoundref="GenerateRandomComplexMatrix_8cxx" startline="23" endline="35">sisi4s::GenerateRandomComplexMatrix::run</referencedby>
-        <referencedby refid="classsisi4s_1_1GenerateRandomMatrix_1ab9d29a0b8d1df8d3d5610ff71e1096d3" compoundref="GenerateRandomMatrix_8cxx" startline="24" endline="40">sisi4s::GenerateRandomMatrix::run</referencedby>
-        <referencedby refid="classsisi4s_1_1GenerateRandomTensor_1a61e87f5bb5703da14b559f7ce43f68e2" compoundref="GenerateRandomTensor_8cxx" startline="23" endline="34">sisi4s::GenerateRandomTensor::run</referencedby>
+        <referencedby refid="classsisi4s_1_1GenerateRandomComplexMatrix_1a336f654cde6a8de4a1ea6d21e2e2f792" compoundref="GenerateRandomComplexMatrix_8cxx" startline="22" endline="34">sisi4s::GenerateRandomComplexMatrix::run</referencedby>
+        <referencedby refid="classsisi4s_1_1GenerateRandomMatrix_1ab9d29a0b8d1df8d3d5610ff71e1096d3" compoundref="GenerateRandomMatrix_8cxx" startline="23" endline="39">sisi4s::GenerateRandomMatrix::run</referencedby>
+        <referencedby refid="classsisi4s_1_1GenerateRandomTensor_1a61e87f5bb5703da14b559f7ce43f68e2" compoundref="GenerateRandomTensor_8cxx" startline="22" endline="33">sisi4s::GenerateRandomTensor::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">sisi4s::ParticleHoleCoulombVertexDecomposition::run</referencedby>
         <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a1998a3534a76b40320d273d324b2470e" compoundref="IterativePseudoInverse_8cxx" startline="164" endline="197">sisi4s::IterativePseudoInverse&lt; F &gt;::test</referencedby>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1ac2bf3b584b1380ce33fc334c17610fed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1a7aeaa0a35be34eeeb8537d428a75e97d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename F</type>
@@ -2120,11 +2165,11 @@
         </templateparamlist>
         <type>void</type>
         <definition>void sisi4s::fitAlternatingLeastSquaresFactor</definition>
-        <argsstring>(CTF::Tensor&lt; F &gt; &amp;T, char const *indicesT, CTF::Tensor&lt; F &gt; &amp;B, char const idxB, CTF::Tensor&lt; F &gt; &amp;C, char const idxC, CTF::Tensor&lt; F &gt; &amp;A, char const idxA)</argsstring>
+        <argsstring>(Tensor&lt; F &gt; &amp;T, char const *indicesT, Tensor&lt; F &gt; &amp;B, char const idxB, Tensor&lt; F &gt; &amp;C, char const idxC, Tensor&lt; F &gt; &amp;A, char const idxA)</argsstring>
         <name>fitAlternatingLeastSquaresFactor</name>
         <qualifiedname>sisi4s::fitAlternatingLeastSquaresFactor</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>T</declname>
         </param>
         <param>
@@ -2132,7 +2177,7 @@
           <declname>indicesT</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>B</declname>
         </param>
         <param>
@@ -2140,7 +2185,7 @@
           <declname>idxB</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>C</declname>
         </param>
         <param>
@@ -2148,7 +2193,7 @@
           <declname>idxC</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>A</declname>
         </param>
         <param>
@@ -2161,10 +2206,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/RegularizedAlternatingLeastSquares.hpp" line="57" column="8" declfile="/home/runner/work/sisi4s/sisi4s/src/math/RegularizedAlternatingLeastSquares.hpp" declline="57" declcolumn="8"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/RegularizedAlternatingLeastSquares.hpp" line="57" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/RegularizedAlternatingLeastSquares.cxx" bodystart="15" bodyend="43" declfile="/home/runner/work/sisi4s/sisi4s/src/math/RegularizedAlternatingLeastSquares.hpp" declline="57" declcolumn="8"/>
+        <references refid="namespacesisi4s_1ab14ed3164e19d771549f3af9f21a00d8" compoundref="CanonicalPolyadicDecomposition_8cxx" startline="118" endline="170">contractWithCanonicalPolyadicDecompositionTensors</references>
+        <references refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" compoundref="PseudoInverseSvd_8cxx" startline="63" endline="65">sisi4s::PseudoInverseSvd&lt; F &gt;::get</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="312" endline="371">sisi4s::CoulombVertexDecomposition::iterateQuadraticFactor</referencedby>
       </memberdef>
-      <memberdef kind="function" id="namespacesisi4s_1abf3c4be1dfed55e71db97d40eff3ce87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacesisi4s_1a8ca8aaa549414abe940b2f7ecc1f549d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename F</type>
@@ -2173,11 +2221,11 @@
         </templateparamlist>
         <type>void</type>
         <definition>void sisi4s::fitRegularizedAlternatingLeastSquaresFactor</definition>
-        <argsstring>(CTF::Tensor&lt; F &gt; &amp;T, char const *indicesT, CTF::Tensor&lt; F &gt; &amp;B, char const idxB, CTF::Tensor&lt; F &gt; &amp;C, char const idxC, CTF::Tensor&lt; F &gt; &amp;A, char const idxA, AlternatingLeastSquaresRegularizationEstimator *regularizationEstimatorA)</argsstring>
+        <argsstring>(Tensor&lt; F &gt; &amp;T, char const *indicesT, Tensor&lt; F &gt; &amp;B, char const idxB, Tensor&lt; F &gt; &amp;C, char const idxC, Tensor&lt; F &gt; &amp;A, char const idxA, AlternatingLeastSquaresRegularizationEstimator *regularizationEstimatorA)</argsstring>
         <name>fitRegularizedAlternatingLeastSquaresFactor</name>
         <qualifiedname>sisi4s::fitRegularizedAlternatingLeastSquaresFactor</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>T</declname>
         </param>
         <param>
@@ -2185,7 +2233,7 @@
           <declname>indicesT</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>B</declname>
         </param>
         <param>
@@ -2193,7 +2241,7 @@
           <declname>idxB</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>C</declname>
         </param>
         <param>
@@ -2201,7 +2249,7 @@
           <declname>idxC</declname>
         </param>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>A</declname>
         </param>
         <param>
@@ -2218,7 +2266,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/RegularizedAlternatingLeastSquares.hpp" line="65" column="8" declfile="/home/runner/work/sisi4s/sisi4s/src/math/RegularizedAlternatingLeastSquares.hpp" declline="65" declcolumn="8"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/RegularizedAlternatingLeastSquares.hpp" line="65" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/RegularizedAlternatingLeastSquares.cxx" bodystart="61" bodyend="103" declfile="/home/runner/work/sisi4s/sisi4s/src/math/RegularizedAlternatingLeastSquares.hpp" declline="65" declcolumn="8"/>
+        <references refid="namespacesisi4s_1ab14ed3164e19d771549f3af9f21a00d8" compoundref="CanonicalPolyadicDecomposition_8cxx" startline="118" endline="170">contractWithCanonicalPolyadicDecompositionTensors</references>
+        <references refid="namespacesisi4s_1aae36a475bbea733a01982cbf5f741cc1" compoundref="MathFunctions_8hpp" startline="68" endline="76">frobeniusNorm</references>
+        <references refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" compoundref="PseudoInverseSvd_8cxx" startline="63" endline="65">sisi4s::PseudoInverseSvd&lt; F &gt;::get</references>
+        <references refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator_1a4de4c9986a0c2c2fa70c8a0f43f1c81d" compoundref="RegularizedAlternatingLeastSquares_8hpp" startline="28" endline="30">sisi4s::AlternatingLeastSquaresRegularizationEstimator::getLambda</references>
+        <references refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator_1ae14a008ede1f4ed000518ed1035550ce" compoundref="RegularizedAlternatingLeastSquares_8hpp" startline="25" endline="27">sisi4s::AlternatingLeastSquaresRegularizationEstimator::getSwampingThreshold</references>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
+        <references refid="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator_1a503f0a701b0bdef3377c47bb5dae6456" compoundref="RegularizedAlternatingLeastSquares_8hpp" startline="31" endline="37">sisi4s::AlternatingLeastSquaresRegularizationEstimator::update</references>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" compoundref="CoulombVertexDecomposition_8cxx" startline="234" endline="260">sisi4s::CoulombVertexDecomposition::fit</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="161" endline="190">sisi4s::ParticleHoleCoulombVertexDecomposition::fit</referencedby>
       </memberdef>

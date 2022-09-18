@@ -8,7 +8,7 @@
     <includes local="no">string</includes>
     <includes local="no">map</includes>
     <includes local="no">vector</includes>
-    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
     <includedby refid="Algorithm_8cxx" local="no">Algorithm.cxx</includedby>
     <includedby refid="Algorithm_8hpp" local="no">Algorithm.hpp</includedby>
@@ -32,7 +32,7 @@
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
       <node id="15">
@@ -49,13 +49,13 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="19">
+      <node id="20">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="20" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="22">
         <label>util/Exception.hpp</label>
         <link refid="Exception_8hpp"/>
         <childnode refid="10" relation="include">
@@ -77,6 +77,12 @@
         <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="20" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -104,7 +110,7 @@
       <node id="5">
         <label>cstdint</label>
       </node>
-      <node id="20">
+      <node id="21">
         <label>ctf.hpp</label>
       </node>
       <node id="4">
@@ -1266,7 +1272,7 @@
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>find<sp/>out<sp/>why<sp/>Exception<sp/>must<sp/>be<sp/>included<sp/>after<sp/>string,map<sp/>and<sp/>ctf</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
@@ -1403,7 +1409,7 @@
 <codeline lineno="164" refid="structsisi4s_1_1ContainerData_1adbe82f8ea2133d487d9b3eb99e46640e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>C<sp/>*<ref refid="structsisi4s_1_1ContainerData_1adbe82f8ea2133d487d9b3eb99e46640e" kindref="member">value</ref>;</highlight></codeline>
 <codeline lineno="165"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
 <codeline lineno="166"><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T=CTF::Tensor&lt;F&gt;<sp/>&gt;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T=sisi4s::Tensor&lt;F&gt;<sp/>&gt;</highlight></codeline>
 <codeline lineno="168" refid="classsisi4s_1_1TensorData" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1NumericData" kindref="compound">NumericData</ref><sp/>{</highlight></codeline>
 <codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="170" refid="classsisi4s_1_1TensorData_1a8efedb03ce045d073ed47a3765aa5558" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1TensorData_1a8efedb03ce045d073ed47a3765aa5558" kindref="member">TensorData</ref>(</highlight></codeline>

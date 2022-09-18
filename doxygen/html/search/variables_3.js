@@ -40,5 +40,5 @@ var searchData=
   ['disabled_5f_37',['disabled_',['../classCLI_1_1App.html#a405d0642ba4245a6ea61b230c4854667',1,'CLI::App']]],
   ['dryrun_38',['dryRun',['../structsisi4s_1_1Options.html#a427f29f5495dd7b86db119061975890e',1,'sisi4s::Options']]],
   ['dummy_39',['dummy',['../namespaceCLI_1_1detail.html#a01c35a876e2917ffdc1ee618e0c06619',1,'CLI::detail']]],
-  ['dvabc_40',['DVabc',['../classsisi4s_1_1CcsdPerturbativeTriples.html#a96393b8c6df583155302ec341efea97d',1,'sisi4s::CcsdPerturbativeTriples']]]
+  ['dvabc_40',['DVabc',['../classsisi4s_1_1CcsdPerturbativeTriples.html#a3dc369ba55cc0135a17957316470d7d8',1,'sisi4s::CcsdPerturbativeTriples']]]
 ];

@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('HartreeFockFromGaussian_8cxx.html','')
 <code>#include &lt;<a class="el" href="Libint_8hpp_source.html">util/Libint.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="HartreeFockFromGaussian_8hpp_source.html">algorithms/HartreeFockFromGaussian.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="OneBodyFromGaussian_8hpp_source.html">algorithms/OneBodyFromGaussian.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="CTF_8hpp_source.html">util/CTF.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Tensor_8hpp_source.html">util/Tensor.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="Sisi4s_8hpp_source.html">Sisi4s.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="Log_8hpp_source.html">util/Log.hpp</a>&gt;</code><br />
 <code>#include &lt;Eigen/Eigenvalues&gt;</code><br />
@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('HartreeFockFromGaussian_8cxx.html','')
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for HartreeFockFromGaussian.cxx:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="HartreeFockFromGaussian_8cxx__incl.svg" width="2862" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="HartreeFockFromGaussian_8cxx__incl.svg" width="2628" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -124,8 +124,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0eba8581057f96fdebb6267233da493c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="HartreeFockFromGaussian_8cxx.html#a0eba8581057f96fdebb6267233da493c">eigenToCtfMatrix</a> (const Eigen::MatrixXd &amp;m)</td></tr>
-<tr class="separator:a0eba8581057f96fdebb6267233da493c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acefd08f3c04f11bed5bb670edebf3088"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="HartreeFockFromGaussian_8cxx.html#acefd08f3c04f11bed5bb670edebf3088">eigenToCtfMatrix</a> (const Eigen::MatrixXd &amp;m)</td></tr>
+<tr class="separator:acefd08f3c04f11bed5bb670edebf3088"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07b361d629f995b4df9d6b4724e4d68b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="HartreeFockFromGaussian_8cxx.html#a07b361d629f995b4df9d6b4724e4d68b">getNuclearRepulsionEnergy</a> (std::vector&lt; libint2::Atom &gt; &amp;structure)</td></tr>
 <tr class="separator:a07b361d629f995b4df9d6b4724e4d68b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e3e58f018a24c4713011a2ea8ed72b6"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="HartreeFockFromGaussian_8cxx.html#a6e3e58f018a24c4713011a2ea8ed72b6">getOneBodyIntegrals_</a> (const <a class="el" href="BasisSet_8hpp.html#ad0ff2dd7a949f1830da34b68ceb30575">libint2::BasisSet</a> &amp;shells, const <a class="el" href="CoulombIntegralsFromGaussian_8cxx.html#a0d4ce2c79ed096239916cdad4fee0f5d">libint2::Operator</a> obtype, const std::vector&lt; libint2::Atom &gt; &amp;atoms)</td></tr>
@@ -181,14 +181,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0eba8581057f96fdebb6267233da493c" name="a0eba8581057f96fdebb6267233da493c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0eba8581057f96fdebb6267233da493c">&#9670;&nbsp;</a></span>eigenToCtfMatrix()</h2>
+<a id="acefd08f3c04f11bed5bb670edebf3088" name="acefd08f3c04f11bed5bb670edebf3088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acefd08f3c04f11bed5bb670edebf3088">&#9670;&nbsp;</a></span>eigenToCtfMatrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; eigenToCtfMatrix </td>
+          <td class="memname"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; eigenToCtfMatrix </td>
           <td>(</td>
           <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
           <td class="paramname"><em>m</em></td><td>)</td>
@@ -199,7 +199,7 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="HartreeFockFromGaussian_8cxx_a0eba8581057f96fdebb6267233da493c_icgraph.svg" width="460" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="HartreeFockFromGaussian_8cxx_acefd08f3c04f11bed5bb670edebf3088_icgraph.svg" width="460" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

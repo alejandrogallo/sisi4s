@@ -116,9 +116,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acd71ef7665bf5efbc2d2f6ae50649938"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1LapackMatrix.html#acd71ef7665bf5efbc2d2f6ae50649938">LapackMatrix</a> (const int rows_, const int columns_, const std::vector&lt; F &gt; &amp;values_)</td></tr>
 <tr class="memdesc:acd71ef7665bf5efbc2d2f6ae50649938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an nxm Lapack matrix from a given vector of values.  <a href="classsisi4s_1_1LapackMatrix.html#acd71ef7665bf5efbc2d2f6ae50649938">More...</a><br /></td></tr>
 <tr class="separator:acd71ef7665bf5efbc2d2f6ae50649938"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85b4b3ed82e097af33abe787037f13ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1LapackMatrix.html#a85b4b3ed82e097af33abe787037f13ad">LapackMatrix</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;ctfA, const int rows_=0, const int columns_=0)</td></tr>
-<tr class="memdesc:a85b4b3ed82e097af33abe787037f13ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="classsisi4s_1_1LapackMatrix.html">LapackMatrix</a> from a CTF tensor on all ranks if rows and columns is given, reinterpret the matrix.  <a href="classsisi4s_1_1LapackMatrix.html#a85b4b3ed82e097af33abe787037f13ad">More...</a><br /></td></tr>
-<tr class="separator:a85b4b3ed82e097af33abe787037f13ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4efdd23102a4950ad46bff6d4b69db4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1LapackMatrix.html#a4efdd23102a4950ad46bff6d4b69db4b">LapackMatrix</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;ctfA, const int rows_=0, const int columns_=0)</td></tr>
+<tr class="memdesc:a4efdd23102a4950ad46bff6d4b69db4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="classsisi4s_1_1LapackMatrix.html">LapackMatrix</a> from a CTF tensor on all ranks if rows and columns is given, reinterpret the matrix.  <a href="classsisi4s_1_1LapackMatrix.html#a4efdd23102a4950ad46bff6d4b69db4b">More...</a><br /></td></tr>
+<tr class="separator:a4efdd23102a4950ad46bff6d4b69db4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a750c722a96103dd35ebfe98f08584250"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1LapackMatrix.html">LapackMatrix</a>&lt; F &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1LapackMatrix.html#a750c722a96103dd35ebfe98f08584250">operator=</a> (const <a class="el" href="classsisi4s_1_1LapackMatrix.html">LapackMatrix</a>&lt; F &gt; &amp;A)</td></tr>
 <tr class="separator:a750c722a96103dd35ebfe98f08584250"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac722239d1811f175274e17a7c38e3a70"><td class="memItemLeft" align="right" valign="top">const F &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1LapackMatrix.html#ac722239d1811f175274e17a7c38e3a70">operator()</a> (const int i, const int j) const</td></tr>
@@ -135,9 +135,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5e583f4ed250d20e2797ae6dea665812"><td class="memItemLeft" align="right" valign="top">F *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1LapackMatrix.html#a5e583f4ed250d20e2797ae6dea665812">getValues</a> ()</td></tr>
 <tr class="memdesc:a5e583f4ed250d20e2797ae6dea665812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the pointer to the mutable column major data.  <a href="classsisi4s_1_1LapackMatrix.html#a5e583f4ed250d20e2797ae6dea665812">More...</a><br /></td></tr>
 <tr class="separator:a5e583f4ed250d20e2797ae6dea665812"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a362dd68db532ce88dc845a6bab0cb33c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1LapackMatrix.html#a362dd68db532ce88dc845a6bab0cb33c">write</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;ctfA) const</td></tr>
-<tr class="memdesc:a362dd68db532ce88dc845a6bab0cb33c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the data of this Lapack matrix to the CTF tensor.  <a href="classsisi4s_1_1LapackMatrix.html#a362dd68db532ce88dc845a6bab0cb33c">More...</a><br /></td></tr>
-<tr class="separator:a362dd68db532ce88dc845a6bab0cb33c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25c985b1d553e08124dc1ae6e1187f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1LapackMatrix.html#a25c985b1d553e08124dc1ae6e1187f55">write</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;ctfA) const</td></tr>
+<tr class="memdesc:a25c985b1d553e08124dc1ae6e1187f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the data of this Lapack matrix to the CTF tensor.  <a href="classsisi4s_1_1LapackMatrix.html#a25c985b1d553e08124dc1ae6e1187f55">More...</a><br /></td></tr>
+<tr class="separator:a25c985b1d553e08124dc1ae6e1187f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -267,8 +267,8 @@ template&lt;typename F  = real&gt; </div>
 
 </div>
 </div>
-<a id="a85b4b3ed82e097af33abe787037f13ad" name="a85b4b3ed82e097af33abe787037f13ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85b4b3ed82e097af33abe787037f13ad">&#9670;&nbsp;</a></span>LapackMatrix() <span class="overload">[4/4]</span></h2>
+<a id="a4efdd23102a4950ad46bff6d4b69db4b" name="a4efdd23102a4950ad46bff6d4b69db4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4efdd23102a4950ad46bff6d4b69db4b">&#9670;&nbsp;</a></span>LapackMatrix() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,7 +281,7 @@ template&lt;typename F  = real&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classsisi4s_1_1LapackMatrix.html">sisi4s::LapackMatrix</a>&lt; F &gt;::LapackMatrix </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>ctfA</em>, </td>
         </tr>
         <tr>
@@ -548,8 +548,8 @@ template&lt;typename F  = real&gt; </div>
 
 </div>
 </div>
-<a id="a362dd68db532ce88dc845a6bab0cb33c" name="a362dd68db532ce88dc845a6bab0cb33c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a362dd68db532ce88dc845a6bab0cb33c">&#9670;&nbsp;</a></span>write()</h2>
+<a id="a25c985b1d553e08124dc1ae6e1187f55" name="a25c985b1d553e08124dc1ae6e1187f55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25c985b1d553e08124dc1ae6e1187f55">&#9670;&nbsp;</a></span>write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -562,7 +562,7 @@ template&lt;typename F  = real&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classsisi4s_1_1LapackMatrix.html">sisi4s::LapackMatrix</a>&lt; F &gt;::write </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>ctfA</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -578,7 +578,7 @@ template&lt;typename F  = real&gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1LapackMatrix_a362dd68db532ce88dc845a6bab0cb33c_cgraph.svg" width="332" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1LapackMatrix_a25c985b1d553e08124dc1ae6e1187f55_cgraph.svg" width="332" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

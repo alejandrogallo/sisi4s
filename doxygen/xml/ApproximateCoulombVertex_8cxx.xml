@@ -8,7 +8,7 @@
     <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
     <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
     <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
-    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <incdepgraph>
       <node id="4">
         <label>Data.hpp</label>
@@ -27,13 +27,13 @@
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
-      <node id="26">
+      <node id="27">
         <label>DryTensor.hpp</label>
         <link refid="DryTensor_8hpp"/>
-        <childnode refid="27" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
@@ -44,22 +44,22 @@
         <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="30">
         <label>Options.hpp</label>
         <link refid="Options_8hpp"/>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="30" relation="include">
+        <childnode refid="31" relation="include">
         </childnode>
       </node>
-      <node id="28">
+      <node id="29">
         <label>Sisi4s.hpp</label>
         <link refid="Sisi4s_8hpp"/>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -81,15 +81,15 @@
         <link refid="ApproximateCoulombVertex_8cxx"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
         <childnode refid="26" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
@@ -102,40 +102,38 @@
         <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="30">
+      <node id="31">
         <label>extern/CLI11.hpp</label>
         <link refid="CLI11_8hpp"/>
-        <childnode refid="31" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
         <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
         <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="36" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
         </childnode>
         <childnode refid="39" relation="include">
         </childnode>
@@ -143,15 +141,17 @@
         </childnode>
         <childnode refid="41" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
         <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="43" relation="include">
         </childnode>
         <childnode refid="44" relation="include">
         </childnode>
         <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
         </childnode>
       </node>
       <node id="18">
@@ -162,7 +162,7 @@
         <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="25">
+      <node id="26">
         <label>math/ComplexTensor.hpp</label>
         <link refid="ComplexTensor_8hpp"/>
         <childnode refid="18" relation="include">
@@ -176,13 +176,13 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="23">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="23" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>util/Exception.hpp</label>
         <link refid="Exception_8hpp"/>
         <childnode refid="13" relation="include">
@@ -206,7 +206,7 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="27">
+      <node id="28">
         <label>util/SourceLocation.hpp</label>
         <link refid="SourceLocation_8hpp"/>
         <childnode refid="13" relation="include">
@@ -214,6 +214,12 @@
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -232,7 +238,7 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="37">
+      <node id="38">
         <label>algorithm</label>
       </node>
       <node id="12">
@@ -244,19 +250,19 @@
       <node id="8">
         <label>cstdint</label>
       </node>
-      <node id="23">
+      <node id="24">
         <label>ctf.hpp</label>
       </node>
       <node id="7">
         <label>ctime</label>
       </node>
-      <node id="43">
+      <node id="44">
         <label>exception</label>
       </node>
       <node id="16">
         <label>fstream</label>
       </node>
-      <node id="32">
+      <node id="33">
         <label>functional</label>
       </node>
       <node id="10">
@@ -265,34 +271,34 @@
       <node id="14">
         <label>iostream</label>
       </node>
-      <node id="40">
+      <node id="41">
         <label>iterator</label>
       </node>
-      <node id="42">
+      <node id="43">
         <label>limits</label>
       </node>
-      <node id="36">
+      <node id="37">
         <label>locale</label>
       </node>
       <node id="20">
         <label>map</label>
       </node>
-      <node id="31">
+      <node id="32">
         <label>memory</label>
       </node>
-      <node id="33">
+      <node id="34">
         <label>numeric</label>
       </node>
       <node id="9">
         <label>ostream</label>
       </node>
-      <node id="38">
+      <node id="39">
         <label>set</label>
       </node>
       <node id="11">
         <label>sstream</label>
       </node>
-      <node id="41">
+      <node id="42">
         <label>stdexcept</label>
       </node>
       <node id="15">
@@ -301,26 +307,25 @@
       <node id="13">
         <label>string</label>
       </node>
-      <node id="44">
+      <node id="45">
         <label>sys/stat.h</label>
       </node>
-      <node id="45">
+      <node id="46">
         <label>sys/types.h</label>
       </node>
-      <node id="34">
+      <node id="35">
         <label>tuple</label>
       </node>
-      <node id="39">
+      <node id="40">
         <label>type_traits</label>
       </node>
-      <node id="35">
+      <node id="36">
         <label>utility</label>
       </node>
       <node id="21">
         <label>vector</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespaceCTF">CTF</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -332,69 +337,68 @@
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">CTF;</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1ApproximateCoulombVertex" kindref="compound">ApproximateCoulombVertex</ref>);</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14" refid="classsisi4s_1_1ApproximateCoulombVertex_1aeb51a7f8f14936c9a94e35bfac34aac1" refkind="member"><highlight class="normal">ApproximateCoulombVertex::ApproximateCoulombVertex(</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
-<codeline lineno="16"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
-<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19" refid="classsisi4s_1_1ApproximateCoulombVertex_1af97d6a91f5cd0e1aed2a70089f935449" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ApproximateCoulombVertex_1af97d6a91f5cd0e1aed2a70089f935449" kindref="member">ApproximateCoulombVertex::~ApproximateCoulombVertex</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22" refid="classsisi4s_1_1ApproximateCoulombVertex_1ac064920a1f03e21e008998ebd59f485c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ApproximateCoulombVertex_1ac064920a1f03e21e008998ebd59f485c" kindref="member">ApproximateCoulombVertex::run</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*GammaGqr(</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;FullCoulombVertex&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/>GammaGqr-&gt;set_name(</highlight><highlight class="stringliteral">&quot;GammaGqr&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*UGF(</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;CoulombVertexSingularVectors&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>UTGF(*UGF);</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a065b48a575e1c9dd06da30d0aed8c7c1" kindref="member">conjugate</ref>(UTGF);</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[]<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(UGF-&gt;lens[1]),</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(GammaGqr-&gt;lens[1]),</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(GammaGqr-&gt;lens[2])<sp/>};</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*GammaFqr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">Tensor&lt;complex&gt;</ref>(</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>3,<sp/>lens,<sp/>syms,<sp/>*GammaGqr-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;GammaFqr&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex&gt;(</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CoulombVertex&quot;</highlight><highlight class="normal">,<sp/>GammaFqr</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;ApproximateCoulombVertex&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Using<sp/>NF=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>UGF-&gt;lens[1]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>field<sp/>variables<sp/>to<sp/>build<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>GammaFqr-&gt;get_name()</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>from<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>GammaGqr-&gt;get_name()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>with<sp/>NG=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>UGF-&gt;lens[0]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>grid<sp/>points&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/>(*GammaFqr)[</highlight><highlight class="stringliteral">&quot;Fqr&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*GammaGqr)[</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">]<sp/>*<sp/>UTGF[</highlight><highlight class="stringliteral">&quot;GF&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48" refid="classsisi4s_1_1ApproximateCoulombVertex_1af23fad0de32aa745ab0f06dc5e911fc5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ApproximateCoulombVertex_1af23fad0de32aa745ab0f06dc5e911fc5" kindref="member">ApproximateCoulombVertex::dryRun</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*GammaGqr(</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;FullCoulombVertex&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*UGF(</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>&gt;(</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CoulombVertexSingularVectors&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>UTGF(*UGF);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[]<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(UGF-&gt;<ref refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" kindref="member">lens</ref>[1]),</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(GammaGqr-&gt;<ref refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" kindref="member">lens</ref>[1]),</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(GammaGqr-&gt;<ref refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" kindref="member">lens</ref>[2])<sp/>};</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*GammaFqr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>(</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>3,<sp/>lens,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex,<sp/>DryTensor&lt;complex&gt;&gt;(</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CoulombVertex&quot;</highlight><highlight class="normal">,<sp/>GammaFqr</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1ApproximateCoulombVertex" kindref="compound">ApproximateCoulombVertex</ref>);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="classsisi4s_1_1ApproximateCoulombVertex_1aeb51a7f8f14936c9a94e35bfac34aac1" refkind="member"><highlight class="normal">ApproximateCoulombVertex::ApproximateCoulombVertex(</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classsisi4s_1_1ApproximateCoulombVertex_1af97d6a91f5cd0e1aed2a70089f935449" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ApproximateCoulombVertex_1af97d6a91f5cd0e1aed2a70089f935449" kindref="member">ApproximateCoulombVertex::~ApproximateCoulombVertex</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1ApproximateCoulombVertex_1ac064920a1f03e21e008998ebd59f485c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ApproximateCoulombVertex_1ac064920a1f03e21e008998ebd59f485c" kindref="member">ApproximateCoulombVertex::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*GammaGqr(</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;FullCoulombVertex&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>GammaGqr-&gt;set_name(</highlight><highlight class="stringliteral">&quot;GammaGqr&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*UGF(</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;CoulombVertexSingularVectors&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>UTGF(*UGF);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1ab3f1696a0e7735d418f8996311daa8c4" kindref="member">conjugate</ref>(UTGF);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[]<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(UGF-&gt;lens[1]),</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(GammaGqr-&gt;lens[1]),</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(GammaGqr-&gt;lens[2])<sp/>};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*GammaFqr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref>(</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>3,<sp/>lens,<sp/>syms,<sp/>*GammaGqr-&gt;wrld,<sp/></highlight><highlight class="stringliteral">&quot;GammaFqr&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex&gt;(</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CoulombVertex&quot;</highlight><highlight class="normal">,<sp/>GammaFqr</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;ApproximateCoulombVertex&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Using<sp/>NF=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>UGF-&gt;lens[1]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>field<sp/>variables<sp/>to<sp/>build<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>GammaFqr-&gt;get_name()</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>from<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>GammaGqr-&gt;get_name()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>with<sp/>NG=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>UGF-&gt;lens[0]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>grid<sp/>points&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>(*GammaFqr)[</highlight><highlight class="stringliteral">&quot;Fqr&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*GammaGqr)[</highlight><highlight class="stringliteral">&quot;Gqr&quot;</highlight><highlight class="normal">]<sp/>*<sp/>UTGF[</highlight><highlight class="stringliteral">&quot;GF&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="classsisi4s_1_1ApproximateCoulombVertex_1af23fad0de32aa745ab0f06dc5e911fc5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ApproximateCoulombVertex_1af23fad0de32aa745ab0f06dc5e911fc5" kindref="member">ApproximateCoulombVertex::dryRun</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*GammaGqr(</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;FullCoulombVertex&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*UGF(</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>&gt;(</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CoulombVertexSingularVectors&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>UTGF(*UGF);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens[]<sp/>=<sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(UGF-&gt;<ref refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" kindref="member">lens</ref>[1]),</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(GammaGqr-&gt;<ref refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" kindref="member">lens</ref>[1]),</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(GammaGqr-&gt;<ref refid="classsisi4s_1_1DryTensor_1a6f3b537c168473549d60e5af723a4751" kindref="member">lens</ref>[2])<sp/>};</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{<sp/>NS,<sp/>NS,<sp/>NS<sp/>};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*GammaFqr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref>(</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>3,<sp/>lens,<sp/>syms,<sp/><ref refid="SourceLocation_8hpp_1ae6177c1e611b3ab1996a17ffc75194de" kindref="member">SOURCE_LOCATION</ref></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;complex,<sp/>DryTensor&lt;complex&gt;&gt;(</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CoulombVertex&quot;</highlight><highlight class="normal">,<sp/>GammaFqr</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/ApproximateCoulombVertex.cxx"/>
   </compounddef>

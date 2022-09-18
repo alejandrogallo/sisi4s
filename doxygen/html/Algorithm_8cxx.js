@@ -1,6 +1,6 @@
 var Algorithm_8cxx =
 [
-    [ "TensorTypeTraits< F, CTF::Tensor< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4" ],
+    [ "TensorTypeTraits< F, Tensor< F > >", "classTensorTypeTraits_3_01F_00_01Tensor_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01Tensor_3_01F_01_4_01_4" ],
     [ "TensorTypeTraits< F, CTF::Matrix< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Matrix_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01CTF_1_1Matrix_3_01F_01_4_01_4" ],
     [ "TensorTypeTraits< F, CTF::Vector< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Vector_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01CTF_1_1Vector_3_01F_01_4_01_4" ],
     [ "TensorTypeTraits< F, CTF::Scalar< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Scalar_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01CTF_1_1Scalar_3_01F_01_4_01_4" ],
@@ -11,16 +11,10 @@ var Algorithm_8cxx =
     [ "Algorithm::allocateContainerArgument< int64_t, std::vector< int64_t > >", "Algorithm_8cxx.html#a9aa4c77430336ce19f57b080608a155d", null ],
     [ "Algorithm::allocateContainerArgument< sisi4s::complex, std::vector< sisi4s::complex > >", "Algorithm_8cxx.html#ae8d5268886450001bace4518451834b9", null ],
     [ "Algorithm::allocateContainerArgument< sisi4s::real, std::vector< sisi4s::real > >", "Algorithm_8cxx.html#a4d5611c62c2530b2cc4baa16a42bf916", null ],
-    [ "Algorithm::allocatedTensorArgument< Complex64, CTF::Tensor< Complex64 > >", "Algorithm_8cxx.html#a80588a22734ef398552f3928d1942633", null ],
-    [ "Algorithm::allocatedTensorArgument< Float64, CTF::Tensor< Float64 > >", "Algorithm_8cxx.html#a8192d49ee2b912e4a444515fb79b9b7c", null ],
     [ "Algorithm::allocatedTensorArgument< sisi4s::complex, CTF::Matrix< sisi4s::complex > >", "Algorithm_8cxx.html#a51f43d1c96a6a18f50dafff13f4836c0", null ],
     [ "Algorithm::allocatedTensorArgument< sisi4s::complex, CTF::Scalar< sisi4s::complex > >", "Algorithm_8cxx.html#acd1488440bea14c0d25805280f984fe9", null ],
     [ "Algorithm::allocatedTensorArgument< sisi4s::complex, CTF::Vector< sisi4s::complex > >", "Algorithm_8cxx.html#a613f1c01dfe3bde1e3d3395ab06babb0", null ],
     [ "Algorithm::allocatedTensorArgument< sisi4s::real, CTF::Matrix< sisi4s::real > >", "Algorithm_8cxx.html#a5f1daa7f4dc06e6a1424a763f965fae2", null ],
     [ "Algorithm::allocatedTensorArgument< sisi4s::real, CTF::Scalar< sisi4s::real > >", "Algorithm_8cxx.html#aa9e6727eae562830af5d1b482ba76ca0", null ],
-    [ "Algorithm::allocatedTensorArgument< sisi4s::real, CTF::Vector< sisi4s::real > >", "Algorithm_8cxx.html#a2cadd5bf15b195a08e456a9223e9cc5c", null ],
-    [ "Algorithm::getTensorArgument< Complex64, CTF::Tensor< Complex64 > >", "Algorithm_8cxx.html#a7f4918d56dd13afcf29e7096e97c45e2", null ],
-    [ "Algorithm::getTensorArgument< Float64, CTF::Tensor< Float64 > >", "Algorithm_8cxx.html#a7e40f784bfb3197c66451e6160aef9b7", null ],
-    [ "Algorithm::getTensorArgumentFromReal< Complex64, CTF::Tensor< Complex64 > >", "Algorithm_8cxx.html#aab20338f31916bafb0c78438db5c406a", null ],
-    [ "Algorithm::getTensorArgumentFromReal< Float64, CTF::Tensor< Float64 > >", "Algorithm_8cxx.html#ad72e1ad0b1738b2e3b17e1a6f854a542", null ]
+    [ "Algorithm::allocatedTensorArgument< sisi4s::real, CTF::Vector< sisi4s::real > >", "Algorithm_8cxx.html#a2cadd5bf15b195a08e456a9223e9cc5c", null ]
 ];

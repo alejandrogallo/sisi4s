@@ -6,7 +6,7 @@
     <includes refid="DryTensor_8hpp" local="no">DryTensor.hpp</includes>
     <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
     <includes refid="RegularizedAlternatingLeastSquares_8hpp" local="no">math/RegularizedAlternatingLeastSquares.hpp</includes>
-    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includedby refid="CoulombVertexDecomposition_8cxx" local="no">CoulombVertexDecomposition.cxx</includedby>
     <incdepgraph>
       <node id="3">
@@ -26,13 +26,13 @@
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>DryTensor.hpp</label>
         <link refid="DryTensor_8hpp"/>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
@@ -62,11 +62,11 @@
         <link refid="CoulombVertexDecomposition_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
@@ -85,25 +85,25 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="26">
+      <node id="27">
         <label>math/RegularizedAlternatingLeastSquares.hpp</label>
         <link refid="RegularizedAlternatingLeastSquares_8hpp"/>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="22">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="22" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
-      <node id="23">
+      <node id="24">
         <label>util/Exception.hpp</label>
         <link refid="Exception_8hpp"/>
         <childnode refid="12" relation="include">
@@ -127,7 +127,7 @@
         <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="25">
+      <node id="26">
         <label>util/SourceLocation.hpp</label>
         <link refid="SourceLocation_8hpp"/>
         <childnode refid="12" relation="include">
@@ -135,6 +135,12 @@
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -162,7 +168,7 @@
       <node id="7">
         <label>cstdint</label>
       </node>
-      <node id="22">
+      <node id="23">
         <label>ctf.hpp</label>
       </node>
       <node id="6">
@@ -223,7 +229,7 @@
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DryTensor_8hpp" kindref="compound">DryTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="RegularizedAlternatingLeastSquares_8hpp" kindref="compound">math/RegularizedAlternatingLeastSquares.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
 <codeline lineno="22" refid="classsisi4s_1_1CoulombVertexDecomposition" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1CoulombVertexDecomposition" kindref="compound">CoulombVertexDecomposition</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>{</highlight></codeline>
@@ -249,8 +255,8 @@
 <codeline lineno="58"><highlight class="normal"></highlight></codeline>
 <codeline lineno="65" refid="classsisi4s_1_1CoulombVertexDecomposition_1a8d3447e10df5b61bafff1a98d814e2a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a8d3447e10df5b61bafff1a98d814e2a3" kindref="member">writeSubIterations</ref>;</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70" refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;complex&gt;<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>;</highlight></codeline>
-<codeline lineno="74" refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;complex&gt;<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref>;</highlight></codeline>
+<codeline lineno="70" refid="classsisi4s_1_1CoulombVertexDecomposition_1a481ea5f4c471f8fa892f1e46c4c75bdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a481ea5f4c471f8fa892f1e46c4c75bdc" kindref="member">GammaGqr</ref>;</highlight></codeline>
+<codeline lineno="74" refid="classsisi4s_1_1CoulombVertexDecomposition_1a716f15c94920456327e35ca6b1d02769" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a716f15c94920456327e35ca6b1d02769" kindref="member">composedGammaGqr</ref>;</highlight></codeline>
 <codeline lineno="79" refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Matrix&lt;complex&gt;<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>;</highlight></codeline>
 <codeline lineno="83" refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Matrix&lt;complex&gt;<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>;</highlight></codeline>
 <codeline lineno="87" refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Matrix&lt;complex&gt;<sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>;</highlight></codeline>
@@ -272,13 +278,13 @@
 <codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1acd985462c04c09ccd03c9b85aeff652a" kindref="member">fit</ref>(int64_t<sp/>iterationsCount);</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ada47c641a50e19ac728504e718bac626" kindref="member">dryFit</ref>(</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9975faa27685d529359f40dbfad22838" kindref="member">GammaGqr</ref>,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a481ea5f4c471f8fa892f1e46c4c75bdc" kindref="member">GammaGqr</ref>,</highlight></codeline>
 <codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a4d6191412310c69628c6f71035d1c683" kindref="member">PiqR</ref>,<sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ad6cd572bcfebb1818a6052be180cacaa" kindref="member">PirR</ref>,</highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a36fa0e3f2fd8ace0c1f4e9ea1668c018" kindref="member">LambdaGR</ref>,</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a1180af15c33a0e22f58abe421d1cb238" kindref="member">composedGammaGqr</ref></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;complex&gt;</ref><sp/>*<ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a716f15c94920456327e35ca6b1d02769" kindref="member">composedGammaGqr</ref></highlight></codeline>
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1ac8955814dd0e4158d01fc10da8259f58" kindref="member">normalizePi</ref>(CTF::Tensor&lt;complex&gt;<sp/>&amp;<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>);</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a7d82ab4745622f23dad2c094c368f915" kindref="member">realizePi</ref>(CTF::Tensor&lt;complex&gt;<sp/>&amp;<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1af8f3367c22f6260e0db4b313c0199594" kindref="member">normalizePi</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a463569751d49f8acd966ef1f028db483" kindref="member">realizePi</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;<ref refid="namespacesisi4s_1a60e4277fc0d188844658dd5264190e59" kindref="member">Pi</ref>);</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"></highlight></codeline>
 <codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" kindref="member">iterateQuadraticFactor</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iterationsCount);</highlight></codeline>
 <codeline lineno="144"><highlight class="normal"></highlight></codeline>

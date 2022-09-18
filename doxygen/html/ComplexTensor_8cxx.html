@@ -90,11 +90,12 @@ $(document).ready(function(){initNavTree('ComplexTensor_8cxx.html',''); initResi
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="ComplexTensor_8hpp_source.html">math/ComplexTensor.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="Exception_8hpp_source.html">util/Exception.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Tensor_8hpp_source.html">util/Tensor.hpp</a>&gt;</code><br />
 <code>#include &lt;complex&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ComplexTensor.cxx:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="ComplexTensor_8cxx__incl.svg" width="623" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="ComplexTensor_8cxx__incl.svg" width="662" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
@@ -104,7 +105,7 @@ Macros</h2></td></tr>
 <tr class="separator:a6ee41e7aac8595a4a49313301607c7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fcb60ade2ef95fce940523ea8120f3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ComplexTensor_8cxx.html#a4fcb60ade2ef95fce940523ea8120f3c">AssertCompatibleTensorShape</a>(c,  r)</td></tr>
 <tr class="separator:a4fcb60ade2ef95fce940523ea8120f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac431f9dda53ccf76b2526c6b93fb7f09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ComplexTensor_8cxx.html#ac431f9dda53ccf76b2526c6b93fb7f09">Indices</a>(<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">Tensor</a>)</td></tr>
+<tr class="memitem:ac431f9dda53ccf76b2526c6b93fb7f09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ComplexTensor_8cxx.html#ac431f9dda53ccf76b2526c6b93fb7f09">Indices</a>(Tensor)</td></tr>
 <tr class="separator:ac431f9dda53ccf76b2526c6b93fb7f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -203,15 +204,15 @@ Macros</h2></td></tr>
           <td class="memname">#define Indices</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">Tensor</a></td><td>)</td>
+          <td class="paramname">Tensor</td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordtype">char</span> indices[(<a class="code hl_typedef" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">Tensor</a>).order]; \</div>
-<div class="line">  for (<span class="keywordtype">int</span> i(0); i &lt; (<a class="code hl_typedef" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">Tensor</a>).order; ++i) { indices[i] = <span class="charliteral">&#39;a&#39;</span>+i; } \</div>
-<div class="line">  indices[(<a class="code hl_typedef" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">Tensor</a>).order] = 0</div>
-<div class="ttc" id="aTensorReader_8cxx_html_ae0ef01a698fe007ed1bf52d22e8e483f"><div class="ttname"><a href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">Tensor</a></div><div class="ttdeci">CTF::Tensor&lt; F &gt; Tensor</div><div class="ttdef"><b>Definition:</b> TensorReader.cxx:15</div></div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordtype">char</span> indices[(<a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>).order]; \</div>
+<div class="line">  for (<span class="keywordtype">int</span> i(0); i &lt; (<a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>).order; ++i) { indices[i] = <span class="charliteral">&#39;a&#39;</span>+i; } \</div>
+<div class="line">  indices[(<a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>).order] = 0</div>
+<div class="ttc" id="anamespacesisi4s_html_a1695e67f99e3219626943923a40886a1"><div class="ttname"><a href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">sisi4s::Tensor</a></div><div class="ttdeci">CTF::Tensor&lt; F &gt; Tensor</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:9</div></div>
 </div><!-- fragment -->
 </div>
 </div>

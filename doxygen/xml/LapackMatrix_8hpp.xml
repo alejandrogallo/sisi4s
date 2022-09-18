@@ -5,7 +5,7 @@
     <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
     <includes local="no">vector</includes>
     <includes local="no">sstream</includes>
-    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includedby refid="EigenSystemDavidson_8hpp" local="no">EigenSystemDavidson.hpp</includedby>
     <includedby refid="LapackGeneralEigenSystem_8hpp" local="no">LapackGeneralEigenSystem.hpp</includedby>
     <includedby refid="LapackInverse_8hpp" local="no">LapackInverse.hpp</includedby>
@@ -25,10 +25,10 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="8">
+      <node id="9">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="9" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -43,10 +43,16 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
+      <node id="8">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
       <node id="5">
         <label>complex</label>
       </node>
-      <node id="9">
+      <node id="10">
         <label>ctf.hpp</label>
       </node>
       <node id="4">
@@ -137,7 +143,7 @@
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F=real&gt;</highlight></codeline>
@@ -165,8 +171,8 @@
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49" refid="classsisi4s_1_1LapackMatrix_1a85b4b3ed82e097af33abe787037f13ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1LapackMatrix_1a85b4b3ed82e097af33abe787037f13ad" kindref="member">LapackMatrix</ref>(</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;ctfA,</highlight></codeline>
+<codeline lineno="49" refid="classsisi4s_1_1LapackMatrix_1a4efdd23102a4950ad46bff6d4b69db4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1LapackMatrix_1a4efdd23102a4950ad46bff6d4b69db4b" kindref="member">LapackMatrix</ref>(</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;ctfA,</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows_<sp/>=<sp/>0,</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>columns_<sp/>=<sp/>0</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
@@ -203,7 +209,7 @@
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1LapackMatrix_1acc36c556ee4355df78e8fc35f2495843" kindref="member">values</ref>.data();</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96" refid="classsisi4s_1_1LapackMatrix_1a362dd68db532ce88dc845a6bab0cb33c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1LapackMatrix_1a362dd68db532ce88dc845a6bab0cb33c" kindref="member">write</ref>(CTF::Tensor&lt;F&gt;<sp/>&amp;ctfA)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96" refid="classsisi4s_1_1LapackMatrix_1a25c985b1d553e08124dc1ae6e1187f55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1LapackMatrix_1a25c985b1d553e08124dc1ae6e1187f55" kindref="member">write</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;ctfA)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ctfA.lens[0]<sp/>!=<sp/><ref refid="classsisi4s_1_1LapackMatrix_1ad77877ab6370f82119db24fe82e347ac" kindref="member">rows</ref><sp/>||<sp/>ctfA.lens[1]<sp/>!=<sp/><ref refid="classsisi4s_1_1LapackMatrix_1a09bb786da5bf5c21e3d6a45b65747e69" kindref="member">columns</ref>)<sp/>{</highlight></codeline>
 <codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::stringstream<sp/>stream;</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Tensor<sp/>is<sp/>not<sp/>of<sp/>correct<sp/>shape<sp/>to<sp/>receive<sp/>(&quot;</highlight><highlight class="normal"></highlight></codeline>

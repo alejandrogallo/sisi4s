@@ -2,7 +2,7 @@ var classsisi4s_1_1ClusterSinglesDoublesAlgorithm =
 [
     [ "ClusterSinglesDoublesAlgorithm", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#aca642fac031d6cf872f37fca186aa4cf", null ],
     [ "~ClusterSinglesDoublesAlgorithm", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ae9a26c9301b58c31814252d646cc939e", null ],
-    [ "calculateExcitationEnergies", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a907cf5c343b8647588b8545ce489f2d6", null ],
+    [ "calculateExcitationEnergies", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ae4959c22cc14927799d18483a690b71f", null ],
     [ "createAmplitudes", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a02eb026b75d6ea58467eb12301e5e56f", null ],
     [ "dryAmplitudesFromResiduum", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ade1d1692d84a624ce299bbc2f847da8e", null ],
     [ "estimateAmplitudesFromResiduum", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a8327421acb8285d0fc20f9605cfa5937", null ],
@@ -16,9 +16,8 @@ var classsisi4s_1_1ClusterSinglesDoublesAlgorithm =
     [ "run", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a69e386caf7acdf30c11b476d522d7a9d", null ],
     [ "sliceAmplitudesFromCoupledCoulombFactors", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a8a2987d0d8c7c99eaab459300874b788", null ],
     [ "sliceAmplitudesFromCoupledCoulombFactors", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#aa15c5a3edcb4102f112028ff53f27179", null ],
-    [ "sliceCoupledCoulombIntegrals", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ab7ec5d52d0acd1f0ed68f97c5d6dbbca", null ],
+    [ "sliceCoupledCoulombIntegrals", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#af1e6b020e4bd275e813f4f968cd64f12", null ],
     [ "sliceCoupledCoulombIntegrals", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a4cc0b4527b8b77bdde36752e3aca89cc", null ],
-    [ "sliceIntoResiduum", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ace3ba8780a7038d91d7308183b98cc53", null ],
-    [ "sliceIntoResiduum", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a9ad1e0b28af752a5e662bd10aa44351a", null ],
+    [ "sliceIntoResiduum", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a7556ba788700ffa070101e38130e77eb", null ],
     [ "storeAmplitudes", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ae62a6db326edd595700ad5bbf4029ba7", null ]
 ];

@@ -2,210 +2,211 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="DiisMixer_8cxx" kind="file" language="C++">
     <compoundname>DiisMixer.cxx</compoundname>
+    <includes local="no">array</includes>
     <includes refid="DiisMixer_8hpp" local="no">mixers/DiisMixer.hpp</includes>
     <includes refid="Emitter_8hpp" local="no">util/Emitter.hpp</includes>
     <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
     <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
     <includes refid="Lapack_8hpp" local="no">extern/Lapack.hpp</includes>
     <includes refid="IterativePseudoInverse_8hpp" local="no">math/IterativePseudoInverse.hpp</includes>
-    <includes local="no">array</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <incdepgraph>
-      <node id="5">
+      <node id="6">
         <label>Data.hpp</label>
         <link refid="Data_8hpp"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
         </childnode>
       </node>
-      <node id="52">
+      <node id="54">
         <label>DryTensor.hpp</label>
         <link refid="DryTensor_8hpp"/>
-        <childnode refid="53" relation="include">
+        <childnode refid="55" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-      </node>
-      <node id="32">
-        <label>Options.hpp</label>
-        <link refid="Options_8hpp"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>Sisi4s.hpp</label>
-        <link refid="Sisi4s_8hpp"/>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>algorithms/Algorithm.hpp</label>
-        <link refid="Algorithm_8hpp"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
       </node>
-      <node id="33">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
+      <node id="34">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="35" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+      </node>
+      <node id="33">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="36" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
         <childnode refid="39" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="40" relation="include">
         </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
         <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="42" relation="include">
         </childnode>
         <childnode refid="43" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
         <childnode refid="44" relation="include">
         </childnode>
         <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="46" relation="include">
         </childnode>
         <childnode refid="47" relation="include">
         </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
       </node>
-      <node id="50">
+      <node id="52">
         <label>extern/Lapack.hpp</label>
         <link refid="Lapack_8hpp"/>
-        <childnode refid="18" relation="include">
-        </childnode>
         <childnode refid="19" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
-        <label>math/Complex.hpp</label>
-        <link refid="Complex_8hpp"/>
-        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
       </node>
-      <node id="27">
+      <node id="20">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
         <label>math/ComplexTensor.hpp</label>
         <link refid="ComplexTensor_8hpp"/>
-        <childnode refid="19" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="19">
         <label>math/Float.hpp</label>
         <link refid="Float_8hpp"/>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="26">
-        <label>math/FockVector.hpp</label>
-        <link refid="FockVector_8hpp"/>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-      </node>
-      <node id="51">
-        <label>math/IterativePseudoInverse.hpp</label>
-        <link refid="IterativePseudoInverse_8hpp"/>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="52" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="54" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
       <node id="28">
-        <label>math/MathFunctions.hpp</label>
-        <link refid="MathFunctions_8hpp"/>
-        <childnode refid="19" relation="include">
+        <label>math/FockVector.hpp</label>
+        <link refid="FockVector_8hpp"/>
+        <childnode refid="29" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>math/IterativePseudoInverse.hpp</label>
+        <link refid="IterativePseudoInverse_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -213,75 +214,75 @@
         <link refid="DiisMixer_8cxx"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="50" relation="include">
         </childnode>
-        <childnode refid="51" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="55" relation="include">
+        <childnode refid="33" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>mixers/DiisMixer.hpp</label>
-        <link refid="DiisMixer_8hpp"/>
-        <childnode refid="3" relation="include">
+        <childnode refid="52" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
+        <childnode refid="53" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>mixers/Mixer.hpp</label>
-        <link refid="Mixer_8hpp"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-      </node>
-      <node id="23">
-        <label>util/CTF.hpp</label>
-        <link refid="CTF_8hpp"/>
         <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="48">
-        <label>util/Emitter.hpp</label>
-        <link refid="Emitter_8hpp"/>
-        <childnode refid="29" relation="include">
+      <node id="3">
+        <label>mixers/DiisMixer.hpp</label>
+        <link refid="DiisMixer_8hpp"/>
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="31" relation="include">
         </childnode>
-        <childnode refid="49" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="25">
-        <label>util/Exception.hpp</label>
-        <link refid="Exception_8hpp"/>
-        <childnode refid="14" relation="include">
+      <node id="4">
+        <label>mixers/Mixer.hpp</label>
+        <link refid="Mixer_8hpp"/>
+        <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="6">
+      <node id="25">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>util/Emitter.hpp</label>
+        <link refid="Emitter_8hpp"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
         <label>util/Log.hpp</label>
         <link refid="Log_8hpp"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
@@ -289,28 +290,34 @@
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
       </node>
-      <node id="29">
+      <node id="31">
         <label>util/SharedPointer.hpp</label>
         <link refid="SharedPointer_8hpp"/>
-        <childnode refid="30" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
       </node>
-      <node id="53">
+      <node id="55">
         <label>util/SourceLocation.hpp</label>
         <link refid="SourceLocation_8hpp"/>
-        <childnode refid="14" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="24">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
         <label>util/Time.hpp</label>
         <link refid="Time_8hpp"/>
-        <childnode refid="8" relation="include">
-        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
@@ -321,101 +328,103 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-      </node>
-      <node id="39">
-        <label>algorithm</label>
-      </node>
-      <node id="55">
-        <label>array</label>
-      </node>
-      <node id="13">
-        <label>cmath</label>
-      </node>
-      <node id="20">
-        <label>complex</label>
-      </node>
-      <node id="9">
-        <label>cstdint</label>
-      </node>
-      <node id="24">
-        <label>ctf.hpp</label>
-      </node>
-      <node id="8">
-        <label>ctime</label>
-      </node>
-      <node id="45">
-        <label>exception</label>
-      </node>
-      <node id="17">
-        <label>fstream</label>
-      </node>
-      <node id="34">
-        <label>functional</label>
-      </node>
-      <node id="11">
-        <label>iomanip</label>
-      </node>
-      <node id="15">
-        <label>iostream</label>
-      </node>
-      <node id="42">
-        <label>iterator</label>
-      </node>
-      <node id="44">
-        <label>limits</label>
-      </node>
-      <node id="38">
-        <label>locale</label>
-      </node>
-      <node id="21">
-        <label>map</label>
-      </node>
-      <node id="30">
-        <label>memory</label>
-      </node>
-      <node id="35">
-        <label>numeric</label>
-      </node>
-      <node id="10">
-        <label>ostream</label>
-      </node>
-      <node id="54">
-        <label>random</label>
-      </node>
-      <node id="40">
-        <label>set</label>
-      </node>
-      <node id="12">
-        <label>sstream</label>
-      </node>
-      <node id="43">
-        <label>stdexcept</label>
-      </node>
-      <node id="16">
-        <label>streambuf</label>
-      </node>
-      <node id="14">
-        <label>string</label>
-      </node>
-      <node id="46">
-        <label>sys/stat.h</label>
-      </node>
-      <node id="47">
-        <label>sys/types.h</label>
-      </node>
-      <node id="36">
-        <label>tuple</label>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
       <node id="41">
-        <label>type_traits</label>
+        <label>algorithm</label>
       </node>
-      <node id="37">
-        <label>utility</label>
+      <node id="2">
+        <label>array</label>
+      </node>
+      <node id="14">
+        <label>cmath</label>
+      </node>
+      <node id="21">
+        <label>complex</label>
+      </node>
+      <node id="10">
+        <label>cstdint</label>
+      </node>
+      <node id="26">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="9">
+        <label>ctime</label>
+      </node>
+      <node id="47">
+        <label>exception</label>
+      </node>
+      <node id="18">
+        <label>fstream</label>
+      </node>
+      <node id="36">
+        <label>functional</label>
+      </node>
+      <node id="12">
+        <label>iomanip</label>
+      </node>
+      <node id="16">
+        <label>iostream</label>
+      </node>
+      <node id="44">
+        <label>iterator</label>
+      </node>
+      <node id="46">
+        <label>limits</label>
+      </node>
+      <node id="40">
+        <label>locale</label>
       </node>
       <node id="22">
-        <label>vector</label>
+        <label>map</label>
+      </node>
+      <node id="32">
+        <label>memory</label>
+      </node>
+      <node id="37">
+        <label>numeric</label>
+      </node>
+      <node id="11">
+        <label>ostream</label>
+      </node>
+      <node id="56">
+        <label>random</label>
+      </node>
+      <node id="42">
+        <label>set</label>
+      </node>
+      <node id="13">
+        <label>sstream</label>
+      </node>
+      <node id="45">
+        <label>stdexcept</label>
+      </node>
+      <node id="17">
+        <label>streambuf</label>
+      </node>
+      <node id="15">
+        <label>string</label>
+      </node>
+      <node id="48">
+        <label>sys/stat.h</label>
       </node>
       <node id="49">
+        <label>sys/types.h</label>
+      </node>
+      <node id="38">
+        <label>tuple</label>
+      </node>
+      <node id="43">
+        <label>type_traits</label>
+      </node>
+      <node id="39">
+        <label>utility</label>
+      </node>
+      <node id="23">
+        <label>vector</label>
+      </node>
+      <node id="51">
         <label>yaml-cpp/yaml.h</label>
       </node>
     </incdepgraph>
@@ -439,15 +448,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" line="16" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" bodystart="16" bodyend="32"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" line="17" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" bodystart="17" bodyend="33"/>
         <references refid="Lapack_8hpp_1aaacdf33c1d8272c5fd148b2e002c12a6">dsysv_</references>
         <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
-        <referencedby refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" compoundref="DiisMixer_8cxx" startline="91" endline="164">sisi4s::DiisMixer&lt; F &gt;::append</referencedby>
+        <referencedby refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" compoundref="DiisMixer_8cxx" startline="92" endline="164">sisi4s::DiisMixer&lt; F &gt;::append</referencedby>
         <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a1549bac3e662a0bdf1cf6ab25608dff4" compoundref="IterativePseudoInverse_8cxx" startline="138" endline="140">sisi4s::IterativePseudoInverse&lt; F &gt;::get</referencedby>
         <referencedby refid="classsisi4s_1_1DryIterativePseudoInverse_1a5ff102b8c781f0a691fb55c1e17df138" compoundref="IterativePseudoInverse_8cxx" startline="231" endline="233">sisi4s::DryIterativePseudoInverse&lt; F &gt;::get</referencedby>
-        <referencedby refid="classsisi4s_1_1PseudoInverseHermitianSvd_1ae3640b9b174409b6b5718045a24cc753" compoundref="PseudoInverseHermitianSvd_8cxx" startline="59" endline="61">sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::get</referencedby>
+        <referencedby refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a46b877b901122cd64420b885070e3609" compoundref="PseudoInverseHermitianSvd_8cxx" startline="58" endline="60">sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::get</referencedby>
         <referencedby refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a20b16bbf7672a641dfdfc42ddba39d98" compoundref="PseudoInverseHermitianSvd_8cxx" startline="88" endline="90">sisi4s::DryPseudoInverseHermitianSvd&lt; F &gt;::get</referencedby>
-        <referencedby refid="classsisi4s_1_1PseudoInverseSvd_1ae0988eeb6499d08b24f25e757ed5315b" compoundref="PseudoInverseSvd_8cxx" startline="63" endline="65">sisi4s::PseudoInverseSvd&lt; F &gt;::get</referencedby>
+        <referencedby refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" compoundref="PseudoInverseSvd_8cxx" startline="63" endline="65">sisi4s::PseudoInverseSvd&lt; F &gt;::get</referencedby>
         <referencedby refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" compoundref="PseudoInverseSvd_8cxx" startline="92" endline="94">sisi4s::DryPseudoInverseSvd&lt; F &gt;::get</referencedby>
         <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a96558b1a79ac7e0bcdeb64127855241e" compoundref="IterativePseudoInverse_8cxx" startline="65" endline="104">sisi4s::IterativePseudoInverse&lt; F &gt;::iterate</referencedby>
         <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a206b9b605d859aec9f8abbc15e919ed1" compoundref="IterativePseudoInverse_8cxx" startline="107" endline="135">sisi4s::IterativePseudoInverse&lt; F &gt;::iterateQuadratically</referencedby>
@@ -471,7 +480,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" line="34" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" bodystart="34" bodyend="40"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" line="35" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" bodystart="35" bodyend="41"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -479,139 +488,139 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DiisMixer_8hpp" kindref="compound">mixers/DiisMixer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Emitter_8hpp" kindref="compound">util/Emitter.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Lapack_8hpp" kindref="compound">extern/Lapack.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="IterativePseudoInverse_8hpp" kindref="compound">math/IterativePseudoInverse.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DiisMixer_8hpp" kindref="compound">mixers/DiisMixer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Emitter_8hpp" kindref="compound">util/Emitter.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Lapack_8hpp" kindref="compound">extern/Lapack.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">CTF;</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><ref refid="Mixer_8hpp_1a7ec8522b70a56ac8cef5b47c623c59c0" kindref="member">MIXER_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1DiisMixer" kindref="compound">DiisMixer</ref>);</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16" refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" refkind="member"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>matrix,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">){</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>column(N,0);</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>ipiv(N);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>work(N);</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>column[0]<sp/>=<sp/>-1.0;</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>one(1);<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>info;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><ref refid="Lapack_8hpp_1aaacdf33c1d8272c5fd148b2e002c12a6" kindref="member">dsysv_</ref>(</highlight><highlight class="stringliteral">&quot;U&quot;</highlight><highlight class="normal">,<sp/>&amp;N,<sp/>&amp;one,<sp/>matrix.data(),<sp/>&amp;N,<sp/>ipiv.data(),<sp/>column.data(),<sp/>&amp;N,<sp/>work.data(),<sp/>&amp;N,<sp/>&amp;info);</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>info<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Problem<sp/>diagonalization<sp/>of<sp/>matrix:\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i:<sp/>matrix)<sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(9)<sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;problem<sp/>diagonalization\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>column;</highlight></codeline>
-<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="DiisMixer_8cxx_1a165e38a9fd7153eb617622257f385dd7" refkind="member"><highlight class="normal">std::vector&lt;sisi4s::complex&gt;<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/>std::vector&lt;sisi4s::complex&gt;<sp/>matrix,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N</highlight></codeline>
-<codeline lineno="36"><highlight class="normal">){</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/>std::vector&lt;sisi4s::complex&gt;<sp/>column(N);</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;TODO&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>column;</highlight></codeline>
-<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="IterativePseudoInverse_8hpp" kindref="compound">math/IterativePseudoInverse.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><ref refid="Mixer_8hpp_1a7ec8522b70a56ac8cef5b47c623c59c0" kindref="member">MIXER_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1DiisMixer" kindref="compound">DiisMixer</ref>);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" refkind="member"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>matrix,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">){</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>column(N,0);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>ipiv(N);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>work(N);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>column[0]<sp/>=<sp/>-1.0;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>one(1);<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>info;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="Lapack_8hpp_1aaacdf33c1d8272c5fd148b2e002c12a6" kindref="member">dsysv_</ref>(</highlight><highlight class="stringliteral">&quot;U&quot;</highlight><highlight class="normal">,<sp/>&amp;N,<sp/>&amp;one,<sp/>matrix.data(),<sp/>&amp;N,<sp/>ipiv.data(),<sp/>column.data(),<sp/>&amp;N,<sp/>work.data(),<sp/>&amp;N,<sp/>&amp;info);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>info<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Problem<sp/>diagonalization<sp/>of<sp/>matrix:\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i:<sp/>matrix)<sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(9)<sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;problem<sp/>diagonalization\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>column;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="DiisMixer_8cxx_1a165e38a9fd7153eb617622257f385dd7" refkind="member"><highlight class="normal">std::vector&lt;sisi4s::complex&gt;<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>std::vector&lt;sisi4s::complex&gt;<sp/>matrix,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">){</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>std::vector&lt;sisi4s::complex&gt;<sp/>column(N);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;TODO&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>column;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="44" refid="classsisi4s_1_1DiisMixer_1ae6af3fd3aa23a5891216897f380e76d3" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer" kindref="compound">DiisMixer&lt;F&gt;::DiisMixer</ref>(</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm</highlight></codeline>
-<codeline lineno="46"><highlight class="normal">):</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;(algorithm),<sp/>next(nullptr),<sp/>nextResiduum(nullptr)</highlight></codeline>
-<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N(<sp/><ref refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" kindref="member">algorithm</ref>-&gt;<ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;maxResidua&quot;</highlight><highlight class="normal">,<sp/>4)<sp/>);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,</highlight><highlight class="stringliteral">&quot;DiisMixer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;maxResidua=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>N<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;mixer&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::BeginMap;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;type&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;diis&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;max-residua&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>N;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndMap;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DiisMixer_1abf50da4af38e051f8ede8ceca8e3e828" kindref="member">amplitudes</ref>.resize(N);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DiisMixer_1adaa1f7416b9b099de7a17a893e48b4cc" kindref="member">residua</ref>.resize(N);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/>nextIndex<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/>count<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>initial<sp/>overlap<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lens{{N+1,<sp/>N+1}};</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>syms{{NS,<sp/>NS}};</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/>B<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>lens.size(),<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;B&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>one(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>*B);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/>one[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>1.0;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperRightBegin{{0,1}};</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperLeftBegin{{1,0}};</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperRightEnd{{1,N+1}};</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lowerLeftEnd{{N+1,1}};</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/>B-&gt;slice(</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>upperRightBegin.data(),<sp/>upperRightEnd.data(),<sp/>1.0,</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>one,</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>upperRightBegin.data(),<sp/>upperRightEnd.data(),<sp/>-1.0</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/>B-&gt;slice(</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>upperLeftBegin.data(),<sp/>lowerLeftEnd.data(),<sp/>1.0,</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>one,</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>upperLeftBegin.data(),<sp/>lowerLeftEnd.data(),<sp/>-1.0</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="87" refid="classsisi4s_1_1DiisMixer_1ad23b184bf538b751e3fba1affbce35d2" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer_1ad23b184bf538b751e3fba1affbce35d2" kindref="member">DiisMixer&lt;F&gt;::~DiisMixer</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="91" refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" kindref="member">DiisMixer&lt;F&gt;::append</ref>(</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;A,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;R</highlight></codeline>
-<codeline lineno="93"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>replace<sp/>amplidue<sp/>and<sp/>residuum<sp/>at<sp/>nextIndex</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/>amplitudes[nextIndex]<sp/>=<sp/>A;</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/>residua[nextIndex]<sp/>=<sp/>R;</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>1x1<sp/>matrix<sp/>to<sp/>enter<sp/>new<sp/>overlap<sp/>elements</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N(residua.size());</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lens{{1,<sp/>1}};</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>syms{{NS,<sp/>NS}};</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>one(lens.size(),<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/>one[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>1.0;</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(residua[i])<sp/>{</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>colBegin{{nextIndex+1,i+1}};</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>colEnd{{nextIndex+2,i+2}};</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>rowBegin{{i+1,nextIndex+1}};</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>rowEnd{{i+2,nextIndex+2}};</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>oneBegin{{0,0}};</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>oneEnd{{1,1}};</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>overlap(<sp/>2.0*std::real(residua[i]-&gt;<ref refid="namespacesisi4s_1a92d239b67d4a13717f4e7f93ad9591f2" kindref="member">dot</ref>(*R))<sp/>);</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>B-&gt;slice(</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>colBegin.data(),<sp/>colEnd.data(),<sp/>0.0,</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>one,</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oneBegin.data(),<sp/>oneEnd.data(),<sp/>overlap</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>nextIndex)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>B-&gt;slice(</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rowBegin.data(),<sp/>rowEnd.data(),<sp/>0.0,</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>one,</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oneBegin.data(),<sp/>oneEnd.data(),<sp/>overlap</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(count<sp/>&lt;<sp/>N)<sp/>++count;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>B-&gt;print();</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>now,<sp/>pseudo-invert<sp/>upper<sp/>left<sp/>corner<sp/>of<sp/>B<sp/>and<sp/>read<sp/>out<sp/>its<sp/>first<sp/>column</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(count+1);</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperLeftBegin{{0,<sp/>0}};</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lowerRightEnd{{count+1,<sp/>count+1}};</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>firstColEnd{{count+1,1}};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="45" refid="classsisi4s_1_1DiisMixer_1ae6af3fd3aa23a5891216897f380e76d3" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer" kindref="compound">DiisMixer&lt;F&gt;::DiisMixer</ref>(</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">):</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;(algorithm),<sp/>next(nullptr),<sp/>nextResiduum(nullptr)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N(<sp/><ref refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" kindref="member">algorithm</ref>-&gt;<ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;maxResidua&quot;</highlight><highlight class="normal">,<sp/>4)<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,</highlight><highlight class="stringliteral">&quot;DiisMixer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;maxResidua=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>N<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;mixer&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::BeginMap;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;type&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;diis&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;max-residua&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>N;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndMap;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DiisMixer_1abf50da4af38e051f8ede8ceca8e3e828" kindref="member">amplitudes</ref>.resize(N);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DiisMixer_1adaa1f7416b9b099de7a17a893e48b4cc" kindref="member">residua</ref>.resize(N);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>nextIndex<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>initial<sp/>overlap<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lens{{N+1,<sp/>N+1}};</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>syms{{NS,<sp/>NS}};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>B<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>lens.size(),<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;B&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>one(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>*B);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>one[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>1.0;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperRightBegin{{0,1}};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperLeftBegin{{1,0}};</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperRightEnd{{1,N+1}};</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lowerLeftEnd{{N+1,1}};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>B-&gt;slice(</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>upperRightBegin.data(),<sp/>upperRightEnd.data(),<sp/>1.0,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>one,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>upperRightBegin.data(),<sp/>upperRightEnd.data(),<sp/>-1.0</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>B-&gt;slice(</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>upperLeftBegin.data(),<sp/>lowerLeftEnd.data(),<sp/>1.0,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>one,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>upperLeftBegin.data(),<sp/>lowerLeftEnd.data(),<sp/>-1.0</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="88" refid="classsisi4s_1_1DiisMixer_1ad23b184bf538b751e3fba1affbce35d2" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer_1ad23b184bf538b751e3fba1affbce35d2" kindref="member">DiisMixer&lt;F&gt;::~DiisMixer</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="92" refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" kindref="member">DiisMixer&lt;F&gt;::append</ref>(</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;A,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;R</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>replace<sp/>amplidue<sp/>and<sp/>residuum<sp/>at<sp/>nextIndex</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>amplitudes[nextIndex]<sp/>=<sp/>A;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>residua[nextIndex]<sp/>=<sp/>R;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>1x1<sp/>matrix<sp/>to<sp/>enter<sp/>new<sp/>overlap<sp/>elements</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N(residua.size());</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lens{{1,<sp/>1}};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>syms{{NS,<sp/>NS}};</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>one(lens.size(),<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>one[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>1.0;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(residua[i])<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>colBegin{{nextIndex+1,i+1}};</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>colEnd{{nextIndex+2,i+2}};</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>rowBegin{{i+1,nextIndex+1}};</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>rowEnd{{i+2,nextIndex+2}};</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>oneBegin{{0,0}};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>oneEnd{{1,1}};</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>overlap(<sp/>2.0*std::real(residua[i]-&gt;<ref refid="namespacesisi4s_1a92d239b67d4a13717f4e7f93ad9591f2" kindref="member">dot</ref>(*R))<sp/>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>B-&gt;slice(</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>colBegin.data(),<sp/>colEnd.data(),<sp/>0.0,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>one,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oneBegin.data(),<sp/>oneEnd.data(),<sp/>overlap</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>nextIndex)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>B-&gt;slice(</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rowBegin.data(),<sp/>rowEnd.data(),<sp/>0.0,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>one,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oneBegin.data(),<sp/>oneEnd.data(),<sp/>overlap</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(count<sp/>&lt;<sp/>N)<sp/>++count;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>B-&gt;print();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>now,<sp/>pseudo-invert<sp/>upper<sp/>left<sp/>corner<sp/>of<sp/>B<sp/>and<sp/>read<sp/>out<sp/>its<sp/>first<sp/>column</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(count+1);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperLeftBegin{{0,<sp/>0}};</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lowerRightEnd{{count+1,<sp/>count+1}};</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/>std::vector&lt;F&gt;<sp/>column(count+1);</highlight></codeline>
 <codeline lineno="135"><highlight class="normal"><sp/><sp/>std::vector&lt;F&gt;<sp/>matrix(dim*dim);</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"><sp/><sp/>B-&gt;slice(upperLeftBegin.data(),<sp/>lowerRightEnd.data()).read_all(matrix.data());</highlight></codeline>

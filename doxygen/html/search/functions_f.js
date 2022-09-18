@@ -56,7 +56,7 @@ var searchData=
   ['printstatistics_53',['printStatistics',['../classsisi4s_1_1Sisi4s.html#afe2096757c8e16bec943b7b7f5acbd7f',1,'sisi4s::Sisi4s']]],
   ['pseudoinverse_54',['PseudoInverse',['../classsisi4s_1_1PseudoInverse.html#afad68beb8031ebcb5e7497144b0bce64',1,'sisi4s::PseudoInverse']]],
   ['pseudoinversehermitiansvd_55',['PseudoInverseHermitianSvd',['../classsisi4s_1_1PseudoInverseHermitianSvd.html#a802882a537b9187871ab0dda73ae4b29',1,'sisi4s::PseudoInverseHermitianSvd']]],
-  ['pseudoinversesvd_56',['PseudoInverseSvd',['../classsisi4s_1_1PseudoInverseSvd.html#a1ca24b0fb0e2ac3b36718b5c68c95c42',1,'sisi4s::PseudoInverseSvd']]],
+  ['pseudoinversesvd_56',['PseudoInverseSvd',['../classsisi4s_1_1PseudoInverseSvd.html#a53851b6cb0399fb80d19d7e86d473fe5',1,'sisi4s::PseudoInverseSvd']]],
   ['ptr_57',['PTR',['../classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4.html#a421c0520564a85ffaba3046da942422a',1,'sisi4s::LapackGeneralEigenSystem&lt; complex &gt;']]],
   ['punct_58',['punct',['../namespacepars.html#aea75776b14e4bfd141b0e8eff1fecacf',1,'pars']]],
   ['pzgemm_5f_59',['pzgemm_',['../ScaLapack_8hpp.html#adb4c4a730e13df500c723afc7619fd1d',1,'ScaLapack.hpp']]],

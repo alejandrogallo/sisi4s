@@ -271,13 +271,13 @@ var hierarchy =
     [ "sisi4s::IntegralInfo", "structsisi4s_1_1IntegralInfo.html", null ],
     [ "IntegralParser", "structIntegralParser.html", null ],
     [ "IntegralProvider< V >", "structIntegralProvider.html", null ],
-    [ "IntegralProvider< CTF::Tensor< double > >", "structIntegralProvider.html", [
-      [ "CtfIntegralProvider", "structCtfIntegralProvider.html", null ]
-    ] ],
     [ "IntegralProvider< std::vector< double > >", "structIntegralProvider.html", [
       [ "VectorIntegralProvider", "structVectorIntegralProvider.html", [
         [ "SlowVectorIntegralProvider", "structSlowVectorIntegralProvider.html", null ]
       ] ]
+    ] ],
+    [ "IntegralProvider< Tensor< double > >", "structIntegralProvider.html", [
+      [ "CtfIntegralProvider", "structCtfIntegralProvider.html", null ]
     ] ],
     [ "sisi4s::Inter1D< F >", "classsisi4s_1_1Inter1D.html", null ],
     [ "gte::IntpTricubic3< Real >", "classgte_1_1IntpTricubic3.html", null ],
@@ -436,12 +436,12 @@ var hierarchy =
     [ "TensorTypeTraits< F, T >", "classTensorTypeTraits.html", null ],
     [ "TensorTypeTraits< F, CTF::Matrix< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Matrix_3_01F_01_4_01_4.html", null ],
     [ "TensorTypeTraits< F, CTF::Scalar< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Scalar_3_01F_01_4_01_4.html", null ],
-    [ "TensorTypeTraits< F, CTF::Tensor< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4.html", null ],
     [ "TensorTypeTraits< F, CTF::Vector< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Vector_3_01F_01_4_01_4.html", null ],
     [ "TensorTypeTraits< F, DryMatrix< F > >", "classTensorTypeTraits_3_01F_00_01DryMatrix_3_01F_01_4_01_4.html", null ],
     [ "TensorTypeTraits< F, DryScalar< F > >", "classTensorTypeTraits_3_01F_00_01DryScalar_3_01F_01_4_01_4.html", null ],
     [ "TensorTypeTraits< F, DryTensor< F > >", "classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4.html", null ],
     [ "TensorTypeTraits< F, DryVector< F > >", "classTensorTypeTraits_3_01F_00_01DryVector_3_01F_01_4_01_4.html", null ],
+    [ "TensorTypeTraits< F, Tensor< F > >", "classTensorTypeTraits_3_01F_00_01Tensor_3_01F_01_4_01_4.html", null ],
     [ "sisi4s::Timer", "classsisi4s_1_1Timer.html", null ],
     [ "timespec", null, [
       [ "sisi4s::Time", "classsisi4s_1_1Time.html", null ]

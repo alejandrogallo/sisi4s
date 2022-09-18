@@ -4,7 +4,7 @@
     <compoundname>BinaryTensorFormat.hpp</compoundname>
     <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
     <includes local="no">cstring</includes>
-    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includedby refid="ParenthesisTriples_8cxx" local="no">ParenthesisTriples.cxx</includedby>
     <includedby refid="TensorIo_8cxx" local="no">TensorIo.cxx</includedby>
     <incdepgraph>
@@ -32,9 +32,15 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="8">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
         <childnode refid="8" relation="include">
         </childnode>
       </node>
@@ -44,7 +50,7 @@
       <node id="6">
         <label>cstring</label>
       </node>
-      <node id="8">
+      <node id="9">
         <label>ctf.hpp</label>
       </node>
       <node id="4">
@@ -83,7 +89,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstring&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
 <codeline lineno="9" refid="classsisi4s_1_1BinaryTensorHeaderBase" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1BinaryTensorHeaderBase" kindref="compound">BinaryTensorHeaderBase</ref><sp/>{</highlight></codeline>
@@ -122,15 +128,15 @@
 <codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="43" refid="classsisi4s_1_1BinaryTensorHeader_1ad882e27f384e18f1ac326dadb6cab917" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorHeader_1ad882e27f384e18f1ac326dadb6cab917" kindref="member">BinaryTensorHeader</ref>():<sp/><ref refid="classsisi4s_1_1BinaryTensorHeaderBase" kindref="compound">BinaryTensorHeaderBase</ref>()<sp/>{<sp/>}</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Real&gt;</highlight></codeline>
-<codeline lineno="45" refid="classsisi4s_1_1BinaryTensorHeader_1a9f1f04f6238caef05f6d3c34c1bce6d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorHeader_1a9f1f04f6238caef05f6d3c34c1bce6d0" kindref="member">BinaryTensorHeader</ref>(</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Tensor&lt;Real&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;T</highlight></codeline>
+<codeline lineno="45" refid="classsisi4s_1_1BinaryTensorHeader_1ab5d1cd4ec48082a2907a5a71ae1e0c6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorHeader_1ab5d1cd4ec48082a2907a5a71ae1e0c6a" kindref="member">BinaryTensorHeader</ref>(</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Real&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;T</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1BinaryTensorHeaderBase" kindref="compound">BinaryTensorHeaderBase</ref>(</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sizeof(Real),<sp/>1,<sp/>T.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref></highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Real&gt;</highlight></codeline>
-<codeline lineno="52" refid="classsisi4s_1_1BinaryTensorHeader_1a0ae6ea7646ae930f31fac2192e32841e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorHeader_1a0ae6ea7646ae930f31fac2192e32841e" kindref="member">BinaryTensorHeader</ref>(</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt;<ref refid="namespacesisi4s_1a9cb34238d074521ecc87514a824265dd" kindref="member">Complex&lt;Real&gt;</ref>&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;T</highlight></codeline>
+<codeline lineno="52" refid="classsisi4s_1_1BinaryTensorHeader_1afaa7040f3a993a38eeeac55f4a71dbd6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BinaryTensorHeader_1afaa7040f3a993a38eeeac55f4a71dbd6" kindref="member">BinaryTensorHeader</ref>(</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt;<ref refid="namespacesisi4s_1a9cb34238d074521ecc87514a824265dd" kindref="member">Complex&lt;Real&gt;</ref>&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;T</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/><ref refid="classsisi4s_1_1BinaryTensorHeaderBase" kindref="compound">BinaryTensorHeaderBase</ref>(</highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sizeof(<ref refid="namespacesisi4s_1a9cb34238d074521ecc87514a824265dd" kindref="member">Complex</ref>&lt;Real&gt;),<sp/>2,<sp/>T.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref></highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>

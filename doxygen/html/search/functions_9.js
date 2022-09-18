@@ -44,5 +44,5 @@ var searchData=
   ['iterate_41',['iterate',['../classsisi4s_1_1IterativePseudoInverse.html#a96558b1a79ac7e0bcdeb64127855241e',1,'sisi4s::IterativePseudoInverse']]],
   ['iteratequadratically_42',['iterateQuadratically',['../classsisi4s_1_1IterativePseudoInverse.html#a206b9b605d859aec9f8abbc15e919ed1',1,'sisi4s::IterativePseudoInverse']]],
   ['iteratequadraticfactor_43',['iterateQuadraticFactor',['../classsisi4s_1_1CoulombVertexDecomposition.html#a9bad578c327384b5b48a0c98a907cded',1,'sisi4s::CoulombVertexDecomposition']]],
-  ['iterativepseudoinverse_44',['IterativePseudoInverse',['../classsisi4s_1_1IterativePseudoInverse.html#a322434ac65e06514eb48cc0b38c9b2d8',1,'sisi4s::IterativePseudoInverse']]]
+  ['iterativepseudoinverse_44',['IterativePseudoInverse',['../classsisi4s_1_1IterativePseudoInverse.html#ab865765b2ebd1f1b988e397aa5587bf6',1,'sisi4s::IterativePseudoInverse']]]
 ];

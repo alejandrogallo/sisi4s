@@ -2,7 +2,7 @@ var classsisi4s_1_1CtfMachineTensor =
 [
     [ "ProtectedToken", "classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken.html", null ],
     [ "Factory", "classsisi4s_1_1CtfMachineTensor.html#a500f0e7eaf8b54374d18a206518a137a", null ],
-    [ "Tensor", "classsisi4s_1_1CtfMachineTensor.html#a744bf3107808aec9d7ba00afcc6ae69f", null ],
+    [ "Tensor", "classsisi4s_1_1CtfMachineTensor.html#af879949645959dd20f2ad9da0f3af14b", null ],
     [ "CtfMachineTensor", "classsisi4s_1_1CtfMachineTensor.html#a6ae96bde1af99a8b0aff6e5956fac75c", null ],
     [ "CtfMachineTensor", "classsisi4s_1_1CtfMachineTensor.html#a2881a03a7f22a82651fe577024984d65", null ],
     [ "~CtfMachineTensor", "classsisi4s_1_1CtfMachineTensor.html#a4a5efee024e42e7ad588b3ceab683e21", null ],

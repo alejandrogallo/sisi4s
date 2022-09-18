@@ -5,28 +5,28 @@
     <includes refid="StantonIntermediatesUCCSD_8hpp" local="no">algorithms/StantonIntermediatesUCCSD.hpp</includes>
     <includes local="no">vector</includes>
     <includes local="no">map</includes>
-    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includes local="no">string</includes>
     <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
     <includes refid="SharedPointer_8hpp" local="no">util/SharedPointer.hpp</includes>
     <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
     <incdepgraph>
-      <node id="23">
+      <node id="24">
         <label>Options.hpp</label>
         <link refid="Options_8hpp"/>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
-      <node id="17">
+      <node id="18">
         <label>Sisi4s.hpp</label>
         <link refid="Sisi4s_8hpp"/>
-        <childnode refid="18" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -34,19 +34,19 @@
         <link refid="StantonIntermediatesUCCSD_8cxx"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
         <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
         <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -59,40 +59,38 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="25">
         <label>extern/CLI11.hpp</label>
         <link refid="CLI11_8hpp"/>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="26" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
         <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="28" relation="include">
         </childnode>
         <childnode refid="29" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
         <childnode refid="30" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
         <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="33" relation="include">
         </childnode>
@@ -100,15 +98,17 @@
         </childnode>
         <childnode refid="35" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
         <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
         </childnode>
         <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -125,20 +125,20 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="10">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="14">
+      <node id="15">
         <label>util/Exception.hpp</label>
         <link refid="Exception_8hpp"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -147,104 +147,110 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="9">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
         <label>util/Time.hpp</label>
         <link refid="Time_8hpp"/>
-        <childnode refid="19" relation="include">
-        </childnode>
         <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
       </node>
-      <node id="31">
+      <node id="32">
         <label>algorithm</label>
       </node>
-      <node id="22">
+      <node id="23">
         <label>cmath</label>
       </node>
       <node id="8">
         <label>complex</label>
       </node>
-      <node id="20">
+      <node id="21">
         <label>cstdint</label>
       </node>
-      <node id="10">
+      <node id="11">
         <label>ctf.hpp</label>
       </node>
-      <node id="19">
+      <node id="20">
         <label>ctime</label>
       </node>
-      <node id="37">
+      <node id="38">
         <label>exception</label>
       </node>
-      <node id="27">
+      <node id="28">
         <label>fstream</label>
       </node>
-      <node id="25">
+      <node id="26">
         <label>functional</label>
       </node>
-      <node id="21">
+      <node id="22">
         <label>iomanip</label>
       </node>
-      <node id="16">
+      <node id="17">
         <label>iostream</label>
       </node>
-      <node id="34">
+      <node id="35">
         <label>iterator</label>
       </node>
-      <node id="36">
+      <node id="37">
         <label>limits</label>
       </node>
-      <node id="30">
+      <node id="31">
         <label>locale</label>
       </node>
-      <node id="12">
+      <node id="13">
         <label>map</label>
       </node>
       <node id="4">
         <label>memory</label>
       </node>
-      <node id="26">
+      <node id="27">
         <label>numeric</label>
       </node>
       <node id="7">
         <label>ostream</label>
       </node>
-      <node id="32">
+      <node id="33">
         <label>set</label>
       </node>
-      <node id="15">
+      <node id="16">
         <label>sstream</label>
       </node>
-      <node id="35">
+      <node id="36">
         <label>stdexcept</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>string</label>
       </node>
-      <node id="38">
+      <node id="39">
         <label>sys/stat.h</label>
       </node>
-      <node id="39">
+      <node id="40">
         <label>sys/types.h</label>
       </node>
-      <node id="28">
+      <node id="29">
         <label>tuple</label>
       </node>
-      <node id="33">
+      <node id="34">
         <label>type_traits</label>
       </node>
-      <node id="29">
+      <node id="30">
         <label>utility</label>
       </node>
-      <node id="11">
+      <node id="12">
         <label>vector</label>
       </node>
     </incdepgraph>
@@ -256,7 +262,7 @@
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="StantonIntermediatesUCCSD_8hpp" kindref="compound">algorithms/StantonIntermediatesUCCSD.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
@@ -268,7 +274,7 @@
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD&lt;F&gt;::checkInputs</ref>()<sp/>{</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>everything<sp/>needed<sp/>is<sp/>given</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/>CTF::Tensor&lt;F&gt;*&gt;<sp/>inputTensors{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/>Tensor&lt;F&gt;*&gt;<sp/>inputTensors{</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;Tai&quot;</highlight><highlight class="normal">,<sp/>Tai},<sp/>{</highlight><highlight class="stringliteral">&quot;Tabij&quot;</highlight><highlight class="normal">,<sp/>Tabij},</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;Fij&quot;</highlight><highlight class="normal">,<sp/>Fij},<sp/>{</highlight><highlight class="stringliteral">&quot;Fab&quot;</highlight><highlight class="normal">,<sp/>Fab},</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;Vabcd&quot;</highlight><highlight class="normal">,<sp/>Vabcd},<sp/>{</highlight><highlight class="stringliteral">&quot;Viajb&quot;</highlight><highlight class="normal">,<sp/>Viajb},<sp/>{</highlight><highlight class="stringliteral">&quot;Vijab&quot;</highlight><highlight class="normal">,<sp/>Vijab},</highlight></codeline>
@@ -296,12 +302,12 @@
 <codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vv[]<sp/>=<sp/>{Nv,<sp/>Nv},<sp/>oo[]<sp/>=<sp/>{No,<sp/>No},<sp/>ov[]<sp/>=<sp/>{No,<sp/>Nv};</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{NS,<sp/>NS};</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/>Fae<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>2,<sp/>vv,<sp/>syms,<sp/>*Sisi4s::world,<sp/></highlight><highlight class="stringliteral">&quot;Fae&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/>Fmi<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>2,<sp/>oo,<sp/>syms,<sp/>*Sisi4s::world,<sp/></highlight><highlight class="stringliteral">&quot;Fmi&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/>Fme<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>2,<sp/>ov,<sp/>syms,<sp/>*Sisi4s::world,<sp/></highlight><highlight class="stringliteral">&quot;Fme&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>Fae<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>2,<sp/>vv,<sp/>syms,<sp/>*Sisi4s::world,<sp/></highlight><highlight class="stringliteral">&quot;Fae&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>Fmi<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>2,<sp/>oo,<sp/>syms,<sp/>*Sisi4s::world,<sp/></highlight><highlight class="stringliteral">&quot;Fmi&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>Fme<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>2,<sp/>ov,<sp/>syms,<sp/>*Sisi4s::world,<sp/></highlight><highlight class="stringliteral">&quot;Fme&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Equation<sp/>(9)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/>TildeTau_abij<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>*Tabij);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>TildeTau_abij<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>*Tabij);</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/>(*TildeTau_abij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>0.5<sp/>)<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;bj&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/>(*TildeTau_abij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>0.5<sp/>)<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;bi&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;aj&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight></codeline>
@@ -339,26 +345,26 @@
 <codeline lineno="84"><highlight class="normal"><sp/><sp/>checkInputs();</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"></highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Equation<sp/>(10)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/>Tau_abij<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>*Tabij);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>Tau_abij<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>*Tabij);</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/>(*Tau_abij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;bj&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/>(*Tau_abij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/>)<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;bi&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;aj&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"></highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Equation<sp/>(6)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/>Wijkl<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>*Vijkl);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>Wijkl<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>*Vijkl);</highlight></codeline>
 <codeline lineno="93"><highlight class="normal"><sp/><sp/>(*Wijkl)[</highlight><highlight class="stringliteral">&quot;mnij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ej&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vijka)[</highlight><highlight class="stringliteral">&quot;mnie&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Pij</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/>(*Wijkl)[</highlight><highlight class="stringliteral">&quot;mnij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ei&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vijka)[</highlight><highlight class="stringliteral">&quot;mnje&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="96"><highlight class="normal"><sp/><sp/>(*Wijkl)[</highlight><highlight class="stringliteral">&quot;mnij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(0.25)<sp/>*<sp/>(*Tau_abij)[</highlight><highlight class="stringliteral">&quot;efij&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vijab)[</highlight><highlight class="stringliteral">&quot;mnef&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"></highlight></codeline>
 <codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Equation<sp/>(7)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/>Wabcd<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>*Vabcd);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>Wabcd<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>*Vabcd);</highlight></codeline>
 <codeline lineno="100"><highlight class="normal"><sp/><sp/>(*Wabcd)[</highlight><highlight class="stringliteral">&quot;abef&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;bm&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vaibc)[</highlight><highlight class="stringliteral">&quot;amef&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Pab</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="102"><highlight class="normal"><sp/><sp/>(*Wabcd)[</highlight><highlight class="stringliteral">&quot;abef&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;am&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vaibc)[</highlight><highlight class="stringliteral">&quot;bmef&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="103"><highlight class="normal"><sp/><sp/>(*Wabcd)[</highlight><highlight class="stringliteral">&quot;abef&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(0.25)<sp/>*<sp/>(*Tau_abij)[</highlight><highlight class="stringliteral">&quot;abmn&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vijab)[</highlight><highlight class="stringliteral">&quot;mnef&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="104"><highlight class="normal"></highlight></codeline>
 <codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Equation<sp/>(8)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/>Wiabj<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>*Viabj);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>Wiabj<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>*Viabj);</highlight></codeline>
 <codeline lineno="107"><highlight class="normal"><sp/><sp/>(*Wiabj)[</highlight><highlight class="stringliteral">&quot;mbej&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+<sp/>1.0)<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;fj&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Viabc)[</highlight><highlight class="stringliteral">&quot;mbef&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="108"><highlight class="normal"><sp/><sp/>(*Wiabj)[</highlight><highlight class="stringliteral">&quot;mbej&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>1.0)<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;bn&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vijak)[</highlight><highlight class="stringliteral">&quot;mnej&quot;</highlight><highlight class="normal">];</highlight></codeline>
 <codeline lineno="109"><highlight class="normal"><sp/><sp/>(*Wiabj)[</highlight><highlight class="stringliteral">&quot;mbej&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-<sp/>0.5)<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;fbjn&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Vijab)[</highlight><highlight class="stringliteral">&quot;mnef&quot;</highlight><highlight class="normal">];</highlight></codeline>
@@ -367,8 +373,8 @@
 <codeline lineno="112"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"></highlight></codeline>
 <codeline lineno="114"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)</highlight></codeline>
-<codeline lineno="116" refid="classsisi4s_1_1StantonIntermediatesUCCSD_1a25b84365cbfd400c359f7a39959449d7" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;::getRai(){</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>)</highlight></codeline>
+<codeline lineno="116" refid="classsisi4s_1_1StantonIntermediatesUCCSD_1aef06992baa0aa80c662974cf460d1a7e" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;::getRai(){</highlight></codeline>
 <codeline lineno="117"><highlight class="normal"></highlight></codeline>
 <codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Rai)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rai;</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"></highlight></codeline>
@@ -378,7 +384,7 @@
 <codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vo[]<sp/>=<sp/>{Nv,<sp/>No};</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{NS,<sp/>NS};</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/>Rai<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>2,<sp/>vo,<sp/>syms,<sp/>*Sisi4s::world,<sp/></highlight><highlight class="stringliteral">&quot;Rai&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>Rai<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>2,<sp/>vo,<sp/>syms,<sp/>*Sisi4s::world,<sp/></highlight><highlight class="stringliteral">&quot;Rai&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"></highlight></codeline>
 <codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>T1<sp/>equations:</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ei&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Fae)[</highlight><highlight class="stringliteral">&quot;ae&quot;</highlight><highlight class="normal">];</highlight></codeline>
@@ -397,15 +403,15 @@
 <codeline lineno="142"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="143"><highlight class="normal"></highlight></codeline>
 <codeline lineno="144"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(CTF::Tensor&lt;F&gt;)</highlight></codeline>
-<codeline lineno="146" refid="classsisi4s_1_1StantonIntermediatesUCCSD_1a3c6f729e2b8b929a9e70981acb130da4" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;::getRabij(){</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>)</highlight></codeline>
+<codeline lineno="146" refid="classsisi4s_1_1StantonIntermediatesUCCSD_1acb0effe9f1acb1eb139876b7996477e0" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;::getRabij(){</highlight></codeline>
 <codeline lineno="147"><highlight class="normal"></highlight></codeline>
 <codeline lineno="148"><highlight class="normal"><sp/><sp/>calculateIntermediates();</highlight></codeline>
 <codeline lineno="149"><highlight class="normal"></highlight></codeline>
 <codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Rabij)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Rabij;</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"></highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//fbd136af1cf7b395e33a6a2040e36b92d7a18e27<sp/><sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/>Rabij<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(CTF::Tensor&lt;F&gt;,<sp/>*Vabij);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>Rabij<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>*Vabij);</highlight></codeline>
 <codeline lineno="154"><highlight class="normal"></highlight></codeline>
 <codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>P(ab)<sp/>*<sp/>Taeij<sp/>(<sp/>Fbe<sp/>-<sp/>0.5<sp/>Tbm<sp/>Fme)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="156"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(1.0)<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;aeij&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Fae)[</highlight><highlight class="stringliteral">&quot;be&quot;</highlight><highlight class="normal">];</highlight></codeline>

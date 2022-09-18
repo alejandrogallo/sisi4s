@@ -1,7 +1,7 @@
 var searchData=
 [
   ['u_0',['U',['../classsisi4s_1_1ScaLapackSingularValueDecomposition_3_01complex_01_4.html#a8160758b5d9d05035898ef72e19c42ac',1,'sisi4s::ScaLapackSingularValueDecomposition&lt; complex &gt;::U()'],['../classsisi4s_1_1ScaLapackSingularValueDecomposition_3_01double_01_4.html#a525a7dba0f229480433f047fc2100d3a',1,'sisi4s::ScaLapackSingularValueDecomposition&lt; double &gt;::U()'],['../classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4.html#abacaf1b2d62992b3d4bcd6d861a43841',1,'sisi4s::ScaLapackHermitianEigenSystemDc&lt; complex &gt;::U()'],['../classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01double_01_4.html#a4b3c312f411d631f2e9261c34266bc3b',1,'sisi4s::ScaLapackHermitianEigenSystemDc&lt; double &gt;::U()'],['../classsisi4s_1_1ScaLapackHermitianEigenSystem_3_01complex_01_4.html#a4a776309ca0d7f2cd6e1430899df3a6a',1,'sisi4s::ScaLapackHermitianEigenSystem&lt; complex &gt;::U()'],['../classsisi4s_1_1ScaLapackHermitianEigenSystem_3_01double_01_4.html#acad51a1a7cd8bc8348ee9cd27b137090',1,'sisi4s::ScaLapackHermitianEigenSystem&lt; double &gt;::U()']]],
-  ['uaif_1',['UaiF',['../classsisi4s_1_1DoublesAmplitudesDecomposition.html#a84a924f3cd3fe26d195098622621a4db',1,'sisi4s::DoublesAmplitudesDecomposition']]],
+  ['uaif_1',['UaiF',['../classsisi4s_1_1DoublesAmplitudesDecomposition.html#a1698943d1e0c4703bac2d9bf3829fca6',1,'sisi4s::DoublesAmplitudesDecomposition']]],
   ['uccsdamplitudesfromcoulombintegrals_2',['UccsdAmplitudesFromCoulombIntegrals',['../classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals.html',1,'sisi4s::UccsdAmplitudesFromCoulombIntegrals'],['../classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals.html#a9e15dee0de9aec5e1f26e378900da207',1,'sisi4s::UccsdAmplitudesFromCoulombIntegrals::UccsdAmplitudesFromCoulombIntegrals()']]],
   ['uccsdamplitudesfromcoulombintegrals_2ecxx_3',['UccsdAmplitudesFromCoulombIntegrals.cxx',['../UccsdAmplitudesFromCoulombIntegrals_8cxx.html',1,'']]],
   ['uccsdamplitudesfromcoulombintegrals_2ehpp_4',['UccsdAmplitudesFromCoulombIntegrals.hpp',['../UccsdAmplitudesFromCoulombIntegrals_8hpp.html',1,'']]],
@@ -30,7 +30,7 @@ var searchData=
   ['unrestrictedequationofmotionsinglesfromrpa_2ehpp_27',['UnrestrictedEquationOfMotionSinglesFromRpa.hpp',['../UnrestrictedEquationOfMotionSinglesFromRpa_8hpp.html',1,'']]],
   ['unrestricteigenenergies_28',['unrestrictEigenEnergies',['../classsisi4s_1_1CoulombVertexReader.html#afeba637ffd23f0adf95f74119ddf7429',1,'sisi4s::CoulombVertexReader']]],
   ['unrestricter_29',['Unrestricter',['../structUnrestricter.html',1,'']]],
-  ['unrestricttensor_30',['unrestrictTensor',['../TensorUnrestricter_8cxx.html#a1703cc3b554d45a678cd5c126d0b0c82',1,'TensorUnrestricter.cxx']]],
+  ['unrestricttensor_30',['unrestrictTensor',['../TensorUnrestricter_8cxx.html#a40c5bc6cac09e5fae0df38ea17318562',1,'TensorUnrestricter.cxx']]],
   ['unrestrictvertex_31',['unrestrictVertex',['../classsisi4s_1_1CoulombVertexReader.html#ad0d3f8452eb37567d355ae122eda5f7c',1,'sisi4s::CoulombVertexReader']]],
   ['unused_32',['UNUSED',['../classsisi4s_1_1Data.html#ae1bf44bd448c3961cc9ba067b8c6a363a794112436987c4dce7a21ac477af6c7f',1,'sisi4s::Data']]],
   ['update_33',['update',['../classsisi4s_1_1NoRegularizationEstimator.html#aa40d2e51eb73cacfd2f2e63517016837',1,'sisi4s::NoRegularizationEstimator::update()'],['../classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator.html#a503f0a701b0bdef3377c47bb5dae6456',1,'sisi4s::AlternatingLeastSquaresRegularizationEstimator::update()']]],

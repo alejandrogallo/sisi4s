@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('classsisi4s_1_1FockVector.html',''); i
 </div><!--header-->
 <div class="contents">
 
-<p>Represents the direct sum of CTF::Tensors and provides the vector space operations of addition, scalar multiplication, inner product, complex conjugation to get dual vectors and matrix multiplication between vectors and duals, which yields a scalar.  
+<p>Represents the direct sum of Tensors and provides the vector space operations of addition, scalar multiplication, inner product, complex conjugation to get dual vectors and matrix multiplication between vectors and duals, which yields a scalar.  
  <a href="classsisi4s_1_1FockVector.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="FockVector_8hpp_source.html">FockVector.hpp</a>&gt;</code></p>
@@ -127,19 +127,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ed7302e99ec91f3b0b46b1b0570e110"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a9ed7302e99ec91f3b0b46b1b0570e110">FockVector</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a)</td></tr>
 <tr class="memdesc:a9ed7302e99ec91f3b0b46b1b0570e110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor copying the tensors owned by a.  <a href="classsisi4s_1_1FockVector.html#a9ed7302e99ec91f3b0b46b1b0570e110">More...</a><br /></td></tr>
 <tr class="separator:a9ed7302e99ec91f3b0b46b1b0570e110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cb49b49fca564dbacdb3dc4fa8388d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a9cb49b49fca564dbacdb3dc4fa8388d9">FockVector</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &gt; &gt; &amp;tensors, const std::vector&lt; std::string &gt; &amp;indices)</td></tr>
-<tr class="memdesc:a9cb49b49fca564dbacdb3dc4fa8388d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor taking possession of the tensors given.  <a href="classsisi4s_1_1FockVector.html#a9cb49b49fca564dbacdb3dc4fa8388d9">More...</a><br /></td></tr>
-<tr class="separator:a9cb49b49fca564dbacdb3dc4fa8388d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a373c8f81e2408ca8cf8200fdfb8f0788"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a373c8f81e2408ca8cf8200fdfb8f0788">FockVector</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &gt; &amp;tensors, const std::vector&lt; std::string &gt; &amp;indices)</td></tr>
+<tr class="memdesc:a373c8f81e2408ca8cf8200fdfb8f0788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor taking possession of the tensors given.  <a href="classsisi4s_1_1FockVector.html#a373c8f81e2408ca8cf8200fdfb8f0788">More...</a><br /></td></tr>
+<tr class="separator:a373c8f81e2408ca8cf8200fdfb8f0788"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6067ca369254f3198ee393898d39d0a"><td class="memTemplParams" colspan="2">template&lt;typename TensorsIterator , typename IndicesIterator &gt; </td></tr>
 <tr class="memitem:af6067ca369254f3198ee393898d39d0a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#af6067ca369254f3198ee393898d39d0a">FockVector</a> (TensorsIterator tensorsBegin, TensorsIterator tensorsEnd, IndicesIterator indicesBegin, IndicesIterator indicesEnd)</td></tr>
 <tr class="memdesc:af6067ca369254f3198ee393898d39d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor taking possession of the tensors given by the iterators.  <a href="classsisi4s_1_1FockVector.html#af6067ca369254f3198ee393898d39d0a">More...</a><br /></td></tr>
 <tr class="separator:af6067ca369254f3198ee393898d39d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac37c525c89799fb6e2fa419acb4edf4a"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ac37c525c89799fb6e2fa419acb4edf4a">get</a> (const size_t i) const</td></tr>
-<tr class="memdesc:ac37c525c89799fb6e2fa419acb4edf4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the i-th component tensor. Note that the CTF::Tensor is not const since rearrangement may be required also in non-modifying tensor operations.  <a href="classsisi4s_1_1FockVector.html#ac37c525c89799fb6e2fa419acb4edf4a">More...</a><br /></td></tr>
-<tr class="separator:ac37c525c89799fb6e2fa419acb4edf4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a261cf29aee99711415a9fb9b98cf10b7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a261cf29aee99711415a9fb9b98cf10b7">get</a> (const size_t i)</td></tr>
-<tr class="memdesc:a261cf29aee99711415a9fb9b98cf10b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the i-th component tensor.  <a href="classsisi4s_1_1FockVector.html#a261cf29aee99711415a9fb9b98cf10b7">More...</a><br /></td></tr>
-<tr class="separator:a261cf29aee99711415a9fb9b98cf10b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebf4e090f20a7bb83c434396b274c89c"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#aebf4e090f20a7bb83c434396b274c89c">get</a> (const size_t i) const</td></tr>
+<tr class="memdesc:aebf4e090f20a7bb83c434396b274c89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the i-th component tensor. Note that the Tensor is not const since rearrangement may be required also in non-modifying tensor operations.  <a href="classsisi4s_1_1FockVector.html#aebf4e090f20a7bb83c434396b274c89c">More...</a><br /></td></tr>
+<tr class="separator:aebf4e090f20a7bb83c434396b274c89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace2713562a3eaa29204141331fb21a4a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ace2713562a3eaa29204141331fb21a4a">get</a> (const size_t i)</td></tr>
+<tr class="memdesc:ace2713562a3eaa29204141331fb21a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the i-th component tensor.  <a href="classsisi4s_1_1FockVector.html#ace2713562a3eaa29204141331fb21a4a">More...</a><br /></td></tr>
+<tr class="separator:ace2713562a3eaa29204141331fb21a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12f7974afa01def06d0fff6b08c06756"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a12f7974afa01def06d0fff6b08c06756">getIndices</a> (const size_t i) const</td></tr>
 <tr class="memdesc:a12f7974afa01def06d0fff6b08c06756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the i-th component indices.  <a href="classsisi4s_1_1FockVector.html#a12f7974afa01def06d0fff6b08c06756">More...</a><br /></td></tr>
 <tr class="separator:a12f7974afa01def06d0fff6b08c06756"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,28 +153,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad8c190dca07ca3fc6bc7ef51afdb3688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator copying the tensors owned by a.  <a href="classsisi4s_1_1FockVector.html#ad8c190dca07ca3fc6bc7ef51afdb3688">More...</a><br /></td></tr>
 <tr class="separator:ad8c190dca07ca3fc6bc7ef51afdb3688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b7eff02db7ec358be2535e4a6a1b46c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a5b7eff02db7ec358be2535e4a6a1b46c">operator+=</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a)</td></tr>
-<tr class="memdesc:a5b7eff02db7ec358be2535e4a6a1b46c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add-to assignment operator adding each component of a to the respective component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>.  <a href="classsisi4s_1_1FockVector.html#a5b7eff02db7ec358be2535e4a6a1b46c">More...</a><br /></td></tr>
+<tr class="memdesc:a5b7eff02db7ec358be2535e4a6a1b46c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add-to assignment operator adding each component of a to the respective component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>.  <a href="classsisi4s_1_1FockVector.html#a5b7eff02db7ec358be2535e4a6a1b46c">More...</a><br /></td></tr>
 <tr class="separator:a5b7eff02db7ec358be2535e4a6a1b46c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a750e52474cd1de5e4011d458ca592dde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a750e52474cd1de5e4011d458ca592dde">operator-=</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a)</td></tr>
-<tr class="memdesc:a750e52474cd1de5e4011d458ca592dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract-from assignment operator subtracting each component of a from the respective component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>.  <a href="classsisi4s_1_1FockVector.html#a750e52474cd1de5e4011d458ca592dde">More...</a><br /></td></tr>
+<tr class="memdesc:a750e52474cd1de5e4011d458ca592dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract-from assignment operator subtracting each component of a from the respective component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>.  <a href="classsisi4s_1_1FockVector.html#a750e52474cd1de5e4011d458ca592dde">More...</a><br /></td></tr>
 <tr class="separator:a750e52474cd1de5e4011d458ca592dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc8681ced60db6c9d2fc65c6764f83d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#afc8681ced60db6c9d2fc65c6764f83d5">operator*=</a> (const F s)</td></tr>
-<tr class="memdesc:afc8681ced60db6c9d2fc65c6764f83d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply-by assignment operator scalar multiplying each component each component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> by the given scalar.  <a href="classsisi4s_1_1FockVector.html#afc8681ced60db6c9d2fc65c6764f83d5">More...</a><br /></td></tr>
+<tr class="memdesc:afc8681ced60db6c9d2fc65c6764f83d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply-by assignment operator scalar multiplying each component each component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> by the given scalar.  <a href="classsisi4s_1_1FockVector.html#afc8681ced60db6c9d2fc65c6764f83d5">More...</a><br /></td></tr>
 <tr class="separator:afc8681ced60db6c9d2fc65c6764f83d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50027197de830ea574d8f33ed0211b5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a50027197de830ea574d8f33ed0211b5d">conjugateTranspose</a> () const</td></tr>
-<tr class="memdesc:a50027197de830ea574d8f33ed0211b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and returns the conjugate transpose of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>. The first and the second half of the inidices in each component are swapped for the transposition. For real types F the conjugation does nothing.  <a href="classsisi4s_1_1FockVector.html#a50027197de830ea574d8f33ed0211b5d">More...</a><br /></td></tr>
+<tr class="memdesc:a50027197de830ea574d8f33ed0211b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and returns the conjugate transpose of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>. The first and the second half of the inidices in each component are swapped for the transposition. For real types F the conjugation does nothing.  <a href="classsisi4s_1_1FockVector.html#a50027197de830ea574d8f33ed0211b5d">More...</a><br /></td></tr>
 <tr class="separator:a50027197de830ea574d8f33ed0211b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0366d95ec508547de45b887737a4ca0e"><td class="memItemLeft" align="right" valign="top">F&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a0366d95ec508547de45b887737a4ca0e">braket</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;ket) const</td></tr>
 <tr class="memdesc:a0366d95ec508547de45b887737a4ca0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the matrix product of this bra-FockVector with the given dual ket-FockVector ket.  <a href="classsisi4s_1_1FockVector.html#a0366d95ec508547de45b887737a4ca0e">More...</a><br /></td></tr>
 <tr class="separator:a0366d95ec508547de45b887737a4ca0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f7a9ea49d5eb503a988858d1b9e76cb"><td class="memItemLeft" align="right" valign="top">F&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a7f7a9ea49d5eb503a988858d1b9e76cb">dot</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a) const</td></tr>
-<tr class="memdesc:a7f7a9ea49d5eb503a988858d1b9e76cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the inner product of this ket-FockVector with the given ket-FockVector a. The elements of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> are conjugated in the inner product, i.e. this-&gt;dot(a) yields the same results as this-&gt;<a class="el" href="classsisi4s_1_1FockVector.html#a50027197de830ea574d8f33ed0211b5d" title="Creates and returns the conjugate transpose of this FockVector. The first and the second half of the ...">conjugateTranspose()</a>.braket(a).  <a href="classsisi4s_1_1FockVector.html#a7f7a9ea49d5eb503a988858d1b9e76cb">More...</a><br /></td></tr>
+<tr class="memdesc:a7f7a9ea49d5eb503a988858d1b9e76cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the inner product of this ket-FockVector with the given ket-FockVector a. The elements of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> are conjugated in the inner product, i.e. this-&gt;dot(a) yields the same results as this-&gt;<a class="el" href="classsisi4s_1_1FockVector.html#a50027197de830ea574d8f33ed0211b5d" title="Creates and returns the conjugate transpose of this FockVector. The first and the second half of the ...">conjugateTranspose()</a>.braket(a).  <a href="classsisi4s_1_1FockVector.html#a7f7a9ea49d5eb503a988858d1b9e76cb">More...</a><br /></td></tr>
 <tr class="separator:a7f7a9ea49d5eb503a988858d1b9e76cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad754c5d7c0cb7ab1a487f1f640d7d877"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ad754c5d7c0cb7ab1a487f1f640d7d877">getComponentsCount</a> () const</td></tr>
-<tr class="memdesc:ad754c5d7c0cb7ab1a487f1f640d7d877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of component tensors of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>.  <a href="classsisi4s_1_1FockVector.html#ad754c5d7c0cb7ab1a487f1f640d7d877">More...</a><br /></td></tr>
+<tr class="memdesc:ad754c5d7c0cb7ab1a487f1f640d7d877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of component tensors of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>.  <a href="classsisi4s_1_1FockVector.html#ad754c5d7c0cb7ab1a487f1f640d7d877">More...</a><br /></td></tr>
 <tr class="separator:ad754c5d7c0cb7ab1a487f1f640d7d877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a086d271ae798bd8d5e79086315fd68f5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5">getDimension</a> () const</td></tr>
-<tr class="memdesc:a086d271ae798bd8d5e79086315fd68f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total number of degrees of freedom represented by this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>, i.e. the total number of field values contained in all component tensors. The indices used by read and write are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1.  <a href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5">More...</a><br /></td></tr>
+<tr class="memdesc:a086d271ae798bd8d5e79086315fd68f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total number of degrees of freedom represented by this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>, i.e. the total number of field values contained in all component tensors. The indices used by read and write are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1.  <a href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5">More...</a><br /></td></tr>
 <tr class="separator:a086d271ae798bd8d5e79086315fd68f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace6a474d78cab3a6b65d608a48f314e5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ace6a474d78cab3a6b65d608a48f314e5">getIndex</a> (const size_t component, const size_t componentIndex) const</td></tr>
 <tr class="separator:ace6a474d78cab3a6b65d608a48f314e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -189,8 +189,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a9fb1ce7dc46b1982cf04f9cc4328afe7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a9fb1ce7dc46b1982cf04f9cc4328afe7">componentTensors</a></td></tr>
-<tr class="separator:a9fb1ce7dc46b1982cf04f9cc4328afe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76a336f18f4fc9a70c6b31406b8d6717"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a76a336f18f4fc9a70c6b31406b8d6717">componentTensors</a></td></tr>
+<tr class="separator:a76a336f18f4fc9a70c6b31406b8d6717"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a931498ce2090f83bcff10de589035874"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a931498ce2090f83bcff10de589035874">componentIndices</a></td></tr>
 <tr class="separator:a931498ce2090f83bcff10de589035874"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -198,9 +198,9 @@ Public Attributes</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:aa7487ad7e11cba45c0d23d8d68a39da4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#aa7487ad7e11cba45c0d23d8d68a39da4">buildIndexTranslation</a> ()</td></tr>
 <tr class="separator:aa7487ad7e11cba45c0d23d8d68a39da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae01ad12785d7712db750078ee66372af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ae01ad12785d7712db750078ee66372af">copyComponents</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &gt; &gt; &amp;components)</td></tr>
-<tr class="memdesc:ae01ad12785d7712db750078ee66372af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>'s component tensors by copying the given component tensors. Called by copy constructors and copy assignments.  <a href="classsisi4s_1_1FockVector.html#ae01ad12785d7712db750078ee66372af">More...</a><br /></td></tr>
-<tr class="separator:ae01ad12785d7712db750078ee66372af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4fa578ddb1b52da613990111913e1bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#af4fa578ddb1b52da613990111913e1bf">copyComponents</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &gt; &amp;components)</td></tr>
+<tr class="memdesc:af4fa578ddb1b52da613990111913e1bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>'s component tensors by copying the given component tensors. Called by copy constructors and copy assignments.  <a href="classsisi4s_1_1FockVector.html#af4fa578ddb1b52da613990111913e1bf">More...</a><br /></td></tr>
+<tr class="separator:af4fa578ddb1b52da613990111913e1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57a4a2f43f2a86b5005cd2cf5080ebef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a57a4a2f43f2a86b5005cd2cf5080ebef">checkDualCompatibility</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a) const</td></tr>
 <tr class="memdesc:a57a4a2f43f2a86b5005cd2cf5080ebef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two FockVectors are transpose of each other by swapping the first and the second half of the component indices.  <a href="classsisi4s_1_1FockVector.html#a57a4a2f43f2a86b5005cd2cf5080ebef">More...</a><br /></td></tr>
 <tr class="separator:a57a4a2f43f2a86b5005cd2cf5080ebef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,12 +210,12 @@ Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a0da9133616724e1410b9ecefffb9b278"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a0da9133616724e1410b9ecefffb9b278">indexEnds</a></td></tr>
-<tr class="memdesc:a0da9133616724e1410b9ecefffb9b278"><td class="mdescLeft">&#160;</td><td class="mdescRight">The end of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> index range for each component. This vector is used for translating component number and indices into <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> indicies.  <a href="classsisi4s_1_1FockVector.html#a0da9133616724e1410b9ecefffb9b278">More...</a><br /></td></tr>
+<tr class="memdesc:a0da9133616724e1410b9ecefffb9b278"><td class="mdescLeft">&#160;</td><td class="mdescRight">The end of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> index range for each component. This vector is used for translating component number and indices into <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> indicies.  <a href="classsisi4s_1_1FockVector.html#a0da9133616724e1410b9ecefffb9b278">More...</a><br /></td></tr>
 <tr class="separator:a0da9133616724e1410b9ecefffb9b278"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename F = double&gt;<br />
-class sisi4s::FockVector&lt; F &gt;</div><p >Represents the direct sum of CTF::Tensors and provides the vector space operations of addition, scalar multiplication, inner product, complex conjugation to get dual vectors and matrix multiplication between vectors and duals, which yields a scalar. </p>
+class sisi4s::FockVector&lt; F &gt;</div><p >Represents the direct sum of Tensors and provides the vector space operations of addition, scalar multiplication, inner product, complex conjugation to get dual vectors and matrix multiplication between vectors and duals, which yields a scalar. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a3d2a4f9298e54647df3638f1b878df58" name="a3d2a4f9298e54647df3638f1b878df58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d2a4f9298e54647df3638f1b878df58">&#9670;&nbsp;</a></span>FieldType</h2>
@@ -335,8 +335,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a9cb49b49fca564dbacdb3dc4fa8388d9" name="a9cb49b49fca564dbacdb3dc4fa8388d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cb49b49fca564dbacdb3dc4fa8388d9">&#9670;&nbsp;</a></span>FockVector() <span class="overload">[4/5]</span></h2>
+<a id="a373c8f81e2408ca8cf8200fdfb8f0788" name="a373c8f81e2408ca8cf8200fdfb8f0788"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a373c8f81e2408ca8cf8200fdfb8f0788">&#9670;&nbsp;</a></span>FockVector() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -349,7 +349,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::FockVector </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>tensors</em>, </td>
         </tr>
         <tr>
@@ -375,7 +375,7 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a9cb49b49fca564dbacdb3dc4fa8388d9_cgraph.svg" width="582" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a373c8f81e2408ca8cf8200fdfb8f0788_cgraph.svg" width="582" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -613,7 +613,7 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Creates and returns the conjugate transpose of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>. The first and the second half of the inidices in each component are swapped for the transposition. For real types F the conjugation does nothing. </p>
+<p>Creates and returns the conjugate transpose of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>. The first and the second half of the inidices in each component are swapped for the transposition. For real types F the conjugation does nothing. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -629,8 +629,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ae01ad12785d7712db750078ee66372af" name="ae01ad12785d7712db750078ee66372af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae01ad12785d7712db750078ee66372af">&#9670;&nbsp;</a></span>copyComponents()</h2>
+<a id="af4fa578ddb1b52da613990111913e1bf" name="af4fa578ddb1b52da613990111913e1bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4fa578ddb1b52da613990111913e1bf">&#9670;&nbsp;</a></span>copyComponents()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -643,7 +643,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::copyComponents </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>components</em></td><td>)</td>
           <td></td>
         </tr>
@@ -655,11 +655,11 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sets this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>'s component tensors by copying the given component tensors. Called by copy constructors and copy assignments. </p>
+<p>Sets this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>'s component tensors by copying the given component tensors. Called by copy constructors and copy assignments. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_ae01ad12785d7712db750078ee66372af_icgraph.svg" width="340" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_af4fa578ddb1b52da613990111913e1bf_icgraph.svg" width="340" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -691,7 +691,7 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the inner product of this ket-FockVector with the given ket-FockVector a. The elements of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> are conjugated in the inner product, i.e. this-&gt;dot(a) yields the same results as this-&gt;<a class="el" href="classsisi4s_1_1FockVector.html#a50027197de830ea574d8f33ed0211b5d" title="Creates and returns the conjugate transpose of this FockVector. The first and the second half of the ...">conjugateTranspose()</a>.braket(a). </p>
+<p>Returns the inner product of this ket-FockVector with the given ket-FockVector a. The elements of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> are conjugated in the inner product, i.e. this-&gt;dot(a) yields the same results as this-&gt;<a class="el" href="classsisi4s_1_1FockVector.html#a50027197de830ea574d8f33ed0211b5d" title="Creates and returns the conjugate transpose of this FockVector. The first and the second half of the ...">conjugateTranspose()</a>.braket(a). </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -758,8 +758,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a261cf29aee99711415a9fb9b98cf10b7" name="a261cf29aee99711415a9fb9b98cf10b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a261cf29aee99711415a9fb9b98cf10b7">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
+<a id="ace2713562a3eaa29204141331fb21a4a" name="ace2713562a3eaa29204141331fb21a4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace2713562a3eaa29204141331fb21a4a">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -770,7 +770,7 @@ template&lt;typename F  = double&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &gt; &amp; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::get </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &amp; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::get </td>
           <td>(</td>
           <td class="paramtype">const size_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -788,8 +788,8 @@ template&lt;typename F  = double&gt; </div>
 
 </div>
 </div>
-<a id="ac37c525c89799fb6e2fa419acb4edf4a" name="ac37c525c89799fb6e2fa419acb4edf4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac37c525c89799fb6e2fa419acb4edf4a">&#9670;&nbsp;</a></span>get() <span class="overload">[2/2]</span></h2>
+<a id="aebf4e090f20a7bb83c434396b274c89c" name="aebf4e090f20a7bb83c434396b274c89c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebf4e090f20a7bb83c434396b274c89c">&#9670;&nbsp;</a></span>get() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -800,7 +800,7 @@ template&lt;typename F  = double&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::shared_ptr&lt; <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &gt; &amp; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::get </td>
+          <td class="memname">const std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &amp; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::get </td>
           <td>(</td>
           <td class="paramtype">const size_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -814,11 +814,11 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieves the i-th component tensor. Note that the CTF::Tensor is not const since rearrangement may be required also in non-modifying tensor operations. </p>
+<p>Retrieves the i-th component tensor. Note that the Tensor is not const since rearrangement may be required also in non-modifying tensor operations. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_ac37c525c89799fb6e2fa419acb4edf4a_icgraph.svg" width="852" height="2720"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_aebf4e090f20a7bb83c434396b274c89c_icgraph.svg" width="852" height="2720"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -849,7 +849,7 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the number of component tensors of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>. </p>
+<p>Get the number of component tensors of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -884,7 +884,7 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the total number of degrees of freedom represented by this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>, i.e. the total number of field values contained in all component tensors. The indices used by read and write are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1. </p>
+<p>Get the total number of degrees of freedom represented by this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>, i.e. the total number of field values contained in all component tensors. The indices used by read and write are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1. </p>
 
 </div>
 </div>
@@ -1025,7 +1025,7 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Multiply-by assignment operator scalar multiplying each component each component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> by the given scalar. </p>
+<p>Multiply-by assignment operator scalar multiplying each component each component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> by the given scalar. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1061,7 +1061,7 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Add-to assignment operator adding each component of a to the respective component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>. </p>
+<p>Add-to assignment operator adding each component of a to the respective component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1097,7 +1097,7 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Subtract-from assignment operator subtracting each component of a from the respective component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a>. </p>
+<p>Subtract-from assignment operator subtracting each component of a from the respective component of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1273,8 +1273,8 @@ template&lt;typename F  = double&gt; </div>
 
 </div>
 </div>
-<a id="a9fb1ce7dc46b1982cf04f9cc4328afe7" name="a9fb1ce7dc46b1982cf04f9cc4328afe7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fb1ce7dc46b1982cf04f9cc4328afe7">&#9670;&nbsp;</a></span>componentTensors</h2>
+<a id="a76a336f18f4fc9a70c6b31406b8d6717" name="a76a336f18f4fc9a70c6b31406b8d6717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76a336f18f4fc9a70c6b31406b8d6717">&#9670;&nbsp;</a></span>componentTensors</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1282,7 +1282,7 @@ template&lt;typename F  = double&gt; </div>
 template&lt;typename F  = double&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt; <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt;F&gt; &gt; &gt; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::componentTensors</td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt;F&gt; &gt; &gt; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::componentTensors</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1311,7 +1311,7 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>The end of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> index range for each component. This vector is used for translating component number and indices into <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> indicies. </p>
+<p>The end of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> index range for each component. This vector is used for translating component number and indices into <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> indicies. </p>
 
 </div>
 </div>

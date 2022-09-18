@@ -338,12 +338,12 @@ var annotated_dup =
     [ "TensorTypeTraits", "classTensorTypeTraits.html", null ],
     [ "TensorTypeTraits< F, CTF::Matrix< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Matrix_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01CTF_1_1Matrix_3_01F_01_4_01_4" ],
     [ "TensorTypeTraits< F, CTF::Scalar< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Scalar_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01CTF_1_1Scalar_3_01F_01_4_01_4" ],
-    [ "TensorTypeTraits< F, CTF::Tensor< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01CTF_1_1Tensor_3_01F_01_4_01_4" ],
     [ "TensorTypeTraits< F, CTF::Vector< F > >", "classTensorTypeTraits_3_01F_00_01CTF_1_1Vector_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01CTF_1_1Vector_3_01F_01_4_01_4" ],
     [ "TensorTypeTraits< F, DryMatrix< F > >", "classTensorTypeTraits_3_01F_00_01DryMatrix_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01DryMatrix_3_01F_01_4_01_4" ],
     [ "TensorTypeTraits< F, DryScalar< F > >", "classTensorTypeTraits_3_01F_00_01DryScalar_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01DryScalar_3_01F_01_4_01_4" ],
     [ "TensorTypeTraits< F, DryTensor< F > >", "classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4" ],
     [ "TensorTypeTraits< F, DryVector< F > >", "classTensorTypeTraits_3_01F_00_01DryVector_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01DryVector_3_01F_01_4_01_4" ],
+    [ "TensorTypeTraits< F, Tensor< F > >", "classTensorTypeTraits_3_01F_00_01Tensor_3_01F_01_4_01_4.html", "classTensorTypeTraits_3_01F_00_01Tensor_3_01F_01_4_01_4" ],
     [ "Unrestricter", "structUnrestricter.html", "structUnrestricter" ],
     [ "VectorIntegralProvider", "structVectorIntegralProvider.html", "structVectorIntegralProvider" ]
 ];

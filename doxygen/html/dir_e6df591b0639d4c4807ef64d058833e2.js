@@ -132,7 +132,7 @@ var dir_e6df591b0639d4c4807ef64d058833e2 =
     [ "TensorGetMax.hpp", "TensorGetMax_8hpp.html", "TensorGetMax_8hpp" ],
     [ "TensorNorm.cxx", "TensorNorm_8cxx.html", null ],
     [ "TensorNorm.hpp", "TensorNorm_8hpp.html", "TensorNorm_8hpp" ],
-    [ "TensorReader.cxx", "TensorReader_8cxx.html", "TensorReader_8cxx" ],
+    [ "TensorReader.cxx", "TensorReader_8cxx.html", null ],
     [ "TensorReader.hpp", "TensorReader_8hpp.html", "TensorReader_8hpp" ],
     [ "TensorReduceijij.cxx", "TensorReduceijij_8cxx.html", null ],
     [ "TensorReduceijij.hpp", "TensorReduceijij_8hpp.html", "TensorReduceijij_8hpp" ],

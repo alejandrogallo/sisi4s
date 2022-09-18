@@ -10,7 +10,7 @@ var searchData=
   ['value_5fstring_7',['value_string',['../namespaceCLI_1_1detail.html#a130e048f492ea4619246e2f4cabaf4ac',1,'CLI::detail::value_string(const T &amp;value) -&gt; decltype(to_string(value))'],['../namespaceCLI_1_1detail.html#a9a74f119a795b25c40db74ffa21d3c2d',1,'CLI::detail::value_string(const T &amp;value)']]],
   ['valueseparator_8',['valueSeparator',['../classCLI_1_1ConfigBase.html#aabc033545dea919028ae5997e59866fc',1,'CLI::ConfigBase']]],
   ['vector_9',['Vector',['../classsisi4s_1_1Vector.html#a6e4c9ced989d17a38e24c75911974631',1,'sisi4s::Vector::Vector()'],['../classsisi4s_1_1Vector.html#ad77e1514e065448be1e166def67ac028',1,'sisi4s::Vector::Vector(Vector&lt; F, D &gt; const &amp;v)']]],
-  ['vectorintegralprovider_10',['VectorIntegralProvider',['../structVectorIntegralProvider.html#a27d6d5405487d7bfb033acb823b3b6c3',1,'VectorIntegralProvider::VectorIntegralProvider()'],['../structSlowVectorIntegralProvider.html#a27d6d5405487d7bfb033acb823b3b6c3',1,'SlowVectorIntegralProvider::VectorIntegralProvider()']]],
+  ['vectorintegralprovider_10',['VectorIntegralProvider',['../structVectorIntegralProvider.html#a168700f4a4110edfadb7821ccbb8edc9',1,'VectorIntegralProvider::VectorIntegralProvider()'],['../structSlowVectorIntegralProvider.html#a168700f4a4110edfadb7821ccbb8edc9',1,'SlowVectorIntegralProvider::VectorIntegralProvider()']]],
   ['vectortensor_11',['VectorTensor',['../structsisi4s_1_1VectorTensor.html#ad9d5a626ffbf098f37728040da611f09',1,'sisi4s::VectorTensor']]],
   ['version_12',['version',['../classCLI_1_1App.html#acada3cd8a963944cfce74d1d90946433',1,'CLI::App']]],
   ['vijji_13',['Vijji',['../classsisi4s_1_1UegVertexGenerator.html#a21b36dddb2c4907fe10f70c4397f5643',1,'sisi4s::UegVertexGenerator']]],

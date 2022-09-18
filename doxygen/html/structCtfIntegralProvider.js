@@ -1,7 +1,7 @@
 var structCtfIntegralProvider =
 [
-    [ "CtfIntegralProvider", "structCtfIntegralProvider.html#a8af1b864a600ddfe5c7dcd2f4f3347c1", null ],
+    [ "CtfIntegralProvider", "structCtfIntegralProvider.html#a8f8d07c2cb051b33745ee146ba6b382b", null ],
     [ "~CtfIntegralProvider", "structCtfIntegralProvider.html#a9fd3365a71212a0a413e3c3f99e75dab", null ],
-    [ "compute", "structCtfIntegralProvider.html#add1c31cb96429c579533561b756d0e1e", null ],
-    [ "compute", "structCtfIntegralProvider.html#a7df2c5858e40d5a004a8972db81f07f5", null ]
+    [ "compute", "structCtfIntegralProvider.html#afd9d4c8e365f85ba088c0c9f5dd9b4a7", null ],
+    [ "compute", "structCtfIntegralProvider.html#a8d4d9aaaf1a72611c49434b5b9137c8e", null ]
 ];

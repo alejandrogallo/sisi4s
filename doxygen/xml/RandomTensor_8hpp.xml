@@ -4,7 +4,7 @@
     <compoundname>RandomTensor.hpp</compoundname>
     <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
     <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
-    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includes local="no">complex</includes>
     <includes local="no">random</includes>
     <includedby refid="CcsdPreconditioner_8cxx" local="no">CcsdPreconditioner.cxx</includedby>
@@ -110,17 +110,23 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="37" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="37" relation="include">
+        <childnode refid="38" relation="include">
         </childnode>
       </node>
       <node id="13">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
         <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -193,7 +199,7 @@
       <node id="4">
         <label>ostream</label>
       </node>
-      <node id="37">
+      <node id="38">
         <label>random</label>
       </node>
       <node id="28">
@@ -311,7 +317,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;complex&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;random&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
@@ -358,8 +364,8 @@
 <codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Distribution,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>RandomEngine</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/>&gt;</highlight></codeline>
-<codeline lineno="53" refid="namespacesisi4s_1ad79e22ef8ca23c70e5d0edcd8dd1532c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad79e22ef8ca23c70e5d0edcd8dd1532c" kindref="member">setRandomTensor</ref>(</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Tensor&lt;F&gt;<sp/>&amp;t,<sp/>Distribution<sp/>&amp;distribution,<sp/>RandomEngine<sp/>&amp;randomEngine</highlight></codeline>
+<codeline lineno="53" refid="namespacesisi4s_1adb5622106d23e3d14c736c4793512e5c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1adb5622106d23e3d14c736c4793512e5c" kindref="member">setRandomTensor</ref>(</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;t,<sp/>Distribution<sp/>&amp;distribution,<sp/>RandomEngine<sp/>&amp;randomEngine</highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>indicesCount,<sp/>*indices;</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*values;</highlight></codeline>

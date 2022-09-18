@@ -21,19 +21,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" line="18" column="17" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" bodystart="18" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1PseudoInverseSvd_1a1ca24b0fb0e2ac3b36718b5c68c95c42" compoundref="PseudoInverseSvd_8cxx" startline="14" endline="60">sisi4s::PseudoInverseSvd&lt; F &gt;::PseudoInverseSvd</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" line="19" column="17" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" bodystart="19" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" compoundref="PseudoInverseSvd_8cxx" startline="14" endline="60">sisi4s::PseudoInverseSvd&lt; F &gt;::PseudoInverseSvd</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classsisi4s_1_1PseudoInverseSvd_1a1ca24b0fb0e2ac3b36718b5c68c95c42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>template PseudoInverseSvd::PseudoInverseSvd</definition>
-        <argsstring>(CTF::Tensor&lt; F &gt; &amp;A, double epsilon=1e-12)</argsstring>
+        <argsstring>(Tensor&lt; F &gt; &amp;A, double epsilon=1e-12)</argsstring>
         <name>PseudoInverseSvd</name>
         <qualifiedname>sisi4s::PseudoInverseSvd::PseudoInverseSvd</qualifiedname>
         <param>
-          <type><ref refid="TensorReader_8cxx_1ae0ef01a698fe007ed1bf52d22e8e483f" kindref="member">CTF::Tensor</ref>&lt; F &gt; &amp;</type>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; &amp;</type>
           <declname>A</declname>
         </param>
         <param>
@@ -47,15 +47,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" line="14" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.cxx" bodystart="14" bodyend="60"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" line="15" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.cxx" bodystart="14" bodyend="60"/>
         <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
-        <references refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" compoundref="PseudoInverseSvd_8hpp" startline="18">sisi4s::PseudoInverseSvd&lt; F &gt;::inverse</references>
+        <references refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" compoundref="PseudoInverseSvd_8hpp" startline="19">sisi4s::PseudoInverseSvd&lt; F &gt;::inverse</references>
         <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a3376046bb91bb0e6c548a5d9b7a4e31e" compoundref="AngularMomentum_8hpp" startline="8">am::S</references>
         <references refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" compoundref="ScaLapackMatrix_8cxx" startline="140" endline="144">sisi4s::ScaLapackMatrix&lt; F &gt;::write</references>
       </memberdef>
-      <memberdef kind="function" id="classsisi4s_1_1PseudoInverseSvd_1ae0988eeb6499d08b24f25e757ed5315b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CTF::Matrix&lt; F &gt; &amp;</type>
-        <definition>template Matrix&lt; sisi4s::Complex64 &gt; &amp; PseudoInverseSvd::get</definition>
+        <definition>template CTF::Matrix&lt; sisi4s::Complex64 &gt; &amp; PseudoInverseSvd::get</definition>
         <argsstring>()</argsstring>
         <name>get</name>
         <qualifiedname>sisi4s::PseudoInverseSvd::get</qualifiedname>
@@ -65,9 +65,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" line="15" column="17" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.cxx" bodystart="63" bodyend="65"/>
-        <references refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" compoundref="DiisMixer_8cxx" startline="16" endline="32">inverse</references>
-        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1aaa654eb909579e0b49351aa9ad5d637f" compoundref="BasisSetExtrapolation_8cxx" startline="462" endline="514">sisi4s::BasisSetExtrapolation::invertQGG</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" line="16" column="17" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.cxx" bodystart="63" bodyend="65"/>
+        <references refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" compoundref="DiisMixer_8cxx" startline="17" endline="33">inverse</references>
+        <referencedby refid="namespacesisi4s_1a7aeaa0a35be34eeeb8537d428a75e97d" compoundref="RegularizedAlternatingLeastSquares_8cxx" startline="15" endline="43">sisi4s::fitAlternatingLeastSquaresFactor</referencedby>
+        <referencedby refid="namespacesisi4s_1a8ca8aaa549414abe940b2f7ecc1f549d" compoundref="RegularizedAlternatingLeastSquares_8cxx" startline="61" endline="103">sisi4s::fitRegularizedAlternatingLeastSquaresFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1aaa654eb909579e0b49351aa9ad5d637f" compoundref="BasisSetExtrapolation_8cxx" startline="463" endline="515">sisi4s::BasisSetExtrapolation::invertQGG</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -80,11 +82,11 @@
         <link refid="classsisi4s_1_1PseudoInverseSvd"/>
       </node>
     </collaborationgraph>
-    <location file="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" line="12" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" bodystart="12" bodyend="19"/>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" line="13" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp" bodystart="13" bodyend="20"/>
     <listofallmembers>
-      <member refid="classsisi4s_1_1PseudoInverseSvd_1ae0988eeb6499d08b24f25e757ed5315b" prot="public" virt="non-virtual"><scope>sisi4s::PseudoInverseSvd</scope><name>get</name></member>
+      <member refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" prot="public" virt="non-virtual"><scope>sisi4s::PseudoInverseSvd</scope><name>get</name></member>
       <member refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" prot="protected" virt="non-virtual"><scope>sisi4s::PseudoInverseSvd</scope><name>inverse</name></member>
-      <member refid="classsisi4s_1_1PseudoInverseSvd_1a1ca24b0fb0e2ac3b36718b5c68c95c42" prot="public" virt="non-virtual"><scope>sisi4s::PseudoInverseSvd</scope><name>PseudoInverseSvd</name></member>
+      <member refid="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" prot="public" virt="non-virtual"><scope>sisi4s::PseudoInverseSvd</scope><name>PseudoInverseSvd</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

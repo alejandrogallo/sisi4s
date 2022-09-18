@@ -267,7 +267,7 @@ V_{kl}^{ij}, V_{cd}^{ab}, V_{ka}^{ij}, V_{ci}^{ab}$" src="form_11.png"/> (if giv
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsisi4s_1_1FockMatrixFromCoulombIntegrals.html">FockMatrixFromCoulombIntegrals</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the direct sum of CTF::Tensors and provides the vector space operations of addition, scalar multiplication, inner product, complex conjugation to get dual vectors and matrix multiplication between vectors and duals, which yields a scalar.  <a href="classsisi4s_1_1FockVector.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the direct sum of Tensors and provides the vector space operations of addition, scalar multiplication, inner product, complex conjugation to get dual vectors and matrix multiplication between vectors and duals, which yields a scalar.  <a href="classsisi4s_1_1FockVector.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVectorNdCanonical.html">FockVectorNdCanonical</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -567,6 +567,12 @@ Typedefs</h2></td></tr>
 <tr class="separator:af412ed8fd1cb707c417329fdbcd0f407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c92e60898749aa71eb27986ad9ccfde"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsisi4s_1_1FloatTypes.html">FloatTypes</a>&lt; 64 &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a6c92e60898749aa71eb27986ad9ccfde">Float64</a></td></tr>
 <tr class="separator:a6c92e60898749aa71eb27986ad9ccfde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1695e67f99e3219626943923a40886a1"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:a1695e67f99e3219626943923a40886a1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a> = CTF::Tensor&lt; F &gt;</td></tr>
+<tr class="separator:a1695e67f99e3219626943923a40886a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bc5ec282e4873c8ebc9e265d2a08990"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:a8bc5ec282e4873c8ebc9e265d2a08990"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a8bc5ec282e4873c8ebc9e265d2a08990">Matrix</a> = CTF::Matrix&lt; F &gt;</td></tr>
+<tr class="separator:a8bc5ec282e4873c8ebc9e265d2a08990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -589,20 +595,20 @@ Functions</h2></td></tr>
 <tr class="memitem:a3e0e5db8049adce93ba9fc38d7aaeb7f"><td class="memTemplParams" colspan="2">template&lt;int N&gt; </td></tr>
 <tr class="memitem:a3e0e5db8049adce93ba9fc38d7aaeb7f"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a3e0e5db8049adce93ba9fc38d7aaeb7f">operator*</a> (const std::string &amp;s, const <a class="el" href="classsisi4s_1_1Permutation.html">sisi4s::Permutation</a>&lt; N &gt; &amp;pi)</td></tr>
 <tr class="separator:a3e0e5db8049adce93ba9fc38d7aaeb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28d00a7f10c4ac7cbdc7fbdd071e8318"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesisi4s.html#ab0457f55e1460236bab6deb9d7635f0a">MatrixColumnMajor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a28d00a7f10c4ac7cbdc7fbdd071e8318">toEigenMatrix</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;ctf)</td></tr>
-<tr class="separator:a28d00a7f10c4ac7cbdc7fbdd071e8318"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e63f2894299063b2902d0f4f67fe27"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
-<tr class="memitem:a73e63f2894299063b2902d0f4f67fe27"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a73e63f2894299063b2902d0f4f67fe27">composeCanonicalPolyadicDecompositionTensors</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;A, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;B, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;C, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;T)</td></tr>
-<tr class="memdesc:a73e63f2894299063b2902d0f4f67fe27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates <img class="formulaInl" alt="$T_{ijk}=A_{iR}B_{jR}C_{kR}$" src="form_49.png"/> with minimal memory footprint.  <a href="namespacesisi4s.html#a73e63f2894299063b2902d0f4f67fe27">More...</a><br /></td></tr>
-<tr class="separator:a73e63f2894299063b2902d0f4f67fe27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2414ae2ca7d376f6379d91727cd66a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesisi4s.html#ab0457f55e1460236bab6deb9d7635f0a">MatrixColumnMajor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#ab2414ae2ca7d376f6379d91727cd66a1">toEigenMatrix</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;ctf)</td></tr>
+<tr class="separator:ab2414ae2ca7d376f6379d91727cd66a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f1a1c319b7f345b0fbac3d446635845"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
+<tr class="memitem:a5f1a1c319b7f345b0fbac3d446635845"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a5f1a1c319b7f345b0fbac3d446635845">composeCanonicalPolyadicDecompositionTensors</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;A, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;B, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;C, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;T)</td></tr>
+<tr class="memdesc:a5f1a1c319b7f345b0fbac3d446635845"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates <img class="formulaInl" alt="$T_{ijk}=A_{iR}B_{jR}C_{kR}$" src="form_49.png"/> with minimal memory footprint.  <a href="namespacesisi4s.html#a5f1a1c319b7f345b0fbac3d446635845">More...</a><br /></td></tr>
+<tr class="separator:a5f1a1c319b7f345b0fbac3d446635845"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfc549a8ae34264be9b654324c1ae036"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
 <tr class="memitem:abfc549a8ae34264be9b654324c1ae036"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#abfc549a8ae34264be9b654324c1ae036">dryComposeCanonicalPolyadicDecompositionTensors</a> (<a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;A, <a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;B, <a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;C, <a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;T)</td></tr>
 <tr class="memdesc:abfc549a8ae34264be9b654324c1ae036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a dry run of the calculation <img class="formulaInl" alt="$T_{ijk}=A_{iR}B_{jR}C_{kR}$" src="form_49.png"/> with minimal memory footprint.  <a href="namespacesisi4s.html#abfc549a8ae34264be9b654324c1ae036">More...</a><br /></td></tr>
 <tr class="separator:abfc549a8ae34264be9b654324c1ae036"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21fb3aa5ddffa42109990b275c1508c4"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
-<tr class="memitem:a21fb3aa5ddffa42109990b275c1508c4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a21fb3aa5ddffa42109990b275c1508c4">contractWithCanonicalPolyadicDecompositionTensors</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;T, char const *indicesT, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;B, char const idxB, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;C, char const idxC, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;A, char const idxA)</td></tr>
-<tr class="memdesc:a21fb3aa5ddffa42109990b275c1508c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates <img class="formulaInl" alt="$A_{iR} = T_{ijk}B^{jR}C^{kR}$" src="form_50.png"/> using a contraction order with minimal memory footprint.  <a href="namespacesisi4s.html#a21fb3aa5ddffa42109990b275c1508c4">More...</a><br /></td></tr>
-<tr class="separator:a21fb3aa5ddffa42109990b275c1508c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab14ed3164e19d771549f3af9f21a00d8"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
+<tr class="memitem:ab14ed3164e19d771549f3af9f21a00d8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#ab14ed3164e19d771549f3af9f21a00d8">contractWithCanonicalPolyadicDecompositionTensors</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;T, char const *indicesT, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;B, char const idxB, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;C, char const idxC, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;A, char const idxA)</td></tr>
+<tr class="memdesc:ab14ed3164e19d771549f3af9f21a00d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates <img class="formulaInl" alt="$A_{iR} = T_{ijk}B^{jR}C^{kR}$" src="form_50.png"/> using a contraction order with minimal memory footprint.  <a href="namespacesisi4s.html#ab14ed3164e19d771549f3af9f21a00d8">More...</a><br /></td></tr>
+<tr class="separator:ab14ed3164e19d771549f3af9f21a00d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c57f2c3b6b413ec8c8cbac80a1bbaca"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
 <tr class="memitem:a3c57f2c3b6b413ec8c8cbac80a1bbaca"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a3c57f2c3b6b413ec8c8cbac80a1bbaca">dryContractWithCanonicalPolyadicDecompositionTensors</a> (<a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;T, char const *indicesT, <a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;B, char const idxB, <a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;C, char const idxC, <a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;A, char const idxA)</td></tr>
 <tr class="memdesc:a3c57f2c3b6b413ec8c8cbac80a1bbaca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a dry run of the calculation <img class="formulaInl" alt="$A_{iR} = T_{ijk}B^{jR}C^{kR}$" src="form_50.png"/> using a contraction order with minimal memory footprint.  <a href="namespacesisi4s.html#a3c57f2c3b6b413ec8c8cbac80a1bbaca">More...</a><br /></td></tr>
@@ -613,25 +619,25 @@ Functions</h2></td></tr>
 <tr class="memitem:a10d6d290d14104e30791d37abd5d025a"><td class="memTemplParams" colspan="2">template&lt;typename Real &gt; </td></tr>
 <tr class="memitem:a10d6d290d14104e30791d37abd5d025a"><td class="memTemplItemLeft" align="right" valign="top">Real&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a10d6d290d14104e30791d37abd5d025a">absSqr</a> (const <a class="el" href="namespacesisi4s.html#a9cb34238d074521ecc87514a824265dd">Complex</a>&lt; Real &gt; z)</td></tr>
 <tr class="separator:a10d6d290d14104e30791d37abd5d025a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77d868359a18a73cfe184f25fad2f59b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a77d868359a18a73cfe184f25fad2f59b">fromComplexTensor</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;c, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;r, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;i)</td></tr>
-<tr class="memdesc:a77d868359a18a73cfe184f25fad2f59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decomposes the tensor of complex elements into two tensors containing the real and imaginary parts, respectively.  <a href="namespacesisi4s.html#a77d868359a18a73cfe184f25fad2f59b">More...</a><br /></td></tr>
-<tr class="separator:a77d868359a18a73cfe184f25fad2f59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21e9bbf0dda98b5d19a6eea4d8297d38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a21e9bbf0dda98b5d19a6eea4d8297d38">fromComplexTensor</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;c, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;r, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;i)</td></tr>
-<tr class="separator:a21e9bbf0dda98b5d19a6eea4d8297d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dade22e010d5ee743aec8d14256cb88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a6dade22e010d5ee743aec8d14256cb88">fromComplexTensor</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;c, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;r)</td></tr>
-<tr class="memdesc:a6dade22e010d5ee743aec8d14256cb88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards the real part of a complex tensor.  <a href="namespacesisi4s.html#a6dade22e010d5ee743aec8d14256cb88">More...</a><br /></td></tr>
-<tr class="separator:a6dade22e010d5ee743aec8d14256cb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20c6b0ad3767206173edfb7bf525e5a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a20c6b0ad3767206173edfb7bf525e5a7">toComplexTensor</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;r, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;i, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;c)</td></tr>
-<tr class="memdesc:a20c6b0ad3767206173edfb7bf525e5a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composes a tensor of complex elements containing of the given tensors of real and imaginary parts. Note that in this overload the imaginary part may be redistributed during reading.  <a href="namespacesisi4s.html#a20c6b0ad3767206173edfb7bf525e5a7">More...</a><br /></td></tr>
-<tr class="separator:a20c6b0ad3767206173edfb7bf525e5a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e188159cd98f0d401ab23369c49d34f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a7e188159cd98f0d401ab23369c49d34f">toComplexTensor</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;r, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;c)</td></tr>
-<tr class="separator:a7e188159cd98f0d401ab23369c49d34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5881a605777746bffe040bb39da1b048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a5881a605777746bffe040bb39da1b048">toComplexTensor</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;r, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;c)</td></tr>
-<tr class="separator:a5881a605777746bffe040bb39da1b048"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a065b48a575e1c9dd06da30d0aed8c7c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a065b48a575e1c9dd06da30d0aed8c7c1">conjugate</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;c)</td></tr>
-<tr class="separator:a065b48a575e1c9dd06da30d0aed8c7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84ac475b5387a7bc84d0d10bedb6de49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a84ac475b5387a7bc84d0d10bedb6de49">conjugate</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;c)</td></tr>
-<tr class="separator:a84ac475b5387a7bc84d0d10bedb6de49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6f7eb8262f28cfa6afcabe5c42c8521"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#ad6f7eb8262f28cfa6afcabe5c42c8521">fromComplexTensor</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;c, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;r, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;i)</td></tr>
+<tr class="memdesc:ad6f7eb8262f28cfa6afcabe5c42c8521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decomposes the tensor of complex elements into two tensors containing the real and imaginary parts, respectively.  <a href="namespacesisi4s.html#ad6f7eb8262f28cfa6afcabe5c42c8521">More...</a><br /></td></tr>
+<tr class="separator:ad6f7eb8262f28cfa6afcabe5c42c8521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41d0ed33fae9ffd4daee5515290bca54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a41d0ed33fae9ffd4daee5515290bca54">fromComplexTensor</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;c, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;r, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;i)</td></tr>
+<tr class="separator:a41d0ed33fae9ffd4daee5515290bca54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4250fb84afe218d327351f6e6e92bb2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a4250fb84afe218d327351f6e6e92bb2d">fromComplexTensor</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;c, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;r)</td></tr>
+<tr class="memdesc:a4250fb84afe218d327351f6e6e92bb2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards the real part of a complex tensor.  <a href="namespacesisi4s.html#a4250fb84afe218d327351f6e6e92bb2d">More...</a><br /></td></tr>
+<tr class="separator:a4250fb84afe218d327351f6e6e92bb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2653420c2b1b1224ad8f6b1d538228f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a2653420c2b1b1224ad8f6b1d538228f1">toComplexTensor</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;r, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;i, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;c)</td></tr>
+<tr class="memdesc:a2653420c2b1b1224ad8f6b1d538228f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composes a tensor of complex elements containing of the given tensors of real and imaginary parts. Note that in this overload the imaginary part may be redistributed during reading.  <a href="namespacesisi4s.html#a2653420c2b1b1224ad8f6b1d538228f1">More...</a><br /></td></tr>
+<tr class="separator:a2653420c2b1b1224ad8f6b1d538228f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add6f24ee3967bb84399e82f2081681a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#add6f24ee3967bb84399e82f2081681a5">toComplexTensor</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;r, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;c)</td></tr>
+<tr class="separator:add6f24ee3967bb84399e82f2081681a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a014e33dae327f57e5b44d284a6f82219"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a014e33dae327f57e5b44d284a6f82219">toComplexTensor</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;r, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;c)</td></tr>
+<tr class="separator:a014e33dae327f57e5b44d284a6f82219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3f1696a0e7735d418f8996311daa8c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#ab3f1696a0e7735d418f8996311daa8c4">conjugate</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;c)</td></tr>
+<tr class="separator:ab3f1696a0e7735d418f8996311daa8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a900cd067a0e92de9ff85372102f9c596"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a900cd067a0e92de9ff85372102f9c596">conjugate</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;c)</td></tr>
+<tr class="separator:a900cd067a0e92de9ff85372102f9c596"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a309771251a73107cf5eedbe665fa5a6a"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:a309771251a73107cf5eedbe665fa5a6a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a309771251a73107cf5eedbe665fa5a6a">operator+</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a, const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;b)</td></tr>
 <tr class="memdesc:a309771251a73107cf5eedbe665fa5a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sum of two FockVectors a and b, where neither a nor b are modified.  <a href="namespacesisi4s.html#a309771251a73107cf5eedbe665fa5a6a">More...</a><br /></td></tr>
@@ -658,23 +664,23 @@ Functions</h2></td></tr>
 <tr class="separator:a0ae00bfe773466284d8b353f1bc65e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb48bee919c9732a2c97e3ba6c1f01ec"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:afb48bee919c9732a2c97e3ba6c1f01ec"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#afb48bee919c9732a2c97e3ba6c1f01ec">operator*</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a, const F s)</td></tr>
-<tr class="memdesc:afb48bee919c9732a2c97e3ba6c1f01ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> a right-multiplied with the scalar s, where a is not modified.  <a href="namespacesisi4s.html#afb48bee919c9732a2c97e3ba6c1f01ec">More...</a><br /></td></tr>
+<tr class="memdesc:afb48bee919c9732a2c97e3ba6c1f01ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> a right-multiplied with the scalar s, where a is not modified.  <a href="namespacesisi4s.html#afb48bee919c9732a2c97e3ba6c1f01ec">More...</a><br /></td></tr>
 <tr class="separator:afb48bee919c9732a2c97e3ba6c1f01ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ae0c41387739cd346754919d568570f"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:a6ae0c41387739cd346754919d568570f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;&amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a6ae0c41387739cd346754919d568570f">operator*</a> (<a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;&amp;a, const F s)</td></tr>
-<tr class="memdesc:a6ae0c41387739cd346754919d568570f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> a right-multiplied with the scalar s, where a movable and will be used for the result.  <a href="namespacesisi4s.html#a6ae0c41387739cd346754919d568570f">More...</a><br /></td></tr>
+<tr class="memdesc:a6ae0c41387739cd346754919d568570f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> a right-multiplied with the scalar s, where a movable and will be used for the result.  <a href="namespacesisi4s.html#a6ae0c41387739cd346754919d568570f">More...</a><br /></td></tr>
 <tr class="separator:a6ae0c41387739cd346754919d568570f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd5ec42d37f4587f3276558019f71814"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:abd5ec42d37f4587f3276558019f71814"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#abd5ec42d37f4587f3276558019f71814">operator*</a> (const F s, const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a)</td></tr>
-<tr class="memdesc:abd5ec42d37f4587f3276558019f71814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> a left-multiplied with the scalar s, where a is not modified.  <a href="namespacesisi4s.html#abd5ec42d37f4587f3276558019f71814">More...</a><br /></td></tr>
+<tr class="memdesc:abd5ec42d37f4587f3276558019f71814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> a left-multiplied with the scalar s, where a is not modified.  <a href="namespacesisi4s.html#abd5ec42d37f4587f3276558019f71814">More...</a><br /></td></tr>
 <tr class="separator:abd5ec42d37f4587f3276558019f71814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada3ae1ddf909196b7f113f00f0a864a3"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:ada3ae1ddf909196b7f113f00f0a864a3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;&amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#ada3ae1ddf909196b7f113f00f0a864a3">operator*</a> (const F s, <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;&amp;a)</td></tr>
-<tr class="memdesc:ada3ae1ddf909196b7f113f00f0a864a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> a left-multiplied with the scalar s, where a movable and will be used for the result.  <a href="namespacesisi4s.html#ada3ae1ddf909196b7f113f00f0a864a3">More...</a><br /></td></tr>
+<tr class="memdesc:ada3ae1ddf909196b7f113f00f0a864a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> a left-multiplied with the scalar s, where a movable and will be used for the result.  <a href="namespacesisi4s.html#ada3ae1ddf909196b7f113f00f0a864a3">More...</a><br /></td></tr>
 <tr class="separator:ada3ae1ddf909196b7f113f00f0a864a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a824dfb7d6773baaa4dfc79467ad83a59"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:a824dfb7d6773baaa4dfc79467ad83a59"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a824dfb7d6773baaa4dfc79467ad83a59">operator&lt;&lt;</a> (std::ostream &amp;stream, const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a)</td></tr>
-<tr class="memdesc:a824dfb7d6773baaa4dfc79467ad83a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> a to the given stream and returns it for further stream operations.  <a href="namespacesisi4s.html#a824dfb7d6773baaa4dfc79467ad83a59">More...</a><br /></td></tr>
+<tr class="memdesc:a824dfb7d6773baaa4dfc79467ad83a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> a to the given stream and returns it for further stream operations.  <a href="namespacesisi4s.html#a824dfb7d6773baaa4dfc79467ad83a59">More...</a><br /></td></tr>
 <tr class="separator:a824dfb7d6773baaa4dfc79467ad83a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab52936dd14e46acf16cadc4a7dbd0e61"><td class="memTemplParams" colspan="2">template&lt;typename Method , typename F , typename Float &gt; </td></tr>
 <tr class="memitem:ab52936dd14e46acf16cadc4a7dbd0e61"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#ab52936dd14e46acf16cadc4a7dbd0e61">integrate</a> (F f, Float a, Float b, int steps, Method m)</td></tr>
@@ -710,16 +716,16 @@ Functions</h2></td></tr>
 <tr class="memitem:a656f9002a915dfd1122f159f96db10b8"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
 <tr class="memitem:a656f9002a915dfd1122f159f96db10b8"><td class="memTemplItemLeft" align="right" valign="top">F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a656f9002a915dfd1122f159f96db10b8">multiply</a> (F const x, F const y)</td></tr>
 <tr class="separator:a656f9002a915dfd1122f159f96db10b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a072b9097a4466552d4ee05cea48af554"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
-<tr class="memitem:a072b9097a4466552d4ee05cea48af554"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a072b9097a4466552d4ee05cea48af554">frobeniusNorm</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;t)</td></tr>
-<tr class="separator:a072b9097a4466552d4ee05cea48af554"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4695cd08e397ad149f1eb2731f9627f6"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
-<tr class="memitem:a4695cd08e397ad149f1eb2731f9627f6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a4695cd08e397ad149f1eb2731f9627f6">symmetrize</a> (std::string indices, std::string permuted, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;t, F prefactor=1)</td></tr>
-<tr class="memdesc:a4695cd08e397ad149f1eb2731f9627f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a permutation operator and antisymmetrize accordingly, e.g. antiSymmetrize(X, "abcd", "abdc") is replaced by -1 X["abcd"] = X["abcd"] + sign(abcd -&gt; abdc) X["abdc"].  <a href="namespacesisi4s.html#a4695cd08e397ad149f1eb2731f9627f6">More...</a><br /></td></tr>
-<tr class="separator:a4695cd08e397ad149f1eb2731f9627f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9ed24988d04cac58fb1a71d6bac740a"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
-<tr class="memitem:aa9ed24988d04cac58fb1a71d6bac740a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#aa9ed24988d04cac58fb1a71d6bac740a">checkAntisymmetry</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;t)</td></tr>
-<tr class="separator:aa9ed24988d04cac58fb1a71d6bac740a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae36a475bbea733a01982cbf5f741cc1"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:aae36a475bbea733a01982cbf5f741cc1"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#aae36a475bbea733a01982cbf5f741cc1">frobeniusNorm</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;t)</td></tr>
+<tr class="separator:aae36a475bbea733a01982cbf5f741cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e9d78005344619227766a9c62020617"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:a1e9d78005344619227766a9c62020617"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a1e9d78005344619227766a9c62020617">symmetrize</a> (std::string indices, std::string permuted, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;t, F prefactor=1)</td></tr>
+<tr class="memdesc:a1e9d78005344619227766a9c62020617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a permutation operator and antisymmetrize accordingly, e.g. antiSymmetrize(X, "abcd", "abdc") is replaced by -1 X["abcd"] = X["abcd"] + sign(abcd -&gt; abdc) X["abdc"].  <a href="namespacesisi4s.html#a1e9d78005344619227766a9c62020617">More...</a><br /></td></tr>
+<tr class="separator:a1e9d78005344619227766a9c62020617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a064f1996a620381ea305851bf71b734b"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:a064f1996a620381ea305851bf71b734b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a064f1996a620381ea305851bf71b734b">checkAntisymmetry</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;t)</td></tr>
+<tr class="separator:a064f1996a620381ea305851bf71b734b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd3719c004eaad74f542dc971e045475"><td class="memTemplParams" colspan="2">template&lt;int N&gt; </td></tr>
 <tr class="memitem:afd3719c004eaad74f542dc971e045475"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#afd3719c004eaad74f542dc971e045475">operator&lt;&lt;</a> (std::ostream &amp;stream, const <a class="el" href="classsisi4s_1_1Map.html">Map</a>&lt; N &gt; &amp;f)</td></tr>
 <tr class="separator:afd3719c004eaad74f542dc971e045475"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -741,15 +747,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a2261732db2670a035671ccf20c24fde5"><td class="memTemplParams" colspan="2">template&lt;typename Distribution , typename RandomEngine &gt; </td></tr>
 <tr class="memitem:a2261732db2670a035671ccf20c24fde5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a2261732db2670a035671ccf20c24fde5">setRandom</a> (<a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &amp;value, Distribution &amp;distribution, RandomEngine &amp;randomEngine)</td></tr>
 <tr class="separator:a2261732db2670a035671ccf20c24fde5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad79e22ef8ca23c70e5d0edcd8dd1532c"><td class="memTemplParams" colspan="2">template&lt;typename F , typename Distribution , typename RandomEngine &gt; </td></tr>
-<tr class="memitem:ad79e22ef8ca23c70e5d0edcd8dd1532c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#ad79e22ef8ca23c70e5d0edcd8dd1532c">setRandomTensor</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;t, Distribution &amp;distribution, RandomEngine &amp;randomEngine)</td></tr>
-<tr class="separator:ad79e22ef8ca23c70e5d0edcd8dd1532c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2bf3b584b1380ce33fc334c17610fed"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
-<tr class="memitem:ac2bf3b584b1380ce33fc334c17610fed"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#ac2bf3b584b1380ce33fc334c17610fed">fitAlternatingLeastSquaresFactor</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;T, char const *indicesT, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;B, char const idxB, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;C, char const idxC, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;A, char const idxA)</td></tr>
-<tr class="separator:ac2bf3b584b1380ce33fc334c17610fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf3c4be1dfed55e71db97d40eff3ce87"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
-<tr class="memitem:abf3c4be1dfed55e71db97d40eff3ce87"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#abf3c4be1dfed55e71db97d40eff3ce87">fitRegularizedAlternatingLeastSquaresFactor</a> (<a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;T, char const *indicesT, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;B, char const idxB, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;C, char const idxC, <a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;A, char const idxA, <a class="el" href="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator.html">AlternatingLeastSquaresRegularizationEstimator</a> *regularizationEstimatorA)</td></tr>
-<tr class="separator:abf3c4be1dfed55e71db97d40eff3ce87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb5622106d23e3d14c736c4793512e5c"><td class="memTemplParams" colspan="2">template&lt;typename F , typename Distribution , typename RandomEngine &gt; </td></tr>
+<tr class="memitem:adb5622106d23e3d14c736c4793512e5c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#adb5622106d23e3d14c736c4793512e5c">setRandomTensor</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;t, Distribution &amp;distribution, RandomEngine &amp;randomEngine)</td></tr>
+<tr class="separator:adb5622106d23e3d14c736c4793512e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aeaa0a35be34eeeb8537d428a75e97d"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
+<tr class="memitem:a7aeaa0a35be34eeeb8537d428a75e97d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a7aeaa0a35be34eeeb8537d428a75e97d">fitAlternatingLeastSquaresFactor</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;T, char const *indicesT, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;B, char const idxB, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;C, char const idxC, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;A, char const idxA)</td></tr>
+<tr class="separator:a7aeaa0a35be34eeeb8537d428a75e97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ca8aaa549414abe940b2f7ecc1f549d"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
+<tr class="memitem:a8ca8aaa549414abe940b2f7ecc1f549d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a8ca8aaa549414abe940b2f7ecc1f549d">fitRegularizedAlternatingLeastSquaresFactor</a> (<a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;T, char const *indicesT, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;B, char const idxB, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;C, char const idxC, <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;A, char const idxA, <a class="el" href="classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator.html">AlternatingLeastSquaresRegularizationEstimator</a> *regularizationEstimatorA)</td></tr>
+<tr class="separator:a8ca8aaa549414abe940b2f7ecc1f549d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e043fcaaf8e99a86eb9920cf43cc228"><td class="memTemplParams" colspan="2">template&lt;typename F  = double&gt; </td></tr>
 <tr class="memitem:a7e043fcaaf8e99a86eb9920cf43cc228"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesisi4s.html#a7e043fcaaf8e99a86eb9920cf43cc228">dryFitRegularizedAlternatingLeastSquaresFactor</a> (<a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;T, char const *indicesT, <a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;B, char const idxB, <a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;C, char const idxC, <a class="el" href="classsisi4s_1_1DryTensor.html">DryTensor</a>&lt; F &gt; &amp;A, char const idxA)</td></tr>
 <tr class="separator:a7e043fcaaf8e99a86eb9920cf43cc228"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -917,6 +923,22 @@ template&lt;typename Real &gt; </div>
 
 </div>
 </div>
+<a id="a8bc5ec282e4873c8ebc9e265d2a08990" name="a8bc5ec282e4873c8ebc9e265d2a08990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bc5ec282e4873c8ebc9e265d2a08990">&#9670;&nbsp;</a></span>Matrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacesisi4s.html#a8bc5ec282e4873c8ebc9e265d2a08990">sisi4s::Matrix</a> = typedef CTF::Matrix&lt;F&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab0457f55e1460236bab6deb9d7635f0a" name="ab0457f55e1460236bab6deb9d7635f0a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0457f55e1460236bab6deb9d7635f0a">&#9670;&nbsp;</a></span>MatrixColumnMajor</h2>
 
@@ -925,6 +947,22 @@ template&lt;typename Real &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespacesisi4s.html#ab0457f55e1460236bab6deb9d7635f0a">sisi4s::MatrixColumnMajor</a> = typedef Eigen::Matrix&lt; double , Eigen::Dynamic , Eigen::Dynamic , Eigen::ColMajor &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1695e67f99e3219626943923a40886a1" name="a1695e67f99e3219626943923a40886a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1695e67f99e3219626943923a40886a1">&#9670;&nbsp;</a></span>Tensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">sisi4s::Tensor</a> = typedef CTF::Tensor&lt;F&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1078,8 +1116,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aa9ed24988d04cac58fb1a71d6bac740a" name="aa9ed24988d04cac58fb1a71d6bac740a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9ed24988d04cac58fb1a71d6bac740a">&#9670;&nbsp;</a></span>checkAntisymmetry()</h2>
+<a id="a064f1996a620381ea305851bf71b734b" name="a064f1996a620381ea305851bf71b734b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a064f1996a620381ea305851bf71b734b">&#9670;&nbsp;</a></span>checkAntisymmetry()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1092,7 +1130,7 @@ template&lt;typename F &gt; </div>
         <tr>
           <td class="memname">void sisi4s::checkAntisymmetry </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1106,8 +1144,8 @@ template&lt;typename F &gt; </div>
 
 </div>
 </div>
-<a id="a73e63f2894299063b2902d0f4f67fe27" name="a73e63f2894299063b2902d0f4f67fe27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73e63f2894299063b2902d0f4f67fe27">&#9670;&nbsp;</a></span>composeCanonicalPolyadicDecompositionTensors()</h2>
+<a id="a5f1a1c319b7f345b0fbac3d446635845" name="a5f1a1c319b7f345b0fbac3d446635845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f1a1c319b7f345b0fbac3d446635845">&#9670;&nbsp;</a></span>composeCanonicalPolyadicDecompositionTensors()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1117,25 +1155,25 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="memname">void sisi4s::composeCanonicalPolyadicDecompositionTensors </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>A</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>C</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>T</em>&#160;</td>
         </tr>
         <tr>
@@ -1150,7 +1188,7 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a73e63f2894299063b2902d0f4f67fe27_icgraph.svg" width="1539" height="172"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a5f1a1c319b7f345b0fbac3d446635845_icgraph.svg" width="1539" height="172"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1230,8 +1268,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a84ac475b5387a7bc84d0d10bedb6de49" name="a84ac475b5387a7bc84d0d10bedb6de49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84ac475b5387a7bc84d0d10bedb6de49">&#9670;&nbsp;</a></span>conjugate() <span class="overload">[1/2]</span></h2>
+<a id="a900cd067a0e92de9ff85372102f9c596" name="a900cd067a0e92de9ff85372102f9c596"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a900cd067a0e92de9ff85372102f9c596">&#9670;&nbsp;</a></span>conjugate() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1239,7 +1277,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void sisi4s::conjugate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1248,14 +1286,14 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a84ac475b5387a7bc84d0d10bedb6de49_cgraph.svg" width="427" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a900cd067a0e92de9ff85372102f9c596_cgraph.svg" width="427" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a065b48a575e1c9dd06da30d0aed8c7c1" name="a065b48a575e1c9dd06da30d0aed8c7c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a065b48a575e1c9dd06da30d0aed8c7c1">&#9670;&nbsp;</a></span>conjugate() <span class="overload">[2/2]</span></h2>
+<a id="ab3f1696a0e7735d418f8996311daa8c4" name="ab3f1696a0e7735d418f8996311daa8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3f1696a0e7735d418f8996311daa8c4">&#9670;&nbsp;</a></span>conjugate() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1263,7 +1301,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void sisi4s::conjugate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1272,14 +1310,14 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a065b48a575e1c9dd06da30d0aed8c7c1_icgraph.svg" width="766" height="562"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_ab3f1696a0e7735d418f8996311daa8c4_icgraph.svg" width="766" height="562"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a21fb3aa5ddffa42109990b275c1508c4" name="a21fb3aa5ddffa42109990b275c1508c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21fb3aa5ddffa42109990b275c1508c4">&#9670;&nbsp;</a></span>contractWithCanonicalPolyadicDecompositionTensors()</h2>
+<a id="ab14ed3164e19d771549f3af9f21a00d8" name="ab14ed3164e19d771549f3af9f21a00d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab14ed3164e19d771549f3af9f21a00d8">&#9670;&nbsp;</a></span>contractWithCanonicalPolyadicDecompositionTensors()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1289,7 +1327,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="memname">void sisi4s::contractWithCanonicalPolyadicDecompositionTensors </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>T</em>, </td>
         </tr>
         <tr>
@@ -1301,7 +1339,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em>, </td>
         </tr>
         <tr>
@@ -1313,7 +1351,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>C</em>, </td>
         </tr>
         <tr>
@@ -1325,7 +1363,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>A</em>, </td>
         </tr>
         <tr>
@@ -1356,6 +1394,12 @@ template&lt;typename F  = double&gt; </div>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_ab14ed3164e19d771549f3af9f21a00d8_icgraph.svg" width="1503" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -1738,8 +1782,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ac2bf3b584b1380ce33fc334c17610fed" name="ac2bf3b584b1380ce33fc334c17610fed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2bf3b584b1380ce33fc334c17610fed">&#9670;&nbsp;</a></span>fitAlternatingLeastSquaresFactor()</h2>
+<a id="a7aeaa0a35be34eeeb8537d428a75e97d" name="a7aeaa0a35be34eeeb8537d428a75e97d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aeaa0a35be34eeeb8537d428a75e97d">&#9670;&nbsp;</a></span>fitAlternatingLeastSquaresFactor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1749,7 +1793,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="memname">void sisi4s::fitAlternatingLeastSquaresFactor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>T</em>, </td>
         </tr>
         <tr>
@@ -1761,7 +1805,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em>, </td>
         </tr>
         <tr>
@@ -1773,7 +1817,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>C</em>, </td>
         </tr>
         <tr>
@@ -1785,7 +1829,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>A</em>, </td>
         </tr>
         <tr>
@@ -1802,16 +1846,22 @@ template&lt;typename F  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a7aeaa0a35be34eeeb8537d428a75e97d_cgraph.svg" width="703" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_ac2bf3b584b1380ce33fc334c17610fed_icgraph.svg" width="1188" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a7aeaa0a35be34eeeb8537d428a75e97d_icgraph.svg" width="1188" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="abf3c4be1dfed55e71db97d40eff3ce87" name="abf3c4be1dfed55e71db97d40eff3ce87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf3c4be1dfed55e71db97d40eff3ce87">&#9670;&nbsp;</a></span>fitRegularizedAlternatingLeastSquaresFactor()</h2>
+<a id="a8ca8aaa549414abe940b2f7ecc1f549d" name="a8ca8aaa549414abe940b2f7ecc1f549d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ca8aaa549414abe940b2f7ecc1f549d">&#9670;&nbsp;</a></span>fitRegularizedAlternatingLeastSquaresFactor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1821,7 +1871,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="memname">void sisi4s::fitRegularizedAlternatingLeastSquaresFactor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>T</em>, </td>
         </tr>
         <tr>
@@ -1833,7 +1883,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>B</em>, </td>
         </tr>
         <tr>
@@ -1845,7 +1895,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>C</em>, </td>
         </tr>
         <tr>
@@ -1857,7 +1907,7 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>A</em>, </td>
         </tr>
         <tr>
@@ -1880,16 +1930,22 @@ template&lt;typename F  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a8ca8aaa549414abe940b2f7ecc1f549d_cgraph.svg" width="774" height="395"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_abf3c4be1dfed55e71db97d40eff3ce87_icgraph.svg" width="918" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a8ca8aaa549414abe940b2f7ecc1f549d_icgraph.svg" width="918" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a072b9097a4466552d4ee05cea48af554" name="a072b9097a4466552d4ee05cea48af554"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a072b9097a4466552d4ee05cea48af554">&#9670;&nbsp;</a></span>frobeniusNorm()</h2>
+<a id="aae36a475bbea733a01982cbf5f741cc1" name="aae36a475bbea733a01982cbf5f741cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae36a475bbea733a01982cbf5f741cc1">&#9670;&nbsp;</a></span>frobeniusNorm()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1902,7 +1958,7 @@ template&lt;typename F &gt; </div>
         <tr>
           <td class="memname">double sisi4s::frobeniusNorm </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1916,20 +1972,20 @@ template&lt;typename F &gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a072b9097a4466552d4ee05cea48af554_cgraph.svg" width="315" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_aae36a475bbea733a01982cbf5f741cc1_cgraph.svg" width="315" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a072b9097a4466552d4ee05cea48af554_icgraph.svg" width="1479" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_aae36a475bbea733a01982cbf5f741cc1_icgraph.svg" width="1479" height="418"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a6dade22e010d5ee743aec8d14256cb88" name="a6dade22e010d5ee743aec8d14256cb88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dade22e010d5ee743aec8d14256cb88">&#9670;&nbsp;</a></span>fromComplexTensor() <span class="overload">[1/3]</span></h2>
+<a id="a4250fb84afe218d327351f6e6e92bb2d" name="a4250fb84afe218d327351f6e6e92bb2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4250fb84afe218d327351f6e6e92bb2d">&#9670;&nbsp;</a></span>fromComplexTensor() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1937,13 +1993,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void sisi4s::fromComplexTensor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>c</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>r</em>&#160;</td>
         </tr>
         <tr>
@@ -1958,8 +2014,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a77d868359a18a73cfe184f25fad2f59b" name="a77d868359a18a73cfe184f25fad2f59b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77d868359a18a73cfe184f25fad2f59b">&#9670;&nbsp;</a></span>fromComplexTensor() <span class="overload">[2/3]</span></h2>
+<a id="ad6f7eb8262f28cfa6afcabe5c42c8521" name="ad6f7eb8262f28cfa6afcabe5c42c8521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6f7eb8262f28cfa6afcabe5c42c8521">&#9670;&nbsp;</a></span>fromComplexTensor() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1967,19 +2023,19 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void sisi4s::fromComplexTensor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>c</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>r</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>i</em>&#160;</td>
         </tr>
         <tr>
@@ -1994,20 +2050,20 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a77d868359a18a73cfe184f25fad2f59b_cgraph.svg" width="210" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_ad6f7eb8262f28cfa6afcabe5c42c8521_cgraph.svg" width="210" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a77d868359a18a73cfe184f25fad2f59b_icgraph.svg" width="1135" height="810"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_ad6f7eb8262f28cfa6afcabe5c42c8521_icgraph.svg" width="1135" height="810"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a21e9bbf0dda98b5d19a6eea4d8297d38" name="a21e9bbf0dda98b5d19a6eea4d8297d38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21e9bbf0dda98b5d19a6eea4d8297d38">&#9670;&nbsp;</a></span>fromComplexTensor() <span class="overload">[3/3]</span></h2>
+<a id="a41d0ed33fae9ffd4daee5515290bca54" name="a41d0ed33fae9ffd4daee5515290bca54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41d0ed33fae9ffd4daee5515290bca54">&#9670;&nbsp;</a></span>fromComplexTensor() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2015,19 +2071,19 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void sisi4s::fromComplexTensor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>c</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>r</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>i</em>&#160;</td>
         </tr>
         <tr>
@@ -2270,7 +2326,7 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> a left-multiplied with the scalar s, where a is not modified. </p>
+<p>Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> a left-multiplied with the scalar s, where a is not modified. </p>
 
 </div>
 </div>
@@ -2310,7 +2366,7 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> a left-multiplied with the scalar s, where a movable and will be used for the result. </p>
+<p>Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> a left-multiplied with the scalar s, where a movable and will be used for the result. </p>
 
 </div>
 </div>
@@ -2350,7 +2406,7 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> a right-multiplied with the scalar s, where a is not modified. </p>
+<p>Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> a right-multiplied with the scalar s, where a is not modified. </p>
 
 </div>
 </div>
@@ -2582,7 +2638,7 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> a right-multiplied with the scalar s, where a movable and will be used for the result. </p>
+<p>Returns the scalar multiple of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> a right-multiplied with the scalar s, where a movable and will be used for the result. </p>
 
 </div>
 </div>
@@ -3010,7 +3066,7 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Writes the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of CTF::Tensors and provides the vector space operations of addition,...">FockVector</a> a to the given stream and returns it for further stream operations. </p>
+<p>Writes the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> a to the given stream and returns it for further stream operations. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3437,8 +3493,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ad79e22ef8ca23c70e5d0edcd8dd1532c" name="ad79e22ef8ca23c70e5d0edcd8dd1532c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad79e22ef8ca23c70e5d0edcd8dd1532c">&#9670;&nbsp;</a></span>setRandomTensor()</h2>
+<a id="adb5622106d23e3d14c736c4793512e5c" name="adb5622106d23e3d14c736c4793512e5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb5622106d23e3d14c736c4793512e5c">&#9670;&nbsp;</a></span>setRandomTensor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3448,7 +3504,7 @@ template&lt;typename F , typename Distribution , typename RandomEngine &gt; </di
         <tr>
           <td class="memname">void sisi4s::setRandomTensor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
@@ -3473,13 +3529,13 @@ template&lt;typename F , typename Distribution , typename RandomEngine &gt; </di
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_ad79e22ef8ca23c70e5d0edcd8dd1532c_cgraph.svg" width="383" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_adb5622106d23e3d14c736c4793512e5c_cgraph.svg" width="383" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_ad79e22ef8ca23c70e5d0edcd8dd1532c_icgraph.svg" width="536" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_adb5622106d23e3d14c736c4793512e5c_icgraph.svg" width="536" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -3519,14 +3575,14 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a40947d88c4989cacff153a78af67f686_icgraph.svg" width="1727" height="1004"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a40947d88c4989cacff153a78af67f686_icgraph.svg" width="1727" height="1060"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a4695cd08e397ad149f1eb2731f9627f6" name="a4695cd08e397ad149f1eb2731f9627f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4695cd08e397ad149f1eb2731f9627f6">&#9670;&nbsp;</a></span>symmetrize()</h2>
+<a id="a1e9d78005344619227766a9c62020617" name="a1e9d78005344619227766a9c62020617"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9d78005344619227766a9c62020617">&#9670;&nbsp;</a></span>symmetrize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3551,7 +3607,7 @@ template&lt;typename F &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; F &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &amp;&#160;</td>
           <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
@@ -3604,8 +3660,8 @@ template&lt;typename F  = double&gt; </div>
 
 </div>
 </div>
-<a id="a7e188159cd98f0d401ab23369c49d34f" name="a7e188159cd98f0d401ab23369c49d34f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e188159cd98f0d401ab23369c49d34f">&#9670;&nbsp;</a></span>toComplexTensor() <span class="overload">[1/3]</span></h2>
+<a id="add6f24ee3967bb84399e82f2081681a5" name="add6f24ee3967bb84399e82f2081681a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add6f24ee3967bb84399e82f2081681a5">&#9670;&nbsp;</a></span>toComplexTensor() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3613,13 +3669,13 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="memname">void sisi4s::toComplexTensor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>r</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>c</em>&#160;</td>
         </tr>
         <tr>
@@ -3632,8 +3688,8 @@ template&lt;typename F  = double&gt; </div>
 
 </div>
 </div>
-<a id="a5881a605777746bffe040bb39da1b048" name="a5881a605777746bffe040bb39da1b048"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5881a605777746bffe040bb39da1b048">&#9670;&nbsp;</a></span>toComplexTensor() <span class="overload">[2/3]</span></h2>
+<a id="a014e33dae327f57e5b44d284a6f82219" name="a014e33dae327f57e5b44d284a6f82219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a014e33dae327f57e5b44d284a6f82219">&#9670;&nbsp;</a></span>toComplexTensor() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3641,13 +3697,13 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="memname">void sisi4s::toComplexTensor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>r</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>c</em>&#160;</td>
         </tr>
         <tr>
@@ -3660,8 +3716,8 @@ template&lt;typename F  = double&gt; </div>
 
 </div>
 </div>
-<a id="a20c6b0ad3767206173edfb7bf525e5a7" name="a20c6b0ad3767206173edfb7bf525e5a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20c6b0ad3767206173edfb7bf525e5a7">&#9670;&nbsp;</a></span>toComplexTensor() <span class="overload">[3/3]</span></h2>
+<a id="a2653420c2b1b1224ad8f6b1d538228f1" name="a2653420c2b1b1224ad8f6b1d538228f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2653420c2b1b1224ad8f6b1d538228f1">&#9670;&nbsp;</a></span>toComplexTensor() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3669,19 +3725,19 @@ template&lt;typename F  = double&gt; </div>
         <tr>
           <td class="memname">void sisi4s::toComplexTensor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>r</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; <a class="el" href="namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f">complex</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>c</em>&#160;</td>
         </tr>
         <tr>
@@ -3696,20 +3752,20 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a20c6b0ad3767206173edfb7bf525e5a7_cgraph.svg" width="191" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a2653420c2b1b1224ad8f6b1d538228f1_cgraph.svg" width="191" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a20c6b0ad3767206173edfb7bf525e5a7_icgraph.svg" width="1116" height="855"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a2653420c2b1b1224ad8f6b1d538228f1_icgraph.svg" width="1116" height="855"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a28d00a7f10c4ac7cbdc7fbdd071e8318" name="a28d00a7f10c4ac7cbdc7fbdd071e8318"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28d00a7f10c4ac7cbdc7fbdd071e8318">&#9670;&nbsp;</a></span>toEigenMatrix()</h2>
+<a id="ab2414ae2ca7d376f6379d91727cd66a1" name="ab2414ae2ca7d376f6379d91727cd66a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2414ae2ca7d376f6379d91727cd66a1">&#9670;&nbsp;</a></span>toEigenMatrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3717,7 +3773,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname"><a class="el" href="namespacesisi4s.html#ab0457f55e1460236bab6deb9d7635f0a">MatrixColumnMajor</a> sisi4s::toEigenMatrix </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="TensorReader_8cxx.html#ae0ef01a698fe007ed1bf52d22e8e483f">CTF::Tensor</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>ctf</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3726,7 +3782,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_a28d00a7f10c4ac7cbdc7fbdd071e8318_icgraph.svg" width="771" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacesisi4s_ab2414ae2ca7d376f6379d91727cd66a1_icgraph.svg" width="771" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
