@@ -134,7 +134,7 @@ namespace sisi4s {
    */
   #define MIXER_REGISTRAR_DECLARATION(NAME) \
     virtual std::string getName() { return #NAME; } \
-    static MixerRegistrar<F, NAME<F>> registrar_;
+    static MixerRegistrar<F, NAME<F>> registrar_
 
   /**
    * \brief Auxiliary macro defining the mixer registrar for
@@ -144,7 +144,7 @@ namespace sisi4s {
    */
   #define MIXER_REGISTRAR_DEFINITION(NAME) \
     template <typename F> \
-    MixerRegistrar<F, NAME<F>> NAME<F>::registrar_(#NAME);
+    MixerRegistrar<F, NAME<F>> NAME<F>::registrar_(#NAME)
 }
 
 #endif

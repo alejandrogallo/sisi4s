@@ -273,9 +273,9 @@ void MoReader::run() {
         for (size_t ii(0); ii<am; ii++) {
           assert(indices[ii] < Np);
           _mos[ indices[ii] + j * Np ] *= scaling[ii];
-        }
-        }
-        }
+        } // ii
+        } // indices
+        } // j
         LOGGER(0) << "done with "  << am << std::endl;
       }
     }
@@ -299,9 +299,9 @@ void MoReader::run() {
         for (size_t ii(0); ii<am; ii++) {
           assert(indices[ii] < Np);
           _mos[ indices[ii] + j * Np ] = backup[reorder[ii]];
-        }
-        }
-        }
+        } // ii
+        } // indices
+        } // j
         LOGGER(0) << "done with "  << am << std::endl;
       }
     }

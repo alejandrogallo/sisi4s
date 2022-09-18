@@ -1,5 +1,5 @@
 /*Copyright (c) 2017, Andreas Grueneis and Felix Hummel, all rights reserved.*/
-#ifndef DIIS_MIXER_DEFINED 
+#ifndef DIIS_MIXER_DEFINED
 #define DIIS_MIXER_DEFINED
 
 #include <mixers/Mixer.hpp>

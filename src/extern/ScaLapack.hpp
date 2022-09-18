@@ -109,7 +109,7 @@ extern "C" {
     const sisi4s::complex *beta,
     sisi4s::complex *C, const int *ic, const int *jc, const int *descc
   );
-};
+}
 
 #endif
 

@@ -125,7 +125,7 @@ extern "C" {
     const int *lda
   );
 
-};
+}
 
 #endif
 

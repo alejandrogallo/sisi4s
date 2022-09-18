@@ -35,8 +35,7 @@ std::vector<sisi4s::complex> inverse(
   std::vector<sisi4s::complex> matrix, int N
 ){
   std::vector<sisi4s::complex> column(N);
-// TODO
-
+  throw "TODO";
   return column;
 }
 
