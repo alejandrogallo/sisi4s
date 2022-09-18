@@ -127,9 +127,13 @@ Macros</h2></td></tr>
 <tr class="memitem:a4ffc3a9c4af45241536daf63a73956b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Algorithm_8hpp.html#a4ffc3a9c4af45241536daf63a73956b8">ALGORITHM_REGISTRAR_DECLARATION</a>(NAME)</td></tr>
 <tr class="memdesc:a4ffc3a9c4af45241536daf63a73956b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary macro declaring the algorithm registrar for the algorithm type of the given name. This macro is to be used in the algorith declaration within the .hpp file. Note that name is a symbol name not a string.  <a href="Algorithm_8hpp.html#a4ffc3a9c4af45241536daf63a73956b8">More...</a><br /></td></tr>
 <tr class="separator:a4ffc3a9c4af45241536daf63a73956b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07e9ffa67ed21886a687b27719c949e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Algorithm_8hpp.html#a07e9ffa67ed21886a687b27719c949e1">ALGORITHM_REGISTRAR_DEFINITION</a>(NAME)&#160;&#160;&#160;    AlgorithmRegistrar&lt;NAME&gt; NAME::registrar_(#NAME)</td></tr>
+<tr class="memitem:a07e9ffa67ed21886a687b27719c949e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Algorithm_8hpp.html#a07e9ffa67ed21886a687b27719c949e1">ALGORITHM_REGISTRAR_DEFINITION</a>(NAME)&#160;&#160;&#160;  AlgorithmRegistrar&lt;NAME&gt; NAME::registrar_(#NAME)</td></tr>
 <tr class="memdesc:a07e9ffa67ed21886a687b27719c949e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary macro defining the algorithm registrar for the algorithm type of the given name. This macro is to be used in the algorithm definition within the .cxx file. Note that name is a symbol name not a string.  <a href="Algorithm_8hpp.html#a07e9ffa67ed21886a687b27719c949e1">More...</a><br /></td></tr>
 <tr class="separator:a07e9ffa67ed21886a687b27719c949e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8396f8cdafe4328da814dc0e0e238e0c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Algorithm_8hpp.html#a8396f8cdafe4328da814dc0e0e238e0c">IMPLEMENT_ALGORITHM</a>(NAME, ...)</td></tr>
+<tr class="separator:a8396f8cdafe4328da814dc0e0e238e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0e62cfc52c2aca8ce56a710cf0c8aea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Algorithm_8hpp.html#ad0e62cfc52c2aca8ce56a710cf0c8aea">DEFINE_ALGORITHM_HEADER</a>(NAME, ...)</td></tr>
+<tr class="separator:ad0e62cfc52c2aca8ce56a710cf0c8aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -154,8 +158,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">virtual</span> std::string getName() { <span class="keywordflow">return</span> #NAME; } \</div>
-<div class="line">    static AlgorithmRegistrar&lt;NAME&gt; registrar_</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">virtual</span> std::string getName() { <span class="keywordflow">return</span> #NAME; } \</div>
+<div class="line">  static AlgorithmRegistrar&lt;NAME&gt; registrar_</div>
 </div><!-- fragment -->
 <p>Auxiliary macro declaring the algorithm registrar for the algorithm type of the given name. This macro is to be used in the algorith declaration within the .hpp file. Note that name is a symbol name not a string. </p>
 
@@ -172,13 +176,84 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">NAME</td><td>)</td>
-          <td>&#160;&#160;&#160;    AlgorithmRegistrar&lt;NAME&gt; NAME::registrar_(#NAME)</td>
+          <td>&#160;&#160;&#160;  AlgorithmRegistrar&lt;NAME&gt; NAME::registrar_(#NAME)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Auxiliary macro defining the algorithm registrar for the algorithm type of the given name. This macro is to be used in the algorithm definition within the .cxx file. Note that name is a symbol name not a string. </p>
 
+</div>
+</div>
+<a id="ad0e62cfc52c2aca8ce56a710cf0c8aea" name="ad0e62cfc52c2aca8ce56a710cf0c8aea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0e62cfc52c2aca8ce56a710cf0c8aea">&#9670;&nbsp;</a></span>DEFINE_ALGORITHM_HEADER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFINE_ALGORITHM_HEADER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">class </span>NAME: <span class="keyword">public</span> Algorithm {                  \</div>
+<div class="line">  public:                                         \</div>
+<div class="line">  ALGORITHM_REGISTRAR_DECLARATION(NAME);          \</div>
+<div class="line">  NAME(std::vector&lt;Argument&gt; <span class="keyword">const</span> &amp;argumentList) \</div>
+<div class="line">    : Algorithm(argumentList) {}                  \</div>
+<div class="line">  ~NAME(){}                                       \</div>
+<div class="line">  virtual <span class="keywordtype">void</span> run();                             \</div>
+<div class="line">  __VA_ARGS__                                     \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8396f8cdafe4328da814dc0e0e238e0c" name="a8396f8cdafe4328da814dc0e0e238e0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8396f8cdafe4328da814dc0e0e238e0c">&#9670;&nbsp;</a></span>IMPLEMENT_ALGORITHM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPLEMENT_ALGORITHM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <a class="code hl_define" href="Algorithm_8hpp.html#a07e9ffa67ed21886a687b27719c949e1">ALGORITHM_REGISTRAR_DEFINITION</a>(NAME);           \</div>
+<div class="line">  void NAME::run() {                              \</div>
+<div class="line">    __VA_ARGS__                                   \</div>
+<div class="line">      }                                           \</div>
+<div class="line">  class Algorithm</div>
+<div class="ttc" id="aAlgorithm_8hpp_html_a07e9ffa67ed21886a687b27719c949e1"><div class="ttname"><a href="Algorithm_8hpp.html#a07e9ffa67ed21886a687b27719c949e1">ALGORITHM_REGISTRAR_DEFINITION</a></div><div class="ttdeci">#define ALGORITHM_REGISTRAR_DEFINITION(NAME)</div><div class="ttdoc">Auxiliary macro defining the algorithm registrar for the algorithm type of the given name....</div><div class="ttdef"><b>Definition:</b> Algorithm.hpp:191</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"CcsdDiagrammaticDecomposition_8cxx.html":[4,0,0,0,9],
+"CcsdDiagrammaticDecomposition_8hpp.html":[4,0,0,0,10],
 "CcsdDiagrammaticDecomposition_8hpp_source.html":[4,0,0,0,10],
 "CcsdEnergyFromCoulombIntegralsReference_8cxx.html":[4,0,0,0,13],
 "CcsdEnergyFromCoulombIntegralsReference_8hpp.html":[4,0,0,0,14],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "Lapack_8hpp.html#aa5156a837dc04850959f7eec5f83e01c":[4,0,0,1,2,6],
 "Lapack_8hpp.html#aaacdf33c1d8272c5fd148b2e002c12a6":[4,0,0,1,2,5],
 "Lapack_8hpp.html#ab79f66e7f576fe063fb09995dc467c00":[4,0,0,1,2,7],
-"Lapack_8hpp_source.html":[4,0,0,1,2],
-"LineNumberStream_8hpp.html":[4,0,0,7,18],
-"LineNumberStream_8hpp_source.html":[4,0,0,7,18]
+"Lapack_8hpp_source.html":[4,0,0,1,2]
 };

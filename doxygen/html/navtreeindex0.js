@@ -19,7 +19,9 @@ var NAVTREEINDEX0 =
 "Algorithm_8hpp.html":[4,0,0,0,2],
 "Algorithm_8hpp.html#a07e9ffa67ed21886a687b27719c949e1":[4,0,0,0,2,5],
 "Algorithm_8hpp.html#a4ffc3a9c4af45241536daf63a73956b8":[4,0,0,0,2,4],
-"Algorithm_8hpp.html#aeeda71beb90d864c4ecd8884ef0047d9":[4,0,0,0,2,6],
+"Algorithm_8hpp.html#a8396f8cdafe4328da814dc0e0e238e0c":[4,0,0,0,2,7],
+"Algorithm_8hpp.html#ad0e62cfc52c2aca8ce56a710cf0c8aea":[4,0,0,0,2,6],
+"Algorithm_8hpp.html#aeeda71beb90d864c4ecd8884ef0047d9":[4,0,0,0,2,8],
 "Algorithm_8hpp_source.html":[4,0,0,0,2],
 "AngularMomentum_8cxx.html":[4,0,0,7,0],
 "AngularMomentum_8hpp.html":[4,0,0,7,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "CanonicalPolyadicDecomposition_8hpp.html#a3c57f2c3b6b413ec8c8cbac80a1bbaca":[4,0,0,3,1,3],
 "CanonicalPolyadicDecomposition_8hpp.html#a73e63f2894299063b2902d0f4f67fe27":[4,0,0,3,1,0],
 "CanonicalPolyadicDecomposition_8hpp.html#abfc549a8ae34264be9b654324c1ae036":[4,0,0,3,1,2],
-"CanonicalPolyadicDecomposition_8hpp_source.html":[4,0,0,3,1],
-"CcsdDiagrammaticDecomposition_8cxx.html":[4,0,0,0,9],
-"CcsdDiagrammaticDecomposition_8hpp.html":[4,0,0,0,10]
+"CanonicalPolyadicDecomposition_8hpp_source.html":[4,0,0,3,1]
 };

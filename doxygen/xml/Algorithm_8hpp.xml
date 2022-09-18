@@ -1294,8 +1294,8 @@
       <memberdef kind="define" id="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" prot="public" static="no">
         <name>ALGORITHM_REGISTRAR_DECLARATION</name>
         <param><defname>NAME</defname></param>
-        <initializer>    virtual std::string getName() { return #NAME; } \
-    static AlgorithmRegistrar&lt;NAME&gt; registrar_</initializer>
+        <initializer>  virtual std::string getName() { return #NAME; } \
+  static AlgorithmRegistrar&lt;NAME&gt; registrar_</initializer>
         <briefdescription>
 <para>Auxiliary macro declaring the algorithm registrar for the algorithm type of the given name. This macro is to be used in the algorith declaration within the .hpp file. Note that name is a symbol name not a string. </para>
         </briefdescription>
@@ -1303,12 +1303,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="173" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="173" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="182" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="182" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" prot="public" static="no">
         <name>ALGORITHM_REGISTRAR_DEFINITION</name>
         <param><defname>NAME</defname></param>
-        <initializer>    AlgorithmRegistrar&lt;NAME&gt; NAME::registrar_(#NAME)</initializer>
+        <initializer>  AlgorithmRegistrar&lt;NAME&gt; NAME::registrar_(#NAME)</initializer>
         <briefdescription>
 <para>Auxiliary macro defining the algorithm registrar for the algorithm type of the given name. This macro is to be used in the algorithm definition within the .cxx file. Note that name is a symbol name not a string. </para>
         </briefdescription>
@@ -1316,7 +1316,45 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="182" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="182" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="191" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Algorithm_8hpp_1a8396f8cdafe4328da814dc0e0e238e0c" prot="public" static="no">
+        <name>IMPLEMENT_ALGORITHM</name>
+        <param><defname>NAME</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>  <ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(NAME);           \
+  void NAME::run() {                              \
+    __VA_ARGS__                                   \
+      }                                           \
+  class Algorithm</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="194" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Algorithm_8hpp_1ad0e62cfc52c2aca8ce56a710cf0c8aea" prot="public" static="no">
+        <name>DEFINE_ALGORITHM_HEADER</name>
+        <param><defname>NAME</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>  class NAME: public Algorithm {                  \
+  public:                                         \
+  <ref refid="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" kindref="member">ALGORITHM_REGISTRAR_DECLARATION</ref>(NAME);          \
+  NAME(std::vector&lt;Argument&gt; const &amp;argumentList) \
+    : Algorithm(argumentList) {}                  \
+  ~NAME(){}                                       \
+  virtual void run();                             \
+  __VA_ARGS__                                     \
+  }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="201" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="201" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1427,47 +1465,74 @@
 <codeline lineno="112"><highlight class="normal"></highlight></codeline>
 <codeline lineno="113" refid="classsisi4s_1_1AlgorithmFactory" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1AlgorithmFactory" kindref="compound">AlgorithmFactory</ref><sp/>{</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string,</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*(std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;)&gt;</highlight></codeline>
-<codeline lineno="118" refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" kindref="member">AlgorithmMap</ref>;</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="127" refid="classsisi4s_1_1AlgorithmFactory_1a0c080f73a73dc107e2f3eab4a5de98b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*<ref refid="classsisi4s_1_1AlgorithmFactory_1a0c080f73a73dc107e2f3eab4a5de98b2" kindref="member">create</ref>(</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;arguments</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>iterator(<ref refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" kindref="member">getAlgorithmMap</ref>()-&gt;find(name));</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>iterator<sp/>!=<sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" kindref="member">getAlgorithmMap</ref>()-&gt;end()<sp/>?</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iterator-&gt;second(arguments)<sp/>:<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="135" refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" kindref="member">AlgorithmMap</ref><sp/>*<ref refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" kindref="member">getAlgorithmMap</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kindref="member">algorithmMap</ref><sp/>?<sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kindref="member">algorithmMap</ref><sp/>:<sp/>(<ref refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kindref="member">algorithmMap</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" kindref="member">AlgorithmMap</ref>);</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="138" refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" kindref="member">AlgorithmMap</ref><sp/>*<ref refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kindref="member">algorithmMap</ref>;</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>AlgorithmType&gt;</highlight></codeline>
-<codeline lineno="145" refid="namespacesisi4s_1aeeda71beb90d864c4ecd8884ef0047d9" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*<ref refid="namespacesisi4s_1aeeda71beb90d864c4ecd8884ef0047d9" kindref="member">createAlgorithm</ref>(std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;arguments)<sp/>{</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AlgorithmType(arguments);</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>AlgorithmType&gt;</highlight></codeline>
-<codeline lineno="155" refid="classsisi4s_1_1AlgorithmRegistrar" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">AlgorithmRegistrar</ref>:<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlgorithmFactory" kindref="compound">AlgorithmFactory</ref><sp/>{</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="162" refid="classsisi4s_1_1AlgorithmRegistrar_1a330fe60ba5c91d293b90515f48235ad5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1AlgorithmRegistrar_1a330fe60ba5c91d293b90515f48235ad5" kindref="member">AlgorithmRegistrar</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*<ref refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" kindref="member">getAlgorithmMap</ref>())[name]<sp/>=<sp/>&amp;createAlgorithm&lt;AlgorithmType&gt;;</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"></highlight></codeline>
-<codeline lineno="173" refid="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>ALGORITHM_REGISTRAR_DECLARATION(NAME)<sp/>\</highlight></codeline>
-<codeline lineno="174"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>virtual<sp/>std::string<sp/>getName()<sp/>{<sp/>return<sp/>#NAME;<sp/>}<sp/>\</highlight></codeline>
-<codeline lineno="175"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>static<sp/>AlgorithmRegistrar&lt;NAME&gt;<sp/>registrar_</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="182" refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>ALGORITHM_REGISTRAR_DEFINITION(NAME)<sp/>\</highlight></codeline>
-<codeline lineno="183"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>AlgorithmRegistrar&lt;NAME&gt;<sp/>NAME::registrar_(#NAME)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"></highlight></codeline>
-<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="classsisi4s_1_1AlgorithmFactory_1aff48e159ee0a61177137ed39edc523bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1AlgorithmFactory_1aff48e159ee0a61177137ed39edc523bf" kindref="member">AlgorithmMap</ref></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>std::map&lt;std::string,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*(std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;)&gt;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="classsisi4s_1_1AlgorithmFactory_1a0c080f73a73dc107e2f3eab4a5de98b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*<ref refid="classsisi4s_1_1AlgorithmFactory_1a0c080f73a73dc107e2f3eab4a5de98b2" kindref="member">create</ref>(</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;arguments</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>iterator(<ref refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" kindref="member">getAlgorithmMap</ref>()-&gt;find(name));</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>iterator<sp/>!=<sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" kindref="member">getAlgorithmMap</ref>()-&gt;end()<sp/>?</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iterator-&gt;second(arguments)<sp/>:<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;</highlight></codeline>
+<codeline lineno="137" refid="classsisi4s_1_1AlgorithmFactory_1a44e7b5116de2d0f47648df28288fa48e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1a44e7b5116de2d0f47648df28288fa48e" kindref="member">getAlgorithmNames</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;<sp/>result;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">&amp;<sp/>kv:<sp/>*<ref refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kindref="member">algorithmMap</ref>)<sp/>result.push_back(kv.first);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="144" refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1aff48e159ee0a61177137ed39edc523bf" kindref="member">AlgorithmMap</ref><sp/>*<ref refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" kindref="member">getAlgorithmMap</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kindref="member">algorithmMap</ref><sp/>?<sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kindref="member">algorithmMap</ref><sp/>:<sp/>(<ref refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kindref="member">algorithmMap</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1aff48e159ee0a61177137ed39edc523bf" kindref="member">AlgorithmMap</ref>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147" refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlgorithmFactory_1aff48e159ee0a61177137ed39edc523bf" kindref="member">AlgorithmMap</ref><sp/>*<ref refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kindref="member">algorithmMap</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>AlgorithmType&gt;</highlight></codeline>
+<codeline lineno="154" refid="namespacesisi4s_1aeeda71beb90d864c4ecd8884ef0047d9" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*<ref refid="namespacesisi4s_1aeeda71beb90d864c4ecd8884ef0047d9" kindref="member">createAlgorithm</ref>(std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;arguments)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AlgorithmType(arguments);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>AlgorithmType&gt;</highlight></codeline>
+<codeline lineno="164" refid="classsisi4s_1_1AlgorithmRegistrar" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">AlgorithmRegistrar</ref>:<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1AlgorithmFactory" kindref="compound">AlgorithmFactory</ref><sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="171" refid="classsisi4s_1_1AlgorithmRegistrar_1a330fe60ba5c91d293b90515f48235ad5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1AlgorithmRegistrar_1a330fe60ba5c91d293b90515f48235ad5" kindref="member">AlgorithmRegistrar</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*<ref refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" kindref="member">getAlgorithmMap</ref>())[name]<sp/>=<sp/>&amp;createAlgorithm&lt;AlgorithmType&gt;;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182" refid="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ALGORITHM_REGISTRAR_DECLARATION(NAME)<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="183"><highlight class="preprocessor"><sp/><sp/>virtual<sp/>std::string<sp/>getName()<sp/>{<sp/>return<sp/>#NAME;<sp/>}<sp/>\</highlight></codeline>
+<codeline lineno="184"><highlight class="preprocessor"><sp/><sp/>static<sp/>AlgorithmRegistrar&lt;NAME&gt;<sp/>registrar_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ALGORITHM_REGISTRAR_DEFINITION(NAME)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="192"><highlight class="preprocessor"><sp/><sp/>AlgorithmRegistrar&lt;NAME&gt;<sp/>NAME::registrar_(#NAME)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194" refid="Algorithm_8hpp_1a8396f8cdafe4328da814dc0e0e238e0c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IMPLEMENT_ALGORITHM(NAME,<sp/>...)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="195"><highlight class="preprocessor"><sp/><sp/>ALGORITHM_REGISTRAR_DEFINITION(NAME);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="196"><highlight class="preprocessor"><sp/><sp/>void<sp/>NAME::run()<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="197"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>__VA_ARGS__<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="198"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="199"><highlight class="preprocessor"><sp/><sp/>class<sp/>Algorithm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201" refid="Algorithm_8hpp_1ad0e62cfc52c2aca8ce56a710cf0c8aea" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFINE_ALGORITHM_HEADER(NAME,<sp/>...)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="202"><highlight class="preprocessor"><sp/><sp/>class<sp/>NAME:<sp/>public<sp/>Algorithm<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="203"><highlight class="preprocessor"><sp/><sp/>public:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="204"><highlight class="preprocessor"><sp/><sp/>ALGORITHM_REGISTRAR_DECLARATION(NAME);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="205"><highlight class="preprocessor"><sp/><sp/>NAME(std::vector&lt;Argument&gt;<sp/>const<sp/>&amp;argumentList)<sp/>\</highlight></codeline>
+<codeline lineno="206"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>:<sp/>Algorithm(argumentList)<sp/>{}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="207"><highlight class="preprocessor"><sp/><sp/>~NAME(){}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="208"><highlight class="preprocessor"><sp/><sp/>virtual<sp/>void<sp/>run();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="209"><highlight class="preprocessor"><sp/><sp/>__VA_ARGS__<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="210"><highlight class="preprocessor"><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp"/>
   </compounddef>

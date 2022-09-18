@@ -279,7 +279,7 @@ var annotated_dup =
       [ "TensorAntisymmetrizer", "structsisi4s_1_1TensorAntisymmetrizer.html", "structsisi4s_1_1TensorAntisymmetrizer" ],
       [ "TensorContraction", "classsisi4s_1_1TensorContraction.html", "classsisi4s_1_1TensorContraction" ],
       [ "TensorData", "classsisi4s_1_1TensorData.html", "classsisi4s_1_1TensorData" ],
-      [ "TensorGetMax", "structsisi4s_1_1TensorGetMax.html", "structsisi4s_1_1TensorGetMax" ],
+      [ "TensorGetMax", "classsisi4s_1_1TensorGetMax.html", "classsisi4s_1_1TensorGetMax" ],
       [ "TensorIo", "classsisi4s_1_1TensorIo.html", null ],
       [ "TensorNorm", "classsisi4s_1_1TensorNorm.html", "classsisi4s_1_1TensorNorm" ],
       [ "TensorReader", "classsisi4s_1_1TensorReader.html", "classsisi4s_1_1TensorReader" ],

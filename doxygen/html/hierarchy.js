@@ -66,7 +66,7 @@ var hierarchy =
       [ "sisi4s::SliceCoulombVertex", "classsisi4s_1_1SliceCoulombVertex.html", null ],
       [ "sisi4s::TensorAntisymmetrizer", "structsisi4s_1_1TensorAntisymmetrizer.html", null ],
       [ "sisi4s::TensorContraction", "classsisi4s_1_1TensorContraction.html", null ],
-      [ "sisi4s::TensorGetMax", "structsisi4s_1_1TensorGetMax.html", null ],
+      [ "sisi4s::TensorGetMax", "classsisi4s_1_1TensorGetMax.html", null ],
       [ "sisi4s::TensorNorm", "classsisi4s_1_1TensorNorm.html", null ],
       [ "sisi4s::TensorReader", "classsisi4s_1_1TensorReader.html", null ],
       [ "sisi4s::TensorReduceijij", "structsisi4s_1_1TensorReduceijij.html", null ],

@@ -30,9 +30,10 @@
     <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kind="function"><name>getArgumentData</name></member>
   </compound>
   <compound refid="classsisi4s_1_1AlgorithmFactory" kind="class"><name>sisi4s::AlgorithmFactory</name>
-    <member refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" kind="typedef"><name>AlgorithmMap</name></member>
+    <member refid="classsisi4s_1_1AlgorithmFactory_1aff48e159ee0a61177137ed39edc523bf" kind="typedef"><name>AlgorithmMap</name></member>
     <member refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" kind="variable"><name>algorithmMap</name></member>
     <member refid="classsisi4s_1_1AlgorithmFactory_1a0c080f73a73dc107e2f3eab4a5de98b2" kind="function"><name>create</name></member>
+    <member refid="classsisi4s_1_1AlgorithmFactory_1a44e7b5116de2d0f47648df28288fa48e" kind="function"><name>getAlgorithmNames</name></member>
     <member refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" kind="function"><name>getAlgorithmMap</name></member>
   </compound>
   <compound refid="classsisi4s_1_1AlgorithmRegistrar" kind="class"><name>sisi4s::AlgorithmRegistrar</name>
@@ -2307,16 +2308,18 @@
     <member refid="classCLI_1_1OptionNotFound_1a0abf448c748239711b5ed963f388ec1d" kind="function"><name>OptionNotFound</name></member>
   </compound>
   <compound refid="structsisi4s_1_1Options" kind="struct"><name>sisi4s::Options</name>
+    <member refid="structsisi4s_1_1Options_1af03fafd1ebc9eaa265e0da0438b20388" kind="variable"><name>app</name></member>
     <member refid="structsisi4s_1_1Options_1a5ef5e5592971b29d31795e3fe12a070b" kind="variable"><name>logLevel</name></member>
     <member refid="structsisi4s_1_1Options_1a61fa80dc5acae55d584cdc61b6d910c7" kind="variable"><name>inFile</name></member>
     <member refid="structsisi4s_1_1Options_1a04e8b0c2b603635f4d8c2cd9326108ff" kind="variable"><name>logFile</name></member>
     <member refid="structsisi4s_1_1Options_1afcbdc610814674ab94367ad5177f5c1d" kind="variable"><name>yamlOutFile</name></member>
-    <member refid="structsisi4s_1_1Options_1a427f29f5495dd7b86db119061975890e" kind="variable"><name>dryRun</name></member>
     <member refid="structsisi4s_1_1Options_1a85158c1bd83a1832f232b2ace71a7e97" kind="variable"><name>argc</name></member>
     <member refid="structsisi4s_1_1Options_1a02b621baf3d40ef8ddee53e044ceeec6" kind="variable"><name>argv</name></member>
-    <member refid="structsisi4s_1_1Options_1a88bd0a42bce5dad3f2d4e031e4e2eb58" kind="variable"><name>DEFAULT_LOG_LEVEL</name></member>
     <member refid="structsisi4s_1_1Options_1aa141cb663543d7037583b61d4ac0a210" kind="variable"><name>cc4s</name></member>
-    <member refid="structsisi4s_1_1Options_1af03fafd1ebc9eaa265e0da0438b20388" kind="variable"><name>app</name></member>
+    <member refid="structsisi4s_1_1Options_1aaee7bdb89fa4695fd6a6913d6bb872b3" kind="variable"><name>listAlgorithms</name></member>
+    <member refid="structsisi4s_1_1Options_1a427f29f5495dd7b86db119061975890e" kind="variable"><name>dryRun</name></member>
+    <member refid="structsisi4s_1_1Options_1ae249f2696c64f1fd1f67c3dcdbf5f7b3" kind="variable"><name>eclFile</name></member>
+    <member refid="structsisi4s_1_1Options_1a88bd0a42bce5dad3f2d4e031e4e2eb58" kind="variable"><name>DEFAULT_LOG_LEVEL</name></member>
     <member refid="structsisi4s_1_1Options_1a6683d7ed27952a4813bb0fae54e17cc0" kind="function"><name>Options</name></member>
     <member refid="structsisi4s_1_1Options_1ad20c3a9a952216298228bf397501ba20" kind="function"><name>parse</name></member>
   </compound>
@@ -2826,13 +2829,10 @@
     <member refid="classsisi4s_1_1SingleParticleOccupancies_1a5e763fc71c50f76fc3dad0b5c2846644" kind="function"><name>dryRun</name></member>
   </compound>
   <compound refid="classsisi4s_1_1Sisi4s" kind="class"><name>sisi4s::Sisi4s</name>
-    <member refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kind="variable"><name>world</name></member>
+    <member refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kind="variable"><name>world</name></member>
     <member refid="classsisi4s_1_1Sisi4s_1a2394fe5754d7664019b0228c9d087b78" kind="variable"><name>options</name></member>
-    <member refid="classsisi4s_1_1Sisi4s_1ab1209c025f7c785578ae53e72e71d8f4" kind="function"><name>Sisi4s</name></member>
-    <member refid="classsisi4s_1_1Sisi4s_1af384ba130bd4252c4bb049749ede9ee3" kind="function"><name>~Sisi4s</name></member>
     <member refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" kind="function"><name>run</name></member>
     <member refid="classsisi4s_1_1Sisi4s_1aa10e449f2bc2c23663382f0b3ee68f0b" kind="function"><name>dryRun</name></member>
-    <member refid="classsisi4s_1_1Sisi4s_1a3ffa98f4807cfa78a3f8d8d795021c2c" kind="function"><name>isDebugged</name></member>
     <member refid="classsisi4s_1_1Sisi4s_1a67898fd5a133742f683a61d0e55e9e6b" kind="function"><name>printBanner</name></member>
     <member refid="classsisi4s_1_1Sisi4s_1afe2096757c8e16bec943b7b7f5acbd7f" kind="function"><name>printStatistics</name></member>
     <member refid="classsisi4s_1_1Sisi4s_1add11d7b556ddc1f5089851d836a8862b" kind="function"><name>listHosts</name></member>
@@ -2988,12 +2988,12 @@
     <member refid="classsisi4s_1_1TensorData_1adff973099df5d53ab92dcf7ce76b7a83" kind="function"><name>TensorData</name></member>
     <member refid="classsisi4s_1_1TensorData_1a9f1d158f7bf077abea3ae190ebe92d1e" kind="function"><name>~TensorData</name></member>
   </compound>
-  <compound refid="structsisi4s_1_1TensorGetMax" kind="struct"><name>sisi4s::TensorGetMax</name>
-    <member refid="structsisi4s_1_1TensorGetMax_1a384dae56a44f3fb5506a6c5cd7f05b0f" kind="variable"><name>registrar_</name></member>
-    <member refid="structsisi4s_1_1TensorGetMax_1afc6bb679d2b30ef24db07e6d2bc0e2a1" kind="function"><name>getName</name></member>
-    <member refid="structsisi4s_1_1TensorGetMax_1aecb29011be11dd24c5f14b3cb1671158" kind="function"><name>TensorGetMax</name></member>
-    <member refid="structsisi4s_1_1TensorGetMax_1a8f2485a804de75e28df916787022fd64" kind="function"><name>~TensorGetMax</name></member>
-    <member refid="structsisi4s_1_1TensorGetMax_1ae4776bec7788af0420d5d447de949a32" kind="function"><name>run</name></member>
+  <compound refid="classsisi4s_1_1TensorGetMax" kind="class"><name>sisi4s::TensorGetMax</name>
+    <member refid="classsisi4s_1_1TensorGetMax_1a384dae56a44f3fb5506a6c5cd7f05b0f" kind="variable"><name>registrar_</name></member>
+    <member refid="classsisi4s_1_1TensorGetMax_1afc6bb679d2b30ef24db07e6d2bc0e2a1" kind="function"><name>getName</name></member>
+    <member refid="classsisi4s_1_1TensorGetMax_1aecb29011be11dd24c5f14b3cb1671158" kind="function"><name>TensorGetMax</name></member>
+    <member refid="classsisi4s_1_1TensorGetMax_1a8f2485a804de75e28df916787022fd64" kind="function"><name>~TensorGetMax</name></member>
+    <member refid="classsisi4s_1_1TensorGetMax_1ae4776bec7788af0420d5d447de949a32" kind="function"><name>run</name></member>
   </compound>
   <compound refid="structTensorInfo" kind="struct"><name>TensorInfo</name>
     <member refid="structTensorInfo_1ab15bef301dff4483bb776a190f6ae012" kind="variable"><name>name</name></member>
@@ -3734,6 +3734,8 @@
   <compound refid="Algorithm_8hpp" kind="file"><name>Algorithm.hpp</name>
     <member refid="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" kind="define"><name>ALGORITHM_REGISTRAR_DECLARATION</name></member>
     <member refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kind="define"><name>ALGORITHM_REGISTRAR_DEFINITION</name></member>
+    <member refid="Algorithm_8hpp_1a8396f8cdafe4328da814dc0e0e238e0c" kind="define"><name>IMPLEMENT_ALGORITHM</name></member>
+    <member refid="Algorithm_8hpp_1ad0e62cfc52c2aca8ce56a710cf0c8aea" kind="define"><name>DEFINE_ALGORITHM_HEADER</name></member>
   </compound>
   <compound refid="ApproximateCoulombVertex_8cxx" kind="file"><name>ApproximateCoulombVertex.cxx</name>
   </compound>
@@ -4319,6 +4321,8 @@
   <compound refid="LapackInverse_8hpp" kind="file"><name>LapackInverse.hpp</name>
   </compound>
   <compound refid="LapackMatrix_8hpp" kind="file"><name>LapackMatrix.hpp</name>
+  </compound>
+  <compound refid="Libint_8hpp" kind="file"><name>Libint.hpp</name>
   </compound>
   <compound refid="LineNumberStream_8hpp" kind="file"><name>LineNumberStream.hpp</name>
   </compound>

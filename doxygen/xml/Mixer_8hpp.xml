@@ -409,7 +409,7 @@
         <name>MIXER_REGISTRAR_DECLARATION</name>
         <param><defname>NAME</defname></param>
         <initializer>    virtual std::string getName() { return #NAME; } \
-    static MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; registrar_;</initializer>
+    static MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; registrar_</initializer>
         <briefdescription>
 <para>Auxiliary macro declaring the mixer registrar for the mixer type of the given name. This macro is to be used in the algorith declaration within the .hpp file. Note that name is a symbol name not a string. </para>
         </briefdescription>
@@ -423,7 +423,7 @@
         <name>MIXER_REGISTRAR_DEFINITION</name>
         <param><defname>NAME</defname></param>
         <initializer>    template &lt;typename F&gt; \
-    MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; NAME&lt;F&gt;::registrar_(#NAME);</initializer>
+    MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; NAME&lt;F&gt;::registrar_(#NAME)</initializer>
         <briefdescription>
 <para>Auxiliary macro defining the mixer registrar for the mixer type of the given name. This macro is to be used in the mixer definition within the .cxx file. Note that name is a symbol name not a string. </para>
         </briefdescription>
@@ -527,11 +527,11 @@
 <codeline lineno="128"><highlight class="normal"></highlight></codeline>
 <codeline lineno="135" refid="Mixer_8hpp_1a32a5609c2d7da90515d9093b4fbe9031" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>MIXER_REGISTRAR_DECLARATION(NAME)<sp/>\</highlight></codeline>
 <codeline lineno="136"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>virtual<sp/>std::string<sp/>getName()<sp/>{<sp/>return<sp/>#NAME;<sp/>}<sp/>\</highlight></codeline>
-<codeline lineno="137"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>static<sp/>MixerRegistrar&lt;F,<sp/>NAME&lt;F&gt;&gt;<sp/>registrar_;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>static<sp/>MixerRegistrar&lt;F,<sp/>NAME&lt;F&gt;&gt;<sp/>registrar_</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="138"><highlight class="normal"></highlight></codeline>
 <codeline lineno="145" refid="Mixer_8hpp_1a7ec8522b70a56ac8cef5b47c623c59c0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>MIXER_REGISTRAR_DEFINITION(NAME)<sp/>\</highlight></codeline>
 <codeline lineno="146"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>template<sp/>&lt;typename<sp/>F&gt;<sp/>\</highlight></codeline>
-<codeline lineno="147"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>MixerRegistrar&lt;F,<sp/>NAME&lt;F&gt;&gt;<sp/>NAME&lt;F&gt;::registrar_(#NAME);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>MixerRegistrar&lt;F,<sp/>NAME&lt;F&gt;&gt;<sp/>NAME&lt;F&gt;::registrar_(#NAME)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="148"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="149"><highlight class="normal"></highlight></codeline>
 <codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>

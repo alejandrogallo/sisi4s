@@ -2,11 +2,10 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="OneBodyFromGaussian_8cxx" kind="file" language="C++">
     <compoundname>OneBodyFromGaussian.cxx</compoundname>
-    <includes local="no">system_error</includes>
     <includes local="no">string</includes>
     <includes local="no">vector</includes>
     <includes local="no">algorithm</includes>
-    <includes local="no">libint2.hpp</includes>
+    <includes refid="Libint_8hpp" local="no">util/Libint.hpp</includes>
     <includes refid="OneBodyFromGaussian_8hpp" local="no">algorithms/OneBodyFromGaussian.hpp</includes>
     <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
     <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
@@ -19,56 +18,56 @@
     <includes local="no">map</includes>
     <includes refid="Emitter_8hpp" local="no">util/Emitter.hpp</includes>
     <incdepgraph>
-      <node id="9">
+      <node id="10">
         <label>Data.hpp</label>
         <link refid="Data_8hpp"/>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
         </childnode>
       </node>
       <node id="30">
-        <label>Options.hpp</label>
-        <link refid="Options_8hpp"/>
-        <childnode refid="3" relation="include">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="31" relation="include">
         </childnode>
       </node>
-      <node id="29">
-        <label>Sisi4s.hpp</label>
-        <link refid="Sisi4s_8hpp"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
+      <node id="9">
         <label>algorithms/Algorithm.hpp</label>
         <link refid="Algorithm_8hpp"/>
-        <childnode refid="9" relation="include">
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -82,79 +81,75 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
         </childnode>
         <childnode refid="29" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="35" relation="include">
         </childnode>
-        <childnode refid="46" relation="include">
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>algorithms/OneBodyFromGaussian.hpp</label>
+        <link refid="OneBodyFromGaussian_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
         <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>algorithms/OneBodyFromGaussian.hpp</label>
-        <link refid="OneBodyFromGaussian_8hpp"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="35" relation="include">
         </childnode>
-        <childnode refid="36" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
         <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
         </childnode>
         <childnode refid="39" relation="include">
         </childnode>
@@ -162,9 +157,9 @@
         </childnode>
         <childnode refid="41" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
         <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="43" relation="include">
         </childnode>
@@ -172,80 +167,88 @@
         </childnode>
         <childnode refid="45" relation="include">
         </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
       </node>
-      <node id="22">
+      <node id="23">
         <label>math/Complex.hpp</label>
         <link refid="Complex_8hpp"/>
-        <childnode refid="21" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="22">
         <label>math/Float.hpp</label>
         <link refid="Float_8hpp"/>
-        <childnode refid="14" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="25">
+      <node id="26">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="26" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
       </node>
-      <node id="48">
+      <node id="49">
         <label>util/Emitter.hpp</label>
         <link refid="Emitter_8hpp"/>
-        <childnode refid="49" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
         <childnode refid="50" relation="include">
         </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
       </node>
-      <node id="27">
+      <node id="28">
         <label>util/Exception.hpp</label>
         <link refid="Exception_8hpp"/>
-        <childnode refid="3" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="46">
+      <node id="47">
         <label>util/Integrals.hpp</label>
         <link refid="Integrals_8hpp"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="47" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>util/Log.hpp</label>
-        <link refid="Log_8hpp"/>
-        <childnode refid="11" relation="include">
-        </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Libint.hpp</label>
+        <link refid="Libint_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
       </node>
-      <node id="49">
+      <node id="50">
         <label>util/SharedPointer.hpp</label>
         <link refid="SharedPointer_8hpp"/>
-        <childnode refid="32" relation="include">
+        <childnode refid="33" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="12">
         <label>util/Time.hpp</label>
         <link refid="Time_8hpp"/>
-        <childnode refid="12" relation="include">
-        </childnode>
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
@@ -256,107 +259,109 @@
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
       </node>
-      <node id="28">
+      <node id="29">
         <label>Eigen/Eigen</label>
       </node>
-      <node id="5">
+      <node id="4">
         <label>algorithm</label>
       </node>
-      <node id="47">
+      <node id="48">
         <label>array</label>
       </node>
-      <node id="17">
+      <node id="18">
         <label>cmath</label>
       </node>
-      <node id="23">
+      <node id="24">
         <label>complex</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>cstdint</label>
       </node>
-      <node id="26">
+      <node id="27">
         <label>ctf.hpp</label>
       </node>
-      <node id="12">
+      <node id="13">
         <label>ctime</label>
       </node>
-      <node id="43">
+      <node id="44">
         <label>exception</label>
       </node>
-      <node id="20">
+      <node id="21">
         <label>fstream</label>
       </node>
-      <node id="33">
+      <node id="34">
         <label>functional</label>
       </node>
-      <node id="15">
+      <node id="16">
         <label>iomanip</label>
       </node>
-      <node id="18">
+      <node id="19">
         <label>iostream</label>
       </node>
-      <node id="40">
+      <node id="41">
         <label>iterator</label>
       </node>
-      <node id="6">
+      <node id="7">
         <label>libint2.hpp</label>
       </node>
-      <node id="42">
+      <node id="43">
         <label>limits</label>
       </node>
-      <node id="37">
+      <node id="38">
         <label>locale</label>
       </node>
-      <node id="24">
+      <node id="25">
         <label>map</label>
       </node>
-      <node id="32">
+      <node id="33">
         <label>memory</label>
       </node>
-      <node id="34">
+      <node id="35">
         <label>numeric</label>
       </node>
-      <node id="14">
+      <node id="15">
         <label>ostream</label>
       </node>
-      <node id="38">
+      <node id="39">
         <label>set</label>
       </node>
-      <node id="16">
+      <node id="17">
         <label>sstream</label>
       </node>
-      <node id="41">
+      <node id="42">
         <label>stdexcept</label>
       </node>
-      <node id="19">
+      <node id="20">
         <label>streambuf</label>
       </node>
-      <node id="3">
+      <node id="2">
         <label>string</label>
       </node>
-      <node id="44">
+      <node id="45">
         <label>sys/stat.h</label>
       </node>
-      <node id="45">
+      <node id="46">
         <label>sys/types.h</label>
       </node>
-      <node id="2">
+      <node id="6">
         <label>system_error</label>
       </node>
-      <node id="35">
+      <node id="36">
         <label>tuple</label>
       </node>
-      <node id="39">
+      <node id="40">
         <label>type_traits</label>
       </node>
-      <node id="36">
+      <node id="37">
         <label>utility</label>
       </node>
-      <node id="4">
+      <node id="3">
         <label>vector</label>
       </node>
-      <node id="50">
+      <node id="51">
         <label>yaml-cpp/yaml.h</label>
       </node>
     </incdepgraph>
@@ -372,7 +377,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" line="18" column="26" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" bodystart="18" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" line="17" column="25" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" bodystart="17" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -387,7 +392,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" line="22" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" bodystart="26" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" line="21" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" bodystart="25" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -414,11 +419,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" line="39" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" bodystart="40" bodyend="82"/>
-        <references refid="structSinfo_1a117354078ba76050d60578589e01aa5e" compoundref="OneBodyFromGaussian_8cxx" startline="32">Sinfo::begin</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" line="38" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" bodystart="39" bodyend="81"/>
+        <references refid="structSinfo_1a117354078ba76050d60578589e01aa5e" compoundref="OneBodyFromGaussian_8cxx" startline="31">Sinfo::begin</references>
         <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" compoundref="AngularMomentum_8hpp" startline="8">am::P</references>
-        <references refid="structSinfo_1a56917325db02b1022282842df658f344" compoundref="OneBodyFromGaussian_8cxx" startline="32">Sinfo::size</references>
-        <referencedby refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" compoundref="OneBodyFromGaussian_8cxx" startline="85" endline="136">sisi4s::OneBodyFromGaussian::run</referencedby>
+        <references refid="structSinfo_1a56917325db02b1022282842df658f344" compoundref="OneBodyFromGaussian_8cxx" startline="31">Sinfo::size</references>
+        <referencedby refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" compoundref="OneBodyFromGaussian_8cxx" startline="84" endline="135">sisi4s::OneBodyFromGaussian::run</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -426,142 +431,141 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;system_error&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;libint2.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="OneBodyFromGaussian_8hpp" kindref="compound">algorithms/OneBodyFromGaussian.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Integrals_8hpp" kindref="compound">util/Integrals.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Eigen&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;numeric&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Emitter_8hpp" kindref="compound">util/Emitter.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18" refid="OneBodyFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOGGER(_l)<sp/>LOG(_l,<sp/>&quot;OneBodyFromGaussian&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22" refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">RowMajor</ref><sp/>=<sp/>Eigen::Matrix&lt;<sp/>double</highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Libint_8hpp" kindref="compound">util/Libint.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="OneBodyFromGaussian_8hpp" kindref="compound">algorithms/OneBodyFromGaussian.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Integrals_8hpp" kindref="compound">util/Integrals.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Eigen&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;numeric&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Emitter_8hpp" kindref="compound">util/Emitter.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="OneBodyFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOGGER(_l)<sp/>LOG(_l,<sp/>&quot;OneBodyFromGaussian&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">RowMajor</ref><sp/>=<sp/>Eigen::Matrix&lt;<sp/>double</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Eigen::Dynamic</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Eigen::Dynamic</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Eigen::Dynamic</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">Eigen::RowMajor</ref></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1OneBodyFromGaussian" kindref="compound">OneBodyFromGaussian</ref>);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">Eigen::RowMajor</ref></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1OneBodyFromGaussian" kindref="compound">OneBodyFromGaussian</ref>);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31" refid="structSinfo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structSinfo" kindref="compound">Sinfo</ref><sp/>{</highlight></codeline>
-<codeline lineno="32" refid="structSinfo_1a117354078ba76050d60578589e01aa5e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>,<sp/><ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>;</highlight></codeline>
-<codeline lineno="33" refid="structSinfo_1a8c1bbfb0fed1a58a2c700d16309c5b1f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="structSinfo_1a8c1bbfb0fed1a58a2c700d16309c5b1f" kindref="member">Sinfo</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">libint2::BasisSet</ref><sp/>&amp;shells,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i)</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>(shells[i].<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>())</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>(shells.shell2bf()[i])<sp/>{}</highlight></codeline>
-<codeline lineno="36"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="30" refid="structSinfo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structSinfo" kindref="compound">Sinfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="31" refid="structSinfo_1a117354078ba76050d60578589e01aa5e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>,<sp/><ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>;</highlight></codeline>
+<codeline lineno="32" refid="structSinfo_1a8c1bbfb0fed1a58a2c700d16309c5b1f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="structSinfo_1a8c1bbfb0fed1a58a2c700d16309c5b1f" kindref="member">Sinfo</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">libint2::BasisSet</ref><sp/>&amp;shells,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>(shells[i].<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>())</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>(shells.shell2bf()[i])<sp/>{}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" refkind="member"><highlight class="normal"><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">RowMajor</ref><sp/><ref refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" kindref="member">getOneBodyIntegrals</ref></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">libint2::BasisSet</ref>&amp;<sp/>shells</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="CoulombIntegralsFromGaussian_8cxx_1a0d4ce2c79ed096239916cdad4fee0f5d" kindref="member">libint2::Operator</ref><sp/>op</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;libint2::Atom&gt;&amp;<sp/>atoms</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="38" refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" refkind="member"><highlight class="normal"><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">RowMajor</ref><sp/><ref refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" kindref="member">getOneBodyIntegrals</ref></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">libint2::BasisSet</ref>&amp;<sp/>shells</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="CoulombIntegralsFromGaussian_8cxx_1a0d4ce2c79ed096239916cdad4fee0f5d" kindref="member">libint2::Operator</ref><sp/>op</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;libint2::Atom&gt;&amp;<sp/>atoms</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>number<sp/>of<sp/>basis<sp/>set<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>Np<sp/>=<sp/>shells.nbf();</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">RowMajor</ref><sp/>result(RowMajor::Zero(Np,<sp/>Np));</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>construct<sp/>the<sp/>overlap<sp/>integrals<sp/>engine</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/>libint2::Engine<sp/>engine(op,<sp/>shells.max_nprim(),<sp/>shells.max_l(),<sp/>0);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(op<sp/>==<sp/>libint2::Operator::nuclear)<sp/>{</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>engine.set_params(libint2::make_point_charges(atoms));</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>resultBuffer<sp/>=<sp/>engine.results();</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>loop<sp/>over<sp/>unique<sp/>shell<sp/>pairs<sp/>p&gt;=q</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>p<sp/>=<sp/>0;<sp/>p<sp/>&lt;<sp/>shells.size();<sp/>++p)<sp/>{</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>q<sp/>=<sp/>0;<sp/>q<sp/>&lt;=<sp/>p<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>++q)<sp/>{</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structSinfo" kindref="compound">Sinfo</ref><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>(shells,<sp/>p),<sp/>Q(shells,<sp/>q);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>engine.compute(shells[p],<sp/>shells[q]);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>copy<sp/>the<sp/>result<sp/>buffer<sp/>of<sp/>size<sp/>(P.size*Q.size)<sp/>to<sp/>the</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bufferMatrix,<sp/>needed<sp/>to<sp/>do<sp/>a<sp/>block<sp/>assignment<sp/>to<sp/>the<sp/>Eigen<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Map&lt;const<sp/>RowMajor&gt;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bufferMatrix(resultBuffer[0],<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.size,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>result.block(<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.begin,<sp/>Q.<ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.size,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>)<sp/>=<sp/>bufferMatrix;</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p<sp/>!=<sp/>q)<sp/>{</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>transpose<sp/>and<sp/>copy<sp/>to<sp/>the<sp/>non-explicitly<sp/>calculated<sp/>block</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result.block(Q.<ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.begin,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.size)<sp/>=<sp/>bufferMatrix.transpose();</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>q</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>p</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>number<sp/>of<sp/>basis<sp/>set<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>Np<sp/>=<sp/>shells.nbf();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">RowMajor</ref><sp/>result(RowMajor::Zero(Np,<sp/>Np));</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>construct<sp/>the<sp/>overlap<sp/>integrals<sp/>engine</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>libint2::Engine<sp/>engine(op,<sp/>shells.max_nprim(),<sp/>shells.max_l(),<sp/>0);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(op<sp/>==<sp/>libint2::Operator::nuclear)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>engine.set_params(libint2::make_point_charges(atoms));</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>resultBuffer<sp/>=<sp/>engine.results();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>loop<sp/>over<sp/>unique<sp/>shell<sp/>pairs<sp/>p&gt;=q</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>p<sp/>=<sp/>0;<sp/>p<sp/>&lt;<sp/>shells.size();<sp/>++p)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>q<sp/>=<sp/>0;<sp/>q<sp/>&lt;=<sp/>p<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>++q)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structSinfo" kindref="compound">Sinfo</ref><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>(shells,<sp/>p),<sp/>Q(shells,<sp/>q);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>engine.compute(shells[p],<sp/>shells[q]);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>copy<sp/>the<sp/>result<sp/>buffer<sp/>of<sp/>size<sp/>(P.size*Q.size)<sp/>to<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bufferMatrix,<sp/>needed<sp/>to<sp/>do<sp/>a<sp/>block<sp/>assignment<sp/>to<sp/>the<sp/>Eigen<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Map&lt;const<sp/>RowMajor&gt;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bufferMatrix(resultBuffer[0],<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.size,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>result.block(<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.begin,<sp/>Q.<ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.size,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>)<sp/>=<sp/>bufferMatrix;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p<sp/>!=<sp/>q)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>transpose<sp/>and<sp/>copy<sp/>to<sp/>the<sp/>non-explicitly<sp/>calculated<sp/>block</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result.block(Q.<ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.begin,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.size)<sp/>=<sp/>bufferMatrix.transpose();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>q</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>p</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85" refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OneBodyFromGaussian::run()<sp/>{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/>libint2::initialize();</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" kindref="member">checkArgumentsOrDie</ref>({</highlight><highlight class="stringliteral">&quot;xyzStructureFile&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;basisSet&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">});</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>xyzStructureFile(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;xyzStructureFile&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">))</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>basisSet(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;basisSet&quot;</highlight><highlight class="normal">))</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>kernel(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;nuclear&quot;</highlight><highlight class="normal">))</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/>std::ifstream<sp/>structureFileStream(xyzStructureFile.c_str());</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;libint2::Atom&gt;<sp/>atoms(libint2::read_dotxyz(structureFileStream));</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/>structureFileStream.close();</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">libint2::BasisSet</ref><sp/>shells(basisSet,<sp/>atoms);</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(shells.nbf());</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="CoulombIntegralsFromGaussian_8cxx_1a0d4ce2c79ed096239916cdad4fee0f5d" kindref="member">libint2::Operator</ref><sp/>op([&amp;](</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;nuclear&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::nuclear;</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;overlap&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::overlap;</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;kinetic&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::kinetic;</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Kernel<sp/>not<sp/>recognised&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/>}());</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;kernel:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>kernel<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;structure:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>xyzStructureFile<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Np&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>Np</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;xyz&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>xyzStructureFile</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;basis-set&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>basisSet</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>kernel</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result(<ref refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" kindref="member">getOneBodyIntegrals</ref>(shells,<sp/>op,<sp/>atoms));</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*data(&amp;result(0));</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;computation<sp/>done&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/>libint2::finalize();</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rank_m<sp/>=<sp/>int(<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>-&gt;rank<sp/>==<sp/>0);<sp/></highlight><highlight class="comment">//<sp/>rank<sp/>mask</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>lens(2,<sp/>Np);</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>syms(2,<sp/>NS);</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Opq(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;double&gt;(2,<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1a9c828aff8cbaa346d4669ff89dfc6f5c" kindref="member">Sisi4s::world</ref>));</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int64_t&gt;<sp/>indices(rank_m<sp/>*<sp/>Np*Np);</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>std::iota(indices.begin(),<sp/>indices.end(),<sp/>0);</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;writing<sp/>into<sp/>ctf<sp/>tensor&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>Opq-&gt;write(indices.size(),<sp/>indices.data(),<sp/>data);</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">,<sp/>Opq);</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84" refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OneBodyFromGaussian::run()<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>libint2::initialize();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" kindref="member">checkArgumentsOrDie</ref>({</highlight><highlight class="stringliteral">&quot;xyzStructureFile&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;basisSet&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">});</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>xyzStructureFile(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;xyzStructureFile&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>basisSet(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;basisSet&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>kernel(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;nuclear&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>std::ifstream<sp/>structureFileStream(xyzStructureFile.c_str());</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;libint2::Atom&gt;<sp/>atoms(libint2::read_dotxyz(structureFileStream));</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>structureFileStream.close();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">libint2::BasisSet</ref><sp/>shells(basisSet,<sp/>atoms);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(shells.nbf());</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="CoulombIntegralsFromGaussian_8cxx_1a0d4ce2c79ed096239916cdad4fee0f5d" kindref="member">libint2::Operator</ref><sp/>op([&amp;](</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;nuclear&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::nuclear;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;overlap&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::overlap;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;kinetic&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::kinetic;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Kernel<sp/>not<sp/>recognised&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>}());</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;kernel:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>kernel<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;structure:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>xyzStructureFile<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Np&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>Np</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;xyz&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>xyzStructureFile</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;basis-set&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>basisSet</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>kernel</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result(<ref refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" kindref="member">getOneBodyIntegrals</ref>(shells,<sp/>op,<sp/>atoms));</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*data(&amp;result(0));</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;computation<sp/>done&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>libint2::finalize();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rank_m<sp/>=<sp/>int(<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;rank<sp/>==<sp/>0);<sp/></highlight><highlight class="comment">//<sp/>rank<sp/>mask</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>lens(2,<sp/>Np);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>syms(2,<sp/>NS);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Opq(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CTF::Tensor&lt;double&gt;(2,<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>));</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int64_t&gt;<sp/>indices(rank_m<sp/>*<sp/>Np*Np);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>std::iota(indices.begin(),<sp/>indices.end(),<sp/>0);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;writing<sp/>into<sp/>ctf<sp/>tensor&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>Opq-&gt;write(indices.size(),<sp/>indices.data(),<sp/>data);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">,<sp/>Opq);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx"/>
   </compounddef>

@@ -174,11 +174,11 @@ $(document).ready(function(){initNavTree('Mixer_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="Mixer_8hpp.html#a32a5609c2d7da90515d9093b4fbe9031">  135</a></span><span class="preprocessor">  #define MIXER_REGISTRAR_DECLARATION(NAME) \</span></div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="preprocessor">    virtual std::string getName() { return #NAME; } \</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">    static MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; registrar_;</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">    static MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; registrar_</span></div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="Mixer_8hpp.html#a7ec8522b70a56ac8cef5b47c623c59c0">  145</a></span><span class="preprocessor">  #define MIXER_REGISTRAR_DEFINITION(NAME) \</span></div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">    template &lt;typename F&gt; \</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="preprocessor">    MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; NAME&lt;F&gt;::registrar_(#NAME);</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="preprocessor">    MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; NAME&lt;F&gt;::registrar_(#NAME)</span></div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>}</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="preprocessor">#endif</span></div>

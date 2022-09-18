@@ -1,10 +1,12 @@
 var NAVTREEINDEX24 =
 {
+"structsisi4s_1_1TensorSlicer.html#ae2ed72bbd696bd2955a3729531be0cbc":[2,0,5,177,1],
+"structsisi4s_1_1TensorUnrestricter.html":[2,0,5,179],
 "structsisi4s_1_1TensorUnrestricter.html":[3,0,4,179],
-"structsisi4s_1_1TensorUnrestricter.html#a5f1230defb524657d8216c9ac5ae30a5":[3,0,4,179,3],
 "structsisi4s_1_1TensorUnrestricter.html#a5f1230defb524657d8216c9ac5ae30a5":[2,0,5,179,3],
-"structsisi4s_1_1TensorUnrestricter.html#acf3ed6039ddf63c70279c97c692f771e":[2,0,5,179,1],
+"structsisi4s_1_1TensorUnrestricter.html#a5f1230defb524657d8216c9ac5ae30a5":[3,0,4,179,3],
 "structsisi4s_1_1TensorUnrestricter.html#acf3ed6039ddf63c70279c97c692f771e":[3,0,4,179,1],
+"structsisi4s_1_1TensorUnrestricter.html#acf3ed6039ddf63c70279c97c692f771e":[2,0,5,179,1],
 "structsisi4s_1_1TensorUnrestricter.html#ae9fdc26f0fcd4c485cc355cd82cc2b12":[2,0,5,179,0],
 "structsisi4s_1_1TensorUnrestricter.html#ae9fdc26f0fcd4c485cc355cd82cc2b12":[3,0,4,179,0],
 "structsisi4s_1_1TensorUnrestricter.html#afd695afbe9c380c9efb8c8a2f7cfca75":[3,0,4,179,2],

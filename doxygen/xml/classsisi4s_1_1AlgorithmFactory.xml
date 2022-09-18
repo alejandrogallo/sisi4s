@@ -77,9 +77,9 @@
     <derivedcompoundref refid="classsisi4s_1_1AlgorithmRegistrar" prot="protected" virt="non-virtual">sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;</derivedcompoundref>
     <includes refid="Algorithm_8hpp" local="no">Algorithm.hpp</includes>
       <sectiondef kind="public-type">
-      <memberdef kind="typedef" id="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" prot="public" static="no">
+      <memberdef kind="typedef" id="classsisi4s_1_1AlgorithmFactory_1aff48e159ee0a61177137ed39edc523bf" prot="public" static="no">
         <type>std::map&lt; std::string, std::function&lt; <ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref> *(std::vector&lt; <ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref> &gt; const &amp;)&gt; &gt;</type>
-        <definition>typedef std::map&lt; std::string, std::function&lt;Algorithm *(std::vector&lt;Argument&gt; const &amp;)&gt; &gt; sisi4s::AlgorithmFactory::AlgorithmMap</definition>
+        <definition>using sisi4s::AlgorithmFactory::AlgorithmMap =  std::map&lt;std::string, std::function&lt;Algorithm *(std::vector&lt;Argument&gt; const &amp;)&gt; &gt;</definition>
         <argsstring></argsstring>
         <name>AlgorithmMap</name>
         <qualifiedname>sisi4s::AlgorithmFactory::AlgorithmMap</qualifiedname>
@@ -89,12 +89,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="118" column="2" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="118" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="116" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="119" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-static-attrib">
       <memberdef kind="variable" id="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" prot="protected" static="yes" mutable="no">
-        <type><ref refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" kindref="member">AlgorithmMap</ref> *</type>
+        <type><ref refid="classsisi4s_1_1AlgorithmFactory_1aff48e159ee0a61177137ed39edc523bf" kindref="member">AlgorithmMap</ref> *</type>
         <definition>AlgorithmFactory::AlgorithmMap * AlgorithmFactory::algorithmMap</definition>
         <argsstring></argsstring>
         <name>algorithmMap</name>
@@ -105,8 +105,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="138" column="25" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="138" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" compoundref="Algorithm_8hpp" startline="135" endline="137">getAlgorithmMap</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="147" column="25" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="147" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" compoundref="Algorithm_8hpp" startline="144" endline="146">getAlgorithmMap</referencedby>
+        <referencedby refid="classsisi4s_1_1AlgorithmFactory_1a44e7b5116de2d0f47648df28288fa48e" compoundref="Algorithm_8hpp" startline="137" endline="141">getAlgorithmNames</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -131,13 +132,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="127" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="127" bodyend="133"/>
-        <references refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" compoundref="Algorithm_8hpp" startline="135" endline="137">getAlgorithmMap</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="128" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="128" bodyend="134"/>
+        <references refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" compoundref="Algorithm_8hpp" startline="144" endline="146">getAlgorithmMap</references>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1AlgorithmFactory_1a44e7b5116de2d0f47648df28288fa48e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>static std::vector&lt; std::string &gt; sisi4s::AlgorithmFactory::getAlgorithmNames</definition>
+        <argsstring>()</argsstring>
+        <name>getAlgorithmNames</name>
+        <qualifiedname>sisi4s::AlgorithmFactory::getAlgorithmNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="137" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="137" bodyend="141"/>
+        <references refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" compoundref="Algorithm_8hpp" startline="147">algorithmMap</references>
+        <referencedby refid="Sisi4s_8cxx_1a599af1d1867ff8a4fa0cf7be6fe311c8" compoundref="Sisi4s_8cxx" startline="256" endline="297">main</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-static-func">
       <memberdef kind="function" id="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" kindref="member">AlgorithmMap</ref> *</type>
+        <type><ref refid="classsisi4s_1_1AlgorithmFactory_1aff48e159ee0a61177137ed39edc523bf" kindref="member">AlgorithmMap</ref> *</type>
         <definition>static AlgorithmMap * sisi4s::AlgorithmFactory::getAlgorithmMap</definition>
         <argsstring>()</argsstring>
         <name>getAlgorithmMap</name>
@@ -148,10 +165,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="135" column="25" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="135" bodyend="137"/>
-        <references refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" compoundref="Algorithm_8hpp" startline="138">algorithmMap</references>
-        <referencedby refid="classsisi4s_1_1AlgorithmRegistrar_1a330fe60ba5c91d293b90515f48235ad5" compoundref="Algorithm_8hpp" startline="162" endline="164">sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;::AlgorithmRegistrar</referencedby>
-        <referencedby refid="classsisi4s_1_1AlgorithmFactory_1a0c080f73a73dc107e2f3eab4a5de98b2" compoundref="Algorithm_8hpp" startline="127" endline="133">create</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="144" column="25" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="144" bodyend="146"/>
+        <references refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" compoundref="Algorithm_8hpp" startline="147">algorithmMap</references>
+        <referencedby refid="classsisi4s_1_1AlgorithmRegistrar_1a330fe60ba5c91d293b90515f48235ad5" compoundref="Algorithm_8hpp" startline="171" endline="173">sisi4s::AlgorithmRegistrar&lt; AlgorithmType &gt;::AlgorithmRegistrar</referencedby>
+        <referencedby refid="classsisi4s_1_1AlgorithmFactory_1a0c080f73a73dc107e2f3eab4a5de98b2" compoundref="Algorithm_8hpp" startline="128" endline="134">create</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -824,12 +841,13 @@
         <link refid="classsisi4s_1_1AlgorithmFactory"/>
       </node>
     </collaborationgraph>
-    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="113" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="113" bodyend="139"/>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="113" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="113" bodyend="148"/>
     <listofallmembers>
-      <member refid="classsisi4s_1_1AlgorithmFactory_1a264138c222f56f84fceefeb6e84cb40d" prot="public" virt="non-virtual"><scope>sisi4s::AlgorithmFactory</scope><name>AlgorithmMap</name></member>
+      <member refid="classsisi4s_1_1AlgorithmFactory_1aff48e159ee0a61177137ed39edc523bf" prot="public" virt="non-virtual"><scope>sisi4s::AlgorithmFactory</scope><name>AlgorithmMap</name></member>
       <member refid="classsisi4s_1_1AlgorithmFactory_1a2e7a816bb008ad276af0fd588c9f7176" prot="protected" virt="non-virtual"><scope>sisi4s::AlgorithmFactory</scope><name>algorithmMap</name></member>
       <member refid="classsisi4s_1_1AlgorithmFactory_1a0c080f73a73dc107e2f3eab4a5de98b2" prot="public" virt="non-virtual"><scope>sisi4s::AlgorithmFactory</scope><name>create</name></member>
       <member refid="classsisi4s_1_1AlgorithmFactory_1afae4ff54d1184f6aa418eebfea1df9b4" prot="protected" virt="non-virtual"><scope>sisi4s::AlgorithmFactory</scope><name>getAlgorithmMap</name></member>
+      <member refid="classsisi4s_1_1AlgorithmFactory_1a44e7b5116de2d0f47648df28288fa48e" prot="public" virt="non-virtual"><scope>sisi4s::AlgorithmFactory</scope><name>getAlgorithmNames</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

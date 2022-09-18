@@ -159,7 +159,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">virtual</span> std::string getName() { <span class="keywordflow">return</span> #NAME; } \</div>
-<div class="line">    static MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; registrar_;</div>
+<div class="line">    static MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; registrar_</div>
 </div><!-- fragment -->
 <p>Auxiliary macro declaring the mixer registrar for the mixer type of the given name. This macro is to be used in the algorith declaration within the .hpp file. Note that name is a symbol name not a string. </p>
 
@@ -181,7 +181,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt; \</div>
-<div class="line">    MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; NAME&lt;F&gt;::registrar_(#NAME);</div>
+<div class="line">    MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; NAME&lt;F&gt;::registrar_(#NAME)</div>
 </div><!-- fragment -->
 <p>Auxiliary macro defining the mixer registrar for the mixer type of the given name. This macro is to be used in the mixer definition within the .cxx file. Note that name is a symbol name not a string. </p>
 

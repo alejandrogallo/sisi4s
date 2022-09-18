@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="Libint_8hpp" kind="file" language="C++">
+    <compoundname>Libint.hpp</compoundname>
+    <includes local="no">system_error</includes>
+    <includes local="no">libint2.hpp</includes>
+    <includedby refid="CoulombIntegralsFromGaussian_8cxx" local="no">CoulombIntegralsFromGaussian.cxx</includedby>
+    <includedby refid="HartreeFockFromGaussian_8cxx" local="no">HartreeFockFromGaussian.cxx</includedby>
+    <includedby refid="NuclearRepulsionEnergy_8cxx" local="no">NuclearRepulsionEnergy.cxx</includedby>
+    <includedby refid="OneBodyFromGaussian_8cxx" local="no">OneBodyFromGaussian.cxx</includedby>
+    <includedby refid="OneBodyFromGaussian_8hpp" local="no">OneBodyFromGaussian.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Libint.hpp</label>
+        <link refid="Libint_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libint2.hpp</label>
+      </node>
+      <node id="2">
+        <label>system_error</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>CoulombIntegralsFromGaussian.cxx</label>
+        <link refid="CoulombIntegralsFromGaussian_8cxx"/>
+      </node>
+      <node id="3">
+        <label>HartreeFockFromGaussian.cxx</label>
+        <link refid="HartreeFockFromGaussian_8cxx"/>
+      </node>
+      <node id="4">
+        <label>NuclearRepulsionEnergy.cxx</label>
+        <link refid="NuclearRepulsionEnergy_8cxx"/>
+      </node>
+      <node id="5">
+        <label>OneBodyFromGaussian.cxx</label>
+        <link refid="OneBodyFromGaussian_8cxx"/>
+      </node>
+      <node id="6">
+        <label>OneBodyFromGaussian.hpp</label>
+        <link refid="OneBodyFromGaussian_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Libint.hpp</label>
+        <link refid="Libint_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>LIBINT_HPP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LIBINT_HPP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;system_error&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>GCC<sp/>diagnostic<sp/>push</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wpedantic&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>GCC<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wunused-parameter&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;libint2.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>GCC<sp/>diagnostic<sp/>pop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/util/Libint.hpp"/>
+  </compounddef>
+</doxygen>

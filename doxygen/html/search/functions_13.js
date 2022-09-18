@@ -8,7 +8,7 @@ var searchData=
   ['tensorantisymmetrizer_5',['TensorAntisymmetrizer',['../structsisi4s_1_1TensorAntisymmetrizer.html#aa043f522e05bc1a33bfcd8703281e789',1,'sisi4s::TensorAntisymmetrizer']]],
   ['tensorcontraction_6',['TensorContraction',['../classsisi4s_1_1TensorContraction.html#a5f3f40164c03319c94dd5e06b0301594',1,'sisi4s::TensorContraction']]],
   ['tensordata_7',['TensorData',['../classsisi4s_1_1TensorData.html#a8efedb03ce045d073ed47a3765aa5558',1,'sisi4s::TensorData::TensorData(T *value_)'],['../classsisi4s_1_1TensorData.html#adff973099df5d53ab92dcf7ce76b7a83',1,'sisi4s::TensorData::TensorData(std::string const &amp;name_, T *value_)']]],
-  ['tensorgetmax_8',['TensorGetMax',['../structsisi4s_1_1TensorGetMax.html#aecb29011be11dd24c5f14b3cb1671158',1,'sisi4s::TensorGetMax']]],
+  ['tensorgetmax_8',['TensorGetMax',['../classsisi4s_1_1TensorGetMax.html#aecb29011be11dd24c5f14b3cb1671158',1,'sisi4s::TensorGetMax']]],
   ['tensornorm_9',['TensorNorm',['../classsisi4s_1_1TensorNorm.html#a0df86fd4ff9f75739b96fae65238ddea',1,'sisi4s::TensorNorm']]],
   ['tensorreader_10',['TensorReader',['../classsisi4s_1_1TensorReader.html#a16d2bde80287b0e270b21813eceacc0c',1,'sisi4s::TensorReader']]],
   ['tensorreduceijij_11',['TensorReduceijij',['../structsisi4s_1_1TensorReduceijij.html#a69d1fd839efc89d2ce9ffd5da3825f90',1,'sisi4s::TensorReduceijij']]],
