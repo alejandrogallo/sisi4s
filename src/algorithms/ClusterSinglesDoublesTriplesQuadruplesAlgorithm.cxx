@@ -6,13 +6,12 @@
 #include <util/SharedPointer.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Options.hpp>
 #include <Sisi4s.hpp>
 
 #include <initializer_list>
 
-using namespace CTF;
 using namespace sisi4s;
 
 

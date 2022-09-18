@@ -5,9 +5,9 @@
 #include <util/ScaLapackMatrix.hpp>
 #include <util/ScaLapackSingularValueDecomposition.hpp>
 #include <util/Log.hpp>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 
 
 template <typename F>

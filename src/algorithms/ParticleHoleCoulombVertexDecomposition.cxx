@@ -9,9 +9,9 @@
 // FIXME: only used by MP2 functions which need to be factored.
 #include <math/ComplexTensor.hpp>
 #include <limits>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexDecomposition);
 

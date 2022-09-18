@@ -2,10 +2,9 @@
 #include <algorithms/PseudoInverse.hpp>
 #include <math/PseudoInverseHermitianSvd.hpp>
 #include <util/Log.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(PseudoInverse);
 

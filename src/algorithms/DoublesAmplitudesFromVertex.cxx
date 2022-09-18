@@ -4,10 +4,9 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(DoublesAmplitudesFromVertex);
 

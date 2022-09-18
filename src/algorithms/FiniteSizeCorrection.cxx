@@ -13,7 +13,7 @@
 #include <util/Exception.hpp>
 #include <util/SharedPointer.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <iostream>
 // FIXME: use common way for math constants
 #define _USE_MATH_DEFINES

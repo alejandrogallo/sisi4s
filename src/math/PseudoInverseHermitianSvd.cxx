@@ -7,9 +7,9 @@
 #include <util/ScaLapackHermitianEigenSystemDc.hpp>
 #include <util/Log.hpp>
 #include <memory>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 using std::make_shared;
 
 

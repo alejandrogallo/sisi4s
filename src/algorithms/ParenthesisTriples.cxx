@@ -3,7 +3,7 @@
 #include <util/SharedPointer.hpp>
 #include <util/BinaryTensorFormat.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <fstream>
 #include <extern/Lapack.hpp>
 #include <math/ComplexTensor.hpp>
@@ -12,7 +12,6 @@
 #include <algorithm>
 
 
-using namespace CTF;
 using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParenthesisTriples);

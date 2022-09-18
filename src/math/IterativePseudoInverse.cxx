@@ -7,9 +7,9 @@
 #include <complex>
 #include <array>
 #include <limits>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 
 
 template <typename F>

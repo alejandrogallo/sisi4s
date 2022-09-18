@@ -1,7 +1,6 @@
 #include <algorithms/TensorContraction.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorContraction);

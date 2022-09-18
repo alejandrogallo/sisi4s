@@ -1,8 +1,7 @@
 #include <algorithms/ComplexTensorSum.hpp>
 #include <math/Complex.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 

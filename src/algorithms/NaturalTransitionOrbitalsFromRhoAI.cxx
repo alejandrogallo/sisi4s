@@ -9,9 +9,8 @@
 #include <numeric>      // std::iota
 #include <algorithm>
 
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 

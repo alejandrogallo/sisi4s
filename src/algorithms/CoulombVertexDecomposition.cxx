@@ -1,5 +1,6 @@
 /*Copyright (c) 2016, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 
+#include <limits>
 #include <algorithms/CoulombVertexDecomposition.hpp>
 #include <math/CanonicalPolyadicDecomposition.hpp>
 #include <math/IterativePseudoInverse.hpp>
@@ -8,10 +9,9 @@
 #include <mixers/Mixer.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Log.hpp>
-#include <limits>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexDecomposition);
 

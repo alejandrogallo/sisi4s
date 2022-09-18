@@ -7,8 +7,8 @@
 #include <DryTensor.hpp>
 #include <util/Exception.hpp>
 #include <util/Log.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 template <typename F>

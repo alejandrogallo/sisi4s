@@ -4,11 +4,10 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <fstream>
 
 using namespace sisi4s;
-using namespace CTF;
 
 char const *ParticleHoleCoulombVertexReader::Header::MAGIC = "sisi4sFTOD";
 char const *ParticleHoleCoulombVertexReader::Chunk::REALS_MAGIC = "FTODreal";

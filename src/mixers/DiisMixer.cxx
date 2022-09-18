@@ -1,3 +1,5 @@
+#include <array>
+
 #include <mixers/DiisMixer.hpp>
 #include <util/Emitter.hpp>
 #include <util/Log.hpp>
@@ -5,10 +7,9 @@
 #include <extern/Lapack.hpp>
 
 #include <math/IterativePseudoInverse.hpp>
+#include <util/Tensor.hpp>
 
-#include <array>
 
-using namespace CTF;
 using namespace sisi4s;
 
 MIXER_REGISTRAR_DEFINITION(DiisMixer);

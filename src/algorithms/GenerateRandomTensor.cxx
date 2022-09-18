@@ -1,9 +1,8 @@
 #include <algorithms/GenerateRandomTensor.hpp>
 #include <math/RandomTensor.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 

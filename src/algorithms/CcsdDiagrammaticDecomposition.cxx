@@ -6,13 +6,12 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <array>
 #include <string>
 #include <util/SharedPointer.hpp>
 
 
-using namespace CTF;
 using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdDiagrammaticDecomposition);

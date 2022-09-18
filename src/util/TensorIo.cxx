@@ -6,9 +6,8 @@
 #include <Sisi4s.hpp>
 #include <fstream>
 #include <iomanip>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 
