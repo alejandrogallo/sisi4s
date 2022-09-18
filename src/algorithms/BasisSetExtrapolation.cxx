@@ -1,5 +1,4 @@
 #include <algorithms/BasisSetExtrapolation.hpp>
-
 #include <math/Complex.hpp>
 #include <math/ComplexTensor.hpp>
 #include <Sisi4s.hpp>
@@ -7,12 +6,11 @@
 #include <DryTensor.hpp>
 #include <math/Vector.hpp>
 #include <util/SharedPointer.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <util/MpiCommunicator.hpp>
 #include <math/PseudoInverseSvd.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(BasisSetExtrapolation);
 
@@ -67,7 +65,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
       throw new EXCEPTION("Need HoleEigenEnergies for number of holes/particles");
     }
 
-    auto epsi = NEW( Tensor<>, getTensorArgument<>("HoleEigenEnergies"));
+    auto epsi = NEW( Tensor<double>, getTensorArgument<>("HoleEigenEnergies"));
     int No(epsi->lens[0]);
     auto GammaGqr = NEW(
       Tensor<complex>, getTensorArgument<complex>("CoulombVertex")

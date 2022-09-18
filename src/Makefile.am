@@ -6,10 +6,7 @@ AM_CXXFLAGS = $(CTF_CPPFLAGS) \
               -D_POSIX_C_SOURCE=200112L     \
               -D__STDC_LIMIT_MACROS         \
               -DFTN_UNDERSCORE=1            \
-              -DSISI4S_VERSION=\"sisi4s\" \
-              "-DSISI4S_DATE=\"${DATE}\""     \
-              "-DCOMPILER_VERSION=\"${COMPILER_VERSION}\"" \
-              "-DSISI4S_MPI_VERSION=\"${SISI4S_MPI_VERSION}\""
+              "-DSISI4S_DATE=\"${DATE}\""
 
 
 bin_PROGRAMS = sisi4s

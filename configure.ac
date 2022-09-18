@@ -4,7 +4,7 @@ dnl 	autoconf
 dnl  in the directory containing this script.
 dnl
 
-AC_INIT([cc3s],[0.0.0],[https://gihtub.com/alejandrogallo/cc3s])
+AC_INIT([sisi4s],[0.0.0],[https://gihtub.com/alejandrogallo/sisi4s])
 AC_CONFIG_SRCDIR([configure.ac])
 AC_PREREQ(2.69)
 AC_CONFIG_MACRO_DIRS([./etc/m4])
@@ -137,6 +137,7 @@ AC_PROG_LN_S             dnl sets variable LN_S
 AC_PROG_MAKE_SET         dnl set $(MAKE) if needed
 AC_PROG_RANLIB           dnl set variable RANLIB
 AC_CHECK_TOOL([AR],[ar]) dnl set variable AR to appropriate `ar' program
+AC_CHECK_TOOL([TR],[tr])
 
 dnl -----------------------------------------------------------------------
 AC_OPENMP
@@ -289,6 +290,17 @@ if test x${build_docs} == xyes; then
   AX_ELISP_CHECK_BOUNDP([org-babel-post-tangle-hook], [ob])
 fi
 
+AC_MSG_RESULT([ SISI COMMIT ])
+
+AC_DEFINE_UNQUOTED([SISI_COMMIT],
+                   ["$(git describe --always --dirty)"],
+                   [The current git status at compile time])
+
+AC_MSG_RESULT([ COMPILER VERSION ])
+
+AC_DEFINE_UNQUOTED([COMPILER_VERSION],
+                   ["$($MPICXX --version | $TR "\n" " ")"],
+                   [Compiler version])
 
 dnl -----------------------------------------------------------------------
 AC_CONFIG_FILES([

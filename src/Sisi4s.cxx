@@ -1,5 +1,9 @@
 /*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
+#include <fstream>
+#include <string>
+#include <sstream>
 
+#include <util/Config.hpp>
 #include <Sisi4s.hpp>
 #include <Parser.hpp>
 #include <algorithms/Algorithm.hpp>
@@ -10,9 +14,6 @@
 #include <util/Log.hpp>
 #include <util/Emitter.hpp>
 #include <util/Exception.hpp>
-#include <fstream>
-#include <string>
-#include <sstream>
 
 // TODO: to be removed from the main class
 #include <math/MathFunctions.hpp>
@@ -142,24 +143,25 @@ void Sisi4s::printBanner() {
   buildDate << __DATE__ << " " << __TIME__;
 
   OUT() <<
-    (" ____    __ __    ____     ____      " "\n"
-     "/\\  _`\\ /\\ \\\\ \\  /\\  _`\\  /\\  _`\\    " "\n"
-     "\\ \\,\\L\\_\\ \\ \\\\ \\ \\ \\ \\/\\_\\\\ \\ \\/\\_\\  " "\n"
-     " \\/_\\__ \\\\ \\ \\\\ \\_\\ \\ \\/_/_\\ \\ \\/_/_ " "\n"
-     "   /\\ \\L\\ \\ \\__ ,__\\ \\ \\L\\ \\\\ \\ \\L\\ \\" "\n"
-     "   \\ `\\____\\/_/\\_\\_/\\ \\____/ \\ \\____/" "\n"
-     "    \\/_____/  \\/_/   \\/___/   \\/___/ " "\n"
-     "\n");
+    ("                          ____  _ ____  _ _  _  ___" "\n"
+     "                         / ___|(_) ___|(_) || |/ ___|" "\n"
+     "                         \\___ \\| \\___ \\| | || |\\___ \\" "\n"
+     "                          ___) | |___) | |__   _|__) |" "\n"
+     "                         |____/|_|____/|_|  |_||____/" "\n" "\n");
 
-  LOG(0, "root") << "version=" << SISI4S_VERSION <<
-    ", date=" << SISI4S_DATE << std::endl;
+
+
+
+  LOG(0, "root")
+    << "version=" << SISI_COMMIT
+    << ", date=" << __DATE__ << std::endl;
   LOG(0, "root") << "build date=" << buildDate.str() << std::endl;
   LOG(0, "root") << "compiler=" << COMPILER_VERSION << std::endl;
   LOG(0, "root") << "total processes=" << Sisi4s::world->np << std::endl;
   OUT() << std::endl;
 
   EMIT()
-    << YAML::Key << "version" << YAML::Value << SISI4S_VERSION
+    << YAML::Key << "version" << YAML::Value << SISI_COMMIT
     << YAML::Key << "build-date" << YAML::Value << buildDate.str()
     << YAML::Key << "compiler" << YAML::Value << COMPILER_VERSION
     << YAML::Key << "total-processes" << Sisi4s::world->np;
