@@ -44,3 +44,13 @@ EIGEN_CPPFLAGS   ?= -I$(EIGEN_BUILD_PATH)/include/eigen3
 CPPFLAGS         += $(EIGEN_CPPFLAGS)
 include $(top_srcdir)/etc/make/eigen.mk
 endif
+
+if WITH_BUILD_ECL
+ECL_BUILD_PATH ?= $(EXTERN_BUILD_PATH)/ecl/$(ECL_COMMIT)
+ECL_SRC_PATH   ?= $(EXTERN_SRC_PATH)/ecl/$(ECL_COMMIT)
+ECL_LIB        ?= ${ECL_BUILD_PATH}/libecl.a
+ECL_CPATH      ?= ${ECL_BUILD_PATH}/
+ECL_CPPFLAGS   ?= -I${ECL_CPATH}
+CPPFLAGS       += $(ECL_CPPFLAGS)
+include $(top_srcdir)/etc/make/ecl.mk
+endif

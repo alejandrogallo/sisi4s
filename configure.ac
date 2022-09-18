@@ -26,10 +26,12 @@ CTF_COMMIT="53ae5daad851bf3b198ebe1fa761c13b12291116"
 YAML_COMMIT="c9460110e072df84b7dee3eb651f2ec5df75fb18"
 LIBINT_COMMIT="v2.6.0"
 EIGEN_BRANCH="3.3.7"
+ECL_COMMIT="master"
 AC_SUBST([CTF_COMMIT])
 AC_SUBST([YAML_COMMIT])
 AC_SUBST([LIBINT_COMMIT])
 AC_SUBST([EIGEN_BRANCH])
+AC_SUBST([ECL_COMMIT])
 
 dnl -----------------------------------------------------------------------
 dnl Configure switches
@@ -78,6 +80,18 @@ AC_ARG_WITH(yamlcpp,
              BUILD_YAML=NO],
             [BUILD_YAML=YES
              EXTERNAL_DEPENDENCIES="yamlcpp ${EXTERNAL_DEPENDENCIES}"])
+
+dnl ECL WITH OPTION
+AC_ARG_WITH(ecl,
+            [AS_HELP_STRING([--with-ecl],
+                            [prefix for ecl includes and libraries] )],
+            [ECL_PATH="`readlink -f $withval`";
+             ECL_CPATH="`readlink -f $withval`/include";
+             ECL_LD_LIBRARY_PATH="`readlink -f $withval`/lib";
+             LIBS="${LIBS} -L${ECL_LD_LIBRARY_PATH} -lint2"
+             BUILD_ECL=NO],
+            [BUILD_ECL=YES
+             EXTERNAL_DEPENDENCIES="ecl ${EXTERNAL_DEPENDENCIES}"])
 
 AC_ARG_WITH([clang-check],
             [AS_HELP_STRING([--with-clang-check],
@@ -261,6 +275,17 @@ if test xNO = x${BUILD_YAML}; then
                   [AC_MSG_ERROR([no yaml-cpp/yaml.h header found])])
 fi
 
+dnl -----------------------------------------------------------------------
+dnl CHECK ECL
+dnl -----------------------------------------------------------------------
+AM_CONDITIONAL([WITH_BUILD_ECL], [test x${BUILD_ECL} = xYES])
+if test xNO = x${BUILD_ECL}; then
+  CPPFLAGS="$CPPFLAGS -I${ECL_CPATH}"
+  #LDFLAGS="$LDFLAGS -L${ECL_LD_LIBRARY_PATH} -lint2"
+  AC_CHECK_HEADER([ecl.h],
+                  [],
+                  [AC_MSG_ERROR([no ecl.h header found in $CPPFLAGS])])
+fi
 
 dnl CUDA NVIDIA -----------------------------------------------------------
 
