@@ -18,7 +18,7 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
 
@@ -171,7 +171,7 @@ void UegVertexGenerator::run() {
   int syms[] = {NS, NS, NS, NS};
   const int coulombVertexLens[] = {(int)NF,(int)Np,(int)Np};
   auto coulombVertex
-    = new CTF::Tensor<complex>(3,
+    = new Tensor<complex>(3,
                               coulombVertexLens,
                               syms,
                               *Sisi4s::world,
@@ -189,8 +189,8 @@ void UegVertexGenerator::run() {
   // Prepare eigenEnergies
   const int
     o[] = {(int)No}, _v[] = {(int)Nv};
-  auto epsi = new CTF::Tensor<double>(1, o, syms, *Sisi4s::world, "epsi"),
-       epsa = new CTF::Tensor<double>(1, _v, syms, *Sisi4s::world, "epsa");
+  auto epsi = new Tensor<double>(1, o, syms, *Sisi4s::world, "epsi"),
+       epsa = new Tensor<double>(1, _v, syms, *Sisi4s::world, "epsa");
 
   allocatedTensorArgument<sisi4s::complex>("CoulombVertex", coulombVertex);
   allocatedTensorArgument<double>("HoleEigenEnergies", epsi);

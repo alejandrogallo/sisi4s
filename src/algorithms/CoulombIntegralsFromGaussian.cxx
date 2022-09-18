@@ -7,12 +7,12 @@
 
 #include <util/Libint.hpp>
 #include <algorithms/CoulombIntegralsFromGaussian.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <util/Emitter.hpp>
 #include <math/MathFunctions.hpp>
 
@@ -216,7 +216,7 @@ struct CoulombIntegralsProvider {
 
   }
 
-  void computeHalfContract(size_t No, CTF::Tensor<double> *coeff) {
+  void computeHalfContract(size_t No, Tensor<double> *coeff) {
     libint2::initialize();
 
     size_t orbs(coeff->lens[1]);
@@ -387,7 +387,7 @@ struct CoulombIntegralsProvider {
 
   }
 
-  void write(CTF::Tensor<double> *t) {
+  void write(Tensor<double> *t) {
 
     // loop over engine.maxSize to ensure the same number of mpi calls
     // on every rank
@@ -430,7 +430,7 @@ struct CoulombIntegralsProvider {
     }
   }
 
-  void readHalfContract(CTF::Tensor<double> *t) {
+  void readHalfContract(Tensor<double> *t) {
     // loop over engine.maxSize to ensure the same number of mpi calls
     // on every rank
     // i.e. only one rank provide data for ctf->write.
@@ -562,7 +562,7 @@ void CoulombIntegralsFromGaussian::run() {
 
 
     const std::vector<int> lens(4, Np), syms(4, NS);
-    auto Vklmn(new CTF::Tensor<double>( 4
+    auto Vklmn(new Tensor<double>( 4
                                       , lens.data()
                                       , syms.data()
                                       , *Sisi4s::world, "V"
@@ -583,7 +583,7 @@ void CoulombIntegralsFromGaussian::run() {
     } else {
 
       LOGGER(1) << "Allocating phyisics notation integrals" << std::endl;
-      auto newV(new CTF::Tensor<double>( 4
+      auto newV(new Tensor<double>( 4
                                        , Vklmn->lens
                                        , Vklmn->sym
                                        , *Sisi4s::world
@@ -609,7 +609,7 @@ void CoulombIntegralsFromGaussian::run() {
     const size_t Nv(C->lens[1] - No);
     std::vector<int> lens(4, Np), syms(4, NS);
     lens[0] = No; lens[1] = No;
-    auto Vijkm(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Sisi4s::world, "V"));
+    auto Vijkm(new Tensor<double>( 4, lens.data(), syms.data(), *Sisi4s::world, "V"));
 
     LOGGER(1) << "computation begin" << std::endl;
     engine.computeHalfContract(No, C);
@@ -621,7 +621,7 @@ void CoulombIntegralsFromGaussian::run() {
 
 
     lens[2] = No; lens[3] = No;
-    auto Vhhhh(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Sisi4s::world, "Vhhhh"));
+    auto Vhhhh(new Tensor<double>( 4, lens.data(), syms.data(), *Sisi4s::world, "Vhhhh"));
     int sliceStart[] = {0, 0};
     int sliceEnd[] = {Np, (int)No};
     auto Cocc(C->slice(sliceStart, sliceEnd));
@@ -633,7 +633,7 @@ void CoulombIntegralsFromGaussian::run() {
       auto Socc(S->slice(sS, sE));
       std::vector<int> l(2);
       l[0] = No; l[1] = No;
-      auto Sm(new CTF::Tensor<double>(2, l.data(), syms.data(), *Sisi4s::world, "Sm"));
+      auto Sm(new Tensor<double>(2, l.data(), syms.data(), *Sisi4s::world, "Sm"));
       (*Sm)["ij"] = Socc["i"]* Socc["j"];
 
       CTF::Transform<double>(
@@ -643,7 +643,7 @@ void CoulombIntegralsFromGaussian::run() {
       )(
         (*Sm)["pq"]
       );
-      auto Smap(new CTF::Tensor<double>(4, lens.data(), syms.data(), *Sisi4s::world, "Smap"));
+      auto Smap(new Tensor<double>(4, lens.data(), syms.data(), *Sisi4s::world, "Smap"));
       (*Smap)["ijkl"] = (*Sm)["ik"] * (*Sm)["jl"];
       CTF::Bivar_Function<> fMultiply(&multiply<double>);
       Vhhhh->contract(
@@ -657,7 +657,7 @@ void CoulombIntegralsFromGaussian::run() {
     sliceStart[1] = No; sliceEnd[1] = C->lens[1];
     auto Cvirt(C->slice(sliceStart, sliceEnd));
     lens[0] = Nv; lens[1] = Nv;
-    auto Vpphh(new CTF::Tensor<double>( 4, lens.data(), syms.data(), *Sisi4s::world, "Vpphh"));
+    auto Vpphh(new Tensor<double>( 4, lens.data(), syms.data(), *Sisi4s::world, "Vpphh"));
     (*Vpphh)["abij"] = Cvirt["qa"] * (*Vijkm)["ijpq"] * Cvirt["pb"];
     if ( isArgumentGiven("Spins") ){
       LOGGER(1) << "unrestricted case: Vpphh\n";
@@ -668,7 +668,7 @@ void CoulombIntegralsFromGaussian::run() {
       auto Svirt(S->slice(sS, sE));
       std::vector<int> l(2);
       l[0] = Nv; l[1] = No;
-      auto Sm(new CTF::Tensor<double>(2, l.data(), syms.data(), *Sisi4s::world, "Sm"));
+      auto Sm(new Tensor<double>(2, l.data(), syms.data(), *Sisi4s::world, "Sm"));
       (*Sm)["ai"] = Svirt["a"]* Socc["i"];
 
       CTF::Transform<double>(
@@ -678,7 +678,7 @@ void CoulombIntegralsFromGaussian::run() {
       )(
         (*Sm)["pq"]
       );
-      auto Smap(new CTF::Tensor<double>(4, lens.data(), syms.data(), *Sisi4s::world, "Smap"));
+      auto Smap(new Tensor<double>(4, lens.data(), syms.data(), *Sisi4s::world, "Smap"));
       (*Smap)["abij"] = (*Sm)["ai"] * (*Sm)["bj"];
       CTF::Bivar_Function<> fMultiply(&multiply<double>);
       Vpphh->contract(

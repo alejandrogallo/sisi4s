@@ -27,14 +27,14 @@ namespace sisi4s {
 
   protected:
     int No, Nv;
-    CTF::Tensor<double> *SVabc, *DVabc;
-    CTF::Tensor<double> *realGammaFab, *imagGammaFab;
+    Tensor<double> *SVabc, *DVabc;
+    Tensor<double> *realGammaFab, *imagGammaFab;
     SlicedCtfTensor<> *Tai, *Tabij, *Tabil;
     SlicedCtfTensor<> *Vabij, *Vijla, *realGammaFai,*imagGammaFai;
     void sliceTensors();
-    CTF::Tensor<double> &getSinglesContribution(const Map<3> &);
-    CTF::Tensor<double> &getDoublesContribution(const Map<3> &);
-    CTF::Tensor<double> &getEnergyDenominator(const Map<3> &);
+    Tensor<double> &getSinglesContribution(const Map<3> &);
+    Tensor<double> &getDoublesContribution(const Map<3> &);
+    Tensor<double> &getEnergyDenominator(const Map<3> &);
   };
 }
 

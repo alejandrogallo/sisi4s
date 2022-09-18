@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   class Argument {
@@ -51,7 +51,7 @@ namespace sisi4s {
     real getRealArgument(
       std::string const &argumentName, real const defaultValue
     );
-    template < typename F=real, typename T=CTF::Tensor<F> >
+    template < typename F=real, typename T=Tensor<F> >
     T *getTensorArgument(std::string const &argumentName);
     template < typename F=real, typename C=std::vector<F> >
     C *getContainerArgument(std::string const &argumentName);
@@ -92,7 +92,7 @@ namespace sisi4s {
      * allocatedTensorArgument<complex>(complexTensor);
      * \endcode
      */
-    template < typename F=real, typename T=CTF::Tensor<F> >
+    template < typename F=real, typename T=Tensor<F> >
     void allocatedTensorArgument(
       std::string const &argumentName, T *tensor
     );
@@ -103,7 +103,7 @@ namespace sisi4s {
     // type promotions:
     real getRealArgumentFromInteger(IntegerData *data);
     real getRealArgumentFromTensor(TensorData<real> *data);
-    template < typename F=real, typename T=CTF::Tensor<F> >
+    template < typename F=real, typename T=Tensor<F> >
     T *getTensorArgumentFromReal(RealData *realData);
 
     Data *getArgumentData(std::string const &argumentName);

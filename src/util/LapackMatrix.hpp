@@ -5,7 +5,7 @@
 #include <math/Complex.hpp>
 #include <vector>
 #include <sstream>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   template <typename F=real>
@@ -47,7 +47,7 @@ namespace sisi4s {
      * if rows and columns is given, reinterpret the matrix
      **/
     LapackMatrix(
-      CTF::Tensor<F> &ctfA,
+      Tensor<F> &ctfA,
       const int rows_ = 0,
       const int columns_ = 0
     ):
@@ -93,7 +93,7 @@ namespace sisi4s {
     /**
      * \brief Writes the data of this Lapack matrix to the CTF tensor.
      **/
-    void write(CTF::Tensor<F> &ctfA) const {
+    void write(Tensor<F> &ctfA) const {
       if (ctfA.lens[0] != rows || ctfA.lens[1] != columns) {
         std::stringstream stream;
         stream << "Tensor is not of correct shape to receive ("

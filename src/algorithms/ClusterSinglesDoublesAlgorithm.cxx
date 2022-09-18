@@ -208,8 +208,8 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   }
 
   if (isArgumentGiven("HPFockMatrix")) {
-    CTF::Tensor<F> *fia;
-    fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
+    Tensor<F> *fia;
+    fia = getTensorArgument<F, Tensor<F> >("HPFockMatrix");
     energy[""] = spins * (*Tai)["ai"] * (*fia)["ia"];
     F noncanonical(energy.get_val());
     LOG(0, getCapitalizedAbbreviation())
@@ -252,7 +252,7 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
   std::initializer_list<std::initializer_list<int>> amplitudeLens,
   std::initializer_list<std::string> amplitudeIndices
 ) {
-  std::vector<PTR(CTF::Tensor<F>)> amplitudeTensors;
+  std::vector<PTR(Tensor<F>)> amplitudeTensors;
   auto lensIterator( amplitudeLens.begin() );
   for (auto name: amplitudeNames) {
     std::stringstream initialDataName;
@@ -260,7 +260,7 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
     if (isArgumentGiven(initialDataName.str())) {
       // use given amplitudes as initial amplitudes
       amplitudeTensors.push_back(
-        NEW(CTF::Tensor<F>, *getTensorArgument<F>( initialDataName.str() ))
+        NEW(Tensor<F>, *getTensorArgument<F>( initialDataName.str() ))
       );
       EMIT() << YAML::Key << "initialAmplitudes"
              << YAML::Value << initialDataName.str();
@@ -269,7 +269,7 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
       std::vector<int> lens(*lensIterator);
       std::vector<int> syms(lens.size(), NS);
       amplitudeTensors.push_back(
-        NEW(CTF::Tensor<F>,
+        NEW(Tensor<F>,
           lens.size(), lens.data(), syms.data(), *Sisi4s::world, "T"
         )
       );
@@ -351,7 +351,7 @@ void ClusterSinglesDoublesAlgorithm::estimateAmplitudesFromResiduum(
 
 template <typename F>
 void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
-  CTF::Tensor<F> &D, const std::string &indices
+  Tensor<F> &D, const std::string &indices
 ) {
   auto epsi(getTensorArgument<>("HoleEigenEnergies"));
   auto epsa(getTensorArgument<>("ParticleEigenEnergies"));
@@ -376,11 +376,11 @@ void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
 // instantiate
 template
 void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
-  CTF::Tensor<double> &D, const std::string &indices
+  Tensor<double> &D, const std::string &indices
 );
 template
 void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
-  CTF::Tensor<complex> &D, const std::string &indices
+  Tensor<complex> &D, const std::string &indices
 );
 
 

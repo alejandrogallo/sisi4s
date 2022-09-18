@@ -36,9 +36,9 @@ namespace sisi4s {
     complex *sqrtLambdas;
     int64_t lambdasCount, *lambdaIndices;
 
-    std::shared_ptr<CTF::Tensor<double>> Taibj, UaiF;
-    std::shared_ptr<CTF::Tensor<complex>> LFai, sqrtLambdaF;
-    CTF::Tensor<double> *LambdaF;
+    std::shared_ptr<Tensor<double>> Taibj, UaiF;
+    std::shared_ptr<Tensor<complex>> LFai, sqrtLambdaF;
+    Tensor<double> *LambdaF;
   };
 }
 

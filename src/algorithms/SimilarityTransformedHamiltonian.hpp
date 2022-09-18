@@ -5,7 +5,7 @@
 #include <algorithms/StantonIntermediatesUCCSD.hpp>
 #include <math/FockVector.hpp>
 #include <util/SharedPointer.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
 
@@ -56,7 +56,7 @@ namespace sisi4s {
     SDFockVector<F> rightApplyIntermediates_CCSD_EA(SDFockVector<F>&);
 
     // Structure factor
-    struct StructureFactor { double energy; CTF::Tensor<F> S; };
+    struct StructureFactor { double energy; Tensor<F> S; };
     struct StructureFactorSettings { bool onlySingles
                                    ; bool onlyDoubles
                                    ; bool hartreeInOneBody
@@ -72,62 +72,62 @@ namespace sisi4s {
                                    );
 
     // One body
-    PTR(CTF::Tensor<F>) getIJ();
-    PTR(CTF::Tensor<F>) getAB();
-    PTR(CTF::Tensor<F>) getAI();
-    PTR(CTF::Tensor<F>) getAI_RPA();
-    PTR(CTF::Tensor<F>) getIA();
+    PTR(Tensor<F>) getIJ();
+    PTR(Tensor<F>) getAB();
+    PTR(Tensor<F>) getAI();
+    PTR(Tensor<F>) getAI_RPA();
+    PTR(Tensor<F>) getIA();
 
     // Two body
-    PTR(CTF::Tensor<F>) getABIJ();
-    PTR(CTF::Tensor<F>) getABIJ_RPA();
-    PTR(CTF::Tensor<F>) getIJAB();
-    PTR(CTF::Tensor<F>) getABCD();
-    PTR(CTF::Tensor<F>) getABCI();
-    PTR(CTF::Tensor<F>) getAIBC();
-    PTR(CTF::Tensor<F>) getIABJ();
-    PTR(CTF::Tensor<F>) getIAJK();
-    PTR(CTF::Tensor<F>) getIJKA();
-    PTR(CTF::Tensor<F>) getIJKL();
+    PTR(Tensor<F>) getABIJ();
+    PTR(Tensor<F>) getABIJ_RPA();
+    PTR(Tensor<F>) getIJAB();
+    PTR(Tensor<F>) getABCD();
+    PTR(Tensor<F>) getABCI();
+    PTR(Tensor<F>) getAIBC();
+    PTR(Tensor<F>) getIABJ();
+    PTR(Tensor<F>) getIAJK();
+    PTR(Tensor<F>) getIJKA();
+    PTR(Tensor<F>) getIJKL();
 
     // three body
-    PTR(CTF::Tensor<F>) getABCIJK();
+    PTR(Tensor<F>) getABCIJK();
 
     // dressing tensor setters
-    STH& setTai(CTF::Tensor<F> *t) { Tai = t; return *this;}
-    STH& setTabij(CTF::Tensor<F> *t) { Tabij = t; return *this;}
-    STH& setTabcijk(CTF::Tensor<F> *t) { Tabcijk = t; return *this;}
-    STH& setTabcdijkl(CTF::Tensor<F> *t) { Tabcdijkl = t; return *this;}
+    STH& setTai(Tensor<F> *t) { Tai = t; return *this;}
+    STH& setTabij(Tensor<F> *t) { Tabij = t; return *this;}
+    STH& setTabcijk(Tensor<F> *t) { Tabcijk = t; return *this;}
+    STH& setTabcdijkl(Tensor<F> *t) { Tabcdijkl = t; return *this;}
 
     // V amplitudes setters
-    STH& setFij(CTF::Tensor<F> *t) { Fij = t; return *this; }
-    STH& setFab(CTF::Tensor<F> *t) { Fab = t; return *this; }
-    STH& setFia(CTF::Tensor<F> *t) { Fia = t; return *this; }
-    STH& setVabcd(CTF::Tensor<F> *t) { Vabcd = t; return *this; }
-    STH& setViajb(CTF::Tensor<F> *t) { Viajb = t; return *this; }
-    STH& setVijab(CTF::Tensor<F> *t) { Vijab = t; return *this; }
-    STH& setVijkl(CTF::Tensor<F> *t) { Vijkl = t; return *this; }
-    STH& setVijka(CTF::Tensor<F> *t) { Vijka = t; return *this; }
-    STH& setViabc(CTF::Tensor<F> *t) { Viabc = t; return *this; }
-    STH& setViajk(CTF::Tensor<F> *t) { Viajk = t; return *this; }
-    STH& setVabic(CTF::Tensor<F> *t) { Vabic = t; return *this; }
-    STH& setVaibc(CTF::Tensor<F> *t) { Vaibc = t; return *this; }
-    STH& setVaibj(CTF::Tensor<F> *t) { Vaibj = t; return *this; }
-    STH& setViabj(CTF::Tensor<F> *t) { Viabj = t; return *this; }
-    STH& setVijak(CTF::Tensor<F> *t) { Vijak = t; return *this; }
-    STH& setVaijb(CTF::Tensor<F> *t) { Vaijb = t; return *this; }
-    STH& setVabci(CTF::Tensor<F> *t) { Vabci = t; return *this; }
-    STH& setVabij(CTF::Tensor<F> *t) { Vabij = t; return *this; }
+    STH& setFij(Tensor<F> *t) { Fij = t; return *this; }
+    STH& setFab(Tensor<F> *t) { Fab = t; return *this; }
+    STH& setFia(Tensor<F> *t) { Fia = t; return *this; }
+    STH& setVabcd(Tensor<F> *t) { Vabcd = t; return *this; }
+    STH& setViajb(Tensor<F> *t) { Viajb = t; return *this; }
+    STH& setVijab(Tensor<F> *t) { Vijab = t; return *this; }
+    STH& setVijkl(Tensor<F> *t) { Vijkl = t; return *this; }
+    STH& setVijka(Tensor<F> *t) { Vijka = t; return *this; }
+    STH& setViabc(Tensor<F> *t) { Viabc = t; return *this; }
+    STH& setViajk(Tensor<F> *t) { Viajk = t; return *this; }
+    STH& setVabic(Tensor<F> *t) { Vabic = t; return *this; }
+    STH& setVaibc(Tensor<F> *t) { Vaibc = t; return *this; }
+    STH& setVaibj(Tensor<F> *t) { Vaibj = t; return *this; }
+    STH& setViabj(Tensor<F> *t) { Viabj = t; return *this; }
+    STH& setVijak(Tensor<F> *t) { Vijak = t; return *this; }
+    STH& setVaijb(Tensor<F> *t) { Vaijb = t; return *this; }
+    STH& setVabci(Tensor<F> *t) { Vabci = t; return *this; }
+    STH& setVabij(Tensor<F> *t) { Vabij = t; return *this; }
 
     // coulomb bertex setter
     STH&
-    setGammaGqr(CTF::Tensor<sisi4s::complex> *t) { GammaGqr = t; return *this; }
+    setGammaGqr(Tensor<sisi4s::complex> *t) { GammaGqr = t; return *this; }
 
     STH& setRightApplyIntermediates(bool t) {
       useRightApplyIntermediates = t; return *this;}
     STH& setDressing(Dressing d) {dressing = d; return *this;}
 
-    PTR(CTF::Tensor<F>) getTauABIJ();
+    PTR(Tensor<F>) getTauABIJ();
 
     STH& useStantonIntermediatesUCCSD(bool s) {
       _useStantonIntermediatesUCCSD = s;
@@ -152,7 +152,7 @@ namespace sisi4s {
     //
     // Resources that should be destroyed after the class gets destroyed
     //
-    PTR(CTF::Tensor<F>)
+    PTR(Tensor<F>)
       // one body
         Wij, Wab, Wia, Wai
 
@@ -171,7 +171,7 @@ namespace sisi4s {
     // External resources that should not be cleaned up after
     // Hamiltonian class gets destroyed
     //
-    CTF::Tensor<F>
+    Tensor<F>
       // T amplitudes
         *Tai=nullptr, *Tabij=nullptr, *Tabcijk=nullptr, *Tabcdijkl=nullptr
 
@@ -185,7 +185,7 @@ namespace sisi4s {
       ;
 
     // coulomb vertex
-    CTF::Tensor<sisi4s::complex>
+    Tensor<sisi4s::complex>
       *GammaGqr=nullptr
       ;
 

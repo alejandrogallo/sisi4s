@@ -3,7 +3,7 @@
 #define SLICED_CTF_TENSOR_DEFINED
 
 #include <math/Permutation.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -13,18 +13,18 @@ namespace sisi4s {
   class SlicedCtfTensor {
   public:
     SlicedCtfTensor(
-      CTF::Tensor<F> &T, const std::initializer_list<int> &list
+      Tensor<F> &T, const std::initializer_list<int> &list
     ) {
       create(T, std::vector<int>(list));
     }
     template <typename Iterator>
     SlicedCtfTensor(
-      CTF::Tensor<F> &T, Iterator begin, Iterator end
+      Tensor<F> &T, Iterator begin, Iterator end
     ) {
       create(T, std::vector<int>(begin, end));
     }
     void create(
-      CTF::Tensor<F> &T, const std::vector<int> &slicedDims
+      Tensor<F> &T, const std::vector<int> &slicedDims
     ) {
       // generate indexNames = "abcd..."
       std::string indexNames(T.order, 'a');
@@ -52,7 +52,7 @@ namespace sisi4s {
           start[slicedDims[d]] = slicePosition[d];
           end[slicedDims[d]] = slicePosition[d] + 1;
         }
-        slices[sliceIndex] = new CTF::Tensor<F>(
+        slices[sliceIndex] = new Tensor<F>(
           T.slice(start.data(), end.data())
         );
       }
@@ -64,14 +64,14 @@ namespace sisi4s {
       }
     }
 
-    CTF::Tensor<F> &operator ()(const std::initializer_list<int> &slicePos) {
+    Tensor<F> &operator ()(const std::initializer_list<int> &slicePos) {
       return (*this)(std::vector<int>(slicePos));
     }
     template <typename Iterator>
-    CTF::Tensor<F> &operator ()(Iterator begin, Iterator end) {
+    Tensor<F> &operator ()(Iterator begin, Iterator end) {
       return (*this)(std::vector<int>(begin, end));
     }
-    CTF::Tensor<F> &operator ()(const std::vector<int> &slicePosition) {
+    Tensor<F> &operator ()(const std::vector<int> &slicePosition) {
       // get slice number from its position
       int64_t sliceIndex(0);
       for (int d(slicedLens.size()-1); d >= 0; --d) {
@@ -82,7 +82,7 @@ namespace sisi4s {
     }
 
     std::vector<int> slicedLens;
-    std::vector<CTF::Tensor<F> *> slices;
+    std::vector<Tensor<F> *> slices;
   };
 }
 

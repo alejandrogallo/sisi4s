@@ -7,7 +7,7 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 
 using namespace sisi4s;
@@ -53,12 +53,12 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
   const int iterationStep, const PTR(const FockVector<F>) &amplitudes
 ) {
 
-  CTF::Tensor<double> *epsi(
-    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies")
+  Tensor<double> *epsi(
+    getTensorArgument<double, Tensor<double> >("HoleEigenEnergies")
   );
 
-  CTF::Tensor<double> *epsa(
-    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
+  Tensor<double> *epsa(
+    getTensorArgument<double, Tensor<double> >("ParticleEigenEnergies")
   );
 
   bool usingIntermediates = (bool) getIntegerArgument("intermediates", 1);
@@ -69,33 +69,33 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
   }
 
   // Get couloumb integrals
-  auto Vijkl(getTensorArgument<F, CTF::Tensor<F> >("HHHHCoulombIntegrals"));
-  auto Vabcd(getTensorArgument<F, CTF::Tensor<F> >("PPPPCoulombIntegrals"));
-  auto Vijka(getTensorArgument<F, CTF::Tensor<F> >("HHHPCoulombIntegrals"));
-  auto Vijab(getTensorArgument<F, CTF::Tensor<F> >("HHPPCoulombIntegrals"));
-  auto Viajk(getTensorArgument<F, CTF::Tensor<F> >("HPHHCoulombIntegrals"));
-  auto Viajb(getTensorArgument<F, CTF::Tensor<F> >("HPHPCoulombIntegrals"));
-  auto Viabc(getTensorArgument<F, CTF::Tensor<F> >("HPPPCoulombIntegrals"));
-  auto Vabij(getTensorArgument<F, CTF::Tensor<F> >("PPHHCoulombIntegrals"));
-  auto Vabic(getTensorArgument<F, CTF::Tensor<F> >("PPHPCoulombIntegrals"));
-  auto Viabj(getTensorArgument<F, CTF::Tensor<F> >("HPPHCoulombIntegrals"));
-  auto Vaibc(getTensorArgument<F, CTF::Tensor<F> >("PHPPCoulombIntegrals"));
-  auto Vijak(getTensorArgument<F, CTF::Tensor<F> >("HHPHCoulombIntegrals"));
-  auto Vabci(getTensorArgument<F, CTF::Tensor<F> >("PPPHCoulombIntegrals"));
-  auto Vaibj(getTensorArgument<F, CTF::Tensor<F> >("PHPHCoulombIntegrals"));
-  auto Vaijb(getTensorArgument<F, CTF::Tensor<F> >("PHHPCoulombIntegrals"));
+  auto Vijkl(getTensorArgument<F, Tensor<F> >("HHHHCoulombIntegrals"));
+  auto Vabcd(getTensorArgument<F, Tensor<F> >("PPPPCoulombIntegrals"));
+  auto Vijka(getTensorArgument<F, Tensor<F> >("HHHPCoulombIntegrals"));
+  auto Vijab(getTensorArgument<F, Tensor<F> >("HHPPCoulombIntegrals"));
+  auto Viajk(getTensorArgument<F, Tensor<F> >("HPHHCoulombIntegrals"));
+  auto Viajb(getTensorArgument<F, Tensor<F> >("HPHPCoulombIntegrals"));
+  auto Viabc(getTensorArgument<F, Tensor<F> >("HPPPCoulombIntegrals"));
+  auto Vabij(getTensorArgument<F, Tensor<F> >("PPHHCoulombIntegrals"));
+  auto Vabic(getTensorArgument<F, Tensor<F> >("PPHPCoulombIntegrals"));
+  auto Viabj(getTensorArgument<F, Tensor<F> >("HPPHCoulombIntegrals"));
+  auto Vaibc(getTensorArgument<F, Tensor<F> >("PHPPCoulombIntegrals"));
+  auto Vijak(getTensorArgument<F, Tensor<F> >("HHPHCoulombIntegrals"));
+  auto Vabci(getTensorArgument<F, Tensor<F> >("PPPHCoulombIntegrals"));
+  auto Vaibj(getTensorArgument<F, Tensor<F> >("PHPHCoulombIntegrals"));
+  auto Vaijb(getTensorArgument<F, Tensor<F> >("PHHPCoulombIntegrals"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int vv[] = {Nv, Nv};
   int oo[] = {No, No};
   int syms[] = {NS, NS};
-  CTF::Tensor<F> *Fab(
-    new CTF::Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab")
+  Tensor<F> *Fab(
+    new Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab")
   );
-  CTF::Tensor<F> *Fij(
-    new CTF::Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij")
+  Tensor<F> *Fij(
+    new Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij")
   );
-  CTF::Tensor<F> *Fia;
+  Tensor<F> *Fia;
 
   if (
     isArgumentGiven("HPFockMatrix") &&
@@ -105,9 +105,9 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
     if (iterationStep == 0){
     LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
     }
-    Fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
-    Fab = getTensorArgument<F, CTF::Tensor<F> >("PPFockMatrix");
-    Fij = getTensorArgument<F, CTF::Tensor<F> >("HHFockMatrix");
+    Fia = getTensorArgument<F, Tensor<F> >("HPFockMatrix");
+    Fab = getTensorArgument<F, Tensor<F> >("PPFockMatrix");
+    Fij = getTensorArgument<F, Tensor<F> >("HHFockMatrix");
   } else {
     Fia = nullptr;
     CTF::Transform<double, F>(
@@ -202,40 +202,40 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   // Equations from: hirata group
   // https://github.com/alejandrogallo/hirata
 
-  CTF::Tensor<double> *epsi(
-    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies")
+  Tensor<double> *epsi(
+    getTensorArgument<double, Tensor<double> >("HoleEigenEnergies")
   );
 
-  CTF::Tensor<double> *epsa(
-    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
+  Tensor<double> *epsa(
+    getTensorArgument<double, Tensor<double> >("ParticleEigenEnergies")
   );
 
   // Get couloumb integrals
-  auto Vijkl(getTensorArgument<F, CTF::Tensor<F> >("HHHHCoulombIntegrals"));
-  auto Vabcd(getTensorArgument<F, CTF::Tensor<F> >("PPPPCoulombIntegrals"));
-  auto Vijka(getTensorArgument<F, CTF::Tensor<F> >("HHHPCoulombIntegrals"));
-  auto Vijab(getTensorArgument<F, CTF::Tensor<F> >("HHPPCoulombIntegrals"));
-  auto Viajk(getTensorArgument<F, CTF::Tensor<F> >("HPHHCoulombIntegrals"));
-  auto Viajb(getTensorArgument<F, CTF::Tensor<F> >("HPHPCoulombIntegrals"));
-  auto Viabc(getTensorArgument<F, CTF::Tensor<F> >("HPPPCoulombIntegrals"));
-  auto Vabij(getTensorArgument<F, CTF::Tensor<F> >("PPHHCoulombIntegrals"));
-  auto Vabic(getTensorArgument<F, CTF::Tensor<F> >("PPHPCoulombIntegrals"));
-  //auto Viabj(getTensorArgument<F, CTF::Tensor<F> >("HPPHCoulombIntegrals"));
-  //auto Vaibc(getTensorArgument<F, CTF::Tensor<F> >("PHPPCoulombIntegrals"));
-  //auto Vijak(getTensorArgument<F, CTF::Tensor<F> >("HHPHCoulombIntegrals"));
-  //auto Vabci(getTensorArgument<F, CTF::Tensor<F> >("PPPHCoulombIntegrals"));
+  auto Vijkl(getTensorArgument<F, Tensor<F> >("HHHHCoulombIntegrals"));
+  auto Vabcd(getTensorArgument<F, Tensor<F> >("PPPPCoulombIntegrals"));
+  auto Vijka(getTensorArgument<F, Tensor<F> >("HHHPCoulombIntegrals"));
+  auto Vijab(getTensorArgument<F, Tensor<F> >("HHPPCoulombIntegrals"));
+  auto Viajk(getTensorArgument<F, Tensor<F> >("HPHHCoulombIntegrals"));
+  auto Viajb(getTensorArgument<F, Tensor<F> >("HPHPCoulombIntegrals"));
+  auto Viabc(getTensorArgument<F, Tensor<F> >("HPPPCoulombIntegrals"));
+  auto Vabij(getTensorArgument<F, Tensor<F> >("PPHHCoulombIntegrals"));
+  auto Vabic(getTensorArgument<F, Tensor<F> >("PPHPCoulombIntegrals"));
+  //auto Viabj(getTensorArgument<F, Tensor<F> >("HPPHCoulombIntegrals"));
+  //auto Vaibc(getTensorArgument<F, Tensor<F> >("PHPPCoulombIntegrals"));
+  //auto Vijak(getTensorArgument<F, Tensor<F> >("HHPHCoulombIntegrals"));
+  //auto Vabci(getTensorArgument<F, Tensor<F> >("PPPHCoulombIntegrals"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int vv[] = {Nv, Nv};
   int oo[] = {No, No};
   int syms[] = {NS, NS};
-  CTF::Tensor<F> *Fab(
-    new CTF::Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab")
+  Tensor<F> *Fab(
+    new Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab")
   );
-  CTF::Tensor<F> *Fij(
-    new CTF::Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij")
+  Tensor<F> *Fij(
+    new Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij")
   );
-  CTF::Tensor<F> *Fia;
+  Tensor<F> *Fia;
 
   if (
     isArgumentGiven("HPFockMatrix") &&
@@ -245,9 +245,9 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     if (iterationStep == 0){
       LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
     }
-    Fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
-    Fab = getTensorArgument<F, CTF::Tensor<F> >("PPFockMatrix");
-    Fij = getTensorArgument<F, CTF::Tensor<F> >("HHFockMatrix");
+    Fia = getTensorArgument<F, Tensor<F> >("HPFockMatrix");
+    Fab = getTensorArgument<F, Tensor<F> >("PPFockMatrix");
+    Fij = getTensorArgument<F, Tensor<F> >("HHFockMatrix");
   } else {
     if (iterationStep == 0){
       LOG(0, getAbbreviation()) << "Using hartree fock orbitals" << std::endl;

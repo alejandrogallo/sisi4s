@@ -3,7 +3,7 @@
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <iostream>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <util/Emitter.hpp>
 
 using namespace sisi4s;
@@ -19,7 +19,7 @@ void OneBodyRotation::run() {
 
   auto C(getTensorArgument("OrbitalCoefficients"));
   auto I(getTensorArgument("Data"));
-  auto O(new CTF::Tensor<double>(*I));
+  auto O(new Tensor<double>(*I));
   const int No(getIntegerArgument("No", 0)), Np(C->lens[0]);
 
   LOGGER(0) << "No: " << No << std::endl;
@@ -41,7 +41,7 @@ void OneBodyRotation::run() {
 
   for (const auto& i: infos) {
     if ( ! isArgumentGiven(i.name) ) continue;
-    auto tensor(new CTF::Tensor<double>(O->slice(i.begin, i.end)));
+    auto tensor(new Tensor<double>(O->slice(i.begin, i.end)));
     LOGGER(0) << i.name << ": "
               << "{" << i.begin[0] << "," << i.begin[1] << "}"
               << " --> "

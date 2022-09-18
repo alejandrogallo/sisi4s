@@ -5,7 +5,7 @@
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <fstream>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <numeric>
 #include <set>
 #include <map>
@@ -389,7 +389,7 @@ void MoReader::run() {
   IF_GIVEN("HoleEigenEnergies",
     ids.resize(rank_m * o[0]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto epsi(new CTF::Tensor<double>(1, o.data(), syms.data(), *Sisi4s::world));
+    auto epsi(new Tensor<double>(1, o.data(), syms.data(), *Sisi4s::world));
     epsi->write(ids.size(), ids.data(), outEigenvalues.data());
     allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
   )
@@ -397,7 +397,7 @@ void MoReader::run() {
   IF_GIVEN("ParticleEigenEnergies",
     ids.resize(rank_m * v[0]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto epsa(new CTF::Tensor<double>(1, v.data(), syms.data(), *Sisi4s::world));
+    auto epsa(new Tensor<double>(1, v.data(), syms.data(), *Sisi4s::world));
     epsa->write(ids.size(), ids.data(), outEigenvalues.data() + o[0]);
     allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
   )
@@ -405,14 +405,14 @@ void MoReader::run() {
   IF_GIVEN("OccupationNumbers",
     ids.resize(rank_m * p[0]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto os(new CTF::Tensor<double>(1, p.data(), syms.data(), *Sisi4s::world));
+    auto os(new Tensor<double>(1, p.data(), syms.data(), *Sisi4s::world));
     os->write(ids.size(), ids.data(), outOccupations.data());
     allocatedTensorArgument<double>("OccupationNumbers", os);
   )
   if (unrestricted){
     ids.resize(rank_m * p[0]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto spin(new CTF::Tensor<double>(1, p.data(), syms.data(), *Sisi4s::world));
+    auto spin(new Tensor<double>(1, p.data(), syms.data(), *Sisi4s::world));
     spin->write(ids.size(), ids.data(), outSpins.data());
     allocatedTensorArgument<double>("Spins", spin);
   }
@@ -421,7 +421,7 @@ void MoReader::run() {
   if (isArgumentGiven("OrbitalCoefficients")) {
     ids.resize(rank_m * pp[0]*pp[1]);
     std::iota(ids.begin(), ids.end(), 0);
-    auto coef(new CTF::Tensor<double>(2, pp.data(), syms.data(), *Sisi4s::world));
+    auto coef(new Tensor<double>(2, pp.data(), syms.data(), *Sisi4s::world));
     coef->write(ids.size(), ids.data(), outMos.data());
     allocatedTensorArgument<double>("OrbitalCoefficients", coef);
   }

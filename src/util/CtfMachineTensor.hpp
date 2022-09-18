@@ -4,7 +4,7 @@
 
 #include <tcc/MachineTensor.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <string>
 #include <memory>
 
@@ -21,7 +21,7 @@ namespace sisi4s {
   public:
     // required by templates to infer corresponding Factory type
     typedef CtfMachineTensorFactory<F> Factory;
-    typedef CTF::Tensor<F> Tensor;
+    typedef Tensor<F> Tensor;
 
     // constructors called by factory
     CtfMachineTensor(

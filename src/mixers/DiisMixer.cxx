@@ -63,10 +63,10 @@ DiisMixer<F>::DiisMixer(
   // generate initial overlap matrix
   std::array<int,2> lens{{N+1, N+1}};
   std::array<int,2> syms{{NS, NS}};
-  B = NEW(CTF::Tensor<F>,
+  B = NEW(Tensor<F>,
     lens.size(), lens.data(), syms.data(), *Sisi4s::world, "B"
   );
-  CTF::Tensor<F> one(false, *B);
+  Tensor<F> one(false, *B);
   one["ij"] += 1.0;
   std::array<int,2> upperRightBegin{{0,1}};
   std::array<int,2> upperLeftBegin{{1,0}};
@@ -100,7 +100,7 @@ void DiisMixer<F>::append(
   const int N(residua.size());
   std::array<int,2> lens{{1, 1}};
   std::array<int,2> syms{{NS, NS}};
-  CTF::Tensor<F> one(lens.size(), lens.data(), syms.data(), *Sisi4s::world, "1");
+  Tensor<F> one(lens.size(), lens.data(), syms.data(), *Sisi4s::world, "1");
   one["ij"] += 1.0;
   for (int i(0); i < N; ++i) {
     if (residua[i]) {

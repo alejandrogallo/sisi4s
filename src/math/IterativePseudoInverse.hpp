@@ -3,15 +3,15 @@
 
 #include <math/Complex.hpp>
 #include <DryTensor.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <random>
 
 namespace sisi4s {
   template <typename F>
   class IterativePseudoInverse {
   public:
-    IterativePseudoInverse(CTF::Tensor<F> const &matrix, F accuracy=1e-10);
-    CTF::Tensor<F> &get();
+    IterativePseudoInverse(Tensor<F> const &matrix, F accuracy=1e-10);
+    Tensor<F> &get();
 
     static void test(CTF::World *world);
   protected:
@@ -21,10 +21,10 @@ namespace sisi4s {
       F &value,
       std::mt19937 &random, std::normal_distribution<F> &normalDistribution
     );
-    static void generateHilbertMatrix(CTF::Tensor<F> &matrix);
+    static void generateHilbertMatrix(Tensor<F> &matrix);
 
-    CTF::Tensor<F> matrix;
-    CTF::Tensor<F> square, inverse;
+    Tensor<F> matrix;
+    Tensor<F> square, inverse;
     F alpha;
   };
 

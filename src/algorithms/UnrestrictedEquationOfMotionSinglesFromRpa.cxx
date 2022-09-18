@@ -11,7 +11,7 @@
 #include <util/TensorIo.hpp>
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/SharedPointer.hpp>
 
@@ -69,11 +69,11 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
   std::vector<int> eigenvectorsIndices(
     RangeParser(getTextArgument("printEigenvectorsRange", "")).getRange()
   );
-  CTF::Tensor<double> *epsi(
-    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies")
+  Tensor<double> *epsi(
+    getTensorArgument<double, Tensor<double> >("HoleEigenEnergies")
   );
-  CTF::Tensor<double> *epsa(
-    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
+  Tensor<double> *epsa(
+    getTensorArgument<double, Tensor<double> >("ParticleEigenEnergies")
   );
   std::vector<int> refreshIterations(
     RangeParser(getTextArgument("refreshIterations", "")).getRange()
@@ -102,20 +102,20 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
 
   // Get copy of couloumb integrals
 
-  CTF::Tensor<double> *pVijab(
-    getTensorArgument<double, CTF::Tensor<double> >("HHPPCoulombIntegrals")
+  Tensor<double> *pVijab(
+    getTensorArgument<double, Tensor<double> >("HHPPCoulombIntegrals")
   );
-  CTF::Tensor<F> cVijab(
+  Tensor<F> cVijab(
     pVijab->order, pVijab->lens, pVijab->sym, *Sisi4s::world,
     pVijab->get_name()
   );
-  CTF::Tensor<F> *Vijab(&cVijab);
+  Tensor<F> *Vijab(&cVijab);
   toComplexTensor(*pVijab, *Vijab);
 
   // HF terms
-  CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab"));
-  CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij"));
-  CTF::Tensor<F> *Fia(new CTF::Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia"));
+  Tensor<F> *Fab(new Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab"));
+  Tensor<F> *Fij(new Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij"));
+  Tensor<F> *Fia(new Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia"));
 
   if (
     isArgumentGiven("HPFockMatrix") &&
@@ -124,14 +124,14 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
   ) {
     LOG(0, "RPAEomDavid") << "Using non-canonical orbitals" << std::endl;
 
-    CTF::Tensor<double> *realFia(
-      getTensorArgument<double, CTF::Tensor<double> >("HPFockMatrix")
+    Tensor<double> *realFia(
+      getTensorArgument<double, Tensor<double> >("HPFockMatrix")
     );
-    CTF::Tensor<double> *realFab(
-      getTensorArgument<double, CTF::Tensor<double> >("PPFockMatrix")
+    Tensor<double> *realFab(
+      getTensorArgument<double, Tensor<double> >("PPFockMatrix")
     );
-    CTF::Tensor<double> *realFij(
-      getTensorArgument<double, CTF::Tensor<double> >("HHFockMatrix")
+    Tensor<double> *realFij(
+      getTensorArgument<double, Tensor<double> >("HHFockMatrix")
     );
     toComplexTensor(*realFij, *Fij);
     toComplexTensor(*realFab, *Fab);
@@ -155,14 +155,14 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
     );
   }
 
-  CTF::Tensor<F> Tai(2, vo, syms2, *Sisi4s::world, "Tai");
-  CTF::Tensor<F> Tabij(4, vvoo, syms4, *Sisi4s::world, "Tabij");
+  Tensor<F> Tai(2, vo, syms2, *Sisi4s::world, "Tai");
+  Tensor<F> Tabij(4, vvoo, syms4, *Sisi4s::world, "Tabij");
   toComplexTensor(
-    (*getTensorArgument<double, CTF::Tensor<double> >("SinglesAmplitudes")),
+    (*getTensorArgument<double, Tensor<double> >("SinglesAmplitudes")),
     Tai
   );
   toComplexTensor(
-    (*getTensorArgument<double, CTF::Tensor<double> >("DoublesAmplitudes")),
+    (*getTensorArgument<double, Tensor<double> >("DoublesAmplitudes")),
     Tabij
   );
 

@@ -3,6 +3,7 @@
 #include <extern/ScaLapack.hpp>
 #include <math/Complex.hpp>
 #include <util/Log.hpp>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
 
@@ -33,13 +34,11 @@ ScaLapackDescriptor::ScaLapackDescriptor(
 }
 
 template <typename F>
-ScaLapackMatrix<F>::ScaLapackMatrix(
-  ScaLapackMatrix<F> &A
-):
-  ScaLapackDescriptor(A),
-  blacsWorld(A.blacsWorld),
-  localIndices(new int64_t[localLens[0]*localLens[1]]),
-  localValues(new F[localLens[0]*localLens[1]])
+ScaLapackMatrix<F>::ScaLapackMatrix(ScaLapackMatrix<F> &A)
+  : ScaLapackDescriptor(A),
+    blacsWorld(A.blacsWorld),
+    localIndices(new int64_t[localLens[0]*localLens[1]]),
+    localValues(new F[localLens[0]*localLens[1]])
 {
   for (int64_t i(0); i < static_cast<int64_t>(localLens[0])*localLens[1]; ++i) {
     localIndices[i] = A.localIndices[i];
@@ -91,11 +90,12 @@ ScaLapackMatrix<sisi4s::Complex64>::ScaLapackMatrix(
 
 
 template <typename F>
-ScaLapackMatrix<F>::ScaLapackMatrix(
-  CTF::Tensor<F> &A, int lens_[2], BlacsWorld *blacsWorld_, int blockSize
-):
-  ScaLapackDescriptor(blacsWorld_, lens_, blockSize),
-  blacsWorld(blacsWorld_)
+ScaLapackMatrix<F>::ScaLapackMatrix(sisi4s::Tensor<F> &A,
+                                    int lens_[2],
+                                    BlacsWorld *blacsWorld_,
+                                    int blockSize)
+  : ScaLapackDescriptor(blacsWorld_, lens_, blockSize),
+    blacsWorld(blacsWorld_)
 {
   // allocate local data
   localValues = new F[localLens[0]*localLens[1]];
@@ -115,11 +115,11 @@ ScaLapackMatrix<F>::ScaLapackMatrix(
 // instantiate
 template
 ScaLapackMatrix<Float64>::ScaLapackMatrix(
-  CTF::Tensor<Float64> &A, int lens_[2], BlacsWorld *blacsWorld, int blockSize
+  Tensor<Float64> &A, int lens_[2], BlacsWorld *blacsWorld, int blockSize
 );
 template
 ScaLapackMatrix<Complex64>::ScaLapackMatrix(
-  CTF::Tensor<Complex64> &A, int lens_[2], BlacsWorld *blacsWorld, int blockSize
+  Tensor<Complex64> &A, int lens_[2], BlacsWorld *blacsWorld, int blockSize
 );
 
 
@@ -144,7 +144,7 @@ void ScaLapackMatrix<F>::write(CTF::Matrix<F> &A) {
 }
 
 template <typename F>
-void ScaLapackMatrix<F>::write(CTF::Tensor<F> &A) {
+void ScaLapackMatrix<F>::write(Tensor<F> &A) {
   // wait for all processes to finish pending operations
   blacsWorld->barrier();
   A.write(localLens[0]*localLens[1], localIndices, localValues);
@@ -157,9 +157,9 @@ template
 void ScaLapackMatrix<Complex64>::write(CTF::Matrix<Complex64> &A);
 
 template
-void ScaLapackMatrix<Float64>::write(CTF::Tensor<Float64> &A);
+void ScaLapackMatrix<Float64>::write(Tensor<Float64> &A);
 template
-void ScaLapackMatrix<Complex64>::write(CTF::Tensor<Complex64> &A);
+void ScaLapackMatrix<Complex64>::write(Tensor<Complex64> &A);
 
 
 template <typename F>

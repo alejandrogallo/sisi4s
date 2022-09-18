@@ -387,8 +387,8 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         realDressedGammaGab["Gab"] += (-1.0) * realGammaGai["Gbk"] * (*Tai)["ak"];
         imagDressedGammaGab["Gab"] += (-1.0) * imagGammaGai["Gbk"] * (*Tai)["ak"];
 
-        std::vector<PTR(CTF::Tensor<double>)> realSlicedGammaGab;
-        std::vector<PTR(CTF::Tensor<double>)> imagSlicedGammaGab;
+        std::vector<PTR(Tensor<double>)> realSlicedGammaGab;
+        std::vector<PTR(Tensor<double>)> imagSlicedGammaGab;
         for (int v(0); v < numberSlices; v++){
           int xStart = v*integralsSliceSize;
           int xEnd = std::min((v+1)*integralsSliceSize,Nv);
@@ -396,10 +396,10 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
           int sliceStart[] = { 0, xStart, 0};
           int sliceEnd[]   = { NG, xEnd, Nv};
           realSlicedGammaGab.push_back(
-            NEW(CTF::Tensor<double>,realDressedGammaGab.slice(sliceStart,sliceEnd))
+            NEW(Tensor<double>,realDressedGammaGab.slice(sliceStart,sliceEnd))
           );
           imagSlicedGammaGab.push_back(
-            NEW(CTF::Tensor<double>,imagDressedGammaGab.slice(sliceStart,sliceEnd))
+            NEW(Tensor<double>,imagDressedGammaGab.slice(sliceStart,sliceEnd))
           );
         }
         //slice loop starts here

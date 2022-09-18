@@ -6,13 +6,10 @@
 #include <util/TensorIo.hpp>
 #include <util/Log.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <util/Emitter.hpp>
 #include <algorithms/TensorReader.hpp>
 
-
-template<typename F>
-using Tensor = CTF::Tensor<F>;
 
 namespace sisi4s {
 

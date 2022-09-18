@@ -3,13 +3,12 @@
 #include <algorithm>
 #include <util/Libint.hpp>
 #include <algorithms/OneBodyFromGaussian.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
 #include <Eigen/Eigen>
-#include <util/CTF.hpp>
 #include <numeric>
 #include <set>
 #include <map>
@@ -121,7 +120,7 @@ void OneBodyFromGaussian::run() {
   const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
   const std::vector<int> lens(2, Np);
   const std::vector<int> syms(2, NS);
-  auto Opq(new CTF::Tensor<double>(2, lens.data(), syms.data(), *Sisi4s::world));
+  auto Opq(new Tensor<double>(2, lens.data(), syms.data(), *Sisi4s::world));
 
   {
     std::vector<int64_t> indices(rank_m * Np*Np);

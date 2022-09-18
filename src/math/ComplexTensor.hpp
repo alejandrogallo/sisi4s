@@ -2,7 +2,7 @@
 #define COMPLEX_TENSOR_DEFINED
 
 #include <math/Complex.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   /**
@@ -11,21 +11,21 @@ namespace sisi4s {
    * respectively.
    */
   void fromComplexTensor(
-    CTF::Tensor<complex> &c,
-    CTF::Tensor<double> &r, CTF::Tensor<double> &i
+    Tensor<complex> &c,
+    Tensor<double> &r, Tensor<double> &i
   );
 
   void fromComplexTensor(
-    CTF::Tensor<double> &c,
-    CTF::Tensor<double> &r, CTF::Tensor<double> &i
+    Tensor<double> &c,
+    Tensor<double> &r, Tensor<double> &i
   );
 
   /**
    * \brief Discards the real part of a complex tensor.
    */
   void fromComplexTensor(
-    CTF::Tensor<complex> &c,
-    CTF::Tensor<double> &r
+    Tensor<complex> &c,
+    Tensor<double> &r
   );
 
   /**
@@ -35,30 +35,30 @@ namespace sisi4s {
    * during reading.
    */
   void toComplexTensor(
-    CTF::Tensor<double> &r, CTF::Tensor<double> &i,
-    CTF::Tensor<complex> &c
+    Tensor<double> &r, Tensor<double> &i,
+    Tensor<complex> &c
   );
 
   void toComplexTensor(
-    CTF::Tensor<double> &r,
-    CTF::Tensor<complex> &c
+    Tensor<double> &r,
+    Tensor<complex> &c
   );
 
   void toComplexTensor(
-    CTF::Tensor<double> &r,
-    CTF::Tensor<double> &c
+    Tensor<double> &r,
+    Tensor<double> &c
   );
 
   void conjugate(
-    CTF::Tensor<double> &c
+    Tensor<double> &c
   );
 
   void conjugate(
-    CTF::Tensor<complex> &c
+    Tensor<complex> &c
   );
 
   void conjugate(
-    CTF::Tensor<double> &c
+    Tensor<double> &c
   );
 }
 

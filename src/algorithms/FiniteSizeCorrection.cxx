@@ -641,10 +641,10 @@ void FiniteSizeCorrection::interpolation3D() {
   ReciprocalLattice[2] = c*M_PI*2.;
 
   auto ctfReciprocalLattice(
-    new CTF::Tensor<double>(2, std::vector<int>({3,3}).data())
+    new Tensor<double>(2, std::vector<int>({3,3}).data())
   );
   auto ctfRealLattice(
-    new CTF::Tensor<double>(2, std::vector<int>({3,3}).data())
+    new Tensor<double>(2, std::vector<int>({3,3}).data())
   );
 
   std::vector<int64_t> indices(ctfReciprocalLattice->wrld->rank == 0 ? 3*3 : 0);

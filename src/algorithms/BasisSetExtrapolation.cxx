@@ -170,8 +170,8 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
   conjugate(*conjCGai);
 
   int NGG[] = {NF, NF};
-  auto QGGs( new CTF::Tensor<complex>(2,NGG));
-  auto QGGt( new CTF::Tensor<complex>(2,NGG));
+  auto QGGs( new Tensor<complex>(2,NGG));
+  auto QGGt( new Tensor<complex>(2,NGG));
 
   // Direct part.
 
@@ -270,7 +270,7 @@ void BasisSetExtrapolation::calculateNewSF(int type,
                                            Tensor<double> *newSF,
                                            Tensor<double> *resNewSF){
 
-  CTF::Tensor<double> *QGG(getTensorArgument<>("QGG"));
+  Tensor<double> *QGG(getTensorArgument<>("QGG"));
   int NG(QGG->lens[0]);
   int NFF[] = {NG};
 
@@ -337,8 +337,8 @@ void BasisSetExtrapolation::fitF12(int type, real minG, real maxG){
   real volume(getRealArgument("volume",-1));
   if (volume < 0. ) throw new EXCEPTION("Set volume");
 
-  CTF::Tensor<double> *structureFactor(getTensorArgument<>("StructureFactor"));
-  CTF::Tensor<double> *coulombKernel(getTensorArgument<>("CoulombKernel"));
+  Tensor<double> *structureFactor(getTensorArgument<>("StructureFactor"));
+  Tensor<double> *coulombKernel(getTensorArgument<>("CoulombKernel"));
 
   int NG(coulombKernel->lens[0]);
   int NFF[] = {NG};

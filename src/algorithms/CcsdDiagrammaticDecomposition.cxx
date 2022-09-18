@@ -355,8 +355,8 @@ void CcsdDiagrammaticDecomposition::run() {
   realDressedGammaGab["Gab"] += (-1.0) * realGammaGai["Gbk"] * (*Tai)["ak"];
   imagDressedGammaGab["Gab"] += (-1.0) * imagGammaGai["Gbk"] * (*Tai)["ak"];
 
-  std::vector<PTR(CTF::Tensor<double>)> realSlicedGammaGab;
-  std::vector<PTR(CTF::Tensor<double>)> imagSlicedGammaGab;
+  std::vector<PTR(Tensor<double>)> realSlicedGammaGab;
+  std::vector<PTR(Tensor<double>)> imagSlicedGammaGab;
   for (int v(0); v < numberSlices; v++){
     int xStart = v*integralsSliceSize;
     int xEnd = std::min((v+1)*integralsSliceSize,Nv);
@@ -364,10 +364,10 @@ void CcsdDiagrammaticDecomposition::run() {
     int sliceStart[] = { 0, xStart, 0};
     int sliceEnd[]   = { NG, xEnd, Nv};
     realSlicedGammaGab.push_back(
-      NEW(CTF::Tensor<double>,realDressedGammaGab.slice(sliceStart,sliceEnd))
+      NEW(Tensor<double>,realDressedGammaGab.slice(sliceStart,sliceEnd))
     );
     imagSlicedGammaGab.push_back(
-      NEW(CTF::Tensor<double>,imagDressedGammaGab.slice(sliceStart,sliceEnd))
+      NEW(Tensor<double>,imagDressedGammaGab.slice(sliceStart,sliceEnd))
     );
   }
 
@@ -417,8 +417,8 @@ void CcsdDiagrammaticDecomposition::run() {
 
 void CcsdDiagrammaticDecomposition::evaluateEnergy(
   std::string diagramType,
-  CTF::Tensor<double> &deltaabij, CTF::Tensor<> &deltaai,
-  CTF::Tensor<double> &Rabij,  CTF::Tensor<> &Rai
+  Tensor<double> &deltaabij, Tensor<double> &deltaai,
+  Tensor<double> &Rabij,  Tensor<double> &Rai
 ){
   // energy denominator
   CTF::Transform<double, double>(

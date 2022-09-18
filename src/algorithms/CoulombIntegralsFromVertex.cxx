@@ -897,7 +897,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
 
     //There is an inter-dependence of Vaijb and Vaibj for antisymmetrizing
     //so we define a temporary tensor, that is not antisymmetrized.
-    CTF::Tensor<complex> originalVaijb(*Vaijb);
+    Tensor<complex> originalVaijb(*Vaijb);
 
     if (Vaijb) (*Vaijb)["aijb"] -= (*Vaibj)["aibj"];
     if (Vaibj) (*Vaibj)["aibj"] -= originalVaijb["aijb"];

@@ -11,14 +11,14 @@
 using namespace sisi4s;
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getABCIJK() {
   if (Wabcijk) return Wabcijk;
   LOG(1, getAbbreviation()) << "Building Wabcijk" << std::endl;
   const int syms[]   = {NS,NS,NS,NS,NS,NS};
   const int vvvooo[] = {Nv,Nv,Nv,No,No,No};
 
-  Wabcijk = NEW(CTF::Tensor<F>,  6, vvvooo, syms, *Sisi4s::world, "Wabcijk");
+  Wabcijk = NEW(Tensor<F>,  6, vvvooo, syms, *Sisi4s::world, "Wabcijk");
 
   //Triples
   (*Wabcijk)["defijk"] = 0.0;

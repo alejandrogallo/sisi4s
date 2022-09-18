@@ -29,8 +29,8 @@ ParticleHoleCoulombVertexReader::~ParticleHoleCoulombVertexReader() {
 
 struct Unrestricter {
 
-  CTF::Tensor<sisi4s::complex>*
-  doVertex(CTF::Tensor<sisi4s::complex> *GammaGqr) const {
+  Tensor<sisi4s::complex>*
+  doVertex(Tensor<sisi4s::complex> *GammaGqr) const {
     // The field variable NG remains the same
     int vertexLens[] = {static_cast<int>(GammaGqr->lens[0]),
                         static_cast<int>(2*GammaGqr->lens[1]),
@@ -63,8 +63,8 @@ struct Unrestricter {
     return uGammaGqr;
   }
 
-  CTF::Tensor<double>*
-  doEigenEnergies(CTF::Tensor<double> *eps) const {
+  Tensor<double>*
+  doEigenEnergies(Tensor<double> *eps) const {
     int lens[] = { static_cast<int>(2*eps->lens[0]) };
     auto uEps(
       new Tensor<double>(

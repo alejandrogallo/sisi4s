@@ -20,7 +20,7 @@ he equations in this file are taken from the following sources
 #include <util/SharedPointer.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Options.hpp>
 #include <Sisi4s.hpp>
 #include <array>
@@ -37,7 +37,7 @@ he equations in this file are taken from the following sources
 using namespace sisi4s;
 
 template <typename F>
-PTR(CTF::Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
+PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
 
   if (Tau_abij) {
     return Tau_abij;
@@ -47,7 +47,7 @@ PTR(CTF::Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
     << "Building Tau_abij from Tai and Tabij"
     << std::endl;
 
-  Tau_abij = NEW(CTF::Tensor<F>, *Tabij);
+  Tau_abij = NEW(Tensor<F>, *Tabij);
   (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
   (*Tau_abij)["abij"] += ( - 1.0 ) * (*Tai)["bi"] * (*Tai)["aj"];
 
@@ -80,10 +80,10 @@ SimilarityTransformedHamiltonian<F>::rightApplyIntermediates_CCSD_IP(
   SDFockVector<F> &R
 ) {
   SDFockVector<F> HR(R);
-  PTR(CTF::Tensor<F>) Ri(R.get(0) );
-  PTR(CTF::Tensor<F>) Raij(R.get(1) );
-  PTR(CTF::Tensor<F>) HRi(HR.get(0) );
-  PTR(CTF::Tensor<F>) HRaij(HR.get(1) );
+  PTR(Tensor<F>) Ri(R.get(0) );
+  PTR(Tensor<F>) Raij(R.get(1) );
+  PTR(Tensor<F>) HRi(HR.get(0) );
+  PTR(Tensor<F>) HRaij(HR.get(1) );
 
   // For singles
   Wij = getIJ();
@@ -133,10 +133,10 @@ SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_IP(
 ) {
 
   SDFockVector<F> HR(R);
-  PTR(CTF::Tensor<F>) Ri(R.get(0) );
-  PTR(CTF::Tensor<F>) Raij(R.get(1) );
-  PTR(CTF::Tensor<F>) HRi(HR.get(0) );
-  PTR(CTF::Tensor<F>) HRaij(HR.get(1) );
+  PTR(Tensor<F>) Ri(R.get(0) );
+  PTR(Tensor<F>) Raij(R.get(1) );
+  PTR(Tensor<F>) HRi(HR.get(0) );
+  PTR(Tensor<F>) HRaij(HR.get(1) );
 
   (*HRi)["i"] = 0.0;
   if (Fia) {
@@ -270,10 +270,10 @@ SimilarityTransformedHamiltonian<F>::rightApplyIntermediates_CCSD_EA(
   SDFockVector<F> &R
 ) {
   SDFockVector<F> HR(R);
-  PTR(CTF::Tensor<F>) Ra(R.get(0) );
-  PTR(CTF::Tensor<F>) Rabi(R.get(1) );
-  PTR(CTF::Tensor<F>) HRa(HR.get(0) );
-  PTR(CTF::Tensor<F>) HRabi(HR.get(1) );
+  PTR(Tensor<F>) Ra(R.get(0) );
+  PTR(Tensor<F>) Rabi(R.get(1) );
+  PTR(Tensor<F>) HRa(HR.get(0) );
+  PTR(Tensor<F>) HRabi(HR.get(1) );
 
   // For singles
   Wia = getIA();
@@ -317,10 +317,10 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_EA(
 ) {
 
   SDFockVector<F> HR(R);
-  PTR(CTF::Tensor<F>) Ra(R.get(0) );
-  PTR(CTF::Tensor<F>) Rabi(R.get(1) );
-  PTR(CTF::Tensor<F>) HRa(HR.get(0) );
-  PTR(CTF::Tensor<F>) HRabi(HR.get(1) );
+  PTR(Tensor<F>) Ra(R.get(0) );
+  PTR(Tensor<F>) Rabi(R.get(1) );
+  PTR(Tensor<F>) HRa(HR.get(0) );
+  PTR(Tensor<F>) HRabi(HR.get(1) );
 
   (*HRa)["a"]  = 0.0;
 
@@ -452,8 +452,8 @@ SFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(
   // This is only using Viajb and Vijab
   SFockVector<F> HR(R);
   // get pointers to the component tensors
-  PTR(CTF::Tensor<F>) Rai( R.get(0) );
-  PTR(CTF::Tensor<F>) HRai( HR.get(0) );
+  PTR(Tensor<F>) Rai( R.get(0) );
+  PTR(Tensor<F>) HRai( HR.get(0) );
 
   int ovvo[] = {No, Nv, Nv, No};
   int oo[] = {No, No};
@@ -462,20 +462,20 @@ SFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(
   int lens[] = {NS, NS, NS, NS};
 
   if (!Wiabj) {
-    Wiabj = NEW(CTF::Tensor<F>, 4, ovvo, lens, *Sisi4s::world, "Wiabj");
+    Wiabj = NEW(Tensor<F>, 4, ovvo, lens, *Sisi4s::world, "Wiabj");
     ST_DEBUG("build Wiabj")
     (*Wiabj)["iabj"] = (*Tabij)["camj"] * (*Vijab)["micb"];
   }
 
   if (!Wab) {
-    Wab = NEW(CTF::Tensor<F>, 2, vv, lens2, *Sisi4s::world, "Wab");
+    Wab = NEW(Tensor<F>, 2, vv, lens2, *Sisi4s::world, "Wab");
     ST_DEBUG("build Wab")
     (*Wab)["ab"]  = (*Fab)["ab"];
     (*Wab)["ab"] += (- 0.5) * (*Vijab)["mnbe"] * (*Tabij)["aemn"];
   }
 
   if (!Wij) {
-    Wij = NEW(CTF::Tensor<F>, 2, oo, lens2, *Sisi4s::world, "Wij");
+    Wij = NEW(Tensor<F>, 2, oo, lens2, *Sisi4s::world, "Wij");
     ST_DEBUG("build Wij")
     (*Wij)["ij"]  = (*Fij)["ij"];
     (*Wij)["ij"] += (  0.5) * (*Vijab)["imef"] * (*Tabij)["efjm"];
@@ -524,10 +524,10 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
 ) {
   SDFockVector<F> HR(R);
   // get pointers to the component tensors
-  PTR(CTF::Tensor<F>) Rai( R.get(0) );
-  PTR(CTF::Tensor<F>) Rabij( R.get(1) );
-  PTR(CTF::Tensor<F>) HRai( HR.get(0) );
-  PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
+  PTR(Tensor<F>) Rai( R.get(0) );
+  PTR(Tensor<F>) Rabij( R.get(1) );
+  PTR(Tensor<F>) HRai( HR.get(0) );
+  PTR(Tensor<F>) HRabij( HR.get(1) );
 
   ST_DEBUG("rightApplyHirata Ccsd")
 
@@ -873,10 +873,10 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
 ) {
   SDFockVector<F> HR(R);
   // get pointers to the component tensors
-  PTR(CTF::Tensor<F>) Rai( R.get(0) );
-  PTR(CTF::Tensor<F>) Rabij( R.get(1) );
-  PTR(CTF::Tensor<F>) HRai( HR.get(0) );
-  PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
+  PTR(Tensor<F>) Rai( R.get(0) );
+  PTR(Tensor<F>) Rabij( R.get(1) );
+  PTR(Tensor<F>) HRai( HR.get(0) );
+  PTR(Tensor<F>) HRabij( HR.get(1) );
 
   //ST_DEBUG("rightApplyIntermediates Ccsd")
 
@@ -976,11 +976,11 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIJ() {
   if (Wij) return Wij;
 
-  Wij = NEW(CTF::Tensor<F>, *Fij);
+  Wij = NEW(Tensor<F>, *Fij);
 
   if (true) {
     // This is the second row in diagram 10.55 in [1]
@@ -1006,11 +1006,11 @@ SimilarityTransformedHamiltonian<F>::getIJ() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getAB() {
   if (Wab) return Wab;
 
-  Wab   = NEW(CTF::Tensor<F>, *Fab);
+  Wab   = NEW(Tensor<F>, *Fab);
 
   if (true) {
     //diagram (10.54) second line in [1]
@@ -1036,7 +1036,7 @@ SimilarityTransformedHamiltonian<F>::getAB() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getAI() {
   if (Wai) return Wai;
   LOG(1, getAbbreviation()) << "Building Wai" << std::endl;
@@ -1044,7 +1044,7 @@ SimilarityTransformedHamiltonian<F>::getAI() {
   int syms[] = {NS, NS};
   int ov[] = {Nv, No};
 
-  Wai = NEW(CTF::Tensor<F>, 2, ov, syms, *Sisi4s::world, "Wai");
+  Wai = NEW(Tensor<F>, 2, ov, syms, *Sisi4s::world, "Wai");
 
   (*Wai)["bi"] = 0.0;
   if (dressing == Dressing(CCSD)) {
@@ -1093,7 +1093,7 @@ SimilarityTransformedHamiltonian<F>::getAI() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getAI_RPA() {
   if (Wai) return Wai;
   LOG(1, getAbbreviation())
@@ -1102,9 +1102,9 @@ SimilarityTransformedHamiltonian<F>::getAI_RPA() {
 
   int syms[] = {NS, NS};
   int ov[] = {Nv, No};
-  CTF::Tensor<F> InitFai(2, ov, syms, *Sisi4s::world, "InitFai");
+  Tensor<F> InitFai(2, ov, syms, *Sisi4s::world, "InitFai");
 
-  Wai = NEW(CTF::Tensor<F>, InitFai);
+  Wai = NEW(Tensor<F>, InitFai);
 
   (*Wai)["bi"] = 0.0;
   if (dressing == Dressing(RPA)) {
@@ -1135,16 +1135,16 @@ SimilarityTransformedHamiltonian<F>::getAI_RPA() {
 
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIA() {
   if (Wia) return Wia;
   LOG(1, getAbbreviation()) << "Building Wia" << std::endl;
 
   int syms[] = {NS, NS};
   int ov[] = {No, Nv};
-  CTF::Tensor<F> InitFia(2, ov, syms, *Sisi4s::world, "InitFia");
+  Tensor<F> InitFia(2, ov, syms, *Sisi4s::world, "InitFia");
 
-  Wia = NEW(CTF::Tensor<F>,  InitFia);
+  Wia = NEW(Tensor<F>,  InitFia);
 
   //we need this one to construct the 2-body-amplitudes, not directly
   (*Wia)["ia"] = (*Vijab)["imae"] * (*Tai)["em"];
@@ -1156,24 +1156,24 @@ SimilarityTransformedHamiltonian<F>::getIA() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIJAB() {
   if (Wijab) return Wijab;
 
   LOG(1, getAbbreviation()) << "Building Wijab = Vijab" << std::endl;
-  Wijab = NEW(CTF::Tensor<F>, *Vijab);
+  Wijab = NEW(Tensor<F>, *Vijab);
 
   return Wijab;
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getABCD() {
   if (Wabcd) return Wabcd;
   LOG(1, getAbbreviation()) << "Building Wabcd" << std::endl;
 
   Tau_abij = getTauABIJ();
-  Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
+  Wabcd = NEW(Tensor<F>, *Vabcd);
   // diagram 10.69 in [1]
 
   (*Wabcd)["abcd"]  = (*Vabcd)["abcd"];
@@ -1188,11 +1188,11 @@ SimilarityTransformedHamiltonian<F>::getABCD() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getABCI() {
   if (Wabci) return Wabci;
 
-  Wabci = NEW(CTF::Tensor<F>, *Vabci);
+  Wabci = NEW(Tensor<F>, *Vabci);
 
   bool wabciIntermediates(false);
   if (wabciIntermediates) {
@@ -1276,12 +1276,12 @@ SimilarityTransformedHamiltonian<F>::getABCI() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getAIBC() {
   if (Waibc) return Waibc;
   LOG(1, getAbbreviation()) << "Building Waibc" << std::endl;
 
-  Waibc = NEW(CTF::Tensor<F>, *Vaibc);
+  Waibc = NEW(Tensor<F>, *Vaibc);
 
   (*Waibc)["aibc"]  = (*Vaibc)["aibc"];
   (*Waibc)["aibc"] += ( -1.0) * (*Vijab)["mibc"] * (*Tai)["am"];
@@ -1290,12 +1290,12 @@ SimilarityTransformedHamiltonian<F>::getAIBC() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIABJ() {
   if (Wiabj) return Wiabj;
   LOG(1, getAbbreviation()) << "Building Wiabj = Waijb" << std::endl;
 
-  Wiabj = NEW(CTF::Tensor<F>, *Viabj);
+  Wiabj = NEW(Tensor<F>, *Viabj);
 
   //[1] diagram (10.73)
   //This is not listed in the source book, however we can write it in terms
@@ -1312,11 +1312,11 @@ SimilarityTransformedHamiltonian<F>::getIABJ() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIAJK() {
   if (Wiajk) return Wiajk;
 
-  Wiajk = NEW(CTF::Tensor<F>, *Viajk);
+  Wiajk = NEW(Tensor<F>, *Viajk);
   Wia = getIA();
   Wijkl = getIJKL();
   Tau_abij = getTauABIJ();
@@ -1364,12 +1364,12 @@ SimilarityTransformedHamiltonian<F>::getIAJK() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIJKA() {
   if (Wijka) return Wijka;
   LOG(1, getAbbreviation()) << "Building Wijka" << std::endl;
 
-  Wijka = NEW(CTF::Tensor<F>, *Vijka);
+  Wijka = NEW(Tensor<F>, *Vijka);
 
   //Taken directly from[2]
   (*Wijka)["jkia"]  = (*Vijka)["jkia"];
@@ -1379,12 +1379,12 @@ SimilarityTransformedHamiltonian<F>::getIJKA() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getIJKL() {
   if (Wijkl) return Wijkl;
   LOG(1, getAbbreviation()) << "Building Wijkl" << std::endl;
 
-  Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
+  Wijkl = NEW(Tensor<F>, *Vijkl);
   Tau_abij = getTauABIJ();
 
   // diagram 10.70 in [1]
@@ -1419,10 +1419,10 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::leftApplyIntermediates(
   */
   SDFockVector<F> LH(L);
   // get pointers to the component tensors
-  PTR(CTF::Tensor<F>) Lia( L.get(0) );
-  PTR(CTF::Tensor<F>) Lijab( L.get(1) );
-  PTR(CTF::Tensor<F>) LHia( LH.get(0) );
-  PTR(CTF::Tensor<F>) LHijab( LH.get(1) );
+  PTR(Tensor<F>) Lia( L.get(0) );
+  PTR(Tensor<F>) Lijab( L.get(1) );
+  PTR(Tensor<F>) LHia( LH.get(0) );
+  PTR(Tensor<F>) LHijab( LH.get(1) );
 
   Wia = getIA();
   Wij = getIJ();
@@ -1476,10 +1476,10 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::leftApplyHirata(
 ) {
   SDFockVector<F> LH(L);
   // get pointers to the component tensors
-  PTR(CTF::Tensor<F>) Lia( L.get(0) );
-  PTR(CTF::Tensor<F>) Lijab( L.get(1) );
-  PTR(CTF::Tensor<F>) LHia( LH.get(0) );
-  PTR(CTF::Tensor<F>) LHijab( LH.get(1) );
+  PTR(Tensor<F>) Lia( L.get(0) );
+  PTR(Tensor<F>) Lijab( L.get(1) );
+  PTR(Tensor<F>) LHia( LH.get(0) );
+  PTR(Tensor<F>) LHijab( LH.get(1) );
 
   // Contruct HR (one body part)
   (*LHia)["ja"]  = 0.0;
@@ -1548,16 +1548,16 @@ SDTFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata(
 
   SDTFockVector<F> HR(R);
   // get pointers to the component tensors
-  PTR(CTF::Tensor<F>) Rai( R.get(0) );
-  PTR(CTF::Tensor<F>) Rabij( R.get(1) );
-  PTR(CTF::Tensor<F>) Rabcijk( R.get(2) );
-  PTR(CTF::Tensor<F>) HRai( HR.get(0) );
-  PTR(CTF::Tensor<F>) HRabij( HR.get(1) );
-  PTR(CTF::Tensor<F>) HRabcijk( HR.get(2) );
+  PTR(Tensor<F>) Rai( R.get(0) );
+  PTR(Tensor<F>) Rabij( R.get(1) );
+  PTR(Tensor<F>) Rabcijk( R.get(2) );
+  PTR(Tensor<F>) HRai( HR.get(0) );
+  PTR(Tensor<F>) HRabij( HR.get(1) );
+  PTR(Tensor<F>) HRabcijk( HR.get(2) );
 
   { // keep CcsdR only in this scope
     SDFockVector<F> CcsdR(
-        std::vector<PTR(CTF::Tensor<F>)>({Rai, Rabij}),
+        std::vector<PTR(Tensor<F>)>({Rai, Rabij}),
         std::vector<std::string>({"ai", "abij"})
     );
 
@@ -2781,7 +2781,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
           ;
 
   // actual structure factor
-  CTF::Tensor<F> S(1, &NG, syms, *Sisi4s::world, "S");
+  Tensor<F> S(1, &NG, syms, *Sisi4s::world, "S");
   // terms without V(G) will be collected here
   CTF::Scalar<F> energy;
 
@@ -2800,16 +2800,16 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
     ;
 
   ST_DEBUG("slicing gammas")
-  auto Cij = NEW(CTF::Tensor<complex>, GammaGqr->slice(GijStart, GijEnd))
-     , Cia = NEW(CTF::Tensor<complex>, GammaGqr->slice(GiaStart, GiaEnd))
-     , Cai = NEW(CTF::Tensor<complex>, GammaGqr->slice(GaiStart, GaiEnd))
-     , Cab = NEW(CTF::Tensor<complex>, GammaGqr->slice(GabStart, GabEnd))
+  auto Cij = NEW(Tensor<complex>, GammaGqr->slice(GijStart, GijEnd))
+     , Cia = NEW(Tensor<complex>, GammaGqr->slice(GiaStart, GiaEnd))
+     , Cai = NEW(Tensor<complex>, GammaGqr->slice(GaiStart, GaiEnd))
+     , Cab = NEW(Tensor<complex>, GammaGqr->slice(GabStart, GabEnd))
      ;
 
   ST_DEBUG("casting gammas")
 #define DEFINE_AND_CAST(_c) \
-  CTF::Tensor<double> real##_c(3, _c->lens, _c->sym, *_c->wrld, "Real##_c"); \
-  CTF::Tensor<double> imag##_c(3, _c->lens, _c->sym, *_c->wrld, "Imag##_c"); \
+  Tensor<double> real##_c(3, _c->lens, _c->sym, *_c->wrld, "Real##_c"); \
+  Tensor<double> imag##_c(3, _c->lens, _c->sym, *_c->wrld, "Imag##_c"); \
   fromComplexTensor(*_c, real##_c, imag##_c);
   DEFINE_AND_CAST(Cai)
   DEFINE_AND_CAST(Cia)
@@ -2822,7 +2822,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   ST_DEBUG("complex conjugatoin")
   // left vector
   SDFockVector<F> CR(R);
-  PTR(CTF::Tensor<F>) CRai( CR.get(0) )
+  PTR(Tensor<F>) CRai( CR.get(0) )
                     , CRabij( CR.get(1) )
                     , Rai( R.get(0) )
                     , Rabij( R.get(1) )
@@ -2830,7 +2830,7 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   sisi4s::conjugate(*CRai);
   sisi4s::conjugate(*CRabij);
 
-  CTF::Tensor<F>
+  Tensor<F>
        H0ij(Fij)
      , H0ab(Fab)
      ;

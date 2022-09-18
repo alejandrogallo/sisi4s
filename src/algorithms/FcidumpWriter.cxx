@@ -1,6 +1,6 @@
 #include <algorithms/FcidumpReader.hpp>
 #include <algorithms/FcidumpWriter.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <util/Log.hpp>
 #include <Sisi4s.hpp>
 #include <util/Exception.hpp>

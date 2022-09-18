@@ -3,7 +3,7 @@
 #define SCA_LAPACK_MATRIX_DEFINED
 
 #include <util/BlacsWorld.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   class ScaLapackDescriptor {
@@ -36,13 +36,13 @@ namespace sisi4s {
     );
     /**
      * \brief Contructs a ScaLapack matrix from the matricized content of a
-     * CTF::Tensor in the given BlacsWorld by copying each entry of the tensor
+     * Tensor in the given BlacsWorld by copying each entry of the tensor
      * into the matrix with the same respective global index, i.e.:
      * matrix[I + lens[0]*J] = A[i + A.lens[0]*j + A.lens[0]*A.lens[1]*k + ...]
      * The caller is responsible for compatible shapes.
      */
     ScaLapackMatrix(
-      CTF::Tensor<F> &A, int lens[2], BlacsWorld *blacsWorld, int blockSize = 64
+      Tensor<F> &A, int lens[2], BlacsWorld *blacsWorld, int blockSize = 64
     );
     /**
      * \brief Frees all resources associated with the ScaLapack matrix on
@@ -81,11 +81,11 @@ namespace sisi4s {
     void write(CTF::Matrix<F> &A);
     /**
      * \brief Writes the matricized content of the ScaLapackMatrix to the
-     * given CTF::Tensor, i.e.:
+     * given Tensor, i.e.:
      * A[i + A.lens[0]*j + A.lens[0]*A.lens[1]*k + ...] = matrix[I + lens[0]*J]
      * The caller is responsible for compatible shapes.
      */
-    void write(CTF::Tensor<F> &A);
+    void write(Tensor<F> &A);
 
   protected:
     /**

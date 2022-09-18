@@ -13,12 +13,12 @@
 #include <algorithm>
 #include <ostream>
 
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   template <typename F=double>
   /**
-   * \brief Represents the direct sum of CTF::Tensors and provides the
+   * \brief Represents the direct sum of Tensors and provides the
    * vector space operations of addition, scalar multiplication, inner product,
    * complex conjugation to get dual vectors and matrix multiplication
    * between vectors and duals, which yields a scalar.
@@ -27,7 +27,7 @@ namespace sisi4s {
   public:
     typedef F FieldType;
 
-    std::vector<PTR(CTF::Tensor<F>)> componentTensors;
+    std::vector<PTR(Tensor<F>)> componentTensors;
     std::vector<std::string> componentIndices;
 
     /**
@@ -67,7 +67,7 @@ namespace sisi4s {
      * \brief Move constructor taking possession of the tensors given.
      **/
     FockVector(
-      const std::vector<PTR(CTF::Tensor<F>)> &tensors,
+      const std::vector<PTR(Tensor<F>)> &tensors,
       const std::vector<std::string> &indices
     ):
       componentTensors(tensors),
@@ -95,17 +95,17 @@ namespace sisi4s {
 
     /**
      * \brief Retrieves the i-th component tensor. Note that
-     * the CTF::Tensor is not const since rearrangement may be
+     * the Tensor is not const since rearrangement may be
      * required also in non-modifying tensor operations.
      **/
-    const PTR(CTF::Tensor<F>) &get(const size_t i) const {
+    const PTR(Tensor<F>) &get(const size_t i) const {
       return componentTensors[i];
     }
 
     /**
      * \brief Retrieves the i-th component tensor.
      **/
-    PTR(CTF::Tensor<F>) &get(const size_t i) {
+    PTR(Tensor<F>) &get(const size_t i) {
       return componentTensors[i];
     }
 
@@ -199,7 +199,7 @@ namespace sisi4s {
           transposedLens.begin() + 2*order
         );
         result.componentTensors.push_back(
-          NEW(CTF::Tensor<F>,
+          NEW(Tensor<F>,
             transposedLens.size(), transposedLens.data(),
             get(i)->sym, *get(i)->wrld,
             (std::string(get(i)->get_name()) + "*").c_str()
@@ -388,10 +388,10 @@ namespace sisi4s {
      * \brief Sets this FockVector's component tensors by copying the given
      * component tensors. Called by copy constructors and copy assignments.
      **/
-    void copyComponents(const std::vector<PTR(CTF::Tensor<F>)> &components) {
+    void copyComponents(const std::vector<PTR(Tensor<F>)> &components) {
       componentTensors.resize(components.size());
       for (size_t i(0); i < components.size(); ++i) {
-        componentTensors[i] = NEW(CTF::Tensor<F>, *components[i]);
+        componentTensors[i] = NEW(Tensor<F>, *components[i]);
       }
     }
 
@@ -585,7 +585,7 @@ namespace sisi4s {
           pindices.substr(0, i) + hindices.substr(0, i)
         );
         this->componentTensors.push_back(
-          NEW(CTF::Tensor<F>, 2*i, dims.data(), syms.data(), *Sisi4s::world)
+          NEW(Tensor<F>, 2*i, dims.data(), syms.data(), *Sisi4s::world)
         );
       }
       this->buildIndexTranslation();
@@ -736,7 +736,7 @@ namespace sisi4s {
       int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
       int syms[6] = {NS,NS,NS,NS,NS,NS};
       this->componentTensors[2] = NEW(
-        CTF::Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
+        Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
       );
       (*this->get(2))["abcijk"] = 0.0;
 
@@ -759,7 +759,7 @@ namespace sisi4s {
       int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
       int syms[6] = {NS,NS,NS,NS,NS,NS};
       this->componentTensors[2] = NEW(
-        CTF::Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
+        Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
       );
       (*this->get(2))["abcijk"] = 0.0;
 
@@ -782,7 +782,7 @@ namespace sisi4s {
       int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
       int syms[6] = {NS,NS,NS,NS,NS,NS};
       this->componentTensors[2] = NEW(
-        CTF::Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
+        Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
       );
       (*this->get(2))["abcijk"] = 0.0;
 
@@ -806,7 +806,7 @@ namespace sisi4s {
       int vvvooo[6] = {Nv,Nv,Nv,No,No,No};
       int syms[6] = {NS,NS,NS,NS,NS,NS};
       this->componentTensors[2] = NEW(
-        CTF::Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
+        Tensor<F>, 6, vvvooo, syms, *Sisi4s::world
       );
       (*this->get(2))["abcijk"] = 0.0;
 

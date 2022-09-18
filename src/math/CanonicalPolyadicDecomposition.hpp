@@ -2,7 +2,7 @@
 #define CANONICAL_POLYADIC_DECOMPOSITION_DEFINED
 
 #include <DryTensor.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   /**
@@ -11,8 +11,8 @@ namespace sisi4s {
    */
   template <typename F=double>
   void composeCanonicalPolyadicDecompositionTensors(
-    CTF::Tensor<F> &A, CTF::Tensor<F> &B, CTF::Tensor<F> &C,
-    CTF::Tensor<F> &T
+    Tensor<F> &A, Tensor<F> &B, Tensor<F> &C,
+    Tensor<F> &T
   );
   /**
    * \brief Performs a dry run of the calculation
@@ -38,10 +38,10 @@ namespace sisi4s {
    */
   template <typename F=double>
   void contractWithCanonicalPolyadicDecompositionTensors(
-    CTF::Tensor<F> &T, char const *indicesT,
-    CTF::Tensor<F> &B, char const idxB,
-    CTF::Tensor<F> &C, char const idxC,
-    CTF::Tensor<F> &A, char const idxA
+    Tensor<F> &T, char const *indicesT,
+    Tensor<F> &B, char const idxB,
+    Tensor<F> &C, char const idxC,
+    Tensor<F> &A, char const idxA
   );
   /**
    * \brief Performs a dry run of the calculation

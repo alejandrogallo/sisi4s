@@ -1,7 +1,7 @@
 #include <algorithms/StantonIntermediatesUCCSD.hpp>
 #include <vector>
 #include <map>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <string>
 #include <util/Exception.hpp>
 #include <util/SharedPointer.hpp>
@@ -13,7 +13,7 @@ template <typename F>
 void StantonIntermediatesUCCSD<F>::checkInputs() {
 
   // Check if everything needed is given
-  std::map<std::string, CTF::Tensor<F>*> inputTensors{
+  std::map<std::string, Tensor<F>*> inputTensors{
     {"Tai", Tai}, {"Tabij", Tabij},
     {"Fij", Fij}, {"Fab", Fab},
     {"Vabcd", Vabcd}, {"Viajb", Viajb}, {"Vijab", Vijab},
@@ -41,12 +41,12 @@ void StantonIntermediatesUCCSD<F>::calculateOneBodyIntermediates() {
   int vv[] = {Nv, Nv}, oo[] = {No, No}, ov[] = {No, Nv};
   int syms[] = {NS, NS};
 
-  Fae = NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "Fae");
-  Fmi = NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "Fmi");
-  Fme = NEW(CTF::Tensor<F>, 2, ov, syms, *Sisi4s::world, "Fme");
+  Fae = NEW(Tensor<F>, 2, vv, syms, *Sisi4s::world, "Fae");
+  Fmi = NEW(Tensor<F>, 2, oo, syms, *Sisi4s::world, "Fmi");
+  Fme = NEW(Tensor<F>, 2, ov, syms, *Sisi4s::world, "Fme");
 
   // Equation (9)
-  TildeTau_abij = NEW(CTF::Tensor<F>, *Tabij);
+  TildeTau_abij = NEW(Tensor<F>, *Tabij);
   (*TildeTau_abij)["abij"] += ( 0.5 ) * (*Tai)["ai"] * (*Tai)["bj"];
   (*TildeTau_abij)["abij"] += ( - 0.5 ) * (*Tai)["bi"] * (*Tai)["aj"];
 
@@ -84,26 +84,26 @@ void StantonIntermediatesUCCSD<F>::calculateIntermediates() {
   checkInputs();
 
   // Equation (10)
-  Tau_abij = NEW(CTF::Tensor<F>, *Tabij);
+  Tau_abij = NEW(Tensor<F>, *Tabij);
   (*Tau_abij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
   (*Tau_abij)["abij"] += ( - 1.0 ) * (*Tai)["bi"] * (*Tai)["aj"];
 
   // Equation (6)
-  Wijkl = NEW(CTF::Tensor<F>, *Vijkl);
+  Wijkl = NEW(Tensor<F>, *Vijkl);
   (*Wijkl)["mnij"] += (+ 1.0) * (*Tai)["ej"] * (*Vijka)["mnie"];
   // Pij
   (*Wijkl)["mnij"] += (- 1.0) * (*Tai)["ei"] * (*Vijka)["mnje"];
   (*Wijkl)["mnij"] += (0.25) * (*Tau_abij)["efij"] * (*Vijab)["mnef"];
 
   // Equation (7)
-  Wabcd = NEW(CTF::Tensor<F>, *Vabcd);
+  Wabcd = NEW(Tensor<F>, *Vabcd);
   (*Wabcd)["abef"] += (- 1.0) * (*Tai)["bm"] * (*Vaibc)["amef"];
   // Pab
   (*Wabcd)["abef"] += (+ 1.0) * (*Tai)["am"] * (*Vaibc)["bmef"];
   (*Wabcd)["abef"] += (0.25) * (*Tau_abij)["abmn"] * (*Vijab)["mnef"];
 
   // Equation (8)
-  Wiabj = NEW(CTF::Tensor<F>, *Viabj);
+  Wiabj = NEW(Tensor<F>, *Viabj);
   (*Wiabj)["mbej"] += (+ 1.0) * (*Tai)["fj"] * (*Viabc)["mbef"];
   (*Wiabj)["mbej"] += (- 1.0) * (*Tai)["bn"] * (*Vijak)["mnej"];
   (*Wiabj)["mbej"] += (- 0.5) * (*Tabij)["fbjn"] * (*Vijab)["mnef"];
@@ -112,7 +112,7 @@ void StantonIntermediatesUCCSD<F>::calculateIntermediates() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 StantonIntermediatesUCCSD<F>::getRai(){
 
   if (Rai) return Rai;
@@ -123,7 +123,7 @@ StantonIntermediatesUCCSD<F>::getRai(){
   int vo[] = {Nv, No};
   int syms[] = {NS, NS};
 
-  Rai = NEW(CTF::Tensor<F>, 2, vo, syms, *Sisi4s::world, "Rai");
+  Rai = NEW(Tensor<F>, 2, vo, syms, *Sisi4s::world, "Rai");
 
   // T1 equations:
   (*Rai)["ai"] = (*Tai)["ei"] * (*Fae)["ae"];
@@ -142,7 +142,7 @@ StantonIntermediatesUCCSD<F>::getRai(){
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 StantonIntermediatesUCCSD<F>::getRabij(){
 
   calculateIntermediates();
@@ -150,7 +150,7 @@ StantonIntermediatesUCCSD<F>::getRabij(){
   if (Rabij) return Rabij;
 
   //fbd136af1cf7b395e33a6a2040e36b92d7a18e27  -
-  Rabij = NEW(CTF::Tensor<F>, *Vabij);
+  Rabij = NEW(Tensor<F>, *Vabij);
 
   // P(ab) * Taeij ( Fbe - 0.5 Tbm Fme)
   (*Rabij)["abij"] += (1.0) * (*Tabij)["aeij"] * (*Fae)["be"];

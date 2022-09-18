@@ -252,7 +252,7 @@ void CcsdPerturbativeTriples::dryRun() {
   DryTensor<> *epsa(
     getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies")
   );
-  
+
   // Compute the No,Nv
   int Nv(epsa->lens[0]);
 

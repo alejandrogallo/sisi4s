@@ -6,7 +6,7 @@
 
 #include <util/SharedPointer.hpp>
 
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   template <typename F>
@@ -49,7 +49,7 @@ namespace sisi4s {
      * by \f$c_j = B^+(j,N), lambda = B^+(N,N)\f$, where $\fB^+\f$ denotes
      * the Moore--Pensore pseudo inverse of \f$B\f$.
      **/
-    PTR(CTF::Tensor<F>) B;
+    PTR(Tensor<F>) B;
 
     /**
      * \brief The index of the residuum in the residua vector and in the

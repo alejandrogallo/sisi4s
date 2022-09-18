@@ -8,7 +8,7 @@
 #include <DryTensor.hpp>
 #include <util/SharedPointer.hpp>
 
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 #include <string>
 #include <initializer_list>

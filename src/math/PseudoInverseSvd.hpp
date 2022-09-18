@@ -2,16 +2,17 @@
 #define PSEUDO_INVERSE_SVD_DEFINED
 
 #include <math/Complex.hpp>
+#include <util/Tensor.hpp>
 #include <DryTensor.hpp>
 
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <random>
 
 namespace sisi4s {
   template <typename F>
   class PseudoInverseSvd {
   public:
-    PseudoInverseSvd(CTF::Tensor<F> &A, double epsilon = 1e-12);
+    PseudoInverseSvd(Tensor<F> &A, double epsilon = 1e-12);
     CTF::Matrix<F> &get();
 
   protected:

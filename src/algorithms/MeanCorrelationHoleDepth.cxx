@@ -3,14 +3,14 @@
 #include <vector>
 #include <math/MathFunctions.hpp>
 #include <algorithm>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Integrals.hpp>
 #include <util/Emitter.hpp>
 #include <iostream>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <numeric>
 #define LOGGER(_l) LOG(_l, "MeanCorrelationHoleDepth")
 
@@ -31,7 +31,7 @@ void MeanCorrelationHoleDepth::run() {
   int No(d->lens[2]), Nv(d->lens[0]);
   std::vector<int> oo({No, No});
   std::vector<int> syms({NS, NS});
-  auto gij(new CTF::Tensor<double>(2, oo.data(), syms.data(), *Sisi4s::world));
+  auto gij(new Tensor<double>(2, oo.data(), syms.data(), *Sisi4s::world));
 
   LOGGER(0) << "Exporting G" << std::endl;
   LOGGER(0) << "No: " << No << std::endl;

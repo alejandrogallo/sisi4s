@@ -3,7 +3,7 @@
 
 #include <algorithms/Algorithm.hpp>
 #include <Eigen/Dense>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
 
@@ -24,7 +24,7 @@ namespace sisi4s {
 
   };
 
-  MatrixColumnMajor toEigenMatrix(CTF::Tensor<double> &ctf);
+  MatrixColumnMajor toEigenMatrix(Tensor<double> &ctf);
 
 }
 

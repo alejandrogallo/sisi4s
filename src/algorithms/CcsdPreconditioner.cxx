@@ -7,7 +7,7 @@
 #include <util/Log.hpp>
 #include <util/TensorIo.hpp>
 #include <util/Exception.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/SharedPointer.hpp>
 
@@ -15,7 +15,7 @@
 using namespace sisi4s;
 
 template <typename F>
-void filterOutSpinFlipEntries(CTF::Tensor<F> &t){
+void filterOutSpinFlipEntries(Tensor<F> &t){
   int64_t nValues;
   int64_t *globalIndices;
   F *values;
@@ -97,8 +97,8 @@ double EomDiagonalValueComparator<sisi4s::complex>::computeDifference(
 template <typename F>
 void CcsdPreconditioner<F>::calculateDiagonal(){
   diagonalH = NEW(V,
-    std::vector<PTR(CTF::Tensor<F>)>(
-      {NEW(CTF::Tensor<F>, *Tai), NEW(CTF::Tensor<F>, *Tabij)}
+    std::vector<PTR(Tensor<F>)>(
+      {NEW(Tensor<F>, *Tai), NEW(Tensor<F>, *Tabij)}
     ),
     std::vector<std::string>({"ai", "abij"})
   );
@@ -398,9 +398,9 @@ void EACcsdPreconditioner<F>::calculateDiagonal(){
   auto& Fij = this->Fij;
   auto& Fab = this->Fab;
 
-  this->diagonalH = NEW(SDFockVector<F>, std::vector<PTR(CTF::Tensor<F>)>({
-        NEW(CTF::Tensor<F>, 1, v.data(), ns.data(), *Sisi4s::world, "Da"),
-        NEW(CTF::Tensor<F>, 3, vvo.data(), nss.data(), *Sisi4s::world, "Dabi")
+  this->diagonalH = NEW(SDFockVector<F>, std::vector<PTR(Tensor<F>)>({
+        NEW(Tensor<F>, 1, v.data(), ns.data(), *Sisi4s::world, "Da"),
+        NEW(Tensor<F>, 3, vvo.data(), nss.data(), *Sisi4s::world, "Dabi")
       }
     ),
     std::vector<std::string>({"a", "abi"})
@@ -579,9 +579,9 @@ void IPCcsdPreconditioner<F>::calculateDiagonal(){
   auto& Fij = this->Fij;
   auto& Fab = this->Fab;
 
-  this->diagonalH = NEW(SDFockVector<F>, std::vector<PTR(CTF::Tensor<F>)>({
-        NEW(CTF::Tensor<F>, 1, o.data(), ns.data(), *Sisi4s::world, "Di"),
-        NEW(CTF::Tensor<F>, 3, voo.data(), nss.data(), *Sisi4s::world, "Daij")
+  this->diagonalH = NEW(SDFockVector<F>, std::vector<PTR(Tensor<F>)>({
+        NEW(Tensor<F>, 1, o.data(), ns.data(), *Sisi4s::world, "Di"),
+        NEW(Tensor<F>, 3, voo.data(), nss.data(), *Sisi4s::world, "Daij")
       }
     ),
     std::vector<std::string>({"i", "aij"})

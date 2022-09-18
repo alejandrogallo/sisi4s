@@ -2,11 +2,11 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <iostream>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <numeric>
 #include <map>
 
@@ -15,8 +15,8 @@ using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(TensorUnrestricter);
 
 
-CTF::Tensor<double>*
-unrestrictTensor(CTF::Tensor<double> &tensor) {
+Tensor<double>*
+unrestrictTensor(Tensor<double> &tensor) {
 
   // check order of tensor
   const std::set<int> _supportedLens({1, 2, 4});
@@ -30,7 +30,7 @@ unrestrictTensor(CTF::Tensor<double> &tensor) {
   std::vector<int> syms(tensor.sym, tensor.sym + tensor.order);
   std::for_each(lens.begin(), lens.end(), [](int& i) {i *= 2;});
 
-  auto result(new CTF::Tensor<double>(
+  auto result(new Tensor<double>(
     tensor.order, lens.data(), syms.data(), *Sisi4s::world,
     ("u" + std::string(tensor.name)).c_str() ));
 

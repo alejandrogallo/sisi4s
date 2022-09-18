@@ -1,6 +1,7 @@
 #include <math/ComplexTensor.hpp>
 
 #include <util/Exception.hpp>
+#include <util/Tensor.hpp>
 #include <complex>
 
 #define AssertCompatibleTensorShapes(c,r,i) \
@@ -37,8 +38,8 @@
 
 
 void sisi4s::fromComplexTensor(
-  CTF::Tensor<complex> &C,
-  CTF::Tensor<double> &R, CTF::Tensor<double> &I
+  Tensor<complex> &C,
+  Tensor<double> &R, Tensor<double> &I
 ) {
   AssertCompatibleTensorShapes(C,R,I);
   Indices(C);
@@ -51,8 +52,8 @@ void sisi4s::fromComplexTensor(
 }
 
 void sisi4s::fromComplexTensor(
-  CTF::Tensor<double> &C,
-  CTF::Tensor<double> &R, CTF::Tensor<double> &I
+  Tensor<double> &C,
+  Tensor<double> &R, Tensor<double> &I
 ) {
   AssertCompatibleTensorShapes(C,R,I);
   Indices(C);
@@ -61,8 +62,8 @@ void sisi4s::fromComplexTensor(
 }
 
 void sisi4s::fromComplexTensor(
-  CTF::Tensor<complex> &C,
-  CTF::Tensor<double> &R
+  Tensor<complex> &C,
+  Tensor<double> &R
 ) {
   AssertCompatibleTensorShape(C,R);
   Indices(C);
@@ -74,8 +75,8 @@ void sisi4s::fromComplexTensor(
 }
 
 void sisi4s::toComplexTensor(
-  CTF::Tensor<double> &R, CTF::Tensor<double> &I,
-  CTF::Tensor<complex> &C
+  Tensor<double> &R, Tensor<double> &I,
+  Tensor<complex> &C
 ) {
   AssertCompatibleTensorShapes(C,R,I);
   Indices(C);
@@ -96,8 +97,8 @@ void sisi4s::toComplexTensor(
 }
 
 void sisi4s::toComplexTensor(
-  CTF::Tensor<double> &R,
-  CTF::Tensor<complex> &C
+  Tensor<double> &R,
+  Tensor<complex> &C
 ) {
   AssertCompatibleTensorShape(C,R);
   Indices(C);
@@ -118,8 +119,8 @@ void sisi4s::toComplexTensor(
 }
 
 void sisi4s::toComplexTensor(
-  CTF::Tensor<double> &R,
-  CTF::Tensor<double> &C
+  Tensor<double> &R,
+  Tensor<double> &C
 ) {
   AssertCompatibleTensorShape(C,R);
   Indices(C);
@@ -127,7 +128,7 @@ void sisi4s::toComplexTensor(
 }
 
 void sisi4s::conjugate(
-  CTF::Tensor<complex> &C
+  Tensor<complex> &C
 ) {
   Indices(C);
   CTF::Transform<complex>(
@@ -140,7 +141,7 @@ void sisi4s::conjugate(
 }
 
 void sisi4s::conjugate(
-  CTF::Tensor<double> &C
+  Tensor<double> &C
 ) {
   // ;-)
 }

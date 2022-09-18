@@ -1,5 +1,5 @@
 #include <algorithms/FcidumpReader.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <util/Log.hpp>
 #include <Sisi4s.hpp>
 #include <util/Exception.hpp>
@@ -170,9 +170,9 @@ struct IntegralParser {
     return true;
   }
 
-  CTF::Tensor<double>* allocateTensor() {
+  Tensor<double>* allocateTensor() {
     const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
-    auto t(new CTF::Tensor<double>(lens.size(),
+    auto t(new Tensor<double>(lens.size(),
                                    lens.data(),
                                    syms.data(),
                                    *Sisi4s::world));

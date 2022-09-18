@@ -40,7 +40,7 @@ namespace sisi4s {
     void readFromFile();
     void calculateRealStructureFactor();
     //    template <typename F>
-    //    F calculateStructureFactor(CTF::Tensor<F> &Vabij);
+    //    F calculateStructureFactor(Tensor<F> &Vabij);
 
     void calculateComplexStructureFactor();
 

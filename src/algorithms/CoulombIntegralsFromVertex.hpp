@@ -42,10 +42,10 @@ namespace sisi4s {
     void dryCalculateRealIntegrals();
     void dryCalculateComplexIntegrals();
 
-    CTF::Tensor<complex> *GammaGai;
-    CTF::Tensor<complex> *GammaGia;
-    CTF::Tensor<complex> *GammaGab;
-    CTF::Tensor<complex> *GammaGij;
+    Tensor<complex> *GammaGai;
+    Tensor<complex> *GammaGia;
+    Tensor<complex> *GammaGab;
+    Tensor<complex> *GammaGij;
     std::array<int,4> syms, vvvv, vovo, vvoo, voov, oovv, oooo, ooov, vooo,
                             vvvo, ovoo, ovov, ovvv, vvov, ovvo, oovo, vovv;
   };

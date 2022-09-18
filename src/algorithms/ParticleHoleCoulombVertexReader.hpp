@@ -4,7 +4,7 @@
 
 #include <algorithms/Algorithm.hpp>
 #include <DryTensor.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <cstdint>
 #include <fstream>
 

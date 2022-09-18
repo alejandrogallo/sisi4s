@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <util/SharedPointer.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <util/Log.hpp>
 #include <math/FockVector.hpp>
 
@@ -14,10 +14,10 @@ namespace sisi4s {
     public:
 
     ~OneBodyReducedDensityMatrix() {}
-    virtual PTR(CTF::Tensor<F>) getIA() = 0;
-    virtual PTR(CTF::Tensor<F>) getAI() = 0;
-    virtual PTR(CTF::Tensor<F>) getIJ() = 0;
-    virtual PTR(CTF::Tensor<F>) getAB() = 0;
+    virtual PTR(Tensor<F>) getIA() = 0;
+    virtual PTR(Tensor<F>) getAI() = 0;
+    virtual PTR(Tensor<F>) getIJ() = 0;
+    virtual PTR(Tensor<F>) getAB() = 0;
 
   };
 
@@ -25,13 +25,13 @@ namespace sisi4s {
   class CisOneBodyReducedDensityMatrix: public OneBodyReducedDensityMatrix<F> {
     CisOneBodyReducedDensityMatrix(const SFockVector<F> &r): R(r) {}
 
-    PTR(CTF::Tensor<F>) getIJ() override {
+    PTR(Tensor<F>) getIJ() override {
       if (Rij) { return Rij; }
       const int No(R.get(0)->lens[1]);
       const int oo[] = {No, No};
       const int syms[] = {NS, NS};
-      Rij = NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "Rij");
-      auto Rconj = CTF::Tensor<F>(*Rij);
+      Rij = NEW(Tensor<F>, 2, oo, syms, *Sisi4s::world, "Rij");
+      auto Rconj = Tensor<F>(*Rij);
       // TODO: Conjugate R
       conjugate(Rconj);
       (*Rij)["ii"]  = (*R.get(0))["aj"] * (*R.get(0))["aj"];
@@ -39,13 +39,13 @@ namespace sisi4s {
       return Rij;
     }
 
-    PTR(CTF::Tensor<F>) getAB() override {
+    PTR(Tensor<F>) getAB() override {
       if (Rab) { return Rab; }
       const int Nv(R.get(0)->lens[0]);
       const int vv[] = {Nv, Nv};
       const int syms[] = {NS, NS};
-      Rab = NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "Rab");
-      auto Rconj = CTF::Tensor<F>(*Rab);
+      Rab = NEW(Tensor<F>, 2, vv, syms, *Sisi4s::world, "Rab");
+      auto Rconj = Tensor<F>(*Rab);
       conjugate(Rconj);
       (*Rab)["ab"] = (*R.get(0))["ai"] * (*R.get(0))["bi"];
       return Rab;
@@ -53,7 +53,7 @@ namespace sisi4s {
 
   private:
 
-    PTR(CTF::Tensor<F>) Rai, Ria, Rij, Rab;
+    PTR(Tensor<F>) Rai, Ria, Rij, Rab;
     const SFockVector<F> &R;
 
   };
@@ -72,15 +72,15 @@ namespace sisi4s {
 
 
     EomOneBodyReducedDensityMatrix(
-      CTF::Tensor<F> *Tai_, CTF::Tensor<F> *Tabij_,
+      Tensor<F> *Tai_, Tensor<F> *Tabij_,
       const SDFockVector<F> *L_, const SDFockVector<F> *R_
     ): Tai(Tai_), Tabij(Tabij_), L(L_), R(R_){
       LOG(0, "OneBodyRDM") << "Calculating eom ccsd 1rdm" << std::endl;
     }
 
-    PTR(CTF::Tensor<F>) getAI() override {
+    PTR(Tensor<F>) getAI() override {
       if (Rai) { return Rai; }
-      Rai = NEW(CTF::Tensor<F>, *Tai);
+      Rai = NEW(Tensor<F>, *Tai);
 
       (*Rai)["ai"]  = 0;
       (*Rai)["ai"] += (*L->get(0))["ke"] * (*R->get(1))["eaki"];
@@ -94,12 +94,12 @@ namespace sisi4s {
       return Rai;
     }
 
-    PTR(CTF::Tensor<F>) getIJ() override {
+    PTR(Tensor<F>) getIJ() override {
       if (Rij) { return Rij; }
       const int No(Tai->lens[1]);
       const int oo[] = {No, No};
       const int syms[] = {NS, NS};
-      Rij = NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "Rij");
+      Rij = NEW(Tensor<F>, 2, oo, syms, *Sisi4s::world, "Rij");
 
       (*Rij)["ij"]  = 0;
       (*Rij)["ij"] += (*L->get(0))["je"] * (*R->get(0))["ei"];
@@ -111,12 +111,12 @@ namespace sisi4s {
       return Rij;
     }
 
-    PTR(CTF::Tensor<F>) getAB() override {
+    PTR(Tensor<F>) getAB() override {
       if (Rab) { return Rab; }
       const int Nv(Tai->lens[0]);
       const int vv[] = {Nv, Nv};
       const int syms[] = {NS, NS};
-      Rab = NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "Rab");
+      Rab = NEW(Tensor<F>, 2, vv, syms, *Sisi4s::world, "Rab");
 
       (*Rab)["ab"]  = 0;
       (*Rab)["ab"] += (-1.0) * (*L->get(0))["ka"] * (*R->get(0))["bk"];
@@ -129,13 +129,13 @@ namespace sisi4s {
 
     }
 
-    PTR(CTF::Tensor<F>) getIA() override {
+    PTR(Tensor<F>) getIA() override {
       if (Ria) { return Ria; }
       const int Nv(Tai->lens[0]), No(Tai->lens[1]);
       const int ov[] = {No, Nv};
       const int syms[] = {NS, NS};
 
-      Ria = NEW(CTF::Tensor<F>, 2, ov, syms, *Sisi4s::world, "Ria");
+      Ria = NEW(Tensor<F>, 2, ov, syms, *Sisi4s::world, "Ria");
 
       (*Ria)["ia"]  = 0;
       // this is 0 because r0 is 0
@@ -149,8 +149,8 @@ namespace sisi4s {
 
   private:
 
-    PTR(CTF::Tensor<F>) Rai, Ria, Rij, Rab;
-    CTF::Tensor<F> *Tai, *Tabij;
+    PTR(Tensor<F>) Rai, Ria, Rij, Rab;
+    Tensor<F> *Tai, *Tabij;
     const SDFockVector<F> *L, *R;
 
   };
