@@ -99,7 +99,8 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/GenerateRandomComplexMatrix.cxx                     \
 ./algorithms/UegVertexGenerator.cxx                              \
 ./algorithms/CoulombIntegralsFromVertex.cxx                      \
-./algorithms/Exit.cxx
+./algorithms/Exit.cxx                                            \
+./algorithms/PQRSCoulombIntegralsToVertex.cxx
 
 ## FOR LIBINT2
 sisi4s_SOURCES +=                                                  \
