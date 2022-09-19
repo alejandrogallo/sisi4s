@@ -1,18 +1,19 @@
 #include <algorithms/Mp2NaturalOrbitals.hpp>
 //#include <math/MathFunctions.hpp>
 //#include <math/ComplexTensor.hpp>
-//#include <DryTensor.hpp>
+//#include <tcc/DryTensor.hpp>
 #include <algorithm>
 #include <numeric>
 #include <extern/Lapack.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
-#include <Sisi4s.hpp>
-#include <util/Tensor.hpp>
+#include <Cc4s.hpp>
+#include <ctf.hpp>
 #include <iostream>
 //#include <Options.hpp>
 
-using namespace sisi4s;
+using namespace CTF;
+using namespace cc4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(Mp2NaturalOrbitals);
 
@@ -33,27 +34,28 @@ Mp2NaturalOrbitals::~Mp2NaturalOrbitals() {
 }
 
 void Mp2NaturalOrbitals::run() {
-  Tensor<double> *orbs(getTensorArgument("OrbitalCoefficients"));
-  Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<> *orbs(getTensorArgument("OrbitalCoefficients"));
+  Tensor<> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
+  Tensor<> *epsi(getTensorArgument("HoleEigenEnergies"));
+  Tensor<> *epsa(getTensorArgument("ParticleEigenEnergies"));
   const bool unrestricted(getIntegerArgument("unrestricted", 0) == 1);
-  auto rotatedOrbitals(new Tensor<double>(false, *orbs));
-  auto epsaRediag(new Tensor<double>(false, *epsa));
-  auto occNumber(new Tensor<double>(false, *epsa));
+  auto rotatedOrbitals(new Tensor<>(false, *orbs));
+  auto epsaRediag(new Tensor<>(false, *epsa));
+  auto occNumber(new Tensor<>(false, *epsa));
   int64_t Nv(epsa->lens[0]);
   int64_t No(epsi->lens[0]);
   int64_t Np(orbs->lens[1]);
-  std::array<int,2> vv({{ (int)Nv, (int)Nv }});
+  int64_t Nx(orbs->lens[0]);
+  std::array<int,2> vv({{ Nv, Nv }});
   std::array<int,2> syms({{ NS, NS }});
-  std::array<int,2> pp({{ (int)Np, (int)Np}});
-  auto rotationMatrix(new Tensor<double>(2, pp.data(), syms.data(), *Vabij->wrld, "rotationMatrix"));
-  auto Tabij(new Tensor<double>(Vabij));
+  std::array<int,2> pp({{ Np, Np}});
+  auto rotationMatrix(new Tensor<>(2, pp.data(), syms.data(), *Vabij->wrld, "rotationMatrix"));
+  auto Tabij(new Tensor<>(Vabij));
 
   if (!unrestricted) {
 
-    auto Tcbij(new Tensor<double>(Vabij));
-    auto Dab(new Tensor<double>(2, vv.data(), syms.data(), *Vabij->wrld, "Dab"));
+    auto Tcbij(new Tensor<>(Vabij));
+    auto Dab(new Tensor<>(2, vv.data(), syms.data(), *Vabij->wrld, "Dab"));
 
     Tabij->set_name("Tabij");
     Tcbij->set_name("Tcbij");
@@ -96,18 +98,19 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &NvInt, DabMatrix.data(), &NvInt, w.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization (1), naturalOrbitals\n";
-
+    if ( info != 0 ) throw "problem diagonalization\n";
+    size_t nFno;
     //TRUNCATE (2)
     double occupationThreshold(getRealArgument("occupationThreshold",1e-16));
     if (isArgumentGiven("FnoNumber")){
       int fnoNumber(getIntegerArgument("FnoNumber"));
+      nFno = std::min(fnoNumber, (int) Nv);
       //because of the 'wrong' ordering of the eigenvalues
       //we have to zero the first Nv-NFno columns
       for (int64_t a(0); a < Nv-fnoNumber; a++)
       for (int64_t b(0); b < Nv; b++)
         DabMatrix[b+a*Nv] = 0.0;
-      LOG(0,"Nocc") << fnoNumber << std::endl;
+      LOG(0,"Nocc") << nFno << std::endl;
     }
     else{
       int counter(0);
@@ -118,14 +121,13 @@ void Mp2NaturalOrbitals::run() {
             DabMatrix[b+a*Nv] = 0.0;
         }
       }
+      nFno = Nv - counter;
       LOG(0,"occupationThreshold") << occupationThreshold << std::endl;
       LOG(0,"Nfno") << Nv-counter << std::endl;
     }
-
     for (int64_t a(0); a < Nv; a++)
       LOG(2,"occ") << w[a] << std::endl;
-
-    const int rank_m = int(Sisi4s::world->rank == 0); //rank mask
+    const int rank_m = int(Cc4s::world->rank == 0); //rank mask
     std::vector<int64_t> index;
     index.resize(rank_m * Nv);
     std::iota(index.begin(), index.end(), 0);
@@ -145,7 +147,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &NvInt, FabMatrix.data(), &NvInt, w.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization (4), naturalOrbitals\n";
+    if ( info != 0 ) throw "problem diagonalization\n";
 
     for (int64_t a(0); a < Nv; a++)
       LOG(2,"eVal") << w[a] << std::endl;
@@ -157,26 +159,30 @@ void Mp2NaturalOrbitals::run() {
       RabMatrix[a+b*Nv] += DabMatrix[a+c*Nv] * FabMatrix[c+b*Nv];
     }
 
+
+    // We have to reorder the zeros....unfortunately!
+
     epsaRediag->write(index.size(), index.data(), w.data());
 
     std::vector<double> unity(No*No);
     for (int64_t i(0); i < No; i++)
       unity[i+i*No] = 1.0;
 
-    std::array<int,2> oo({{ (int)No, (int)No }});
-    auto newunity(new Tensor<double>(2, oo.data(), syms.data(), *Vabij->wrld, "new"));
+    std::array<int,2> oo({{ No, No }});
+    auto newunity(new Tensor<>(2, oo.data(), syms.data(), *Vabij->wrld, "new"));
     index.resize(rank_m * No*No);
     std::iota(index.begin(), index.end(), 0);
     newunity->write(index.size(), index.data(), unity.data());
 
-    Tensor<double> virtualRotor(false, *Dab);
+    Tensor<> virtualRotor(false, *Dab);
 
     index.resize(rank_m * Nv*Nv);
     std::iota(index.begin(), index.end(), 0);
     virtualRotor.write(index.size(), index.data(), RabMatrix.data());
 
-    int dstStart[] = {0, 0}; int dstEnd[]= {(int)No,(int)No};
-    int srcStart[] = {0, 0}; int srcEnd[]= {(int)No,(int)No};
+    int dstStart[] = {0, 0}; int dstEnd[]= {No,No};
+    int srcStart[] = {0, 0}; int srcEnd[]= {No,No};
+    // First write the NoxNo Block -> identity matrix
     rotationMatrix->slice(dstStart, dstEnd, 1.0, newunity, srcStart, srcEnd, 1.0);
     srcEnd[0]   = Nv;    srcEnd[1]   = Nv;
     dstStart[0] = No;    dstStart[1] = No;
@@ -188,13 +194,43 @@ void Mp2NaturalOrbitals::run() {
                   << std::endl;
     (*rotatedOrbitals)["mi"] = (*orbs)["mj"] * (*rotationMatrix)["ji"];
 
-    allocatedTensorArgument<>("RotatedOrbitals", rotatedOrbitals);
-    allocatedTensorArgument("ParticleEigenEnergiesRediag", epsaRediag);
+    // NEW FEATURE!!!!
+    // slice only non-zero elements to final tensor
+    std::array<int,2> ff({{ Nx, No+nFno}});
+    std::array<int,2> f({{ nFno}});
+
+    auto newEpsa(new Tensor<>(1, f.data(), syms.data(), *Vabij->wrld, "newEpsa"));
+    dstStart[0] = 0; dstEnd[0] = nFno;
+    srcStart[0] = Nv - nFno; srcEnd[1] = Nv;
+    newEpsa->slice(dstStart, dstEnd, 1.0, epsaRediag, srcStart, srcEnd, 1.0);
+
+    auto newRotatedOrbitals(
+      new Tensor<>(2, ff.data(), syms.data(), *Vabij->wrld, "R")
+    );
+    srcStart[0] = 0; srcStart[1] = 0;
+    srcEnd[0] = Nx;  srcEnd[1] = No;
+    dstStart[0] = 0; dstStart[1] = 0;
+    dstEnd[0] = Nx; dstEnd[1] = No;
+    newRotatedOrbitals->slice(
+      dstStart, dstEnd, 1.0, rotatedOrbitals, srcStart, srcEnd, 1.0
+    );
+
+    srcStart[1] = No + Nv - nFno; srcEnd[1] = No + Nv;
+    dstStart[1] = No; dstEnd[1] = nFno + No;
+    newRotatedOrbitals->slice(
+      dstStart, dstEnd, 1.0, rotatedOrbitals, srcStart, srcEnd, 1.0
+    );
+    allocatedTensorArgument<>("RotatedOrbitals", newRotatedOrbitals);
+    allocatedTensorArgument("ParticleEigenEnergiesRediag", newEpsa);
+
+
+//    allocatedTensorArgument<>("RotatedOrbitals", rotatedOrbitals);
+//    allocatedTensorArgument("ParticleEigenEnergiesRediag", epsaRediag);
   }
   else {   // UNRESTRICTED
 
     auto Spins(getTensorArgument("Spins"));
-    auto Dab(new Tensor<double>(2, vv.data(), syms.data(), *Vabij->wrld, "Dab"));
+    auto Dab(new Tensor<>(2, vv.data(), syms.data(), *Vabij->wrld, "Dab"));
 
     Tabij->set_name("Tabij");
     (*Tabij)["abij"] =  (*epsi)["i"];
@@ -265,7 +301,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &Nalpha, Dalpha.data(), &Nalpha, walpha.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization (1) unatrualOrbitals\n";
+    if ( info != 0 ) throw "problem diagonalization\n";
 
     //TRUNCATE (2)
     double occupationThreshold(getRealArgument("occupationThreshold",1e-16));
@@ -312,7 +348,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &Nbeta, Dbeta.data(), &Nbeta, wbeta.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization (2), unatural orbitals\n";
+    if ( info != 0 ) throw "problem diagonalization\n";
 
     //TRUNCATE (2)
     if (isArgumentGiven("FnoBeta")){
@@ -359,7 +395,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &Nalpha, Falpha.data(), &Nalpha, walpha.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization, (4) unatural orbtials\n";
+    if ( info != 0 ) throw "problem diagonalization\n";
 
     for (int64_t a(0); a < Nalpha; a++)
       LOG(2,"Alpha eVal") << walpha[a] << std::endl;
@@ -384,7 +420,7 @@ void Mp2NaturalOrbitals::run() {
     dsyev_(
       "V", "L", &Nbeta, Fbeta.data(), &Nbeta, wbeta.data(), work.data(), &lwork, &info
     );
-    if ( info != 0 ) throw "problem diagonalization, (4) unatural orbitals\n";
+    if ( info != 0 ) throw "problem diagonalization\n";
 
     for (int64_t a(0); a < Nbeta; a++)
       LOG(2,"Beta eVal") << wbeta[a] << std::endl;
@@ -406,7 +442,7 @@ void Mp2NaturalOrbitals::run() {
 
 
     // construct combined ParticleEigenEnergies
-    const int rank_m = int(Sisi4s::world->rank == 0); //rank mask
+    const int rank_m = int(Cc4s::world->rank == 0); //rank mask
     std::vector<int64_t> index;
     index.resize(rank_m * Nv);
     std::iota(index.begin(), index.end(), 0);
@@ -424,27 +460,27 @@ void Mp2NaturalOrbitals::run() {
     for (int64_t i(0); i < No; i++)
       unity[i+i*No] = 1.0;
 
-    std::array<int,2> oo({{ (int)No, (int)No }});
-    auto newunity(new Tensor<double>(2, oo.data(), syms.data(), *Vabij->wrld, "new"));
+    std::array<int,2> oo({{ No, No }});
+    auto newunity(new Tensor<>(2, oo.data(), syms.data(), *Vabij->wrld, "new"));
     index.resize(rank_m * No*No);
     std::iota(index.begin(), index.end(), 0);
     newunity->write(index.size(), index.data(), unity.data());
 
     std::array<int,2> aa({{ Nalpha, Nalpha }});
-    auto alphaRotor(new Tensor<double>(2, aa.data(), syms.data(), *Vabij->wrld, "aRotor"));
+    auto alphaRotor(new Tensor<>(2, aa.data(), syms.data(), *Vabij->wrld, "aRotor"));
     index.resize(rank_m * Nalpha*Nalpha);
     std::iota(index.begin(), index.end(), 0);
     alphaRotor->write(index.size(), index.data(), Ralpha.data());
 
     std::array<int,2> bb({{ Nbeta, Nbeta }});
-    auto betaRotor(new Tensor<double>(2, bb.data(), syms.data(), *Vabij->wrld, "aRotor"));
+    auto betaRotor(new Tensor<>(2, bb.data(), syms.data(), *Vabij->wrld, "aRotor"));
     index.resize(rank_m * Nbeta*Nbeta);
     std::iota(index.begin(), index.end(), 0);
     betaRotor->write(index.size(), index.data(), Rbeta.data());
 
 
-    int dstStart[] = {0, 0}; int dstEnd[]= {(int)No,(int)No};
-    int srcStart[] = {0, 0}; int srcEnd[]= {(int)No,(int)No};
+    int dstStart[] = {0, 0}; int dstEnd[]= {No,No};
+    int srcStart[] = {0, 0}; int srcEnd[]= {No,No};
     rotationMatrix->slice(dstStart, dstEnd, 1.0, newunity, srcStart, srcEnd, 1.0);
     srcEnd[0]   = Nalpha;    srcEnd[1]   = Nalpha;
     dstStart[0] = No;        dstStart[1] = No;
