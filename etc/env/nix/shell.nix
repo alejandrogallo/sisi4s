@@ -71,6 +71,8 @@ pkgs.mkShell rec {
         gdb
         perl
 
+        compiler-pkg
+
         # for libint
         gmpxx.out
         gmpxx.dev

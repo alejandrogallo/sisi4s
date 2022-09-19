@@ -14,7 +14,6 @@ namespace sisi4s {
     int argc;
     char** argv;
     bool cc4s, listAlgorithms, dryRun;
-    std::string eclFile;
 
     static const int DEFAULT_LOG_LEVEL = 1;
 

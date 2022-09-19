@@ -16,7 +16,6 @@ Options::Options(int argc_, char **argv_)
   , cc4s(false)
   , listAlgorithms(false)
   , dryRun(false)
-  , eclFile("")
   {
 
     app.add_option("-i,--in", inFile, "Input file path")
@@ -42,10 +41,6 @@ Options::Options(int argc_, char **argv_)
     app.add_flag("--list-algorithms,--list", listAlgorithms,
                  "List registered algorithms")
       ->default_val(listAlgorithms);
-
-    app.add_option("--load", eclFile, "ECL script to load")
-      ->check(CLI::ExistingFile)
-      ->default_val(eclFile);
 
 }
 
