@@ -471,6 +471,7 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
     , {"PPHPCoulombIntegrals", {NV,NV,NO,NV}, "abic"}
     , {"PPPHCoulombIntegrals", {NV,NV,NV,NO}, "abci"}
     , {"PPPPCoulombIntegrals", {NV,NV,NV,NV}, "abcd"}
+    , {"PQRSCoulombIntegrals", {NP,NP,NP,NP}, "pqrs"}
     };
 
   for (const auto& i: integralInfos) args.push_back(i.name);

@@ -38,9 +38,9 @@ void PQRSCoulombIntegralsToVertex::run() {
     throw new EXCEPTION("Need particle energies");
   }
 
-  auto pqrs = NEW( Tensor<>, getTensorArgument<>("PQRSCoulombIntegrals"));
-  auto epsi = NEW( Tensor<>, getTensorArgument<>("HoleEigenEnergies"));
-  auto epsa = NEW( Tensor<>, getTensorArgument<>("ParticleEigenEnergies"));
+  auto pqrs(getTensorArgument<>("PQRSCoulombIntegrals"));
+  auto epsi(getTensorArgument<>("HoleEigenEnergies"));
+  auto epsa(getTensorArgument<>("ParticleEigenEnergies"));
   auto No = epsi->lens[0];
   auto Nv = epsa->lens[0];
   auto Np = No + Nv;
@@ -52,10 +52,11 @@ void PQRSCoulombIntegralsToVertex::run() {
   LOG(0, "PQRS->vertex") << "we work with " << Np << " states\n";
 
   // ok we have to read the whole tensor in rank 0 only
-
-  (*pqrs)["ijkl"] = (*pqrs)["ikjl"];
-  pqrs->read_all(A);
+  auto prqs(*pqrs);
+  prqs["pqrs"] = (*pqrs)["prqs"];
+  prqs.read_all(A);
   LOG(0, "PQRS") << "read all done\n";
+
   int n(Np*Np);
   int lwork(3*n);
   double *w = new double[n];
@@ -63,8 +64,9 @@ void PQRSCoulombIntegralsToVertex::run() {
   int info;
 
   dsyev_("V", "U", &n, A, &n, w, work, &lwork, &info);
+  LOG(0,"INFO") << "Diagonalization sucessful: " << info << std::endl;
   size_t g(0);
-  double thresh(1e-16);
+  double thresh(1e-12);
   for (size_t m(0); m < n; m++) if (w[m] > thresh) g++;
   g = n;
 
@@ -100,8 +102,10 @@ void PQRSCoulombIntegralsToVertex::run() {
   std::vector< std::complex<double> > out(n*g);
   for (size_t i(0); i < n; i++){
     size_t k(0);
-    for (size_t j(n-g); j < n; j++)
+    for (size_t j(n-g); j < n; j++){
       out[k++ + i*g] = A[i + j*n];
+//      out[i + j*n] = { A[i + j*n], 0.0 };
+    }
   }
 
   auto vertex = std::fstream("CoulombVertex.elements", std::ios::out | std::ios::binary);
