@@ -10,6 +10,8 @@
     <includedby refid="FiniteSizeCorrection_8cxx" local="no">FiniteSizeCorrection.cxx</includedby>
     <includedby refid="FiniteSizeCorrection_8hpp" local="no">FiniteSizeCorrection.hpp</includedby>
     <includedby refid="MpiCommunicator_8hpp" local="no">MpiCommunicator.hpp</includedby>
+    <includedby refid="PQRSCoulombIntegralsToVertex_8cxx" local="no">PQRSCoulombIntegralsToVertex.cxx</includedby>
+    <includedby refid="PQRSCoulombIntegralsToVertex_8hpp" local="no">PQRSCoulombIntegralsToVertex.hpp</includedby>
     <incdepgraph>
       <node id="3">
         <label>math/Complex.hpp</label>
@@ -127,7 +129,7 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="10">
+      <node id="11">
         <label>Sisi4s.cxx</label>
         <link refid="Sisi4s_8cxx"/>
       </node>
@@ -165,6 +167,16 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
+      <node id="10">
+        <label>PQRSCoulombIntegralsToVertex.cxx</label>
+        <link refid="PQRSCoulombIntegralsToVertex_8cxx"/>
+      </node>
+      <node id="12">
+        <label>PQRSCoulombIntegralsToVertex.hpp</label>
+        <link refid="PQRSCoulombIntegralsToVertex_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>Vector.hpp</label>
         <link refid="Vector_8hpp"/>
@@ -180,6 +192,10 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
       </node>
       <node id="8">
         <label>MpiCommunicator.hpp</label>
@@ -191,6 +207,8 @@
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

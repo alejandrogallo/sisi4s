@@ -1,0 +1,590 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="PQRSCoulombIntegralsToVertex_8cxx" kind="file" language="C++">
+    <compoundname>PQRSCoulombIntegralsToVertex.cxx</compoundname>
+    <includes refid="PQRSCoulombIntegralsToVertex_8hpp" local="no">algorithms/PQRSCoulombIntegralsToVertex.hpp</includes>
+    <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
+    <includes refid="ComplexTensor_8hpp" local="no">math/ComplexTensor.hpp</includes>
+    <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
+    <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes refid="DryTensor_8hpp" local="no">DryTensor.hpp</includes>
+    <includes refid="Vector_8hpp" local="no">math/Vector.hpp</includes>
+    <includes refid="SharedPointer_8hpp" local="no">util/SharedPointer.hpp</includes>
+    <includes refid="CTF_8hpp" local="no">util/CTF.hpp</includes>
+    <includes refid="MpiCommunicator_8hpp" local="no">util/MpiCommunicator.hpp</includes>
+    <includes refid="PseudoInverseSvd_8hpp" local="no">math/PseudoInverseSvd.hpp</includes>
+    <includes refid="Lapack_8hpp" local="no">extern/Lapack.hpp</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>Data.hpp</label>
+        <link refid="Data_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>DryTensor.hpp</label>
+        <link refid="DryTensor_8hpp"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>PQRSCoulombIntegralsToVertex.cxx</label>
+        <link refid="PQRSCoulombIntegralsToVertex_8cxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>algorithms/PQRSCoulombIntegralsToVertex.hpp</label>
+        <link refid="PQRSCoulombIntegralsToVertex_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>extern/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>extern/Lapack.hpp</label>
+        <link refid="Lapack_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>math/ComplexTensor.hpp</label>
+        <link refid="ComplexTensor_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>math/PseudoInverseSvd.hpp</label>
+        <link refid="PseudoInverseSvd_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>math/Vector.hpp</label>
+        <link refid="Vector_8hpp"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>util/CTF.hpp</label>
+        <link refid="CTF_8hpp"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>util/Exception.hpp</label>
+        <link refid="Exception_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>util/MpiCommunicator.hpp</label>
+        <link refid="MpiCommunicator_8hpp"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>util/SharedPointer.hpp</label>
+        <link refid="SharedPointer_8hpp"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>util/SourceLocation.hpp</label>
+        <link refid="SourceLocation_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>util/Time.hpp</label>
+        <link refid="Time_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>cmath</label>
+      </node>
+      <node id="19">
+        <label>complex</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="24">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="7">
+        <label>ctime</label>
+      </node>
+      <node id="44">
+        <label>exception</label>
+      </node>
+      <node id="16">
+        <label>fstream</label>
+      </node>
+      <node id="33">
+        <label>functional</label>
+      </node>
+      <node id="10">
+        <label>iomanip</label>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="41">
+        <label>iterator</label>
+      </node>
+      <node id="43">
+        <label>limits</label>
+      </node>
+      <node id="37">
+        <label>locale</label>
+      </node>
+      <node id="20">
+        <label>map</label>
+      </node>
+      <node id="32">
+        <label>memory</label>
+      </node>
+      <node id="51">
+        <label>mpi.h</label>
+      </node>
+      <node id="34">
+        <label>numeric</label>
+      </node>
+      <node id="9">
+        <label>ostream</label>
+      </node>
+      <node id="53">
+        <label>random</label>
+      </node>
+      <node id="39">
+        <label>set</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="42">
+        <label>stdexcept</label>
+      </node>
+      <node id="15">
+        <label>streambuf</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="45">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="46">
+        <label>sys/types.h</label>
+      </node>
+      <node id="35">
+        <label>tuple</label>
+      </node>
+      <node id="40">
+        <label>type_traits</label>
+      </node>
+      <node id="36">
+        <label>utility</label>
+      </node>
+      <node id="21">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="PQRSCoulombIntegralsToVertex_8hpp" kindref="compound">algorithms/PQRSCoulombIntegralsToVertex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ComplexTensor_8hpp" kindref="compound">math/ComplexTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DryTensor_8hpp" kindref="compound">DryTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Vector_8hpp" kindref="compound">math/Vector.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CTF_8hpp" kindref="compound">util/CTF.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MpiCommunicator_8hpp" kindref="compound">util/MpiCommunicator.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="PseudoInverseSvd_8hpp" kindref="compound">math/PseudoInverseSvd.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Lapack_8hpp" kindref="compound">extern/Lapack.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">CTF;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex" kindref="compound">PQRSCoulombIntegralsToVertex</ref>);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a2616d41143c212e1dafbd84aa386dd9e" refkind="member"><highlight class="normal">PQRSCoulombIntegralsToVertex::PQRSCoulombIntegralsToVertex(</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a813067345d847527ec57940e03f20db4" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a813067345d847527ec57940e03f20db4" kindref="member">PQRSCoulombIntegralsToVertex::~PQRSCoulombIntegralsToVertex</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a46fac3f3f22f920dc41e0c0d37e58c22" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a46fac3f3f22f920dc41e0c0d37e58c22" kindref="member">PQRSCoulombIntegralsToVertex::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;PQRSCoulombIntegrals&quot;</highlight><highlight class="normal">)){</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Need<sp/>pqrs<sp/>coulomb<sp/>integrals&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">)){</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Need<sp/>hole<sp/>energies&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">)){</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Need<sp/>particle<sp/>energies&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>pqrs(getTensorArgument&lt;&gt;(</highlight><highlight class="stringliteral">&quot;PQRSCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>epsi(getTensorArgument&lt;&gt;(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>epsa(getTensorArgument&lt;&gt;(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>No<sp/>=<sp/>epsi-&gt;lens[0];</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Nv<sp/>=<sp/>epsa-&gt;lens[0];</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Np<sp/>=<sp/>No<sp/>+<sp/>Nv;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>int64_t<sp/>els(0);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>std::vector&lt;int64_t&gt;<sp/>idx;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*A;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;rank)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>els<sp/>=<sp/>Np*Np*Np*Np;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>idx.resize(els);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>std::iota(idx.begin(),<sp/>idx.end(),<sp/>0);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>A<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[els];</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;PQRS-&gt;vertex&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;we<sp/>work<sp/>with<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Np<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>states\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ok<sp/>we<sp/>have<sp/>to<sp/>read<sp/>the<sp/>whole<sp/>tensor<sp/>in<sp/>rank<sp/>0<sp/>only</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>prqs(*pqrs);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>prqs[</highlight><highlight class="stringliteral">&quot;pqrs&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*pqrs)[</highlight><highlight class="stringliteral">&quot;prqs&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>prqs.read_all(A);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>prqs.read(els,<sp/>idx.data(),<sp/>A);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;PQRS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;read<sp/>all<sp/>done\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n(Np*Np);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lwork(3*n);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*w<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[n];</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*work<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[3*n];</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>info;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><ref refid="Lapack_8hpp_1a5dd7884f39150c29793947da3b7a78f4" kindref="member">dsyev_</ref>(</highlight><highlight class="stringliteral">&quot;V&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;U&quot;</highlight><highlight class="normal">,<sp/>&amp;n,<sp/>A,<sp/>&amp;n,<sp/>w,<sp/>work,<sp/>&amp;lwork,<sp/>&amp;info);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,</highlight><highlight class="stringliteral">&quot;INFO&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Diagonalization<sp/>sucessful:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>info<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>g(0);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>thresh(1e-12);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>m(0);<sp/>m<sp/>&lt;<sp/>n;<sp/>m++)<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(w[m]<sp/>&gt;<sp/>thresh)<sp/>g++;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>g<sp/>=<sp/>n;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;PQRS&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/>g<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>elements<sp/>larger<sp/>than<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>thresh<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>line<sp/>is<sp/>in<sp/>principle<sp/>useless<sp/>because<sp/>we<sp/>work<sp/>with<sp/>a<sp/>truncated<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>but<sp/>currently<sp/>this<sp/>is<sp/>not<sp/>working<sp/>properly</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>n;<sp/>i++){</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>m(0);<sp/>m<sp/>&lt;<sp/>n;<sp/>m++){</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(w[m]<sp/>&gt;<sp/>thresh)<sp/>A[i<sp/>+<sp/>m*n]<sp/>=<sp/><ref refid="namespacesisi4s_1a40947d88c4989cacff153a78af67f686" kindref="member">sqrt</ref>(w[m])<sp/>*<sp/>A[i<sp/>+<sp/>m*n];</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>A[i<sp/>+<sp/>m*n]<sp/>=<sp/>0.0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>A[i<sp/>+<sp/>m*n];</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>vertex<sp/>info<sp/>to<sp/>yaml<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>std::string<sp/>yamlout;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;version:<sp/>100\ntype:<sp/>Tensor\nscalarType:<sp/>Complex64\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;indices:\n<sp/><sp/>momentum:\n<sp/><sp/><sp/><sp/>type:<sp/>halfGrid\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;dimensions:\n<sp/><sp/>-<sp/>length:<sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/><ref refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" kindref="member">std::to_string</ref>(g);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\n<sp/><sp/><sp/><sp/>type:<sp/>AuxiliaryField\n<sp/><sp/>-<sp/>length:<sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/><ref refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" kindref="member">std::to_string</ref>(Np);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\n<sp/><sp/><sp/><sp/>type:<sp/>State\n<sp/><sp/>-<sp/>length:<sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/><ref refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" kindref="member">std::to_string</ref>(Np);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\n<sp/><sp/><sp/><sp/>type:<sp/>State\nelements:\n<sp/><sp/>type:<sp/>IeeeBinaryFile\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;binary:<sp/>1\nunit:<sp/>1\nmetaData:\n<sp/><sp/>halfGrid:<sp/>1&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>std::ofstream<sp/>vertyaml;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>vertyaml.open(</highlight><highlight class="stringliteral">&quot;CoulombVertex.yaml&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>vertyaml<sp/>&lt;&lt;<sp/>yamlout;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>vertyaml.close();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>complex<sp/>vertex<sp/>data<sp/>to<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>std::vector&lt;<sp/>std::complex&lt;double&gt;<sp/>&gt;<sp/>out(n*g);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>n;<sp/>i++){</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>k(0);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j(n-g);<sp/>j<sp/>&lt;<sp/>n;<sp/>j++){</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out[k++<sp/>+<sp/>i*g]<sp/>=<sp/>A[i<sp/>+<sp/>j*n];</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>out[i<sp/>+<sp/>j*n]<sp/>=<sp/>{<sp/>A[i<sp/>+<sp/>j*n],<sp/>0.0<sp/>};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>vertex<sp/>=<sp/>std::fstream(</highlight><highlight class="stringliteral">&quot;CoulombVertex.elements&quot;</highlight><highlight class="normal">,<sp/>std::ios::out<sp/>|<sp/>std::ios::binary);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>vertex.write((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)&amp;out[0],<sp/>n*g*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(std::complex&lt;double&gt;));</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>vertex.close();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>eigenenergies<sp/>to<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>ea(Nv),<sp/>ei(No);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>epsi-&gt;read_all(ei.data());</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>epsa-&gt;read_all(ea.data());</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fermiEnergy;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>ei[No-1]<sp/>&lt;<sp/>0.<sp/>&amp;&amp;<sp/>ea[0]<sp/>&gt;<sp/>0.)<sp/>fermiEnergy<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>fermiEnergy<sp/>=<sp/>(<sp/>ea[0]<sp/>+<sp/>ei[No-1]<sp/>)<sp/>/<sp/>2.0;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buf[50];</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>yamlout.clear();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;version:<sp/>100\ntype:<sp/>Tensor\nscalarType:<sp/>Real64\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;dimensions:\n<sp/><sp/>-<sp/>length:<sp/><sp/><sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/><ref refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" kindref="member">std::to_string</ref>(No+Nv);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\n<sp/><sp/><sp/><sp/>type:<sp/>State\nelements:\n<sp/><sp/>type:<sp/>TextFile\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;unit:<sp/>1\nmetaData:\n<sp/><sp/>fermiEnergy:<sp/><sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>sprintf(buf,<sp/></highlight><highlight class="stringliteral">&quot;%16.14lf\n&quot;</highlight><highlight class="normal">,<sp/>fermiEnergy);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/>buf;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>energies:&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ii<sp/>=<sp/>0;<sp/>ii<sp/>&lt;<sp/>No;<sp/>ii++){</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(buf,<sp/></highlight><highlight class="stringliteral">&quot;\n<sp/><sp/><sp/><sp/>-<sp/><sp/>%16.14lf&quot;</highlight><highlight class="normal">,<sp/>ei[ii]);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/>buf;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ii<sp/>=<sp/>0;<sp/>ii<sp/>&lt;<sp/>Nv;<sp/>ii++){</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(buf,<sp/></highlight><highlight class="stringliteral">&quot;\n<sp/><sp/><sp/><sp/>-<sp/><sp/>%16.14lf&quot;</highlight><highlight class="normal">,<sp/>ea[ii]);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/>buf;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>std::ofstream<sp/>eigyaml;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>eigyaml.open(</highlight><highlight class="stringliteral">&quot;EigenEnergies.yaml&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>eigyaml<sp/>&lt;&lt;<sp/>yamlout;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>eigyaml.close();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>std::ofstream<sp/>eigdat;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>eigdat.open(</highlight><highlight class="stringliteral">&quot;EigenEnergies.elements&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>yamlout.clear();</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ii<sp/>=<sp/>0;<sp/>ii<sp/>&lt;<sp/>No;<sp/>ii++){</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(buf,<sp/></highlight><highlight class="stringliteral">&quot;%16.14lf\n&quot;</highlight><highlight class="normal">,<sp/>ei[ii]);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/>buf;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ii<sp/>=<sp/>0;<sp/>ii<sp/>&lt;<sp/>Nv;<sp/>ii++){</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(buf,<sp/></highlight><highlight class="stringliteral">&quot;%16.14lf\n&quot;</highlight><highlight class="normal">,<sp/>ea[ii]);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/>buf;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>eigdat<sp/>&lt;&lt;<sp/>yamlout;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>eigdat.close();</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/PQRSCoulombIntegralsToVertex.cxx"/>
+  </compounddef>
+</doxygen>

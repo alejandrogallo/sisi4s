@@ -44,6 +44,7 @@
     <derivedcompoundref refid="classsisi4s_1_1NuclearRepulsionEnergy" prot="public" virt="non-virtual">sisi4s::NuclearRepulsionEnergy</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1OneBodyFromGaussian" prot="public" virt="non-virtual">sisi4s::OneBodyFromGaussian</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1OneBodyRotation" prot="public" virt="non-virtual">sisi4s::OneBodyRotation</derivedcompoundref>
+    <derivedcompoundref refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex" prot="public" virt="non-virtual">sisi4s::PQRSCoulombIntegralsToVertex</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1ParenthesisTriples" prot="public" virt="non-virtual">sisi4s::ParenthesisTriples</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition" prot="public" virt="non-virtual">sisi4s::ParticleHoleCoulombVertexDecomposition</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1ParticleHoleCoulombVertexFromFactors" prot="public" virt="non-virtual">sisi4s::ParticleHoleCoulombVertexFromFactors</derivedcompoundref>
@@ -181,6 +182,7 @@
         <reimplementedby refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a8f5f0935659c47ac9d2abe5a89c132e1">getName</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a17955abc1a0f1f1a6ee21f78549bc76c">getName</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1PerturbativeTriples_1ac4faaf7db0ea9588d9d0851f1dc3a0cb">getName</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1aec615832d269b8937e2c55b20b82d572">getName</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1PseudoInverse_1ada29235eb2b377c976a089e75b92e378">getName</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1SingleParticleOccupancies_1aebe26f59b8fffeba60c5bb867fb46e2b">getName</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1SliceCoulombVertex_1a2ab04c6b534719ec906eee4b9ea37424">getName</reimplementedby>
@@ -274,6 +276,7 @@
         <reimplementedby refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a58665fc9e95f299e4daec496b5d64764">run</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a09b13599f6597caa907c8d7d2f785ac2">run</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1PerturbativeTriples_1a4050ec17cf598360e6075f120763cd39">run</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a46fac3f3f22f920dc41e0c0d37e58c22">run</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1PseudoInverse_1a4902449aaca951a940f64fcdf4422a24">run</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1SingleParticleOccupancies_1af94163cbdf9089bd48d2c4fd4ad27f79">run</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1SliceCoulombVertex_1afce2615ea5b57c1d59b74c62dbb26918">run</reimplementedby>
@@ -403,10 +406,11 @@
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="69" endline="265">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
         <referencedby refid="structsisi4s_1_1MeanCorrelationHoleDepth_1a940ff082b9e2e5715f7fbb3a4bddb932" compoundref="MeanCorrelationHoleDepth_8cxx" startline="21" endline="57">sisi4s::MeanCorrelationHoleDepth::run</referencedby>
         <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="144" endline="429">sisi4s::MoReader::run</referencedby>
-        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="469">sisi4s::Mp2NaturalOrbitals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="499">sisi4s::Mp2NaturalOrbitals::run</referencedby>
         <referencedby refid="classsisi4s_1_1OneBodyRotation_1a15a0e3de73688c094a8018f94fa672d5" compoundref="OneBodyRotation_8cxx" startline="13" endline="53">sisi4s::OneBodyRotation::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParenthesisTriples_1a13c648b58b994e20cb35843b25b23312" compoundref="ParenthesisTriples_8cxx" startline="548" endline="764">sisi4s::ParenthesisTriples::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">sisi4s::ParticleHoleCoulombVertexDecomposition::run</referencedby>
+        <referencedby refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a46fac3f3f22f920dc41e0c0d37e58c22" compoundref="PQRSCoulombIntegralsToVertex_8cxx" startline="29" endline="169">sisi4s::PQRSCoulombIntegralsToVertex::run</referencedby>
         <referencedby refid="structsisi4s_1_1TensorAntisymmetrizer_1a08e30cc781b351e0b505def08c1fad1b" compoundref="TensorAntisymmetrizer_8cxx" startline="28" endline="112">sisi4s::TensorAntisymmetrizer::run</referencedby>
         <referencedby refid="classsisi4s_1_1TensorNorm_1af5498afcb9dbcadb2ed71069cdc3f106" compoundref="TensorNorm_8cxx" startline="22" endline="27">sisi4s::TensorNorm::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1ab3fa58fddbd938517fed45a270cbd77e" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="46" endline="383">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
@@ -454,7 +458,7 @@
         <referencedby refid="classsisi4s_1_1ComplexTensorSum_1ac49a77afa97ef815547bb935378bd6a5" compoundref="ComplexTensorSum_8cxx" startline="21" endline="30">sisi4s::ComplexTensorSum::run</referencedby>
         <referencedby refid="classsisi4s_1_1ComplexTensorWriter_1a05bdf7e509a37fb475514bfafddab0cd" compoundref="ComplexTensorWriter_8cxx" startline="22" endline="52">sisi4s::ComplexTensorWriter::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="437" endline="520">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="437" endline="521">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">sisi4s::CoulombVertexDecomposition::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexReader_1ab7a866749df48712c5b9b02d892be4d9" compoundref="CoulombVertexReader_8cxx" startline="28" endline="107">sisi4s::CoulombVertexReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1FcidumpReader_1a25fd961515594f3bdc954899ad9d8f2f" compoundref="FcidumpReader_8cxx" startline="185" endline="265">sisi4s::FcidumpReader::run</referencedby>
@@ -598,7 +602,7 @@
         <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1a3dec5575b0b30cead4a4965230969d73" compoundref="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8cxx" startline="40" endline="89">sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::run</referencedby>
         <referencedby refid="classsisi4s_1_1ComplexTensorReader_1a96e47fa96d57ff620cbabd8ed5c551df" compoundref="ComplexTensorReader_8cxx" startline="23" endline="54">sisi4s::ComplexTensorReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="437" endline="520">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="437" endline="521">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="25" endline="126">sisi4s::CoulombIntegralsFromVertex::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="40" endline="145">sisi4s::CoulombVertexDecomposition::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexSingularVectors_1a5de084a1b69bb70516fd835a02f34207" compoundref="CoulombVertexSingularVectors_8cxx" startline="27" endline="84">sisi4s::CoulombVertexSingularVectors::run</referencedby>
@@ -611,7 +615,7 @@
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="69" endline="265">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="219" endline="513">sisi4s::HartreeFockFromGaussian::run</referencedby>
         <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="144" endline="429">sisi4s::MoReader::run</referencedby>
-        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="469">sisi4s::Mp2NaturalOrbitals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="499">sisi4s::Mp2NaturalOrbitals::run</referencedby>
         <referencedby refid="structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI_1a530fe0ea48ca968e6f9d61d4cbfd6896" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="20" endline="26">sisi4s::NaturalTransitionOrbitalsFromRhoAI::run</referencedby>
         <referencedby refid="classsisi4s_1_1OneBodyRotation_1a15a0e3de73688c094a8018f94fa672d5" compoundref="OneBodyRotation_8cxx" startline="13" endline="53">sisi4s::OneBodyRotation::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">sisi4s::ParticleHoleCoulombVertexDecomposition::run</referencedby>
@@ -700,7 +704,7 @@
         <referencedby refid="classsisi4s_1_1FcidumpWriter_1aeeb70afb1962876cba6bfc4a0ced73ab" compoundref="FcidumpWriter_8cxx" startline="34" endline="115">sisi4s::FcidumpWriter::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="69" endline="265">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="219" endline="513">sisi4s::HartreeFockFromGaussian::run</referencedby>
-        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="469">sisi4s::Mp2NaturalOrbitals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="499">sisi4s::Mp2NaturalOrbitals::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="30" endline="110">sisi4s::ParticleHoleCoulombVertexDecomposition::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a09b13599f6597caa907c8d7d2f785ac2" compoundref="ParticleHoleCoulombVertexSingularVectors_8cxx" startline="27" endline="72">sisi4s::ParticleHoleCoulombVertexSingularVectors::run</referencedby>
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a4050ec17cf598360e6075f120763cd39" compoundref="PerturbativeTriples_8cxx" startline="164" endline="227">sisi4s::PerturbativeTriples::run</referencedby>
@@ -801,8 +805,8 @@
         <referencedby refid="classsisi4s_1_1CcsdPerturbativeTriples_1ad094260a4c533e1734768a72b3ae0161" compoundref="CcsdPerturbativeTriples_8cxx" startline="125" endline="238">sisi4s::CcsdPerturbativeTriples::run</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson_1a12e416e743f23f8ec453a9ee2f9a8aad" compoundref="CcsdtEquationOfMotionDavidson_8cxx" startline="46" endline="361">sisi4s::CcsdtEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="437" endline="520">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
-        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="469">sisi4s::Mp2NaturalOrbitals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="437" endline="521">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="499">sisi4s::Mp2NaturalOrbitals::run</referencedby>
         <referencedby refid="classsisi4s_1_1OneBodyRotation_1a15a0e3de73688c094a8018f94fa672d5" compoundref="OneBodyRotation_8cxx" startline="13" endline="53">sisi4s::OneBodyRotation::run</referencedby>
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a4050ec17cf598360e6075f120763cd39" compoundref="PerturbativeTriples_8cxx" startline="164" endline="227">sisi4s::PerturbativeTriples::run</referencedby>
         <referencedby refid="classsisi4s_1_1TensorNorm_1af5498afcb9dbcadb2ed71069cdc3f106" compoundref="TensorNorm_8cxx" startline="22" endline="27">sisi4s::TensorNorm::run</referencedby>
@@ -920,7 +924,7 @@
         <references refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" compoundref="Algorithm_8hpp" startline="64" endline="68">getGivenArgumentNames</references>
         <referencedby refid="classsisi4s_1_1CcsdEquationOfMotionDavidson_1a418beaea4a3a3fe7cf890ba392a7d6ef" compoundref="CcsdEquationOfMotionDavidson_8cxx" startline="77" endline="495">sisi4s::CcsdEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="437" endline="520">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="437" endline="521">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="69" endline="265">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="219" endline="513">sisi4s::HartreeFockFromGaussian::run</referencedby>
         <referencedby refid="structsisi4s_1_1MeanCorrelationHoleDepth_1a940ff082b9e2e5715f7fbb3a4bddb932" compoundref="MeanCorrelationHoleDepth_8cxx" startline="21" endline="57">sisi4s::MeanCorrelationHoleDepth::run</referencedby>
@@ -998,7 +1002,7 @@
         <referencedby refid="classsisi4s_1_1FromComplexTensor_1aaf3fa74437f68d888f812cb739b399b5" compoundref="FromComplexTensor_8cxx" startline="20" endline="31">sisi4s::FromComplexTensor::run</referencedby>
         <referencedby refid="classsisi4s_1_1GenerateRandomMatrix_1ab9d29a0b8d1df8d3d5610ff71e1096d3" compoundref="GenerateRandomMatrix_8cxx" startline="23" endline="39">sisi4s::GenerateRandomMatrix::run</referencedby>
         <referencedby refid="classsisi4s_1_1GenerateRandomTensor_1a61e87f5bb5703da14b559f7ce43f68e2" compoundref="GenerateRandomTensor_8cxx" startline="22" endline="33">sisi4s::GenerateRandomTensor::run</referencedby>
-        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="469">sisi4s::Mp2NaturalOrbitals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="499">sisi4s::Mp2NaturalOrbitals::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a58665fc9e95f299e4daec496b5d64764" compoundref="ParticleHoleCoulombVertexReader_8cxx" startline="102" endline="207">sisi4s::ParticleHoleCoulombVertexReader::run</referencedby>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -1473,132 +1477,138 @@
         </childnode>
       </node>
       <node id="53">
+        <label>sisi4s::PQRSCoulombIntegralsToVertex</label>
+        <link refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="54">
         <label>sisi4s::ParenthesisTriples</label>
         <link refid="classsisi4s_1_1ParenthesisTriples"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="54">
+      <node id="55">
         <label>sisi4s::ParticleHoleCoulombVertexDecomposition</label>
         <link refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="55">
+      <node id="56">
         <label>sisi4s::ParticleHoleCoulombVertexFromFactors</label>
         <link refid="classsisi4s_1_1ParticleHoleCoulombVertexFromFactors"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="56">
+      <node id="57">
         <label>sisi4s::ParticleHoleCoulombVertexReader</label>
         <link refid="classsisi4s_1_1ParticleHoleCoulombVertexReader"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="57">
+      <node id="58">
         <label>sisi4s::ParticleHoleCoulombVertexSingularVectors</label>
         <link refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="58">
+      <node id="59">
         <label>sisi4s::PerturbativeTriples</label>
         <link refid="classsisi4s_1_1PerturbativeTriples"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="59">
+      <node id="60">
         <label>sisi4s::PseudoInverse</label>
         <link refid="classsisi4s_1_1PseudoInverse"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="60">
+      <node id="61">
         <label>sisi4s::SingleParticleOccupancies</label>
         <link refid="classsisi4s_1_1SingleParticleOccupancies"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="61">
+      <node id="62">
         <label>sisi4s::SliceCoulombVertex</label>
         <link refid="classsisi4s_1_1SliceCoulombVertex"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="62">
+      <node id="63">
         <label>sisi4s::TensorAntisymmetrizer</label>
         <link refid="structsisi4s_1_1TensorAntisymmetrizer"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="63">
+      <node id="64">
         <label>sisi4s::TensorContraction</label>
         <link refid="classsisi4s_1_1TensorContraction"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="64">
+      <node id="65">
         <label>sisi4s::TensorGetMax</label>
         <link refid="classsisi4s_1_1TensorGetMax"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="65">
+      <node id="66">
         <label>sisi4s::TensorNorm</label>
         <link refid="classsisi4s_1_1TensorNorm"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="66">
+      <node id="67">
         <label>sisi4s::TensorReader</label>
         <link refid="classsisi4s_1_1TensorReader"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="67">
+      <node id="68">
         <label>sisi4s::TensorReduceijij</label>
         <link refid="structsisi4s_1_1TensorReduceijij"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="68">
+      <node id="69">
         <label>sisi4s::TensorSlicer</label>
         <link refid="structsisi4s_1_1TensorSlicer"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="69">
+      <node id="70">
         <label>sisi4s::TensorSum</label>
         <link refid="classsisi4s_1_1TensorSum"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="70">
+      <node id="71">
         <label>sisi4s::TensorUnrestricter</label>
         <link refid="structsisi4s_1_1TensorUnrestricter"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="71">
+      <node id="72">
         <label>sisi4s::TensorWriter</label>
         <link refid="classsisi4s_1_1TensorWriter"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="72">
+      <node id="73">
         <label>sisi4s::UCcsdEAEquationOfMotionDavidson</label>
         <link refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="73">
+      <node id="74">
         <label>sisi4s::UCcsdIPEquationOfMotionDavidson</label>
         <link refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="74">
+      <node id="75">
         <label>sisi4s::UPerturbativeTriples</label>
         <link refid="classsisi4s_1_1UPerturbativeTriples"/>
         <childnode refid="1" relation="public-inheritance">
@@ -1622,13 +1632,13 @@
         <childnode refid="15" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="75">
+      <node id="76">
         <label>sisi4s::UegVertexGenerator</label>
         <link refid="classsisi4s_1_1UegVertexGenerator"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="76">
+      <node id="77">
         <label>sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa</label>
         <link refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa"/>
         <childnode refid="1" relation="public-inheritance">

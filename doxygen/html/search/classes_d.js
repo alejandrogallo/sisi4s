@@ -11,8 +11,9 @@ var searchData=
   ['permutation_8',['Permutation',['../classsisi4s_1_1Permutation.html',1,'sisi4s']]],
   ['permutation_3c_201_20_3e_9',['Permutation&lt; 1 &gt;',['../classsisi4s_1_1Permutation_3_011_01_4.html',1,'sisi4s']]],
   ['perturbativetriples_10',['PerturbativeTriples',['../classsisi4s_1_1PerturbativeTriples.html',1,'sisi4s']]],
-  ['protectedtoken_11',['ProtectedToken',['../classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken.html',1,'sisi4s::CtfMachineTensor&lt; F &gt;::ProtectedToken'],['../classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken.html',1,'sisi4s::CtfMachineTensorFactory&lt; F &gt;::ProtectedToken']]],
-  ['pseudoinverse_12',['PseudoInverse',['../classsisi4s_1_1PseudoInverse.html',1,'sisi4s']]],
-  ['pseudoinversehermitiansvd_13',['PseudoInverseHermitianSvd',['../classsisi4s_1_1PseudoInverseHermitianSvd.html',1,'sisi4s']]],
-  ['pseudoinversesvd_14',['PseudoInverseSvd',['../classsisi4s_1_1PseudoInverseSvd.html',1,'sisi4s']]]
+  ['pqrscoulombintegralstovertex_11',['PQRSCoulombIntegralsToVertex',['../classsisi4s_1_1PQRSCoulombIntegralsToVertex.html',1,'sisi4s']]],
+  ['protectedtoken_12',['ProtectedToken',['../classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken.html',1,'sisi4s::CtfMachineTensor&lt; F &gt;::ProtectedToken'],['../classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken.html',1,'sisi4s::CtfMachineTensorFactory&lt; F &gt;::ProtectedToken']]],
+  ['pseudoinverse_13',['PseudoInverse',['../classsisi4s_1_1PseudoInverse.html',1,'sisi4s']]],
+  ['pseudoinversehermitiansvd_14',['PseudoInverseHermitianSvd',['../classsisi4s_1_1PseudoInverseHermitianSvd.html',1,'sisi4s']]],
+  ['pseudoinversesvd_15',['PseudoInverseSvd',['../classsisi4s_1_1PseudoInverseSvd.html',1,'sisi4s']]]
 ];

@@ -114,6 +114,8 @@ var dir_e6df591b0639d4c4807ef64d058833e2 =
     [ "ParticleHoleCoulombVertexSingularVectors.hpp", "ParticleHoleCoulombVertexSingularVectors_8hpp.html", "ParticleHoleCoulombVertexSingularVectors_8hpp" ],
     [ "PerturbativeTriples.cxx", "PerturbativeTriples_8cxx.html", null ],
     [ "PerturbativeTriples.hpp", "PerturbativeTriples_8hpp.html", "PerturbativeTriples_8hpp" ],
+    [ "PQRSCoulombIntegralsToVertex.cxx", "PQRSCoulombIntegralsToVertex_8cxx.html", null ],
+    [ "PQRSCoulombIntegralsToVertex.hpp", "PQRSCoulombIntegralsToVertex_8hpp.html", "PQRSCoulombIntegralsToVertex_8hpp" ],
     [ "PseudoInverse.cxx", "PseudoInverse_8cxx.html", null ],
     [ "PseudoInverse.hpp", "PseudoInverse_8hpp.html", "PseudoInverse_8hpp" ],
     [ "SimilarityTransformedHamiltonian.cxx", "SimilarityTransformedHamiltonian_8cxx.html", "SimilarityTransformedHamiltonian_8cxx" ],

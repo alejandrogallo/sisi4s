@@ -19,10 +19,12 @@ var searchData=
   ['permutation_2ehpp_16',['Permutation.hpp',['../Permutation_8hpp.html',1,'']]],
   ['perturbativetriples_2ecxx_17',['PerturbativeTriples.cxx',['../PerturbativeTriples_8cxx.html',1,'']]],
   ['perturbativetriples_2ehpp_18',['PerturbativeTriples.hpp',['../PerturbativeTriples_8hpp.html',1,'']]],
-  ['pseudoinverse_2ecxx_19',['PseudoInverse.cxx',['../PseudoInverse_8cxx.html',1,'']]],
-  ['pseudoinverse_2ehpp_20',['PseudoInverse.hpp',['../PseudoInverse_8hpp.html',1,'']]],
-  ['pseudoinversehermitiansvd_2ecxx_21',['PseudoInverseHermitianSvd.cxx',['../PseudoInverseHermitianSvd_8cxx.html',1,'']]],
-  ['pseudoinversehermitiansvd_2ehpp_22',['PseudoInverseHermitianSvd.hpp',['../PseudoInverseHermitianSvd_8hpp.html',1,'']]],
-  ['pseudoinversesvd_2ecxx_23',['PseudoInverseSvd.cxx',['../PseudoInverseSvd_8cxx.html',1,'']]],
-  ['pseudoinversesvd_2ehpp_24',['PseudoInverseSvd.hpp',['../PseudoInverseSvd_8hpp.html',1,'']]]
+  ['pqrscoulombintegralstovertex_2ecxx_19',['PQRSCoulombIntegralsToVertex.cxx',['../PQRSCoulombIntegralsToVertex_8cxx.html',1,'']]],
+  ['pqrscoulombintegralstovertex_2ehpp_20',['PQRSCoulombIntegralsToVertex.hpp',['../PQRSCoulombIntegralsToVertex_8hpp.html',1,'']]],
+  ['pseudoinverse_2ecxx_21',['PseudoInverse.cxx',['../PseudoInverse_8cxx.html',1,'']]],
+  ['pseudoinverse_2ehpp_22',['PseudoInverse.hpp',['../PseudoInverse_8hpp.html',1,'']]],
+  ['pseudoinversehermitiansvd_2ecxx_23',['PseudoInverseHermitianSvd.cxx',['../PseudoInverseHermitianSvd_8cxx.html',1,'']]],
+  ['pseudoinversehermitiansvd_2ehpp_24',['PseudoInverseHermitianSvd.hpp',['../PseudoInverseHermitianSvd_8hpp.html',1,'']]],
+  ['pseudoinversesvd_2ecxx_25',['PseudoInverseSvd.cxx',['../PseudoInverseSvd_8cxx.html',1,'']]],
+  ['pseudoinversesvd_2ehpp_26',['PseudoInverseSvd.hpp',['../PseudoInverseSvd_8hpp.html',1,'']]]
 ];
