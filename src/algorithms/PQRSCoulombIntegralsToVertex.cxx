@@ -44,17 +44,22 @@ void PQRSCoulombIntegralsToVertex::run() {
   auto No = epsi->lens[0];
   auto Nv = epsa->lens[0];
   auto Np = No + Nv;
-
-  double *A, *C;
-//  if (!Sisi4s::world->rank) {
-    A = new double[Np*Np*Np*Np];
-//  }
+  int64_t els(0);
+  std::vector<int64_t> idx;
+  double *A;
+  if (!Sisi4s::world->rank) {
+    els = Np*Np*Np*Np;
+    idx.resize(els);
+    std::iota(idx.begin(), idx.end(), 0);
+    A = new double[els];
+  }
   LOG(0, "PQRS->vertex") << "we work with " << Np << " states\n";
 
   // ok we have to read the whole tensor in rank 0 only
   auto prqs(*pqrs);
   prqs["pqrs"] = (*pqrs)["prqs"];
-  prqs.read_all(A);
+//  prqs.read_all(A);
+  prqs.read(els, idx.data(), A);
   LOG(0, "PQRS") << "read all done\n";
 
   int n(Np*Np);
@@ -68,7 +73,7 @@ void PQRSCoulombIntegralsToVertex::run() {
   size_t g(0);
   double thresh(1e-12);
   for (size_t m(0); m < n; m++) if (w[m] > thresh) g++;
-  g = n;
+//  g = n;
 
   LOG(0, "PQRS") << g << " elements larger than " << thresh << std::endl;
   // this line is in principle useless because we work with a truncated matrix
