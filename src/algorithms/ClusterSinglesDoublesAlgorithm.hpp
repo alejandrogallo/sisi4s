@@ -7,7 +7,7 @@
 #include <DryTensor.hpp>
 #include <util/SharedPointer.hpp>
 
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 #include <string>
 #include <initializer_list>
@@ -92,7 +92,7 @@ namespace sisi4s {
      **/
     template <typename F>
     void calculateExcitationEnergies(
-      CTF::Tensor<F> &D, const std::string &indices
+      Tensor<F> &D, const std::string &indices
     );
 
     /**
@@ -127,12 +127,12 @@ namespace sisi4s {
      * \param[in] integralsSliceSize slicing rank.
      * \param[out] Xxycd sliced coupled Coulomb integrals Xabcd
      */
-    CTF::Tensor<double> *sliceCoupledCoulombIntegrals(
+    Tensor<double> *sliceCoupledCoulombIntegrals(
       const PTR(const FockVector<double>) &amplitudes,
       int a, int b, int integralsSliceSize
     );
 
-    CTF::Tensor<complex> *sliceCoupledCoulombIntegrals(
+    Tensor<complex> *sliceCoupledCoulombIntegrals(
       const PTR(const FockVector<complex>) &amplitudes,
       int a, int b, int integralsSliceSize
     );
@@ -150,11 +150,11 @@ namespace sisi4s {
      * \param[in] factorsSliceSize slicing rank of NR.
      * \param[out] Fabij sliced Residuum
      */
-    CTF::Tensor<double> *sliceAmplitudesFromCoupledCoulombFactors(
+    Tensor<double> *sliceAmplitudesFromCoupledCoulombFactors(
       const PTR(const FockVector<double>) &amplitudes,
       int a, int b, int factorsSliceSize
     );
-    CTF::Tensor<complex> *sliceAmplitudesFromCoupledCoulombFactors(
+    Tensor<complex> *sliceAmplitudesFromCoupledCoulombFactors(
       const PTR(const FockVector<complex>) &amplitudes,
       int a, int b, int factorsSliceSize
     );
@@ -169,7 +169,7 @@ namespace sisi4s {
      */
     template <typename F>
     void sliceIntoResiduum(
-      CTF::Tensor<F> &Rxyij, int a0, int b0, CTF::Tensor<F> &Rabij
+      Tensor<F> &Rxyij, int a0, int b0, Tensor<F> &Rabij
     );
 
 

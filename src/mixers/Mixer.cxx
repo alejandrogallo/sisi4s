@@ -13,8 +13,8 @@ Mixer<F>::~Mixer() {
 }
 
 // instantiate
-template class Mixer<sisi4s::Float64>;
-template class Mixer<sisi4s::Complex64>;
+template class sisi4s::Mixer<sisi4s::Float64>;
+template class sisi4s::Mixer<sisi4s::Complex64>;
 
 
 template <typename F>
@@ -24,6 +24,6 @@ std::map<
 > *MixerFactory<F>::mixerMap;
 
 // instantiate
-template class MixerFactory<sisi4s::Float64>;
-template class MixerFactory<sisi4s::Complex64>;
+template class sisi4s::MixerFactory<sisi4s::Float64>;
+template class sisi4s::MixerFactory<sisi4s::Complex64>;
 

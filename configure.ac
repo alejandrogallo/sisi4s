@@ -4,7 +4,7 @@ dnl 	autoconf
 dnl  in the directory containing this script.
 dnl
 
-AC_INIT([cc3s],[0.0.0],[https://gihtub.com/alejandrogallo/cc3s])
+AC_INIT([sisi4s],[0.0.0],[https://gihtub.com/alejandrogallo/sisi4s])
 AC_CONFIG_SRCDIR([configure.ac])
 AC_PREREQ(2.69)
 AC_CONFIG_MACRO_DIRS([./etc/m4])
@@ -92,6 +92,13 @@ AC_ARG_ENABLE([cuda],
                               [Build with cuda])],
                               [WITH_CUDA=yes],
                               [WITH_CUDA=no])
+
+AC_ARG_ENABLE([docs],
+              [AS_HELP_STRING([--enable-docs],
+                              [Enable building documentation])],
+                              [build_docs=yes],
+                              [build_docs=no])
+
 AC_ARG_VAR([NVCC],
            [Path to the nvidia cuda compiler.])
 AC_ARG_VAR([CUDA_LDFLAGS],
@@ -130,6 +137,7 @@ AC_PROG_LN_S             dnl sets variable LN_S
 AC_PROG_MAKE_SET         dnl set $(MAKE) if needed
 AC_PROG_RANLIB           dnl set variable RANLIB
 AC_CHECK_TOOL([AR],[ar]) dnl set variable AR to appropriate `ar' program
+AC_CHECK_TOOL([TR],[tr])
 
 dnl -----------------------------------------------------------------------
 AC_OPENMP
@@ -139,15 +147,27 @@ CXXFLAGS="${CXXFLAGS} ${OPENMP_CXXFLAGS}"
 LDFLAGS="${LDFLAGS} ${OPENMP_CXXFLAGS}"
 
 dnl -----------------------------------------------------------------------
+
+AC_MSG_RESULT([
+                    LINEAR ALGEBRA LIBRARIES
+                    ------------------------
+])
+
 AX_BLAS([LIBS="${LIBS} ${BLAS_LIBS}"],
         [AC_MSG_FAILURE([Could not find BLAS library.])])
 AX_LAPACK([LIBS="${LIBS} ${LAPACK_LIBS}"],
           [AC_MSG_FAILURE([Could not find LAPACK library.])])
-LIBS="${LIBS} -lscalapack -lgfortran"
+
+SISI_SCALAPACK([LIBS="${LIBS} ${SCALAPACK_LIBS}"],
+               [AC_MSG_FAILURE([could not find a working scalapack installation.])])
 
 dnl -----------------------------------------------------------------------
 dnl CXX checks
 dnl
+AC_MSG_RESULT([
+                          C++ features test
+                          -----------------
+])
 AX_CXX_STATIC_CAST
 AX_CXX_TEMPLATES
 AX_CXX_TYPENAME
@@ -256,6 +276,31 @@ if test x${WITH_CUDA} = xyes; then
   CC3S_CUBLAS
 fi
 
+dnl -----------------------------------------------------------------------
+dnl Docs
+AM_CONDITIONAL([WITH_DOCS], [test x${build_docs} = xyes])
+if test x${build_docs} == xyes; then
+  AC_CHECK_PROGS([DOXYGEN], [doxygen])
+  AC_CHECK_PROGS([DOT], [dot])
+  AX_PROG_EMACS
+  AX_ELISP_CHECK_FEATURE([org])
+  AX_ELISP_CHECK_FBOUNDP([package-initialize], [package])
+  AX_ELISP_CHECK_FBOUNDP([package-install], [package])
+  AX_ELISP_CHECK_FBOUNDP([string-join], [subr-x])
+  AX_ELISP_CHECK_BOUNDP([org-babel-post-tangle-hook], [ob])
+fi
+
+AC_MSG_RESULT([ SISI COMMIT ])
+
+AC_DEFINE_UNQUOTED([SISI_COMMIT],
+                   ["$(git describe --always --dirty)"],
+                   [The current git status at compile time])
+
+AC_MSG_RESULT([ COMPILER VERSION ])
+
+AC_DEFINE_UNQUOTED([COMPILER_VERSION],
+                   ["$($MPICXX --version | $TR "\n" " ")"],
+                   [Compiler version])
 
 dnl -----------------------------------------------------------------------
 AC_CONFIG_FILES([
@@ -265,7 +310,8 @@ AC_CONFIG_FILES([
                  docs/Doxyfile
                  docs/config.el
                  docs/conf.py
-                 docs/manual.org:docs/manual.org
+                 integration-tests/config.mk
+                 integration-tests/Makefile
                  .dir-locals.el
                ])
 AC_CONFIG_HEADERS([config.h])
@@ -281,6 +327,7 @@ AC_MSG_RESULT([
                        CPPFLAGS=$CPPFLAGS
                        LDFLAGS=$LDFLAGS
                        BLAS_LIBS=${BLAS_LIBS}
+                       SCALAPACK_LIBS=${SCALAPACK_LIBS}
                        LIBS=${LIBS}
 ])
 

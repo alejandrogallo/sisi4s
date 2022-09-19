@@ -5,7 +5,7 @@
 #include <util/CtfMachineTensor.hpp>
 #include <util/Log.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 #include <vector>
 #include <string>
@@ -26,7 +26,7 @@ CoulombVertexFromFactors::~CoulombVertexFromFactors() {
 }
 
 void CoulombVertexFromFactors::run() {
-  run<CTF::Tensor<complex>, CtfMachineTensor<complex>>(false);
+  run<Tensor<complex>, CtfMachineTensor<complex>>(false);
 }
 
 void CoulombVertexFromFactors::dryRun() {

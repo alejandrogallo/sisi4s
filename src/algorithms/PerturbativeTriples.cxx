@@ -4,9 +4,8 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(PerturbativeTriples);
@@ -20,23 +19,23 @@ PerturbativeTriples::~PerturbativeTriples() {
 }
 
 void PerturbativeTriples::runInMemory() {
-  Tensor<>  *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<>  *epsa(getTensorArgument("ParticleEigenEnergies"));
-  Tensor<> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  Tensor<> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
-  Tensor<> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
-  Tensor<> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
-  Tensor<>   *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
+  Tensor<double>  *epsi(getTensorArgument("HoleEigenEnergies"));
+  Tensor<double>  *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
+  Tensor<double> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
+  Tensor<double> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
+  Tensor<double> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
+  Tensor<double>   *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
 
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
 
   int vvvooo[] = { Nv, Nv , Nv , No , No , No };
   int   syms[] = { NS, NS,  NS , NS , NS , NS };
-  Tensor<> Tabcijk(6, vvvooo, syms, *Vabij->wrld, "Tabcijk");
+  Tensor<double> Tabcijk(6, vvvooo, syms, *Vabij->wrld, "Tabcijk");
 
   {
-    Tensor<> Zabcijk(6, vvvooo, syms, *Vabij->wrld, "Zabcijk");
+    Tensor<double> Zabcijk(6, vvvooo, syms, *Vabij->wrld, "Zabcijk");
     Zabcijk["abcijk"]  = (*Vabci)["bcdk"] * (*Tabij)["adij"];
     Zabcijk["abcijk"] -= (*Vijka)["jklc"] * (*Tabij)["abil"];
 
@@ -59,9 +58,9 @@ void PerturbativeTriples::runInMemory() {
     Tabcijk["abcijk"] += Zabcijk["bcajki"];
   }
 
-  Tensor<> Zai(false, *Tai);
+  Tensor<double> Zai(false, *Tai);
   Zai.set_name("Zai");
-  Tensor<> Zabij(false, *Tabij);
+  Tensor<double> Zabij(false, *Tabij);
   Zabij.set_name("Zabij");
 
   Zai["ai"]  = (+2.0) * Tabcijk["acdikl"] * (*Vabij)["cdkl"];
@@ -95,21 +94,21 @@ void PerturbativeTriples::runInMemory() {
 }
 
 void PerturbativeTriples::runPiecuch() {
-  Tensor<>  *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<>  *epsa(getTensorArgument("ParticleEigenEnergies"));
-  Tensor<> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  Tensor<> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
-  Tensor<> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
-  Tensor<> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
-  Tensor<>   *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
+  Tensor<double>  *epsi(getTensorArgument("HoleEigenEnergies"));
+  Tensor<double>  *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
+  Tensor<double> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
+  Tensor<double> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
+  Tensor<double> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
+  Tensor<double>   *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
   
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
 
   int vvvooo[] = { Nv, Nv , Nv , No , No , No };
   int   syms[] = { NS, NS,  NS , NS , NS , NS };
-  Tensor<> Tabcijk(6, vvvooo, syms, *Vabij->wrld, "Tabcijk");
-  Tensor<> Xabcijk(6, vvvooo, syms, *Vabij->wrld, "Xabcijk");
+  Tensor<double> Tabcijk(6, vvvooo, syms, *Vabij->wrld, "Tabcijk");
+  Tensor<double> Xabcijk(6, vvvooo, syms, *Vabij->wrld, "Xabcijk");
 
   Tabcijk["abcijk"]  = (*Vabci)["bcek"] * (*Tabij)["aeij"];
   Tabcijk["abcijk"] -= (*Vijka)["jkmc"] * (*Tabij)["abim"];
@@ -122,7 +121,7 @@ void PerturbativeTriples::runPiecuch() {
   Tabcijk["abcijk"] += Xabcijk["bcajki"];
 
   {
-    Tensor<> Zabcijk(6, vvvooo, syms, *Vabij->wrld, "Zabcijk");
+    Tensor<double> Zabcijk(6, vvvooo, syms, *Vabij->wrld, "Zabcijk");
     Zabcijk["abcijk"]  = ( 1.0) * (*Tai)["ai"] * (*Vabij)["bcjk"];
     Zabcijk["abcijk"] += ( 1.0) * (*Tai)["bj"] * (*Vabij)["acik"];
     Zabcijk["abcijk"] += ( 1.0) * (*Tai)["ck"] * (*Vabij)["abij"];
@@ -163,27 +162,27 @@ void PerturbativeTriples::runPiecuch() {
 }
 
 void PerturbativeTriples::run() {
-  Tensor<>  *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<>  *epsa(getTensorArgument("ParticleEigenEnergies"));
-  Tensor<> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  Tensor<> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
-  Tensor<> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
-  Tensor<> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
-  Tensor<>   *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
+  Tensor<double>  *epsi(getTensorArgument("HoleEigenEnergies"));
+  Tensor<double>  *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
+  Tensor<double> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
+  Tensor<double> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
+  Tensor<double> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
+  Tensor<double>   *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
   
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
 
   int vvvooo[] = { Nv, Nv, Nv, No, No, No };
   int   syms[] = { NS, NS, NS, NS, NS, NS };
-  Tensor<> SVabcijk(6, vvvooo, syms, *Vabij->wrld, "SVabcijk");
+  Tensor<double> SVabcijk(6, vvvooo, syms, *Vabij->wrld, "SVabcijk");
   SVabcijk["abcijk"]  = 0.5 * (*Tai)["ai"] * (*Vabij)["bcjk"];
 
-  Tensor<> DVabcijk(6, vvvooo, syms, *Vabij->wrld, "DVabcijk");
+  Tensor<double> DVabcijk(6, vvvooo, syms, *Vabij->wrld, "DVabcijk");
   DVabcijk["abcijk"]  = (*Vabci)["bcdk"] * (*Tabij)["adij"];
   DVabcijk["abcijk"] -= (*Vijka)["jklc"] * (*Tabij)["abil"];
 
-  Tensor<> Tabcijk(6, vvvooo, syms, *Vabij->wrld, "Tabcijk");
+  Tensor<double> Tabcijk(6, vvvooo, syms, *Vabij->wrld, "Tabcijk");
   Tabcijk["abcijk"]  = (+8.0) * DVabcijk["abcijk"];
   Tabcijk["abcijk"] += (-4.0) * DVabcijk["acbijk"];
   Tabcijk["abcijk"] += (-4.0) * DVabcijk["bacijk"];

@@ -7,9 +7,9 @@
 #include <complex>
 #include <array>
 #include <limits>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 
 
 template <typename F>
@@ -17,25 +17,28 @@ IterativePseudoInverse<F>::IterativePseudoInverse(
   Tensor<F> const &matrix_, F accuracy
 ):
   matrix(matrix_),
-  square(
-    2, std::array<int,2>{{matrix_.lens[0], matrix_.lens[0]}}.data(),
+  square(2,
+         std::array<int,2>{{(int)matrix_.lens[0],
+                            (int)matrix_.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix_.wrld
   ),
-  inverse(
-    2, std::array<int,2>{{matrix_.lens[0], matrix_.lens[1]}}.data(),
+  inverse(2,
+          std::array<int,2>{{(int)matrix_.lens[0],
+                             (int)matrix_.lens[1]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix_.wrld
   ),
   alpha()
 {
-  Tensor<F> conjugate(
-    2, std::array<int,2>{{matrix.lens[1], matrix.lens[0]}}.data(),
+  Tensor<F> conjugate(2,
+                      std::array<int,2>{{(int)matrix.lens[1],
+                                         (int)matrix.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix.wrld
   );
-  Univar_Function<F> fConj(&conj<F>);
+  CTF::Univar_Function<F> fConj(&conj<F>);
   conjugate.sum(1.0,matrix,"ij", 0.0,"ji",fConj);
   square["ij"] = matrix["ik"] * conjugate["kj"];
-  Univar_Function<F> fAbs(&abs<F>);
-  Vector<F> rowAbsNorms(square.lens[0], *matrix.wrld);
+  CTF::Univar_Function<F> fAbs(&abs<F>);
+  CTF::Vector<F> rowAbsNorms(square.lens[0], *matrix.wrld);
   rowAbsNorms.sum(1.0,square,"ij", 0.0,"i",fAbs);
   std::vector<F> normValues(rowAbsNorms.lens[0]);
   rowAbsNorms.read_all(normValues.data());
@@ -44,9 +47,9 @@ IterativePseudoInverse<F>::IterativePseudoInverse(
   // and it gives (-0,-0). That's why in complex case it works while in real
   // case it doesn't (max=infinity).
   // Anyway, it doesn't make sense to compare if a number is larger than
-  // abs(-infinity). 
+  // abs(-infinity).
   // F max(-std::numeric_limits<F>::infinity());
-  // A temporary fix: set max default to double type 0. 
+  // A temporary fix: set max default to double type 0.
   double max(0.);
   for (int i(0); i < square.lens[0]; ++i) {
     if (abs(normValues[i]) > abs(max)) max = abs(normValues[i]);
@@ -60,15 +63,17 @@ IterativePseudoInverse<F>::IterativePseudoInverse(
 
 template <typename F>
 void IterativePseudoInverse<F>::iterate(F accuracy) {
-  Scalar<F> s;
-  Tensor<F> conjugate(
-    2, std::array<int,2>{{matrix.lens[1], matrix.lens[0]}}.data(),
+  CTF::Scalar<F> s;
+  Tensor<F> conjugate(2,
+                      std::array<int,2>{{(int)matrix.lens[1],
+                                         (int)matrix.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix.wrld
   );
-  Univar_Function<F> fConj(&conj<F>);
+  CTF::Univar_Function<F> fConj(&conj<F>);
   conjugate.sum(1.0,matrix,"ij", 0.0,"ji",fConj);
-  Tensor<F> sqr(
-    2, std::array<int,2>{{matrix.lens[0], matrix.lens[0]}}.data(),
+  Tensor<F> sqr(2,
+                std::array<int,2>{{(int)matrix.lens[0],
+                                     (int)matrix.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), *matrix.wrld
   );
   F remainder(1.0), minRemainder(std::numeric_limits<F>::infinity());
@@ -100,7 +105,7 @@ void IterativePseudoInverse<F>::iterate(F accuracy) {
 
 template <typename F>
 void IterativePseudoInverse<F>::iterateQuadratically(F accuracy) {
-  Scalar<F> s(*matrix.wrld);
+  CTF::Scalar<F> s(*matrix.wrld);
   F remainder(1.0), minRemainder(std::numeric_limits<F>::infinity());
   int n(0), nMin(0);
   // TODO: use constants for limits
@@ -136,10 +141,10 @@ Tensor<F> &IterativePseudoInverse<F>::get() {
 
 // instantiate
 template
-class IterativePseudoInverse<sisi4s::Float64>;
+class sisi4s::IterativePseudoInverse<sisi4s::Float64>;
 
 template
-class IterativePseudoInverse<sisi4s::Complex64>;
+class sisi4s::IterativePseudoInverse<sisi4s::Complex64>;
 
 template <typename F>
 void IterativePseudoInverse<F>::generateHilbertMatrix(Tensor<F> &m) {
@@ -156,7 +161,7 @@ void IterativePseudoInverse<F>::generateHilbertMatrix(Tensor<F> &m) {
 }
 
 template <typename F>
-void IterativePseudoInverse<F>::test(World *world) {
+void IterativePseudoInverse<F>::test(CTF::World *world) {
   Tensor<F> m(
     2, std::array<int,2>{{5,8}}.data(), std::array<int,2>{{NS,NS}}.data(),
     *world
@@ -167,7 +172,7 @@ void IterativePseudoInverse<F>::test(World *world) {
     Tensor<F> im(pseudoInverse.get());
     im["ij"] = m["ik"] * im["kj"];
     im["ii"] += -1.0;
-    Scalar<F> s(*world);
+    CTF::Scalar<F> s(*world);
     s[""] = im["ij"] * im["ij"];
     F n(abs(s.get_val()));
     LOG(3) << n << std::endl;
@@ -184,7 +189,7 @@ void IterativePseudoInverse<F>::test(World *world) {
     Tensor<F> im(pseudoInverse.get());
     im["ij"] = m["ik"] * im["kj"];
     im["ii"] += -1.0;
-    Scalar<F> s(*world);
+    CTF::Scalar<F> s(*world);
     s[""] = im["ij"] * im["ij"];
     F n(abs(s.get_val()));
     LOG(3) << n << std::endl;
@@ -193,9 +198,9 @@ void IterativePseudoInverse<F>::test(World *world) {
 
 // instantiate
 template
-void IterativePseudoInverse<sisi4s::Float64>::test(World *world);
+void sisi4s::IterativePseudoInverse<sisi4s::Float64>::test(CTF::World *world);
 template
-void IterativePseudoInverse<sisi4s::Complex64>::test(World *world);
+void sisi4s::IterativePseudoInverse<sisi4s::Complex64>::test(CTF::World *world);
 
 
 template <typename F>
@@ -203,17 +208,20 @@ DryIterativePseudoInverse<F>::DryIterativePseudoInverse(
   DryTensor<F> const &matrix_
 ):
   matrix(matrix_),
-  square(
-    2, std::array<int,2>{{matrix_.lens[0], matrix_.lens[0]}}.data(),
+  square(2,
+         std::array<int,2>{{(int)matrix_.lens[0],
+                            (int)matrix_.lens[0]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), SOURCE_LOCATION
   ),
-  inverse(
-    2, std::array<int,2>{{matrix_.lens[0], matrix_.lens[1]}}.data(),
+  inverse(2,
+          std::array<int,2>{{(int)matrix_.lens[0],
+                             (int) matrix_.lens[1]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), SOURCE_LOCATION
   )
 {
-  DryTensor<F> conjugate(
-    2, std::array<int,2>{{matrix_.lens[0], matrix_.lens[1]}}.data(),
+  DryTensor<F> conjugate(2,
+                         std::array<int,2>{{(int)matrix_.lens[0],
+                                            (int)matrix_.lens[1]}}.data(),
     std::array<int,2>{{NS,NS}}.data(), SOURCE_LOCATION
   );
   DryVector<F> rowAbsNorms(square.lens[0]);
@@ -226,8 +234,7 @@ DryTensor<F> &DryIterativePseudoInverse<F>::get() {
 
 // instantiate
 template
-class DryIterativePseudoInverse<sisi4s::Float64>;
+class sisi4s::DryIterativePseudoInverse<sisi4s::Float64>;
 
 template
-class DryIterativePseudoInverse<sisi4s::Complex64>;
-
+class sisi4s::DryIterativePseudoInverse<sisi4s::Complex64>;

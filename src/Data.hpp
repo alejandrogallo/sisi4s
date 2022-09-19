@@ -8,7 +8,7 @@
 #include <string>
 #include <map>
 #include <vector>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 // TODO: find out why Exception must be included after string,map and ctf
 #include <util/Exception.hpp>
 
@@ -164,7 +164,7 @@ namespace sisi4s {
     C *value;
   };
 
-  template < typename F=double, typename T=CTF::Tensor<F> >
+  template < typename F=double, typename T=sisi4s::Tensor<F> >
   class TensorData: public NumericData {
   public:
     TensorData(

@@ -69,6 +69,6 @@ struct IntegralInfo {
 
 };
 
-};
+}
 
 #endif

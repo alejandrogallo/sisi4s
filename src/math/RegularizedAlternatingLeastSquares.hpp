@@ -5,7 +5,7 @@
 #include <math/Complex.hpp>
 #include <DryTensor.hpp>
 #include <util/Log.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   class AlternatingLeastSquaresRegularizationEstimator {
@@ -55,18 +55,18 @@ namespace sisi4s {
 
   template <typename F=double>
   void fitAlternatingLeastSquaresFactor(
-    CTF::Tensor<F> &T, char const *indicesT,
-    CTF::Tensor<F> &B, char const idxB,
-    CTF::Tensor<F> &C, char const idxC,
-    CTF::Tensor<F> &A, char const idxA
+    Tensor<F> &T, char const *indicesT,
+    Tensor<F> &B, char const idxB,
+    Tensor<F> &C, char const idxC,
+    Tensor<F> &A, char const idxA
   );
 
   template <typename F=double>
   void fitRegularizedAlternatingLeastSquaresFactor(
-    CTF::Tensor<F> &T, char const *indicesT,
-    CTF::Tensor<F> &B, char const idxB,
-    CTF::Tensor<F> &C, char const idxC,
-    CTF::Tensor<F> &A, char const idxA,
+    Tensor<F> &T, char const *indicesT,
+    Tensor<F> &B, char const idxB,
+    Tensor<F> &C, char const idxC,
+    Tensor<F> &A, char const idxA,
     AlternatingLeastSquaresRegularizationEstimator *regularizationEstimatorA
   );
 

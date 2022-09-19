@@ -1,3 +1,5 @@
+#include <array>
+
 #include <mixers/DiisMixer.hpp>
 #include <util/Emitter.hpp>
 #include <util/Log.hpp>
@@ -5,10 +7,9 @@
 #include <extern/Lapack.hpp>
 
 #include <math/IterativePseudoInverse.hpp>
+#include <util/Tensor.hpp>
 
-#include <array>
 
-using namespace CTF;
 using namespace sisi4s;
 
 MIXER_REGISTRAR_DEFINITION(DiisMixer);
@@ -35,8 +36,7 @@ std::vector<sisi4s::complex> inverse(
   std::vector<sisi4s::complex> matrix, int N
 ){
   std::vector<sisi4s::complex> column(N);
-// TODO
-
+  throw "TODO";
   return column;
 }
 
@@ -63,10 +63,10 @@ DiisMixer<F>::DiisMixer(
   // generate initial overlap matrix
   std::array<int,2> lens{{N+1, N+1}};
   std::array<int,2> syms{{NS, NS}};
-  B = NEW(CTF::Tensor<F>,
+  B = NEW(Tensor<F>,
     lens.size(), lens.data(), syms.data(), *Sisi4s::world, "B"
   );
-  CTF::Tensor<F> one(false, *B);
+  Tensor<F> one(false, *B);
   one["ij"] += 1.0;
   std::array<int,2> upperRightBegin{{0,1}};
   std::array<int,2> upperLeftBegin{{1,0}};
@@ -100,7 +100,7 @@ void DiisMixer<F>::append(
   const int N(residua.size());
   std::array<int,2> lens{{1, 1}};
   std::array<int,2> syms{{NS, NS}};
-  CTF::Tensor<F> one(lens.size(), lens.data(), syms.data(), *Sisi4s::world, "1");
+  Tensor<F> one(lens.size(), lens.data(), syms.data(), *Sisi4s::world, "1");
   one["ij"] += 1.0;
   for (int i(0); i < N; ++i) {
     if (residua[i]) {
@@ -131,7 +131,6 @@ void DiisMixer<F>::append(
   int dim(count+1);
   std::array<int,2> upperLeftBegin{{0, 0}};
   std::array<int,2> lowerRightEnd{{count+1, count+1}};
-  std::array<int,2> firstColEnd{{count+1,1}};
   std::vector<F> column(count+1);
   std::vector<F> matrix(dim*dim);
   B->slice(upperLeftBegin.data(), lowerRightEnd.data()).read_all(matrix.data());
@@ -176,6 +175,6 @@ PTR(const FockVector<F>) DiisMixer<F>::getResiduum() {
 
 
 // instantiate
-template class DiisMixer<sisi4s::Float64>;
-template class DiisMixer<sisi4s::Complex64>;
+template class sisi4s::DiisMixer<sisi4s::Float64>;
+template class sisi4s::DiisMixer<sisi4s::Complex64>;
 

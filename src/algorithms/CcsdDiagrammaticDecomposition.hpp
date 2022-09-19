@@ -1,6 +1,6 @@
 /*Copyright (c) 2018, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef CCSD_DIAGRAMMATIC_DECOMPOSITION
-#define CCSD_DIAGRAMMATIC_DECOMPOSITION 
+#define CCSD_DIAGRAMMATIC_DECOMPOSITION
 
 #include <algorithms/Algorithm.hpp>
 #include <math/Vector.hpp>
@@ -17,14 +17,15 @@ namespace sisi4s {
     virtual ~CcsdDiagrammaticDecomposition();
     virtual void run();
   protected:
-    void evaluateEnergy(
-      std::string diagramType, 
-      CTF::Tensor<> &deltaabij, CTF::Tensor<> &deltaai,
-      CTF::Tensor<> &Rabij, CTF::Tensor<> &Rai
-    );
-   void sliceIntoResiduum(
-     CTF::Tensor<> &Rxyij, int a, int b, CTF::Tensor<> &Rabij
-   ); 
-  }; 
+    void evaluateEnergy(std::string diagramType,
+                        Tensor<double> &deltaabij,
+                        Tensor<double> &deltaai,
+                        Tensor<double> &Rabij,
+                        Tensor<double> &Rai);
+   void sliceIntoResiduum(Tensor<double> &Rxyij,
+                          int a,
+                          int b,
+                          Tensor<double> &Rabij);
+  };
 }
 #endif

@@ -2,12 +2,12 @@
 #include <vector>
 #include <algorithm>
 #include <algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <numeric>
 #include <set>
 #include <map>
@@ -54,8 +54,8 @@ struct VectorIntegralProvider: public IntegralProvider< std::vector<double> > {
                         , size_t nv
                         , bool chemistNotation_
                         , bool unrestricted_
-                        , CTF::Tensor<double> &coeffs
-                        , CTF::Tensor<double> &coulombIntegrals
+                        , Tensor<double> &coeffs
+                        , Tensor<double> &coulombIntegrals
                         ) :IntegralProvider(no, nv, chemistNotation_, unrestricted_)
   {
     if (! chemistNotation_ )
@@ -251,19 +251,19 @@ struct SlowVectorIntegralProvider: public VectorIntegralProvider {
 
 };
 
-struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
+struct CtfIntegralProvider: public IntegralProvider< Tensor<double> > {
   CtfIntegralProvider(size_t no
                     , size_t nv
                     , bool chemistNotation_
                     , bool unrestricted_
-                    , CTF::Tensor<double> &coefficients
-                    , CTF::Tensor<double> &coulombIntegrals
-                    , CTF::Tensor<double> &spins
+                    , Tensor<double> &coefficients
+                    , Tensor<double> &coulombIntegrals
+                    , Tensor<double> &spins
                     ):IntegralProvider(no, nv, chemistNotation_, unrestricted_)
                     , C(coefficients) , V(coulombIntegrals), S(spins) {}
   ~CtfIntegralProvider() { delete VTransformed; }
 
-  CTF::Tensor<double> *compute() {
+  Tensor<double> *compute() {
     if (VTransformed != nullptr) { return VTransformed; }
     LOGGER(1) << "computing main transformation" << std::endl;
 
@@ -278,7 +278,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
     std::vector<int> s(4, NS); std::vector<int> l(4, C.lens[0]);
 
     if (chemistNotation) {
-      VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
+      VTransformed = new Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
       (*VTransformed)["plmn"] = C["kp"] * V["klmn"];
       (*VTransformed)["plqn"] = C["mq"] * (*VTransformed)["plmn"];
       (*VTransformed)["prqn"] = C["lr"] * (*VTransformed)["plqn"];
@@ -293,16 +293,16 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
       */
     } else {
         l[0] = C.lens[1];
-        auto VIntermedia1 = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
+        auto VIntermedia1 = new Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
         (*VIntermedia1)["plmn"] = C["kp"] * V["klmn"];
         l[1] = C.lens[1];
-        auto VIntermedia2 = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
+        auto VIntermedia2 = new Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
         (*VIntermedia2)["pqmn"] = C["lq"] * (*VIntermedia1)["plmn"];
         l[2] = C.lens[1]; delete VIntermedia1;
-        auto VIntermedia3 = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
+        auto VIntermedia3 = new Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
         (*VIntermedia3)["pqrn"] = C["mr"] * (*VIntermedia2)["pqmn"];
         l[3] = C.lens[1]; delete VIntermedia2;
-        VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
+        VTransformed = new Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
         (*VTransformed)["pqrs"] = C["ns"] * (*VIntermedia3)["pqrn"];
         delete VIntermedia3;
 
@@ -310,7 +310,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
         LOGGER(1) << "unrestricted case\n";
 
         // Construct a spin map which is either one or zero.
-        auto Sm = new CTF::Tensor<double>(2, l.data(), s.data(), *Sisi4s::world);
+        auto Sm = new Tensor<double>(2, l.data(), s.data(), *Sisi4s::world);
         (*Sm)["pq"] = S["p"]*S["q"];
         CTF::Transform<double>(
           std::function<void(double &)>(
@@ -319,7 +319,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
         )(
          (*Sm)["pq"]
         );
-        auto Smap = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
+        auto Smap = new Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
         (*Smap)["pqrs"] = (*Sm)["pr"] * (*Sm)["qs"];
 
         CTF::Bivar_Function<> fMultiply(&multiply<double>);
@@ -330,7 +330,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
         LOGGER(1) << "Vpqrs build\n";
       }
 //      else {
-//        VTransformed = new CTF::Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
+//        VTransformed = new Tensor<double>(4, l.data(), s.data(), *Sisi4s::world);
 //
 //        (*VTransformed)["plmn"] = C["kp"] * V["klmn"];
 //        (*VTransformed)["pqmn"] = C["lq"] * (*VTransformed)["plmn"];
@@ -342,7 +342,7 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
     return VTransformed;
   }
 
-  CTF::Tensor<double> compute(Index P, Index Q, Index R, Index S) {
+  Tensor<double> compute(Index P, Index Q, Index R, Index S) {
     // Compute the transformation if it's not done
     const auto& vpqrs(compute());
 
@@ -366,14 +366,14 @@ struct CtfIntegralProvider: public IntegralProvider< CTF::Tensor<double> > {
   }
 
   private:
-    CTF::Tensor<double> &C, &V, &S;
-    CTF::Tensor<double>* VTransformed = nullptr;
+    Tensor<double> &C, &V, &S;
+    Tensor<double>* VTransformed = nullptr;
 };
 
-CTF::Tensor<double>* stdVectorToTensor( const std::vector<double> v
+Tensor<double>* stdVectorToTensor( const std::vector<double> v
                                       , const std::vector<int> lens) {
   std::vector<int> syms(lens.size(), NS);
-  auto result(new CTF::Tensor<double>( lens.size()
+  auto result(new Tensor<double>( lens.size()
                                      , lens.data()
                                      , syms.data()
                                      , *Sisi4s::world
@@ -416,7 +416,7 @@ void computeAndExport ( Algorithm &a
 
 template<>
 void computeAndExport ( Algorithm &a
-                      , IntegralProvider< CTF::Tensor<double> > &engine
+                      , IntegralProvider< Tensor<double> > &engine
                       , std::vector<IntegralInfo> &integralInfos
                       ) {
 
@@ -428,7 +428,7 @@ void computeAndExport ( Algorithm &a
 
     a.allocatedTensorArgument<double>
       ( integral.name
-      , new CTF::Tensor<double>(engine.compute(i[0], i[1], i[2], i[3]))
+      , new Tensor<double>(engine.compute(i[0], i[1], i[2], i[3]))
       );
 
   }
@@ -444,7 +444,7 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
                                  , "unrestricted"
                                  , "Spins"
                                  } );
-  CTF::Tensor<double> *S;
+  Tensor<double> *S;
   auto C(getTensorArgument("OrbitalCoefficients"));
   auto V(getTensorArgument("CoulombIntegrals"));
   auto epsi(getTensorArgument("HoleEigenEnergies"));

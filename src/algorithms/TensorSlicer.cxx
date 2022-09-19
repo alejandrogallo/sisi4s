@@ -30,7 +30,7 @@ void TensorSlicer::run() {
   auto T(getTensorArgument<double>("Data"));
 
   LOG(0, "TensorSlicer") << "slicing..." << std::endl;
-  auto t(new CTF::Tensor<double>(T->slice(begin.data(), end.data())));
+  auto t(new Tensor<double>(T->slice(begin.data(), end.data())));
 
   LOG(0, "TensorSlicer")
     << "lens: " << _showVector(std::vector<int>(t->lens, t->lens + t->order))

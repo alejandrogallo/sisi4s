@@ -4,7 +4,7 @@
 #include <math/Complex.hpp>
 #include <DryTensor.hpp>
 
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <random>
 
 namespace sisi4s {

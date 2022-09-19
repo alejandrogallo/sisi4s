@@ -7,7 +7,7 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 
 using namespace sisi4s;
@@ -38,24 +38,24 @@ template <typename F>
 PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   const int iterationStep, const PTR(const FockVector<F>) &amplitudes
 ) {
-  CTF::Tensor<double> *epsi(
-    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies")
+  Tensor<double> *epsi(
+    getTensorArgument<double, Tensor<double> >("HoleEigenEnergies")
   );
 
-  CTF::Tensor<double> *epsa(
-    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
+  Tensor<double> *epsa(
+    getTensorArgument<double, Tensor<double> >("ParticleEigenEnergies")
   );
 
   // Get couloumb integrals
-  auto Vijab(getTensorArgument<F, CTF::Tensor<F> >("HHPPCoulombIntegrals"));
+  auto Vijab(getTensorArgument<F, Tensor<F> >("HHPPCoulombIntegrals"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int vv[] = {Nv, Nv};
   int oo[] = {No, No};
   int syms[] = {NS, NS};
-  CTF::Tensor<F> *Fab(new CTF::Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab"));
-  CTF::Tensor<F> *Fij(new CTF::Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij"));
-  CTF::Tensor<F> *Fia;
+  Tensor<F> *Fab(new Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab"));
+  Tensor<F> *Fij(new Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij"));
+  Tensor<F> *Fia;
 
   if (
     isArgumentGiven("HPFockMatrix") &&
@@ -65,9 +65,9 @@ PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     if (iterationStep == 0){
       LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
     }
-    Fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
-    Fab = getTensorArgument<F, CTF::Tensor<F> >("PPFockMatrix");
-    Fij = getTensorArgument<F, CTF::Tensor<F> >("HHFockMatrix");
+    Fia = getTensorArgument<F, Tensor<F> >("HPFockMatrix");
+    Fab = getTensorArgument<F, Tensor<F> >("PPFockMatrix");
+    Fij = getTensorArgument<F, Tensor<F> >("HHFockMatrix");
   } else {
     Fia = NULL;
     CTF::Transform<double, F>(

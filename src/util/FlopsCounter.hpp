@@ -1,7 +1,7 @@
 #ifndef FLOPS_COUNTER_DEFINED
 #define FLOPS_COUNTER_DEFINED
 
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   class FlopsCounter {

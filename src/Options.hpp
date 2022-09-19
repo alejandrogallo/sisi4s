@@ -8,15 +8,15 @@
 namespace sisi4s {
   struct Options {
 
+    CLI::App app;
     int logLevel;
     std::string inFile, logFile, yamlOutFile;
-    bool dryRun;
     int argc;
     char** argv;
+    bool cc4s, listAlgorithms, dryRun;
+    std::string eclFile;
 
-    const int DEFAULT_LOG_LEVEL = 1;
-    bool cc4s;
-    CLI::App app;
+    static const int DEFAULT_LOG_LEVEL = 1;
 
     Options(int argc, char **argv);
     int parse();

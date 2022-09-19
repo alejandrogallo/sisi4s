@@ -4,7 +4,7 @@
 #include <math/Complex.hpp>
 #include <cmath>
 #include <string>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <util/Log.hpp>
 
 namespace sisi4s {
@@ -65,7 +65,7 @@ namespace sisi4s {
   }
 
   template <typename F>
-  inline double frobeniusNorm(CTF::Tensor<F> &t) {
+  inline double frobeniusNorm(Tensor<F> &t) {
     char *indices(new char[t.order+1]);
     for (int index(0); index < t.order; ++index) indices[index] = 'a' + index;
     indices[t.order] = 0;
@@ -83,13 +83,13 @@ namespace sisi4s {
    */
   template <typename F>
   inline void symmetrize(std::string indices, std::string permuted,
-      CTF::Tensor<F> &t, F prefactor=1) {
+      Tensor<F> &t, F prefactor=1) {
     t[indices.c_str()] += prefactor * t[permuted.c_str()];
   }
   template <typename F>
-  inline void checkAntisymmetry(CTF::Tensor<F> &t){
-    CTF::Tensor<F> testResultUp(t);
-    CTF::Tensor<F> testResultDown(t);
+  inline void checkAntisymmetry(Tensor<F> &t){
+    Tensor<F> testResultUp(t);
+    Tensor<F> testResultDown(t);
     F normValue;
     testResultUp["abij"] += testResultUp["baij"];
     testResultDown["abij"] += testResultDown["abji"];

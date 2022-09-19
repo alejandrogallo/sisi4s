@@ -7,11 +7,11 @@
 #include <DryTensor.hpp>
 #include <util/Exception.hpp>
 #include <util/Log.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
-template <typename F=double>
+template <typename F>
 void sisi4s::fitAlternatingLeastSquaresFactor(
   Tensor<F> &T, char const *indicesT,
   Tensor<F> &B, char const idxB, Tensor<F> &C, char const idxC,
@@ -19,12 +19,12 @@ void sisi4s::fitAlternatingLeastSquaresFactor(
 ) {
   Tensor<F> conjB(B);
   Tensor<F> conjC(C);
-  Univar_Function<F> fConj(&conj<F>);
-  conjB.sum(1.0, B,"jR", 0.0,"jR", fConj); 
+  CTF::Univar_Function<F> fConj(&conj<F>);
+  conjB.sum(1.0, B,"jR", 0.0,"jR", fConj);
   conjC.sum(1.0, C,"kR", 0.0,"kR", fConj);
 
-  Matrix<F> BB(B.lens[1], B.lens[1], NS, *T.wrld, "BBRS", T.profile);
-  Matrix<F> gramian(B.lens[1], B.lens[1], NS, *T.wrld,"GRS", T.profile);
+  CTF::Matrix<F> BB(B.lens[1], B.lens[1], NS, *T.wrld, "BBRS", T.profile);
+  CTF::Matrix<F> gramian(B.lens[1], B.lens[1], NS, *T.wrld,"GRS", T.profile);
   LOG(4, "ALS") << "building Gramian..." << std::endl;
   BB["SR"] = B["jR"] * conjB["jS"];
   gramian["SR"] = C["kR"] * conjC["kS"];
@@ -57,7 +57,7 @@ void sisi4s::fitAlternatingLeastSquaresFactor(
 );
 
 
-template <typename F=double>
+template <typename F>
 void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
   Tensor<F> &T, char const *indicesT,
   Tensor<F> &B, char const idxB, Tensor<F> &C, char const idxC,
@@ -67,12 +67,12 @@ void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
   double lambda(regularizationEstimatorA->getLambda());
   Tensor<F> conjB(B);
   Tensor<F> conjC(C);
-  Univar_Function<F> fConj(&conj<F>);
-  conjB.sum(1.0, B,"jR", 0.0,"jR", fConj); 
+  CTF::Univar_Function<F> fConj(&conj<F>);
+  conjB.sum(1.0, B,"jR", 0.0,"jR", fConj);
   conjC.sum(1.0, C,"kR", 0.0,"kR", fConj);
 
-  Matrix<F> BB(B.lens[1], B.lens[1], NS, *T.wrld, "BBRS", T.profile);
-  Matrix<F> gramian(B.lens[1], B.lens[1], NS, *T.wrld,"GRS", T.profile);
+  CTF::Matrix<F> BB(B.lens[1], B.lens[1], NS, *T.wrld, "BBRS", T.profile);
+  CTF::Matrix<F> gramian(B.lens[1], B.lens[1], NS, *T.wrld,"GRS", T.profile);
   LOG(4, "RALS") << "building Gramian..." << std::endl;
   BB["SR"] = B["jR"] * conjB["jS"];
   gramian["SR"] = C["kR"] * conjC["kS"];
@@ -119,7 +119,7 @@ void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
 );
 
 
-template <typename F=double>
+template <typename F>
 void sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor(
   DryTensor<F> &T, char const *indicesT,
   DryTensor<F> &B, char const idxB, DryTensor<F> &C, char const idxC,
@@ -155,4 +155,3 @@ void sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor(
   DryTensor<complex> &B, char const idxB, DryTensor<complex> &C, char const idxC,
   DryTensor<complex> &A, char const idxA
 );
-

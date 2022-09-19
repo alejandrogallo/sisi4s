@@ -6,7 +6,7 @@
 #include <math/Complex.hpp>
 #include <math/RegularizedAlternatingLeastSquares.hpp>
 #include <DryTensor.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   /**
@@ -61,25 +61,25 @@ namespace sisi4s {
      * \brief The Coulomb vertex \f$\Gamma^a_{iG}\f$ restricted to
      * a particle and a hole index.
      */
-    CTF::Tensor<complex> *GammaGai;
+    Tensor<complex> *GammaGai;
     /**
      * \brief The fit \f${\Pi^\ast}^{aR}\Pi_{iR}\Lambda_{GR}\f$.
      */
-    CTF::Tensor<complex> *Gamma0Gai;
+    Tensor<complex> *Gamma0Gai;
     /**
      * \brief The factor orbitals for occupied states \f$\Pi_{iR}\f$.
      */
-    CTF::Tensor<complex> *PiiR;
+    Tensor<complex> *PiiR;
     /**
      * \brief The conjugated factor orbitals for virtual states
      * \f${\Pi^\ast}^{aR}\f$.
      */
-    CTF::Tensor<complex> *PiaR;
+    Tensor<complex> *PiaR;
     /**
      * \brief The Coulomb factors \f$\Lambda_{GR}\f$
      * in the particle/hole decomposition.
      */
-    CTF::Tensor<complex> *LambdaGR;
+    Tensor<complex> *LambdaGR;
 
     /**
      * \brief Estimators for the regularization parameter during
@@ -121,11 +121,11 @@ namespace sisi4s {
      * \brief Normalizes the given factor orbitals, such that
      * \f${\Pi^\ast}^{qR}\Pi_{qR} = \delta_{qq}\f$.
      */
-    void normalizePi(CTF::Tensor<complex> &Pi);
+    void normalizePi(Tensor<complex> &Pi);
     /**
      * \brief Discards the imaginary part of the given factor orbitals.
      */
-    void realizePi(CTF::Tensor<complex> &Pi);
+    void realizePi(Tensor<complex> &Pi);
 
     /**
      * \brief Evaluates and prints the error of the MP2 energy between
@@ -135,7 +135,7 @@ namespace sisi4s {
     /**
      * \brief Evaluates the MP2 energy for the given Coulomb vertex.
      */
-    double evaluateMp2(CTF::Tensor<complex> &Gamma);
+    double evaluateMp2(Tensor<complex> &Gamma);
     /**
      * \brief Performs a dry run of evaluating the MP2 energy
      * for the given Coulomb vertex.

@@ -1,4 +1,10 @@
-CTF_CONFIG_FLAGS =
+CTF_CONFIG_FLAGS = \
+	CXX="$(CXX)" \
+	LIB_PATH="$(LDFLAGS)" \
+	LIBS="-lmpi" \
+	CXXFLAGS="$(CXXFLAGS)" \
+	--no-dynamic
+
 CTF_STATIC_LIB = $(CTF_BUILD_PATH)/lib/libctf.a
 CTF_SHARED_LIB = $(CTF_BUILD_PATH)/lib/libctf.so
 CTF_GIT_REPOSITORY ?= https://github.com/cyclops-community/ctf

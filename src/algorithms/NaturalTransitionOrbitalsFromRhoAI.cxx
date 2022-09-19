@@ -9,9 +9,8 @@
 #include <numeric>      // std::iota
 #include <algorithm>
 
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 
@@ -56,7 +55,7 @@ inline void logOverlap(LapackMatrix<F> &A, const std::string name) {
 
 template <typename F>
 void
-NaturalTransitionOrbitalsFromRhoAI::buildTransformations(CTF::Tensor<F> &rho, const std::string name) {
+NaturalTransitionOrbitalsFromRhoAI::buildTransformations(Tensor<F> &rho, const std::string name) {
   // We build first a lapack matrix in order to do the diagonalization
   //
   LapackMatrix<F> rhoMatrix(rho);
@@ -70,10 +69,10 @@ NaturalTransitionOrbitalsFromRhoAI::buildTransformations(CTF::Tensor<F> &rho, co
 
   // get the right eigenvectors
   LapackMatrix<complex> rightEigenVectors(solver.getRightEigenVectors());
-  CTF::Tensor<F> *rEigenVecs =
-    new CTF::Tensor<F>(2, nn, rho.sym, *Sisi4s::world, "r");
-  CTF::Tensor<F> *overlapMatrix =
-    new CTF::Tensor<F>(*rEigenVecs);
+  Tensor<F> *rEigenVecs =
+    new Tensor<F>(2, nn, rho.sym, *Sisi4s::world, "r");
+  Tensor<F> *overlapMatrix =
+    new Tensor<F>(*rEigenVecs);
 
   // the indices will hold the vector indices
   if (rEigenVecs->wrld->rank == 0) {
@@ -94,15 +93,15 @@ NaturalTransitionOrbitalsFromRhoAI::buildTransformations(CTF::Tensor<F> &rho, co
   logVectorNorms<F>(rightEigenVectors, name);
   //logOverlap<F>(rightEigenVectors, name);
 
-  auto eigenConj = NEW(CTF::Tensor<F>, rEigenVecs);
+  auto eigenConj = NEW(Tensor<F>, rEigenVecs);
   conjugate(*eigenConj);
 
   (*overlapMatrix)["ab"] = (*rEigenVecs)["be"] * (*eigenConj)["ea"];
   allocatedTensorArgument<F>(name + "OverlapMatrix", overlapMatrix);
 
   std::vector<complex> lambdas(solver.getEigenValues());
-  CTF::Tensor<F> *lambdasTensor =
-    new CTF::Tensor<F>(1, nn, rho.sym, *Sisi4s::world, "lambdas");
+  Tensor<F> *lambdasTensor =
+    new Tensor<F>(1, nn, rho.sym, *Sisi4s::world, "lambdas");
   indices.resize(n);
   std::iota(indices.begin(), indices.end(), 0);
   lambdasTensor->write(indices.size(), indices.data(), lambdas.data());
@@ -119,10 +118,10 @@ NaturalTransitionOrbitalsFromRhoAI::run() {
   LOG(0, "NaturalTransitionOrbitalsFromRhoAI") << "No: " << No << std::endl;
   LOG(0, "NaturalTransitionOrbitalsFromRhoAI") << "Nv: " << Nv << std::endl;
 
-  auto I = NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "I");
-  auto A = NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "A");
+  auto I = NEW(Tensor<F>, 2, oo, syms, *Sisi4s::world, "I");
+  auto A = NEW(Tensor<F>, 2, vv, syms, *Sisi4s::world, "A");
 
-  auto RhoAIConj = NEW(CTF::Tensor<F>, RhoAI);
+  auto RhoAIConj = NEW(Tensor<F>, RhoAI);
   conjugate(*RhoAIConj);
 
   (*I)["ij"] = (*RhoAIConj)["ei"] * (*RhoAI)["ej"];

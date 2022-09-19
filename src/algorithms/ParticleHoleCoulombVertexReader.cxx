@@ -4,11 +4,10 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <fstream>
 
 using namespace sisi4s;
-using namespace CTF;
 
 char const *ParticleHoleCoulombVertexReader::Header::MAGIC = "sisi4sFTOD";
 char const *ParticleHoleCoulombVertexReader::Chunk::REALS_MAGIC = "FTODreal";
@@ -30,12 +29,12 @@ ParticleHoleCoulombVertexReader::~ParticleHoleCoulombVertexReader() {
 
 struct Unrestricter {
 
-  CTF::Tensor<sisi4s::complex>*
-  doVertex(CTF::Tensor<sisi4s::complex> *GammaGqr) const {
+  Tensor<sisi4s::complex>*
+  doVertex(Tensor<sisi4s::complex> *GammaGqr) const {
     // The field variable NG remains the same
-    int vertexLens[] = {
-      GammaGqr->lens[0], 2*GammaGqr->lens[1], 2*GammaGqr->lens[2]
-    };
+    int vertexLens[] = {static_cast<int>(GammaGqr->lens[0]),
+                        static_cast<int>(2*GammaGqr->lens[1]),
+                        static_cast<int>(2*GammaGqr->lens[2])};
     auto uGammaGqr(
       new Tensor<sisi4s::complex>(3, vertexLens, GammaGqr->sym, *Sisi4s::world, "uGammaGqr")
     );
@@ -64,9 +63,9 @@ struct Unrestricter {
     return uGammaGqr;
   }
 
-  CTF::Tensor<double>*
-  doEigenEnergies(CTF::Tensor<double> *eps) const {
-    int lens[] = { 2*eps->lens[0] };
+  Tensor<double>*
+  doEigenEnergies(Tensor<double> *eps) const {
+    int lens[] = { static_cast<int>(2*eps->lens[0]) };
     auto uEps(
       new Tensor<double>(
         1,
@@ -132,8 +131,8 @@ void ParticleHoleCoulombVertexReader::run() {
   // Allocate output tensors
   int vertexLens[] = { NG, Nv, No };
   int vertexSyms[] = { NS, NS, NS };
-  Tensor<> *epsi(new Vector<>(No, *Sisi4s::world, "epsi"));
-  Tensor<> *epsa(new Vector<>(Nv, *Sisi4s::world, "epsa"));
+  Tensor<double> *epsi(new CTF::Vector<double>(No, *Sisi4s::world, "epsi"));
+  Tensor<double> *epsa(new CTF::Vector<double>(Nv, *Sisi4s::world, "epsa"));
   Tensor<sisi4s::complex> *GammaGai(
     new Tensor<sisi4s::complex>(
       3, vertexLens, vertexSyms, *Sisi4s::world, "GammaGai"
@@ -141,17 +140,25 @@ void ParticleHoleCoulombVertexReader::run() {
   );
 
   // Enter the allocated data (and by that type the output data to tensors)
-  allocatedTensorArgument("HoleEigenEnergies", epsi);
-  allocatedTensorArgument("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<sisi4s::complex>("ParticleHoleCoulombVertex", GammaGai);
+  allocatedTensorArgument("HoleEigenEnergies",
+                          epsi);
+  allocatedTensorArgument("ParticleEigenEnergies",
+                          epsa);
+  allocatedTensorArgument<sisi4s::complex>("ParticleHoleCoulombVertex",
+                                           GammaGai);
 
   // Real and imaginary parts are read in seperately
-  Tensor<> realGammaGai(
-    3, vertexLens, vertexSyms, *Sisi4s::world, "RealGammaGai"
+  Tensor<double> realGammaGai(3,
+                              vertexLens,
+                              vertexSyms,
+                              *Sisi4s::world,
+                              "RealGammaGai"
   );
-  Tensor<> imagGammaGai(
-    3, vertexLens, vertexSyms, *Sisi4s::world, "ImagGammaGai"
-  );
+  Tensor<double> imagGammaGai(3,
+                              vertexLens,
+                              vertexSyms,
+                              *Sisi4s::world,
+                              "ImagGammaGai");
 
   int64_t offset(sizeof(header));
   MPI_Offset fileSize;

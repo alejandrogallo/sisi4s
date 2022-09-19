@@ -4,7 +4,7 @@
 #include "mpi.h"
 #include <math/Complex.hpp>
 #include <math/Vector.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   // base template for type traits

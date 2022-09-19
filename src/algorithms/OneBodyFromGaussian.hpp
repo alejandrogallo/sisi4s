@@ -1,10 +1,11 @@
 #ifndef _ONE_BODY_FROM_GAUSSIAN_DEFINED
 #define _ONE_BODY_FROM_GAUSSIAN_DEFINED
 
-#include <algorithms/Algorithm.hpp>
 #include <vector>
+
+#include <algorithms/Algorithm.hpp>
 #include <math/Complex.hpp>
-#include <libint2.hpp>
+#include <util/Libint.hpp>
 #include <Eigen/Eigen>
 
 namespace sisi4s {

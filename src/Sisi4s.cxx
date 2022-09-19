@@ -1,5 +1,9 @@
 /*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
+#include <fstream>
+#include <string>
+#include <sstream>
 
+#include <util/Config.hpp>
 #include <Sisi4s.hpp>
 #include <Parser.hpp>
 #include <algorithms/Algorithm.hpp>
@@ -10,27 +14,18 @@
 #include <util/Log.hpp>
 #include <util/Emitter.hpp>
 #include <util/Exception.hpp>
-#include <fstream>
-#include <string>
-#include <sstream>
 
 // TODO: to be removed from the main class
 #include <math/MathFunctions.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
-
-Sisi4s::Sisi4s() {
-}
-
-Sisi4s::~Sisi4s() {
-}
 
 void Sisi4s::run() {
   EMIT() << YAML::BeginMap;
   printBanner();
   listHosts();
   std::vector<Algorithm *> algorithms;
+
   if (options->cc4s) {
     LOG(0, "root")
       << "WARNING: "
@@ -148,24 +143,25 @@ void Sisi4s::printBanner() {
   buildDate << __DATE__ << " " << __TIME__;
 
   OUT() <<
-    (" ____    __ __    ____     ____      " "\n"
-     "/\\  _`\\ /\\ \\\\ \\  /\\  _`\\  /\\  _`\\    " "\n"
-     "\\ \\,\\L\\_\\ \\ \\\\ \\ \\ \\ \\/\\_\\\\ \\ \\/\\_\\  " "\n"
-     " \\/_\\__ \\\\ \\ \\\\ \\_\\ \\ \\/_/_\\ \\ \\/_/_ " "\n"
-     "   /\\ \\L\\ \\ \\__ ,__\\ \\ \\L\\ \\\\ \\ \\L\\ \\" "\n"
-     "   \\ `\\____\\/_/\\_\\_/\\ \\____/ \\ \\____/" "\n"
-     "    \\/_____/  \\/_/   \\/___/   \\/___/ " "\n"
-     "\n");
+    ("                          ____  _ ____  _ _  _  ___" "\n"
+     "                         / ___|(_) ___|(_) || |/ ___|" "\n"
+     "                         \\___ \\| \\___ \\| | || |\\___ \\" "\n"
+     "                          ___) | |___) | |__   _|__) |" "\n"
+     "                         |____/|_|____/|_|  |_||____/" "\n" "\n");
 
-  LOG(0, "root") << "version=" << SISI4S_VERSION <<
-    ", date=" << SISI4S_DATE << std::endl;
+
+
+
+  LOG(0, "root")
+    << "version=" << SISI_COMMIT
+    << ", date=" << __DATE__ << std::endl;
   LOG(0, "root") << "build date=" << buildDate.str() << std::endl;
   LOG(0, "root") << "compiler=" << COMPILER_VERSION << std::endl;
   LOG(0, "root") << "total processes=" << Sisi4s::world->np << std::endl;
   OUT() << std::endl;
 
   EMIT()
-    << YAML::Key << "version" << YAML::Value << SISI4S_VERSION
+    << YAML::Key << "version" << YAML::Value << SISI_COMMIT
     << YAML::Key << "build-date" << YAML::Value << buildDate.str()
     << YAML::Key << "compiler" << YAML::Value << COMPILER_VERSION
     << YAML::Key << "total-processes" << Sisi4s::world->np;
@@ -211,25 +207,6 @@ void Sisi4s::printStatistics() {
     << YAML::Comment("GB");
 }
 
-bool Sisi4s::isDebugged() {
-  // assuming LINUX
-  std::ifstream statusStream("/proc/self/status", std::ios_base::in);
-  std::string line;
-  while (std::getline(statusStream, line)) {
-    std::string pidField("TracerPid:");
-    size_t position(line.find(pidField));
-    if (position != std::string::npos) {
-      std::stringstream pidStream(line.substr(position + pidField.length()));
-      size_t pid; pidStream >> pid;
-      if (pid > 0) {
-        LOG(0, "root") << "Debugger present" << std::endl;
-      }
-      return pid > 0;
-    }
-  }
-  return false;
-}
-
 void Sisi4s::listHosts() {
   char ownName[MPI_MAX_PROCESSOR_NAME];
   int nameLength;
@@ -265,7 +242,7 @@ void Sisi4s::listHosts() {
     }
     EMIT() << YAML::EndSeq;
   } else {
-    // send own name 
+    // send own name
     MPI_Send(
       ownName, MPI_MAX_PROCESSOR_NAME, MPI_BYTE,
       0, 0, MPI_COMM_WORLD
@@ -274,41 +251,46 @@ void Sisi4s::listHosts() {
 }
 
 
-World *Sisi4s::world;
+CTF::World *Sisi4s::world;
 Options *Sisi4s::options;
 
 
 int main(int argumentCount, char **arguments) {
   MPI_Init(&argumentCount, &arguments);
 
-  Sisi4s::world = new World(argumentCount, arguments);
+  // setup MPI World
+  Sisi4s::world = new CTF::World(argumentCount, arguments);
+
+  // setup CLI options
   Sisi4s::options = new Options(argumentCount, arguments);
   Sisi4s::options->parse();
+
+  // setup loggers and emitters of output
   Log::setRank(Sisi4s::world->rank);
   Log::setFileName(Sisi4s::options->logFile);
   Log::setLogLevel(Sisi4s::options->logLevel);
   Emitter::setFileName(Sisi4s::options->yamlOutFile);
   Emitter::setRank(Sisi4s::world->rank);
 
+  if (Sisi4s::options->listAlgorithms) {
+    const auto names = AlgorithmFactory::getAlgorithmNames();
+    for (auto const& name: names)
+      LOG(0) << name << "\n";
+    return 0;
+  }
+
   Sisi4s sisi4s;
-  if (Sisi4s::isDebugged()) {
-    // run without try-catch in debugger to allow tracing throwing code
+  try {
     if (Sisi4s::options->dryRun) sisi4s.dryRun();
     else sisi4s.run();
-  } else {
-    // without debugger: catch and write exception cause
-    try {
-      if (Sisi4s::options->dryRun) sisi4s.dryRun();
-      else sisi4s.run();
-    } catch (const std::string &msg) {
-      LOG(0) << std::endl << msg << std::endl;
-      throw msg;
-    } catch (const char *msg) {
-      LOG(0) << std::endl << msg << std::endl;
-      throw msg;
-    } catch (DetailedException *cause) {
-      LOG(0) << std::endl << cause->getMessage() << std::endl;
-    }
+  } catch (const std::string &msg) {
+    LOG(0) << std::endl << msg << std::endl;
+    throw msg;
+  } catch (const char *msg) {
+    LOG(0) << std::endl << msg << std::endl;
+    throw msg;
+  } catch (DetailedException *cause) {
+    LOG(0) << std::endl << cause->getMessage() << std::endl;
   }
 
   EMIT_FLUSH();

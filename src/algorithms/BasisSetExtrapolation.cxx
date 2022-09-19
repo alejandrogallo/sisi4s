@@ -1,5 +1,4 @@
 #include <algorithms/BasisSetExtrapolation.hpp>
-
 #include <math/Complex.hpp>
 #include <math/ComplexTensor.hpp>
 #include <Sisi4s.hpp>
@@ -7,12 +6,11 @@
 #include <DryTensor.hpp>
 #include <math/Vector.hpp>
 #include <util/SharedPointer.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <util/MpiCommunicator.hpp>
 #include <math/PseudoInverseSvd.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(BasisSetExtrapolation);
 
@@ -67,7 +65,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
       throw new EXCEPTION("Need HoleEigenEnergies for number of holes/particles");
     }
 
-    auto epsi = NEW( Tensor<>, getTensorArgument<>("HoleEigenEnergies"));
+    auto epsi = NEW( Tensor<double>, getTensorArgument<>("HoleEigenEnergies"));
     int No(epsi->lens[0]);
     auto GammaGqr = NEW(
       Tensor<complex>, getTensorArgument<complex>("CoulombVertex")
@@ -92,7 +90,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
   int No(GammaGai->lens[2]);
   int Nv(GammaGai->lens[1]);
 
-  Tensor<> *ctfCoulombKernel(getTensorArgument<>("CoulombKernel"));
+  Tensor<double> *ctfCoulombKernel(getTensorArgument<>("CoulombKernel"));
 
   int NFF[] = {NF};
   Tensor<complex> invSqrtVG(1, NFF);
@@ -117,7 +115,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
 
   // determine if we are using full or half mesh
 
-  auto momenta(NEW(Tensor<>, getTensorArgument<>("Momenta")));
+  auto momenta(NEW(Tensor<double>, getTensorArgument<>("Momenta")));
   sisi4s::Vector<> *cartesianMomenta(new sisi4s::Vector<>[NF]);
   momenta->read_all(&cartesianMomenta[0][0]);
 
@@ -172,8 +170,8 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
   conjugate(*conjCGai);
 
   int NGG[] = {NF, NF};
-  auto QGGs( new CTF::Tensor<complex>(2,NGG));
-  auto QGGt( new CTF::Tensor<complex>(2,NGG));
+  auto QGGs( new Tensor<complex>(2,NGG));
+  auto QGGt( new Tensor<complex>(2,NGG));
 
   // Direct part.
 
@@ -194,7 +192,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
   (*QGGt)["GF"]  = (1.5) * (*QGGs)["GF"];
 
   if (isArgumentGiven("QGGd")){
-    auto QGGd(new Tensor<>(2,NGG));
+    auto QGGd(new Tensor<double>(2,NGG));
     fromComplexTensor(*QGGs,*QGGd);
     allocatedTensorArgument<>("QGGd",QGGd);
   }
@@ -249,8 +247,8 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
     }
   }
 
-  auto realQGGs(new Tensor<>(2,NGG));
-  auto realQGGt(new Tensor<>(2,NGG));
+  auto realQGGs(new Tensor<double>(2,NGG));
+  auto realQGGt(new Tensor<double>(2,NGG));
 
   fromComplexTensor(*QGGs,*realQGGs);
   fromComplexTensor(*QGGt,*realQGGt);
@@ -258,7 +256,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
   allocatedTensorArgument<>("QGGt",realQGGt);
 
   if(isArgumentGiven("QGGx")){
-    auto QGGx(new Tensor<>(2,NGG));
+    auto QGGx(new Tensor<double>(2,NGG));
     fromComplexTensor(*cQGGx,*QGGx);
     allocatedTensorArgument<>("QGGx",QGGx);
   }
@@ -266,19 +264,22 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart, int orbitalPairEnd
 
 }
 
-void BasisSetExtrapolation::calculateNewSF(
-  int type, real gamma, Tensor<> *coulombKernel, Tensor<> *newSF, Tensor<> *resNewSF){
+void BasisSetExtrapolation::calculateNewSF(int type,
+                                           real gamma,
+                                           Tensor<double> *coulombKernel,
+                                           Tensor<double> *newSF,
+                                           Tensor<double> *resNewSF){
 
-  CTF::Tensor<> *QGG(getTensorArgument<>("QGG"));
+  Tensor<double> *QGG(getTensorArgument<>("QGG"));
   int NG(QGG->lens[0]);
   int NFF[] = {NG};
 
-  auto cK(new Tensor<>(1,NFF));
+  auto cK(new Tensor<double>(1,NFF));
   (*cK) = (*coulombKernel);
 
   real volume(getRealArgument("volume",-1.));
 
-  auto reciprocalYC(new Tensor<>(1,NFF));
+  auto reciprocalYC(new Tensor<double>(1,NFF));
 
   CTF::Transform<real, real>(
     std::function<void(real, real &)>(
@@ -303,7 +304,7 @@ void BasisSetExtrapolation::calculateNewSF(
    (*cK)["G"],(*reciprocalYC)["G"]
   );
 
-  auto dReciprocalYC(new Tensor<>(1,NFF));
+  auto dReciprocalYC(new Tensor<double>(1,NFF));
 
   CTF::Transform<real, real, real >(
     std::function<void(real, real, real &)>(
@@ -336,15 +337,15 @@ void BasisSetExtrapolation::fitF12(int type, real minG, real maxG){
   real volume(getRealArgument("volume",-1));
   if (volume < 0. ) throw new EXCEPTION("Set volume");
 
-  CTF::Tensor<> *structureFactor(getTensorArgument<>("StructureFactor"));
-  CTF::Tensor<> *coulombKernel(getTensorArgument<>("CoulombKernel"));
+  Tensor<double> *structureFactor(getTensorArgument<>("StructureFactor"));
+  Tensor<double> *coulombKernel(getTensorArgument<>("CoulombKernel"));
 
   int NG(coulombKernel->lens[0]);
   int NFF[] = {NG};
 
-  auto residuumFittedSF(new Tensor<>(1,NFF));
-  auto fittedSF(new Tensor<>(1,NFF));
-  auto absoluteG(new Tensor<>(1,NFF));
+  auto residuumFittedSF(new Tensor<double>(1,NFF));
+  auto fittedSF(new Tensor<double>(1,NFF));
+  auto absoluteG(new Tensor<double>(1,NFF));
 
   //Take out infinity
   CTF::Transform<real>(
@@ -380,7 +381,7 @@ void BasisSetExtrapolation::fitF12(int type, real minG, real maxG){
 
     calculateNewSF(type,gamma,absoluteG,fittedSF,residuumFittedSF);
 
-    auto dummy(new Tensor<>(1,NFF));
+    auto dummy(new Tensor<double>(1,NFF));
     CTF::Transform<real, real, real>(
       std::function<void(real, real, real &)>(
         [&maxG, &minG](real absG, real res, real &dummy){
@@ -452,7 +453,7 @@ void BasisSetExtrapolation::fitF12(int type, real minG, real maxG){
   setRealArgument("gammaout",gamma);
   allocatedTensorArgument<>("FittedSF",fittedSF);
 // evaluate energy correction term E = v(G)*Q(G,G')*f12(G')
-  Scalar<> f12EnergyCorrection(*Sisi4s::world);
+  CTF::Scalar<double> f12EnergyCorrection(*Sisi4s::world);
   f12EnergyCorrection[""] = (*coulombKernel)["G"] * (*fittedSF)["G"];
   setRealArgument("f12EnergyCorrection",f12EnergyCorrection);
 
@@ -461,20 +462,20 @@ void BasisSetExtrapolation::fitF12(int type, real minG, real maxG){
 
 void BasisSetExtrapolation::invertQGG(){
 
-  Tensor<> *fullQGG(getTensorArgument<>("QGG"));
+  Tensor<double> *fullQGG(getTensorArgument<>("QGG"));
 
   int NG(fullQGG->lens[0]);
   int twodStart[] = { 1 , 1 };
   int twodEnd[] = { NG, NG};
-  Tensor<> QGG( fullQGG->slice(twodStart,twodEnd));
+  Tensor<double> QGG( fullQGG->slice(twodStart,twodEnd));
 
-  auto invQGG(new Tensor<>(false, QGG));
+  auto invQGG(new Tensor<double>(false, QGG));
 //  (*invQGG)["PQ"] = IterativePseudoInverse<complex>(QGG).get()["PQ"];
   (*invQGG)["PQ"] = PseudoInverseSvd<double>(QGG).get()["PQ"];
   int NF[] = { NG };
-  Tensor<> getStructureFactor(getTensorArgument<>("StructureFactor"));
+  Tensor<double> getStructureFactor(getTensorArgument<>("StructureFactor"));
   int NS(getStructureFactor.lens[0]);
-  auto structureFactor(new Tensor<>(1,NF));
+  auto structureFactor(new Tensor<double>(1,NF));
   if ( NS == NG ){
     LOG(0,"length") << NS << " " << NG << std::endl;
     (*structureFactor)["G"] = getStructureFactor["G"];
@@ -499,13 +500,13 @@ void BasisSetExtrapolation::invertQGG(){
   int NGG(NG-1);
   int NFF[] = { NGG };
 
-  auto slicedStructureFactor(new Tensor<>(structureFactor->slice(onedStart,onedEnd)));
+  auto slicedStructureFactor(new Tensor<double>(structureFactor->slice(onedStart,onedEnd)));
 
-  auto slicedF12(new Tensor<>(false,*slicedStructureFactor));
+  auto slicedF12(new Tensor<double>(false,*slicedStructureFactor));
 
   (*slicedF12)["P"] = (*invQGG)["PQ"]* (*slicedStructureFactor)["Q"];
 
-  auto f12(new Tensor<>(1, NF));
+  auto f12(new Tensor<double>(1, NF));
   int dstStart[] = { 0 };
   f12->slice(onedStart,onedEnd,1.0,*slicedF12,dstStart,NFF,1.0);
 

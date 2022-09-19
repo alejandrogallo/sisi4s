@@ -13,6 +13,7 @@ jobs:
     env:
       WITH_CURRENT_SHELL: "nix-shell etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
       WITH_SHELL: "nix-shell ../../etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
+      NJ: 4
 
 
     strategy:
@@ -50,53 +51,59 @@ jobs:
     - name: Bootstraping
       run: $WITH_CURRENT_SHELL './bootstrap.sh'
 
-    - name: Configure (${{matrix.compiler}})
+    - name: Configure
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
         $WITH_SHELL '../../configure'
 
-    - name: CTF (${{matrix.compiler}})
+    - name: CTF
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make ctf'
+        $WITH_SHELL 'make -j$NJ ctf'
 
-    - name: LIBINT (${{matrix.compiler}})
+    - name: LIBINT
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make libint'
+        $WITH_SHELL 'make -j$NJ libint'
 
-    - name: EIGEN (${{matrix.compiler}})
+    - name: EIGEN
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make eigen'
+        $WITH_SHELL 'make -j$NJ eigen'
 
-    - name: YAMLCPP (${{matrix.compiler}})
+    - name: YAMLCPP
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make yamlcpp'
+        $WITH_SHELL 'make -j$NJ yamlcpp'
 
-    - name: Extern (${{matrix.compiler}})
+    - name: Extern
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make extern'
+        $WITH_SHELL 'make -j$NJ extern'
 
-    - name: Make main (${{matrix.compiler}})
+    - name: sisi4s
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make'
+        $WITH_SHELL 'make -j$NJ sisi4s'
+
+    - name: Run integration tests
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make -C integration-tests/ pyyaml run'
 
   documentation:
     runs-on: ubuntu-latest
-    needs: build
+    # needs: build
     env:
-      WITH_SHELL: "nix-shell --argstr compiler gcc6 --run"
+      WITH_SHELL: "nix-shell ../etc/env/nix/shell.nix --argstr compiler gcc10 --run"
     steps:
     - uses: actions/checkout@v2.3.4
     - name: Install Nix
@@ -106,29 +113,29 @@ jobs:
 
     - name: Configure
       run: |
-        ${WITH_SHELL} './bootstrap.sh'
-        ${WITH_SHELL} './configure'
+        mkdir -p build && cd build
+        ${WITH_SHELL} '../bootstrap.sh'
+        ${WITH_SHELL} '../configure --enable-docs'
         ${WITH_SHELL} 'emacs --version'
         ${WITH_SHELL} 'python --version'
         ${WITH_SHELL} 'sphinx-build --version'
 
     - name: doxygen
       run: |
-        cd docs
-        ${WITH_SHELL} 'make doxygen'
+        mkdir -p build && cd build
+        ${WITH_SHELL} 'make -C docs doxygen'
 
     - name: sphinx
       run: |
-        cd docs
-        ${WITH_SHELL} 'make sphinx'
+        mkdir -p build && cd build
+        ${WITH_SHELL} 'make -C docs sphinx'
 
     - name: nojekyll
       run: |
-        cd docs/build
-        touch .nojekyll
+        touch build/docs/build/.nojekyll
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
          branch: gh-pages
-         folder: ./docs/build
+         folder: ./build/docs/build

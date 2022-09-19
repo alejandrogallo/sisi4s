@@ -6,7 +6,7 @@
 #include <DryTensor.hpp>
 #include <math/Complex.hpp>
 #include <math/RegularizedAlternatingLeastSquares.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   /**
@@ -67,11 +67,11 @@ namespace sisi4s {
     /**
      * \brief The full Coulomb vertex \f$\Gamma^q_{rG}\f$.
      */
-    CTF::Tensor<complex> *GammaGqr;
+    Tensor<complex> *GammaGqr;
     /**
      * \brief The fit \f${\Pi^\ast}^{qR}\Pi_{rR}\Lambda_{GR}\f$.
      */
-    CTF::Tensor<complex> *composedGammaGqr;
+    Tensor<complex> *composedGammaGqr;
     /**
      * \brief The conjugated factor orbitals
      * \f${\Pi^\ast}^{qR} = (\Pi_{qR})^\ast\f$.
@@ -126,11 +126,11 @@ namespace sisi4s {
      * \brief Normalizes the given factor orbitals, such that
      * \f${\Pi^\ast}^{qR}\Pi_{qR} = \delta_{qq}\f$.
      */
-    void normalizePi(CTF::Tensor<complex> &Pi);
+    void normalizePi(Tensor<complex> &Pi);
     /**
      * \brief Discards the imaginary part of the given factor orbitals.
      */
-    void realizePi(CTF::Tensor<complex> &Pi);
+    void realizePi(Tensor<complex> &Pi);
 
     /**
      * \brief Solves the quadratically occurring factor Pi iteratively

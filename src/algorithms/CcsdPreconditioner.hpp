@@ -26,21 +26,21 @@ namespace sisi4s {
      * \brief Setters for the main tensors
      */
     CcsdPreconditioner&
-    setTai(CTF::Tensor<F> *t) { Tai = t; return *this;}
+    setTai(Tensor<F> *t) { Tai = t; return *this;}
     CcsdPreconditioner&
-    setTabij(CTF::Tensor<F> *t) { Tabij = t; return *this;}
+    setTabij(Tensor<F> *t) { Tabij = t; return *this;}
     CcsdPreconditioner&
-    setFij(CTF::Tensor<F> *t) { Fij = t; return *this;}
+    setFij(Tensor<F> *t) { Fij = t; return *this;}
     CcsdPreconditioner&
-    setFab(CTF::Tensor<F> *t) { Fab = t; return *this;}
+    setFab(Tensor<F> *t) { Fab = t; return *this;}
     CcsdPreconditioner&
-    setVabcd(CTF::Tensor<F> *t) { Vabcd = t; return *this;}
+    setVabcd(Tensor<F> *t) { Vabcd = t; return *this;}
     CcsdPreconditioner&
-    setViajb(CTF::Tensor<F> *t) { Viajb = t; return *this;}
+    setViajb(Tensor<F> *t) { Viajb = t; return *this;}
     CcsdPreconditioner&
-    setVijab(CTF::Tensor<F> *t) { Vijab = t; return *this;}
+    setVijab(Tensor<F> *t) { Vijab = t; return *this;}
     CcsdPreconditioner&
-    setVijkl(CTF::Tensor<F> *t) { Vijkl = t; return *this;}
+    setVijkl(Tensor<F> *t) { Vijkl = t; return *this;}
 
     CcsdPreconditioner&
     setSpinFlip(bool t) { spinFlip = t; return *this; }
@@ -72,14 +72,14 @@ namespace sisi4s {
     }
 
     PTR(SDFockVector<F>) diagonalH;
-    CTF::Tensor<F> *Fij;
-    CTF::Tensor<F> *Fab;
-    CTF::Tensor<F> *Tai = nullptr;
-    CTF::Tensor<F> *Tabij = nullptr;
-    CTF::Tensor<F> *Vabcd = nullptr;
-    CTF::Tensor<F> *Viajb = nullptr;
-    CTF::Tensor<F> *Vijab = nullptr;
-    CTF::Tensor<F> *Vijkl = nullptr;
+    Tensor<F> *Fij;
+    Tensor<F> *Fab;
+    Tensor<F> *Tai = nullptr;
+    Tensor<F> *Tabij = nullptr;
+    Tensor<F> *Vabcd = nullptr;
+    Tensor<F> *Viajb = nullptr;
+    Tensor<F> *Vijab = nullptr;
+    Tensor<F> *Vijkl = nullptr;
 
   private:
     /**

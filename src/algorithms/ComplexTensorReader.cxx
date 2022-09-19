@@ -5,10 +5,9 @@
 #include <util/Log.hpp>
 #include <Sisi4s.hpp>
 #include <fstream>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <util/Emitter.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorReader);

@@ -3,7 +3,7 @@
 
 #include <math/Complex.hpp>
 #include <cstring>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   class BinaryTensorHeaderBase {
@@ -43,14 +43,14 @@ namespace sisi4s {
     BinaryTensorHeader(): BinaryTensorHeaderBase() { }
     template <typename Real>
     BinaryTensorHeader(
-      CTF::Tensor<Real> const &T
+      Tensor<Real> const &T
     ): BinaryTensorHeaderBase(
       sizeof(Real), 1, T.order
     ) {
     }
     template <typename Real>
     BinaryTensorHeader(
-      CTF::Tensor<Complex<Real>> const &T
+      Tensor<Complex<Real>> const &T
     ): BinaryTensorHeaderBase(
       sizeof(Complex<Real>), 2, T.order
     ) {

@@ -18,7 +18,7 @@ namespace sisi4s {
     virtual void run();
   protected:
     template <typename F>
-    CTF::Tensor<F> *read(const std::string &name);
+    Tensor<F> *read(const std::string &name);
   };
 }
 

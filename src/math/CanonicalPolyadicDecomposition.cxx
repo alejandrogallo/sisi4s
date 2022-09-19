@@ -4,11 +4,11 @@
 #include <math/Complex.hpp>
 #include <util/Exception.hpp>
 #include <util/Log.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
-template <typename F=double>
+template <typename F>
 void sisi4s::composeCanonicalPolyadicDecompositionTensors(
   Tensor<F> &A, Tensor<F> &B, Tensor<F> &C,
   Tensor<F> &T
@@ -27,21 +27,25 @@ void sisi4s::composeCanonicalPolyadicDecompositionTensors(
   );
   if (A.lens[0] == largestIndex) {
     LOG(4, "CPD") << "calculating T with largest A..." << std::endl;
-    int lens[] = { A.lens[1], B.lens[0], C.lens[0] };
+    int lens[] = { static_cast<int>(A.lens[1]),
+                   static_cast<int>(B.lens[0]),
+                   static_cast<int>(C.lens[0]) };
     int syms[] = { NS, NS, NS };
     Tensor<F> BC(3, lens, syms, *T.wrld, "BC", T.profile);
     BC["Rjk"] = B["jR"] * C["kR"];
     T["ijk"] = A["iR"] * BC["Rjk"];
   } else if (B.lens[0] == largestIndex) {
     LOG(4, "CPD") << "calculating T with largest B..." << std::endl;
-    int lens[] = { A.lens[1], C.lens[0], A.lens[0] };
+    int lens[] = { (int)A.lens[1], (int)C.lens[0], (int)A.lens[0] };
     int syms[] = { NS, NS, NS };
     Tensor<F> CA(3, lens, syms, *T.wrld, "CA", T.profile);
     CA["Rki"] = C["kR"] * A["iR"];
     T["ijk"] = B["jR"] * CA["Rki"];
   } else {
     LOG(4, "CPD") << "calculating T with largest C..." << std::endl;
-    int lens[] = { A.lens[1], A.lens[0], B.lens[0] };
+    int lens[] = { (int)A.lens[1],
+                   (int)A.lens[0],
+                   (int)B.lens[0] };
     int syms[] = { NS, NS, NS };
     Tensor<F> AB(3, lens, syms, *T.wrld, "AB", T.profile);
     AB["Rij"] = A["iR"] * B["jR"];
@@ -62,7 +66,7 @@ void sisi4s::composeCanonicalPolyadicDecompositionTensors(
 );
 
 
-template <typename F=double>
+template <typename F>
 void sisi4s::dryComposeCanonicalPolyadicDecompositionTensors(
   DryTensor<F> &A, DryTensor<F> &B, DryTensor<F> &C,
   DryTensor<F> &T
@@ -110,7 +114,7 @@ void sisi4s::dryComposeCanonicalPolyadicDecompositionTensors(
 );
 
 
-template <typename F=double>
+template <typename F>
 void sisi4s::contractWithCanonicalPolyadicDecompositionTensors(
   Tensor<F> &T, char const *indicesT,
   Tensor<F> &B, char const idxB,
@@ -135,7 +139,9 @@ void sisi4s::contractWithCanonicalPolyadicDecompositionTensors(
     // A has largest index: contract B and C first
     LOG(4, "CPD") << "applying to T with largest A..." << std::endl;
     const char indicesBC[] = { idxB, idxC, 'R' , 0};
-    int lens[] = { B.lens[0], C.lens[0], A.lens[1] };
+    int lens[] = { (int)B.lens[0],
+                   (int)C.lens[0],
+                   (int)A.lens[1] };
     int syms[] = { NS, NS, NS };
     Tensor<F> BC(3, lens, syms, *T.wrld, "BC");
     BC[indicesBC] = B[indicesB] * C[indicesC];
@@ -144,7 +150,7 @@ void sisi4s::contractWithCanonicalPolyadicDecompositionTensors(
     // B has largest index: contract T and B first
     LOG(4, "CPD") << "applying to T with largest B..." << std::endl;
     const char indicesTB[] = { idxA, idxC, 'R' , 0};
-    int lens[] = { A.lens[0], C.lens[0], A.lens[1] };
+    int lens[] = { (int)A.lens[0], (int)C.lens[0], (int)A.lens[1] };
     int syms[] = { NS, NS, NS };
     Tensor<F> TB(3, lens, syms, *T.wrld, "TB");
     TB[indicesTB] = T[indicesT] * B[indicesB];
@@ -153,7 +159,9 @@ void sisi4s::contractWithCanonicalPolyadicDecompositionTensors(
     // C has largest index: contract T and C first
     LOG(4, "CPD") << "applying to T with largest C..." << std::endl;
     const char indicesTC[] = { idxA, idxB, 'R' , 0};
-    int lens[] = { A.lens[0], B.lens[0], A.lens[1] };
+    int lens[] = { (int)A.lens[0],
+                   (int)B.lens[0],
+                   (int)A.lens[1] };
     int syms[] = { NS, NS, NS };
     Tensor<F> TC(3, lens, syms, *T.wrld, "TC");
     TC[indicesTC] = T[indicesT] * C[indicesC];
@@ -178,7 +186,7 @@ void sisi4s::contractWithCanonicalPolyadicDecompositionTensors(
 );
 
 
-template <typename F=double>
+template <typename F>
 void sisi4s::dryContractWithCanonicalPolyadicDecompositionTensors(
   DryTensor<F> &T, char const *indicesT,
   DryTensor<F> &B, char const idxB,

@@ -5,9 +5,9 @@
 #include <util/ScaLapackMatrix.hpp>
 #include <util/ScaLapackSingularValueDecomposition.hpp>
 #include <util/Log.hpp>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
 
 
 template <typename F>
@@ -19,7 +19,10 @@ PseudoInverseSvd<F>::PseudoInverseSvd(
   // convert CTF matrices into ScaLapack matrices
   BlacsWorld blacsWorld(A.wrld->rank, A.wrld->np);
   // TODO: only works for quadratic matrices
-  ScaLapackMatrix<F> ScaA(A, std::array<int,2>{{A.lens[0],A.lens[1]}}.data(), &blacsWorld);
+  ScaLapackMatrix<F>
+    ScaA(A,
+         std::array<int,2>({(int)A.lens[0], (int)A.lens[1]}).data(),
+         &blacsWorld);
   ScaLapackMatrix<F> ScaU(ScaA);
   ScaLapackMatrix<F> ScaVT(ScaA);
 
@@ -30,7 +33,7 @@ PseudoInverseSvd<F>::PseudoInverseSvd(
 
   // convert real sigma into complex CTF vector of their pseudo inverses
   // TODO: only works for quadratic matrices
-  Vector<F> S(A.lens[0], *A.wrld, "Sigma");
+  CTF::Vector<F> S(A.lens[0], *A.wrld, "Sigma");
   int localSigmaCount(A.wrld->rank == 0 ? ScaA.lens[0] : 0);
   F *sigmaValues(new F[localSigmaCount]);
   int64_t *sigmaIndices(new int64_t[localSigmaCount]);
@@ -43,21 +46,21 @@ PseudoInverseSvd<F>::PseudoInverseSvd(
   S.write(localSigmaCount, sigmaIndices, sigmaValues);
 
   // convert ScaLapack result matrices to CTF
-  Matrix<F> U(A.lens[0], A.lens[1]);
+  CTF::Matrix<F> U(A.lens[0], A.lens[1]);
   ScaU.write(U);
-  Matrix<F> VT(A.lens[0], A.lens[1]);
+  CTF::Matrix<F> VT(A.lens[0], A.lens[1]);
   ScaVT.write(VT);
   delete[] sigmaIndices; delete[] sigmaValues;
   delete[] sigma;
 
   // recompose in CTF to get pseudo inverse matrix
   inverse["ij"] = VT["ki"] * S["k"] * U["jk"];
-  Univar_Function<F> fConj(conj<F>);
+  CTF::Univar_Function<F> fConj(conj<F>);
   inverse.sum(1.0,inverse,"ij", 0.0,"ij", fConj);
 }
 
 template <typename F>
-Matrix<F> &PseudoInverseSvd<F>::get() {
+CTF::Matrix<F> &PseudoInverseSvd<F>::get() {
   return inverse;
 }
 
@@ -67,14 +70,14 @@ PseudoInverseSvd<sisi4s::Float64>::PseudoInverseSvd(
   Tensor<sisi4s::Float64> &matrix, double epsilon
 );
 template
-Matrix<sisi4s::Float64> &PseudoInverseSvd<sisi4s::Float64>::get();
+CTF::Matrix<sisi4s::Float64> &PseudoInverseSvd<sisi4s::Float64>::get();
 
 template
 PseudoInverseSvd<sisi4s::Complex64>::PseudoInverseSvd(
   Tensor<sisi4s::Complex64> &matrix, double epsilon
 );
 template
-Matrix<sisi4s::Complex64> &PseudoInverseSvd<sisi4s::Complex64>::get();
+CTF::Matrix<sisi4s::Complex64> &PseudoInverseSvd<sisi4s::Complex64>::get();
 
 
 template <typename F>
@@ -92,15 +95,17 @@ DryMatrix<F> &DryPseudoInverseSvd<F>::get() {
 
 // instantiate
 template
-DryPseudoInverseSvd<sisi4s::Float64>::DryPseudoInverseSvd(
-  DryTensor<sisi4s::Float64> const &matrix
-);
-template
-DryMatrix<sisi4s::Float64> &DryPseudoInverseSvd<sisi4s::Float64>::get();
+sisi4s::DryPseudoInverseSvd<sisi4s::Float64>::DryPseudoInverseSvd(
+sisi4s::DryTensor<sisi4s::Float64> const &matrix);
 
 template
-DryPseudoInverseSvd<sisi4s::Complex64>::DryPseudoInverseSvd(
+sisi4s::DryMatrix<sisi4s::Float64>
+&sisi4s::DryPseudoInverseSvd<sisi4s::Float64>::get();
+
+template
+sisi4s::DryPseudoInverseSvd<sisi4s::Complex64>::DryPseudoInverseSvd(
   DryTensor<sisi4s::Complex64> const &matrix
 );
 template
-DryMatrix<sisi4s::Complex64> &DryPseudoInverseSvd<sisi4s::Complex64>::get();
+sisi4s::DryMatrix<sisi4s::Complex64>
+&sisi4s::DryPseudoInverseSvd<sisi4s::Complex64>::get();

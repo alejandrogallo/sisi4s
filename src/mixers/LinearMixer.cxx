@@ -3,8 +3,8 @@
 #include <util/Emitter.hpp>
 #include <util/Log.hpp>
 #include <Sisi4s.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 MIXER_REGISTRAR_DEFINITION(LinearMixer);
@@ -57,6 +57,6 @@ PTR(const FockVector<F>) LinearMixer<F>::getResiduum() {
 }
 
 // instantiate
-template class LinearMixer<sisi4s::Float64>;
-template class LinearMixer<sisi4s::Complex64>;
+template class sisi4s::LinearMixer<sisi4s::Float64>;
+template class sisi4s::LinearMixer<sisi4s::Complex64>;
 

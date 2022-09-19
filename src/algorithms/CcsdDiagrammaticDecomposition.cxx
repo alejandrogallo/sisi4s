@@ -6,13 +6,12 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <array>
 #include <string>
 #include <util/SharedPointer.hpp>
 
 
-using namespace CTF;
 using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdDiagrammaticDecomposition);
@@ -42,24 +41,24 @@ void CcsdDiagrammaticDecomposition::run() {
     (*Tai)["ai"] = 0.;
   }
 
-  auto Rai( new Tensor<>(*Tai));
+  auto Rai( new Tensor<double>(*Tai));
   Rai->set_name("Rai");
   (*Rai)["ai"] = 0.;
-  auto Rabij( new Tensor<>(*Tabij));
+  auto Rabij( new Tensor<double>(*Tabij));
   Rabij->set_name("Rabij");
   (*Rabij)["abij"] = 0.;
 
 
   // construct energy denominator
-  Tensor<> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<> *epsa(getTensorArgument("ParticleEigenEnergies"));
-  auto deltaabij(new Tensor<>(*Rabij));
+  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
+  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
+  auto deltaabij(new Tensor<double>(*Rabij));
   deltaabij->set_name("deltaabij");
   (*deltaabij)["abij"]  = (*epsi)["i"];
   (*deltaabij)["abij"] += (*epsi)["j"];
   (*deltaabij)["abij"] -= (*epsa)["a"];
   (*deltaabij)["abij"] -= (*epsa)["b"];
-  auto deltaai(new Tensor<>(*Rai));
+  auto deltaai(new Tensor<double>(*Rai));
   deltaai->set_name("deltaai");
   (*deltaai)["ai"]  = (*epsi)["i"];
   (*deltaai)["ai"] -= (*epsa)["a"];
@@ -91,26 +90,26 @@ void CcsdDiagrammaticDecomposition::run() {
   Tensor<complex> GammaGij(GammaGqr->slice(GijStart,GijEnd));
 
   // Split GammaGab,GammaGai,GammaGia,GammaGij into real and imaginary parts
-  Tensor<> realGammaGai(
+  Tensor<double> realGammaGai(
     3, GammaGai.lens, GammaGai.sym, *GammaGai.wrld, "RealGammaGai"
   );
-  Tensor<> imagGammaGai(
+  Tensor<double> imagGammaGai(
     3, GammaGai.lens, GammaGai.sym, *GammaGai.wrld, "ImagGammaGai"
   );
   fromComplexTensor(GammaGai, realGammaGai, imagGammaGai);
 
-  Tensor<> realGammaGab(
+  Tensor<double> realGammaGab(
     3, GammaGab.lens, GammaGab.sym, *GammaGab.wrld, "RealGammaGab"
   );
-  Tensor<> imagGammaGab(
+  Tensor<double> imagGammaGab(
     3, GammaGab.lens, GammaGab.sym, *GammaGab.wrld, "ImagGammaGab"
   );
   fromComplexTensor(GammaGab, realGammaGab, imagGammaGab);
 
-  Tensor<> realGammaGij(
+  Tensor<double> realGammaGij(
   3, GammaGij.lens, GammaGij.sym, *GammaGij.wrld, "RealGammaGij"
   );
-  Tensor<> imagGammaGij(
+  Tensor<double> imagGammaGij(
     3, GammaGij.lens, GammaGij.sym, *GammaGij.wrld, "ImagGammaGij"
   );
   fromComplexTensor(GammaGij, realGammaGij, imagGammaGij);
@@ -127,16 +126,16 @@ void CcsdDiagrammaticDecomposition::run() {
 
 
   // Intermediates used both by T1 and T2
-  Tensor<> Kac(2, vv.data(), syms.data(), *Vabij->wrld, "Kac");
-  Tensor<> Kki(2, oo.data(), syms.data(), *Vabij->wrld, "Kki");
-  Tensor<> Xabij(*Tabij);
+  Tensor<double> Kac(2, vv.data(), syms.data(), *Vabij->wrld, "Kac");
+  Tensor<double> Kki(2, oo.data(), syms.data(), *Vabij->wrld, "Kki");
+  Tensor<double> Xabij(*Tabij);
   Xabij.set_name("Xabij");
   Xabij["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
 
   {
     // Intermediates used for T2 amplitudes
-    Tensor<> Lac(2, vv.data(), syms.data(), *Vabij->wrld, "Lac");
-    Tensor<> Lki(2, oo.data(), syms.data(), *Vabij->wrld, "Lki");
+    Tensor<double> Lac(2, vv.data(), syms.data(), *Vabij->wrld, "Lac");
+    Tensor<double> Lki(2, oo.data(), syms.data(), *Vabij->wrld, "Lki");
 
     // Build Kac
     Kac["ac"]  = (-2.0) * (*Vabij)["cdkl"] * Xabij["adkl"];
@@ -170,8 +169,8 @@ void CcsdDiagrammaticDecomposition::run() {
 
   {
     // Contract Coulomb integrals with T2 amplitudes
-    Tensor<> realDressedGammaGai(realGammaGai);
-    Tensor<> imagDressedGammaGai(imagGammaGai);
+    Tensor<double> realDressedGammaGai(realGammaGai);
+    Tensor<double> imagDressedGammaGai(imagGammaGai);
     realDressedGammaGai.set_name("realDressedGammaGai");
     imagDressedGammaGai.set_name("imagDressedGammaGai");
 
@@ -189,10 +188,10 @@ void CcsdDiagrammaticDecomposition::run() {
 
   {
     // Build Xakic
-    Tensor<> Xakic(4, voov.data(), syms.data(), *Vabij->wrld, "Xakic");
+    Tensor<double> Xakic(4, voov.data(), syms.data(), *Vabij->wrld, "Xakic");
 
-    Tensor<> realDressedGammaGai(realGammaGai);
-    Tensor<> imagDressedGammaGai(imagGammaGai);
+    Tensor<double> realDressedGammaGai(realGammaGai);
+    Tensor<double> imagDressedGammaGai(imagGammaGai);
     realDressedGammaGai.set_name("realDressedGammaGai");
     imagDressedGammaGai.set_name("imagDressedGammaGai");
 
@@ -215,7 +214,7 @@ void CcsdDiagrammaticDecomposition::run() {
 
 
     // Intermediate tensor Yabij=T2-2*T1*T1
-    Tensor<> Yabij(*Tabij);
+    Tensor<double> Yabij(*Tabij);
     Yabij.set_name("Yabij");
     Yabij["abij"] += ( 2.0) * (*Tai)["ai"] * (*Tai)["bj"];
 
@@ -236,17 +235,17 @@ void CcsdDiagrammaticDecomposition::run() {
 
   {
     // Build Xakci
-    Tensor<> Xakci(false, *Vaibj);
+    Tensor<double> Xakci(false, *Vaibj);
     Xakci.set_name("Xakci");
 
     // Construct dressed Coulomb vertex GammaGab and GammaGij
-    Tensor<> realDressedGammaGab(realGammaGab);
-    Tensor<> imagDressedGammaGab(imagGammaGab);
+    Tensor<double> realDressedGammaGab(realGammaGab);
+    Tensor<double> imagDressedGammaGab(imagGammaGab);
     realDressedGammaGab.set_name("realDressedGammaGab");
     imagDressedGammaGab.set_name("imagDressedGammaGab");
 
-    Tensor<> realDressedGammaGij(realGammaGij);
-    Tensor<> imagDressedGammaGij(imagGammaGij);
+    Tensor<double> realDressedGammaGij(realGammaGij);
+    Tensor<double> imagDressedGammaGij(imagGammaGij);
     realDressedGammaGij.set_name("realDressedGammaGij");
     imagDressedGammaGij.set_name("imagDressedGammaGij");
 
@@ -288,7 +287,7 @@ void CcsdDiagrammaticDecomposition::run() {
     // Build Xklij intermediate
 
     // dressed hh-ladder...
-    Tensor<> Xklij(false, *Vijkl);
+    Tensor<double> Xklij(false, *Vijkl);
     Xklij.set_name("Xklij");
 
     Xklij["klij"]  = (*Vijkl)["klij"];
@@ -312,7 +311,7 @@ void CcsdDiagrammaticDecomposition::run() {
   {
     (*Rabij)["abij"] = 0.;
     // Intermediates used for T1 amplitudes
-    Tensor<> Kck(2, vo.data(), syms.data(), *Vabij->wrld, "Kck");
+    Tensor<double> Kck(2, vo.data(), syms.data(), *Vabij->wrld, "Kck");
 
     // Contract Kac and Kki with T1 amplitudes
     (*Rai)["ai"] += ( 1.0) * Kac["ac"] * (*Tai)["ci"];
@@ -345,19 +344,19 @@ void CcsdDiagrammaticDecomposition::run() {
 
   // Read the integralsSliceSize. If not provided use No
   int integralsSliceSize(getIntegerArgument("integralsSliceSize"));
-  
+
   int numberSlices(int(ceil(double(Nv)/integralsSliceSize)));
 
-  Tensor<> realDressedGammaGab(realGammaGab);
-  Tensor<> imagDressedGammaGab(imagGammaGab);
+  Tensor<double> realDressedGammaGab(realGammaGab);
+  Tensor<double> imagDressedGammaGab(imagGammaGab);
   realDressedGammaGab.set_name("realDressedGammaGab");
   imagDressedGammaGab.set_name("imagDressedGammaGab");
   // Construct dressed Coulomb vertex GammaGab
   realDressedGammaGab["Gab"] += (-1.0) * realGammaGai["Gbk"] * (*Tai)["ak"];
   imagDressedGammaGab["Gab"] += (-1.0) * imagGammaGai["Gbk"] * (*Tai)["ak"];
 
-  std::vector<PTR(CTF::Tensor<double>)> realSlicedGammaGab;
-  std::vector<PTR(CTF::Tensor<double>)> imagSlicedGammaGab;
+  std::vector<PTR(Tensor<double>)> realSlicedGammaGab;
+  std::vector<PTR(Tensor<double>)> imagSlicedGammaGab;
   for (int v(0); v < numberSlices; v++){
     int xStart = v*integralsSliceSize;
     int xEnd = std::min((v+1)*integralsSliceSize,Nv);
@@ -365,45 +364,48 @@ void CcsdDiagrammaticDecomposition::run() {
     int sliceStart[] = { 0, xStart, 0};
     int sliceEnd[]   = { NG, xEnd, Nv};
     realSlicedGammaGab.push_back(
-      NEW(CTF::Tensor<double>,realDressedGammaGab.slice(sliceStart,sliceEnd))
+      NEW(Tensor<double>,realDressedGammaGab.slice(sliceStart,sliceEnd))
     );
     imagSlicedGammaGab.push_back(
-      NEW(CTF::Tensor<double>,imagDressedGammaGab.slice(sliceStart,sliceEnd))
+      NEW(Tensor<double>,imagDressedGammaGab.slice(sliceStart,sliceEnd))
     );
   }
 
   //slice loop starts here
   for (int m(0); m < numberSlices; m++){
     for (int n(m); n < numberSlices; n++){
-      int lenscd[] = {
-        realSlicedGammaGab[n]->lens[1], realSlicedGammaGab[m]->lens[1],
-        realSlicedGammaGab[n]->lens[2], realSlicedGammaGab[m]->lens[2]
-      };
+      int lenscd[] = {(int)realSlicedGammaGab[n]->lens[1],
+                      (int)realSlicedGammaGab[m]->lens[1],
+                      (int)realSlicedGammaGab[n]->lens[2],
+                      (int)realSlicedGammaGab[m]->lens[2]};
       int syms[] = {NS, NS, NS, NS};
-      auto Vxycd(new Tensor<>(4, lenscd, syms, *realDressedGammaGab.wrld, "Vxycd"));
- 
+      auto Vxycd(new Tensor<double>(4, lenscd, syms, *realDressedGammaGab.wrld, "Vxycd"));
+
       (*Vxycd)["xycd"]  = (*realSlicedGammaGab[n])["Gxc"] * (*realSlicedGammaGab[m])["Gyd"];
       (*Vxycd)["xycd"] += (*imagSlicedGammaGab[n])["Gxc"] * (*imagSlicedGammaGab[m])["Gyd"];
- 
-      int lensij[] = { Vxycd->lens[0], Vxycd->lens[1], No, No};
-      Tensor<> Rxyij(4, lensij, syms, *Vxycd->wrld, "Rxyij");
- 
+
+      int lensij[] = {(int)Vxycd->lens[0],
+                      (int)Vxycd->lens[1],
+                      (int)No,
+                      (int)No};
+      Tensor<double> Rxyij(4, lensij, syms, *Vxycd->wrld, "Rxyij");
+
       // Contract sliced Vxycd with T2 and T1 Amplitudes using Xabij
       Rxyij["xyij"] = (*Vxycd)["xycd"] * Xabij["cdij"];
       int a(n*integralsSliceSize);
       int b(m*integralsSliceSize);
- 
+
       sliceIntoResiduum(Rxyij, a, b, *Rabij);
       // The integrals of this slice are not needed anymore
       delete Vxycd;
- 
+
     }
   }
 
-  Tensor<> Xklij(false, *Vijkl);
+  Tensor<double> Xklij(false, *Vijkl);
   Xklij.set_name("Xklij");
   // we have to remove the singles sinlges term which appears in our abcd contraction
-  (*Rai)["ai"] = 0.0; 
+  (*Rai)["ai"] = 0.0;
   Xklij["klij"]  = (*Vabij)["cdkl"] * Xabij["cdij"];
   (*Rabij)["abij"] += (-1.0) * Xklij["klij"] * (*Tai)["ai"] * (*Tai)["bj"];
 
@@ -415,8 +417,8 @@ void CcsdDiagrammaticDecomposition::run() {
 
 void CcsdDiagrammaticDecomposition::evaluateEnergy(
   std::string diagramType,
-  CTF::Tensor<> &deltaabij, CTF::Tensor<> &deltaai,
-  CTF::Tensor<> &Rabij,  CTF::Tensor<> &Rai
+  Tensor<double> &deltaabij, Tensor<double> &deltaai,
+  Tensor<double> &Rabij,  Tensor<double> &Rai
 ){
   // energy denominator
   CTF::Transform<double, double>(
@@ -440,8 +442,8 @@ void CcsdDiagrammaticDecomposition::evaluateEnergy(
 
   // get the Coulomb integrals to compute the energy
   auto Vijab(getTensorArgument<>("HHPPCoulombIntegrals"));
-  
-  Scalar<> energy(*Vijab->wrld);
+
+  CTF::Scalar<double> energy(*Vijab->wrld);
   //direct term
   energy[""]  = 2.0 * Rabij["abij"] * (*Vijab)["ijab"];
   energy[""] += 2.0 * Rai["ai"] * Rai["bj"] * (*Vijab)["ijab"];
@@ -460,7 +462,7 @@ void CcsdDiagrammaticDecomposition::evaluateEnergy(
 }
 
 void CcsdDiagrammaticDecomposition::sliceIntoResiduum(
-  Tensor<> &Rxyij, int a, int b, Tensor<> &Rabij
+  Tensor<double> &Rxyij, int a, int b, Tensor<double> &Rabij
 ) {
   int Nx(Rxyij.lens[0]);
   int Ny(Rxyij.lens[1]);
@@ -477,10 +479,9 @@ void CcsdDiagrammaticDecomposition::sliceIntoResiduum(
     dstEnd[0] = b+Ny; dstEnd[1] = a+Nx;
     srcEnd[0] = Ny; srcEnd[1] = Nx;
     // Swap xy and ij simultaneously
-    Tensor<> Ryxji(4, srcEnd, Rxyij.sym, *Rxyij.wrld, "Ryxji");
+    Tensor<double> Ryxji(4, srcEnd, Rxyij.sym, *Rxyij.wrld, "Ryxji");
     Ryxji["yxji"] = Rxyij["xyij"];
     // Add Ryxij to Rabij
     Rabij.slice(dstStart,dstEnd,1.0, Ryxji,srcStart,srcEnd,1.0);
   }
 }
-

@@ -24,9 +24,9 @@ namespace sisi4s {
     virtual void run();
 
     /** \brief The Coulomb Vertex GammaGai  */
-    CTF::Tensor<complex> *GammaGai;
+    Tensor<complex> *GammaGai;
     /** \brief The Coulomb integrals Vabij  */
-    CTF::Tensor<> *Vabij;
+    Tensor<double> *Vabij;
 
     /**
      * \brief Dry run for calculating Coulomb integrals from ParticleHole Coulomb Vertex

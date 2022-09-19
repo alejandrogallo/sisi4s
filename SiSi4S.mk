@@ -19,7 +19,7 @@ YAML_BUILD_PATH     ?= $(EXTERN_BUILD_PATH)/yaml-cpp/$(YAML_COMMIT)
 YAML_SRC_PATH       ?= $(EXTERN_SRC_PATH)/yaml-cpp/$(YAML_COMMIT)
 YAML_CPATH          ?= ${YAML_BUILD_PATH}/include
 YAML_CPPFLAGS       ?= -I${YAML_CPATH}
-YAML_LDFLAGS        ?= -L${YAML_BUILD_PATH} -lyaml-cpp
+YAML_LDFLAGS        ?= ${YAML_BUILD_PATH}/libyaml-cpp.a
 YAML_GIT_REPOSITORY ?= https://gitlab.cc4s.org/cc4s/yaml-cpp.git
 CPPFLAGS            += $(YAML_CPPFLAGS)
 include $(top_srcdir)/etc/make/yaml.mk

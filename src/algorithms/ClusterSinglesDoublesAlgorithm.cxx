@@ -7,14 +7,13 @@
 #include <util/Log.hpp>
 #include <util/Emitter.hpp>
 #include <util/Exception.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Options.hpp>
 #include <Sisi4s.hpp>
 #include <array>
 
 #include <initializer_list>
 
-using namespace CTF;
 using namespace sisi4s;
 
 ClusterSinglesDoublesAlgorithm::ClusterSinglesDoublesAlgorithm(
@@ -168,7 +167,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   }
 
   // allocate energy
-  Scalar<F> energy(*Vijab->wrld);
+  CTF::Scalar<F> energy(*Vijab->wrld);
   energy.set_name("energy");
 
   // singles amplitudes are optional
@@ -209,8 +208,8 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   }
 
   if (isArgumentGiven("HPFockMatrix")) {
-    CTF::Tensor<F> *fia;
-    fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
+    Tensor<F> *fia;
+    fia = getTensorArgument<F, Tensor<F> >("HPFockMatrix");
     energy[""] = spins * (*Tai)["ai"] * (*fia)["ia"];
     F noncanonical(energy.get_val());
     LOG(0, getCapitalizedAbbreviation())
@@ -230,7 +229,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   LOG(0, getCapitalizedAbbreviation()) << std::setprecision(10) <<
     "energy= " << e << std::setprecision(ss) << std::endl;
   if ( isArgumentGiven("PairEnergy")) {
-    int oo[] = { Tabij->lens[2], Tabij->lens[2] };
+    int oo[] = { (int)Tabij->lens[2], (int)Tabij->lens[2] };
     int syms[] = { NS, NS};
     auto pairEnergy(new Tensor<F>( 2, oo, syms, *Sisi4s::world, "pairEnergies"));
     if (antisymmetrized) {
@@ -253,7 +252,7 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
   std::initializer_list<std::initializer_list<int>> amplitudeLens,
   std::initializer_list<std::string> amplitudeIndices
 ) {
-  std::vector<PTR(CTF::Tensor<F>)> amplitudeTensors;
+  std::vector<PTR(Tensor<F>)> amplitudeTensors;
   auto lensIterator( amplitudeLens.begin() );
   for (auto name: amplitudeNames) {
     std::stringstream initialDataName;
@@ -261,7 +260,7 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
     if (isArgumentGiven(initialDataName.str())) {
       // use given amplitudes as initial amplitudes
       amplitudeTensors.push_back(
-        NEW(CTF::Tensor<F>, *getTensorArgument<F>( initialDataName.str() ))
+        NEW(Tensor<F>, *getTensorArgument<F>( initialDataName.str() ))
       );
       EMIT() << YAML::Key << "initialAmplitudes"
              << YAML::Value << initialDataName.str();
@@ -270,7 +269,7 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
       std::vector<int> lens(*lensIterator);
       std::vector<int> syms(lens.size(), NS);
       amplitudeTensors.push_back(
-        NEW(CTF::Tensor<F>,
+        NEW(Tensor<F>,
           lens.size(), lens.data(), syms.data(), *Sisi4s::world, "T"
         )
       );
@@ -352,7 +351,7 @@ void ClusterSinglesDoublesAlgorithm::estimateAmplitudesFromResiduum(
 
 template <typename F>
 void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
-  CTF::Tensor<F> &D, const std::string &indices
+  Tensor<F> &D, const std::string &indices
 ) {
   auto epsi(getTensorArgument<>("HoleEigenEnergies"));
   auto epsa(getTensorArgument<>("ParticleEigenEnergies"));
@@ -377,11 +376,11 @@ void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
 // instantiate
 template
 void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
-  CTF::Tensor<double> &D, const std::string &indices
+  Tensor<double> &D, const std::string &indices
 );
 template
 void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
-  CTF::Tensor<complex> &D, const std::string &indices
+  Tensor<complex> &D, const std::string &indices
 );
 
 
@@ -432,15 +431,15 @@ Tensor<double> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
   auto GammaGab(GammaGqr->slice(GabStart,GabEnd));
 
   // Split GammaGab,GammaGai into real and imaginary parts
-  Tensor<> realGammaGai(3, GammaGai.lens, GammaGai.sym,
+  Tensor<double> realGammaGai(3, GammaGai.lens, GammaGai.sym,
                         *GammaGai.wrld, "RealGammaGai");
-  Tensor<> imagGammaGai(3, GammaGai.lens, GammaGai.sym,
+  Tensor<double> imagGammaGai(3, GammaGai.lens, GammaGai.sym,
                         *GammaGai.wrld, "ImagGammaGai");
   fromComplexTensor(GammaGai, realGammaGai, imagGammaGai);
 
-  Tensor<> realGammaGab(3, GammaGab.lens, GammaGab.sym,
+  Tensor<double> realGammaGab(3, GammaGab.lens, GammaGab.sym,
                         *GammaGab.wrld, "RealGammaGab");
-  Tensor<> imagGammaGab(3, GammaGab.lens, GammaGab.sym,
+  Tensor<double> imagGammaGab(3, GammaGab.lens, GammaGab.sym,
                         *GammaGab.wrld, "ImagGammaGab");
   fromComplexTensor(GammaGab, realGammaGab, imagGammaGab);
 
@@ -459,27 +458,28 @@ Tensor<double> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
   auto rightGamma(GammaGab.slice(rightGammaStart, rightGammaEnd));
 
   // Split into real and imaginary parts
-  Tensor<> realLeftGamma(
+  Tensor<double> realLeftGamma(
     3, leftGamma.lens, leftGamma.sym, *GammaGqr->wrld, "realLeftGamma"
   );
-  Tensor<> imagLeftGamma(
+  Tensor<double> imagLeftGamma(
     3, leftGamma.lens, leftGamma.sym, *GammaGqr->wrld, "imagLeftGamma"
   );
   fromComplexTensor(leftGamma, realLeftGamma, imagLeftGamma);
-  Tensor<> realRightGamma(
+  Tensor<double> realRightGamma(
     3, rightGamma.lens, rightGamma.sym, *GammaGqr->wrld, "realRightGamma"
   );
-  Tensor<> imagRightGamma(
+  Tensor<double> imagRightGamma(
     3, rightGamma.lens, rightGamma.sym, *GammaGqr->wrld, "imagRightGamma"
   );
   fromComplexTensor(rightGamma, realRightGamma, imagRightGamma);
 
   // Allocate sliced Coulomb integrals
-  int lens[] = {
-    leftGamma.lens[1], rightGamma.lens[1], leftGamma.lens[2], rightGamma.lens[2]
-  };
+  int lens[] = {(int)leftGamma.lens[1],
+                (int)rightGamma.lens[1],
+                (int)leftGamma.lens[2],
+                (int)rightGamma.lens[2]};
   int syms[] = { NS, NS, NS, NS };
-  auto Vxycd(new Tensor<>(4, lens, syms, *GammaGqr->wrld, "Vxycd"));
+  auto Vxycd(new Tensor<double>(4, lens, syms, *GammaGqr->wrld, "Vxycd"));
 
   // Contract left and right slices of the dressed Coulomb vertices
   (*Vxycd)["xycd"]  = realLeftGamma["Gxc"] * realRightGamma["Gyd"];
@@ -517,7 +517,7 @@ Tensor<sisi4s::complex> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombInte
   auto GammaGai( new Tensor<complex>(GammaGqr->slice(GaiStart, GaiEnd)) );
   auto GammaGab( new Tensor<complex>(GammaGqr->slice(GabStart, GabEnd)) );
 
-  Univar_Function<complex> fConj(conj<complex>);
+  CTF::Univar_Function<complex> fConj(conj<complex>);
 
   Tensor<complex> conjTransposeGammaGia(false, *GammaGia);
   conjTransposeGammaGia.sum(1.0,*GammaGai,"Gai", 0.0,"Gia", fConj);
@@ -543,9 +543,10 @@ Tensor<sisi4s::complex> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombInte
   auto rightGamma(DressedGammaGab.slice(rightGammaStart, rightGammaEnd));
 
   // Allocate sliced Coulomb integrals
-  int lens[] = {
-    leftGamma.lens[1], rightGamma.lens[1], leftGamma.lens[2], rightGamma.lens[2]
-  };
+  int lens[] = {(int)leftGamma.lens[1],
+                (int)rightGamma.lens[1],
+                (int)leftGamma.lens[2],
+                (int)rightGamma.lens[2]};
   int syms[] = { NS, NS, NS, NS };
   auto Vxycd(new Tensor<complex>(4, lens, syms, *GammaGqr->wrld, "Vxycd"));
 
@@ -597,8 +598,8 @@ Tensor<double> *
 
   Tensor<complex> VRS(2, RR, syms, *PirR->wrld, "VRS");
 
-  Tensor<> realXRaij(4, Rvoo, syms, *PirR->wrld, "RealXRaij");
-  Tensor<> imagXRaij(4, Rvoo, syms, *PirR->wrld, "ImagXRaij");
+  Tensor<double> realXRaij(4, Rvoo, syms, *PirR->wrld, "RealXRaij");
+  Tensor<double> imagXRaij(4, Rvoo, syms, *PirR->wrld, "ImagXRaij");
 
   // Allocate and compute PiaR
   int aRStart[] = {No , 0};
@@ -618,18 +619,18 @@ Tensor<double> *
   rightPiaR.set_name("rightPiaR");
 
   // Split left and right PiaR into real and imaginary parts
-  Tensor<> realLeftPiaR(
+  Tensor<double> realLeftPiaR(
     2, leftPiaR.lens, leftPiaR.sym, *leftPiaR.wrld, "RealLeftPiaR"
   );
-  Tensor<> imagLeftPiaR(
+  Tensor<double> imagLeftPiaR(
     2, leftPiaR.lens, leftPiaR.sym, *leftPiaR.wrld, "ImagRightPiaR"
   );
   fromComplexTensor(leftPiaR, realLeftPiaR, imagLeftPiaR);
 
-  Tensor<> realRightPiaR(
+  Tensor<double> realRightPiaR(
     2, rightPiaR.lens, rightPiaR.sym, *rightPiaR.wrld, "RealLeftPiaR"
   );
-  Tensor<> imagRightPiaR(
+  Tensor<double> imagRightPiaR(
     2, rightPiaR.lens, rightPiaR.sym, *rightPiaR.wrld, "ImagRightPiaR"
   );
   fromComplexTensor(leftPiaR, realLeftPiaR, imagLeftPiaR);
@@ -655,7 +656,7 @@ Tensor<double> *
   Tensor<complex> XRSij(4, RRoo, syms, *PirR->wrld, "XRSij");
   XRSij["RSij"] = XRaij["Rdij"] * rightPiaR["dS"];
 
-  Univar_Function<complex> fConj(&sisi4s::conj<complex>);
+  CTF::Univar_Function<complex> fConj(&sisi4s::conj<complex>);
   Tensor<complex> conjLeftLambdaGR(false, leftLambdaGR);
   conjLeftLambdaGR.set_name("ConjLeftLambdaGR");
   conjLeftLambdaGR.sum(1.0, leftLambdaGR,"GR", 0.0,"GR", fConj);
@@ -670,8 +671,8 @@ Tensor<double> *
   PiiR.set_name("PiiR");
 
   // Split PiiR into real and imaginary parts
-  Tensor<> realPiiR(2, PiiR.lens, PiiR.sym, *PiiR.wrld, "RealPiiR");
-  Tensor<> imagPiiR(2, PiiR.lens, PiiR.sym, *PiiR.wrld, "ImagPiiR");
+  Tensor<double> realPiiR(2, PiiR.lens, PiiR.sym, *PiiR.wrld, "RealPiiR");
+  Tensor<double> imagPiiR(2, PiiR.lens, PiiR.sym, *PiiR.wrld, "ImagPiiR");
   fromComplexTensor(PiiR, realPiiR, imagPiiR);
 
   // Initialize dressedPiaR
@@ -679,10 +680,10 @@ Tensor<double> *
   dressedPiaR.set_name("dressedPiaR");
 
   // Split dressedPiaR into real and imaginary parts
-  Tensor<> realDressedPiaR(
+  Tensor<double> realDressedPiaR(
     2, dressedPiaR.lens, dressedPiaR.sym, *dressedPiaR.wrld, "RealDressedPiaR"
   );
-  Tensor<> imagDressedPiaR(
+  Tensor<double> imagDressedPiaR(
     2, dressedPiaR.lens, dressedPiaR.sym, *dressedPiaR.wrld, "ImagDressedPiaR"
   );
   fromComplexTensor(dressedPiaR, realDressedPiaR, imagDressedPiaR);
@@ -699,11 +700,11 @@ Tensor<double> *
   dressedRightPiaR.set_name("dressedRightPiaR");
 
   // Split dressed left PiaR into real and imaginary parts
-  Tensor<> dressedRealLeftPiaR(
+  Tensor<double> dressedRealLeftPiaR(
     2, dressedLeftPiaR.lens, dressedLeftPiaR.sym, *dressedLeftPiaR.wrld,
     "dressedRealLeftPiaR"
   );
-  Tensor<> dressedImagLeftPiaR(
+  Tensor<double> dressedImagLeftPiaR(
     2, dressedLeftPiaR.lens, dressedLeftPiaR.sym, *dressedLeftPiaR.wrld,
     "dressedImagLeftPiaR"
   );
@@ -713,7 +714,7 @@ Tensor<double> *
 
   // allocate Tensor for sliced T2 amplitudes
   int vvoo[] = { Nv, Nv, No, No };
-  auto Fabij(new Tensor<>(4, vvoo, syms, *PirR->wrld, "Fabij"));
+  auto Fabij(new Tensor<double>(4, vvoo, syms, *PirR->wrld, "Fabij"));
 
   // compute sliced amplitudes
   fromComplexTensor(XRaij, realXRaij, imagXRaij);
@@ -763,7 +764,7 @@ Tensor<sisi4s::complex> *
   int RR[] = { Rx, Ry };
   int syms[] = { NS, NS, NS, NS };
 
-  Univar_Function<complex> fConj(&sisi4s::conj<complex>);
+  CTF::Univar_Function<complex> fConj(&sisi4s::conj<complex>);
 
   Tensor<complex> VRS(2, RR, syms, *PirR->wrld, "VRS");
 

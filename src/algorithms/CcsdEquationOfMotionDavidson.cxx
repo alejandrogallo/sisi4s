@@ -11,7 +11,7 @@
 #include <util/TensorIo.hpp>
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Emitter.hpp>
@@ -34,28 +34,28 @@ CcsdEquationOfMotionDavidson::~CcsdEquationOfMotionDavidson() {}
 template <typename F>
 struct SpinOperator {
   SpinOperator(int No_, int Nv_): No(No_), Nv(Nv_) {};
-  virtual PTR(CTF::Tensor<F>) getIJ() = 0;
-  virtual PTR(CTF::Tensor<F>) getAB() = 0;
-  PTR(CTF::Tensor<F>) Sab, Sij;
+  virtual PTR(Tensor<F>) getIJ() = 0;
+  virtual PTR(Tensor<F>) getAB() = 0;
+  PTR(Tensor<F>) Sab, Sij;
   int No, Nv;
 };
 
 template <typename F>
 struct SzOperator: public SpinOperator<F> {
   SzOperator(int No, int Nv): SpinOperator<F>(No, Nv) {};
-  PTR(CTF::Tensor<F>) getIJ() {
+  PTR(Tensor<F>) getIJ() {
     if (this->Sij) return this->Sij;
     LOG(0, "SzOperator") << "Calculating Sz_ij" << std::endl;
     int oo[] = {this->No, this->No}, syms[] = {NS, NS};
-    this->Sij = NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "Szij");
+    this->Sij = NEW(Tensor<F>, 2, oo, syms, *Sisi4s::world, "Szij");
     (*this->Sij)["ii"] = 0.5;
     return this->Sij;
   }
-  PTR(CTF::Tensor<F>) getAB() {
+  PTR(Tensor<F>) getAB() {
     if (this->Sab) return this->Sab;
     LOG(0, "SzOperator") << "Calculating Sz_ab" << std::endl;
     int vv[] = {this->Nv, this->Nv},  syms[] = {NS, NS};
-    this->Sab = NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "Szab");
+    this->Sab = NEW(Tensor<F>, 2, vv, syms, *Sisi4s::world, "Szab");
     (*this->Sab)["aa"] = 0.5;
     return this->Sab;
   }
@@ -78,11 +78,11 @@ void CcsdEquationOfMotionDavidson::run() {
 
   // initialize integrals, convert them to complex if we are using the
   // complex code
-  PTR(CTF::Tensor<F>) Vijkl, Vabcd, Vijka, Vijab, Viajk, Viajb, Viabc
+  PTR(Tensor<F>) Vijkl, Vabcd, Vijka, Vijab, Viajk, Viajb, Viabc
                     , Vabic, Vabci, Vaibc, Vaibj, Viabj, Vijak, Vaijb
                     ;
 
-  typedef struct { const std::string name; PTR(CTF::Tensor<F>) &data; } _Int;
+  typedef struct { const std::string name; PTR(Tensor<F>) &data; } _Int;
   std::vector<_Int> requiredIntegrals =
     { { "HHHHCoulombIntegrals", Vijkl }, { "PPPPCoulombIntegrals", Vabcd }
     , { "HHHPCoulombIntegrals", Vijka }, { "HHPPCoulombIntegrals", Vijab }
@@ -199,7 +199,7 @@ void CcsdEquationOfMotionDavidson::run() {
   // Hilfsfunktion zum Rauschreiben von Tensoren
   const auto _writeText = TensorIo::writeText<F>;
   const auto _write_tensor =
-    [&_writeText] (const std::string &name, char mode[], CTF::Tensor<F> &t) {
+    [&_writeText] (const std::string &name, char mode[], Tensor<F> &t) {
       _writeText(name, t, mode, "", " ");
     };
 
@@ -224,15 +224,15 @@ void CcsdEquationOfMotionDavidson::run() {
   for (auto &integral: requiredIntegrals) {
     LOGGER(0) << "Converting " << integral.name << std::endl;
     auto in(getTensorArgument<double>(integral.name));
-    integral.data = NEW(CTF::Tensor<F>, in->order, in->lens, in->sym,
+    integral.data = NEW(Tensor<F>, in->order, in->lens, in->sym,
                                         *in->wrld, in->get_name());
     toComplexTensor(*in, *integral.data);
   }
 
   // set up Fock matrix elements
-  auto Fab(NEW(CTF::Tensor<F>, 2, vv, syms, *Sisi4s::world, "Fab"));
-  auto Fij(NEW(CTF::Tensor<F>, 2, oo, syms, *Sisi4s::world, "Fij"));
-  auto Fia(NEW(CTF::Tensor<F>, 2, ov, syms, *Sisi4s::world, "Fia"));
+  auto Fab(NEW(Tensor<F>, 2, vv, syms, *Sisi4s::world, "Fab"));
+  auto Fij(NEW(Tensor<F>, 2, oo, syms, *Sisi4s::world, "Fij"));
+  auto Fia(NEW(Tensor<F>, 2, ov, syms, *Sisi4s::world, "Fia"));
 
   if (  isArgumentGiven("HPFockMatrix")
      && isArgumentGiven("HHFockMatrix")
@@ -240,14 +240,14 @@ void CcsdEquationOfMotionDavidson::run() {
      ) {
     LOGGER(0) << "Using non-canonical orbitals" << std::endl;
 
-    CTF::Tensor<double> *realFia(
-      getTensorArgument<double, CTF::Tensor<double> >("HPFockMatrix")
+    Tensor<double> *realFia(
+      getTensorArgument<double, Tensor<double> >("HPFockMatrix")
     );
-    CTF::Tensor<double> *realFab(
-      getTensorArgument<double, CTF::Tensor<double> >("PPFockMatrix")
+    Tensor<double> *realFab(
+      getTensorArgument<double, Tensor<double> >("PPFockMatrix")
     );
-    CTF::Tensor<double> *realFij(
-      getTensorArgument<double, CTF::Tensor<double> >("HHFockMatrix")
+    Tensor<double> *realFij(
+      getTensorArgument<double, Tensor<double> >("HHFockMatrix")
     );
     toComplexTensor(*realFij, *Fij);
     toComplexTensor(*realFab, *Fab);
@@ -271,14 +271,14 @@ void CcsdEquationOfMotionDavidson::run() {
     );
   }
 
-  CTF::Tensor<F> Tai(2, vo, syms, *Sisi4s::world, "Tai");
-  CTF::Tensor<F> Tabij(4, vvoo, syms, *Sisi4s::world, "Tabij");
+  Tensor<F> Tai(2, vo, syms, *Sisi4s::world, "Tai");
+  Tensor<F> Tabij(4, vvoo, syms, *Sisi4s::world, "Tabij");
   toComplexTensor(
-    (*getTensorArgument<double, CTF::Tensor<double> >("SinglesAmplitudes")),
+    (*getTensorArgument<double, Tensor<double> >("SinglesAmplitudes")),
     Tai
   );
   toComplexTensor(
-    (*getTensorArgument<double, CTF::Tensor<double> >("DoublesAmplitudes")),
+    (*getTensorArgument<double, Tensor<double> >("DoublesAmplitudes")),
     Tabij
   );
 
@@ -446,7 +446,7 @@ void CcsdEquationOfMotionDavidson::run() {
     //const auto G(getTensorArgument<double>("GNorm"));
     // this is sqrt{ 1/kernel } without constants
     //const double vMadelung = 1 / madelung / madelung;
-    //CTF::Tensor<double> V(G);
+    //Tensor<double> V(G);
     //V["G"] = (1.0 / 4.0 / M_PI) * (*G)["G"] * (*G)["G"];
     //V.write(1, indices, &vMadelung);
 

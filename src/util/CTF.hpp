@@ -6,5 +6,6 @@
 #pragma GCC diagnostic ignored "-Wint-in-bool-context"
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wdeprecated-copy"
+#pragma GCC diagnostic ignored "-Wcast-function-type"
 #include <ctf.hpp>
 #pragma GCC diagnostic pop

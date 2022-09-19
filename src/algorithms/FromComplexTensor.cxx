@@ -1,8 +1,7 @@
 #include <algorithms/FromComplexTensor.hpp>
 #include <math/ComplexTensor.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(FromComplexTensor);
@@ -20,9 +19,9 @@ FromComplexTensor::~FromComplexTensor() {
  */
 void FromComplexTensor::run() {
   Tensor<complex> *A(getTensorArgument<complex>("A"));
-  Tensor<> *RealA(new Tensor<>(A->order, A->lens, A->sym, *A->wrld, "RealA"));
+  Tensor<double> *RealA(new Tensor<>(A->order, A->lens, A->sym, *A->wrld, "RealA"));
   if (isArgumentGiven("imagA")) {
-    Tensor<> *ImagA(new Tensor<>(A->order, A->lens, A->sym, *A->wrld, "ImagA"));
+    Tensor<double> *ImagA(new Tensor<>(A->order, A->lens, A->sym, *A->wrld, "ImagA"));
     fromComplexTensor(*A, *RealA, *ImagA);
     allocatedTensorArgument("imagA", ImagA);
   } else {

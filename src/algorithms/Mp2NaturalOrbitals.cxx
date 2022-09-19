@@ -8,11 +8,10 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <iostream>
 //#include <Options.hpp>
 
-using namespace CTF;
 using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(Mp2NaturalOrbitals);
@@ -34,27 +33,27 @@ Mp2NaturalOrbitals::~Mp2NaturalOrbitals() {
 }
 
 void Mp2NaturalOrbitals::run() {
-  Tensor<> *orbs(getTensorArgument("OrbitalCoefficients"));
-  Tensor<> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  Tensor<> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<> *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double> *orbs(getTensorArgument("OrbitalCoefficients"));
+  Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
+  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
+  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
   const bool unrestricted(getIntegerArgument("unrestricted", 0) == 1);
-  auto rotatedOrbitals(new Tensor<>(false, *orbs));
-  auto epsaRediag(new Tensor<>(false, *epsa));
-  auto occNumber(new Tensor<>(false, *epsa));
+  auto rotatedOrbitals(new Tensor<double>(false, *orbs));
+  auto epsaRediag(new Tensor<double>(false, *epsa));
+  auto occNumber(new Tensor<double>(false, *epsa));
   int64_t Nv(epsa->lens[0]);
   int64_t No(epsi->lens[0]);
   int64_t Np(orbs->lens[1]);
-  std::array<int,2> vv({{ Nv, Nv }});
+  std::array<int,2> vv({{ (int)Nv, (int)Nv }});
   std::array<int,2> syms({{ NS, NS }});
-  std::array<int,2> pp({{ Np, Np}});
-  auto rotationMatrix(new Tensor<>(2, pp.data(), syms.data(), *Vabij->wrld, "rotationMatrix"));
-  auto Tabij(new Tensor<>(Vabij));
+  std::array<int,2> pp({{ (int)Np, (int)Np}});
+  auto rotationMatrix(new Tensor<double>(2, pp.data(), syms.data(), *Vabij->wrld, "rotationMatrix"));
+  auto Tabij(new Tensor<double>(Vabij));
 
   if (!unrestricted) {
 
-    auto Tcbij(new Tensor<>(Vabij));
-    auto Dab(new Tensor<>(2, vv.data(), syms.data(), *Vabij->wrld, "Dab"));
+    auto Tcbij(new Tensor<double>(Vabij));
+    auto Dab(new Tensor<double>(2, vv.data(), syms.data(), *Vabij->wrld, "Dab"));
 
     Tabij->set_name("Tabij");
     Tcbij->set_name("Tcbij");
@@ -164,20 +163,20 @@ void Mp2NaturalOrbitals::run() {
     for (int64_t i(0); i < No; i++)
       unity[i+i*No] = 1.0;
 
-    std::array<int,2> oo({{ No, No }});
-    auto newunity(new Tensor<>(2, oo.data(), syms.data(), *Vabij->wrld, "new"));
+    std::array<int,2> oo({{ (int)No, (int)No }});
+    auto newunity(new Tensor<double>(2, oo.data(), syms.data(), *Vabij->wrld, "new"));
     index.resize(rank_m * No*No);
     std::iota(index.begin(), index.end(), 0);
     newunity->write(index.size(), index.data(), unity.data());
 
-    Tensor<> virtualRotor(false, *Dab);
+    Tensor<double> virtualRotor(false, *Dab);
 
     index.resize(rank_m * Nv*Nv);
     std::iota(index.begin(), index.end(), 0);
     virtualRotor.write(index.size(), index.data(), RabMatrix.data());
 
-    int dstStart[] = {0, 0}; int dstEnd[]= {No,No};
-    int srcStart[] = {0, 0}; int srcEnd[]= {No,No};
+    int dstStart[] = {0, 0}; int dstEnd[]= {(int)No,(int)No};
+    int srcStart[] = {0, 0}; int srcEnd[]= {(int)No,(int)No};
     rotationMatrix->slice(dstStart, dstEnd, 1.0, newunity, srcStart, srcEnd, 1.0);
     srcEnd[0]   = Nv;    srcEnd[1]   = Nv;
     dstStart[0] = No;    dstStart[1] = No;
@@ -195,7 +194,7 @@ void Mp2NaturalOrbitals::run() {
   else {   // UNRESTRICTED
 
     auto Spins(getTensorArgument("Spins"));
-    auto Dab(new Tensor<>(2, vv.data(), syms.data(), *Vabij->wrld, "Dab"));
+    auto Dab(new Tensor<double>(2, vv.data(), syms.data(), *Vabij->wrld, "Dab"));
 
     Tabij->set_name("Tabij");
     (*Tabij)["abij"] =  (*epsi)["i"];
@@ -425,27 +424,27 @@ void Mp2NaturalOrbitals::run() {
     for (int64_t i(0); i < No; i++)
       unity[i+i*No] = 1.0;
 
-    std::array<int,2> oo({{ No, No }});
-    auto newunity(new Tensor<>(2, oo.data(), syms.data(), *Vabij->wrld, "new"));
+    std::array<int,2> oo({{ (int)No, (int)No }});
+    auto newunity(new Tensor<double>(2, oo.data(), syms.data(), *Vabij->wrld, "new"));
     index.resize(rank_m * No*No);
     std::iota(index.begin(), index.end(), 0);
     newunity->write(index.size(), index.data(), unity.data());
 
     std::array<int,2> aa({{ Nalpha, Nalpha }});
-    auto alphaRotor(new Tensor<>(2, aa.data(), syms.data(), *Vabij->wrld, "aRotor"));
+    auto alphaRotor(new Tensor<double>(2, aa.data(), syms.data(), *Vabij->wrld, "aRotor"));
     index.resize(rank_m * Nalpha*Nalpha);
     std::iota(index.begin(), index.end(), 0);
     alphaRotor->write(index.size(), index.data(), Ralpha.data());
 
     std::array<int,2> bb({{ Nbeta, Nbeta }});
-    auto betaRotor(new Tensor<>(2, bb.data(), syms.data(), *Vabij->wrld, "aRotor"));
+    auto betaRotor(new Tensor<double>(2, bb.data(), syms.data(), *Vabij->wrld, "aRotor"));
     index.resize(rank_m * Nbeta*Nbeta);
     std::iota(index.begin(), index.end(), 0);
     betaRotor->write(index.size(), index.data(), Rbeta.data());
 
 
-    int dstStart[] = {0, 0}; int dstEnd[]= {No,No};
-    int srcStart[] = {0, 0}; int srcEnd[]= {No,No};
+    int dstStart[] = {0, 0}; int dstEnd[]= {(int)No,(int)No};
+    int srcStart[] = {0, 0}; int srcEnd[]= {(int)No,(int)No};
     rotationMatrix->slice(dstStart, dstEnd, 1.0, newunity, srcStart, srcEnd, 1.0);
     srcEnd[0]   = Nalpha;    srcEnd[1]   = Nalpha;
     dstStart[0] = No;        dstStart[1] = No;

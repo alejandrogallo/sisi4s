@@ -7,7 +7,7 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 
 using namespace sisi4s;
@@ -85,7 +85,7 @@ template <typename F>
 PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   const int iterationStep, const PTR(const FockVector<F>) &amplitudes
 ) {
-  CTF::Tensor<F> *Fab, *Fij, *Fia;
+  Tensor<F> *Fab, *Fij, *Fia;
 
   if (  isArgumentGiven("HPFockMatrix")
      && isArgumentGiven("HHFockMatrix")
@@ -96,9 +96,9 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
       LOG(0, getAbbreviation()) << "Using non-canonical orbitals "
                                 << "since you provided FockMatrices\n";
     }
-    Fia = getTensorArgument<F, CTF::Tensor<F> >("HPFockMatrix");
-    Fab = getTensorArgument<F, CTF::Tensor<F> >("PPFockMatrix");
-    Fij = getTensorArgument<F, CTF::Tensor<F> >("HHFockMatrix");
+    Fia = getTensorArgument<F, Tensor<F> >("HPFockMatrix");
+    Fab = getTensorArgument<F, Tensor<F> >("PPFockMatrix");
+    Fij = getTensorArgument<F, Tensor<F> >("HHFockMatrix");
   } else {
     auto epsi = getTensorArgument<double>("HoleEigenEnergies")
        , epsa = getTensorArgument<double>("ParticleEigenEnergies")
@@ -112,8 +112,8 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
             ;
     // TODO: replace with unique_ptr and give away the hamiltonian one
     // such pointer
-    Fab = new CTF::Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab");
-    Fij = new CTF::Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij");
+    Fab = new Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab");
+    Fij = new Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij");
     CTF::Transform<double, F>([](double eps, F &f) { f = eps; })( (*epsi)["i"]
                                                                 , (*Fij)["ii"]
                                                                 );

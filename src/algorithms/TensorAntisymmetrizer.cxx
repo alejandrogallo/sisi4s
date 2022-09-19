@@ -3,13 +3,13 @@
 #include <vector>
 #include <math/MathFunctions.hpp>
 #include <algorithm>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Integrals.hpp>
 #include <iostream>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <numeric>
 #include <map>
 #include <set>
@@ -46,14 +46,14 @@ void TensorAntisymmetrizer::run() {
     } );
 
   // Only copy integrals that are not self-antisymmetrizable
-  std::map<std::string, PTR(CTF::Tensor<double>)> integralCopies;
+  std::map<std::string, PTR(Tensor<double>)> integralCopies;
   for (const auto &integral : infos) {
   if ( isArgumentGiven(integral.name) && !isSelfAntisymmetrizable(integral) ) {
     LOG(1, "TensorAntisymmetrizer")
       << "Copying " << integral.name
       << std::endl;
     integralCopies[integral.name]
-      = NEW(CTF::Tensor<double>, *getTensorArgument<double>(integral.name));
+      = NEW(Tensor<double>, *getTensorArgument<double>(integral.name));
   }
   }
 
@@ -80,7 +80,7 @@ void TensorAntisymmetrizer::run() {
           << antigral.name << "[" << antigral.ids << "]"
           << std::endl;
         auto inteCtf(getTensorArgument<double>(integral.name));
-        CTF::Tensor<double>* antiCtf;
+        Tensor<double>* antiCtf;
         if (antigral.name == integral.name) {
           antiCtf = inteCtf;
         } else {

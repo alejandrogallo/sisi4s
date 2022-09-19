@@ -11,7 +11,7 @@
 #include <util/TensorIo.hpp>
 #include <util/Exception.hpp>
 #include <util/RangeParser.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/SharedPointer.hpp>
 
@@ -66,11 +66,11 @@ void CcsdtEquationOfMotionDavidson::run() {
   bool intermediates(getIntegerArgument("intermediates", 1));
   unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
   unsigned int minIterations(getIntegerArgument("minIterations", 1));
-  CTF::Tensor<double> *epsi(
-    getTensorArgument<double, CTF::Tensor<double> >("HoleEigenEnergies")
+  Tensor<double> *epsi(
+    getTensorArgument<double, Tensor<double> >("HoleEigenEnergies")
   );
-  CTF::Tensor<double> *epsa(
-    getTensorArgument<double, CTF::Tensor<double> >("ParticleEigenEnergies")
+  Tensor<double> *epsa(
+    getTensorArgument<double, Tensor<double> >("ParticleEigenEnergies")
   );
   std::vector<int> refreshIterations(
     RangeParser(getTextArgument("refreshIterations", "")).getRange()
@@ -98,159 +98,159 @@ void CcsdtEquationOfMotionDavidson::run() {
 
 
   // Get copy of couloumb integrals
-  CTF::Tensor<double> *pVijkl(
-    getTensorArgument<double, CTF::Tensor<double> >("HHHHCoulombIntegrals")
+  Tensor<double> *pVijkl(
+    getTensorArgument<double, Tensor<double> >("HHHHCoulombIntegrals")
   );
-  CTF::Tensor<F> cVijkl(
+  Tensor<F> cVijkl(
     pVijkl->order, pVijkl->lens, pVijkl->sym, *Sisi4s::world,
     pVijkl->get_name()
   );
-  CTF::Tensor<F> *Vijkl(&cVijkl);
+  Tensor<F> *Vijkl(&cVijkl);
   toComplexTensor(*pVijkl, *Vijkl);
 
-  CTF::Tensor<double> *pVabcd(
-    getTensorArgument<double, CTF::Tensor<double> >("PPPPCoulombIntegrals")
+  Tensor<double> *pVabcd(
+    getTensorArgument<double, Tensor<double> >("PPPPCoulombIntegrals")
   );
-  CTF::Tensor<F> cVabcd(
+  Tensor<F> cVabcd(
     pVabcd->order, pVabcd->lens, pVabcd->sym, *Sisi4s::world,
     pVabcd->get_name()
   );
-  CTF::Tensor<F> *Vabcd(&cVabcd);
+  Tensor<F> *Vabcd(&cVabcd);
   toComplexTensor(*pVabcd, *Vabcd);
 
-  CTF::Tensor<double> *pVijka(
-    getTensorArgument<double, CTF::Tensor<double> >("HHHPCoulombIntegrals")
+  Tensor<double> *pVijka(
+    getTensorArgument<double, Tensor<double> >("HHHPCoulombIntegrals")
   );
-  CTF::Tensor<F> cVijka(
+  Tensor<F> cVijka(
     pVijka->order, pVijka->lens, pVijka->sym, *Sisi4s::world,
     pVijka->get_name()
   );
-  CTF::Tensor<F> *Vijka(&cVijka);
+  Tensor<F> *Vijka(&cVijka);
   toComplexTensor(*pVijka, *Vijka);
 
-  CTF::Tensor<double> *pVijab(
-    getTensorArgument<double, CTF::Tensor<double> >("HHPPCoulombIntegrals")
+  Tensor<double> *pVijab(
+    getTensorArgument<double, Tensor<double> >("HHPPCoulombIntegrals")
   );
-  CTF::Tensor<F> cVijab(
+  Tensor<F> cVijab(
     pVijab->order, pVijab->lens, pVijab->sym, *Sisi4s::world,
     pVijab->get_name()
   );
-  CTF::Tensor<F> *Vijab(&cVijab);
+  Tensor<F> *Vijab(&cVijab);
   toComplexTensor(*pVijab, *Vijab);
 
-  CTF::Tensor<double> *pViajk(
-    getTensorArgument<double, CTF::Tensor<double> >("HPHHCoulombIntegrals")
+  Tensor<double> *pViajk(
+    getTensorArgument<double, Tensor<double> >("HPHHCoulombIntegrals")
   );
-  CTF::Tensor<F> cViajk(
+  Tensor<F> cViajk(
     pViajk->order, pViajk->lens, pViajk->sym, *Sisi4s::world,
     pViajk->get_name()
   );
-  CTF::Tensor<F> *Viajk(&cViajk);
+  Tensor<F> *Viajk(&cViajk);
   toComplexTensor(*pViajk, *Viajk);
 
-  CTF::Tensor<double> *pViajb(
-    getTensorArgument<double, CTF::Tensor<double> >("HPHPCoulombIntegrals")
+  Tensor<double> *pViajb(
+    getTensorArgument<double, Tensor<double> >("HPHPCoulombIntegrals")
   );
-  CTF::Tensor<F> cViajb(
+  Tensor<F> cViajb(
     pViajb->order, pViajb->lens, pViajb->sym, *Sisi4s::world,
     pViajb->get_name()
   );
-  CTF::Tensor<F> *Viajb(&cViajb);
+  Tensor<F> *Viajb(&cViajb);
   toComplexTensor(*pViajb, *Viajb);
 
-  CTF::Tensor<double> *pViabc(
-    getTensorArgument<double, CTF::Tensor<double> >("HPPPCoulombIntegrals")
+  Tensor<double> *pViabc(
+    getTensorArgument<double, Tensor<double> >("HPPPCoulombIntegrals")
   );
-  CTF::Tensor<F> cViabc(
+  Tensor<F> cViabc(
     pViabc->order, pViabc->lens, pViabc->sym, *Sisi4s::world,
     pViabc->get_name()
   );
-  CTF::Tensor<F> *Viabc(&cViabc);
+  Tensor<F> *Viabc(&cViabc);
   toComplexTensor(*pViabc, *Viabc);
 
-  CTF::Tensor<double> *pVabic(
-    getTensorArgument<double, CTF::Tensor<double> >("PPHPCoulombIntegrals")
+  Tensor<double> *pVabic(
+    getTensorArgument<double, Tensor<double> >("PPHPCoulombIntegrals")
   );
-  CTF::Tensor<F> cVabic(
+  Tensor<F> cVabic(
     pVabic->order, pVabic->lens, pVabic->sym, *Sisi4s::world,
     pVabic->get_name()
   );
-  CTF::Tensor<F> *Vabic(&cVabic);
+  Tensor<F> *Vabic(&cVabic);
   toComplexTensor(*pVabic, *Vabic);
 
-  CTF::Tensor<double> *pVabci(
-    getTensorArgument<double, CTF::Tensor<double> >("PPPHCoulombIntegrals")
+  Tensor<double> *pVabci(
+    getTensorArgument<double, Tensor<double> >("PPPHCoulombIntegrals")
   );
-  CTF::Tensor<F> cVabci(
+  Tensor<F> cVabci(
     pVabci->order, pVabci->lens, pVabci->sym, *Sisi4s::world,
     pVabci->get_name()
   );
-  CTF::Tensor<F> *Vabci(&cVabci);
+  Tensor<F> *Vabci(&cVabci);
   toComplexTensor(*pVabci, *Vabci);
 
-  CTF::Tensor<double> *pVaibc(
-    getTensorArgument<double, CTF::Tensor<double> >("PHPPCoulombIntegrals")
+  Tensor<double> *pVaibc(
+    getTensorArgument<double, Tensor<double> >("PHPPCoulombIntegrals")
   );
-  CTF::Tensor<F> cVaibc(
+  Tensor<F> cVaibc(
     pVaibc->order, pVaibc->lens, pVaibc->sym, *Sisi4s::world,
     pVaibc->get_name()
   );
-  CTF::Tensor<F> *Vaibc(&cVaibc);
+  Tensor<F> *Vaibc(&cVaibc);
   toComplexTensor(*pVaibc, *Vaibc);
 
-  CTF::Tensor<double> *pVaibj(
-    getTensorArgument<double, CTF::Tensor<double> >("PHPHCoulombIntegrals")
+  Tensor<double> *pVaibj(
+    getTensorArgument<double, Tensor<double> >("PHPHCoulombIntegrals")
   );
-  CTF::Tensor<F> cVaibj(
+  Tensor<F> cVaibj(
     pVaibj->order, pVaibj->lens, pVaibj->sym, *Sisi4s::world,
     pVaibj->get_name()
   );
-  CTF::Tensor<F> *Vaibj(&cVaibj);
+  Tensor<F> *Vaibj(&cVaibj);
   toComplexTensor(*pVaibj, *Vaibj);
 
-  CTF::Tensor<double> *pViabj(
-    getTensorArgument<double, CTF::Tensor<double> >("HPPHCoulombIntegrals")
+  Tensor<double> *pViabj(
+    getTensorArgument<double, Tensor<double> >("HPPHCoulombIntegrals")
   );
-  CTF::Tensor<F> cViabj(
+  Tensor<F> cViabj(
     pViabj->order, pViabj->lens, pViabj->sym, *Sisi4s::world,
     pViabj->get_name()
   );
-  CTF::Tensor<F> *Viabj(&cViabj);
+  Tensor<F> *Viabj(&cViabj);
   toComplexTensor(*pViabj, *Viabj);
 
-  CTF::Tensor<double> *pVijak(
-    getTensorArgument<double, CTF::Tensor<double> >("HHPHCoulombIntegrals")
+  Tensor<double> *pVijak(
+    getTensorArgument<double, Tensor<double> >("HHPHCoulombIntegrals")
   );
-  CTF::Tensor<F> cVijak(
+  Tensor<F> cVijak(
     pVijak->order, pVijak->lens, pVijak->sym, *Sisi4s::world,
     pVijak->get_name()
   );
-  CTF::Tensor<F> *Vijak(&cVijak);
+  Tensor<F> *Vijak(&cVijak);
   toComplexTensor(*pVijak, *Vijak);
 
-  CTF::Tensor<double> *pVaijb(
-    getTensorArgument<double, CTF::Tensor<double> >("PHHPCoulombIntegrals")
+  Tensor<double> *pVaijb(
+    getTensorArgument<double, Tensor<double> >("PHHPCoulombIntegrals")
   );
-  CTF::Tensor<F> cVaijb(
+  Tensor<F> cVaijb(
     pVaijb->order, pVaijb->lens, pVaijb->sym, *Sisi4s::world,
     pVaijb->get_name()
   );
-  CTF::Tensor<F> *Vaijb(&cVaijb);
+  Tensor<F> *Vaijb(&cVaijb);
   toComplexTensor(*pVaijb, *Vaijb);
 
-  //CTF::Tensor<> *Vabij(
-      //getTensorArgument<double, CTF::Tensor<>>("PPHHCoulombIntegrals"));
+  //Tensor<double> *Vabij(
+      //getTensorArgument<double, Tensor<double>>("PPHHCoulombIntegrals"));
 
 
   // HF terms
-  CTF::Tensor<F> *Fab(
-    new CTF::Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab")
+  Tensor<F> *Fab(
+    new Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab")
   );
-  CTF::Tensor<F> *Fij(
-    new CTF::Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij")
+  Tensor<F> *Fij(
+    new Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij")
   );
-  CTF::Tensor<F> *Fia(
-    new CTF::Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia")
+  Tensor<F> *Fia(
+    new Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia")
   );
 
   if (
@@ -260,14 +260,14 @@ void CcsdtEquationOfMotionDavidson::run() {
   ) {
     LOG(0, "CcsdtEomDavid") << "Using non-canonical orbitals" << std::endl;
 
-    CTF::Tensor<double> *realFia(
-      getTensorArgument<double, CTF::Tensor<double> >("HPFockMatrix")
+    Tensor<double> *realFia(
+      getTensorArgument<double, Tensor<double> >("HPFockMatrix")
     );
-    CTF::Tensor<double> *realFab(
-      getTensorArgument<double, CTF::Tensor<double> >("PPFockMatrix")
+    Tensor<double> *realFab(
+      getTensorArgument<double, Tensor<double> >("PPFockMatrix")
     );
-    CTF::Tensor<double> *realFij(
-      getTensorArgument<double, CTF::Tensor<double> >("HHFockMatrix")
+    Tensor<double> *realFij(
+      getTensorArgument<double, Tensor<double> >("HHFockMatrix")
     );
     toComplexTensor(*realFij, *Fij);
     toComplexTensor(*realFab, *Fab);
@@ -291,14 +291,14 @@ void CcsdtEquationOfMotionDavidson::run() {
     );
   }
 
-  CTF::Tensor<F> Tai(2, vo, syms2, *Sisi4s::world, "Tai");
-  CTF::Tensor<F> Tabij(4, vvoo, syms4, *Sisi4s::world, "Tabij");
+  Tensor<F> Tai(2, vo, syms2, *Sisi4s::world, "Tai");
+  Tensor<F> Tabij(4, vvoo, syms4, *Sisi4s::world, "Tabij");
   toComplexTensor(
-    (*getTensorArgument<double, CTF::Tensor<double> >("SinglesAmplitudes")),
+    (*getTensorArgument<double, Tensor<double> >("SinglesAmplitudes")),
     Tai
   );
   toComplexTensor(
-    (*getTensorArgument<double, CTF::Tensor<double> >("DoublesAmplitudes")),
+    (*getTensorArgument<double, Tensor<double> >("DoublesAmplitudes")),
     Tabij
   );
 

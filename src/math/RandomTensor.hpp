@@ -3,7 +3,7 @@
 
 #include <math/Complex.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <complex>
 #include <random>
 
@@ -51,7 +51,7 @@ namespace sisi4s {
     typename F, typename Distribution, typename RandomEngine
   >
   void setRandomTensor(
-    CTF::Tensor<F> &t, Distribution &distribution, RandomEngine &randomEngine
+    Tensor<F> &t, Distribution &distribution, RandomEngine &randomEngine
   ) {
     int64_t indicesCount, *indices;
     F *values;

@@ -15,7 +15,7 @@ void TensorReduceijij::run() {
   const int Ni(T->lens[0]), Nj(T->lens[1]);
   const std::vector<int> syms({NS, NS}), lens({Ni, Nj});
 
-  auto t(new CTF::Tensor<double>(2, lens.data(), syms.data(), *Sisi4s::world));
+  auto t(new Tensor<double>(2, lens.data(), syms.data(), *Sisi4s::world));
 
   (*t)["ij"] = (*T)["ijij"];
 

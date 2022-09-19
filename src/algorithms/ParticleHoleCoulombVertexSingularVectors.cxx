@@ -7,10 +7,9 @@
 #include <util/ScaLapackHermitianEigenSystemDc.hpp>
 #include <util/Log.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <memory>
 
-using namespace CTF;
 using namespace sisi4s;
 using std::shared_ptr;
 using std::make_shared;
@@ -37,9 +36,9 @@ void ParticleHoleCoulombVertexSingularVectors::run() {
 
   // contract away the orbitals away, leaving U.Sigma^2.U*
   int NG(GammaGai->lens[0]);
-  Matrix<complex> USSUT(NG, NG, *GammaGai->wrld, "USSUT");
+  CTF::Matrix<complex> USSUT(NG, NG, *GammaGai->wrld, "USSUT");
   LOG(1, "ParticleHoleCoulombVertexSingularVectors")
-    << "Contracting over orbitals of " << GammaGai->get_name() 
+    << "Contracting over orbitals of " << GammaGai->get_name()
     << " to get U.Sigma^2.U*, with NG=" << NG << std::endl;
   USSUT["GH"] = conjGammaGai["Gai"] * (*GammaGai)["Hai"];
 
@@ -60,7 +59,7 @@ void ParticleHoleCoulombVertexSingularVectors::run() {
   }
 
   // write singular vectors back to CTF
-  Matrix<complex> U(USSUT);
+  CTF::Matrix<complex> U(USSUT);
   scaU->write(U);
   // slice singular vectors U corresponding to NF largest singular values S
   int start[] = {0, NG-NF}, end[] = {NG, NG};

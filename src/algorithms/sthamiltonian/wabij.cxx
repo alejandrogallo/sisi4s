@@ -11,7 +11,7 @@
 using namespace sisi4s;
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getABIJ() {
   if (Wabij) return Wabij;
 
@@ -19,7 +19,7 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
 
   int syms[] = {NS, NS, NS, NS};
   int vvoo[] = {Nv,Nv,No,No};
-  Wabij = NEW(CTF::Tensor<F>, 4, vvoo, syms, *Sisi4s::world, "Wabij");
+  Wabij = NEW(Tensor<F>, 4, vvoo, syms, *Sisi4s::world, "Wabij");
 
   if (dressing == Dressing(CCSD)) {
     (*Wabij)["abij"] = 0.0;
@@ -170,7 +170,7 @@ SimilarityTransformedHamiltonian<F>::getABIJ() {
 }
 
 template <typename F>
-PTR(CTF::Tensor<F>)
+PTR(Tensor<F>)
 SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
   if (Wabij) return Wabij;
 
@@ -179,7 +179,7 @@ SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
 
   int syms[] = {NS, NS, NS, NS};
   int vvoo[] = {Nv,Nv,No,No};
-  Wabij = NEW(CTF::Tensor<F>, 4, vvoo, syms, *Sisi4s::world, "Wabij");
+  Wabij = NEW(Tensor<F>, 4, vvoo, syms, *Sisi4s::world, "Wabij");
 
   if (dressing == Dressing(RPA)) {
     (*Wabij)["abij"] = 0.0;
@@ -235,5 +235,5 @@ SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
 }
 
 // instantiate
-template class SimilarityTransformedHamiltonian<sisi4s::complex>;
-template class SimilarityTransformedHamiltonian<double>;
+template class sisi4s::SimilarityTransformedHamiltonian<sisi4s::complex>;
+template class sisi4s::SimilarityTransformedHamiltonian<double>;

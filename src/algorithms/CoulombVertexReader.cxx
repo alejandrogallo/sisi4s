@@ -5,11 +5,10 @@
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 #include <fstream>
 
 using namespace sisi4s;
-using namespace CTF;
 
 char const *CoulombVertexReader::Header::MAGIC = "sisi4sFTOD";
 char const *CoulombVertexReader::Chunk::REALS_MAGIC = "FTODreal";
@@ -58,8 +57,8 @@ void CoulombVertexReader::run() {
   // Allocate output tensors
   int vertexLens[] = { NG, Np, Np };
   int vertexSyms[] = { NS, NS, NS };
-  Tensor<> *epsi(new Vector<>(No, *Sisi4s::world, "epsi"));
-  Tensor<> *epsa(new Vector<>(Nv, *Sisi4s::world, "epsa"));
+  Tensor<double> *epsi(new CTF::Vector<>(No, *Sisi4s::world, "epsi"));
+  Tensor<double> *epsa(new CTF::Vector<>(Nv, *Sisi4s::world, "epsa"));
   Tensor<complex> *GammaGqr(
     new Tensor<complex>(3, vertexLens, vertexSyms, *Sisi4s::world, "GammaGqr")
   );
@@ -70,10 +69,10 @@ void CoulombVertexReader::run() {
   allocatedTensorArgument<complex>("CoulombVertex", GammaGqr);
 
   // Real and imaginary parts are read in seperately
-  Tensor<> realGammaGqr(
+  Tensor<double> realGammaGqr(
     3, vertexLens, vertexSyms, *Sisi4s::world, "RealGammaGqr"
   );
-  Tensor<> imagGammaGqr(
+  Tensor<double> imagGammaGqr(
     3, vertexLens, vertexSyms, *Sisi4s::world, "ImagGammaGqr"
   );
 
@@ -166,9 +165,9 @@ void CoulombVertexReader::handleUnrestricted() {
 void CoulombVertexReader::unrestrictVertex() {
   auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
   // The field variable NG remains the same
-  int vertexLens[] = {
-    GammaGqr->lens[0], 2*GammaGqr->lens[1], 2*GammaGqr->lens[2]
-  };
+  int vertexLens[] = {static_cast<int>(GammaGqr->lens[0]),
+                      static_cast<int>(2*GammaGqr->lens[1]),
+                      static_cast<int>(2*GammaGqr->lens[2])};
   auto uGammaGqr(
     new Tensor<complex>(3, vertexLens, GammaGqr->sym, *Sisi4s::world, "uGammaGqr")
   );
@@ -200,9 +199,9 @@ void CoulombVertexReader::unrestrictVertex() {
 
 void CoulombVertexReader::unrestrictEigenEnergies(const std::string &name) {
   auto eps(getTensorArgument(name + "EigenEnergies"));
-  int lens[] = { 2*eps->lens[0] };
+  int lens[] = { static_cast<int>(2*eps->lens[0]) };
   auto uEps(
-    new Tensor<>(
+    new Tensor<double>(
       1, lens, eps->sym, *Sisi4s::world, ("u" + name + "EigenEnergies").c_str()
     )
   );

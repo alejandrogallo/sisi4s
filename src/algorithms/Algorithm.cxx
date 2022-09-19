@@ -200,12 +200,12 @@ T *Algorithm::getTensorArgument(std::string const &name) {
 }
 // instantiate
 template
-CTF::Tensor<Float64> *Algorithm::getTensorArgument<
-  Float64, CTF::Tensor<Float64>
+Tensor<Float64> *Algorithm::getTensorArgument<
+  Float64, Tensor<Float64>
 >(std::string const &);
 template
-CTF::Tensor<Complex64> *Algorithm::getTensorArgument<
-  Complex64, CTF::Tensor<Complex64>
+Tensor<Complex64> *Algorithm::getTensorArgument<
+  Complex64, Tensor<Complex64>
 >(std::string const &);
 template
 DryTensor<Float64> *Algorithm::getTensorArgument<
@@ -220,13 +220,13 @@ DryTensor<Complex64> *Algorithm::getTensorArgument<
 /**
  * \brief Traits for retrieving the Scalar, Vector and Matrix tensor type.
  */
-template < typename F, typename T=CTF::Tensor<F> >
+template < typename F, typename T=Tensor<F> >
 class TensorTypeTraits;
 
 template <typename F>
-class TensorTypeTraits< F, CTF::Tensor<F> > {
+class TensorTypeTraits< F, Tensor<F> > {
 public:
-  typedef CTF::Tensor<F> BaseType;
+  typedef Tensor<F> BaseType;
   typedef CTF::Scalar<F> ScalarType;
   typedef CTF::Vector<F> VectorType;
   typedef CTF::Matrix<F> MatrixType;
@@ -234,17 +234,17 @@ public:
 template <typename F>
 class TensorTypeTraits< F, CTF::Matrix<F> > {
 public:
-  typedef CTF::Tensor<F> BaseType;
+  typedef Tensor<F> BaseType;
 };
 template <typename F>
 class TensorTypeTraits< F, CTF::Vector<F> > {
 public:
-  typedef CTF::Tensor<F> BaseType;
+  typedef Tensor<F> BaseType;
 };
 template <typename F>
 class TensorTypeTraits< F, CTF::Scalar<F> > {
 public:
-  typedef CTF::Tensor<F> BaseType;
+  typedef Tensor<F> BaseType;
 };
 template <typename F>
 class TensorTypeTraits< F, DryTensor<F> > {
@@ -283,12 +283,12 @@ T *Algorithm::getTensorArgumentFromReal(RealData *realData) {
 }
 // instantiate
 template
-CTF::Tensor<Float64> *Algorithm::getTensorArgumentFromReal<
-  Float64, CTF::Tensor<Float64>
+Tensor<Float64> *Algorithm::getTensorArgumentFromReal<
+  Float64, Tensor<Float64>
 >(RealData *);
 template
-CTF::Tensor<Complex64> *Algorithm::getTensorArgumentFromReal<
-  Complex64, CTF::Tensor<Complex64>
+Tensor<Complex64> *Algorithm::getTensorArgumentFromReal<
+  Complex64, Tensor<Complex64>
 >(RealData *);
 template
 DryTensor<Float64> *Algorithm::getTensorArgumentFromReal<
@@ -313,8 +313,8 @@ void Algorithm::allocatedTensorArgument(
 // instantiate
 template
 void Algorithm::allocatedTensorArgument<
-  Float64, CTF::Tensor<Float64>
->(std::string const &name, CTF::Tensor<Float64> *tensor);
+  Float64, Tensor<Float64>
+>(std::string const &name, Tensor<Float64> *tensor);
 // TODO: remove specialized tensors (matrix, vector, scalar)
 template
 void Algorithm::allocatedTensorArgument<
@@ -331,8 +331,8 @@ void Algorithm::allocatedTensorArgument<
 
 template
 void Algorithm::allocatedTensorArgument<
-  Complex64, CTF::Tensor<Complex64>
->(std::string const &name, CTF::Tensor<Complex64> *tensor);
+  Complex64, Tensor<Complex64>
+>(std::string const &name, Tensor<Complex64> *tensor);
 // TODO: remove specialized tensors (matrix, vector, scalar)
 template
 void Algorithm::allocatedTensorArgument<

@@ -3,7 +3,7 @@
 #define APPROXIMATE_PARTICLE_HOLE_COULOMB_VERTEX_DEFINED
 
 #include <algorithms/Algorithm.hpp>
-#include <util/CTF.hpp>
+#include <util/Tensor.hpp>
 
 namespace sisi4s {
   /* @WIKI
