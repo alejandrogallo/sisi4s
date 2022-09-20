@@ -192,8 +192,9 @@ void Mp2NaturalOrbitals::run() {
                   << std::endl;
     (*rotatedOrbitals)["mi"] = (*orbs)["mj"] * (*rotationMatrix)["ji"];
 
-    std::array<int,2> ff({{ Nx, No+nFno}});
-    std::array<int,2> f({{ nFno}});
+    std::array<int,2> ff({{ static_cast<int>(Nx),
+                            static_cast<int>(No+nFno)}});
+    std::array<int,2> f({{ static_cast<int>(nFno) }});
 
     auto newEpsa(new Tensor<double>(1, f.data(), syms.data(), *Vabij->wrld, "newEpsa"));
     dstStart[0] = 0; dstEnd[0] = nFno;
