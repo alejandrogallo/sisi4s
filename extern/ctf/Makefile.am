@@ -1,7 +1,7 @@
 CTF_GIT_REPOSITORY ?= https://gitlab.cc4s.org/cc4s/ctf.git
 CPPFLAGS           += $(CTF_CPPFLAGS)
 
-CTF_BUILD_PATH     ?= $(builddir)/src/$(CTF_COMMIT)/src
+CTF_BUILD_PATH     ?= $(builddir)/src/$(CTF_COMMIT)/build
 CTF_SRC_PATH       ?= $(builddir)/src/$(CTF_COMMIT)/src
 
 CTF_CONFIG_FLAGS = CXX="$(CXX)" \
@@ -16,22 +16,17 @@ CTF_GIT_REPOSITORY ?= https://github.com/cyclops-community/ctf
 CTF_CONFIGURE = $(CTF_SRC_PATH)/configure
 ## CTF_INSTALL = cd $(CTF_BUILD_PATH) && $(MAKE) install
 
-define CTF_INSTALL
-## cd $(CTF_BUILD_PATH) && $(MAKE) install
-mkdir -p lib
-ln -rsf $(CTF_BUILD_PATH)/lib/libctf.a lib/
-ln -rsf $(CTF_BUILD_PATH)/include include
-endef
-
 ################################################################################
 
 lib_LIBRARIES = lib/libctf.a
 lib/libctf.a: $(CTF_STATIC_LIB)
-	$(CTF_INSTALL)
+	mkdir -p lib
+	cp $(CTF_BUILD_PATH)/lib/libctf.a lib/
 
 include_HEADERS = include/ctf.hpp
 include/ctf.hpp: $(CTF_STATIC_LIB)
-	$(CTF_INSTALL)
+	mkdir -p include
+	cp $(CTF_BUILD_PATH)/include/ctf.hpp $@
 
 ################################################################################
 
@@ -49,7 +44,7 @@ $(CTF_BUILD_PATH)/Makefile: $(CTF_SRC_PATH)/configure
 
 $(CTF_STATIC_LIB): $(CTF_BUILD_PATH)/Makefile
 	$(info Compiling $@)
-	cd $(CTF_BUILD_PATH) && $(MAKE)
+	cd $(CTF_BUILD_PATH) && $(MAKE) ctflib
 
 ################################################################################
 

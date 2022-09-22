@@ -159,9 +159,12 @@ AC_PROG_RANLIB           dnl sets variable RANLIB
 AC_PROG_INSTALL          dnl sets variables INSTALL, INSTALL_DATA,
                          dnl                INSTALL_PROGRAM
 AC_PROG_LN_S             dnl sets variable LN_S
+AC_PROG_AWK
+AC_PROG_GREP
+AC_PROG_INSTALL
+AC_PROG_SED
 AC_PROG_MAKE_SET         dnl set $(MAKE) if needed
 AC_PROG_RANLIB           dnl set variable RANLIB
-AC_CHECK_TOOL([AR],[ar]) dnl set variable AR to appropriate `ar' program
 AC_CHECK_TOOL([TR],[tr])
 
 dnl -----------------------------------------------------------------------
@@ -355,7 +358,6 @@ AC_MSG_RESULT([
                        BLAS_LIBS=${BLAS_LIBS}
                        SCALAPACK_LIBS=${SCALAPACK_LIBS}
                        LIBS=${LIBS}
-                       SISI_COMMIT = ${SISI_COMMIT}
 ])
 
 if test -n "${EXTERNAL_DEPENDENCIES}"; then
