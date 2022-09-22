@@ -1,12 +1,11 @@
 CTF_GIT_REPOSITORY ?= https://gitlab.cc4s.org/cc4s/ctf.git
-CPPFLAGS           += $(CTF_CPPFLAGS)
 
 CTF_BUILD_PATH     ?= $(builddir)/src/$(CTF_COMMIT)/build
 CTF_SRC_PATH       ?= $(builddir)/src/$(CTF_COMMIT)/src
 
-CTF_CONFIG_FLAGS = CXX="$(CXX)" \
+CTF_CONFIG_FLAGS = CXX="$(MPICXX)" \
                    LIB_PATH="$(LDFLAGS)" \
-                   LIBS="-lmpi" \
+                   LIBS="${LIBS}" \
                    CXXFLAGS="$(CXXFLAGS)" \
                    --no-dynamic
 
@@ -48,13 +47,12 @@ $(CTF_STATIC_LIB): $(CTF_BUILD_PATH)/Makefile
 
 ################################################################################
 
-
-ctf: $(CTF_STATIC_LIB)
-
 clean-local:
 	-rm -rf include
 	-rm -rf lib
 
+ctf: $(CTF_STATIC_LIB)
+
 fetch: $(CTF_CONFIGURE)
 
-.PHONY: ctf
+.PHONY: ctf fetch

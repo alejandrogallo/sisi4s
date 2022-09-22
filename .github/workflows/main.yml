@@ -78,7 +78,7 @@ jobs:
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make -j$NJ -C extern/yamlcpp'
+        $WITH_SHELL 'make -j$NJ -C extern/yaml-cpp'
 
     - name: Extern
       run: |

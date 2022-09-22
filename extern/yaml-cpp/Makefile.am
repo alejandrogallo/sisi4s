@@ -47,7 +47,7 @@ $(YAML_STATIC_LIB): $(YAML_MAKE)
 
 ################################################################################
 
-yamlcpp: $(YAML_STATIC_LIB)
+yaml-cpp: $(YAML_STATIC_LIB)
 
 clean-local:
 	rm -rf $(YAML_BUILD_PATH)
@@ -57,4 +57,4 @@ clean-local:
 
 fetch: $(YAML_CMAKE)
 
-.PHONY: yamlcpp fetch
+.PHONY: yaml-cpp fetch

@@ -100,7 +100,7 @@ AC_ARG_WITH(yamlcpp,
             [BUILD_YAML=YES
              external_cppflags_add "yaml-cpp/include/"
              external_ldflags_add "yaml-cpp/lib/libyaml-cpp.a"
-             EXTERNAL_DEPENDENCIES="yamlcpp ${EXTERNAL_DEPENDENCIES}"])
+             EXTERNAL_DEPENDENCIES="yaml-cpp ${EXTERNAL_DEPENDENCIES}"])
 
 AC_ARG_WITH([clang-check],
             [AS_HELP_STRING([--with-clang-check],
