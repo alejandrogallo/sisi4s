@@ -15,7 +15,22 @@ dnl -----------------------------------------------------------------------
 dnl External dependencies
 dnl -----------------------------------------------------------------------
 EXTERNAL_DEPENDENCIES=""
+EXTERNAL_LDFLAGS=""
+EXTERNAL_CPPFLAGS=""
+EXTERNAL_PATH="\${abs_top_builddir}"
+
+external_ldflags_add() {
+    EXTERNAL_LDFLAGS="${2}${EXTERNAL_PATH}/extern/$1 $3 $EXTERNAL_LDFLAGS"
+}
+
+external_cppflags_add() {
+    EXTERNAL_CPPFLAGS="-I${EXTERNAL_PATH}/extern/$1 $EXTERNAL_CPPFLAGS"
+}
+
 AC_SUBST([EXTERNAL_DEPENDENCIES])
+AC_SUBST([EXTERNAL_LDFLAGS])
+AC_SUBST([EXTERNAL_CPPFLAGS])
+AC_SUBST([EXTERNAL_PATH])
 
 EXTERN_BUILD_PATH="${ac_pwd}/extern/build/"
 EXTERN_SRC_PATH="${ac_pwd}/extern/src/"
@@ -35,6 +50,7 @@ dnl -----------------------------------------------------------------------
 dnl Configure switches
 
 dnl CTF WITH OPTION
+
 AC_ARG_WITH(ctf,
             [AS_HELP_STRING([--with-ctf],
                            [prefix for CTF includes and libraries] )],
@@ -44,6 +60,8 @@ AC_ARG_WITH(ctf,
              LIBS="${LIBS} -L${LIBCTF_LD_LIBRARY_PATH} -lctf"
              BUILD_CTF=NO],
             [BUILD_CTF=YES
+             external_ldflags_add "ctf/lib/libctf.a"
+             external_cppflags_add "ctf/include/"
              EXTERNAL_DEPENDENCIES="ctf ${EXTERNAL_DEPENDENCIES}"])
 
 dnl LIBINT WITH OPTION
@@ -56,6 +74,8 @@ AC_ARG_WITH(libint,
              LIBS="${LIBS} -L${LIBINT_LD_LIBRARY_PATH} -lint2"
              BUILD_LIBINT=NO],
             [BUILD_LIBINT=YES
+             external_ldflags_add "libint/lib/libint2.a"
+             external_cppflags_add "libint/include/"
              EXTERNAL_DEPENDENCIES="libint ${EXTERNAL_DEPENDENCIES}"])
 
 dnl EIGEN WITH OPTION
@@ -66,6 +86,7 @@ AC_ARG_WITH(eigen,
              EIGEN_CPATH="`readlink -f $withval`/include/eigen3";
              BUILD_EIGEN=NO],
             [BUILD_EIGEN=YES
+             external_cppflags_add "eigen/include/eigen3/"
              EXTERNAL_DEPENDENCIES="eigen ${EXTERNAL_DEPENDENCIES}"])
 
 dnl LIBYAML WITH OPTION
@@ -77,6 +98,8 @@ AC_ARG_WITH(yamlcpp,
              YAMLCPP_LD_LIBRARY_PATH="`readlink -f $withval`/lib";
              BUILD_YAML=NO],
             [BUILD_YAML=YES
+             external_cppflags_add "yaml-cpp/include/"
+             external_ldflags_add "yaml-cpp/lib/libyaml-cpp.a"
              EXTERNAL_DEPENDENCIES="yamlcpp ${EXTERNAL_DEPENDENCIES}"])
 
 AC_ARG_WITH([clang-check],
@@ -292,13 +315,9 @@ if test x${build_docs} == xyes; then
   AX_ELISP_CHECK_BOUNDP([org-babel-post-tangle-hook], [ob])
 fi
 
-AC_MSG_RESULT([ SISI COMMIT ])
-
 AC_DEFINE_UNQUOTED([SISI_COMMIT],
                    ["$(git describe --always --dirty)"],
                    [The current git status at compile time])
-
-AC_MSG_RESULT([ COMPILER VERSION ])
 
 AC_DEFINE_UNQUOTED([COMPILER_VERSION],
                    ["$($MPICXX --version | $TR "\n" " ")"],
@@ -314,6 +333,11 @@ AC_CONFIG_FILES([
                  docs/conf.py
                  integration-tests/config.mk
                  integration-tests/Makefile
+                 extern/Makefile
+                 extern/yaml-cpp/Makefile
+                 extern/eigen/Makefile
+                 extern/libint/Makefile
+                 extern/ctf/Makefile
                  .dir-locals.el
                ])
 AC_CONFIG_HEADERS([config.h])
@@ -331,6 +355,7 @@ AC_MSG_RESULT([
                        BLAS_LIBS=${BLAS_LIBS}
                        SCALAPACK_LIBS=${SCALAPACK_LIBS}
                        LIBS=${LIBS}
+                       SISI_COMMIT = ${SISI_COMMIT}
 ])
 
 if test -n "${EXTERNAL_DEPENDENCIES}"; then
@@ -343,7 +368,7 @@ if test -n "${EXTERNAL_DEPENDENCIES}"; then
                  or alternatively
                  ])
   for extern in ${EXTERNAL_DEPENDENCIES}; do
-  AC_MSG_RESULT([                 - make $extern])
+  AC_MSG_RESULT([                 - make -C extern/$extern])
   done
 fi
 
