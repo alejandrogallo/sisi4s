@@ -90,22 +90,38 @@ AC_F77_FUNC(pcheev)
 
 mkl_scalapack_lib="-lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64"
 
+## Common suffixes for better discoverability
+sisi_scalapack_common_suffixes="-lgfortran"
 
 ax_blas_save_LIBS="$LIBS"
 
-# First, check SCALAPACK_LIBS environment variable
-if test "x$SCALAPACK_LIBS" != x; then
-    save_LIBS="$LIBS"
-    LIBS="$SCALAPACK_LIBS $LIBS"
-    AC_MSG_CHECKING([for $pcheev in $SCALAPACK_LIBS])
-    AC_TRY_LINK_FUNC([$pcheev],
-                     [ax_scalapack_ok=yes],
-                     [SCALAPACK_LIBS=""])
-    AC_MSG_RESULT([$ax_scalapack_ok])
-    LIBS="$save_LIBS"
-fi
+################################################################################
+# $SCALAPACK_LIBS testing
+#
+## First, check SCALAPACK_LIBS environment variable
+## And go through the possible preffixes
+save_SCALAPACK_LIBS="$SCALAPACK_LIBS"
+for suffix in "" $sisi_scalapack_common_suffixes; do
 
+  if test "x$save_SCALAPACK_LIBS" != x; then
+      save_LIBS="$LIBS"
+      test_SCALAPACK_LIBS="$save_SCALAPACK_LIBS $suffix"
+      LIBS="$test_SCALAPACK_LIBS $LIBS"
+      AC_MSG_CHECKING([for $pcheev in $test_SCALAPACK_LIBS])
+      AC_TRY_LINK_FUNC([$pcheev],
+                       [ax_scalapack_ok=yes
+                        SCALAPACK_LIBS="$test_SCALAPACK_LIBS"],
+                       [SCALAPACK_LIBS=""
+                        ax_scalapack_ok=no])
+      AC_MSG_RESULT([$ax_scalapack_ok])
+      LIBS="$save_LIBS"
+  fi
+
+done
+
+################################################################################
 # MKL TESTING
+#
 if test "x$ax_scalapack_ok" != xyes ; then
 if test -d "${MKLROOT}" ; then
     save_LIBS="$LIBS"
@@ -120,24 +136,43 @@ if test -d "${MKLROOT}" ; then
 fi
 fi
 
-if test "x$ax_scalapack_ok" != xyes ; then
-    AC_CHECK_LIB([scalapack],
-                 [$pcheev],
-                 [ax_scalapack_ok=yes
-                  SCALAPACK_LIBS="-lscalapack"])
-fi
+################################################################################
+# -LSCALAPACK TESTING
+#
+for suffix in "" $sisi_scalapack_common_suffixes; do
+  if test "x$ax_scalapack_ok" != xyes ; then
 
+      save_LIBS="$LIBS"
+      SCALAPACK_LIBS="-lscalapack $suffix"
+      LIBS="$SCALAPACK_LIBS $LIBS"
+      AC_MSG_CHECKING([for $pcheev in $SCALAPACK_LIBS])
+      AC_TRY_LINK_FUNC([$pcheev],
+                       [ax_scalapack_ok=yes],
+                       [SCALAPACK_LIBS=""
+                        ax_scalapack_ok=no])
+      AC_MSG_RESULT([$ax_scalapack_ok])
+      LIBS="$save_LIBS"
+
+  fi
+done
+
+################################################################################
+# DEFAULT TESTING
+#
+for suffix in "" $sisi_scalapack_common_suffixes; do
 if test "x$ax_scalapack_ok" != xyes ; then
     save_LIBS="$LIBS"
-    LIBS="$ax_scalapack_ok $LIBS"
-    AC_MSG_CHECKING([for $pcheev in $ax_scalapack_ok])
+    LIBS="$suffix $LIBS"
+    AC_MSG_CHECKING([for $pcheev in $LIBS])
     AC_TRY_LINK_FUNC([$pcheev],
                      [ax_scalapack_ok=yes
-                      SCALAPACK_LIBS="$ax_scalapack_ok"],
-                     [SCALAPACK_LIBS=""])
-    AC_MSG_RESULT($ax_scalapack_ok)
+                      SCALAPACK_LIBS="$suffix"],
+                     [SCALAPACK_LIBS=""
+                      ax_scalapack_ok=no])
+    AC_MSG_RESULT([$ax_scalapack_ok])
     LIBS="$save_LIBS"
 fi
+done
 
 
 if test x"$ax_scalapack_ok" == xyes; then
