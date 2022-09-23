@@ -13,15 +13,12 @@ YAML_INSTALL = cd $(YAML_BUILD_PATH) && $(MAKE) install
 
 ################################################################################
 
-nobase_include_HEADERS = $(patsubst $(YAML_SRC_PATH)/%,\
-                             ./%,\
-                             $(shell find $(YAML_SRC_PATH)/include -type f))
-
 lib_LIBRARIES = lib/libyaml-cpp.a
+lib_libyaml_cpp_a_SOURCES = $(YAML_STATIC_LIB)
 lib/libyaml-cpp.a: $(YAML_STATIC_LIB)
+	mkdir -p lib
 	$(YAML_INSTALL)
-	## this is an ugly hack, just like me
-	touch $@
+	cp $< $@
 
 ################################################################################
 
@@ -54,6 +51,7 @@ clean-local:
 	-rm -rf include
 	-rm -rf lib
 	-rm -rf share
+	-rm -rf lib64
 
 fetch: $(YAML_CMAKE)
 
