@@ -1,14 +1,14 @@
-include SiSi4S.mk
-
-SUBDIRS = src
+SUBDIRS = extern src integration-tests
 
 if WITH_DOCS
 SUBDIRS += docs
 endif
 
-SUBDIRS += integration-tests
 
-.PHONY: sisi4s
+.PHONY: sisi4s extern
+
+extern:
+	$(MAKE) -C extern
 
 sisi4s: src/sisi4s
 src/sisi4s:

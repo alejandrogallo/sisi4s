@@ -1,9 +1,8 @@
-
 name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, newbuild ]
   pull_request:
     branches: [ master ]
 
@@ -61,25 +60,25 @@ jobs:
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make -j$NJ ctf'
+        $WITH_SHELL 'make -j$NJ -C extern/ctf'
 
     - name: LIBINT
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make -j$NJ libint'
+        $WITH_SHELL 'make -j$NJ -C extern/libint'
 
     - name: EIGEN
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make -j$NJ eigen'
+        $WITH_SHELL 'make -j$NJ -C extern/eigen'
 
     - name: YAMLCPP
       run: |
         mkdir -p build/${{matrix.compiler}}
         cd build/${{matrix.compiler}}
-        $WITH_SHELL 'make -j$NJ yamlcpp'
+        $WITH_SHELL 'make -j$NJ -C extern/yaml-cpp'
 
     - name: Extern
       run: |
