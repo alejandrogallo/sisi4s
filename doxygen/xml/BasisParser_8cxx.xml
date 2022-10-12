@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="BasisParser_8cxx" kind="file" language="C++">
     <compoundname>BasisParser.cxx</compoundname>
     <includes refid="BasisParser_8hpp" local="no">nwchem/BasisParser.hpp</includes>
@@ -316,7 +316,7 @@
 <codeline lineno="28" refid="BasisParser_8cxx_1a3a10a95689662bca17ffae75d2d89e4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="BasisParser_8cxx_1a3a10a95689662bca17ffae75d2d89e4d" kindref="member">basis_end</ref><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="namespacepars_1a07f6fdb3a7f7f358ee1330f866f144db" kindref="member">bof</ref><sp/>+<sp/><ref refid="namespacepars_1a56722e3642335e4646823756ceb888ca" kindref="member">group</ref>(<ref refid="namespacepars_1abf63d88b9d2972448bb8e2e8f3e86300" kindref="member">oneOf</ref>({<sp/></highlight><highlight class="stringliteral">&quot;end&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;END&quot;</highlight><highlight class="normal"><sp/>}))</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31" refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" refkind="member"><highlight class="normal"><ref refid="structBasis" kindref="compound">Basis</ref><sp/>BasisSetParser::parseBasis(std::fstream<sp/>&amp;f,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="31" refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" refkind="member"><highlight class="normal"><ref refid="structBasis" kindref="compound">Basis</ref><sp/><ref refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" kindref="member">BasisSetParser::parseBasis</ref>(std::fstream<sp/>&amp;f,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>name)<sp/>{</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/>std::string<sp/>line;</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/>std::vector&lt;Shell&gt;<sp/>shells;</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>coe,<sp/>exp;</highlight></codeline>
@@ -371,7 +371,7 @@
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Parse<sp/>basis<sp/>whenever<sp/>we<sp/>find<sp/>basis...</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structnwchem_1_1BasisSetParser_1a897f82a03eca6f0768e6fee1da071dc5" kindref="member">matches</ref>(line,<sp/><ref refid="BasisParser_8cxx_1a0c3fb5f0d169dea12886e9608370234d" kindref="member">basis_header</ref>))<sp/>{</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>v--<sp/>name</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bs.push_back(<ref refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" kindref="member">parseBasis</ref>(f,<sp/><ref refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" kindref="member">match</ref>[1].<ref refid="namespaceCLI_1_1detail_1ab4542375c903302c3876ce0403d55596" kindref="member">str</ref>()));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bs.push_back(<ref refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" kindref="member">parseBasis</ref>(f,<sp/><ref refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" kindref="member">match</ref>[1].str()));</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"></highlight></codeline>

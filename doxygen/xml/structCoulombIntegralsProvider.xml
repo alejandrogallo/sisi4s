@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="structCoulombIntegralsProvider" kind="struct" language="C++" prot="public">
     <compoundname>CoulombIntegralsProvider</compoundname>
     <innerclass refid="structCoulombIntegralsProvider_1_1IndexRange" prot="public">CoulombIntegralsProvider::IndexRange</innerclass>
@@ -61,7 +61,7 @@
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="473" column="18" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="473" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCoulombIntegralsProvider_1ab9217e6d3f1567cba84d736982dd73e1" prot="private" static="no" mutable="no">
-        <type>const <ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">libint2::BasisSet</ref> &amp;</type>
+        <type>const libint2::BasisSet &amp;</type>
         <definition>const libint2::BasisSet&amp; CoulombIntegralsProvider::shells</definition>
         <argsstring></argsstring>
         <name>shells</name>
@@ -209,7 +209,7 @@
         <name>CoulombIntegralsProvider</name>
         <qualifiedname>CoulombIntegralsProvider::CoulombIntegralsProvider</qualifiedname>
         <param>
-          <type>const <ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">libint2::BasisSet</ref> &amp;</type>
+          <type>const libint2::BasisSet &amp;</type>
           <declname>shells_</declname>
         </param>
         <param>
@@ -235,6 +235,7 @@
         <references refid="structCoulombIntegralsProvider_1a1f722245277ca761c4910a53665ff492" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="122" endline="146">doSimpleDistribution</references>
         <references refid="CoulombIntegralsFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="19">LOGGER</references>
         <references refid="structCoulombIntegralsProvider_1a7c5d559c7d5691b5c4a527825460eed0af44a936a7655d3121ebef3c741ea7002" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="42">SIMPLE</references>
+        <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="30">sisi4s::Sisi4s::world</references>
       </memberdef>
       <memberdef kind="function" id="structCoulombIntegralsProvider_1a8df812f1629b44e584240c394eddf730" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -249,6 +250,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="113" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="113" bodyend="120"/>
+        <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="30">sisi4s::Sisi4s::world</references>
         <referencedby refid="structCoulombIntegralsProvider_1af2daf5bcd77738efe6cffb1fd40eabbb" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="43" endline="111">CoulombIntegralsProvider</referencedby>
       </memberdef>
       <memberdef kind="function" id="structCoulombIntegralsProvider_1a1f722245277ca761c4910a53665ff492" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
@@ -265,6 +267,7 @@
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="122" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="122" bodyend="146"/>
         <references refid="CoulombIntegralsFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="19">LOGGER</references>
+        <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="30">sisi4s::Sisi4s::world</references>
         <referencedby refid="structCoulombIntegralsProvider_1af2daf5bcd77738efe6cffb1fd40eabbb" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="43" endline="111">CoulombIntegralsProvider</referencedby>
       </memberdef>
       <memberdef kind="function" id="structCoulombIntegralsProvider_1ad79a86c683f1422994012c531e91f454" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
@@ -283,7 +286,6 @@
         <references refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" compoundref="MovecsParser_8hpp" startline="13">_L</references>
         <references refid="structShellInfo_1a563de1b11e3b8e573c62881ad2d933d4" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="31">ShellInfo::begin</references>
         <references refid="structShellInfo_1a4a69c46d2eb8b465244b1abecca68649" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="31">ShellInfo::end</references>
-        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408aa4b003a0a471bcce11f0a0f622366799" compoundref="AngularMomentum_8hpp" startline="9">am::K</references>
         <references refid="CoulombIntegralsFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="19">LOGGER</references>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
       </memberdef>
@@ -311,7 +313,6 @@
         <references refid="MovecsParser_8hpp_1a5a121d89dc8422b74c4cca0310fc15a2" compoundref="MovecsParser_8hpp" startline="13">_L</references>
         <references refid="structShellInfo_1a563de1b11e3b8e573c62881ad2d933d4" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="31">ShellInfo::begin</references>
         <references refid="structShellInfo_1a4a69c46d2eb8b465244b1abecca68649" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="31">ShellInfo::end</references>
-        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408aa4b003a0a471bcce11f0a0f622366799" compoundref="AngularMomentum_8hpp" startline="9">am::K</references>
         <references refid="CoulombIntegralsFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="19">LOGGER</references>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
       </memberdef>
@@ -353,6 +354,7 @@
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="390" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="390" bodyend="431"/>
         <references refid="structCoulombIntegralsProvider_1aa8786317559653a48e641690dc06fc82" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="362" endline="388">getWriteRangesForShell</references>
         <references refid="CoulombIntegralsFromGaussian_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="19">LOGGER</references>
+        <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="30">sisi4s::Sisi4s::world</references>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
       </memberdef>
       <memberdef kind="function" id="structCoulombIntegralsProvider_1ae6d3501fa0325a7858fddd301629a2de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
@@ -372,6 +374,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CoulombIntegralsFromGaussian.cxx" line="433" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CoulombIntegralsFromGaussian.cxx" bodystart="433" bodyend="466"/>
+        <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="30">sisi4s::Sisi4s::world</references>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="490" endline="702">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
       </memberdef>
       </sectiondef>

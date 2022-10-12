@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="classsisi4s_1_1EACcsdPreconditioner" kind="class" language="C++" prot="public">
     <compoundname>sisi4s::EACcsdPreconditioner</compoundname>
     <basecompoundref refid="classsisi4s_1_1CcsdPreconditioner" prot="public" virt="non-virtual">sisi4s::CcsdPreconditioner&lt; F &gt;</basecompoundref>
@@ -25,6 +25,7 @@
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="119" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="394" bodyend="420"/>
         <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="11">NEW</references>
         <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="9">PTR</references>
+        <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="30">sisi4s::Sisi4s::world</references>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1EACcsdPreconditioner_1a49913544736063c43e265facdc2cc393" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &gt;</type>
@@ -43,15 +44,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="122" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="424" bodyend="530"/>
-        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
         <references refid="classsisi4s_1_1FockVector_1a7f7a9ea49d5eb503a988858d1b9e76cb" compoundref="FockVector_8hpp" startline="242" endline="255">sisi4s::FockVector&lt; F &gt;::dot</references>
         <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
-        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
         <references refid="classsisi4s_1_1MpiCommunicator_1a4920d7e68dfa8c38de024795a264527f" compoundref="MpiCommunicator_8hpp" startline="55" endline="70">sisi4s::MpiCommunicator::gather</references>
         <references refid="classsisi4s_1_1FockVector_1aebf4e090f20a7bb83c434396b274c89c" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
         <references refid="classsisi4s_1_1MpiCommunicator_1a0e6f9439058e7c3685f2f05a40cda46a" compoundref="MpiCommunicator_8hpp" startline="72" endline="74">sisi4s::MpiCommunicator::getRank</references>
         <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
-        <references refid="namespacesisi4s_1a40947d88c4989cacff153a78af67f686" compoundref="MathFunctions_8hpp" startline="24" endline="26">sisi4s::sqrt</references>
+        <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="30">sisi4s::Sisi4s::world</references>
         <references refid="classsisi4s_1_1FockVector_1af3f1a3e793e9dc55958b795c7672f9de" compoundref="FockVector_8hpp" startline="337" endline="361">sisi4s::FockVector&lt; F &gt;::write</references>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1EACcsdPreconditioner_1ab7ce4b1e3a15799962eac9943236debd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -75,9 +74,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="125" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="534" bodyend="571"/>
-        <references refid="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" compoundref="MathFunctions_8hpp" startline="29" endline="31">sisi4s::abs</references>
         <references refid="classsisi4s_1_1FockVector_1a931498ce2090f83bcff10de589035874" compoundref="FockVector_8hpp" startline="31">sisi4s::FockVector&lt; F &gt;::componentIndices</references>
-        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
         <references refid="classsisi4s_1_1FockVector_1aebf4e090f20a7bb83c434396b274c89c" compoundref="FockVector_8hpp" startline="101" endline="103">sisi4s::FockVector&lt; F &gt;::get</references>
         <references refid="classsisi4s_1_1FockVector_1ad754c5d7c0cb7ab1a487f1f640d7d877" compoundref="FockVector_8hpp" startline="260" endline="262">sisi4s::FockVector&lt; F &gt;::getComponentsCount</references>
       </memberdef>

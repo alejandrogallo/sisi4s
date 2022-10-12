@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="TrilinearInterpolation_8hpp" kind="file" language="C++">
     <compoundname>TrilinearInterpolation.hpp</compoundname>
     <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
@@ -77,9 +77,9 @@
 <codeline lineno="25"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Construction.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classgte_1_1IntpTrilinear3_1ada914bc27dc50a3ed7f0c57995b3fe99" kindref="member">IntpTrilinear3</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xBound,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yBound,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>zBound,<sp/>Real<sp/>xMin,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classgte_1_1IntpTrilinear3" kindref="compound">IntpTrilinear3</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xBound,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yBound,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>zBound,<sp/>Real<sp/>xMin,</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Real<sp/>xSpacing,<sp/>Real<sp/>yMin,<sp/>Real<sp/>ySpacing,<sp/>Real<sp/>zMin,<sp/>Real<sp/>zSpacing,</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">*<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">*<sp/>F);</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Member<sp/>access.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classgte_1_1IntpTrilinear3_1a71aa9328f8cda582127350dea030c0fc" kindref="member">GetXBound</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
@@ -121,7 +121,7 @@
 <codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Real&gt;</highlight></codeline>
 <codeline lineno="70" refid="classgte_1_1IntpTrilinear3_1ada914bc27dc50a3ed7f0c57995b3fe99" refkind="member"><highlight class="normal"><ref refid="classgte_1_1IntpTrilinear3_1ada914bc27dc50a3ed7f0c57995b3fe99" kindref="member">IntpTrilinear3&lt;Real&gt;::IntpTrilinear3</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xBound,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yBound,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>zBound,</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>Real<sp/>xMin,<sp/>Real<sp/>xSpacing,<sp/>Real<sp/>yMin,<sp/>Real<sp/>ySpacing,<sp/>Real<sp/>zMin,</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>Real<sp/>zSpacing,<sp/>Real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">*<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>Real<sp/>zSpacing,<sp/>Real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">*<sp/>F)</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>:</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>mXBound(xBound),</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>mYBound(yBound),</highlight></codeline>
@@ -133,7 +133,7 @@
 <codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>mYSpacing(ySpacing),</highlight></codeline>
 <codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>mZMin(zMin),</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>mZSpacing(zSpacing),</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>mF(<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>mF(F)</highlight></codeline>
 <codeline lineno="85"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>At<sp/>least<sp/>a<sp/>2x2x2<sp/>block<sp/>of<sp/>data<sp/>points<sp/>are<sp/>needed<sp/>to<sp/>construct<sp/>the</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>trilinear<sp/>interpolation.</highlight><highlight class="normal"></highlight></codeline>
@@ -291,15 +291,15 @@
 <codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>W[1]<sp/>=<sp/>zIndex<sp/>-<sp/>iz;</highlight></codeline>
 <codeline lineno="240"><highlight class="normal"></highlight></codeline>
 <codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>P<sp/>=<sp/>M*U,<sp/>Q<sp/>=<sp/>M*V,<sp/>R<sp/>=<sp/>M*W.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>Real<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>[2],<sp/>Q[2],<sp/>R[2];</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>Real<sp/>P[2],<sp/>Q[2],<sp/>R[2];</highlight></codeline>
 <codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row<sp/>=<sp/>0;<sp/>row<sp/>&lt;<sp/>2;<sp/>++row)</highlight></codeline>
 <codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>[row]<sp/>=<sp/>(Real)0;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>P[row]<sp/>=<sp/>(Real)0;</highlight></codeline>
 <codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Q[row]<sp/>=<sp/>(Real)0;</highlight></codeline>
 <codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>R[row]<sp/>=<sp/>(Real)0;</highlight></codeline>
 <codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>2;<sp/>++col)</highlight></codeline>
 <codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>[row]<sp/>+=<sp/>mBlend[row][col]<sp/>*<sp/>U[col];</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>P[row]<sp/>+=<sp/>mBlend[row][col]<sp/>*<sp/>U[col];</highlight></codeline>
 <codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Q[row]<sp/>+=<sp/>mBlend[row][col]<sp/>*<sp/>V[col];</highlight></codeline>
 <codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>R[row]<sp/>+=<sp/>mBlend[row][col]<sp/>*<sp/>W[col];</highlight></codeline>
 <codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -332,7 +332,7 @@
 <codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xClamp<sp/>=<sp/>mXBound<sp/>-<sp/>1;</highlight></codeline>
 <codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="282"><highlight class="normal"></highlight></codeline>
-<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>+=<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>[col]<sp/>*<sp/>Q[row]<sp/>*<sp/>R[slice]<sp/>*</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>+=<sp/>P[col]<sp/>*<sp/>Q[row]<sp/>*<sp/>R[slice]<sp/>*</highlight></codeline>
 <codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mF[xClamp<sp/>+<sp/>mXBound<sp/>*<sp/>(yClamp<sp/>+<sp/>mYBound<sp/>*<sp/>zClamp)];</highlight></codeline>
 <codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -439,15 +439,15 @@
 <codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="388"><highlight class="normal"></highlight></codeline>
 <codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>P<sp/>=<sp/>M*U,<sp/>Q<sp/>=<sp/>M*V,<sp/>and<sp/>R<sp/>=<sp/>M*W.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/>Real<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>[2],<sp/>Q[2],<sp/>R[2];</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/>Real<sp/>P[2],<sp/>Q[2],<sp/>R[2];</highlight></codeline>
 <codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row<sp/>=<sp/>0;<sp/>row<sp/>&lt;<sp/>2;<sp/>++row)</highlight></codeline>
 <codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>[row]<sp/>=<sp/>(Real)0;</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>P[row]<sp/>=<sp/>(Real)0;</highlight></codeline>
 <codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Q[row]<sp/>=<sp/>(Real)0;</highlight></codeline>
 <codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>R[row]<sp/>=<sp/>(Real)0;</highlight></codeline>
 <codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>2;<sp/>++col)</highlight></codeline>
 <codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>[row]<sp/>+=<sp/>mBlend[row][col]<sp/>*<sp/>U[col];</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>P[row]<sp/>+=<sp/>mBlend[row][col]<sp/>*<sp/>U[col];</highlight></codeline>
 <codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Q[row]<sp/>+=<sp/>mBlend[row][col]<sp/>*<sp/>V[col];</highlight></codeline>
 <codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>R[row]<sp/>+=<sp/>mBlend[row][col]<sp/>*<sp/>W[col];</highlight></codeline>
 <codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -480,7 +480,7 @@
 <codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xClamp<sp/>=<sp/>mXBound<sp/>-<sp/>1;</highlight></codeline>
 <codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="430"><highlight class="normal"></highlight></codeline>
-<codeline lineno="431"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>+=<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>[col]<sp/>*<sp/>Q[row]<sp/>*<sp/>R[slice]<sp/>*</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>+=<sp/>P[col]<sp/>*<sp/>Q[row]<sp/>*<sp/>R[slice]<sp/>*</highlight></codeline>
 <codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mF[xClamp<sp/>+<sp/>mXBound<sp/>*<sp/>(yClamp<sp/>+<sp/>mYBound<sp/>*<sp/>zClamp)];</highlight></codeline>
 <codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>

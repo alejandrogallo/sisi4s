@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="PQRSCoulombIntegralsToVertex_8cxx" kind="file" language="C++">
     <compoundname>PQRSCoulombIntegralsToVertex.cxx</compoundname>
     <includes refid="PQRSCoulombIntegralsToVertex_8hpp" local="no">algorithms/PQRSCoulombIntegralsToVertex.hpp</includes>
@@ -434,7 +434,7 @@
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex" kindref="compound">PQRSCoulombIntegralsToVertex</ref>);</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21" refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a2616d41143c212e1dafbd84aa386dd9e" refkind="member"><highlight class="normal">PQRSCoulombIntegralsToVertex::PQRSCoulombIntegralsToVertex(</highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a2616d41143c212e1dafbd84aa386dd9e" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a2616d41143c212e1dafbd84aa386dd9e" kindref="member">PQRSCoulombIntegralsToVertex::PQRSCoulombIntegralsToVertex</ref>(</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
 <codeline lineno="23"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
 <codeline lineno="24"><highlight class="normal">}</highlight></codeline>
@@ -538,11 +538,11 @@
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;version:<sp/>100\ntype:<sp/>Tensor\nscalarType:<sp/>Complex64\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;indices:\n<sp/><sp/>momentum:\n<sp/><sp/><sp/><sp/>type:<sp/>halfGrid\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;dimensions:\n<sp/><sp/>-<sp/>length:<sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/><ref refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" kindref="member">std::to_string</ref>(g);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/>std::to_string(g);</highlight></codeline>
 <codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\n<sp/><sp/><sp/><sp/>type:<sp/>AuxiliaryField\n<sp/><sp/>-<sp/>length:<sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/><ref refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" kindref="member">std::to_string</ref>(Np);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/>std::to_string(Np);</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\n<sp/><sp/><sp/><sp/>type:<sp/>State\n<sp/><sp/>-<sp/>length:<sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/><ref refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" kindref="member">std::to_string</ref>(Np);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/>std::to_string(Np);</highlight></codeline>
 <codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\n<sp/><sp/><sp/><sp/>type:<sp/>State\nelements:\n<sp/><sp/>type:<sp/>IeeeBinaryFile\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;binary:<sp/>1\nunit:<sp/>1\nmetaData:\n<sp/><sp/>halfGrid:<sp/>1&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="132"><highlight class="normal"></highlight></codeline>
@@ -575,7 +575,7 @@
 <codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout.clear();</highlight></codeline>
 <codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;version:<sp/>100\ntype:<sp/>Tensor\nscalarType:<sp/>Real64\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;dimensions:\n<sp/><sp/>-<sp/>length:<sp/><sp/><sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/><ref refid="namespaceCLI_1_1detail_1a0e94052d485636fc9f18c21009026577" kindref="member">std::to_string</ref>(No+Nv);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/>std::to_string(No+Nv);</highlight></codeline>
 <codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\n<sp/><sp/><sp/><sp/>type:<sp/>State\nelements:\n<sp/><sp/>type:<sp/>TextFile\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>yamlout<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;unit:<sp/>1\nmetaData:\n<sp/><sp/>fermiEnergy:<sp/><sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(buf,<sp/></highlight><highlight class="stringliteral">&quot;%16.14lf\n&quot;</highlight><highlight class="normal">,<sp/>fermiEnergy);</highlight></codeline>

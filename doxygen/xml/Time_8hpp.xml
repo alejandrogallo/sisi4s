@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="Time_8hpp" kind="file" language="C++">
     <compoundname>Time.hpp</compoundname>
     <includes local="no">ctime</includes>
@@ -2095,7 +2095,7 @@
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref>(std::floor(d),<sp/>std::round((d-std::floor(d))<sp/>*<sp/><ref refid="classsisi4s_1_1Time_1a6b3ecbe8696ec375e96e37004abfde45" kindref="member">Time::FRACTIONS</ref>));</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89" refid="namespacesisi4s_1af0b04a8d66de62bc764d8bec46070280" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::ostream<sp/>&amp;<ref refid="namespacesisi4s_1a824dfb7d6773baaa4dfc79467ad83a59" kindref="member">operator &lt;&lt;</ref>(std::ostream<sp/>&amp;stream,<sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;t)<sp/>{</highlight></codeline>
+<codeline lineno="89" refid="namespacesisi4s_1af0b04a8d66de62bc764d8bec46070280" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::ostream<sp/>&amp;operator<sp/>&lt;&lt;(std::ostream<sp/>&amp;stream,<sp/><ref refid="classsisi4s_1_1Time" kindref="compound">Time</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;t)<sp/>{</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>time;</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>time<sp/>&lt;&lt;<sp/>t.<ref refid="classsisi4s_1_1Time_1a8b0e7f1e475a376cf6c0436a05639de1" kindref="member">getSeconds</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::setw(<ref refid="classsisi4s_1_1Time_1a6cf1cef47e10cc59c5da149659b32a5e" kindref="member">Time::FRACTION_DIGITS</ref>)<sp/>&lt;&lt;<sp/>std::setfill(</highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)</highlight></codeline>

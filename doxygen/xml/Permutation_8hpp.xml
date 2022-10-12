@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="Permutation_8hpp" kind="file" language="C++">
     <compoundname>Permutation.hpp</compoundname>
     <includes local="no">iostream</includes>
@@ -113,7 +113,7 @@
 <codeline lineno="33"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
-<codeline lineno="36" refid="namespacesisi4s_1afd3719c004eaad74f542dc971e045475" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::ostream<sp/>&amp;<ref refid="namespacesisi4s_1a824dfb7d6773baaa4dfc79467ad83a59" kindref="member">operator &lt;&lt;</ref>(std::ostream<sp/>&amp;stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map&lt;N&gt;</ref><sp/>&amp;f)<sp/>{</highlight></codeline>
+<codeline lineno="36" refid="namespacesisi4s_1afd3719c004eaad74f542dc971e045475" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::ostream<sp/>&amp;operator<sp/>&lt;&lt;(std::ostream<sp/>&amp;stream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Map" kindref="compound">Map&lt;N&gt;</ref><sp/>&amp;f)<sp/>{</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>stream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N-1;<sp/>++i)<sp/>stream<sp/>&lt;&lt;<sp/>f(i)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>stream<sp/>&lt;&lt;<sp/>f(N-1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">;</highlight></codeline>

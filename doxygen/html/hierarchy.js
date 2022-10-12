@@ -212,12 +212,12 @@ var hierarchy =
     [ "sisi4s::DryMemory", "classsisi4s_1_1DryMemory.html", null ],
     [ "sisi4s::DryPseudoInverseHermitianSvd< F >", "classsisi4s_1_1DryPseudoInverseHermitianSvd.html", null ],
     [ "sisi4s::DryPseudoInverseSvd< F >", "classsisi4s_1_1DryPseudoInverseSvd.html", null ],
-    [ "sisi4s::DryTensor< F >", "classsisi4s_1_1DryTensor.html", null ],
-    [ "sisi4s::DryTensor< double >", "classsisi4s_1_1DryTensor.html", [
+    [ "sisi4s::DryTensor< F >", "classsisi4s_1_1DryTensor.html", [
       [ "sisi4s::DryMatrix< F >", "classsisi4s_1_1DryMatrix.html", null ],
       [ "sisi4s::DryScalar< F >", "classsisi4s_1_1DryScalar.html", null ],
       [ "sisi4s::DryVector< F >", "classsisi4s_1_1DryVector.html", null ]
     ] ],
+    [ "sisi4s::DryTensor< double >", "classsisi4s_1_1DryTensor.html", null ],
     [ "sisi4s::DryTensor< F >", "classsisi4s_1_1DryTensor.html", [
       [ "sisi4s::DryMatrix< F >", "classsisi4s_1_1DryMatrix.html", null ]
     ] ],

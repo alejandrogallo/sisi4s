@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="ParticleHoleCoulombVertexSingularVectors_8cxx" kind="file" language="C++">
     <compoundname>ParticleHoleCoulombVertexSingularVectors.cxx</compoundname>
     <includes refid="ParticleHoleCoulombVertexSingularVectors_8hpp" local="no">algorithms/ParticleHoleCoulombVertexSingularVectors.hpp</includes>
@@ -405,7 +405,7 @@
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors" kindref="compound">ParticleHoleCoulombVertexSingularVectors</ref>);</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19" refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a0b5de84791c98bac99ef1e2fce6d76c9" refkind="member"><highlight class="normal">ParticleHoleCoulombVertexSingularVectors::ParticleHoleCoulombVertexSingularVectors(</highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a0b5de84791c98bac99ef1e2fce6d76c9" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a0b5de84791c98bac99ef1e2fce6d76c9" kindref="member">ParticleHoleCoulombVertexSingularVectors::ParticleHoleCoulombVertexSingularVectors</ref>(</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
 <codeline lineno="21"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
 <codeline lineno="22"><highlight class="normal">}</highlight></codeline>
@@ -435,9 +435,9 @@
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>world(USSUT.wrld-&gt;rank,<sp/>USSUT.wrld-&gt;np);</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>scaUSSUT(make_shared&lt;<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;complex&gt;</ref>&gt;(USSUT,<sp/>&amp;world));</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>scaU(make_shared&lt;<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;complex&gt;</ref>&gt;(*scaUSSUT));</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4" kindref="compound">ScaLapackHermitianEigenSystemDc&lt;complex&gt;</ref><sp/>eigenSystem(scaUSSUT,<sp/>scaU);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc" kindref="compound">ScaLapackHermitianEigenSystemDc&lt;complex&gt;</ref><sp/>eigenSystem(scaUSSUT,<sp/>scaU);</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*SS(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[NG]);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/>eigenSystem.<ref refid="classsisi4s_1_1ScaLapackHermitianEigenSystemDc_3_01complex_01_4_1a403b665901b5b6a2a1077529507767e5" kindref="member">solve</ref>(SS);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>eigenSystem.solve(SS);</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>number<sp/>of<sp/>field<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NF(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;fieldVariables&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a3720f4d0ab2329cbd26e816d38feae7a" kindref="member">DEFAULT_FIELD_VARIABLES</ref>));</highlight></codeline>

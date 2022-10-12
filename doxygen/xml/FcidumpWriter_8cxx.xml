@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="FcidumpWriter_8cxx" kind="file" language="C++">
     <compoundname>FcidumpWriter.cxx</compoundname>
     <includes refid="FcidumpReader_8hpp" local="no">algorithms/FcidumpReader.hpp</includes>
@@ -369,6 +369,9 @@
         <references refid="structsisi4s_1_1FcidumpReader_1_1FcidumpHeader_1a8aaf17c44c87391c781344f420b7b174" compoundref="FcidumpReader_8hpp" startline="16">sisi4s::FcidumpReader::FcidumpHeader::ms2</references>
         <references refid="structsisi4s_1_1FcidumpReader_1_1FcidumpHeader_1aa1f19183c5ad38d14a97101f1bf14948" compoundref="FcidumpReader_8hpp" startline="14">sisi4s::FcidumpReader::FcidumpHeader::nelec</references>
         <references refid="structsisi4s_1_1FcidumpReader_1_1FcidumpHeader_1a2ca0da02fd72522b205b31521d2f818d" compoundref="FcidumpReader_8hpp" startline="13">sisi4s::FcidumpReader::FcidumpHeader::norb</references>
+        <references refid="FcidumpWriter_8cxx_1a61c1198de1cc7778444ba3c329482b50" compoundref="FcidumpWriter_8cxx" startline="25" endline="32">operator&lt;&lt;</references>
+        <referencedby refid="namespaceCLI_1_1enums_1a0d566286e31ca3fb0f2a97de03492e65" compoundref="CLI11_8hpp" startline="148" endline="151">CLI::enums::operator&lt;&lt;</referencedby>
+        <referencedby refid="FcidumpWriter_8cxx_1a61c1198de1cc7778444ba3c329482b50" compoundref="FcidumpWriter_8cxx" startline="25" endline="32">operator&lt;&lt;</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -409,7 +412,7 @@
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="32"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="classsisi4s_1_1FcidumpWriter_1aeeb70afb1962876cba6bfc4a0ced73ab" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FcidumpWriter::run()<sp/>{</highlight></codeline>
+<codeline lineno="34" refid="classsisi4s_1_1FcidumpWriter_1aeeb70afb1962876cba6bfc4a0ced73ab" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FcidumpWriter_1aeeb70afb1962876cba6bfc4a0ced73ab" kindref="member">FcidumpWriter::run</ref>()<sp/>{</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>filePath(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;FCIDUMP&quot;</highlight><highlight class="normal">));</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>uhf(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;uhf&quot;</highlight><highlight class="normal">,<sp/>0));</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ms2(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;ms2&quot;</highlight><highlight class="normal">,<sp/>0));</highlight></codeline>

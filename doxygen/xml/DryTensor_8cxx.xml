@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="DryTensor_8cxx" kind="file" language="C++">
     <compoundname>DryTensor.cxx</compoundname>
     <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
@@ -137,12 +137,12 @@
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal">int64_t<sp/>DryMemory::currentTotalSize<sp/>=<sp/>0,<sp/>DryMemory::maxTotalSize<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="10"><highlight class="normal">std::vector&lt;DryMemory::ExtendingResource&gt;<sp/>DryMemory::extendingResources;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">int64_t<sp/><ref refid="classsisi4s_1_1DryMemory_1a7c1f9840d95d981a56cc6ca3e50a0bca" kindref="member">DryMemory::currentTotalSize</ref><sp/>=<sp/>0,<sp/><ref refid="classsisi4s_1_1DryMemory_1af5c9c628f505419e35a2f7be26276a29" kindref="member">DryMemory::maxTotalSize</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">std::vector&lt;DryMemory::ExtendingResource&gt;<sp/><ref refid="classsisi4s_1_1DryMemory_1ab7e2988a5dacfa04a1568c8007ff7c52" kindref="member">DryMemory::extendingResources</ref>;</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;F&gt;::DryMatrix</ref>(</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix_1a8c015abb1c5b9c06dd8b2b92f79b293a" kindref="member">DryMatrix&lt;F&gt;::DryMatrix</ref>(</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cols,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sym,<sp/><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;location</highlight></codeline>
 <codeline lineno="16"><highlight class="normal">):</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;(</highlight></codeline>
@@ -154,19 +154,19 @@
 <codeline lineno="23"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;Float64&gt;::DryMatrix</ref>(</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix_1a8c015abb1c5b9c06dd8b2b92f79b293a" kindref="member">DryMatrix&lt;Float64&gt;::DryMatrix</ref>(</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cols,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sym,<sp/><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;location</highlight></codeline>
 <codeline lineno="28"><highlight class="normal">);</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;Complex64&gt;::DryMatrix</ref>(</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix_1a8c015abb1c5b9c06dd8b2b92f79b293a" kindref="member">DryMatrix&lt;Complex64&gt;::DryMatrix</ref>(</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rows,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cols,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sym,<sp/><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;location</highlight></codeline>
 <codeline lineno="32"><highlight class="normal">);</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="35" refid="classsisi4s_1_1DryVector_1a4b5cfbc5e666b77654bdabe83590a57e" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DryVector" kindref="compound">DryVector&lt;F&gt;::DryVector</ref>(</highlight></codeline>
+<codeline lineno="35" refid="classsisi4s_1_1DryVector_1a4b5cfbc5e666b77654bdabe83590a57e" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DryVector_1a4b5cfbc5e666b77654bdabe83590a57e" kindref="member">DryVector&lt;F&gt;::DryVector</ref>(</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>elements,<sp/><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;location</highlight></codeline>
 <codeline lineno="37"><highlight class="normal">):</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;(</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt;F&gt;(</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>1,<sp/>std::array&lt;int,1&gt;{{elements}}.data(),</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;int,1&gt;{{0}}.data(),</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>location</highlight></codeline>
@@ -184,7 +184,7 @@
 <codeline lineno="53" refid="classsisi4s_1_1DryScalar_1ab3a2a96e8e5424d677f6a5c7a12f345a" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DryScalar_1ab3a2a96e8e5424d677f6a5c7a12f345a" kindref="member">DryScalar&lt;F&gt;::DryScalar</ref>(</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;location</highlight></codeline>
 <codeline lineno="55"><highlight class="normal">):</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;(</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt;F&gt;(</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>0,<sp/>std::array&lt;int,0&gt;{{}}.data(),</highlight></codeline>
 <codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;int,0&gt;{{}}.data(),</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>location</highlight></codeline>
@@ -199,10 +199,10 @@
 <codeline lineno="68"><highlight class="normal"></highlight></codeline>
 <codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
 <codeline lineno="70" refid="classsisi4s_1_1DryScalar_1addd7c655dfdc9b63ff8a03ae10d62334" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DryScalar_1ab3a2a96e8e5424d677f6a5c7a12f345a" kindref="member">DryScalar&lt;F&gt;::DryScalar</ref>(</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>value,<sp/></highlight><highlight class="comment">//<sp/>will<sp/>be<sp/>discarded</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>F<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>value,<sp/></highlight><highlight class="comment">//<sp/>will<sp/>be<sp/>discarded</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;location</highlight></codeline>
 <codeline lineno="73"><highlight class="normal">):</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;(</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor</ref>&lt;F&gt;(</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>0,<sp/>std::array&lt;int,0&gt;{{}}.data(),</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;int,0&gt;{{}}.data(),</highlight></codeline>
 <codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>location</highlight></codeline>

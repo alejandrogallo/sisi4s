@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="ParenthesisTriples_8cxx" kind="file" language="C++">
     <compoundname>ParenthesisTriples.cxx</compoundname>
     <includes refid="ParenthesisTriples_8hpp" local="no">algorithms/ParenthesisTriples.hpp</includes>
@@ -386,7 +386,6 @@
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/ParenthesisTriples.cxx" line="36" column="14" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/ParenthesisTriples.cxx" bodystart="36" bodyend="76"/>
         <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="9">EXCEPTION</references>
-        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
         <references refid="classsisi4s_1_1BinaryTensorDimensionHeader_1a07e8160f02123b4823bb90872a755839" compoundref="BinaryTensorFormat_8hpp" startline="62">sisi4s::BinaryTensorDimensionHeader::length</references>
         <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
         <references refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" compoundref="BinaryTensorFormat_8hpp" startline="16">sisi4s::BinaryTensorHeaderBase::order</references>
@@ -423,8 +422,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/ParenthesisTriples.cxx" line="98" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/ParenthesisTriples.cxx" bodystart="98" bodyend="147"/>
-        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a63b52edf34a3f352a74a7e8ccc95750d" compoundref="AngularMomentum_8hpp" startline="8">am::D</references>
-        <references refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" compoundref="AngularMomentum_8hpp" startline="8">am::F</references>
         <referencedby refid="classsisi4s_1_1ParenthesisTriples_1a13c648b58b994e20cb35843b25b23312" compoundref="ParenthesisTriples_8cxx" startline="548" endline="764">sisi4s::ParenthesisTriples::run</referencedby>
       </memberdef>
       <memberdef kind="function" id="ParenthesisTriples_8cxx_1a20ea8f77b3526beea554299b4c6855fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -638,7 +635,7 @@
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1ParenthesisTriples" kindref="compound">ParenthesisTriples</ref>);</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19" refid="classsisi4s_1_1ParenthesisTriples_1a96e1fda4c845b580e150874376985f6e" refkind="member"><highlight class="normal">ParenthesisTriples::ParenthesisTriples(</highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1ParenthesisTriples_1a96e1fda4c845b580e150874376985f6e" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ParenthesisTriples_1a96e1fda4c845b580e150874376985f6e" kindref="member">ParenthesisTriples::ParenthesisTriples</ref>(</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
 <codeline lineno="21"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{}</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
@@ -682,7 +679,7 @@
 <codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"></highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>offset<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>offset<sp/>*=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>offset<sp/>*=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(F);</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>offset<sp/>+=<sp/>f.tellg();<sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>have<sp/>to<sp/>add<sp/>the<sp/>offset<sp/>of<sp/>the<sp/>header</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>f.seekg(offset);</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
@@ -691,7 +688,7 @@
 <codeline lineno="69"><highlight class="normal"></highlight></codeline>
 <codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>resize<sp/>the<sp/>data</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="71"><highlight class="normal"><sp/><sp/>data.resize(length);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/>f.read((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)<sp/>data.data(),<sp/>length<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>));</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>f.read((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)<sp/>data.data(),<sp/>length<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(F));</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/>f.close();</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"></highlight></codeline>
 <codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1IrmlerTensor" kindref="compound">IrmlerTensor&lt;F&gt;</ref>(lens,<sp/>header.<ref refid="classsisi4s_1_1BinaryTensorHeaderBase_1ad7e3e437df5855911d5e76784ef87046" kindref="member">order</ref>,<sp/>data);</highlight></codeline>
@@ -752,12 +749,12 @@
 <codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A(Tabc_[a<sp/>+<sp/>Nv*b<sp/>+<sp/>Nv*Nv*c]);<sp/></highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>B(Tabc_[a<sp/>+<sp/>Nv*c<sp/>+<sp/>Nv*Nv*b]);<sp/></highlight></codeline>
 <codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>C(Tabc_[b<sp/>+<sp/>Nv*a<sp/>+<sp/>Nv*Nv*c]);<sp/></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a63b52edf34a3f352a74a7e8ccc95750d" kindref="member">D</ref>(Tabc_[b<sp/>+<sp/>Nv*c<sp/>+<sp/>Nv*Nv*a]);<sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>D(Tabc_[b<sp/>+<sp/>Nv*c<sp/>+<sp/>Nv*Nv*a]);<sp/></highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>E(Tabc_[c<sp/>+<sp/>Nv*a<sp/>+<sp/>Nv*Nv*b]);<sp/></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>(Tabc_[c<sp/>+<sp/>Nv*b<sp/>+<sp/>Nv*Nv*a]);<sp/></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value(3.0*(A*U+B*V+C*W+<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a63b52edf34a3f352a74a7e8ccc95750d" kindref="member">D</ref>*X+E*Y+<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>*Z)</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+((U+X+Y)-2.0*(V+W+Z))*(A+<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a63b52edf34a3f352a74a7e8ccc95750d" kindref="member">D</ref>+E)</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+((V+W+Z)-2.0*(U+X+Y))*(B+C+<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>));</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>F(Tabc_[c<sp/>+<sp/>Nv*b<sp/>+<sp/>Nv*Nv*a]);<sp/></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value(3.0*(A*U+B*V+C*W+D*X+E*Y+F*Z)</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+((U+X+Y)-2.0*(V+W+Z))*(A+D+E)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+((V+W+Z)-2.0*(U+X+Y))*(B+C+F));</highlight></codeline>
 <codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy<sp/>+=<sp/>2.0*value<sp/>/<sp/>denominator<sp/>*<sp/>facbc<sp/>*<sp/>facab;</highlight></codeline>
 <codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>

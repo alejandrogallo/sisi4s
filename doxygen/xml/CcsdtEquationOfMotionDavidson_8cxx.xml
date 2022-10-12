@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="CcsdtEquationOfMotionDavidson_8cxx" kind="file" language="C++">
     <compoundname>CcsdtEquationOfMotionDavidson.cxx</compoundname>
     <includes refid="CcsdtEquationOfMotionDavidson_8hpp" local="no">algorithms/CcsdtEquationOfMotionDavidson.hpp</includes>
@@ -559,7 +559,7 @@
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson" kindref="compound">CcsdtEquationOfMotionDavidson</ref>);</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26" refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson_1aa68c3bf72dc5ce0b32e08dcc3c687a9a" refkind="member"><highlight class="normal">CcsdtEquationOfMotionDavidson::CcsdtEquationOfMotionDavidson(</highlight></codeline>
+<codeline lineno="26" refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson_1aa68c3bf72dc5ce0b32e08dcc3c687a9a" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson_1aa68c3bf72dc5ce0b32e08dcc3c687a9a" kindref="member">CcsdtEquationOfMotionDavidson::CcsdtEquationOfMotionDavidson</ref>(</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
 <codeline lineno="28"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
 <codeline lineno="29"><highlight class="normal">}</highlight></codeline>
@@ -812,15 +812,15 @@
 <codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;CcsdtEomDavid&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Using<sp/>canonical<sp/>orbitals&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>Fia<sp/>=<sp/>NULL;</highlight></codeline>
 <codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Transform&lt;double,<sp/>F&gt;(</highlight></codeline>
-<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>&amp;)&gt;(</highlight></codeline>
-<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eps,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>&amp;f)<sp/>{<sp/>f<sp/>=<sp/>eps;<sp/>}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>F<sp/>&amp;)&gt;(</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eps,<sp/>F<sp/>&amp;f)<sp/>{<sp/>f<sp/>=<sp/>eps;<sp/>}</highlight></codeline>
 <codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
 <codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>(</highlight></codeline>
 <codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*epsi)[</highlight><highlight class="stringliteral">&quot;i&quot;</highlight><highlight class="normal">],<sp/>(*Fij)[</highlight><highlight class="stringliteral">&quot;ii&quot;</highlight><highlight class="normal">]</highlight></codeline>
 <codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
 <codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Transform&lt;double,<sp/>F&gt;(</highlight></codeline>
-<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>&amp;)&gt;(</highlight></codeline>
-<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eps,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>&amp;f)<sp/>{<sp/>f<sp/>=<sp/>eps;<sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>F<sp/>&amp;)&gt;(</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eps,<sp/>F<sp/>&amp;f)<sp/>{<sp/>f<sp/>=<sp/>eps;<sp/>}</highlight></codeline>
 <codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
 <codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>(</highlight></codeline>
 <codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*epsa)[</highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">],<sp/>(*Fab)[</highlight><highlight class="stringliteral">&quot;aa&quot;</highlight><highlight class="normal">]</highlight></codeline>
@@ -845,9 +845,9 @@
 <codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>dressing<sp/>=<sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian&lt;F&gt;::Dressing::CCSDT</ref>;</highlight></codeline>
 <codeline lineno="310"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="311"><highlight class="normal"></highlight></codeline>
-<codeline lineno="312"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian&lt;F&gt;</ref><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a2ee765cd9bdcdbec52e323808a758ebc" kindref="member">H</ref>(Fij-&gt;lens[0],<sp/>Fab-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian&lt;F&gt;</ref><sp/>H(Fij-&gt;lens[0],<sp/>Fab-&gt;lens[0]);</highlight></codeline>
 <codeline lineno="313"><highlight class="normal"></highlight></codeline>
-<codeline lineno="314"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a2ee765cd9bdcdbec52e323808a758ebc" kindref="member">H</ref>.setFij(Fij).setFab(Fab).setFia(Fia)</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/>H.setFij(Fij).setFab(Fab).setFia(Fia)</highlight></codeline>
 <codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/>.setVabcd(Vabcd).setViajb(Viajb).setVijab(Vijab).setVijkl(Vijkl)</highlight></codeline>
 <codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/>.setVijka(Vijka).setViabc(Viabc).setViajk(Viajk).setVabic(Vabic)</highlight></codeline>
 <codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>.setVaibc(Vaibc).setVaibj(Vaibj).setViabj(Viabj).setVijak(Vijak)</highlight></codeline>
@@ -856,20 +856,20 @@
 <codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/>.setRightApplyIntermediates(intermediates)</highlight></codeline>
 <codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>.setDressing(dressing);</highlight></codeline>
 <codeline lineno="322"><highlight class="normal"></highlight></codeline>
-<codeline lineno="323"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner&lt;F&gt;</ref><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>(</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner&lt;F&gt;</ref><sp/>P(</highlight></codeline>
 <codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>Tai,<sp/>Tabij,<sp/>*Fij,<sp/>*Fab,<sp/>*Vabcd,<sp/>*Viajb,<sp/>*Vijab,<sp/>*Vijkl</highlight></codeline>
 <codeline lineno="325"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="326"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.preconditionerRandom<sp/>=<sp/>preconditionerRandom;</highlight></codeline>
-<codeline lineno="327"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>.preconditionerRandomSigma<sp/>=<sp/>preconditionerRandomSigma;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/>P.preconditionerRandom<sp/>=<sp/>preconditionerRandom;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/>P.preconditionerRandomSigma<sp/>=<sp/>preconditionerRandomSigma;</highlight></codeline>
 <codeline lineno="328"><highlight class="normal"></highlight></codeline>
 <codeline lineno="329"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1EigenSystemDavidsonMono" kindref="compound">EigenSystemDavidsonMono</ref>&lt;</highlight></codeline>
 <codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian&lt;F&gt;</ref>,</highlight></codeline>
 <codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner&lt;F&gt;</ref>,</highlight></codeline>
 <codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SDTFockVector" kindref="compound">SDTFockVector&lt;F&gt;</ref></highlight></codeline>
 <codeline lineno="333"><highlight class="normal"><sp/><sp/>&gt;<sp/>eigenSystem(</highlight></codeline>
-<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a2ee765cd9bdcdbec52e323808a758ebc" kindref="member">H</ref>,</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;H,</highlight></codeline>
 <codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/>eigenStates,</highlight></codeline>
-<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408a711286b81f1947872ea16ce27b47fd39" kindref="member">P</ref>,</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;P,</highlight></codeline>
 <codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>amplitudesConvergence,</highlight></codeline>
 <codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/>energyConvergence,</highlight></codeline>
 <codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/>maxBasisSize,</highlight></codeline>

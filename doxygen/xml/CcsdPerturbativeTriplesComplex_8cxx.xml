@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="CcsdPerturbativeTriplesComplex_8cxx" kind="file" language="C++">
     <compoundname>CcsdPerturbativeTriplesComplex.cxx</compoundname>
     <includes refid="CcsdPerturbativeTriplesComplex_8hpp" local="no">algorithms/CcsdPerturbativeTriplesComplex.hpp</includes>
@@ -397,7 +397,7 @@
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1CcsdPerturbativeTriplesComplex" kindref="compound">CcsdPerturbativeTriplesComplex</ref>);</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16" refid="classsisi4s_1_1CcsdPerturbativeTriplesComplex_1ab91a0b5d68845b4f16b7a61347e289a2" refkind="member"><highlight class="normal">CcsdPerturbativeTriplesComplex::CcsdPerturbativeTriplesComplex(</highlight></codeline>
+<codeline lineno="16" refid="classsisi4s_1_1CcsdPerturbativeTriplesComplex_1ab91a0b5d68845b4f16b7a61347e289a2" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1CcsdPerturbativeTriplesComplex_1ab91a0b5d68845b4f16b7a61347e289a2" kindref="member">CcsdPerturbativeTriplesComplex::CcsdPerturbativeTriplesComplex</ref>(</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
 <codeline lineno="18"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
 <codeline lineno="19"><highlight class="normal">}</highlight></codeline>
@@ -479,7 +479,7 @@
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>*epsi_,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>*epsa_</highlight></codeline>
 <codeline lineno="96"><highlight class="normal">):</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slice<sp/>Tai<sp/>in<sp/>dimension<sp/>1,<sp/>i.e.<sp/>in<sp/>i</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/>Tai(<sp/>new<sp/><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor</ref>&lt;<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>&gt;(*Tai_,<sp/>{1})<sp/>),</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>Tai(<sp/>new<sp/><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor</ref>&lt;F&gt;(*Tai_,<sp/>{1})<sp/>),</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slice<sp/>Tabij<sp/>in<sp/>dimension<sp/>2&amp;3,<sp/>i.e.<sp/>in<sp/>i,j</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="100"><highlight class="normal"><sp/><sp/>Tabij(<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SlicedCtfTensor" kindref="compound">SlicedCtfTensor&lt;F&gt;</ref>(*Tabij_,<sp/>{2,3})<sp/>),</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>slice<sp/>Tabil<sp/>in<sp/>dimension<sp/>2</highlight><highlight class="normal"></highlight></codeline>
@@ -599,8 +599,8 @@
 <codeline lineno="215"><highlight class="normal"></highlight></codeline>
 <codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>energy<sp/>denominator<sp/>is<sp/>invariant<sp/>under<sp/>all<sp/>permutations</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CTF::Transform&lt;F,<sp/>F&gt;(</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>&amp;)&gt;(</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](<ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>deltaabij,<sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>&amp;dvabij)<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(F,<sp/>F<sp/>&amp;)&gt;(</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](F<sp/>deltaabij,<sp/>F<sp/>&amp;dvabij)<sp/>{</highlight></codeline>
 <codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dvabij<sp/>=<sp/><ref refid="namespacesisi4s_1abc3ea35f1434b9c5021b9195449d1f9b" kindref="member">conj</ref>(dvabij<sp/>/<sp/>deltaabij);</highlight></codeline>
 <codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>

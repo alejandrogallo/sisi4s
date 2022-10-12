@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxyfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="doxyfile.xsd" version="1.9.4" xml:lang="en-US">
+<doxyfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="doxyfile.xsd" version="1.9.5" xml:lang="en-US">
   <option  id='DOXYFILE_ENCODING' default='yes' type='string'><value><![CDATA[UTF-8]]></value></option>
   <option  id='PROJECT_NAME' default='no' type='string'><value><![CDATA[sisi4s]]></value></option>
   <option  id='PROJECT_NUMBER' default='yes' type='string'><value><![CDATA[]]></value></option>
@@ -79,7 +79,7 @@
   <option  id='HIDE_FRIEND_COMPOUNDS' default='yes' type='bool'><value>NO</value></option>
   <option  id='HIDE_IN_BODY_DOCS' default='yes' type='bool'><value>NO</value></option>
   <option  id='INTERNAL_DOCS' default='yes' type='bool'><value>NO</value></option>
-  <option  id='CASE_SENSE_NAMES' default='yes' type='bool'><value>YES</value></option>
+  <option  id='CASE_SENSE_NAMES' default='no' type='string'><value>YES</value></option>
   <option  id='HIDE_SCOPE_NAMES' default='yes' type='bool'><value>NO</value></option>
   <option  id='HIDE_COMPOUND_REFERENCE' default='yes' type='bool'><value>NO</value></option>
   <option  id='SHOW_HEADERFILE' default='yes' type='bool'><value>YES</value></option>
@@ -121,6 +121,8 @@
     <value><![CDATA[../../src/]]></value>
   </option>
   <option  id='INPUT_ENCODING' default='yes' type='string'><value><![CDATA[UTF-8]]></value></option>
+  <option  id='INPUT_FILE_ENCODING' default='yes' type='stringlist'>
+  </option>
   <option  id='FILE_PATTERNS' default='no' type='stringlist'>
     <value><![CDATA[*.c]]></value>
     <value><![CDATA[*.cc]]></value>
@@ -193,6 +195,7 @@
   <option  id='FILTER_SOURCE_PATTERNS' default='yes' type='stringlist'>
   </option>
   <option  id='USE_MDFILE_AS_MAINPAGE' default='yes' type='string'><value><![CDATA[]]></value></option>
+  <option  id='FORTRAN_COMMENT_AFTER' default='yes' type='int'><value>72</value></option>
   <option  id='SOURCE_BROWSER' default='yes' type='bool'><value>NO</value></option>
   <option  id='INLINE_SOURCES' default='yes' type='bool'><value>NO</value></option>
   <option  id='STRIP_CODE_COMMENTS' default='yes' type='bool'><value>YES</value></option>
@@ -216,6 +219,7 @@
   </option>
   <option  id='HTML_EXTRA_FILES' default='yes' type='stringlist'>
   </option>
+  <option  id='HTML_COLORSTYLE' default='yes' type='string'><value>AUTO_LIGHT</value></option>
   <option  id='HTML_COLORSTYLE_HUE' default='no' type='int'><value>0</value></option>
   <option  id='HTML_COLORSTYLE_SAT' default='yes' type='int'><value>100</value></option>
   <option  id='HTML_COLORSTYLE_GAMMA' default='yes' type='int'><value>80</value></option>
@@ -255,7 +259,6 @@
   <option  id='OBFUSCATE_EMAILS' default='yes' type='bool'><value>YES</value></option>
   <option  id='HTML_FORMULA_FORMAT' default='yes' type='string'><value>png</value></option>
   <option  id='FORMULA_FONTSIZE' default='yes' type='int'><value>10</value></option>
-  <option  id='FORMULA_TRANSPARENT' default='yes' type='bool'><value>YES</value></option>
   <option  id='FORMULA_MACROFILE' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='USE_MATHJAX' default='yes' type='bool'><value>NO</value></option>
   <option  id='MATHJAX_VERSION' default='yes' type='string'><value>MathJax_2</value></option>
@@ -340,8 +343,9 @@
   <option  id='HIDE_UNDOC_RELATIONS' default='yes' type='bool'><value>YES</value></option>
   <option  id='HAVE_DOT' default='no' type='bool'><value>YES</value></option>
   <option  id='DOT_NUM_THREADS' default='yes' type='int'><value>0</value></option>
-  <option  id='DOT_FONTNAME' default='yes' type='string'><value><![CDATA[Helvetica]]></value></option>
-  <option  id='DOT_FONTSIZE' default='yes' type='int'><value>10</value></option>
+  <option  id='DOT_COMMON_ATTR' default='yes' type='string'><value><![CDATA["fontname=Helvetica,fontsize=10"]]></value></option>
+  <option  id='DOT_EDGE_ATTR' default='yes' type='string'><value><![CDATA["labelfontname=Helvetica,labelfontsize=10"]]></value></option>
+  <option  id='DOT_NODE_ATTR' default='yes' type='string'><value><![CDATA["shape=box,height=0.2,width=0.4"]]></value></option>
   <option  id='DOT_FONTPATH' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='CLASS_GRAPH' default='yes' type='string'><value>YES</value></option>
   <option  id='COLLABORATION_GRAPH' default='yes' type='bool'><value>YES</value></option>
@@ -373,7 +377,6 @@
   </option>
   <option  id='DOT_GRAPH_MAX_NODES' default='yes' type='int'><value>50</value></option>
   <option  id='MAX_DOT_GRAPH_DEPTH' default='yes' type='int'><value>0</value></option>
-  <option  id='DOT_TRANSPARENT' default='no' type='bool'><value>YES</value></option>
   <option  id='DOT_MULTI_TARGETS' default='yes' type='bool'><value>NO</value></option>
   <option  id='GENERATE_LEGEND' default='yes' type='bool'><value>YES</value></option>
   <option  id='DOT_CLEANUP' default='yes' type='bool'><value>YES</value></option>

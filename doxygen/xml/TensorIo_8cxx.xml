@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="TensorIo_8cxx" kind="file" language="C++">
     <compoundname>TensorIo.cxx</compoundname>
     <includes refid="TensorIo_8hpp" local="no">util/TensorIo.hpp</includes>
@@ -316,7 +316,7 @@
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="15" refid="classsisi4s_1_1TensorIo_1a671dcc77e7ded146d8e18ccca6f58051" refkind="member"><highlight class="normal">T<sp/>*TensorIo::readBinary(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName)<sp/>{</highlight></codeline>
+<codeline lineno="15" refid="classsisi4s_1_1TensorIo_1a671dcc77e7ded146d8e18ccca6f58051" refkind="member"><highlight class="normal">T<sp/>*<ref refid="classsisi4s_1_1TensorIo_1a671dcc77e7ded146d8e18ccca6f58051" kindref="member">TensorIo::readBinary</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;fileName)<sp/>{</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>open<sp/>the<sp/>file</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/>MPI_File<sp/>file;</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mpiError(</highlight></codeline>
@@ -391,7 +391,7 @@
 <codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>the<sp/>values<sp/>only<sp/>on<sp/>root</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/>int64_t<sp/>localBufferSize(B-&gt;wrld-&gt;rank<sp/>==<sp/>0<sp/>?<sp/>bufferSize<sp/>:<sp/>0);</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/>int64_t<sp/>*indices(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[localBufferSize]);</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*values(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref>[localBufferSize]);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>F<sp/>*values(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>F[localBufferSize]);</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"></highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/>int64_t<sp/>index(0);</highlight></codeline>
 <codeline lineno="93"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorReader&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;indexCount=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>indexCount<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
@@ -503,7 +503,7 @@
 <codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>reorder<sp/>indices<sp/>for<sp/>writing:</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="200"><highlight class="normal"><sp/><sp/>B[indexOrder]<sp/>=<sp/>A[defaultIndexOrder];</highlight></codeline>
 <codeline lineno="201"><highlight class="normal"><sp/><sp/>int64_t<sp/>valuesCount;</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/><ref refid="namespaceam_1a28c180222fe17a6f2cec62efac96b408ad9a58ab20a9d26589d9044a920984a3a" kindref="member">F</ref><sp/>*values;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>F<sp/>*values;</highlight></codeline>
 <codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>unpack<sp/>symmetries<sp/>for<sp/>writing</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>implement<sp/>memory<sp/>scalable<sp/>version</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="205"><highlight class="normal"><sp/><sp/>B.read_all(&amp;valuesCount,<sp/>&amp;values,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>

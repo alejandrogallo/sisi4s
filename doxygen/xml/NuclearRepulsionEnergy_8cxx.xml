@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="NuclearRepulsionEnergy_8cxx" kind="file" language="C++">
     <compoundname>NuclearRepulsionEnergy.cxx</compoundname>
     <includes local="no">string</includes>
@@ -401,19 +401,19 @@
 <codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>enuc;</highlight></codeline>
 <codeline lineno="31"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33" refid="classsisi4s_1_1NuclearRepulsionEnergy_1a0b2fed5ecd1a10cfb403b384c9ae0b72" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>NuclearRepulsionEnergy::run()<sp/>{</highlight></codeline>
+<codeline lineno="33" refid="classsisi4s_1_1NuclearRepulsionEnergy_1a0b2fed5ecd1a10cfb403b384c9ae0b72" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1NuclearRepulsionEnergy_1a0b2fed5ecd1a10cfb403b384c9ae0b72" kindref="member">NuclearRepulsionEnergy::run</ref>()<sp/>{</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" kindref="member">checkArgumentsOrDie</ref>(<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;xyzStructureFile&quot;</highlight><highlight class="normal"><sp/>}<sp/>);</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>xyzStructureFile(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;xyzStructureFile&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">));</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="NuclearRepulsionEnergy_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;structure:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>xyzStructureFile<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;structure:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>xyzStructureFile<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/>std::ifstream<sp/>f(xyzStructureFile.c_str());</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/>std::vector&lt;libint2::Atom&gt;<sp/>atoms(libint2::read_dotxyz(f));</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/>f.close();</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>enuc<sp/>=<sp/><ref refid="NuclearRepulsionEnergy_8cxx_1aaceb2c1481a73d85f851e6d8b4a2e9da" kindref="member">getEnergy</ref>(atoms);</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="NuclearRepulsionEnergy_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::setprecision(15)<sp/>&lt;&lt;<sp/>std::setw(10)</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;energy<sp/>=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>enuc</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>

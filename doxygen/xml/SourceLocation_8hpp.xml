@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="SourceLocation_8hpp" kind="file" language="C++">
     <compoundname>SourceLocation.hpp</compoundname>
     <includes local="no">string</includes>
@@ -475,7 +475,7 @@
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
 <codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">SourceLocation;</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/>std::ostream<sp/>&amp;<ref refid="namespacesisi4s_1a824dfb7d6773baaa4dfc79467ad83a59" kindref="member">operator &lt;&lt;</ref>(std::ostream<sp/>&amp;stream,<sp/>SourceLocation<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;l);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>std::ostream<sp/>&amp;operator<sp/>&lt;&lt;(std::ostream<sp/>&amp;stream,<sp/>SourceLocation<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;l);</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="13" refid="classsisi4s_1_1SourceLocation" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref><sp/>{</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
@@ -503,7 +503,7 @@
 <codeline lineno="36" refid="classsisi4s_1_1SourceLocation_1a00f17adcaa7ca4e75a9d4eb0acd77311" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SourceLocation_1a00f17adcaa7ca4e75a9d4eb0acd77311" kindref="member">line</ref>;</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="namespacesisi4s_1a1144543bd0254bc080bc5eb82c7fa087" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::ostream<sp/>&amp;<ref refid="namespacesisi4s_1a824dfb7d6773baaa4dfc79467ad83a59" kindref="member">operator &lt;&lt;</ref>(</highlight></codeline>
+<codeline lineno="39" refid="namespacesisi4s_1a1144543bd0254bc080bc5eb82c7fa087" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::ostream<sp/>&amp;operator<sp/>&lt;&lt;(</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ostream<sp/>&amp;stream,<sp/><ref refid="classsisi4s_1_1SourceLocation" kindref="compound">SourceLocation</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;location</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>stream<sp/>&lt;&lt;<sp/>location.<ref refid="classsisi4s_1_1SourceLocation_1a12d3414060a42cc145109c13954e06a3" kindref="member">getFile</ref>()<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>location.<ref refid="classsisi4s_1_1SourceLocation_1ae3fa7f4644a8702a1c33d2a97e7feee4" kindref="member">getLine</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">;</highlight></codeline>
