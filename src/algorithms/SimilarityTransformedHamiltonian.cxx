@@ -2807,14 +2807,20 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
      ;
 
   ST_DEBUG("casting gammas")
-#define DEFINE_AND_CAST(_c) \
-  Tensor<double> real##_c(3, _c->lens, _c->sym, *_c->wrld, "Real##_c"); \
-  Tensor<double> imag##_c(3, _c->lens, _c->sym, *_c->wrld, "Imag##_c"); \
-  fromComplexTensor(*_c, real##_c, imag##_c);
-  DEFINE_AND_CAST(Cai)
-  DEFINE_AND_CAST(Cia)
-  DEFINE_AND_CAST(Cij)
-  DEFINE_AND_CAST(Cab)
+#define DEFINE_AND_CAST(_c)                       \
+  Tensor<double>                                  \
+    real ## _c(3, _c->lens, _c->sym, *_c->wrld),  \
+    imag ## _c(3, _c->lens, _c->sym, *_c->wrld);  \
+                                                  \
+  fromComplexTensor(*_c,                          \
+                    real ## _c,                   \
+                    imag ## _c)
+
+  DEFINE_AND_CAST(Cai);
+  DEFINE_AND_CAST(Cia);
+  DEFINE_AND_CAST(Cij);
+  DEFINE_AND_CAST(Cab);
+
 #undef DEFINE_AND_CAST
 
   // get pointers to the component tensors
