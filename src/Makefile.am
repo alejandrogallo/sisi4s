@@ -1,8 +1,6 @@
 AUTOMAKE_OPTIONS = subdir-objects
-include $(top_srcdir)/SiSi4S.mk
 
-AM_CXXFLAGS = $(CTF_CPPFLAGS) \
-              -fmax-errors=1 \
+AM_CXXFLAGS = -fmax-errors=1 \
               -D_POSIX_C_SOURCE=200112L     \
               -D__STDC_LIMIT_MACROS         \
               -DFTN_UNDERSCORE=1            \
@@ -10,8 +8,6 @@ AM_CXXFLAGS = $(CTF_CPPFLAGS) \
 
 
 bin_PROGRAMS = sisi4s
-
-sisi4s_CPPFLAGS = $(CTF_CPPFLAGS) $(YAML_CPPFLAGS) $(LIBINT_CPPFLAGS) $(EIGEN_CPPFLAGS)
 
 sisi4s_SOURCES =                                                 \
 ./Data.cxx                                                       \
@@ -96,7 +92,8 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/GenerateRandomComplexMatrix.cxx                     \
 ./algorithms/UegVertexGenerator.cxx                              \
 ./algorithms/CoulombIntegralsFromVertex.cxx                      \
-./algorithms/Exit.cxx
+./algorithms/Exit.cxx                                            \
+./algorithms/PQRSCoulombIntegralsToVertex.cxx
 
 ## FOR LIBINT2
 sisi4s_SOURCES +=                                                  \
@@ -105,11 +102,8 @@ sisi4s_SOURCES +=                                                  \
 ./algorithms/NuclearRepulsionEnergy.cxx                          \
 ./algorithms/CoulombIntegralsFromGaussian.cxx
 
-
-
-sisi4s_LDADD = $(CTF_LDFLAGS) \
-               $(YAML_LDFLAGS) \
-               $(LIBINT_LIB)
+sisi4s_CPPFLAGS = $(EXTERNAL_CPPFLAGS)
+sisi4s_LDADD = $(EXTERNAL_LDFLAGS)
 
 
 

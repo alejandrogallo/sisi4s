@@ -44,6 +44,8 @@ void Mp2NaturalOrbitals::run() {
   int64_t Nv(epsa->lens[0]);
   int64_t No(epsi->lens[0]);
   int64_t Np(orbs->lens[1]);
+  int64_t Nx(orbs->lens[0]);
+  int64_t nFno;
   std::array<int,2> vv({{ (int)Nv, (int)Nv }});
   std::array<int,2> syms({{ NS, NS }});
   std::array<int,2> pp({{ (int)Np, (int)Np}});
@@ -101,13 +103,14 @@ void Mp2NaturalOrbitals::run() {
     //TRUNCATE (2)
     double occupationThreshold(getRealArgument("occupationThreshold",1e-16));
     if (isArgumentGiven("FnoNumber")){
-      int fnoNumber(getIntegerArgument("FnoNumber"));
+      int64_t fnoNumber(getIntegerArgument("FnoNumber"));
+      nFno = std::min(fnoNumber, Nv);
       //because of the 'wrong' ordering of the eigenvalues
       //we have to zero the first Nv-NFno columns
       for (int64_t a(0); a < Nv-fnoNumber; a++)
       for (int64_t b(0); b < Nv; b++)
         DabMatrix[b+a*Nv] = 0.0;
-      LOG(0,"Nocc") << fnoNumber << std::endl;
+      LOG(0,"Nocc") << nFno << std::endl;
     }
     else{
       int counter(0);
@@ -118,6 +121,7 @@ void Mp2NaturalOrbitals::run() {
             DabMatrix[b+a*Nv] = 0.0;
         }
       }
+      nFno = Nv - counter;
       LOG(0,"occupationThreshold") << occupationThreshold << std::endl;
       LOG(0,"Nfno") << Nv-counter << std::endl;
     }
@@ -188,8 +192,35 @@ void Mp2NaturalOrbitals::run() {
                   << std::endl;
     (*rotatedOrbitals)["mi"] = (*orbs)["mj"] * (*rotationMatrix)["ji"];
 
-    allocatedTensorArgument<>("RotatedOrbitals", rotatedOrbitals);
-    allocatedTensorArgument("ParticleEigenEnergiesRediag", epsaRediag);
+    std::array<int,2> ff({{ static_cast<int>(Nx),
+                            static_cast<int>(No+nFno)}});
+    std::array<int,2> f({{ static_cast<int>(nFno) }});
+
+    auto newEpsa(new Tensor<double>(1, f.data(), syms.data(), *Vabij->wrld, "newEpsa"));
+    dstStart[0] = 0; dstEnd[0] = nFno;
+    srcStart[0] = Nv - nFno; srcEnd[1] = Nv;
+    newEpsa->slice(dstStart, dstEnd, 1.0, epsaRediag, srcStart, srcEnd, 1.0);
+
+    auto newRotatedOrbitals(
+      new Tensor<double>(2, ff.data(), syms.data(), *Vabij->wrld, "R")
+    );
+    srcStart[0] = 0; srcStart[1] = 0;
+    srcEnd[0] = Nx;  srcEnd[1] = No;
+    dstStart[0] = 0; dstStart[1] = 0;
+    dstEnd[0] = Nx; dstEnd[1] = No;
+    newRotatedOrbitals->slice(
+      dstStart, dstEnd, 1.0, rotatedOrbitals, srcStart, srcEnd, 1.0
+    );
+
+    srcStart[1] = No + Nv - nFno; srcEnd[1] = No + Nv;
+    dstStart[1] = No; dstEnd[1] = nFno + No;
+    newRotatedOrbitals->slice(
+      dstStart, dstEnd, 1.0, rotatedOrbitals, srcStart, srcEnd, 1.0
+    );
+
+
+    allocatedTensorArgument<>("RotatedOrbitals", newRotatedOrbitals);
+    allocatedTensorArgument("ParticleEigenEnergiesRediag", newEpsa);
   }
   else {   // UNRESTRICTED
 
