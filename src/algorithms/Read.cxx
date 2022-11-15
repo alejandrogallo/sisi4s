@@ -1,7 +1,6 @@
 #include <vector>
 
-#include <yaml-cpp/yaml.h>
-
+#include <util/Yaml.hpp>
 #include <Sisi4s.hpp>
 #include <algorithms/Read.hpp>
 #include <util/Tensor.hpp>
@@ -121,19 +120,6 @@ namespace sisi4s {
 namespace YAML {
 
   using namespace sisi4s::cc4s;
-
-#define YAML_ASSERT_KEY(node, key)                                \
-  do {                                                            \
-    if (!node[key].IsDefined()) {                                 \
-      std::stringstream s;                                        \
-      const auto mark = node.Mark();                              \
-      s << "Node in line:col " << mark.line << ":" << mark.column \
-        << "\n\n" << node << "\n\n"                               \
-        << "should have a key " << key << "\n\n";                 \
-      throw s.str();                                              \
-    }                                                             \
-  } while (0)
-
 
   template <>
   struct convert<AxisType> {
