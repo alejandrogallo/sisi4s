@@ -1,5 +1,5 @@
 /*Copyright (c) 2016, Andreas Grueneis and Felix Hummel, all rights reserved.*/
-#ifndef COMPLEX_TENSOR_WRITER_DEFINED 
+#ifndef COMPLEX_TENSOR_WRITER_DEFINED
 #define COMPLEX_TENSOR_WRITER_DEFINED
 
 #include <algorithms/Algorithm.hpp>
