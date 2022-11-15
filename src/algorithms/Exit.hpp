@@ -5,15 +5,8 @@
 
 namespace sisi4s {
 
-  class Exit: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(Exit);
-    Exit(std::vector<Argument> const &argumentList) :Algorithm(argumentList) {}
-    virtual ~Exit() {}
-    virtual void run();
-  };
+  DEFINE_ALGORITHM_HEADER(Exit,);
+
 }
-
-
 
 #endif // EXIT_ALGORITHM_DEFINED_HERE
