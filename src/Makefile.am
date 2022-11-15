@@ -44,6 +44,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/sthamiltonian/wabij.cxx                             \
 ./algorithms/sthamiltonian/wabcijk.cxx                           \
 ./algorithms/ClusterSinglesDoublesAlgorithm.cxx                  \
+./algorithms/ClusterSinglesDoublesTriplesAlgorithm.cxx           \
 ./algorithms/CcsdPreconditioner.cxx                              \
 ./algorithms/ParticleHoleCoulombIntegrals.cxx                    \
 ./algorithms/CcsdEnergyFromCoulombIntegralsReference.cxx         \
@@ -58,6 +59,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/FockMatrixFromCoulombIntegrals.cxx                  \
 ./algorithms/ParticleHoleCoulombVertexReader.cxx                 \
 ./algorithms/Read.cxx                                            \
+./algorithms/cc4s/DefineHolesAndParticles.cxx                    \
 ./algorithms/TensorReader.cxx                                    \
 ./algorithms/MoReader.cxx                                        \
 ./algorithms/CoulombVertexReader.cxx                             \
@@ -82,6 +84,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/FiniteSizeCorrection.cxx                            \
 ./algorithms/TensorAntisymmetrizer.cxx                           \
 ./algorithms/UccsdAmplitudesFromCoulombIntegrals.cxx             \
+./algorithms/UccsdtAmplitudesFromCoulombIntegrals.cxx             \
 ./algorithms/CcsdEquationOfMotionDavidson.cxx                    \
 ./algorithms/UCcsdIPEquationOfMotionDavidson.cxx                 \
 ./algorithms/UCcsdEAEquationOfMotionDavidson.cxx                 \
@@ -127,7 +130,6 @@ sisi4s_LDADD = $(EXTERNAL_LDFLAGS)
 ## ./algorithms/DrccdEnergyFromCoulombIntegrals.cxx                 \
 ## ./algorithms/CoulombVertexSingularVectors.cxx                    \
 ## ./algorithms/ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx \
-## ./algorithms/ClusterSinglesDoublesTriplesAlgorithm.cxx           \
 
 ##
 ## These are the only algorithms using Tcc
