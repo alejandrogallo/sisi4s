@@ -58,7 +58,8 @@ pkgs.mkShell rec {
     = with pkgs; [
 
         coreutils
-        git vim
+        git
+        vim
 
         openmpi
         llvmPackages.openmp
@@ -78,6 +79,11 @@ pkgs.mkShell rec {
         gmpxx.dev
         boost.out
         boost.dev
+
+        # checkers
+        bear
+        cppcheck
+        cpplint
 
         gnumake
         libtool

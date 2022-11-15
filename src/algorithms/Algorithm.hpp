@@ -191,12 +191,9 @@ namespace sisi4s {
 #define ALGORITHM_REGISTRAR_DEFINITION(NAME)        \
   AlgorithmRegistrar<NAME> NAME::registrar_(#NAME)
 
-#define IMPLEMENT_ALGORITHM(NAME, ...)            \
+#define IMPLEMENT_ALGORITHM(NAME)                 \
   ALGORITHM_REGISTRAR_DEFINITION(NAME);           \
-  void NAME::run() {                              \
-    __VA_ARGS__                                   \
-      }                                           \
-  class Algorithm
+  void NAME::run()
 
 #define DEFINE_ALGORITHM_HEADER(NAME, ...)        \
   class NAME: public Algorithm {                  \
