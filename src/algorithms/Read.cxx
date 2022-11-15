@@ -13,35 +13,37 @@ namespace sisi4s {
 
   template <typename F> static
   Tensor<F>* new_tensor_from_dimensions(cc4s::Dimensions const& dims) {
-    std::vector<int64_t> lens(dims.size()), syms(dims.size(), NS);
+    std::vector<TensorIndex>
+      lens(dims.size()),
+      syms(dims.size(), NS);
     std::transform(dims.begin(), dims.end(), lens.begin(),
                    [](cc4s::Dimension const& d) {
                      return d.length;
                    });
 
-    auto result = new Tensor<F>(dims.size(),
-                                lens.data(),
-                                syms.data(),
-                                *Sisi4s::world);
-    return result;
+    return
+      new Tensor<F>(dims.size(),
+                    syms.data(),
+                    lens.data(),
+                    *Sisi4s::world);
   }
 
   IMPLEMENT_ALGORITHM(Read) {
 
     const std::string
-      fileName = getTextArgument("fileName"),
-      destination = getTextArgument("destination");
+      fileName = getTextArgument("fileName");
 
     const auto
-      dataPath = fs::path(fileName).replace_extension(fs::path("dat"));
+      dataPath = fs::path(fileName).replace_extension(fs::path("elements"));
 
     const auto node = YAML::LoadFile(fileName);
     cc4s::ReadHeader header = node.as<cc4s::ReadHeader>();
     LOG(0, "Read") << "version: " << header.version << "\n";
     for (auto const& d: header.dimensions) {
-      LOG(0, "Read") << "#dimen length: " << d.length << "\n";
-      LOG(0, "Read") << "#dimen type  : " << d.type << "\n";
+      LOG(0, "Read:Header") << "#dimen length: " << d.length << "\n";
+      LOG(0, "Read:Header") << "#dimen type  : " << d.type << "\n";
     }
+
     size_t
       count = std::accumulate(header.dimensions.begin(),
                               header.dimensions.end(),
@@ -50,35 +52,47 @@ namespace sisi4s {
                                 return a * b.length;
                               });
 
+    LOG(0, "Read:Header") << "#elems : " << count << "\n";
+
     switch (header.scalarType) {
     case cc4s::ScalarType::Real64: {
+      LOG(0, "Read") << "Real64 tensor" << "\n";
       using F = typename cc4s::ScalarTypeTraits<cc4s::ScalarType::Real64>::type;
       auto t = new_tensor_from_dimensions<F>(header.dimensions);
+
       switch (header.elementsType) {
       case cc4s::ElementFileType::TextFile: {
-        LOG(0, "Read") << "reading " << count << " text elements\n";
+        LOG(0, "Read") << "Text tensor" << "\n";
         if (Sisi4s::world->rank == 0) {
           std::vector<F> values(count);
-          std::vector<TensorIndex> indices(count);
-          std::iota(indices.begin(), indices.end(), 0);
           size_t idx = 0;
-          std::ifstream s(dataPath.c_str());
-          CTF_int::tensor *ut = t;
-          for (std::string line; std::getline(s, line); ) {
-            values[idx++] = std::atof(line.c_str());
+          {
+            std::ifstream s(dataPath.c_str());
+            for (std::string line; std::getline(s, line); )
+              values[idx++] = std::atof(line.c_str());
           }
-          t->write(count, indices.data(), values.data());
+
+          {
+            // write to tensor
+            std::vector<TensorIndex> indices(count);
+            std::iota(indices.begin(), indices.end(), 0);
+            t->write(count, indices.data(), values.data());
+          }
+
         }
-      }
         break;
+      }
       case cc4s::ElementFileType::IeeeBinaryFile:
+        LOG(0, "Read") << "Binary tensor" << "\n";
         t->read_dense_from_file(dataPath.c_str());
         break;
       }
+
       allocatedTensorArgument<F>("destination", t);
       break;
     }
     case cc4s::ScalarType::Complex64: {
+      LOG(0, "Read") << "Complex64 tensor" << "\n";
       using F = typename cc4s::ScalarTypeTraits<cc4s::ScalarType::Complex64>::type;
       auto t = new_tensor_from_dimensions<F>(header.dimensions);
       t->read_dense_from_file(dataPath.c_str());
@@ -92,6 +106,7 @@ namespace sisi4s {
 
   IMPLEMENT_ALGORITHM(Write) {
 
+    throw "Not yet implemented!";
     const std::string
       fileName = getTextArgument("fileName"),
       destination = getTextArgument("destination");

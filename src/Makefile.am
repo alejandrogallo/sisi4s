@@ -57,6 +57,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/TensorSlicer.cxx                                    \
 ./algorithms/FockMatrixFromCoulombIntegrals.cxx                  \
 ./algorithms/ParticleHoleCoulombVertexReader.cxx                 \
+./algorithms/Read.cxx                                            \
 ./algorithms/TensorReader.cxx                                    \
 ./algorithms/MoReader.cxx                                        \
 ./algorithms/CoulombVertexReader.cxx                             \
