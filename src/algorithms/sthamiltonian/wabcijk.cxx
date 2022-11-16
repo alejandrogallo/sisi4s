@@ -1,11 +1,19 @@
 #include <algorithms/SimilarityTransformedHamiltonian.hpp>
 #include <math/Complex.hpp>
 #ifdef DEBUG
-#define ST_DEBUG(msg) \
-  LOG(1, "debug:STHam:") << __LINE__ << ":" << \
-  "\x1b[33m" << msg << "\x1b[0m" << std::endl;
+#include <mpi.h>
+#define ST_DEBUG(msg)                           \
+  do {                                          \
+    LOG(1, "debug:STH:")                        \
+      << __LINE__ << ":"                        \
+      << MPI_Wtime() - mpi_time                 \
+      << " "                                    \
+      << "\x1b[33m" << msg                      \
+      << "\x1b[0m" << std::endl;                \
+    mpi_time = MPI_Wtime();                     \
+  } while (0)
 #else
-#define ST_DEBUG(msg)
+#define ST_DEBUG(msg) do {} while (0)
 #endif
 
 using namespace sisi4s;
@@ -18,20 +26,24 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   const int syms[]   = {NS,NS,NS,NS,NS,NS};
   const int vvvooo[] = {Nv,Nv,Nv,No,No,No};
 
+#if defined(DEBUG)
+  double mpi_time = MPI_Wtime();
+#endif
+
   Wabcijk = NEW(Tensor<F>,  6, vvvooo, syms, *Sisi4s::world, "Wabcijk");
 
   //Triples
   (*Wabcijk)["defijk"] = 0.0;
 
   if (Fia) {
-    ST_DEBUG("Fia * T3 * T1")
+    ST_DEBUG("Fia * T3 * T1");
     (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["defojk"] * (*Fia)["oh"] * (*Tai)["hi"];
     (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["defoki"] * (*Fia)["oh"] * (*Tai)["hj"];
     (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["defoij"] * (*Fia)["oh"] * (*Tai)["hk"];
     (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["hdeijk"] * (*Fia)["oh"] * (*Tai)["fo"];
     (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["hdfijk"] * (*Fia)["oh"] * (*Tai)["eo"];
     (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["hfeijk"] * (*Fia)["oh"] * (*Tai)["do"];
-    ST_DEBUG("Fia * T2 * T2")
+    ST_DEBUG("Fia * T2 * T2");
     (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gfij"] * (*Tabij)["depk"] * (*Fia)["pg"];
     (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["geij"] * (*Tabij)["dfpk"] * (*Fia)["pg"];
     (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gdij"] * (*Tabij)["fepk"] * (*Fia)["pg"];
@@ -43,7 +55,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
     (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfkj"] * (*Tabij)["depi"] * (*Fia)["pg"];
   }
 
-  ST_DEBUG("T2 * V")
+  ST_DEBUG("T2 * V");
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["deok"] * (*Viajk)["ofij"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["dfok"] * (*Viajk)["oeij"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["feok"] * (*Viajk)["odij"];
@@ -64,6 +76,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfij"] * (*Vabic)["edkg"];
 
   //Residum equations
+  ST_DEBUG("T3 * Fpq");
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Fij)["oi"] * (*Tabcijk)["defojk"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Fij)["oj"] * (*Tabcijk)["defoik"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Fij)["ok"] * (*Tabcijk)["defoji"];
@@ -71,10 +84,12 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Fab)["eg"] * (*Tabcijk)["gdfijk"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Fab)["dg"] * (*Tabcijk)["gfeijk"];
 
-  ST_DEBUG("T3 * V")
+  ST_DEBUG("T3 * Vijkl");
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["defopk"] * (*Vijkl)["opij"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["defopj"] * (*Vijkl)["opik"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["defopi"] * (*Vijkl)["opkj"];
+
+  ST_DEBUG("T3 * Viajb");
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gdepjk"] * (*Viajb)["pfig"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["gdfpjk"] * (*Viajb)["peig"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["gfepjk"] * (*Viajb)["pdig"];
@@ -84,11 +99,13 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gdepij"] * (*Viajb)["pfkg"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["gdfpij"] * (*Viajb)["pekg"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["gfepij"] * (*Viajb)["pdkg"];
+
+  ST_DEBUG("T3 * Vabcd");
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["ghdijk"] * (*Vabcd)["efgh"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["gheijk"] * (*Vabcd)["dfgh"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["ghfijk"] * (*Vabcd)["edgh"];
 
-  ST_DEBUG("T2 * T1 * V")
+  ST_DEBUG("T2 * T1 * Vijkl");
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["deok"] * (*Tai)["fp"] * (*Vijkl)["opij"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["dfok"] * (*Tai)["ep"] * (*Vijkl)["opij"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["feok"] * (*Tai)["dp"] * (*Vijkl)["opij"];
@@ -99,6 +116,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["dfoi"] * (*Tai)["ep"] * (*Vijkl)["opkj"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["feoi"] * (*Tai)["dp"] * (*Vijkl)["opkj"];
 
+  ST_DEBUG("T2 * T1 * Viajb");
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["deok"] * (*Tai)["hj"] * (*Viajb)["ofih"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["dfok"] * (*Tai)["hj"] * (*Viajb)["oeih"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["feok"] * (*Tai)["hj"] * (*Viajb)["odih"];
@@ -135,6 +153,8 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["geij"] * (*Tai)["fp"] * (*Viajb)["pdkg"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfij"] * (*Tai)["dp"] * (*Viajb)["pekg"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gfij"] * (*Tai)["ep"] * (*Viajb)["pdkg"];
+
+  ST_DEBUG("T2 * T1 * Vabcd");
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gdjk"] * (*Tai)["hi"] * (*Vabcd)["efgh"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gejk"] * (*Tai)["hi"] * (*Vabcd)["dfgh"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gfjk"] * (*Tai)["hi"] * (*Vabcd)["edgh"];
@@ -145,7 +165,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["geij"] * (*Tai)["hk"] * (*Vabcd)["dfgh"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gfij"] * (*Tai)["hk"] * (*Vabcd)["edgh"];
 
-  ST_DEBUG("T3 * T1 * V")
+  ST_DEBUG("T3 * T1_p * Vijka");
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["defopk"] * (*Tai)["Aj"] * (*Vijka)["opiA"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["defopj"] * (*Tai)["Ak"] * (*Vijka)["opiA"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["defopk"] * (*Tai)["Ai"] * (*Vijka)["opjA"];
@@ -153,6 +173,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["defopi"] * (*Tai)["Ak"] * (*Vijka)["opjA"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["defopi"] * (*Tai)["Aj"] * (*Vijka)["opkA"];
 
+  ST_DEBUG("T3 * T1_h * Vijka");
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["gdepjk"] * (*Tai)["fI"] * (*Vijka)["pIig"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gdfpjk"] * (*Tai)["eI"] * (*Vijka)["pIig"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gfepjk"] * (*Tai)["dI"] * (*Vijka)["pIig"];
@@ -166,6 +187,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["defoki"] * (*Tai)["hI"] * (*Vijka)["oIjh"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["defoij"] * (*Tai)["hI"] * (*Vijka)["oIkh"];
 
+  ST_DEBUG("T3 * T1_p * Viabc");
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["gdepjk"] * (*Tai)["Ai"] * (*Viabc)["pfgA"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gdfpjk"] * (*Tai)["Ai"] * (*Viabc)["pegA"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gfepjk"] * (*Tai)["Ai"] * (*Viabc)["pdgA"];
@@ -176,6 +198,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gdfpij"] * (*Tai)["Ak"] * (*Viabc)["pegA"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gfepij"] * (*Tai)["Ak"] * (*Viabc)["pdgA"];
 
+  ST_DEBUG("T3 * T1_h * Viabc");
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["ghdijk"] * (*Tai)["eI"] * (*Viabc)["Ifgh"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["gheijk"] * (*Tai)["dI"] * (*Viabc)["Ifgh"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["ghdijk"] * (*Tai)["fI"] * (*Viabc)["Iegh"];
@@ -186,7 +209,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["gdfijk"] * (*Tai)["hI"] * (*Viabc)["Iegh"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["gfeijk"] * (*Tai)["hI"] * (*Viabc)["Idgh"];
 
-  ST_DEBUG("T2 * T2 * V")
+  ST_DEBUG("T2 * T2 * Vijka");
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["gfjk"] * (*Tabij)["depI"] * (*Vijka)["pIig"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["gejk"] * (*Tabij)["dfpI"] * (*Vijka)["pIig"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["gdjk"] * (*Tabij)["fepI"] * (*Vijka)["pIig"];
@@ -197,6 +220,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["geij"] * (*Tabij)["dfpI"] * (*Vijka)["pIkg"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["gdij"] * (*Tabij)["fepI"] * (*Vijka)["pIkg"];
 
+  ST_DEBUG("T2 * T2 * Vijka");
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["efoj"] * (*Tabij)["hdIk"] * (*Vijka)["oIih"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["fdoj"] * (*Tabij)["heIk"] * (*Vijka)["oIih"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["deok"] * (*Tabij)["hfIj"] * (*Vijka)["oIih"];
@@ -216,6 +240,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["fdoj"] * (*Tabij)["heIi"] * (*Vijka)["oIkh"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["efoj"] * (*Tabij)["hdIi"] * (*Vijka)["oIkh"];
 
+  ST_DEBUG("T2 * T2 * Viabc");
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["geij"] * (*Tabij)["hdIk"] * (*Viabc)["Ifgh"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gdij"] * (*Tabij)["heIk"] * (*Viabc)["Ifgh"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfij"] * (*Tabij)["hdIk"] * (*Viabc)["Iegh"];
@@ -235,6 +260,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gfkj"] * (*Tabij)["hdIi"] * (*Viabc)["Iegh"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfkj"] * (*Tabij)["heIi"] * (*Viabc)["Idgh"];
 
+  ST_DEBUG("T2 * T2 * Viabc");
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["deok"] * (*Tabij)["hAij"] * (*Viabc)["ofhA"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["dfok"] * (*Tabij)["hAij"] * (*Viabc)["oehA"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["feok"] * (*Tabij)["hAij"] * (*Viabc)["odhA"];
@@ -244,7 +270,8 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["deoi"] * (*Tabij)["hAkj"] * (*Viabc)["ofhA"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["dfoi"] * (*Tabij)["hAkj"] * (*Viabc)["oehA"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["feoi"] * (*Tabij)["hAkj"] * (*Viabc)["odhA"];
-  ST_DEBUG("T3 * T2 * V (1)")
+
+  ST_DEBUG("T3 * T2 * Vijab (1)");
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["Bfij"] * (*Vijab)["pIgB"] * (*Tabcijk)["gdepIk"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["Beij"] * (*Vijab)["pIgB"] * (*Tabcijk)["gdfpIk"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["Bdij"] * (*Vijab)["pIgB"] * (*Tabcijk)["gfepIk"];
@@ -254,11 +281,13 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["Bfkj"] * (*Vijab)["pIgB"] * (*Tabcijk)["gdepIi"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["Bekj"] * (*Vijab)["pIgB"] * (*Tabcijk)["gdfpIi"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["Bdkj"] * (*Vijab)["pIgB"] * (*Tabcijk)["gfepIi"];
-  ST_DEBUG("T3 * T2 * V (2)")
+
+  ST_DEBUG("T3 * T2 * Vijab (2)");
   (*Wabcijk)["defijk"] += ( + 0.25  ) * (*Tabcijk)["defopk"] * (*Tabij)["ABij"] * (*Vijab)["opAB"];
   (*Wabcijk)["defijk"] += ( - 0.25  ) * (*Tabcijk)["defopj"] * (*Tabij)["ABik"] * (*Vijab)["opAB"];
   (*Wabcijk)["defijk"] += ( - 0.25  ) * (*Tabcijk)["defopi"] * (*Tabij)["ABkj"] * (*Vijab)["opAB"];
-  ST_DEBUG("T3 * T2 * V (3)")
+
+  ST_DEBUG("T3 * T2 * Vijab (3)");
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["efJi"] * (*Vijab)["IJgh"] * (*Tabcijk)["ghdIjk"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["dfJi"] * (*Vijab)["IJgh"] * (*Tabcijk)["gheIjk"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["edJi"] * (*Vijab)["IJgh"] * (*Tabcijk)["ghfIjk"];
@@ -268,7 +297,8 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["efJk"] * (*Vijab)["IJgh"] * (*Tabcijk)["ghdIij"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["dfJk"] * (*Vijab)["IJgh"] * (*Tabcijk)["gheIij"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["edJk"] * (*Vijab)["IJgh"] * (*Tabcijk)["ghfIij"];
-  ST_DEBUG("T3 * T2 * V (4)")
+
+  ST_DEBUG("T3 * T2 * Vijab (4)");
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["gdepjk"] * (*Tabij)["AfJi"] * (*Vijab)["pJgA"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gdfpjk"] * (*Tabij)["AeJi"] * (*Vijab)["pJgA"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gfepjk"] * (*Tabij)["AdJi"] * (*Vijab)["pJgA"];
@@ -278,19 +308,23 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["gdepij"] * (*Tabij)["AfJk"] * (*Vijab)["pJgA"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gdfpij"] * (*Tabij)["AeJk"] * (*Vijab)["pJgA"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["gfepij"] * (*Tabij)["AdJk"] * (*Vijab)["pJgA"];
-  ST_DEBUG("T3 * T2 * V (5)")
+
+  ST_DEBUG("T3 * T2 * Vijab (5)");
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["defojk"] * (*Tabij)["hAJi"] * (*Vijab)["oJhA"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["defoki"] * (*Tabij)["hAJj"] * (*Vijab)["oJhA"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["defoij"] * (*Tabij)["hAJk"] * (*Vijab)["oJhA"];
-  ST_DEBUG("T3 * T2 * V (6)")
+
+  ST_DEBUG("T3 * T2 * Vijab (6)");
   (*Wabcijk)["defijk"] += ( + 0.25  ) * (*Tabcijk)["ghdijk"] * (*Tabij)["efIJ"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( - 0.25  ) * (*Tabcijk)["gheijk"] * (*Tabij)["dfIJ"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( - 0.25  ) * (*Tabcijk)["ghfijk"] * (*Tabij)["edIJ"] * (*Vijab)["IJgh"];
-  ST_DEBUG("T3 * T2 * V (7)")
+
+  ST_DEBUG("T3 * T2 * Vijab (7)");
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["gdeijk"] * (*Tabij)["hfIJ"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["gdfijk"] * (*Tabij)["heIJ"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["gfeijk"] * (*Tabij)["hdIJ"] * (*Vijab)["IJgh"];
-  ST_DEBUG("T1 * T1 * T2 * Vhhhp")
+
+  ST_DEBUG("T1 * T1 * T2 * Vijka");
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["deIk"] * (*Tai)["gj"] * (*Tai)["fp"] * (*Vijka)["pIig"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["dfIk"] * (*Tai)["gj"] * (*Tai)["ep"] * (*Vijka)["pIig"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["feIk"] * (*Tai)["gj"] * (*Tai)["dp"] * (*Vijka)["pIig"];
@@ -318,7 +352,8 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["Adij"] * (*Tai)["eo"] * (*Tai)["fp"] * (*Vijka)["opkA"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["Aeij"] * (*Tai)["do"] * (*Tai)["fp"] * (*Vijka)["opkA"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["Afij"] * (*Tai)["do"] * (*Tai)["ep"] * (*Vijka)["opkA"];
-  ST_DEBUG("T1 * T1 * T2 * Vhppp")
+
+  ST_DEBUG("T1 * T1 * T2 * Viabc");
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["deIk"] * (*Tai)["gi"] * (*Tai)["hj"] * (*Viabc)["Ifgh"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["dfIk"] * (*Tai)["gi"] * (*Tai)["hj"] * (*Viabc)["Iegh"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["feIk"] * (*Tai)["gi"] * (*Tai)["hj"] * (*Viabc)["Idgh"];
@@ -346,7 +381,8 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["Aeji"] * (*Tai)["gk"] * (*Tai)["fp"] * (*Viabc)["pdgA"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["Afji"] * (*Tai)["gk"] * (*Tai)["dp"] * (*Viabc)["pegA"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["Afji"] * (*Tai)["gk"] * (*Tai)["ep"] * (*Viabc)["pdgA"];
-  ST_DEBUG("T1 * T1 * T3 * V")
+
+  ST_DEBUG("T1 * T1 * T3 * Vijab");
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["defIJk"] * (*Tai)["gi"] * (*Tai)["hj"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabcijk)["defIJj"] * (*Tai)["gi"] * (*Tai)["hk"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabcijk)["defIJi"] * (*Tai)["gj"] * (*Tai)["hk"] * (*Vijab)["IJgh"];
@@ -368,7 +404,8 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabcijk)["Bdeijk"] * (*Tai)["fo"] * (*Tai)["hI"] * (*Vijab)["oIhB"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["Bdfijk"] * (*Tai)["eo"] * (*Tai)["hI"] * (*Vijab)["oIhB"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabcijk)["Bfeijk"] * (*Tai)["do"] * (*Tai)["hI"] * (*Vijab)["oIhB"];
-  ST_DEBUG("T2 * T2 * T1 * V")
+
+  ST_DEBUG("T2 * T2 * T1_p * Vijab");
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["gfjk"] * (*Tabij)["depI"] * (*Tai)["Bi"] * (*Vijab)["pIgB"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["gejk"] * (*Tabij)["dfpI"] * (*Tai)["Bi"] * (*Vijab)["pIgB"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["gdjk"] * (*Tabij)["fepI"] * (*Tai)["Bi"] * (*Vijab)["pIgB"];
@@ -397,6 +434,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["fdoj"] * (*Tabij)["heIi"] * (*Tai)["Bk"] * (*Vijab)["oIhB"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["efoj"] * (*Tabij)["hdIi"] * (*Tai)["Bk"] * (*Vijab)["oIhB"];
 
+  ST_DEBUG("T2 * T2 * T1_h * Vijab");
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["geij"] * (*Tabij)["hdIk"] * (*Tai)["fJ"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gdij"] * (*Tabij)["heIk"] * (*Tai)["fJ"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gfij"] * (*Tabij)["hdIk"] * (*Tai)["eJ"] * (*Vijab)["IJgh"];
@@ -416,6 +454,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfkj"] * (*Tabij)["hdIi"] * (*Tai)["eJ"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gfkj"] * (*Tabij)["heIi"] * (*Tai)["dJ"] * (*Vijab)["IJgh"];
 
+  ST_DEBUG("T2 * T2 * T1_h * Vijab");
   (*Wabcijk)["defijk"] += ( - 0.5  ) * (*Tabij)["deok"] * (*Tabij)["hAij"] * (*Tai)["fJ"] * (*Vijab)["oJhA"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["dfok"] * (*Tabij)["hAij"] * (*Tai)["eJ"] * (*Vijab)["oJhA"];
   (*Wabcijk)["defijk"] += ( + 0.5  ) * (*Tabij)["feok"] * (*Tabij)["hAij"] * (*Tai)["dJ"] * (*Vijab)["oJhA"];
@@ -435,7 +474,7 @@ SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["gekj"] * (*Tabij)["dfpi"] * (*Tai)["AJ"] * (*Vijab)["pJgA"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["gfkj"] * (*Tabij)["depi"] * (*Tai)["AJ"] * (*Vijab)["pJgA"];
 
-  ST_DEBUG("T1 * T1 * T1 * V")
+  ST_DEBUG("T1 * T1 * T1 * Vijab");
   (*Wabcijk)["defijk"] += ( + 1.0  ) * (*Tabij)["deJk"] * (*Tai)["hj"] * (*Tai)["fI"] * (*Tai)["gi"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["dfJk"] * (*Tai)["hj"] * (*Tai)["eI"] * (*Tai)["gi"] * (*Vijab)["IJgh"];
   (*Wabcijk)["defijk"] += ( - 1.0  ) * (*Tabij)["feJk"] * (*Tai)["hj"] * (*Tai)["dI"] * (*Tai)["gi"] * (*Vijab)["IJgh"];
