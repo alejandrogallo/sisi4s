@@ -53,13 +53,9 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
   const int iterationStep, const PTR(const FockVector<F>) &amplitudes
 ) {
 
-  Tensor<double> *epsi(
-    getTensorArgument<double, Tensor<double> >("HoleEigenEnergies")
-  );
-
-  Tensor<double> *epsa(
-    getTensorArgument<double, Tensor<double> >("ParticleEigenEnergies")
-  );
+  auto
+    *epsi = getTensorArgument<double, Tensor<double> >("HoleEigenEnergies"),
+    *epsa = getTensorArgument<double, Tensor<double> >("ParticleEigenEnergies");
 
   bool usingIntermediates = (bool) getIntegerArgument("intermediates", 1);
   if (! usingIntermediates ) {
@@ -89,13 +85,10 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
   int vv[] = {Nv, Nv};
   int oo[] = {No, No};
   int syms[] = {NS, NS};
-  Tensor<F> *Fab(
-    new Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab")
-  );
-  Tensor<F> *Fij(
-    new Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij")
-  );
-  Tensor<F> *Fia;
+  Tensor<F>
+    *Fab,
+    *Fij,
+    *Fia;
 
   if (
     isArgumentGiven("HPFockMatrix") &&
@@ -103,13 +96,15 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
     isArgumentGiven("PPFockMatrix")
   ) {
     if (iterationStep == 0){
-    LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
+      LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
     }
     Fia = getTensorArgument<F, Tensor<F> >("HPFockMatrix");
     Fab = getTensorArgument<F, Tensor<F> >("PPFockMatrix");
     Fij = getTensorArgument<F, Tensor<F> >("HHFockMatrix");
   } else {
     Fia = nullptr;
+    Fab = new Tensor<F>(2, vv, syms, *Sisi4s::world, "Fab");
+    Fij = new Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij");
     CTF::Transform<double, F>(
       std::function<void(double, F &)>(
         [](double eps, F &f) { f = eps; }
@@ -190,6 +185,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
   (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fab)["ee"] * (*Tabcijk)["edfijk"];
   (*Rabcijk)["defijk"] += ( + 1.0  ) * (*Fab)["dd"] * (*Tabcijk)["dfeijk"];
 
+  // TODO: delete Fij and so on
   return residuum;
 
 }

@@ -1,3 +1,4 @@
+#include <Sisi4s.hpp>
 #include <util/Yaml.hpp>
 #include <util/Tensor.hpp>
 #include <algorithms/cc4s/DefineHolesAndParticles.hpp>
@@ -40,24 +41,27 @@ namespace sisi4s {
     LOG(0, "DefineHolesAndParticles") << "No: " << No << "\n";
     LOG(0, "DefineHolesAndParticles") << "Nv: " << Nv << "\n";
 
+
     {
       // write epsi
       auto &t = epsi;
-      auto count = No;
+      const auto count = Sisi4s::world->rank == 0 ? No : 0;
       std::vector<TensorIndex> indices(count);
       std::iota(indices.begin(), indices.end(), 0);
       t->write(count, indices.data(), h.energies.data());
-      allocatedTensorArgument<double>("HoleEigenEnergies", t);
+      allocatedTensorArgument<double>("HoleEigenEnergies",
+                                      t);
     }
 
     {
       // write epsa
       auto &t = epsa;
-      auto count = Nv;
+      const auto count = Sisi4s::world->rank == 0 ? Nv : 0;
       std::vector<TensorIndex> indices(count);
       std::iota(indices.begin(), indices.end(), 0);
       t->write(count, indices.data(), h.energies.data() + No);
-      allocatedTensorArgument<double>("ParticleEigenEnergies", t);
+      allocatedTensorArgument<double>("ParticleEigenEnergies",
+                                      t);
     }
 
 
