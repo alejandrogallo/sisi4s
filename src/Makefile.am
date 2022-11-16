@@ -48,6 +48,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/CcsdPreconditioner.cxx                              \
 ./algorithms/ParticleHoleCoulombIntegrals.cxx                    \
 ./algorithms/CcsdEnergyFromCoulombIntegralsReference.cxx         \
+./algorithms/CcsdtEnergyFromCoulombIntegrals.cxx                 \
 ./algorithms/BasisSetExtrapolation.cxx                           \
 ./algorithms/TensorGetMax.cxx                                    \
 ./algorithms/TensorWriter.cxx                                    \
