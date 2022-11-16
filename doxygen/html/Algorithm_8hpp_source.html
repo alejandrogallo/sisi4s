@@ -239,31 +239,28 @@ $(document).ready(function(){initNavTree('Algorithm_8hpp_source.html',''); initR
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="Algorithm_8hpp.html#a4ffc3a9c4af45241536daf63a73956b8">  182</a></span><span class="preprocessor">#define ALGORITHM_REGISTRAR_DECLARATION(NAME)     \</span></div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">  virtual std::string getName() { return #NAME; } \</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">  static AlgorithmRegistrar&lt;NAME&gt; registrar_</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">  static sisi4s::AlgorithmRegistrar&lt;NAME&gt; registrar_</span></div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="Algorithm_8hpp.html#a07e9ffa67ed21886a687b27719c949e1">  191</a></span><span class="preprocessor">#define ALGORITHM_REGISTRAR_DEFINITION(NAME)        \</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">  AlgorithmRegistrar&lt;NAME&gt; NAME::registrar_(#NAME)</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">  sisi4s::AlgorithmRegistrar&lt;NAME&gt; NAME::registrar_(#NAME)</span></div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="Algorithm_8hpp.html#a8396f8cdafe4328da814dc0e0e238e0c">  194</a></span><span class="preprocessor">#define IMPLEMENT_ALGORITHM(NAME, ...)            \</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="Algorithm_8hpp.html#aed7ff7232962c1cf6cb9051a47a38d44">  194</a></span><span class="preprocessor">#define IMPLEMENT_ALGORITHM(NAME)                 \</span></div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="preprocessor">  ALGORITHM_REGISTRAR_DEFINITION(NAME);           \</span></div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="preprocessor">  void NAME::run() {                              \</span></div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="preprocessor">    __VA_ARGS__                                   \</span></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="preprocessor">      }                                           \</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="preprocessor">  class Algorithm</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="Algorithm_8hpp.html#ad0e62cfc52c2aca8ce56a710cf0c8aea">  201</a></span><span class="preprocessor">#define DEFINE_ALGORITHM_HEADER(NAME, ...)        \</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="preprocessor">  class NAME: public Algorithm {                  \</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="preprocessor">  public:                                         \</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="preprocessor">  ALGORITHM_REGISTRAR_DECLARATION(NAME);          \</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="preprocessor">  NAME(std::vector&lt;Argument&gt; const &amp;argumentList) \</span></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">    : Algorithm(argumentList) {}                  \</span></div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="preprocessor">  ~NAME(){}                                       \</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="preprocessor">  virtual void run();                             \</span></div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="preprocessor">  __VA_ARGS__                                     \</span></div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="preprocessor">  }</span></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>}</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="preprocessor">  void NAME::run()</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="Algorithm_8hpp.html#ad0e62cfc52c2aca8ce56a710cf0c8aea">  198</a></span><span class="preprocessor">#define DEFINE_ALGORITHM_HEADER(NAME, ...)        \</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="preprocessor">  class NAME: public Algorithm {                  \</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="preprocessor">  public:                                         \</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="preprocessor">  ALGORITHM_REGISTRAR_DECLARATION(NAME);          \</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="preprocessor">  NAME(std::vector&lt;Argument&gt; const &amp;argumentList) \</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="preprocessor">    : Algorithm(argumentList) {}                  \</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="preprocessor">  ~NAME(){}                                       \</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="preprocessor">  virtual void run();                             \</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">  __VA_ARGS__                                     \</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="preprocessor">  }</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>}</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aData_8hpp_html"><div class="ttname"><a href="Data_8hpp.html">Data.hpp</a></div></div>
 <div class="ttc" id="aException_8hpp_html_aa49c727f91093a79c46ee6ecd83548bb"><div class="ttname"><a href="Exception_8hpp.html#aa49c727f91093a79c46ee6ecd83548bb">EXCEPTION</a></div><div class="ttdeci">#define EXCEPTION(message)</div><div class="ttdef"><b>Definition:</b> Exception.hpp:9</div></div>
 <div class="ttc" id="aTensor_8hpp_html"><div class="ttname"><a href="Tensor_8hpp.html">Tensor.hpp</a></div></div>

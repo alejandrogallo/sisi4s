@@ -22,6 +22,7 @@
     <innerclass refid="classsisi4s_1_1CcsdPerturbativeTriples" prot="public">sisi4s::CcsdPerturbativeTriples</innerclass>
     <innerclass refid="classsisi4s_1_1CcsdPerturbativeTriplesComplex" prot="public">sisi4s::CcsdPerturbativeTriplesComplex</innerclass>
     <innerclass refid="classsisi4s_1_1CcsdPreconditioner" prot="public">sisi4s::CcsdPreconditioner</innerclass>
+    <innerclass refid="classsisi4s_1_1CcsdtEnergyFromCoulombIntegrals" prot="public">sisi4s::CcsdtEnergyFromCoulombIntegrals</innerclass>
     <innerclass refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson" prot="public">sisi4s::CcsdtEquationOfMotionDavidson</innerclass>
     <innerclass refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix" prot="public">sisi4s::CisOneBodyReducedDensityMatrix</innerclass>
     <innerclass refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" prot="public">sisi4s::ClusterSinglesDoublesAlgorithm</innerclass>
@@ -49,6 +50,7 @@
     <innerclass refid="classsisi4s_1_1CtfMachineTensorFactory" prot="public">sisi4s::CtfMachineTensorFactory</innerclass>
     <innerclass refid="classsisi4s_1_1Data" prot="public">sisi4s::Data</innerclass>
     <innerclass refid="classsisi4s_1_1DefaultRandomEngine" prot="public">sisi4s::DefaultRandomEngine</innerclass>
+    <innerclass refid="classsisi4s_1_1DefineHolesAndParticles" prot="public">sisi4s::DefineHolesAndParticles</innerclass>
     <innerclass refid="classsisi4s_1_1Delete" prot="public">sisi4s::Delete</innerclass>
     <innerclass refid="classsisi4s_1_1DetailedException" prot="public">sisi4s::DetailedException</innerclass>
     <innerclass refid="classsisi4s_1_1DiisMixer" prot="public">sisi4s::DiisMixer</innerclass>
@@ -147,6 +149,7 @@
     <innerclass refid="classsisi4s_1_1PseudoInverseSvd" prot="public">sisi4s::PseudoInverseSvd</innerclass>
     <innerclass refid="classsisi4s_1_1RandomGenerator" prot="public">sisi4s::RandomGenerator</innerclass>
     <innerclass refid="classsisi4s_1_1RangeParser" prot="public">sisi4s::RangeParser</innerclass>
+    <innerclass refid="classsisi4s_1_1Read" prot="public">sisi4s::Read</innerclass>
     <innerclass refid="classsisi4s_1_1RealData" prot="public">sisi4s::RealData</innerclass>
     <innerclass refid="classsisi4s_1_1ScaLapackDescriptor" prot="public">sisi4s::ScaLapackDescriptor</innerclass>
     <innerclass refid="classsisi4s_1_1ScaLapackHermitianEigenSystem" prot="public">sisi4s::ScaLapackHermitianEigenSystem</innerclass>
@@ -211,6 +214,8 @@
     <innerclass refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals" prot="public">sisi4s::UrpaAmplitudesFromCoulombIntegrals</innerclass>
     <innerclass refid="classsisi4s_1_1Vector" prot="public">sisi4s::Vector</innerclass>
     <innerclass refid="structsisi4s_1_1VectorTensor" prot="public">sisi4s::VectorTensor</innerclass>
+    <innerclass refid="classsisi4s_1_1Write" prot="public">sisi4s::Write</innerclass>
+    <innernamespace refid="namespacesisi4s_1_1cc4s">sisi4s::cc4s</innernamespace>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespacesisi4s_1af30d29af55f9e24682fe564ead1a2628" prot="public" static="no" strong="no">
         <type></type>
@@ -423,6 +428,20 @@
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" line="9" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" bodystart="9" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="typedef" id="namespacesisi4s_1a237b1575eec1140052c502a61b89374f" prot="public" static="no">
+        <type>int64_t</type>
+        <definition>using sisi4s::TensorIndex = typedef int64_t</definition>
+        <argsstring></argsstring>
+        <name>TensorIndex</name>
+        <qualifiedname>sisi4s::TensorIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" line="11" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="typedef" id="namespacesisi4s_1a8bc5ec282e4873c8ebc9e265d2a08990" prot="public" static="no">
         <templateparamlist>
           <param>
@@ -440,7 +459,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" line="12" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" bodystart="12" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" line="14" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Tensor.hpp" bodystart="14" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -517,6 +536,29 @@
         <referencedby refid="HartreeFockFromCoulombIntegrals_8cxx_1ad975fce2e7f66fbfc1fa217992c552c5" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="59" endline="67">getFockMatrix</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="69" endline="265">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="219" endline="513">sisi4s::HartreeFockFromGaussian::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacesisi4s_1a7ee8b12aa5d454657d4c3fa35b4608b3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>static Tensor&lt; F &gt; * sisi4s::new_tensor_from_dimensions</definition>
+        <argsstring>(cc4s::Dimensions const &amp;dims)</argsstring>
+        <name>new_tensor_from_dimensions</name>
+        <qualifiedname>sisi4s::new_tensor_from_dimensions</qualifiedname>
+        <param>
+          <type><ref refid="namespacesisi4s_1_1cc4s_1aa171a853df886e0b81bb940dd84395e6" kindref="member">cc4s::Dimensions</ref> const &amp;</type>
+          <declname>dims</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Read.cxx" line="14" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Read.cxx" bodystart="14" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1a5f1a1c319b7f345b0fbac3d446635845" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

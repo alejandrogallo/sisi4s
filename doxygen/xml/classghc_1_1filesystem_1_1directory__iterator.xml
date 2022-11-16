@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classghc_1_1filesystem_1_1directory__iterator" kind="class" language="C++" prot="public">
+    <compoundname>ghc::filesystem::directory_iterator</compoundname>
+    <includes refid="filesystem_8hpp" local="no">filesystem.hpp</includes>
+    <innerclass refid="classghc_1_1filesystem_1_1directory__iterator_1_1impl" prot="public">ghc::filesystem::directory_iterator::impl</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1directory__iterator_1_1proxy" prot="public">ghc::filesystem::directory_iterator::proxy</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classghc_1_1filesystem_1_1directory__iterator_1a69a207d4db8e54e71bb0d729f35e287b" prot="public" static="no">
+        <type>std::input_iterator_tag</type>
+        <definition>using ghc::filesystem::directory_iterator::iterator_category =  std::input_iterator_tag</definition>
+        <argsstring></argsstring>
+        <name>iterator_category</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::iterator_category</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="929" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="929" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classghc_1_1filesystem_1_1directory__iterator_1acc224b52e6ed466306b0b7e0918d1e5e" prot="public" static="no">
+        <type><ref refid="classghc_1_1filesystem_1_1directory__entry" kindref="compound">directory_entry</ref></type>
+        <definition>using ghc::filesystem::directory_iterator::value_type =  directory_entry</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="930" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="930" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classghc_1_1filesystem_1_1directory__iterator_1a3daf7a640ad99c251b77400f534f163b" prot="public" static="no">
+        <type>std::ptrdiff_t</type>
+        <definition>using ghc::filesystem::directory_iterator::difference_type =  std::ptrdiff_t</definition>
+        <argsstring></argsstring>
+        <name>difference_type</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::difference_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="931" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="931" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classghc_1_1filesystem_1_1directory__iterator_1a8d169dd7136b4fc73b7a70aadb7ced6a" prot="public" static="no">
+        <type>const <ref refid="classghc_1_1filesystem_1_1directory__entry" kindref="compound">directory_entry</ref> *</type>
+        <definition>using ghc::filesystem::directory_iterator::pointer =  const directory_entry*</definition>
+        <argsstring></argsstring>
+        <name>pointer</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::pointer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="932" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="932" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classghc_1_1filesystem_1_1directory__iterator_1adb4796fb975260e33845d80c6e5ffdcf" prot="public" static="no">
+        <type>const <ref refid="classghc_1_1filesystem_1_1directory__entry" kindref="compound">directory_entry</ref> &amp;</type>
+        <definition>using ghc::filesystem::directory_iterator::reference =  const directory_entry&amp;</definition>
+        <argsstring></argsstring>
+        <name>reference</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::reference</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="933" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="933" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classghc_1_1filesystem_1_1directory__iterator_1a3f07d4fea42efb21eaa7645ba0b528b9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class recursive_directory_iterator</definition>
+        <argsstring></argsstring>
+        <name>recursive_directory_iterator</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::recursive_directory_iterator</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1recursive__directory__iterator" kindref="compound">recursive_directory_iterator</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="968" column="18" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="968" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classghc_1_1filesystem_1_1directory__iterator_1a7976e319d4cfd35fab78d61cfd8990d5" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classghc_1_1filesystem_1_1directory__iterator_1_1impl" kindref="compound">impl</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;impl&gt; ghc::filesystem::directory_iterator::_impl</definition>
+        <argsstring></argsstring>
+        <name>_impl</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::_impl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="970" column="21" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="970" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1a4b58437e002042efba00f0f674fd44e4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>ghc::filesystem::directory_iterator::directory_iterator</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>directory_iterator</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::directory_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="936" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5749" bodyend="5752"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1a37e9df59aa1583340d87036a0d2da2f5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>ghc::filesystem::directory_iterator::directory_iterator</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>directory_iterator</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::directory_iterator</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="941" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5773" bodyend="5779"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1a1c636f53386cdf9ddce4a98bcf95ed1e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>ghc::filesystem::directory_iterator::directory_iterator</definition>
+        <argsstring>(const path &amp;p, directory_options options, std::error_code &amp;ec) noexcept</argsstring>
+        <name>directory_iterator</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::directory_iterator</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceghc_1_1filesystem_1a5537e5e6483836ce7a6f5464c2315633" kindref="member">directory_options</ref></type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="942" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5781" bodyend="5787"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1ac1a550681eae07b73be576a6c0db0851" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ghc::filesystem::directory_iterator::directory_iterator</definition>
+        <argsstring>(const directory_iterator &amp;rhs)</argsstring>
+        <name>directory_iterator</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::directory_iterator</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="943" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5789" bodyend="5792"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1a9ca7d75dab0d51fb5357852c1b59a1fb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>ghc::filesystem::directory_iterator::directory_iterator</definition>
+        <argsstring>(directory_iterator &amp;&amp;rhs) noexcept</argsstring>
+        <name>directory_iterator</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::directory_iterator</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref> &amp;&amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="944" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5794" bodyend="5797"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1afbe2653c78b558e2942820537ee69a5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ghc::filesystem::directory_iterator::~directory_iterator</definition>
+        <argsstring>()</argsstring>
+        <name>~directory_iterator</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::~directory_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="945" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5799" bodyend="5799"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1ae9a49a0f5fd5995bb0314f88ab8bdea7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref> &amp;</type>
+        <definition>directory_iterator &amp; ghc::filesystem::directory_iterator::operator=</definition>
+        <argsstring>(const directory_iterator &amp;rhs)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="946" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5801" bodyend="5805"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1a9e9a5bdd6b37e0c9b0eea50d81a70728" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref> &amp;</type>
+        <definition>directory_iterator &amp; ghc::filesystem::directory_iterator::operator=</definition>
+        <argsstring>(directory_iterator &amp;&amp;rhs) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref> &amp;&amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="947" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5807" bodyend="5811"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1adac799a1f20c07624a1a927f9e51a6ad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classghc_1_1filesystem_1_1directory__entry" kindref="compound">directory_entry</ref> &amp;</type>
+        <definition>const directory_entry &amp; ghc::filesystem::directory_iterator::operator*</definition>
+        <argsstring>() const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="948" column="27" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5813" bodyend="5816"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1a80a70872aaf0ffce6663e2657a430c18" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classghc_1_1filesystem_1_1directory__entry" kindref="compound">directory_entry</ref> *</type>
+        <definition>const directory_entry * ghc::filesystem::directory_iterator::operator-&gt;</definition>
+        <argsstring>() const</argsstring>
+        <name>operator-&gt;</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::operator-&gt;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="949" column="27" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5818" bodyend="5821"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1a6931c86db900fdda00d3f4d77d2c3e48" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref> &amp;</type>
+        <definition>directory_iterator &amp; ghc::filesystem::directory_iterator::increment</definition>
+        <argsstring>(std::error_code &amp;ec) noexcept</argsstring>
+        <name>increment</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::increment</qualifiedname>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="953" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5835" bodyend="5839"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1a1664713465859aed810c5917fcf3220a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::directory_iterator::operator==</definition>
+        <argsstring>(const directory_iterator &amp;rhs) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="964" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5841" bodyend="5844"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1directory__iterator_1a4e0e044993fb843f9d1509229ebe2f4f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::directory_iterator::operator!=</definition>
+        <argsstring>(const directory_iterator &amp;rhs) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>ghc::filesystem::directory_iterator::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="965" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5846" bodyend="5849"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>ghc::filesystem::directory_iterator</label>
+        <link refid="classghc_1_1filesystem_1_1directory__iterator"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="911" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="912" bodyend="971"/>
+    <listofallmembers>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a7976e319d4cfd35fab78d61cfd8990d5" prot="private" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>_impl</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a3daf7a640ad99c251b77400f534f163b" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>difference_type</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a4b58437e002042efba00f0f674fd44e4" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>directory_iterator</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a37e9df59aa1583340d87036a0d2da2f5" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>directory_iterator</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a1c636f53386cdf9ddce4a98bcf95ed1e" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>directory_iterator</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1ac1a550681eae07b73be576a6c0db0851" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>directory_iterator</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a9ca7d75dab0d51fb5357852c1b59a1fb" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>directory_iterator</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a6931c86db900fdda00d3f4d77d2c3e48" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>increment</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a69a207d4db8e54e71bb0d729f35e287b" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>iterator_category</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a4e0e044993fb843f9d1509229ebe2f4f" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>operator!=</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1adac799a1f20c07624a1a927f9e51a6ad" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>operator*</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a80a70872aaf0ffce6663e2657a430c18" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>operator-&gt;</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1ae9a49a0f5fd5995bb0314f88ab8bdea7" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>operator=</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a9e9a5bdd6b37e0c9b0eea50d81a70728" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>operator=</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a1664713465859aed810c5917fcf3220a" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>operator==</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a8d169dd7136b4fc73b7a70aadb7ced6a" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>pointer</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1a3f07d4fea42efb21eaa7645ba0b528b9" prot="private" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>recursive_directory_iterator</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1adb4796fb975260e33845d80c6e5ffdcf" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>reference</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1acc224b52e6ed466306b0b7e0918d1e5e" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>value_type</name></member>
+      <member refid="classghc_1_1filesystem_1_1directory__iterator_1afbe2653c78b558e2942820537ee69a5d" prot="public" virt="non-virtual"><scope>ghc::filesystem::directory_iterator</scope><name>~directory_iterator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="Yaml_8hpp" kind="file" language="C++">
+    <compoundname>Yaml.hpp</compoundname>
+    <includes local="no">yaml-cpp/yaml.h</includes>
+    <includedby refid="DefineHolesAndParticles_8cxx" local="no">DefineHolesAndParticles.cxx</includedby>
+    <includedby refid="Read_8cxx" local="no">Read.cxx</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Yaml.hpp</label>
+        <link refid="Yaml_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>yaml-cpp/yaml.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>Read.cxx</label>
+        <link refid="Read_8cxx"/>
+      </node>
+      <node id="2">
+        <label>DefineHolesAndParticles.cxx</label>
+        <link refid="DefineHolesAndParticles_8cxx"/>
+      </node>
+      <node id="1">
+        <label>Yaml.hpp</label>
+        <link refid="Yaml_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="Yaml_8hpp_1a66e1e497cc8588531a4f031cce653a72" prot="public" static="no">
+        <name>YAML_ASSERT_KEY</name>
+        <param><defname>node</defname></param>
+        <param><defname>key</defname></param>
+        <initializer>  do {                                                            \
+    if (!node[key].IsDefined()) {                                 \
+      std::stringstream s;                                        \
+      const auto mark = node.Mark();                              \
+      s &lt;&lt; &quot;Node in line:col &quot; &lt;&lt; mark.line &lt;&lt; &quot;:&quot; &lt;&lt; mark.column \
+        &lt;&lt; &quot;\n\n&quot; &lt;&lt; node &lt;&lt; &quot;\n\n&quot;                               \
+        &lt;&lt; &quot;should have a key &quot; &lt;&lt; key &lt;&lt; &quot;\n\n&quot;;                 \
+      throw s.str();                                              \
+    }                                                             \
+  } while (0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/util/Yaml.hpp" line="3" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Yaml.hpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;yaml-cpp/yaml.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="Yaml_8hpp_1a66e1e497cc8588531a4f031cce653a72" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>YAML_ASSERT_KEY(node,<sp/>key)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="4"><highlight class="preprocessor"><sp/><sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="5"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(!node[key].IsDefined())<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="6"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>std::stringstream<sp/>s;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="7"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>auto<sp/>mark<sp/>=<sp/>node.Mark();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="8"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>s<sp/>&lt;&lt;<sp/>&quot;Node<sp/>in<sp/>line:col<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mark.line<sp/>&lt;&lt;<sp/>&quot;:&quot;<sp/>&lt;&lt;<sp/>mark.column<sp/>\</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;\n\n&quot;<sp/>&lt;&lt;<sp/>node<sp/>&lt;&lt;<sp/>&quot;\n\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;should<sp/>have<sp/>a<sp/>key<sp/>&quot;<sp/>&lt;&lt;<sp/>key<sp/>&lt;&lt;<sp/>&quot;\n\n&quot;;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>s.str();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>}<sp/>while<sp/>(0)</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/util/Yaml.hpp"/>
+  </compounddef>
+</doxygen>

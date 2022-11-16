@@ -3,6 +3,7 @@
   <compounddef id="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>sisi4s::ClusterSinglesDoublesTriplesAlgorithm</compoundname>
     <basecompoundref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" prot="public" virt="non-virtual">sisi4s::ClusterSinglesDoublesAlgorithm</basecompoundref>
+    <derivedcompoundref refid="classsisi4s_1_1CcsdtEnergyFromCoulombIntegrals" prot="public" virt="non-virtual">sisi4s::CcsdtEnergyFromCoulombIntegrals</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals" prot="public" virt="non-virtual">sisi4s::UccsdtAmplitudesFromCoulombIntegrals</derivedcompoundref>
     <includes refid="ClusterSinglesDoublesTriplesAlgorithm_8hpp" local="no">ClusterSinglesDoublesTriplesAlgorithm.hpp</includes>
       <sectiondef kind="public-static-attrib">
@@ -83,6 +84,7 @@
         <name>getAbbreviation</name>
         <qualifiedname>sisi4s::ClusterSinglesDoublesTriplesAlgorithm::getAbbreviation</qualifiedname>
         <reimplements refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ab3f7208a643558d8c36324038e0d3130">getAbbreviation</reimplements>
+        <reimplementedby refid="classsisi4s_1_1CcsdtEnergyFromCoulombIntegrals_1a6d58e46270d04fd5985f4f5d56665772">getAbbreviation</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1a5919ab5c48f12b6799c74bd5f36eedac">getAbbreviation</reimplementedby>
         <briefdescription>
 <para>Returns the abbreviation of the concrete algorithm, e.g. &quot;Ccd&quot;, &quot;Dcd&quot;. </para>
@@ -143,6 +145,12 @@
         <label>sisi4s::Algorithm</label>
         <link refid="classsisi4s_1_1Algorithm"/>
       </node>
+      <node id="4">
+        <label>sisi4s::CcsdtEnergyFromCoulombIntegrals</label>
+        <link refid="classsisi4s_1_1CcsdtEnergyFromCoulombIntegrals"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
       <node id="2">
         <label>sisi4s::ClusterSinglesDoublesAlgorithm</label>
         <link refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm"/>
@@ -155,7 +163,7 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="4">
+      <node id="5">
         <label>sisi4s::UccsdtAmplitudesFromCoulombIntegrals</label>
         <link refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals"/>
         <childnode refid="1" relation="public-inheritance">

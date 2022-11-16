@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['path_5ftype_0',['path_type',['../namespaceCLI_1_1detail.html#a20a9a67e5f06ba0dc3f2ded2fed16f55',1,'CLI::detail']]]
+  ['option_5fstate_0',['option_state',['../classCLI_1_1Option.html#a21df1631a6f5ddb495b9ce9c940669b9',1,'CLI::Option']]],
+  ['options_1',['Options',['../classCLI_1_1AsNumberWithUnit.html#a4f1b96d1a43a6acb3f85b68dd6f5a321',1,'CLI::AsNumberWithUnit']]]
 ];

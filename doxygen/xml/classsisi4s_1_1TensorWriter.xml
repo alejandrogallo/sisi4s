@@ -5,9 +5,9 @@
     <basecompoundref refid="classsisi4s_1_1Algorithm" prot="public" virt="non-virtual">sisi4s::Algorithm</basecompoundref>
     <includes refid="TensorWriter_8hpp" local="no">TensorWriter.hpp</includes>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="classsisi4s_1_1TensorWriter_1a01923025439bd02ebec9be0889ac5115" prot="public" static="yes" mutable="no">
-        <type><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">AlgorithmRegistrar</ref>&lt; <ref refid="classsisi4s_1_1TensorWriter" kindref="compound">TensorWriter</ref> &gt;</type>
-        <definition>AlgorithmRegistrar&lt; TensorWriter &gt; TensorWriter::registrar_</definition>
+      <memberdef kind="variable" id="classsisi4s_1_1TensorWriter_1a891343534990e0e22d100973f8575d30" prot="public" static="yes" mutable="no">
+        <type><ref refid="classsisi4s_1_1AlgorithmRegistrar" kindref="compound">sisi4s::AlgorithmRegistrar</ref>&lt; <ref refid="classsisi4s_1_1TensorWriter" kindref="compound">TensorWriter</ref> &gt;</type>
+        <definition>sisi4s::AlgorithmRegistrar&lt; TensorWriter &gt; sisi4s::TensorWriter::registrar_</definition>
         <argsstring></argsstring>
         <name>registrar_</name>
         <qualifiedname>sisi4s::TensorWriter::registrar_</qualifiedname>
@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="10" column="72" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" bodystart="10" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="10" column="80" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" bodystart="10" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,17 +35,16 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="10" column="25" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" bodystart="10" bodyend="10"/>
-        <referencedby refid="classsisi4s_1_1TensorWriter_1a4bfa1bfcf0fec4a883cd48f163ca6cab" compoundref="TensorWriter_8cxx" startline="22" endline="31">run</referencedby>
       </memberdef>
-      <memberdef kind="function" id="classsisi4s_1_1TensorWriter_1add842df381be5dc27bc373e434227518" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsisi4s_1_1TensorWriter_1ae615818318253dfb2f8b5831e7f1f2fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
-        <definition>TensorWriter::TensorWriter</definition>
-        <argsstring>(std::vector&lt; Argument &gt; const &amp;argumentList)</argsstring>
+        <definition>sisi4s::TensorWriter::TensorWriter</definition>
+        <argsstring>(std::vector&lt; Argument &gt; const &amp;args)</argsstring>
         <name>TensorWriter</name>
         <qualifiedname>sisi4s::TensorWriter::TensorWriter</qualifiedname>
         <param>
           <type>std::vector&lt; <ref refid="classsisi4s_1_1Argument" kindref="compound">Argument</ref> &gt; const &amp;</type>
-          <declname>argumentList</declname>
+          <declname>args</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -53,11 +52,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="11" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.cxx" bodystart="14" bodyend="17"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="11" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" bodystart="11" bodyend="12"/>
       </memberdef>
-      <memberdef kind="function" id="classsisi4s_1_1TensorWriter_1a065af535ec44397cacb67056445c903d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classsisi4s_1_1TensorWriter_1a0519842fbeaf3bc2fd6cbcd90704a6ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
-        <definition>TensorWriter::~TensorWriter</definition>
+        <definition>sisi4s::TensorWriter::~TensorWriter</definition>
         <argsstring>()</argsstring>
         <name>~TensorWriter</name>
         <qualifiedname>sisi4s::TensorWriter::~TensorWriter</qualifiedname>
@@ -67,11 +66,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="14" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.cxx" bodystart="19" bodyend="20"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="13" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" bodystart="13" bodyend="13"/>
       </memberdef>
-      <memberdef kind="function" id="classsisi4s_1_1TensorWriter_1a4bfa1bfcf0fec4a883cd48f163ca6cab" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classsisi4s_1_1TensorWriter_1ad0ddf25953bf623c87f16f522e15a143" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
-        <definition>void TensorWriter::run</definition>
+        <definition>void sisi4s::TensorWriter::run</definition>
         <argsstring>()</argsstring>
         <name>run</name>
         <qualifiedname>sisi4s::TensorWriter::run</qualifiedname>
@@ -83,21 +82,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="18" column="18" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.cxx" bodystart="22" bodyend="31"/>
-        <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="38" endline="54">sisi4s::Algorithm::getArgumentData</references>
-        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
-        <references refid="classsisi4s_1_1TensorWriter_1a4537b0da0b6eeb334f666273f2e596f1" compoundref="TensorWriter_8hpp" startline="10" endline="10">getName</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="17" column="18" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.cxx" bodystart="12" bodyend="17"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-      <memberdef kind="function" id="classsisi4s_1_1TensorWriter_1ac6492accfcbbb06c752c79ab472f1717" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classsisi4s_1_1TensorWriter_1ab6ce73b8e09aaa2f1d63a3a8bfb5610f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename F</type>
           </param>
         </templateparamlist>
         <type>void</type>
-        <definition>void TensorWriter::write</definition>
+        <definition>void sisi4s::TensorWriter::write</definition>
         <argsstring>(const std::string &amp;name)</argsstring>
         <name>write</name>
         <qualifiedname>sisi4s::TensorWriter::write</qualifiedname>
@@ -111,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="22" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.cxx" bodystart="34" bodyend="62"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="21" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.cxx" bodystart="21" bodyend="49"/>
         <references refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" compoundref="Emitter_8hpp" startline="31">EMIT</references>
         <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">sisi4s::Algorithm::getTextArgument</references>
       </memberdef>
@@ -166,7 +162,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="8" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" bodystart="8" bodyend="23"/>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" line="8" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorWriter.hpp" bodystart="8" bodyend="22"/>
     <listofallmembers>
       <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>Algorithm</name></member>
       <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>allocateContainerArgument</name></member>
@@ -191,14 +187,14 @@
       <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>getTextArgument</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>getTextArgument</name></member>
       <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>isArgumentGiven</name></member>
-      <member refid="classsisi4s_1_1TensorWriter_1a01923025439bd02ebec9be0889ac5115" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>registrar_</name></member>
-      <member refid="classsisi4s_1_1TensorWriter_1a4bfa1bfcf0fec4a883cd48f163ca6cab" prot="public" virt="virtual"><scope>sisi4s::TensorWriter</scope><name>run</name></member>
+      <member refid="classsisi4s_1_1TensorWriter_1a891343534990e0e22d100973f8575d30" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>registrar_</name></member>
+      <member refid="classsisi4s_1_1TensorWriter_1ad0ddf25953bf623c87f16f522e15a143" prot="public" virt="virtual"><scope>sisi4s::TensorWriter</scope><name>run</name></member>
       <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>setIntegerArgument</name></member>
       <member refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>setRealArgument</name></member>
-      <member refid="classsisi4s_1_1TensorWriter_1add842df381be5dc27bc373e434227518" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>TensorWriter</name></member>
-      <member refid="classsisi4s_1_1TensorWriter_1ac6492accfcbbb06c752c79ab472f1717" prot="protected" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>write</name></member>
+      <member refid="classsisi4s_1_1TensorWriter_1ae615818318253dfb2f8b5831e7f1f2fc" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>TensorWriter</name></member>
+      <member refid="classsisi4s_1_1TensorWriter_1ab6ce73b8e09aaa2f1d63a3a8bfb5610f" prot="protected" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>write</name></member>
       <member refid="classsisi4s_1_1Algorithm_1ae2801c5b6cd6f45b3852d8c94f354cd5" prot="public" virt="virtual"><scope>sisi4s::TensorWriter</scope><name>~Algorithm</name></member>
-      <member refid="classsisi4s_1_1TensorWriter_1a065af535ec44397cacb67056445c903d" prot="public" virt="virtual"><scope>sisi4s::TensorWriter</scope><name>~TensorWriter</name></member>
+      <member refid="classsisi4s_1_1TensorWriter_1a0519842fbeaf3bc2fd6cbcd90704a6ce" prot="public" virt="non-virtual"><scope>sisi4s::TensorWriter</scope><name>~TensorWriter</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

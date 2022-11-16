@@ -13,6 +13,7 @@ var hierarchy =
         [ "sisi4s::CcsdEnergyFromCoulombIntegrals", "classsisi4s_1_1CcsdEnergyFromCoulombIntegrals.html", null ],
         [ "sisi4s::CcsdEnergyFromCoulombIntegralsReference", "classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference.html", null ],
         [ "sisi4s::ClusterSinglesDoublesTriplesAlgorithm", "classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm.html", [
+          [ "sisi4s::CcsdtEnergyFromCoulombIntegrals", "classsisi4s_1_1CcsdtEnergyFromCoulombIntegrals.html", null ],
           [ "sisi4s::UccsdtAmplitudesFromCoulombIntegrals", "classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals.html", null ]
         ] ],
         [ "sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm", "classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm.html", [
@@ -34,6 +35,7 @@ var hierarchy =
       [ "sisi4s::CoulombVertexFromFactors", "classsisi4s_1_1CoulombVertexFromFactors.html", null ],
       [ "sisi4s::CoulombVertexReader", "classsisi4s_1_1CoulombVertexReader.html", null ],
       [ "sisi4s::CoulombVertexSingularVectors", "classsisi4s_1_1CoulombVertexSingularVectors.html", null ],
+      [ "sisi4s::DefineHolesAndParticles", "classsisi4s_1_1DefineHolesAndParticles.html", null ],
       [ "sisi4s::Delete", "classsisi4s_1_1Delete.html", null ],
       [ "sisi4s::DoublesAmplitudesDecomposition", "classsisi4s_1_1DoublesAmplitudesDecomposition.html", null ],
       [ "sisi4s::DoublesAmplitudesFromVertex", "classsisi4s_1_1DoublesAmplitudesFromVertex.html", null ],
@@ -63,6 +65,7 @@ var hierarchy =
       [ "sisi4s::ParticleHoleCoulombVertexSingularVectors", "classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors.html", null ],
       [ "sisi4s::PerturbativeTriples", "classsisi4s_1_1PerturbativeTriples.html", null ],
       [ "sisi4s::PseudoInverse", "classsisi4s_1_1PseudoInverse.html", null ],
+      [ "sisi4s::Read", "classsisi4s_1_1Read.html", null ],
       [ "sisi4s::SingleParticleOccupancies", "classsisi4s_1_1SingleParticleOccupancies.html", null ],
       [ "sisi4s::SliceCoulombVertex", "classsisi4s_1_1SliceCoulombVertex.html", null ],
       [ "sisi4s::TensorAntisymmetrizer", "structsisi4s_1_1TensorAntisymmetrizer.html", null ],
@@ -79,7 +82,8 @@ var hierarchy =
       [ "sisi4s::UCcsdIPEquationOfMotionDavidson", "classsisi4s_1_1UCcsdIPEquationOfMotionDavidson.html", null ],
       [ "sisi4s::UPerturbativeTriples", "classsisi4s_1_1UPerturbativeTriples.html", null ],
       [ "sisi4s::UegVertexGenerator", "classsisi4s_1_1UegVertexGenerator.html", null ],
-      [ "sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa", "classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa.html", null ]
+      [ "sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa", "classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa.html", null ],
+      [ "sisi4s::Write", "classsisi4s_1_1Write.html", null ]
     ] ],
     [ "sisi4s::AlgorithmFactory", "classsisi4s_1_1AlgorithmFactory.html", [
       [ "sisi4s::AlgorithmRegistrar< sisi4s::ApproximateCoulombVertex >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
@@ -91,6 +95,7 @@ var hierarchy =
       [ "sisi4s::AlgorithmRegistrar< sisi4s::CcsdEquationOfMotionDavidson >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::CcsdPerturbativeTriples >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::CcsdPerturbativeTriplesComplex >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
+      [ "sisi4s::AlgorithmRegistrar< sisi4s::CcsdtEnergyFromCoulombIntegrals >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::CcsdtEquationOfMotionDavidson >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::ComplexTensorContraction >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::ComplexTensorNorm >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
@@ -104,6 +109,7 @@ var hierarchy =
       [ "sisi4s::AlgorithmRegistrar< sisi4s::CoulombVertexFromFactors >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::CoulombVertexReader >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::CoulombVertexSingularVectors >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
+      [ "sisi4s::AlgorithmRegistrar< sisi4s::DefineHolesAndParticles >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::Delete >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::DoublesAmplitudesDecomposition >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::DoublesAmplitudesFromVertex >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
@@ -134,6 +140,7 @@ var hierarchy =
       [ "sisi4s::AlgorithmRegistrar< sisi4s::ParticleHoleCoulombVertexSingularVectors >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::PerturbativeTriples >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::PseudoInverse >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
+      [ "sisi4s::AlgorithmRegistrar< sisi4s::Read >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::SingleParticleOccupancies >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::SliceCoulombVertex >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::TensorAntisymmetrizer >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
@@ -155,6 +162,7 @@ var hierarchy =
       [ "sisi4s::AlgorithmRegistrar< sisi4s::UegVertexGenerator >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::UrpaAmplitudesFromCoulombIntegrals >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
+      [ "sisi4s::AlgorithmRegistrar< sisi4s::Write >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< AlgorithmType >", "classsisi4s_1_1AlgorithmRegistrar.html", null ]
     ] ],
     [ "sisi4s::AlternatingLeastSquaresRegularizationEstimator", "classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator.html", [
@@ -166,6 +174,18 @@ var hierarchy =
     [ "CLI::detail::AppFriend", "structCLI_1_1detail_1_1AppFriend.html", null ],
     [ "sisi4s::Argument", "classsisi4s_1_1Argument.html", null ],
     [ "Atom", "structAtom.html", null ],
+    [ "std::basic_filebuf", null, [
+      [ "ghc::filesystem::basic_filebuf< charT, traits >", "classghc_1_1filesystem_1_1basic__filebuf.html", null ]
+    ] ],
+    [ "std::basic_fstream", null, [
+      [ "ghc::filesystem::basic_fstream< charT, traits >", "classghc_1_1filesystem_1_1basic__fstream.html", null ]
+    ] ],
+    [ "std::basic_ifstream", null, [
+      [ "ghc::filesystem::basic_ifstream< charT, traits >", "classghc_1_1filesystem_1_1basic__ifstream.html", null ]
+    ] ],
+    [ "std::basic_ofstream", null, [
+      [ "ghc::filesystem::basic_ofstream< charT, traits >", "classghc_1_1filesystem_1_1basic__ofstream.html", null ]
+    ] ],
     [ "Basis", "structBasis.html", null ],
     [ "nwchem::BasisSetParser", "structnwchem_1_1BasisSetParser.html", null ],
     [ "sisi4s::BinaryTensorDimensionHeader", "classsisi4s_1_1BinaryTensorDimensionHeader.html", null ],
@@ -194,6 +214,14 @@ var hierarchy =
     [ "sisi4s::Conversion< Target, Source >", "classsisi4s_1_1Conversion.html", null ],
     [ "sisi4s::Conversion< Real, Complex< Real > >", "classsisi4s_1_1Conversion_3_01Real_00_01Complex_3_01Real_01_4_01_4.html", null ],
     [ "sisi4s::Conversion< Target, Complex< Real > >", "classsisi4s_1_1Conversion_3_01Target_00_01Complex_3_01Real_01_4_01_4.html", null ],
+    [ "YAML::convert< AxisType >", "structYAML_1_1convert_3_01AxisType_01_4.html", null ],
+    [ "YAML::convert< Dimension >", "structYAML_1_1convert_3_01Dimension_01_4.html", null ],
+    [ "YAML::convert< ElementFileType >", "structYAML_1_1convert_3_01ElementFileType_01_4.html", null ],
+    [ "YAML::convert< HPHeader >", "structYAML_1_1convert_3_01HPHeader_01_4.html", null ],
+    [ "YAML::convert< ReadableType >", "structYAML_1_1convert_3_01ReadableType_01_4.html", null ],
+    [ "YAML::convert< ReadHeader >", "structYAML_1_1convert_3_01ReadHeader_01_4.html", null ],
+    [ "YAML::convert< ReadHeader::Version >", "structYAML_1_1convert_3_01ReadHeader_1_1Version_01_4.html", null ],
+    [ "YAML::convert< ScalarType >", "structYAML_1_1convert_3_01ScalarType_01_4.html", null ],
     [ "CoulombIntegralsProvider", "structCoulombIntegralsProvider.html", null ],
     [ "sisi4s::Data", "classsisi4s_1_1Data.html", [
       [ "sisi4s::TypedData", "classsisi4s_1_1TypedData.html", [
@@ -208,6 +236,9 @@ var hierarchy =
       ] ]
     ] ],
     [ "sisi4s::DetailedException", "classsisi4s_1_1DetailedException.html", null ],
+    [ "sisi4s::cc4s::Dimension", "structsisi4s_1_1cc4s_1_1Dimension.html", null ],
+    [ "ghc::filesystem::directory_entry", "classghc_1_1filesystem_1_1directory__entry.html", null ],
+    [ "ghc::filesystem::directory_iterator", "classghc_1_1filesystem_1_1directory__iterator.html", null ],
     [ "sisi4s::DryIterativePseudoInverse< F >", "classsisi4s_1_1DryIterativePseudoInverse.html", null ],
     [ "sisi4s::DryMemory", "classsisi4s_1_1DryMemory.html", null ],
     [ "sisi4s::DryPseudoInverseHermitianSvd< F >", "classsisi4s_1_1DryPseudoInverseHermitianSvd.html", null ],
@@ -238,9 +269,12 @@ var hierarchy =
       [ "CLI::detail::is_wrapper< T, _ >", "structCLI_1_1detail_1_1is__wrapper.html", null ],
       [ "CLI::detail::pair_adaptor< T, _ >", "structCLI_1_1detail_1_1pair__adaptor.html", null ],
       [ "CLI::is_bool< T >", "structCLI_1_1is__bool.html", null ],
-      [ "CLI::is_shared_ptr< T >", "structCLI_1_1is__shared__ptr.html", null ]
+      [ "CLI::is_shared_ptr< T >", "structCLI_1_1is__shared__ptr.html", null ],
+      [ "ghc::filesystem::detail::has_d_type< T, typename >", "structghc_1_1filesystem_1_1detail_1_1has__d__type.html", null ],
+      [ "ghc::filesystem::path::_is_basic_string< T >", "structghc_1_1filesystem_1_1path_1_1__is__basic__string.html", null ]
     ] ],
     [ "sisi4s::FcidumpReader::FcidumpHeader", "structsisi4s_1_1FcidumpReader_1_1FcidumpHeader.html", null ],
+    [ "ghc::filesystem::file_status", "classghc_1_1filesystem_1_1file__status.html", null ],
     [ "sisi4s::FloatTypes< FloatSize >", "classsisi4s_1_1FloatTypes.html", null ],
     [ "sisi4s::FloatTypes< 32 >", "classsisi4s_1_1FloatTypes_3_0132_01_4.html", null ],
     [ "sisi4s::FloatTypes< 64 >", "classsisi4s_1_1FloatTypes_3_0164_01_4.html", null ],
@@ -265,7 +299,9 @@ var hierarchy =
     [ "CLI::detail::has_find< C, V >", "structCLI_1_1detail_1_1has__find.html", null ],
     [ "sisi4s::CoulombVertexReader::Header", "classsisi4s_1_1CoulombVertexReader_1_1Header.html", null ],
     [ "sisi4s::ParticleHoleCoulombVertexReader::Header", "classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Header.html", null ],
+    [ "sisi4s::cc4s::HPHeader", "structsisi4s_1_1cc4s_1_1HPHeader.html", null ],
     [ "sisi4s::IJKPointer", "structsisi4s_1_1IJKPointer.html", null ],
+    [ "ghc::filesystem::directory_iterator::impl", "classghc_1_1filesystem_1_1directory__iterator_1_1impl.html", null ],
     [ "CoulombIntegralsProvider::IndexRange", "structCoulombIntegralsProvider_1_1IndexRange.html", null ],
     [ "sisi4s::InputFileParser< fmt >", "classsisi4s_1_1InputFileParser.html", null ],
     [ "sisi4s::InputFileParser< InputFileFormat::CC4S >", "classsisi4s_1_1InputFileParser_3_01InputFileFormat_1_1CC4S_01_4.html", null ],
@@ -294,6 +330,7 @@ var hierarchy =
     [ "CLI::IsMemberType< T >", "structCLI_1_1IsMemberType.html", null ],
     [ "CLI::IsMemberType< const char * >", "structCLI_1_1IsMemberType_3_01const_01char_01_5_01_4.html", null ],
     [ "sisi4s::IterativePseudoInverse< F >", "classsisi4s_1_1IterativePseudoInverse.html", null ],
+    [ "ghc::filesystem::path::iterator", "classghc_1_1filesystem_1_1path_1_1iterator.html", null ],
     [ "sisi4s::LapackGeneralEigenSystem< F >", "classsisi4s_1_1LapackGeneralEigenSystem.html", null ],
     [ "sisi4s::LapackGeneralEigenSystem< complex >", "classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4.html", null ],
     [ "sisi4s::LapackGeneralEigenSystem< double >", "classsisi4s_1_1LapackGeneralEigenSystem_3_01double_01_4.html", null ],
@@ -304,6 +341,9 @@ var hierarchy =
     [ "IntegralProvider< V >::Limit", "structIntegralProvider_1_1Limit.html", null ],
     [ "sisi4s::LineNumberStream", "classsisi4s_1_1LineNumberStream.html", null ],
     [ "sisi4s::Log", "classsisi4s_1_1Log.html", null ],
+    [ "std::logic_error", null, [
+      [ "ghc::filesystem::not_implemented_exception", "classghc_1_1filesystem_1_1not__implemented__exception.html", null ]
+    ] ],
     [ "tcc::MachineTensor", null, [
       [ "sisi4s::CtfMachineTensor< F >", "classsisi4s_1_1CtfMachineTensor.html", null ]
     ] ],
@@ -358,12 +398,19 @@ var hierarchy =
     [ "std::ostream", null, [
       [ "sisi4s::LogStream", "classsisi4s_1_1LogStream.html", null ]
     ] ],
+    [ "ghc::filesystem::path_helper_base< char_type >", "classghc_1_1filesystem_1_1path__helper__base.html", null ],
+    [ "ghc::filesystem::path_helper_base< std::string::value_type >", "classghc_1_1filesystem_1_1path__helper__base.html", [
+      [ "ghc::filesystem::path", "classghc_1_1filesystem_1_1path.html", null ]
+    ] ],
     [ "sisi4s::CtfMachineTensor< F >::ProtectedToken", "classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken.html", null ],
     [ "sisi4s::CtfMachineTensorFactory< F >::ProtectedToken", "classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken.html", null ],
+    [ "ghc::filesystem::directory_iterator::proxy", "classghc_1_1filesystem_1_1directory__iterator_1_1proxy.html", null ],
     [ "sisi4s::PseudoInverseHermitianSvd< F >", "classsisi4s_1_1PseudoInverseHermitianSvd.html", null ],
     [ "sisi4s::PseudoInverseSvd< F >", "classsisi4s_1_1PseudoInverseSvd.html", null ],
     [ "sisi4s::RandomGenerator", "classsisi4s_1_1RandomGenerator.html", null ],
     [ "sisi4s::RangeParser", "classsisi4s_1_1RangeParser.html", null ],
+    [ "sisi4s::cc4s::ReadHeader", "structsisi4s_1_1cc4s_1_1ReadHeader.html", null ],
+    [ "ghc::filesystem::recursive_directory_iterator", "classghc_1_1filesystem_1_1recursive__directory__iterator.html", null ],
     [ "pars::Regex", "structpars_1_1Regex.html", null ],
     [ "std::runtime_error", null, [
       [ "CLI::Error", "classCLI_1_1Error.html", [
@@ -408,6 +455,9 @@ var hierarchy =
     [ "sisi4s::ScaLapackSingularValueDecomposition< F >", "classsisi4s_1_1ScaLapackSingularValueDecomposition.html", null ],
     [ "sisi4s::ScaLapackSingularValueDecomposition< complex >", "classsisi4s_1_1ScaLapackSingularValueDecomposition_3_01complex_01_4.html", null ],
     [ "sisi4s::ScaLapackSingularValueDecomposition< double >", "classsisi4s_1_1ScaLapackSingularValueDecomposition_3_01double_01_4.html", null ],
+    [ "sisi4s::cc4s::ScalarTypeTraits< t >", "structsisi4s_1_1cc4s_1_1ScalarTypeTraits.html", null ],
+    [ "sisi4s::cc4s::ScalarTypeTraits< ScalarType::Complex64 >", "structsisi4s_1_1cc4s_1_1ScalarTypeTraits_3_01ScalarType_1_1Complex64_01_4.html", null ],
+    [ "sisi4s::cc4s::ScalarTypeTraits< ScalarType::Real64 >", "structsisi4s_1_1cc4s_1_1ScalarTypeTraits_3_01ScalarType_1_1Real64_01_4.html", null ],
     [ "sisi4s::Scanner", "classsisi4s_1_1Scanner.html", null ],
     [ "Shell", "structShell.html", null ],
     [ "ShellInfo", "structShellInfo.html", null ],
@@ -421,6 +471,7 @@ var hierarchy =
     [ "sisi4s::SlicedCtfTensor< double >", "classsisi4s_1_1SlicedCtfTensor.html", null ],
     [ "sisi4s::SlicedCtfTensor< F >", "classsisi4s_1_1SlicedCtfTensor.html", null ],
     [ "sisi4s::SourceLocation", "classsisi4s_1_1SourceLocation.html", null ],
+    [ "ghc::filesystem::space_info", "structghc_1_1filesystem_1_1space__info.html", null ],
     [ "SpinOperator< F >", "structSpinOperator.html", [
       [ "SzOperator< F >", "structSzOperator.html", null ]
     ] ],
@@ -433,6 +484,9 @@ var hierarchy =
     [ "sisi4s::SimilarityTransformedHamiltonian< F >::StructureFactorSettings", "structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings.html", null ],
     [ "CLI::detail::subtype_count< T >", "structCLI_1_1detail_1_1subtype__count.html", null ],
     [ "CLI::detail::subtype_count_min< T >", "structCLI_1_1detail_1_1subtype__count__min.html", null ],
+    [ "std::system_error", null, [
+      [ "ghc::filesystem::filesystem_error", "classghc_1_1filesystem_1_1filesystem__error.html", null ]
+    ] ],
     [ "TensorInfo", "structTensorInfo.html", null ],
     [ "sisi4s::TensorIo", "classsisi4s_1_1TensorIo.html", null ],
     [ "TensorTypeTraits< F, T >", "classTensorTypeTraits.html", null ],
@@ -455,7 +509,10 @@ var hierarchy =
       [ "CLI::detail::pair_adaptor< T, conditional_t< false, void_t< typename T::value_type::first_type, typename T::value_type::second_type >, void > >", "structCLI_1_1detail_1_1pair__adaptor_3_01T_00_01conditional__t_3_01false_00_01void__t_3_01typenac7f3d35561ff46242630d08443185a90.html", null ],
       [ "CLI::is_bool< bool >", "structCLI_1_1is__bool_3_01bool_01_4.html", null ],
       [ "CLI::is_shared_ptr< const std::shared_ptr< T > >", "structCLI_1_1is__shared__ptr_3_01const_01std_1_1shared__ptr_3_01T_01_4_01_4.html", null ],
-      [ "CLI::is_shared_ptr< std::shared_ptr< T > >", "structCLI_1_1is__shared__ptr_3_01std_1_1shared__ptr_3_01T_01_4_01_4.html", null ]
+      [ "CLI::is_shared_ptr< std::shared_ptr< T > >", "structCLI_1_1is__shared__ptr_3_01std_1_1shared__ptr_3_01T_01_4_01_4.html", null ],
+      [ "ghc::filesystem::detail::has_d_type< T, decltype((void) T::d_type, 0)>", "structghc_1_1filesystem_1_1detail_1_1has__d__type_3_01T_00_01decltype_07_07void_08_01T_1_1d__type_00_010_08_4.html", null ],
+      [ "ghc::filesystem::path::_is_basic_string< std::basic_string< CharT, Traits, Alloc > >", "structghc_1_1filesystem_1_1path_1_1__is__basic__string_3_01std_1_1basic__string_3_01CharT_00_01Traits_00_01Alloc_01_4_01_4.html", null ],
+      [ "ghc::filesystem::path::_is_basic_string< std::basic_string< CharT, std::char_traits< CharT >, std::allocator< CharT > > >", "structghc_1_1filesystem_1_1path_1_1__is__basic__string_3_01std_1_1basic__string_3_01CharT_00_01sc3eabed8c021ce72de56210fc990152a.html", null ]
     ] ],
     [ "CLI::detail::type_count< T, Enable >", "structCLI_1_1detail_1_1type__count.html", null ],
     [ "CLI::detail::type_count< T, typename std::enable_if< is_complex< T >::value >::type >", "structCLI_1_1detail_1_1type__count_3_01T_00_01typename_01std_1_1enable__if_3_01is__complex_3_01Tcc27862bfce937e7a184d4899b689962.html", null ],
@@ -477,6 +534,7 @@ var hierarchy =
     [ "sisi4s::TypeTraits< Complex64 >", "classsisi4s_1_1TypeTraits_3_01Complex64_01_4.html", null ],
     [ "sisi4s::TypeTraits< Float64 >", "classsisi4s_1_1TypeTraits_3_01Float64_01_4.html", null ],
     [ "sisi4s::TypeTraits< int64_t >", "classsisi4s_1_1TypeTraits_3_01int64__t_01_4.html", null ],
+    [ "ghc::filesystem::u8arguments", "classghc_1_1filesystem_1_1u8arguments.html", null ],
     [ "Unrestricter", "structUnrestricter.html", null ],
     [ "CLI::Validator", "classCLI_1_1Validator.html", [
       [ "CLI::AsNumberWithUnit", "classCLI_1_1AsNumberWithUnit.html", [

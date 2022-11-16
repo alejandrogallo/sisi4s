@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classghc_1_1filesystem_1_1basic__filebuf" kind="class" language="C++" prot="public">
+    <compoundname>ghc::filesystem::basic_filebuf</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::basic_filebuf&lt; charT, std::char_traits&lt; charT &gt; &gt;</basecompoundref>
+    <includes refid="filesystem_8hpp" local="no">filesystem.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>class charT</type>
+      </param>
+      <param>
+        <type>class traits</type>
+        <defval>std::char_traits&lt;charT&gt;</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1basic__filebuf_1aab54ae5059444ea868c44c13926b1a30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ghc::filesystem::basic_filebuf&lt; charT, traits &gt;::basic_filebuf</definition>
+        <argsstring>()</argsstring>
+        <name>basic_filebuf</name>
+        <qualifiedname>ghc::filesystem::basic_filebuf::basic_filebuf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1165" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1165" bodyend="1165"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1basic__filebuf_1a1be7fa7db561bae7ca505875702e2467" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ghc::filesystem::basic_filebuf&lt; charT, traits &gt;::~basic_filebuf</definition>
+        <argsstring>() override</argsstring>
+        <name>~basic_filebuf</name>
+        <qualifiedname>ghc::filesystem::basic_filebuf::~basic_filebuf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1166" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1166" bodyend="1166"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1basic__filebuf_1ab0819046b90451237a9e09d0d1d63f06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ghc::filesystem::basic_filebuf&lt; charT, traits &gt;::basic_filebuf</definition>
+        <argsstring>(const basic_filebuf &amp;)=delete</argsstring>
+        <name>basic_filebuf</name>
+        <qualifiedname>ghc::filesystem::basic_filebuf::basic_filebuf</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1basic__filebuf" kindref="compound">basic_filebuf</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1167" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1basic__filebuf_1a126ccb1a6a237cc6156e1d7aba22fa41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classghc_1_1filesystem_1_1basic__filebuf" kindref="compound">basic_filebuf</ref> &amp;</type>
+        <definition>const basic_filebuf &amp; ghc::filesystem::basic_filebuf&lt; charT, traits &gt;::operator=</definition>
+        <argsstring>(const basic_filebuf &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>ghc::filesystem::basic_filebuf::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1basic__filebuf" kindref="compound">basic_filebuf</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1168" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classghc_1_1filesystem_1_1basic__filebuf_1a78159dfdfa77a0e883c0934b0c5fb348" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1basic__filebuf" kindref="compound">basic_filebuf</ref>&lt; charT, traits &gt; *</type>
+        <definition>basic_filebuf&lt; charT, traits &gt; * ghc::filesystem::basic_filebuf&lt; charT, traits &gt;::open</definition>
+        <argsstring>(const path &amp;p, std::ios_base::openmode mode)</argsstring>
+        <name>open</name>
+        <qualifiedname>ghc::filesystem::basic_filebuf::open</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::ios_base::openmode</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1169" column="19" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1169" bodyend="1176"/>
+        <references refid="classghc_1_1filesystem_1_1path_1ad12852454dfea7faec6753a0b8d73576" compoundref="filesystem_8hpp" startline="2838" endline="2845">ghc::filesystem::path::string</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a1b2c4b38d97e29747332d0d83d842616" compoundref="filesystem_8hpp" startline="2858" endline="2865">ghc::filesystem::path::wstring</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ghc::filesystem::basic_filebuf&lt; charT, traits &gt;</label>
+        <link refid="classghc_1_1filesystem_1_1basic__filebuf"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::basic_filebuf&lt; charT, std::char_traits&lt;charT&gt;  &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ghc::filesystem::basic_filebuf&lt; charT, traits &gt;</label>
+        <link refid="classghc_1_1filesystem_1_1basic__filebuf"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::basic_filebuf&lt; charT, std::char_traits&lt;charT&gt;  &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1162" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1163" bodyend="1177"/>
+    <listofallmembers>
+      <member refid="classghc_1_1filesystem_1_1basic__filebuf_1aab54ae5059444ea868c44c13926b1a30" prot="public" virt="non-virtual"><scope>ghc::filesystem::basic_filebuf</scope><name>basic_filebuf</name></member>
+      <member refid="classghc_1_1filesystem_1_1basic__filebuf_1ab0819046b90451237a9e09d0d1d63f06" prot="public" virt="non-virtual"><scope>ghc::filesystem::basic_filebuf</scope><name>basic_filebuf</name></member>
+      <member refid="classghc_1_1filesystem_1_1basic__filebuf_1a78159dfdfa77a0e883c0934b0c5fb348" prot="public" virt="non-virtual"><scope>ghc::filesystem::basic_filebuf</scope><name>open</name></member>
+      <member refid="classghc_1_1filesystem_1_1basic__filebuf_1a126ccb1a6a237cc6156e1d7aba22fa41" prot="public" virt="non-virtual"><scope>ghc::filesystem::basic_filebuf</scope><name>operator=</name></member>
+      <member refid="classghc_1_1filesystem_1_1basic__filebuf_1a1be7fa7db561bae7ca505875702e2467" prot="public" virt="non-virtual"><scope>ghc::filesystem::basic_filebuf</scope><name>~basic_filebuf</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

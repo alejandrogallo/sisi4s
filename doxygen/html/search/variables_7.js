@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['h_0',['h',['../classsisi4s_1_1EigenSystemDavidson.html#acfeb357e5da75c148fd8f3dd2752d929',1,'sisi4s::EigenSystemDavidson']]],
-  ['halfgrid_1',['halfGrid',['../classsisi4s_1_1UegVertexGenerator.html#ab39165b0efe8d67260bb218b95c5ff35',1,'sisi4s::UegVertexGenerator']]],
-  ['hartreeinonebody_2',['hartreeInOneBody',['../structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings.html#a3c6259bb80532b1ebdaf8efc5601caf9',1,'sisi4s::SimilarityTransformedHamiltonian::StructureFactorSettings']]],
-  ['has_5fautomatic_5fname_5f_3',['has_automatic_name_',['../classCLI_1_1App.html#a76fcdccb7d70b6104b59390195f80112',1,'CLI::App']]],
-  ['help_5fall_5fptr_5f_4',['help_all_ptr_',['../classCLI_1_1App.html#a86d617145bbba16f8575159456f4c255',1,'CLI::App']]],
-  ['help_5fptr_5f_5',['help_ptr_',['../classCLI_1_1App.html#ac7ee114dd086a41f0f144416bcdba097',1,'CLI::App']]],
-  ['hermitian_6',['HERMITIAN',['../classsisi4s_1_1CoulombVertexDecomposition.html#ae3e5c8bc003015708a9097319bb02a80',1,'sisi4s::CoulombVertexDecomposition']]],
-  ['holediagram_7',['holeDiagram',['../classsisi4s_1_1ParenthesisTriples.html#ad9e9b5459a3e36dad3b92b4b9dd3bc63',1,'sisi4s::ParenthesisTriples']]]
+  ['g_0',['g',['../structShell.html#a1290cfe164b11541efa50faecd0cea54',1,'Shell']]],
+  ['gamma0gai_1',['Gamma0Gai',['../classsisi4s_1_1ParticleHoleCoulombVertexDecomposition.html#a2bc0ca2bb9cc0fd8c547c326af87c9d3',1,'sisi4s::ParticleHoleCoulombVertexDecomposition']]],
+  ['gammagab_2',['GammaGab',['../classsisi4s_1_1CoulombIntegralsFromVertex.html#a2918a7ea1ff96670065c8a366d06322c',1,'sisi4s::CoulombIntegralsFromVertex']]],
+  ['gammagai_3',['GammaGai',['../classsisi4s_1_1CoulombIntegralsFromVertex.html#a4275ddbb27c8ea91fb1ffadcc1e43041',1,'sisi4s::CoulombIntegralsFromVertex::GammaGai()'],['../classsisi4s_1_1ParticleHoleCoulombVertexDecomposition.html#afc3a297a329817c5c005c494ce660ccd',1,'sisi4s::ParticleHoleCoulombVertexDecomposition::GammaGai()']]],
+  ['gammagia_4',['GammaGia',['../classsisi4s_1_1CoulombIntegralsFromVertex.html#adadc8253c29f34514af43c0434870aaa',1,'sisi4s::CoulombIntegralsFromVertex']]],
+  ['gammagij_5',['GammaGij',['../classsisi4s_1_1CoulombIntegralsFromVertex.html#a8d44b7243e4793fbdca71ff9306dd980',1,'sisi4s::CoulombIntegralsFromVertex']]],
+  ['gammagqr_6',['GammaGqr',['../classsisi4s_1_1CoulombVertexDecomposition.html#a481ea5f4c471f8fa892f1e46c4c75bdc',1,'sisi4s::CoulombVertexDecomposition']]],
+  ['gc_7',['GC',['../classsisi4s_1_1FiniteSizeCorrection.html#a48841ae1b52308fb0d55c2e0c77a58e8',1,'sisi4s::FiniteSizeCorrection']]],
+  ['glengths_8',['GLengths',['../classsisi4s_1_1FiniteSizeCorrection.html#aff5b228d981afbaa9c83aa5430e70b9d',1,'sisi4s::FiniteSizeCorrection']]],
+  ['group_5f_9',['group_',['../classCLI_1_1OptionBase.html#ad0d8bd0637023f7d87a8e95315e8fb21',1,'CLI::OptionBase::group_()'],['../classCLI_1_1App.html#ac31738f617c3ce7aaf9fd94c3f54fc0f',1,'CLI::App::group_()']]]
 ];

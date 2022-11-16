@@ -94,6 +94,28 @@ var annotated_dup =
       [ "ValidationError", "classCLI_1_1ValidationError.html", "classCLI_1_1ValidationError" ],
       [ "Validator", "classCLI_1_1Validator.html", "classCLI_1_1Validator" ]
     ] ],
+    [ "ghc", "namespaceghc.html", [
+      [ "filesystem", "namespaceghc_1_1filesystem.html", [
+        [ "detail", "namespaceghc_1_1filesystem_1_1detail.html", [
+          [ "has_d_type", "structghc_1_1filesystem_1_1detail_1_1has__d__type.html", null ],
+          [ "has_d_type< T, decltype((void) T::d_type, 0)>", "structghc_1_1filesystem_1_1detail_1_1has__d__type_3_01T_00_01decltype_07_07void_08_01T_1_1d__type_00_010_08_4.html", null ]
+        ] ],
+        [ "basic_filebuf", "classghc_1_1filesystem_1_1basic__filebuf.html", "classghc_1_1filesystem_1_1basic__filebuf" ],
+        [ "basic_fstream", "classghc_1_1filesystem_1_1basic__fstream.html", "classghc_1_1filesystem_1_1basic__fstream" ],
+        [ "basic_ifstream", "classghc_1_1filesystem_1_1basic__ifstream.html", "classghc_1_1filesystem_1_1basic__ifstream" ],
+        [ "basic_ofstream", "classghc_1_1filesystem_1_1basic__ofstream.html", "classghc_1_1filesystem_1_1basic__ofstream" ],
+        [ "directory_entry", "classghc_1_1filesystem_1_1directory__entry.html", "classghc_1_1filesystem_1_1directory__entry" ],
+        [ "directory_iterator", "classghc_1_1filesystem_1_1directory__iterator.html", "classghc_1_1filesystem_1_1directory__iterator" ],
+        [ "file_status", "classghc_1_1filesystem_1_1file__status.html", "classghc_1_1filesystem_1_1file__status" ],
+        [ "filesystem_error", "classghc_1_1filesystem_1_1filesystem__error.html", "classghc_1_1filesystem_1_1filesystem__error" ],
+        [ "not_implemented_exception", "classghc_1_1filesystem_1_1not__implemented__exception.html", "classghc_1_1filesystem_1_1not__implemented__exception" ],
+        [ "path", "classghc_1_1filesystem_1_1path.html", "classghc_1_1filesystem_1_1path" ],
+        [ "path_helper_base", "classghc_1_1filesystem_1_1path__helper__base.html", "classghc_1_1filesystem_1_1path__helper__base" ],
+        [ "recursive_directory_iterator", "classghc_1_1filesystem_1_1recursive__directory__iterator.html", "classghc_1_1filesystem_1_1recursive__directory__iterator" ],
+        [ "space_info", "structghc_1_1filesystem_1_1space__info.html", "structghc_1_1filesystem_1_1space__info" ],
+        [ "u8arguments", "classghc_1_1filesystem_1_1u8arguments.html", "classghc_1_1filesystem_1_1u8arguments" ]
+      ] ]
+    ] ],
     [ "gte", "namespacegte.html", [
       [ "IntpTricubic3", "classgte_1_1IntpTricubic3.html", "classgte_1_1IntpTricubic3" ],
       [ "IntpTrilinear3", "classgte_1_1IntpTrilinear3.html", "classgte_1_1IntpTrilinear3" ]
@@ -107,6 +129,14 @@ var annotated_dup =
       [ "XyzParser", "structpars_1_1XyzParser.html", "structpars_1_1XyzParser" ]
     ] ],
     [ "sisi4s", "namespacesisi4s.html", [
+      [ "cc4s", "namespacesisi4s_1_1cc4s.html", [
+        [ "Dimension", "structsisi4s_1_1cc4s_1_1Dimension.html", "structsisi4s_1_1cc4s_1_1Dimension" ],
+        [ "HPHeader", "structsisi4s_1_1cc4s_1_1HPHeader.html", "structsisi4s_1_1cc4s_1_1HPHeader" ],
+        [ "ReadHeader", "structsisi4s_1_1cc4s_1_1ReadHeader.html", "structsisi4s_1_1cc4s_1_1ReadHeader" ],
+        [ "ScalarTypeTraits", "structsisi4s_1_1cc4s_1_1ScalarTypeTraits.html", null ],
+        [ "ScalarTypeTraits< ScalarType::Complex64 >", "structsisi4s_1_1cc4s_1_1ScalarTypeTraits_3_01ScalarType_1_1Complex64_01_4.html", "structsisi4s_1_1cc4s_1_1ScalarTypeTraits_3_01ScalarType_1_1Complex64_01_4" ],
+        [ "ScalarTypeTraits< ScalarType::Real64 >", "structsisi4s_1_1cc4s_1_1ScalarTypeTraits_3_01ScalarType_1_1Real64_01_4.html", "structsisi4s_1_1cc4s_1_1ScalarTypeTraits_3_01ScalarType_1_1Real64_01_4" ]
+      ] ],
       [ "Algorithm", "classsisi4s_1_1Algorithm.html", "classsisi4s_1_1Algorithm" ],
       [ "AlgorithmFactory", "classsisi4s_1_1AlgorithmFactory.html", "classsisi4s_1_1AlgorithmFactory" ],
       [ "AlgorithmRegistrar", "classsisi4s_1_1AlgorithmRegistrar.html", "classsisi4s_1_1AlgorithmRegistrar" ],
@@ -127,6 +157,7 @@ var annotated_dup =
       [ "CcsdPerturbativeTriples", "classsisi4s_1_1CcsdPerturbativeTriples.html", "classsisi4s_1_1CcsdPerturbativeTriples" ],
       [ "CcsdPerturbativeTriplesComplex", "classsisi4s_1_1CcsdPerturbativeTriplesComplex.html", "classsisi4s_1_1CcsdPerturbativeTriplesComplex" ],
       [ "CcsdPreconditioner", "classsisi4s_1_1CcsdPreconditioner.html", "classsisi4s_1_1CcsdPreconditioner" ],
+      [ "CcsdtEnergyFromCoulombIntegrals", "classsisi4s_1_1CcsdtEnergyFromCoulombIntegrals.html", "classsisi4s_1_1CcsdtEnergyFromCoulombIntegrals" ],
       [ "CcsdtEquationOfMotionDavidson", "classsisi4s_1_1CcsdtEquationOfMotionDavidson.html", "classsisi4s_1_1CcsdtEquationOfMotionDavidson" ],
       [ "CisOneBodyReducedDensityMatrix", "classsisi4s_1_1CisOneBodyReducedDensityMatrix.html", null ],
       [ "ClusterSinglesDoublesAlgorithm", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm" ],
@@ -154,6 +185,7 @@ var annotated_dup =
       [ "CtfMachineTensorFactory", "classsisi4s_1_1CtfMachineTensorFactory.html", "classsisi4s_1_1CtfMachineTensorFactory" ],
       [ "Data", "classsisi4s_1_1Data.html", "classsisi4s_1_1Data" ],
       [ "DefaultRandomEngine", "classsisi4s_1_1DefaultRandomEngine.html", "classsisi4s_1_1DefaultRandomEngine" ],
+      [ "DefineHolesAndParticles", "classsisi4s_1_1DefineHolesAndParticles.html", "classsisi4s_1_1DefineHolesAndParticles" ],
       [ "Delete", "classsisi4s_1_1Delete.html", "classsisi4s_1_1Delete" ],
       [ "DetailedException", "classsisi4s_1_1DetailedException.html", "classsisi4s_1_1DetailedException" ],
       [ "DiisMixer", "classsisi4s_1_1DiisMixer.html", "classsisi4s_1_1DiisMixer" ],
@@ -252,6 +284,7 @@ var annotated_dup =
       [ "PseudoInverseSvd", "classsisi4s_1_1PseudoInverseSvd.html", "classsisi4s_1_1PseudoInverseSvd" ],
       [ "RandomGenerator", "classsisi4s_1_1RandomGenerator.html", "classsisi4s_1_1RandomGenerator" ],
       [ "RangeParser", "classsisi4s_1_1RangeParser.html", "classsisi4s_1_1RangeParser" ],
+      [ "Read", "classsisi4s_1_1Read.html", "classsisi4s_1_1Read" ],
       [ "RealData", "classsisi4s_1_1RealData.html", "classsisi4s_1_1RealData" ],
       [ "ScaLapackDescriptor", "classsisi4s_1_1ScaLapackDescriptor.html", "classsisi4s_1_1ScaLapackDescriptor" ],
       [ "ScaLapackHermitianEigenSystem", "classsisi4s_1_1ScaLapackHermitianEigenSystem.html", null ],
@@ -315,10 +348,21 @@ var annotated_dup =
       [ "UPerturbativeTriples", "classsisi4s_1_1UPerturbativeTriples.html", "classsisi4s_1_1UPerturbativeTriples" ],
       [ "UrpaAmplitudesFromCoulombIntegrals", "classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals.html", "classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals" ],
       [ "Vector", "classsisi4s_1_1Vector.html", "classsisi4s_1_1Vector" ],
-      [ "VectorTensor", "structsisi4s_1_1VectorTensor.html", "structsisi4s_1_1VectorTensor" ]
+      [ "VectorTensor", "structsisi4s_1_1VectorTensor.html", "structsisi4s_1_1VectorTensor" ],
+      [ "Write", "classsisi4s_1_1Write.html", "classsisi4s_1_1Write" ]
     ] ],
     [ "tmole", "namespacetmole.html", [
       [ "MosParser", "structtmole_1_1MosParser.html", "structtmole_1_1MosParser" ]
+    ] ],
+    [ "YAML", "namespaceYAML.html", [
+      [ "convert< AxisType >", "structYAML_1_1convert_3_01AxisType_01_4.html", null ],
+      [ "convert< Dimension >", "structYAML_1_1convert_3_01Dimension_01_4.html", "structYAML_1_1convert_3_01Dimension_01_4" ],
+      [ "convert< ElementFileType >", "structYAML_1_1convert_3_01ElementFileType_01_4.html", "structYAML_1_1convert_3_01ElementFileType_01_4" ],
+      [ "convert< HPHeader >", "structYAML_1_1convert_3_01HPHeader_01_4.html", "structYAML_1_1convert_3_01HPHeader_01_4" ],
+      [ "convert< ReadableType >", "structYAML_1_1convert_3_01ReadableType_01_4.html", "structYAML_1_1convert_3_01ReadableType_01_4" ],
+      [ "convert< ReadHeader >", "structYAML_1_1convert_3_01ReadHeader_01_4.html", "structYAML_1_1convert_3_01ReadHeader_01_4" ],
+      [ "convert< ReadHeader::Version >", "structYAML_1_1convert_3_01ReadHeader_1_1Version_01_4.html", "structYAML_1_1convert_3_01ReadHeader_1_1Version_01_4" ],
+      [ "convert< ScalarType >", "structYAML_1_1convert_3_01ScalarType_01_4.html", "structYAML_1_1convert_3_01ScalarType_01_4" ]
     ] ],
     [ "Atom", "structAtom.html", "structAtom" ],
     [ "Basis", "structBasis.html", "structBasis" ],

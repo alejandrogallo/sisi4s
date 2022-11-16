@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['out_0',['OUT',['../Log_8hpp.html#a8839cdf651ee7aca0c558a57fbcca7a1',1,'Log.hpp']]]
+  ['new_0',['NEW',['../SharedPointer_8hpp.html#a106f61c342cfd013eb570c37328070ae',1,'SharedPointer.hpp']]],
+  ['new_5ffile_1',['NEW_FILE',['../Log_8hpp.html#a8806969f7e3eda27deabefc7154c11cb',1,'Log.hpp']]]
 ];

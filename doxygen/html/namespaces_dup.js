@@ -16,9 +16,11 @@ var namespaces_dup =
       [ "toInt", "namespaceam.html#a04e47e5931d5d6e94c7052151abe8650", null ]
     ] ],
     [ "CLI", "namespaceCLI.html", "namespaceCLI" ],
+    [ "ghc", "namespaceghc.html", "namespaceghc" ],
     [ "gte", "namespacegte.html", "namespacegte" ],
     [ "nwchem", "namespacenwchem.html", "namespacenwchem" ],
     [ "pars", "namespacepars.html", "namespacepars" ],
     [ "sisi4s", "namespacesisi4s.html", "namespacesisi4s" ],
-    [ "tmole", "namespacetmole.html", "namespacetmole" ]
+    [ "tmole", "namespacetmole.html", "namespacetmole" ],
+    [ "YAML", "namespaceYAML.html", "namespaceYAML" ]
 ];

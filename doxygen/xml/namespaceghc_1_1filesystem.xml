@@ -1,0 +1,2690 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="namespaceghc_1_1filesystem" kind="namespace" language="C++">
+    <compoundname>ghc::filesystem</compoundname>
+    <innerclass refid="classghc_1_1filesystem_1_1basic__filebuf" prot="public">ghc::filesystem::basic_filebuf</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1basic__fstream" prot="public">ghc::filesystem::basic_fstream</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1basic__ifstream" prot="public">ghc::filesystem::basic_ifstream</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1basic__ofstream" prot="public">ghc::filesystem::basic_ofstream</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1directory__entry" prot="public">ghc::filesystem::directory_entry</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1directory__iterator" prot="public">ghc::filesystem::directory_iterator</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1file__status" prot="public">ghc::filesystem::file_status</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1filesystem__error" prot="public">ghc::filesystem::filesystem_error</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1not__implemented__exception" prot="public">ghc::filesystem::not_implemented_exception</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1path" prot="public">ghc::filesystem::path</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1path__helper__base" prot="public">ghc::filesystem::path_helper_base</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1recursive__directory__iterator" prot="public">ghc::filesystem::recursive_directory_iterator</innerclass>
+    <innerclass refid="structghc_1_1filesystem_1_1space__info" prot="public">ghc::filesystem::space_info</innerclass>
+    <innerclass refid="classghc_1_1filesystem_1_1u8arguments" prot="public">ghc::filesystem::u8arguments</innerclass>
+    <innernamespace refid="namespaceghc_1_1filesystem_1_1detail">ghc::filesystem::detail</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>file_type</name>
+        <qualifiedname>ghc::filesystem::file_type</qualifiedname>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a7500611bf7030bc99d25c354e7b64714" prot="public">
+          <name>not_found</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052aaf37d08ae228a87dc6b265fd1019c97d" prot="public">
+          <name>regular</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20" prot="public">
+          <name>directory</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052aa978acc8a7ae15f49f58f3495f0d85ba" prot="public">
+          <name>symlink</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a14511f2f5564650d129ca7cabc333278" prot="public">
+          <name>block</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052aa956161a69928cd130a889b88082fb6e" prot="public">
+          <name>character</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052acf54937a2330ac17aa523bf7130911a3" prot="public">
+          <name>fifo</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a61f2529360aec54f5dc9804b842cf3fa" prot="public">
+          <name>socket</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052aad921d60486366258809553a3db49a4a" prot="public">
+          <name>unknown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="713" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="713" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44a" prot="public" static="no" strong="yes">
+        <type>uint16_t</type>
+        <name>perms</name>
+        <qualifiedname>ghc::filesystem::perms</qualifiedname>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa13804bd89bd86850b7c1b3cf17148c8b" prot="public">
+          <name>owner_read</name>
+          <initializer>= 0400</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa0d521a25ebf962a812b43c32fe36500e" prot="public">
+          <name>owner_write</name>
+          <initializer>= 0200</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa189e890869453de458a9c5c26af8359b" prot="public">
+          <name>owner_exec</name>
+          <initializer>= 0100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa3e6083e076d1f7125c0bbf7070df5440" prot="public">
+          <name>owner_all</name>
+          <initializer>= 0700</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa25103dc0b7bf4bb70a12fdc9ae83b5dc" prot="public">
+          <name>group_read</name>
+          <initializer>= 040</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aacf5f2e0341d3d21a4bc073c8eb8a25fa" prot="public">
+          <name>group_write</name>
+          <initializer>= 020</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa314d3c6602524dddf70432b0ece937a8" prot="public">
+          <name>group_exec</name>
+          <initializer>= 010</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aae177de190fd9bcd01e4f8934f58dfa5c" prot="public">
+          <name>group_all</name>
+          <initializer>= 070</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aae1ea303787306dda3e50a432832c998a" prot="public">
+          <name>others_read</name>
+          <initializer>= 04</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aaf9d2b2426ee261e7ab294f317c5115bf" prot="public">
+          <name>others_write</name>
+          <initializer>= 02</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa5a2e0fba544a04c9e3f47dc370c28bf2" prot="public">
+          <name>others_exec</name>
+          <initializer>= 01</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa5bea7ea33126a22add82c5809bfa6366" prot="public">
+          <name>others_all</name>
+          <initializer>= 07</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aaa181a603769c1f98ad927e7367c7aa51" prot="public">
+          <name>all</name>
+          <initializer>= 0777</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa2154ad8380cc7d3b920b3563078a50a8" prot="public">
+          <name>set_uid</name>
+          <initializer>= 04000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aaea8f56585bae5bd29a5cb0d29767cccb" prot="public">
+          <name>set_gid</name>
+          <initializer>= 02000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa3a3b94501085ac7f29f89b8335e886d7" prot="public">
+          <name>sticky_bit</name>
+          <initializer>= 01000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aaf2ce11ebf110993621bedd8e747d7b1b" prot="public">
+          <name>mask</name>
+          <initializer>= 07777</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aaad921d60486366258809553a3db49a4a" prot="public">
+          <name>unknown</name>
+          <initializer>= 0xffff</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="727" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="727" bodyend="752"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861a" prot="public" static="no" strong="yes">
+        <type>uint16_t</type>
+        <name>perm_options</name>
+        <qualifiedname>ghc::filesystem::perm_options</qualifiedname>
+        <enumvalue id="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa9dde360102c103867bd2f45872f1129c" prot="public">
+          <name>replace</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa34ec78fcc91ffb1e54cd85e4a0924332" prot="public">
+          <name>add</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa0f6969d7052da9261e31ddb6e88c136e" prot="public">
+          <name>remove</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa22e990cf9da7d742af1f31ab7f657049" prot="public">
+          <name>nofollow</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="755" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="755" bodyend="760"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2" prot="public" static="no" strong="yes">
+        <type>uint16_t</type>
+        <name>copy_options</name>
+        <qualifiedname>ghc::filesystem::copy_options</qualifiedname>
+        <enumvalue id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a061f6d61eab01c92e56fcac8789b6b9d" prot="public">
+          <name>skip_existing</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a7d62790af546be3f895e613e37b0feac" prot="public">
+          <name>overwrite_existing</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a16006a603d396d47c76364f57b799fe6" prot="public">
+          <name>update_existing</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2af8e45531a3ea3d5c1247b004985175a4" prot="public">
+          <name>recursive</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a47a66bb90cd48feed3eafa4b77690ffe" prot="public">
+          <name>copy_symlinks</name>
+          <initializer>= 0x10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2aef4a262c2a436cce67818b680933529e" prot="public">
+          <name>skip_symlinks</name>
+          <initializer>= 0x20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a1f52cf0f9500bc623b7e67d3b3eb5a61" prot="public">
+          <name>directories_only</name>
+          <initializer>= 0x40</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a0e556d0167c1732aede37f4b39b59bce" prot="public">
+          <name>create_symlinks</name>
+          <initializer>= 0x80</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a33508470ccdd33a1e663771efff2934b" prot="public">
+          <name>create_hard_links</name>
+          <initializer>= 0x100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="763" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="763" bodyend="780"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceghc_1_1filesystem_1a5537e5e6483836ce7a6f5464c2315633" prot="public" static="no" strong="yes">
+        <type>uint16_t</type>
+        <name>directory_options</name>
+        <qualifiedname>ghc::filesystem::directory_options</qualifiedname>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5537e5e6483836ce7a6f5464c2315633a334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5537e5e6483836ce7a6f5464c2315633ade6a651c4830e406017e899847aef755" prot="public">
+          <name>follow_directory_symlink</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceghc_1_1filesystem_1a5537e5e6483836ce7a6f5464c2315633a15d4c8f62e21ee824240d9ade2ea4566" prot="public">
+          <name>skip_permission_denied</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="783" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="783" bodyend="787"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceghc_1_1filesystem_1a673ae6465d8d4830172451e5eec485a5" prot="public" static="no">
+        <type>std::chrono::time_point&lt; std::chrono::system_clock &gt;</type>
+        <definition>using ghc::filesystem::file_time_type = typedef std::chrono::time_point&lt;std::chrono::system_clock&gt;</definition>
+        <argsstring></argsstring>
+        <name>file_time_type</name>
+        <qualifiedname>ghc::filesystem::file_time_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="815" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="815" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceghc_1_1filesystem_1a92049bec60723b390c6f3f819dbf66cc" prot="public" static="no">
+        <type><ref refid="classghc_1_1filesystem_1_1basic__filebuf" kindref="compound">basic_filebuf</ref>&lt; char &gt;</type>
+        <definition>typedef basic_filebuf&lt;char&gt; ghc::filesystem::filebuf</definition>
+        <argsstring></argsstring>
+        <name>filebuf</name>
+        <qualifiedname>ghc::filesystem::filebuf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1248" column="23" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceghc_1_1filesystem_1a9f6dd1783661aa98d11256d28967ee99" prot="public" static="no">
+        <type><ref refid="classghc_1_1filesystem_1_1basic__filebuf" kindref="compound">basic_filebuf</ref>&lt; wchar_t &gt;</type>
+        <definition>typedef basic_filebuf&lt;wchar_t&gt; ghc::filesystem::wfilebuf</definition>
+        <argsstring></argsstring>
+        <name>wfilebuf</name>
+        <qualifiedname>ghc::filesystem::wfilebuf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1249" column="23" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceghc_1_1filesystem_1ae1ad7622492cf26611647e5b3aa0552a" prot="public" static="no">
+        <type><ref refid="classghc_1_1filesystem_1_1basic__ifstream" kindref="compound">basic_ifstream</ref>&lt; char &gt;</type>
+        <definition>typedef basic_ifstream&lt;char&gt; ghc::filesystem::ifstream</definition>
+        <argsstring></argsstring>
+        <name>ifstream</name>
+        <qualifiedname>ghc::filesystem::ifstream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1250" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceghc_1_1filesystem_1aa1d16dc47d3f1240f3738dfef6f33892" prot="public" static="no">
+        <type><ref refid="classghc_1_1filesystem_1_1basic__ifstream" kindref="compound">basic_ifstream</ref>&lt; wchar_t &gt;</type>
+        <definition>typedef basic_ifstream&lt;wchar_t&gt; ghc::filesystem::wifstream</definition>
+        <argsstring></argsstring>
+        <name>wifstream</name>
+        <qualifiedname>ghc::filesystem::wifstream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1251" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceghc_1_1filesystem_1aaa0c316ace08ec1121ea36669ec1c1a9" prot="public" static="no">
+        <type><ref refid="classghc_1_1filesystem_1_1basic__ofstream" kindref="compound">basic_ofstream</ref>&lt; char &gt;</type>
+        <definition>typedef basic_ofstream&lt;char&gt; ghc::filesystem::ofstream</definition>
+        <argsstring></argsstring>
+        <name>ofstream</name>
+        <qualifiedname>ghc::filesystem::ofstream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1252" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceghc_1_1filesystem_1ad6203b17f295b2110589e6fe905fb9fb" prot="public" static="no">
+        <type><ref refid="classghc_1_1filesystem_1_1basic__ofstream" kindref="compound">basic_ofstream</ref>&lt; wchar_t &gt;</type>
+        <definition>typedef basic_ofstream&lt;wchar_t&gt; ghc::filesystem::wofstream</definition>
+        <argsstring></argsstring>
+        <name>wofstream</name>
+        <qualifiedname>ghc::filesystem::wofstream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1253" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceghc_1_1filesystem_1ab06ad5cc7bf6c1beb0b559f9cdf8e23b" prot="public" static="no">
+        <type><ref refid="classghc_1_1filesystem_1_1basic__fstream" kindref="compound">basic_fstream</ref>&lt; char &gt;</type>
+        <definition>typedef basic_fstream&lt;char&gt; ghc::filesystem::fstream</definition>
+        <argsstring></argsstring>
+        <name>fstream</name>
+        <qualifiedname>ghc::filesystem::fstream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1254" column="23" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceghc_1_1filesystem_1a6c3061094c7ba1e9b060bf02aae8bd40" prot="public" static="no">
+        <type><ref refid="classghc_1_1filesystem_1_1basic__fstream" kindref="compound">basic_fstream</ref>&lt; wchar_t &gt;</type>
+        <definition>typedef basic_fstream&lt;wchar_t&gt; ghc::filesystem::wfstream</definition>
+        <argsstring></argsstring>
+        <name>wfstream</name>
+        <qualifiedname>ghc::filesystem::wfstream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1255" column="23" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1255" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a39913915bd8e9554a4ac6db90bc92bf1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::swap</definition>
+        <argsstring>(path &amp;lhs, path &amp;rhs) noexcept</argsstring>
+        <name>swap</name>
+        <qualifiedname>ghc::filesystem::swap</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3482" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3482" bodyend="3485" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="623" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1adcad9e77b238278eff57a4549da683f0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t ghc::filesystem::hash_value</definition>
+        <argsstring>(const path &amp;p) noexcept</argsstring>
+        <name>hash_value</name>
+        <qualifiedname>ghc::filesystem::hash_value</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3487" column="17" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3487" bodyend="3490" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="624" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a470b57014b4021a5e1940228484d32f0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::operator==</definition>
+        <argsstring>(const path &amp;lhs, const path &amp;rhs) noexcept</argsstring>
+        <name>operator==</name>
+        <qualifiedname>ghc::filesystem::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3499" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3499" bodyend="3502" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="628" declcolumn="9"/>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a44f592ebf8a3222d51340a98e243a534" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::operator!=</definition>
+        <argsstring>(const path &amp;lhs, const path &amp;rhs) noexcept</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>ghc::filesystem::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3504" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3504" bodyend="3507" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="629" declcolumn="9"/>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a78811d1608d2accd04eb012714dce457" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::operator&lt;</definition>
+        <argsstring>(const path &amp;lhs, const path &amp;rhs) noexcept</argsstring>
+        <name>operator&lt;</name>
+        <qualifiedname>ghc::filesystem::operator&lt;</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3509" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3509" bodyend="3512" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="630" declcolumn="4"/>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a6597e542c4e3b197e7bac734dfb3844e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::operator&lt;=</definition>
+        <argsstring>(const path &amp;lhs, const path &amp;rhs) noexcept</argsstring>
+        <name>operator&lt;=</name>
+        <qualifiedname>ghc::filesystem::operator&lt;=</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3514" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3514" bodyend="3517" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="631" declcolumn="4"/>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a1e33209f6d9aec503450866017f430a9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::operator&gt;</definition>
+        <argsstring>(const path &amp;lhs, const path &amp;rhs) noexcept</argsstring>
+        <name>operator&gt;</name>
+        <qualifiedname>ghc::filesystem::operator&gt;</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3519" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3519" bodyend="3522" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="632" declcolumn="9"/>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a6416a9fc0d0e82a3b118fe6e6e1e189f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::operator&gt;=</definition>
+        <argsstring>(const path &amp;lhs, const path &amp;rhs) noexcept</argsstring>
+        <name>operator&gt;=</name>
+        <qualifiedname>ghc::filesystem::operator&gt;=</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3524" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3524" bodyend="3527" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="633" declcolumn="9"/>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a0059040b36751c6d5a41eb45ee6fbef3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::operator/</definition>
+        <argsstring>(const path &amp;lhs, const path &amp;rhs)</argsstring>
+        <name>operator/</name>
+        <qualifiedname>ghc::filesystem::operator/</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3529" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3529" bodyend="3534" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="634" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a427404f684555ae0e10dbc131f528f67" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class charT</type>
+          </param>
+          <param>
+            <type>class traits</type>
+          </param>
+        </templateparamlist>
+        <type>std::basic_ostream&lt; charT, traits &gt; &amp;</type>
+        <definition>std::basic_ostream&lt; charT, traits &gt; &amp; ghc::filesystem::operator&lt;&lt;</definition>
+        <argsstring>(std::basic_ostream&lt; charT, traits &gt; &amp;os, const path &amp;p)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>ghc::filesystem::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>std::basic_ostream&lt; charT, traits &gt; &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3529" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3541" bodyend="3553" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="634" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a9c4b25f2fc3ba11b8e64ac860e775c0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class charT</type>
+          </param>
+          <param>
+            <type>class traits</type>
+          </param>
+        </templateparamlist>
+        <type>std::basic_istream&lt; charT, traits &gt; &amp;</type>
+        <definition>std::basic_istream&lt; charT, traits &gt; &amp; ghc::filesystem::operator&gt;&gt;</definition>
+        <argsstring>(std::basic_istream&lt; charT, traits &gt; &amp;is, path &amp;p)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>ghc::filesystem::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>std::basic_istream&lt; charT, traits &gt; &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3556" column="27" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3556" bodyend="3591" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="640" declcolumn="20"/>
+        <references refid="classghc_1_1filesystem_1_1path_1aa69fa98adb4093bf9ff74cca6972d5fb" compoundref="filesystem_8hpp" startline="2480" endline="2480">ghc::filesystem::path::path</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a458df2a49e578b714ceeef1153e6e917" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Source</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>path::path_from_string&lt;Source&gt;</defval>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::u8path</definition>
+        <argsstring>(const Source &amp;source)</argsstring>
+        <name>u8path</name>
+        <qualifiedname>ghc::filesystem::u8path</qualifiedname>
+        <param>
+          <type>const Source &amp;</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1855" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1855" bodyend="1858" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="647" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a18b17a618abf0eb77f5cdb9aa4def5ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class InputIterator</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::u8path</definition>
+        <argsstring>(InputIterator first, InputIterator last)</argsstring>
+        <name>u8path</name>
+        <qualifiedname>ghc::filesystem::u8path</qualifiedname>
+        <param>
+          <type>InputIterator</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>InputIterator</type>
+          <declname>last</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1860" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1860" bodyend="1863" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="652" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a998d4c89f4911bc7d3476806447d7ef8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref></type>
+        <definition>directory_iterator ghc::filesystem::begin</definition>
+        <argsstring>(directory_iterator iter) noexcept</argsstring>
+        <name>begin</name>
+        <qualifiedname>ghc::filesystem::begin</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref></type>
+          <declname>iter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="5853" column="29" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5853" bodyend="5856" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="974" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a57a4690c5bbc14ad5c8a060d5b3dfaf7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref></type>
+        <definition>directory_iterator ghc::filesystem::end</definition>
+        <argsstring>(const directory_iterator &amp;) noexcept</argsstring>
+        <name>end</name>
+        <qualifiedname>ghc::filesystem::end</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1directory__iterator" kindref="compound">directory_iterator</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="5858" column="29" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5858" bodyend="5861" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="975" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aa19db0e01629112026ddfcdcb6ac5fdc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1recursive__directory__iterator" kindref="compound">recursive_directory_iterator</ref></type>
+        <definition>recursive_directory_iterator ghc::filesystem::begin</definition>
+        <argsstring>(recursive_directory_iterator iter) noexcept</argsstring>
+        <name>begin</name>
+        <qualifiedname>ghc::filesystem::begin</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1recursive__directory__iterator" kindref="compound">recursive_directory_iterator</ref></type>
+          <declname>iter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="6030" column="39" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="6030" bodyend="6033" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1049" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1ae11beb328289d0d300ee644b1053fb34" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1recursive__directory__iterator" kindref="compound">recursive_directory_iterator</ref></type>
+        <definition>recursive_directory_iterator ghc::filesystem::end</definition>
+        <argsstring>(const recursive_directory_iterator &amp;) noexcept</argsstring>
+        <name>end</name>
+        <qualifiedname>ghc::filesystem::end</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1recursive__directory__iterator" kindref="compound">recursive_directory_iterator</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="6035" column="39" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="6035" bodyend="6038" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1050" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aa55acfbcb365c1d60c2a27a4df65f862" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::absolute</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec)</argsstring>
+        <name>absolute</name>
+        <qualifiedname>ghc::filesystem::absolute</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3659" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3659" bodyend="3706" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1096" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1aa55acfbcb365c1d60c2a27a4df65f862" compoundref="filesystem_8hpp" startline="3659" endline="3706">absolute</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a08d9cc6bfa72c5a9ff2acde0b1e89465" compoundref="filesystem_8hpp" startline="2770" endline="2776">ghc::filesystem::path::clear</references>
+        <references refid="namespaceghc_1_1filesystem_1ad46916bacd79119d20d9a46c93126642" compoundref="filesystem_8hpp" startline="4191" endline="4211">current_path</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a66ead77fddc75c0e9ebfbf3f1fe555aa" compoundref="filesystem_8hpp" startline="3190" endline="3193">ghc::filesystem::path::empty</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a8fa8cb12e511ef8d951559983d26f018" compoundref="filesystem_8hpp" startline="3136" endline="3139">ghc::filesystem::path::filename</references>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a89dc8832ede96a8987e1beeb97f5c49d" compoundref="filesystem_8hpp" startline="3200" endline="3204">ghc::filesystem::path::has_root_directory</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a249764ef9016ebffb229831477b72b83" compoundref="filesystem_8hpp" startline="3195" endline="3198">ghc::filesystem::path::has_root_name</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <references refid="classghc_1_1filesystem_1_1path_1ade9815ef11f839083bbe3cf9d51fa922" compoundref="filesystem_8hpp" startline="3109" endline="3113">ghc::filesystem::path::relative_path</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a624bf57df2fa8b9bf3329563adfd4554" compoundref="filesystem_8hpp" startline="3095" endline="3102">ghc::filesystem::path::root_directory</references>
+        <references refid="classghc_1_1filesystem_1_1path_1ad97c0bd4fa7e692e2c81c94bc40b44a1" compoundref="filesystem_8hpp" startline="3090" endline="3093">ghc::filesystem::path::root_name</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1aa55acfbcb365c1d60c2a27a4df65f862" compoundref="filesystem_8hpp" startline="3659" endline="3706">absolute</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a83d56af2b2b953afe4fb17de0bd64987" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::canonical</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec)</argsstring>
+        <name>canonical</name>
+        <qualifiedname>ghc::filesystem::canonical</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3720" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3720" bodyend="3781" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1097" declcolumn="9"/>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1aae07b99c0f8d33847eb48b985e43ca3b" compoundref="filesystem_8hpp" startline="5088" endline="5125">weakly_canonical</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aed12cac5e81f02fe7699f12944e2d104" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::copy</definition>
+        <argsstring>(const path &amp;from, const path &amp;to, std::error_code &amp;ec) noexcept</argsstring>
+        <name>copy</name>
+        <qualifiedname>ghc::filesystem::copy</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3799" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3799" bodyend="3802" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1098" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1aed12cac5e81f02fe7699f12944e2d104" compoundref="filesystem_8hpp" startline="3799" endline="3802">copy</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a334c4a4c42fdb79d7ebc3e73b517e6f8">none</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1aed12cac5e81f02fe7699f12944e2d104" compoundref="filesystem_8hpp" startline="3799" endline="3802">copy</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::copy</definition>
+        <argsstring>(const path &amp;from, const path &amp;to, copy_options options, std::error_code &amp;ec) noexcept</argsstring>
+        <name>copy</name>
+        <qualifiedname>ghc::filesystem::copy</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2" kindref="member">copy_options</ref></type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3804" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3804" bodyend="3880" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1099" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a83d56af2b2b953afe4fb17de0bd64987" compoundref="filesystem_8hpp" startline="3720" endline="3781">canonical</references>
+        <references refid="namespaceghc_1_1filesystem_1aed12cac5e81f02fe7699f12944e2d104" compoundref="filesystem_8hpp" startline="3799" endline="3802">copy</references>
+        <references refid="namespaceghc_1_1filesystem_1a27f4ee10da2aa4630637519a93f6d252" compoundref="filesystem_8hpp" startline="3899" endline="3902">copy_file</references>
+        <references refid="namespaceghc_1_1filesystem_1ae53bc3ef946a2f45fb2eeb5c0cdb46b1" compoundref="filesystem_8hpp" startline="3992" endline="4004">copy_symlink</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a47a66bb90cd48feed3eafa4b77690ffe">copy_symlinks</references>
+        <references refid="namespaceghc_1_1filesystem_1a5a5d8a49c3a9ec81b8622573e641e49a" compoundref="filesystem_8hpp" startline="4069" endline="4072">create_directory</references>
+        <references refid="namespaceghc_1_1filesystem_1a14ac3b3c190515c4881b8e4dbfb04ecd" compoundref="filesystem_8hpp" startline="4157" endline="4160">create_hard_link</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a33508470ccdd33a1e663771efff2934b">create_hard_links</references>
+        <references refid="namespaceghc_1_1filesystem_1a61737ec48dcb411ac9c3b1d94fe867ed" compoundref="filesystem_8hpp" startline="4174" endline="4177">create_symlink</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a0e556d0167c1732aede37f4b39b59bce">create_symlinks</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a1f52cf0f9500bc623b7e67d3b3eb5a61">directories_only</references>
+        <references refid="namespaceghc_1_1filesystem_1a6cfaf9467178e80d7a3ef4ef34f44e37" compoundref="filesystem_8hpp" startline="4271" endline="4316">equivalent</references>
+        <references refid="namespaceghc_1_1filesystem_1a4e2495a21917ad1123a992e55a0b3e32" compoundref="filesystem_8hpp" startline="4238" endline="4241">exists</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a5f693e585200b86ff4b0e2d39f0dc22fae55d43eabeefe5a8271b4a3c898bd18f">ghc::filesystem::detail::invalid_argument</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a5f693e585200b86ff4b0e2d39f0dc22faf3c51d7ea75a76f26c0a2bdc00c4e006">ghc::filesystem::detail::is_a_directory</references>
+        <references refid="namespaceghc_1_1filesystem_1aa51846cdfd8bfe65b2b16718cf46d178" compoundref="filesystem_8hpp" startline="4427" endline="4430">is_directory</references>
+        <references refid="namespaceghc_1_1filesystem_1ab0aa83e5dcedde352002250325967441" compoundref="filesystem_8hpp" startline="4495" endline="4498">is_other</references>
+        <references refid="namespaceghc_1_1filesystem_1a2f95b3d99167794192a93efa87f7d989" compoundref="filesystem_8hpp" startline="4512" endline="4515">is_regular_file</references>
+        <references refid="namespaceghc_1_1filesystem_1a0627e4b44a41ca35a58cbd52fecdcef2" compoundref="filesystem_8hpp" startline="4546" endline="4549">is_symlink</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ac555f3c3dbbaf319c87425eedd38ac1f" compoundref="filesystem_8hpp" startline="1372" endline="1414">ghc::filesystem::detail::make_error_code</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a334c4a4c42fdb79d7ebc3e73b517e6f8">none</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a5f693e585200b86ff4b0e2d39f0dc22fa7500611bf7030bc99d25c354e7b64714">ghc::filesystem::detail::not_found</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2af8e45531a3ea3d5c1247b004985175a4">recursive</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2aef4a262c2a436cce67818b680933529e">skip_symlinks</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+        <references refid="namespaceghc_1_1filesystem_1aebf6cccf2aa8da7b8e7b7e5eb42c883b" compoundref="filesystem_8hpp" startline="5035" endline="5038">symlink_status</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a27f4ee10da2aa4630637519a93f6d252" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::copy_file</definition>
+        <argsstring>(const path &amp;from, const path &amp;to, std::error_code &amp;ec) noexcept</argsstring>
+        <name>copy_file</name>
+        <qualifiedname>ghc::filesystem::copy_file</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3899" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3899" bodyend="3902" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1100" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a27f4ee10da2aa4630637519a93f6d252" compoundref="filesystem_8hpp" startline="3899" endline="3902">copy_file</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a334c4a4c42fdb79d7ebc3e73b517e6f8">none</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a27f4ee10da2aa4630637519a93f6d252" compoundref="filesystem_8hpp" startline="3899" endline="3902">copy_file</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a099a0149ef7c7a5e22977a35e39ac072" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::copy_file</definition>
+        <argsstring>(const path &amp;from, const path &amp;to, copy_options option, std::error_code &amp;ec) noexcept</argsstring>
+        <name>copy_file</name>
+        <qualifiedname>ghc::filesystem::copy_file</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2" kindref="member">copy_options</ref></type>
+          <declname>option</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3904" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3904" bodyend="3979" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1101" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aaa181a603769c1f98ad927e7367c7aa51">all</references>
+        <references refid="namespaceghc_1_1filesystem_1a6cfaf9467178e80d7a3ef4ef34f44e37" compoundref="filesystem_8hpp" startline="4271" endline="4316">equivalent</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a5f693e585200b86ff4b0e2d39f0dc22fae087923eb5dd1310f5f25ddd5ae5b580">ghc::filesystem::detail::exists</references>
+        <references refid="namespaceghc_1_1filesystem_1a4e2495a21917ad1123a992e55a0b3e32" compoundref="filesystem_8hpp" startline="4238" endline="4241">exists</references>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1a2f95b3d99167794192a93efa87f7d989" compoundref="filesystem_8hpp" startline="4512" endline="4515">is_regular_file</references>
+        <references refid="namespaceghc_1_1filesystem_1a77d39983738deaaf54e19d998c33e60d" compoundref="filesystem_8hpp" startline="4575" endline="4581">last_write_time</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ac555f3c3dbbaf319c87425eedd38ac1f" compoundref="filesystem_8hpp" startline="1372" endline="1414">ghc::filesystem::detail::make_error_code</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a334c4a4c42fdb79d7ebc3e73b517e6f8">none</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a7d62790af546be3f895e613e37b0feac">overwrite_existing</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a061f6d61eab01c92e56fcac8789b6b9d">skip_existing</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+        <references refid="namespaceghc_1_1filesystem_1a9bb500e754afb372a0c2c0c14dd326b2a16006a603d396d47c76364f57b799fe6">update_existing</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1ae53bc3ef946a2f45fb2eeb5c0cdb46b1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::copy_symlink</definition>
+        <argsstring>(const path &amp;existing_symlink, const path &amp;new_symlink, std::error_code &amp;ec) noexcept</argsstring>
+        <name>copy_symlink</name>
+        <qualifiedname>ghc::filesystem::copy_symlink</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>existing_symlink</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>new_symlink</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="3992" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="3992" bodyend="4004" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1102" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a18afc2ba71ef8f05b6645b25d275e8f9" compoundref="filesystem_8hpp" startline="4140" endline="4143">create_directory_symlink</references>
+        <references refid="namespaceghc_1_1filesystem_1a61737ec48dcb411ac9c3b1d94fe867ed" compoundref="filesystem_8hpp" startline="4174" endline="4177">create_symlink</references>
+        <references refid="namespaceghc_1_1filesystem_1a4e2495a21917ad1123a992e55a0b3e32" compoundref="filesystem_8hpp" startline="4238" endline="4241">exists</references>
+        <references refid="namespaceghc_1_1filesystem_1aa51846cdfd8bfe65b2b16718cf46d178" compoundref="filesystem_8hpp" startline="4427" endline="4430">is_directory</references>
+        <references refid="namespaceghc_1_1filesystem_1ae137f8365fc1d40f58b411d36213c154" compoundref="filesystem_8hpp" startline="4752" endline="4761">read_symlink</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1af3340a9bcd27fcb4b146cab364d20920" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::create_directories</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>create_directories</name>
+        <qualifiedname>ghc::filesystem::create_directories</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4018" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4018" bodyend="4055" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1103" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a5a5d8a49c3a9ec81b8622573e641e49a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::create_directory</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>create_directory</name>
+        <qualifiedname>ghc::filesystem::create_directory</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4069" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4069" bodyend="4072" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1104" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5a5d8a49c3a9ec81b8622573e641e49a" compoundref="filesystem_8hpp" startline="4069" endline="4072">create_directory</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a5a5d8a49c3a9ec81b8622573e641e49a" compoundref="filesystem_8hpp" startline="4069" endline="4072">create_directory</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a19bc98b3966f5697b0f599d2712ecfda" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::create_directory</definition>
+        <argsstring>(const path &amp;p, const path &amp;attributes, std::error_code &amp;ec) noexcept</argsstring>
+        <name>create_directory</name>
+        <qualifiedname>ghc::filesystem::create_directory</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>attributes</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4086" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4086" bodyend="4127" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1105" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aaa181a603769c1f98ad927e7367c7aa51">all</references>
+        <references refid="namespaceghc_1_1filesystem_1a4e2495a21917ad1123a992e55a0b3e32" compoundref="filesystem_8hpp" startline="4238" endline="4241">exists</references>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1aa51846cdfd8bfe65b2b16718cf46d178" compoundref="filesystem_8hpp" startline="4427" endline="4430">is_directory</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+        <references refid="namespaceghc_1_1filesystem_1a2f5d075292823eda15f4b1091ef1da60" compoundref="filesystem_8hpp" startline="5018" endline="5021">status_known</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a18afc2ba71ef8f05b6645b25d275e8f9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::create_directory_symlink</definition>
+        <argsstring>(const path &amp;to, const path &amp;new_symlink, std::error_code &amp;ec) noexcept</argsstring>
+        <name>create_directory_symlink</name>
+        <qualifiedname>ghc::filesystem::create_directory_symlink</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>new_symlink</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4140" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4140" bodyend="4143" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1106" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a894ad225d79646d9008807afab031b83" compoundref="filesystem_8hpp" startline="2012" endline="2017">ghc::filesystem::detail::create_symlink</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1ae53bc3ef946a2f45fb2eeb5c0cdb46b1" compoundref="filesystem_8hpp" startline="3992" endline="4004">copy_symlink</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a61737ec48dcb411ac9c3b1d94fe867ed" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::create_symlink</definition>
+        <argsstring>(const path &amp;to, const path &amp;new_symlink, std::error_code &amp;ec) noexcept</argsstring>
+        <name>create_symlink</name>
+        <qualifiedname>ghc::filesystem::create_symlink</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>new_symlink</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4174" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4174" bodyend="4177" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1107" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a894ad225d79646d9008807afab031b83" compoundref="filesystem_8hpp" startline="2012" endline="2017">ghc::filesystem::detail::create_symlink</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1ae53bc3ef946a2f45fb2eeb5c0cdb46b1" compoundref="filesystem_8hpp" startline="3992" endline="4004">copy_symlink</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1ad46916bacd79119d20d9a46c93126642" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::current_path</definition>
+        <argsstring>(std::error_code &amp;ec)</argsstring>
+        <name>current_path</name>
+        <qualifiedname>ghc::filesystem::current_path</qualifiedname>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4191" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4191" bodyend="4211" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1108" declcolumn="9"/>
+        <references refid="classghc_1_1filesystem_1_1path_1a08d9cc6bfa72c5a9ff2acde0b1e89465" compoundref="filesystem_8hpp" startline="2770" endline="2776">ghc::filesystem::path::clear</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a653db4113e2ef7e029ff07d8ef93beb8a6ca91f13f0cae3e7e1b309ff8277c950" compoundref="filesystem_8hpp" startline="391">ghc::filesystem::path::native_format</references>
+        <references refid="filesystem_8hpp_1ae688d728e1acdfe5988c7db45d6f0166" compoundref="filesystem_8hpp" startline="259">PATH_MAX</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1aa55acfbcb365c1d60c2a27a4df65f862" compoundref="filesystem_8hpp" startline="3659" endline="3706">absolute</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a94cde8e109dd979c1ff5c3a384b927ea" compoundref="filesystem_8hpp" startline="4763" endline="4766">relative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aca1ace3e5a2fce0a01ae3c903c427626" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::current_path</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>current_path</name>
+        <qualifiedname>ghc::filesystem::current_path</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4224" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4224" bodyend="4236" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1109" declcolumn="9"/>
+        <references refid="classghc_1_1filesystem_1_1path_1a08d9cc6bfa72c5a9ff2acde0b1e89465" compoundref="filesystem_8hpp" startline="2770" endline="2776">ghc::filesystem::path::clear</references>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a4e2495a21917ad1123a992e55a0b3e32" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::exists</definition>
+        <argsstring>(file_status s) noexcept</argsstring>
+        <name>exists</name>
+        <qualifiedname>ghc::filesystem::exists</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4238" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4238" bodyend="4241" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1110" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a7500611bf7030bc99d25c354e7b64714">not_found</references>
+        <references refid="namespaceghc_1_1filesystem_1a2f5d075292823eda15f4b1091ef1da60" compoundref="filesystem_8hpp" startline="5018" endline="5021">status_known</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a099a0149ef7c7a5e22977a35e39ac072" compoundref="filesystem_8hpp" startline="3904" endline="3979">copy_file</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1ae53bc3ef946a2f45fb2eeb5c0cdb46b1" compoundref="filesystem_8hpp" startline="3992" endline="4004">copy_symlink</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a19bc98b3966f5697b0f599d2712ecfda" compoundref="filesystem_8hpp" startline="4086" endline="4127">create_directory</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a2d1ed5090c34c9343bb6aca0d7dadc70" compoundref="filesystem_8hpp" startline="4250" endline="4257">exists</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1ab0aa83e5dcedde352002250325967441" compoundref="filesystem_8hpp" startline="4495" endline="4498">is_other</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a1b6f115fbbafa333441fc326a9dcb4a5" compoundref="filesystem_8hpp" startline="4853" endline="4897">remove_all</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1aae07b99c0f8d33847eb48b985e43ca3b" compoundref="filesystem_8hpp" startline="5088" endline="5125">weakly_canonical</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a2d1ed5090c34c9343bb6aca0d7dadc70" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::exists</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>exists</name>
+        <qualifiedname>ghc::filesystem::exists</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4250" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4250" bodyend="4257" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1111" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a4e2495a21917ad1123a992e55a0b3e32" compoundref="filesystem_8hpp" startline="4238" endline="4241">exists</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+        <references refid="namespaceghc_1_1filesystem_1a2f5d075292823eda15f4b1091ef1da60" compoundref="filesystem_8hpp" startline="5018" endline="5021">status_known</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a6cfaf9467178e80d7a3ef4ef34f44e37" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::equivalent</definition>
+        <argsstring>(const path &amp;p1, const path &amp;p2, std::error_code &amp;ec) noexcept</argsstring>
+        <name>equivalent</name>
+        <qualifiedname>ghc::filesystem::equivalent</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4271" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4271" bodyend="4316" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1112" declcolumn="9"/>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a099a0149ef7c7a5e22977a35e39ac072" compoundref="filesystem_8hpp" startline="3904" endline="3979">copy_file</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1ae5e1a9b60d593360ca56be69d33bc0e9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>uintmax_t</type>
+        <definition>uintmax_t ghc::filesystem::file_size</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>file_size</name>
+        <qualifiedname>ghc::filesystem::file_size</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4330" column="20" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4330" bodyend="4348" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1113" declcolumn="14"/>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1a16e9bc1e7a10e06de3af327ddf734528" compoundref="filesystem_8hpp" startline="5428" endline="5435">ghc::filesystem::directory_entry::file_size</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a6d3162aa30975b8165ae0244b8b3742e" compoundref="filesystem_8hpp" startline="4456" endline="4476">is_empty</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1abcfd857b0814f585f9d53de264228340" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_block_file</definition>
+        <argsstring>(file_status s) noexcept</argsstring>
+        <name>is_block_file</name>
+        <qualifiedname>ghc::filesystem::is_block_file</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4393" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4393" bodyend="4396" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1114" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a14511f2f5564650d129ca7cabc333278">block</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1aadd2e81ece775bda26c76a7190495ddc" compoundref="filesystem_8hpp" startline="4405" endline="4408">is_block_file</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aadd2e81ece775bda26c76a7190495ddc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_block_file</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>is_block_file</name>
+        <qualifiedname>ghc::filesystem::is_block_file</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4405" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4405" bodyend="4408" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1115" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1abcfd857b0814f585f9d53de264228340" compoundref="filesystem_8hpp" startline="4393" endline="4396">is_block_file</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a74bf2a1161ee9e5e050bb19e8df9ffec" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_character_file</definition>
+        <argsstring>(file_status s) noexcept</argsstring>
+        <name>is_character_file</name>
+        <qualifiedname>ghc::filesystem::is_character_file</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4410" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4410" bodyend="4413" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1116" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052aa956161a69928cd130a889b88082fb6e">character</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a63706fe9c6dfb7de2d384671abbf97b1" compoundref="filesystem_8hpp" startline="4422" endline="4425">is_character_file</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a63706fe9c6dfb7de2d384671abbf97b1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_character_file</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>is_character_file</name>
+        <qualifiedname>ghc::filesystem::is_character_file</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4422" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4422" bodyend="4425" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1117" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a74bf2a1161ee9e5e050bb19e8df9ffec" compoundref="filesystem_8hpp" startline="4410" endline="4413">is_character_file</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aa51846cdfd8bfe65b2b16718cf46d178" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_directory</definition>
+        <argsstring>(file_status s) noexcept</argsstring>
+        <name>is_directory</name>
+        <qualifiedname>ghc::filesystem::is_directory</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4427" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4427" bodyend="4430" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1118" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a5f8f22b8cdbaeee8cf857673a9b6ba20">directory</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1ae53bc3ef946a2f45fb2eeb5c0cdb46b1" compoundref="filesystem_8hpp" startline="3992" endline="4004">copy_symlink</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a19bc98b3966f5697b0f599d2712ecfda" compoundref="filesystem_8hpp" startline="4086" endline="4127">create_directory</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a023e40915a41c2f274a5db72000709e4" compoundref="filesystem_8hpp" startline="4439" endline="4442">is_directory</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a6d3162aa30975b8165ae0244b8b3742e" compoundref="filesystem_8hpp" startline="4456" endline="4476">is_empty</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1ab0aa83e5dcedde352002250325967441" compoundref="filesystem_8hpp" startline="4495" endline="4498">is_other</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a1b6f115fbbafa333441fc326a9dcb4a5" compoundref="filesystem_8hpp" startline="4853" endline="4897">remove_all</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a023e40915a41c2f274a5db72000709e4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_directory</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>is_directory</name>
+        <qualifiedname>ghc::filesystem::is_directory</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4439" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4439" bodyend="4442" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1119" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1aa51846cdfd8bfe65b2b16718cf46d178" compoundref="filesystem_8hpp" startline="4427" endline="4430">is_directory</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a6d3162aa30975b8165ae0244b8b3742e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_empty</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>is_empty</name>
+        <qualifiedname>ghc::filesystem::is_empty</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4456" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4456" bodyend="4476" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1120" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1ae5e1a9b60d593360ca56be69d33bc0e9" compoundref="filesystem_8hpp" startline="4330" endline="4348">file_size</references>
+        <references refid="namespaceghc_1_1filesystem_1aa51846cdfd8bfe65b2b16718cf46d178" compoundref="filesystem_8hpp" startline="4427" endline="4430">is_directory</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a5d49cffbc4ef5bc130146228c74eb979" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_fifo</definition>
+        <argsstring>(file_status s) noexcept</argsstring>
+        <name>is_fifo</name>
+        <qualifiedname>ghc::filesystem::is_fifo</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4478" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4478" bodyend="4481" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1121" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052acf54937a2330ac17aa523bf7130911a3">fifo</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1ac1dd7c7ac147bbc77483430f25e03562" compoundref="filesystem_8hpp" startline="4490" endline="4493">is_fifo</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1ac1dd7c7ac147bbc77483430f25e03562" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_fifo</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>is_fifo</name>
+        <qualifiedname>ghc::filesystem::is_fifo</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4490" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4490" bodyend="4493" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1122" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5d49cffbc4ef5bc130146228c74eb979" compoundref="filesystem_8hpp" startline="4478" endline="4481">is_fifo</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1ab0aa83e5dcedde352002250325967441" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_other</definition>
+        <argsstring>(file_status s) noexcept</argsstring>
+        <name>is_other</name>
+        <qualifiedname>ghc::filesystem::is_other</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4495" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4495" bodyend="4498" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1123" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a4e2495a21917ad1123a992e55a0b3e32" compoundref="filesystem_8hpp" startline="4238" endline="4241">exists</references>
+        <references refid="namespaceghc_1_1filesystem_1aa51846cdfd8bfe65b2b16718cf46d178" compoundref="filesystem_8hpp" startline="4427" endline="4430">is_directory</references>
+        <references refid="namespaceghc_1_1filesystem_1a2f95b3d99167794192a93efa87f7d989" compoundref="filesystem_8hpp" startline="4512" endline="4515">is_regular_file</references>
+        <references refid="namespaceghc_1_1filesystem_1a0627e4b44a41ca35a58cbd52fecdcef2" compoundref="filesystem_8hpp" startline="4546" endline="4549">is_symlink</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a773b14c6f3e10353b05669f9537949ae" compoundref="filesystem_8hpp" startline="4507" endline="4510">is_other</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a773b14c6f3e10353b05669f9537949ae" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_other</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>is_other</name>
+        <qualifiedname>ghc::filesystem::is_other</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4507" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4507" bodyend="4510" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1124" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1ab0aa83e5dcedde352002250325967441" compoundref="filesystem_8hpp" startline="4495" endline="4498">is_other</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a2f95b3d99167794192a93efa87f7d989" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_regular_file</definition>
+        <argsstring>(file_status s) noexcept</argsstring>
+        <name>is_regular_file</name>
+        <qualifiedname>ghc::filesystem::is_regular_file</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4512" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4512" bodyend="4515" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1125" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052aaf37d08ae228a87dc6b265fd1019c97d">regular</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a099a0149ef7c7a5e22977a35e39ac072" compoundref="filesystem_8hpp" startline="3904" endline="3979">copy_file</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1ab0aa83e5dcedde352002250325967441" compoundref="filesystem_8hpp" startline="4495" endline="4498">is_other</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a4f9d4d3e915d8614778c675523c1c402" compoundref="filesystem_8hpp" startline="4524" endline="4527">is_regular_file</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a4f9d4d3e915d8614778c675523c1c402" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_regular_file</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>is_regular_file</name>
+        <qualifiedname>ghc::filesystem::is_regular_file</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4524" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4524" bodyend="4527" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1126" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a2f95b3d99167794192a93efa87f7d989" compoundref="filesystem_8hpp" startline="4512" endline="4515">is_regular_file</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1abefb0a792d4d51acce1b44b0e84659bd" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_socket</definition>
+        <argsstring>(file_status s) noexcept</argsstring>
+        <name>is_socket</name>
+        <qualifiedname>ghc::filesystem::is_socket</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4529" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4529" bodyend="4532" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1127" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a61f2529360aec54f5dc9804b842cf3fa">socket</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a76a280cb3931983075b641fb5b0c4c5a" compoundref="filesystem_8hpp" startline="4541" endline="4544">is_socket</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a76a280cb3931983075b641fb5b0c4c5a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_socket</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>is_socket</name>
+        <qualifiedname>ghc::filesystem::is_socket</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4541" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4541" bodyend="4544" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1128" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1abefb0a792d4d51acce1b44b0e84659bd" compoundref="filesystem_8hpp" startline="4529" endline="4532">is_socket</references>
+        <references refid="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" compoundref="filesystem_8hpp" startline="5013" endline="5016">status</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a0627e4b44a41ca35a58cbd52fecdcef2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_symlink</definition>
+        <argsstring>(file_status s) noexcept</argsstring>
+        <name>is_symlink</name>
+        <qualifiedname>ghc::filesystem::is_symlink</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4546" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4546" bodyend="4549" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1129" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052aa978acc8a7ae15f49f58f3495f0d85ba">symlink</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1ab0aa83e5dcedde352002250325967441" compoundref="filesystem_8hpp" startline="4495" endline="4498">is_other</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1a5f7fc1720fa711017297730060238231" compoundref="filesystem_8hpp" startline="5371" endline="5376">ghc::filesystem::directory_entry::is_other</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1aea3ca17482acce4248ed36dde3b02815" compoundref="filesystem_8hpp" startline="4558" endline="4561">is_symlink</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1af281d33567749e6558c35d72ecf9d4f8" compoundref="filesystem_8hpp" startline="5409" endline="5416">ghc::filesystem::directory_entry::is_symlink</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aea3ca17482acce4248ed36dde3b02815" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::is_symlink</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>is_symlink</name>
+        <qualifiedname>ghc::filesystem::is_symlink</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4558" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4558" bodyend="4561" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1130" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a0627e4b44a41ca35a58cbd52fecdcef2" compoundref="filesystem_8hpp" startline="4546" endline="4549">is_symlink</references>
+        <references refid="namespaceghc_1_1filesystem_1aebf6cccf2aa8da7b8e7b7e5eb42c883b" compoundref="filesystem_8hpp" startline="5035" endline="5038">symlink_status</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a77d39983738deaaf54e19d998c33e60d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespaceghc_1_1filesystem_1a673ae6465d8d4830172451e5eec485a5" kindref="member">file_time_type</ref></type>
+        <definition>file_time_type ghc::filesystem::last_write_time</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>last_write_time</name>
+        <qualifiedname>ghc::filesystem::last_write_time</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4575" column="25" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4575" bodyend="4581" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1131" declcolumn="19"/>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a94bff40b1f870262e0993c747311451c" compoundref="filesystem_8hpp" startline="2364" endline="2442">ghc::filesystem::detail::status_ex</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a099a0149ef7c7a5e22977a35e39ac072" compoundref="filesystem_8hpp" startline="3904" endline="3979">copy_file</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1a9efb65c02dc852ac48754a4893ddf340" compoundref="filesystem_8hpp" startline="5472" endline="5479">ghc::filesystem::directory_entry::last_write_time</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a96dc395544b1c713afbfb0b199e20d92" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::last_write_time</definition>
+        <argsstring>(const path &amp;p, file_time_type new_time, std::error_code &amp;ec) noexcept</argsstring>
+        <name>last_write_time</name>
+        <qualifiedname>ghc::filesystem::last_write_time</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceghc_1_1filesystem_1a673ae6465d8d4830172451e5eec485a5" kindref="member">file_time_type</ref></type>
+          <declname>new_time</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4594" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4594" bodyend="4653" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1132" declcolumn="9"/>
+        <references refid="filesystem_8hpp_1a4102824714f591524ae37d2e9d05a47b" compoundref="filesystem_8hpp" startline="137">GHC_INLINE</references>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <references refid="namespaceghc_1_1filesystem_1afa129b086e2581a4cab7207f57124de2" compoundref="filesystem_8hpp" startline="4666" endline="4669">permissions</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a1c2da786cbc1241604a1c2ffb2c34e2e" compoundref="filesystem_8hpp" startline="1928" endline="1941">ghc::filesystem::detail::systemErrorText</references>
+        <references refid="filesystem_8hpp_1abcb5b84adc43059f20f98953954ab72c">UTIME_OMIT</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1afa129b086e2581a4cab7207f57124de2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::permissions</definition>
+        <argsstring>(const path &amp;p, perms prms, std::error_code &amp;ec) noexcept</argsstring>
+        <name>permissions</name>
+        <qualifiedname>ghc::filesystem::permissions</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44a" kindref="member">perms</ref></type>
+          <declname>prms</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4666" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4666" bodyend="4669" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1133" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1afa129b086e2581a4cab7207f57124de2" compoundref="filesystem_8hpp" startline="4666" endline="4669">permissions</references>
+        <references refid="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa9dde360102c103867bd2f45872f1129c">replace</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a96dc395544b1c713afbfb0b199e20d92" compoundref="filesystem_8hpp" startline="4594" endline="4653">last_write_time</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1afa129b086e2581a4cab7207f57124de2" compoundref="filesystem_8hpp" startline="4666" endline="4669">permissions</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a207525516cd985b88413c1827ebf573e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::permissions</definition>
+        <argsstring>(const path &amp;p, perms prms, perm_options opts, std::error_code &amp;ec) noexcept</argsstring>
+        <name>permissions</name>
+        <qualifiedname>ghc::filesystem::permissions</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44a" kindref="member">perms</ref></type>
+          <declname>prms</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861a" kindref="member">perm_options</ref></type>
+          <declname>opts</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4671" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4671" bodyend="4715" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1134" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa34ec78fcc91ffb1e54cd85e4a0924332">add</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a43eccd3bf97a5b8d83ce16d4426fd00e" compoundref="filesystem_8hpp" startline="2825" endline="2828">ghc::filesystem::path::c_str</references>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a5f693e585200b86ff4b0e2d39f0dc22fae55d43eabeefe5a8271b4a3c898bd18f">ghc::filesystem::detail::invalid_argument</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ac555f3c3dbbaf319c87425eedd38ac1f" compoundref="filesystem_8hpp" startline="1372" endline="1414">ghc::filesystem::detail::make_error_code</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <references refid="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa22e990cf9da7d742af1f31ab7f657049">nofollow</references>
+        <references refid="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa13804bd89bd86850b7c1b3cf17148c8b">owner_read</references>
+        <references refid="namespaceghc_1_1filesystem_1a2dd23f153d201e7557a43c7644ccf44aa0d521a25ebf962a812b43c32fe36500e">owner_write</references>
+        <references refid="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa0f6969d7052da9261e31ddb6e88c136e">remove</references>
+        <references refid="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa9dde360102c103867bd2f45872f1129c">replace</references>
+        <references refid="namespaceghc_1_1filesystem_1aebf6cccf2aa8da7b8e7b7e5eb42c883b" compoundref="filesystem_8hpp" startline="5035" endline="5038">symlink_status</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a1b2c4b38d97e29747332d0d83d842616" compoundref="filesystem_8hpp" startline="2858" endline="2865">ghc::filesystem::path::wstring</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1abb961b891e63d87051366b7e7c4e903e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::proximate</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec)</argsstring>
+        <name>proximate</name>
+        <qualifiedname>ghc::filesystem::proximate</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1135" column="9" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1135" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a6e2b11202cc9b071bbdb16d87c197719" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::proximate</definition>
+        <argsstring>(const path &amp;p, const path &amp;base, std::error_code &amp;ec)</argsstring>
+        <name>proximate</name>
+        <qualifiedname>ghc::filesystem::proximate</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4735" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4735" bodyend="4738" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1136" declcolumn="9"/>
+        <references refid="classghc_1_1filesystem_1_1path_1adb0e3b01125a40da996f9c58465d4c14" compoundref="filesystem_8hpp" startline="3321" endline="3325">ghc::filesystem::path::lexically_proximate</references>
+        <references refid="namespaceghc_1_1filesystem_1aae07b99c0f8d33847eb48b985e43ca3b" compoundref="filesystem_8hpp" startline="5088" endline="5125">weakly_canonical</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1ae137f8365fc1d40f58b411d36213c154" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::read_symlink</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec)</argsstring>
+        <name>read_symlink</name>
+        <qualifiedname>ghc::filesystem::read_symlink</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4752" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4752" bodyend="4761" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1137" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a5f693e585200b86ff4b0e2d39f0dc22fae55d43eabeefe5a8271b4a3c898bd18f">ghc::filesystem::detail::invalid_argument</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ac555f3c3dbbaf319c87425eedd38ac1f" compoundref="filesystem_8hpp" startline="1372" endline="1414">ghc::filesystem::detail::make_error_code</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a25d9339be66e8445b643517fecdfbbd7" compoundref="filesystem_8hpp" startline="2182" endline="2231">ghc::filesystem::detail::resolveSymlink</references>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052aa978acc8a7ae15f49f58f3495f0d85ba">symlink</references>
+        <references refid="namespaceghc_1_1filesystem_1aebf6cccf2aa8da7b8e7b7e5eb42c883b" compoundref="filesystem_8hpp" startline="5035" endline="5038">symlink_status</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1ae53bc3ef946a2f45fb2eeb5c0cdb46b1" compoundref="filesystem_8hpp" startline="3992" endline="4004">copy_symlink</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a94cde8e109dd979c1ff5c3a384b927ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::relative</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec)</argsstring>
+        <name>relative</name>
+        <qualifiedname>ghc::filesystem::relative</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4763" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4763" bodyend="4766" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1138" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1ad46916bacd79119d20d9a46c93126642" compoundref="filesystem_8hpp" startline="4191" endline="4211">current_path</references>
+        <references refid="namespaceghc_1_1filesystem_1a94cde8e109dd979c1ff5c3a384b927ea" compoundref="filesystem_8hpp" startline="4763" endline="4766">relative</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a94cde8e109dd979c1ff5c3a384b927ea" compoundref="filesystem_8hpp" startline="4763" endline="4766">relative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1ab1f9e9d8c3bd79b032e0a45307c85df4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::relative</definition>
+        <argsstring>(const path &amp;p, const path &amp;base, std::error_code &amp;ec)</argsstring>
+        <name>relative</name>
+        <qualifiedname>ghc::filesystem::relative</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4775" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4775" bodyend="4778" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1139" declcolumn="9"/>
+        <references refid="classghc_1_1filesystem_1_1path_1a42185a97ee9c69f52a70ce798a33f275" compoundref="filesystem_8hpp" startline="3286" endline="3319">ghc::filesystem::path::lexically_relative</references>
+        <references refid="namespaceghc_1_1filesystem_1aae07b99c0f8d33847eb48b985e43ca3b" compoundref="filesystem_8hpp" startline="5088" endline="5125">weakly_canonical</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1af8c0b12e17fb1916cd6fd6a5656b9a44" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::remove</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>remove</name>
+        <qualifiedname>ghc::filesystem::remove</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4792" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4792" bodyend="4839" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1140" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <references refid="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa0f6969d7052da9261e31ddb6e88c136e">remove</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a1b6f115fbbafa333441fc326a9dcb4a5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>uintmax_t</type>
+        <definition>uintmax_t ghc::filesystem::remove_all</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>remove_all</name>
+        <qualifiedname>ghc::filesystem::remove_all</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4853" column="20" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4853" bodyend="4897" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1141" declcolumn="14"/>
+        <references refid="namespaceghc_1_1filesystem_1a4e2495a21917ad1123a992e55a0b3e32" compoundref="filesystem_8hpp" startline="4238" endline="4241">exists</references>
+        <references refid="namespaceghc_1_1filesystem_1aa51846cdfd8bfe65b2b16718cf46d178" compoundref="filesystem_8hpp" startline="4427" endline="4430">is_directory</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a3b8a14e2872af12da82499a0284cc1f2" compoundref="filesystem_8hpp" startline="2317" endline="2324">ghc::filesystem::detail::is_not_found_error</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ac555f3c3dbbaf319c87425eedd38ac1f" compoundref="filesystem_8hpp" startline="1372" endline="1414">ghc::filesystem::detail::make_error_code</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a5f693e585200b86ff4b0e2d39f0dc22faa55e82356e9721946aa9ba954733c6f0">ghc::filesystem::detail::not_supported</references>
+        <references refid="namespaceghc_1_1filesystem_1ad022cafc2c37805367c90c76c1cf861aa0f6969d7052da9261e31ddb6e88c136e">remove</references>
+        <references refid="namespaceghc_1_1filesystem_1a1b6f115fbbafa333441fc326a9dcb4a5" compoundref="filesystem_8hpp" startline="4853" endline="4897">remove_all</references>
+        <references refid="namespaceghc_1_1filesystem_1aebf6cccf2aa8da7b8e7b7e5eb42c883b" compoundref="filesystem_8hpp" startline="5035" endline="5038">symlink_status</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a1b6f115fbbafa333441fc326a9dcb4a5" compoundref="filesystem_8hpp" startline="4853" endline="4897">remove_all</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1ae4fa0176fd8a0de5c94fd7241ca032e6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::rename</definition>
+        <argsstring>(const path &amp;from, const path &amp;to, std::error_code &amp;ec) noexcept</argsstring>
+        <name>rename</name>
+        <qualifiedname>ghc::filesystem::rename</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4910" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4910" bodyend="4926" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1142" declcolumn="9"/>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <references refid="namespaceghc_1_1filesystem_1ae4fa0176fd8a0de5c94fd7241ca032e6" compoundref="filesystem_8hpp" startline="4910" endline="4926">rename</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1ae4fa0176fd8a0de5c94fd7241ca032e6" compoundref="filesystem_8hpp" startline="4910" endline="4926">rename</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a3381e33306b741bc2f90d6f664f88bc5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::resize_file</definition>
+        <argsstring>(const path &amp;p, uintmax_t size, std::error_code &amp;ec) noexcept</argsstring>
+        <name>resize_file</name>
+        <qualifiedname>ghc::filesystem::resize_file</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>uintmax_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4939" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4939" bodyend="4965" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1143" declcolumn="9"/>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1ab3c2c370650c1a298f909cacea1034c0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structghc_1_1filesystem_1_1space__info" kindref="compound">space_info</ref></type>
+        <definition>space_info ghc::filesystem::space</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>space</name>
+        <qualifiedname>ghc::filesystem::space</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4979" column="21" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4979" bodyend="4999" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1144" declcolumn="15"/>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a07a1093e04d9ba754019595cb25dc975" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+        <definition>file_status ghc::filesystem::status</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>status</name>
+        <qualifiedname>ghc::filesystem::status</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="5013" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5013" bodyend="5016" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1145" declcolumn="16"/>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a94bff40b1f870262e0993c747311451c" compoundref="filesystem_8hpp" startline="2364" endline="2442">ghc::filesystem::detail::status_ex</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a099a0149ef7c7a5e22977a35e39ac072" compoundref="filesystem_8hpp" startline="3904" endline="3979">copy_file</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a19bc98b3966f5697b0f599d2712ecfda" compoundref="filesystem_8hpp" startline="4086" endline="4127">create_directory</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a2d1ed5090c34c9343bb6aca0d7dadc70" compoundref="filesystem_8hpp" startline="4250" endline="4257">exists</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1aadd2e81ece775bda26c76a7190495ddc" compoundref="filesystem_8hpp" startline="4405" endline="4408">is_block_file</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a63706fe9c6dfb7de2d384671abbf97b1" compoundref="filesystem_8hpp" startline="4422" endline="4425">is_character_file</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a023e40915a41c2f274a5db72000709e4" compoundref="filesystem_8hpp" startline="4439" endline="4442">is_directory</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a6d3162aa30975b8165ae0244b8b3742e" compoundref="filesystem_8hpp" startline="4456" endline="4476">is_empty</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1ac1dd7c7ac147bbc77483430f25e03562" compoundref="filesystem_8hpp" startline="4490" endline="4493">is_fifo</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a773b14c6f3e10353b05669f9537949ae" compoundref="filesystem_8hpp" startline="4507" endline="4510">is_other</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a4f9d4d3e915d8614778c675523c1c402" compoundref="filesystem_8hpp" startline="4524" endline="4527">is_regular_file</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a76a280cb3931983075b641fb5b0c4c5a" compoundref="filesystem_8hpp" startline="4541" endline="4544">is_socket</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1a2e8f7e9a941a06938c9a459bc0f168cd" compoundref="filesystem_8hpp" startline="5491" endline="5498">ghc::filesystem::directory_entry::status</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a2f5d075292823eda15f4b1091ef1da60" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ghc::filesystem::status_known</definition>
+        <argsstring>(file_status s) noexcept</argsstring>
+        <name>status_known</name>
+        <qualifiedname>ghc::filesystem::status_known</qualifiedname>
+        <param>
+          <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="5018" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5018" bodyend="5021" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1146" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a334c4a4c42fdb79d7ebc3e73b517e6f8">none</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a19bc98b3966f5697b0f599d2712ecfda" compoundref="filesystem_8hpp" startline="4086" endline="4127">create_directory</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a4e2495a21917ad1123a992e55a0b3e32" compoundref="filesystem_8hpp" startline="4238" endline="4241">exists</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aebf6cccf2aa8da7b8e7b7e5eb42c883b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1file__status" kindref="compound">file_status</ref></type>
+        <definition>file_status ghc::filesystem::symlink_status</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>symlink_status</name>
+        <qualifiedname>ghc::filesystem::symlink_status</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="5035" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5035" bodyend="5038" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1147" declcolumn="16"/>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a48fd7805ec3035ed78c33b0f1dd23e80" compoundref="filesystem_8hpp" startline="2326" endline="2362">ghc::filesystem::detail::symlink_status_ex</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1aea3ca17482acce4248ed36dde3b02815" compoundref="filesystem_8hpp" startline="4558" endline="4561">is_symlink</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1af281d33567749e6558c35d72ecf9d4f8" compoundref="filesystem_8hpp" startline="5409" endline="5416">ghc::filesystem::directory_entry::is_symlink</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a207525516cd985b88413c1827ebf573e" compoundref="filesystem_8hpp" startline="4671" endline="4715">permissions</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1ae137f8365fc1d40f58b411d36213c154" compoundref="filesystem_8hpp" startline="4752" endline="4761">read_symlink</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1a1b6f115fbbafa333441fc326a9dcb4a5" compoundref="filesystem_8hpp" startline="4853" endline="4897">remove_all</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1a7ae03cb034061d78e3dc5f8da09a02a9" compoundref="filesystem_8hpp" startline="5510" endline="5517">ghc::filesystem::directory_entry::symlink_status</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a9f846ef53b6e26e470bb74c59cd80fcb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::temp_directory_path</definition>
+        <argsstring>(std::error_code &amp;ec) noexcept</argsstring>
+        <name>temp_directory_path</name>
+        <qualifiedname>ghc::filesystem::temp_directory_path</qualifiedname>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="5052" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5052" bodyend="5074" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1148" declcolumn="9"/>
+        <references refid="classghc_1_1filesystem_1_1path_1a08d9cc6bfa72c5a9ff2acde0b1e89465" compoundref="filesystem_8hpp" startline="2770" endline="2776">ghc::filesystem::path::clear</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aae07b99c0f8d33847eb48b985e43ca3b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref></type>
+        <definition>path ghc::filesystem::weakly_canonical</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>weakly_canonical</name>
+        <qualifiedname>ghc::filesystem::weakly_canonical</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="5088" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="5088" bodyend="5125" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1149" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1a83d56af2b2b953afe4fb17de0bd64987" compoundref="filesystem_8hpp" startline="3720" endline="3781">canonical</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a08d9cc6bfa72c5a9ff2acde0b1e89465" compoundref="filesystem_8hpp" startline="2770" endline="2776">ghc::filesystem::path::clear</references>
+        <references refid="classghc_1_1filesystem_1_1path_1a66ead77fddc75c0e9ebfbf3f1fe555aa" compoundref="filesystem_8hpp" startline="3190" endline="3193">ghc::filesystem::path::empty</references>
+        <references refid="namespaceghc_1_1filesystem_1a4e2495a21917ad1123a992e55a0b3e32" compoundref="filesystem_8hpp" startline="4238" endline="4241">exists</references>
+        <references refid="classghc_1_1filesystem_1_1path_1afdd1e7ec9fb46eba045ddb6c95c42bf1" compoundref="filesystem_8hpp" startline="3253" endline="3284">ghc::filesystem::path::lexically_normal</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a6e2b11202cc9b071bbdb16d87c197719" compoundref="filesystem_8hpp" startline="4735" endline="4738">proximate</referencedby>
+        <referencedby refid="namespaceghc_1_1filesystem_1ab1f9e9d8c3bd79b032e0a45307c85df4" compoundref="filesystem_8hpp" startline="4775" endline="4778">relative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a14ac3b3c190515c4881b8e4dbfb04ecd" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ghc::filesystem::create_hard_link</definition>
+        <argsstring>(const path &amp;to, const path &amp;new_hard_link, std::error_code &amp;ec) noexcept</argsstring>
+        <name>create_hard_link</name>
+        <qualifiedname>ghc::filesystem::create_hard_link</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>new_hard_link</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4157" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4157" bodyend="4160" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1156" declcolumn="9"/>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1acc49bbe9554d80e5f6ddcef0d81b6622" compoundref="filesystem_8hpp" startline="2020" endline="2025">ghc::filesystem::detail::create_hardlink</references>
+        <referencedby refid="namespaceghc_1_1filesystem_1a7b3c694c41ff9bc3881305d910fbdfe2" compoundref="filesystem_8hpp" startline="3804" endline="3880">copy</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a71844f4df785fdb9020a0cca08d68772" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>uintmax_t</type>
+        <definition>uintmax_t ghc::filesystem::hard_link_count</definition>
+        <argsstring>(const path &amp;p, std::error_code &amp;ec) noexcept</argsstring>
+        <name>hard_link_count</name>
+        <qualifiedname>ghc::filesystem::hard_link_count</qualifiedname>
+        <param>
+          <type>const <ref refid="classghc_1_1filesystem_1_1path" kindref="compound">path</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="4363" column="20" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="4363" bodyend="4390" declfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" declline="1157" declcolumn="14"/>
+        <references refid="filesystem_8hpp_1a78de8ececcb53f07fd913ef7b7e1f93f">GHC_NATIVEWP</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ac555f3c3dbbaf319c87425eedd38ac1f" compoundref="filesystem_8hpp" startline="1372" endline="1414">ghc::filesystem::detail::make_error_code</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1ada571d5c1f47892dc26420eb4a8adaee" compoundref="filesystem_8hpp" startline="1422" endline="1425">ghc::filesystem::detail::make_system_error</references>
+        <references refid="namespaceghc_1_1filesystem_1a5a589461e18867a24b76efd69cd37052a7500611bf7030bc99d25c354e7b64714">not_found</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a5f693e585200b86ff4b0e2d39f0dc22fa7500611bf7030bc99d25c354e7b64714">ghc::filesystem::detail::not_found</references>
+        <references refid="namespaceghc_1_1filesystem_1_1detail_1a94bff40b1f870262e0993c747311451c" compoundref="filesystem_8hpp" startline="2364" endline="2442">ghc::filesystem::detail::status_ex</references>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1ade774f6f7531d691ab013106980d0027" compoundref="filesystem_8hpp" startline="5450" endline="5459">ghc::filesystem::directory_entry::hard_link_count</referencedby>
+        <referencedby refid="classghc_1_1filesystem_1_1directory__entry_1aa9cb09a4d0c29cdaaee1fc41cabdc118">ghc::filesystem::directory_entry::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a15ebc1fec24b546fc6ec53b6b26b9ef5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Enum</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="namespaceghc_1_1filesystem_1_1detail_1a9b8c5a1a59be2236586c7751542500e4" kindref="member">detail::EnableBitmask</ref>&lt; Enum &gt;</type>
+        <definition>constexpr detail::EnableBitmask&lt; Enum &gt; ghc::filesystem::operator&amp;</definition>
+        <argsstring>(Enum X, Enum Y)</argsstring>
+        <name>operator&amp;</name>
+        <qualifiedname>ghc::filesystem::operator&amp;</qualifiedname>
+        <param>
+          <type>Enum</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>Enum</type>
+          <declname>Y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1435" column="33" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1435" bodyend="1439"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a6fd3b0f377d7b0e3458772751d4bb1c0" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Enum</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="namespaceghc_1_1filesystem_1_1detail_1a9b8c5a1a59be2236586c7751542500e4" kindref="member">detail::EnableBitmask</ref>&lt; Enum &gt;</type>
+        <definition>constexpr detail::EnableBitmask&lt; Enum &gt; ghc::filesystem::operator|</definition>
+        <argsstring>(Enum X, Enum Y)</argsstring>
+        <name>operator|</name>
+        <qualifiedname>ghc::filesystem::operator|</qualifiedname>
+        <param>
+          <type>Enum</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>Enum</type>
+          <declname>Y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1442" column="33" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1442" bodyend="1446"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a49bb5c0042f01a28c31dad1d434b3235" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Enum</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="namespaceghc_1_1filesystem_1_1detail_1a9b8c5a1a59be2236586c7751542500e4" kindref="member">detail::EnableBitmask</ref>&lt; Enum &gt;</type>
+        <definition>constexpr detail::EnableBitmask&lt; Enum &gt; ghc::filesystem::operator^</definition>
+        <argsstring>(Enum X, Enum Y)</argsstring>
+        <name>operator^</name>
+        <qualifiedname>ghc::filesystem::operator^</qualifiedname>
+        <param>
+          <type>Enum</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>Enum</type>
+          <declname>Y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1449" column="33" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1449" bodyend="1453"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a6909d272c4f7e6747ffdb8360c0bda80" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Enum</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr <ref refid="namespaceghc_1_1filesystem_1_1detail_1a9b8c5a1a59be2236586c7751542500e4" kindref="member">detail::EnableBitmask</ref>&lt; Enum &gt;</type>
+        <definition>constexpr detail::EnableBitmask&lt; Enum &gt; ghc::filesystem::operator~</definition>
+        <argsstring>(Enum X)</argsstring>
+        <name>operator~</name>
+        <qualifiedname>ghc::filesystem::operator~</qualifiedname>
+        <param>
+          <type>Enum</type>
+          <declname>X</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1456" column="33" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1456" bodyend="1460"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1a65913abc33260dca24894b4ca709eb70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Enum</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespaceghc_1_1filesystem_1_1detail_1a9b8c5a1a59be2236586c7751542500e4" kindref="member">detail::EnableBitmask</ref>&lt; Enum &gt; &amp;</type>
+        <definition>detail::EnableBitmask&lt; Enum &gt; &amp; ghc::filesystem::operator&amp;=</definition>
+        <argsstring>(Enum &amp;X, Enum Y)</argsstring>
+        <name>operator&amp;=</name>
+        <qualifiedname>ghc::filesystem::operator&amp;=</qualifiedname>
+        <param>
+          <type>Enum &amp;</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>Enum</type>
+          <declname>Y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1463" column="23" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1463" bodyend="1467"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aa65ccf92de59ac6e838b9db9fd1d05e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Enum</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespaceghc_1_1filesystem_1_1detail_1a9b8c5a1a59be2236586c7751542500e4" kindref="member">detail::EnableBitmask</ref>&lt; Enum &gt; &amp;</type>
+        <definition>detail::EnableBitmask&lt; Enum &gt; &amp; ghc::filesystem::operator|=</definition>
+        <argsstring>(Enum &amp;X, Enum Y)</argsstring>
+        <name>operator|=</name>
+        <qualifiedname>ghc::filesystem::operator|=</qualifiedname>
+        <param>
+          <type>Enum &amp;</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>Enum</type>
+          <declname>Y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1470" column="23" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1470" bodyend="1474"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceghc_1_1filesystem_1aeb9a8c615cbf82c83627b61059c1cad2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Enum</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespaceghc_1_1filesystem_1_1detail_1a9b8c5a1a59be2236586c7751542500e4" kindref="member">detail::EnableBitmask</ref>&lt; Enum &gt; &amp;</type>
+        <definition>detail::EnableBitmask&lt; Enum &gt; &amp; ghc::filesystem::operator^=</definition>
+        <argsstring>(Enum &amp;X, Enum Y)</argsstring>
+        <name>operator^=</name>
+        <qualifiedname>ghc::filesystem::operator^=</qualifiedname>
+        <param>
+          <type>Enum &amp;</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>Enum</type>
+          <declname>Y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="1477" column="23" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="1477" bodyend="1481"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="319" column="1"/>
+  </compounddef>
+</doxygen>

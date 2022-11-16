@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['stage_0',['Stage',['../classsisi4s_1_1Data.html#ae1bf44bd448c3961cc9ba067b8c6a363',1,'sisi4s::Data']]],
-  ['startup_5fmode_1',['startup_mode',['../classCLI_1_1App.html#a44223dc510ba0f7b680990476828e2e8',1,'CLI::App']]]
+  ['path_5ftype_0',['path_type',['../namespaceCLI_1_1detail.html#a20a9a67e5f06ba0dc3f2ded2fed16f55',1,'CLI::detail']]],
+  ['perm_5foptions_1',['perm_options',['../namespaceghc_1_1filesystem.html#ad022cafc2c37805367c90c76c1cf861a',1,'ghc::filesystem']]],
+  ['perms_2',['perms',['../namespaceghc_1_1filesystem.html#a2dd23f153d201e7557a43c7644ccf44a',1,'ghc::filesystem']]],
+  ['portable_5ferror_3',['portable_error',['../namespaceghc_1_1filesystem_1_1detail.html#a5f693e585200b86ff4b0e2d39f0dc22f',1,'ghc::filesystem::detail']]]
 ];

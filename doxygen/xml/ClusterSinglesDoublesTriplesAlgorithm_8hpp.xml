@@ -10,6 +10,7 @@
     <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includes local="no">string</includes>
     <includes local="no">initializer_list</includes>
+    <includedby refid="CcsdtEnergyFromCoulombIntegrals_8hpp" local="no">CcsdtEnergyFromCoulombIntegrals.hpp</includedby>
     <includedby refid="ClusterSinglesDoublesTriplesAlgorithm_8cxx" local="no">ClusterSinglesDoublesTriplesAlgorithm.cxx</includedby>
     <includedby refid="UccsdtAmplitudesFromCoulombIntegrals_8hpp" local="no">UccsdtAmplitudesFromCoulombIntegrals.hpp</includedby>
     <incdepgraph>
@@ -389,7 +390,17 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="3">
+        <label>CcsdtEnergyFromCoulombIntegrals.cxx</label>
+        <link refid="CcsdtEnergyFromCoulombIntegrals_8cxx"/>
+      </node>
       <node id="2">
+        <label>CcsdtEnergyFromCoulombIntegrals.hpp</label>
+        <link refid="CcsdtEnergyFromCoulombIntegrals_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
         <label>ClusterSinglesDoublesTriplesAlgorithm.cxx</label>
         <link refid="ClusterSinglesDoublesTriplesAlgorithm_8cxx"/>
       </node>
@@ -398,17 +409,19 @@
         <link refid="ClusterSinglesDoublesTriplesAlgorithm_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="6">
         <label>UccsdtAmplitudesFromCoulombIntegrals.cxx</label>
         <link refid="UccsdtAmplitudesFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="3">
+      <node id="5">
         <label>UccsdtAmplitudesFromCoulombIntegrals.hpp</label>
         <link refid="UccsdtAmplitudesFromCoulombIntegrals_8hpp"/>
-        <childnode refid="4" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

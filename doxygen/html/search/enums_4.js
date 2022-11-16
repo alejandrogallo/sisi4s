@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['index_0',['Index',['../namespacesisi4s.html#af6fb2fb68d4debbf0349a11be6963b8d',1,'sisi4s']]],
-  ['inputfileformat_1',['InputFileFormat',['../namespacesisi4s.html#af30d29af55f9e24682fe564ead1a2628',1,'sisi4s']]]
+  ['file_5ftype_0',['file_type',['../namespaceghc_1_1filesystem.html#a5a589461e18867a24b76efd69cd37052',1,'ghc::filesystem']]],
+  ['format_1',['format',['../classghc_1_1filesystem_1_1path.html#a653db4113e2ef7e029ff07d8ef93beb8',1,'ghc::filesystem::path']]]
 ];

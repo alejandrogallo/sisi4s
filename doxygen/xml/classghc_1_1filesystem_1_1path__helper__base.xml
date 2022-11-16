@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classghc_1_1filesystem_1_1path__helper__base" kind="class" language="C++" prot="public">
+    <compoundname>ghc::filesystem::path_helper_base</compoundname>
+    <includes refid="filesystem_8hpp" local="no">filesystem.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename char_type</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classghc_1_1filesystem_1_1path__helper__base_1a8d1af9deb7888c1d429fd2382e9468ad" prot="public" static="no">
+        <type>char_type</type>
+        <definition>using ghc::filesystem::path_helper_base&lt; char_type &gt;::value_type =  char_type</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>ghc::filesystem::path_helper_base::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="345" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classghc_1_1filesystem_1_1path__helper__base_1a5894e277858e4370d021a768aaa7ddc7" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="classghc_1_1filesystem_1_1path__helper__base_1a8d1af9deb7888c1d429fd2382e9468ad" kindref="member">value_type</ref></type>
+        <definition>constexpr char_type ghc::filesystem::path_helper_base&lt; char_type &gt;::preferred_separator</definition>
+        <argsstring></argsstring>
+        <name>preferred_separator</name>
+        <qualifiedname>ghc::filesystem::path_helper_base::preferred_separator</qualifiedname>
+        <initializer>= &apos;/&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="349" column="33" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>ghc::filesystem::path</label>
+        <link refid="classghc_1_1filesystem_1_1path"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ghc::filesystem::path_helper_base&lt; char_type &gt;</label>
+        <link refid="classghc_1_1filesystem_1_1path__helper__base"/>
+      </node>
+      <node id="2">
+        <label>ghc::filesystem::path_helper_base&lt; std::string::value_type &gt;</label>
+        <link refid="classghc_1_1filesystem_1_1path__helper__base"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; std::string::value_type &gt;</edgelabel>
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ghc::filesystem::path_helper_base&lt; char_type &gt;</label>
+        <link refid="classghc_1_1filesystem_1_1path__helper__base"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" line="342" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/extern/filesystem.hpp" bodystart="343" bodyend="351"/>
+    <listofallmembers>
+      <member refid="classghc_1_1filesystem_1_1path__helper__base_1a5894e277858e4370d021a768aaa7ddc7" prot="public" virt="non-virtual"><scope>ghc::filesystem::path_helper_base</scope><name>preferred_separator</name></member>
+      <member refid="classghc_1_1filesystem_1_1path__helper__base_1a8d1af9deb7888c1d429fd2382e9468ad" prot="public" virt="non-virtual"><scope>ghc::filesystem::path_helper_base</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
