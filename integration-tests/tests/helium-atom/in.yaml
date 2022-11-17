@@ -1,3 +1,10 @@
+- name: Nop    # Define some yaml variables for use later
+  energyConvergence: &energyConvergence 1e-8
+  amplitudesConvergence: &amplitudesConvergence 1e-8
+  maxIterations: &maxIterations 50
+  mixer: &mixer DiisMixer
+  maxResidua: &maxResidua 4
+
 - name: HartreeFockFromGaussian
   in:
     xyzStructureFile: "helium.xyz"
@@ -15,16 +22,22 @@
 - { name: TensorWriter, in: { Data: $HoleEigenEnergies } }
 - { name: TensorWriter, in: { Data: $ParticleEigenEnergies } }
 
----
-
 
 - name: CoulombIntegralsFromGaussian
   in:
-    OrbitalCoefficients: $OrbitalCoefficients
     xyzStructureFile: "helium.xyz"
     basisSet: "aug-cc-pvdz"
-    nelec: 2
-    antisymmetrize: 0
+    chemistNotation: 1
+  out:
+    CoulombIntegrals: $CoulombIntegrals
+
+- name: CoulombIntegralsFromRotatedCoulombIntegrals
+  in:
+    CoulombIntegrals: $CoulombIntegrals
+    OrbitalCoefficients: $OrbitalCoefficients
+    HoleEigenEnergies: $HoleEigenEnergies
+    chemistNotation: 1
+    unrestricted: 0
   out:
     HHHHCoulombIntegrals: $HHHHCoulombIntegrals
     HHHPCoulombIntegrals: $HHHPCoulombIntegrals
@@ -46,11 +59,13 @@
 
 - name: CcsdEnergyFromCoulombIntegralsReference
   in:
-    maxIterations: 50
-    mixer: "DiisMixer"
+    maxIterations: *maxIterations
+    energyConvergence: *energyConvergence
+    mixer: *mixer
+    maxResidua: *maxResidua
+    # tensors
     HoleEigenEnergies: $HoleEigenEnergies
     ParticleEigenEnergies: $ParticleEigenEnergies
-    energyConvergence: 0.00000000001
     PPHHCoulombIntegrals: $PPHHCoulombIntegrals
     PPPPCoulombIntegrals: $PPPPCoulombIntegrals
     PHPHCoulombIntegrals: $PHPHCoulombIntegrals
@@ -60,153 +75,110 @@
   out:
     CcsdEnergy: $CcsdEnergyReference
 
+# - { name: TensorWriter, in: { Data: $CcsdEnergyReference } }
 
-- name: TensorWriter
+- name: CcsdtEnergyFromCoulombIntegrals
   in:
-    Data: $CcsdEnergyReference
+    maxIterations: *maxIterations
+    energyConvergence: *energyConvergence
+    mixer: *mixer
+    maxResidua: *maxResidua
+    # tensors
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
   out:
-    {}
+    CcsdtEnergy: $CcsdtEnergy
 
-
-- name: TensorWriter
-  in:
-    Data: $HoleEigenEnergies
-  out:
-    {}
-
-
-- name: TensorWriter
-  in:
-    Data: $ParticleEigenEnergies
-  out:
-    {}
-
+# - { name: TensorWriter, in: { Data: $CcsdtEnergy } }
 
 - name: TensorUnrestricter
-  in:
-    Data: $HoleEigenEnergies
-  out:
-    Out: $HoleEigenEnergies
-
+  in: { Data: $HoleEigenEnergies }
+  out: { Out: $HoleEigenEnergies }
 
 - name: TensorUnrestricter
-  in:
-    Data: $ParticleEigenEnergies
-  out:
-    Out: $ParticleEigenEnergies
-
+  in: { Data: $ParticleEigenEnergies }
+  out: { Out: $ParticleEigenEnergies }
 
 - name: TensorUnrestricter
-  in:
-    Data: $HHHHCoulombIntegrals
-  out:
-    Out: $HHHHCoulombIntegrals
-
+  in: { Data: $HHHHCoulombIntegrals }
+  out: { Out: $HHHHCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $HHHPCoulombIntegrals
-  out:
-    Out: $HHHPCoulombIntegrals
-
+  in: { Data: $HHHPCoulombIntegrals }
+  out: { Out: $HHHPCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $HHPHCoulombIntegrals
-  out:
-    Out: $HHPHCoulombIntegrals
-
+  in: { Data: $HHPHCoulombIntegrals }
+  out: { Out: $HHPHCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $HHPPCoulombIntegrals
-  out:
-    Out: $HHPPCoulombIntegrals
-
+  in: { Data: $HHPPCoulombIntegrals }
+  out: { Out: $HHPPCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $HPHHCoulombIntegrals
-  out:
-    Out: $HPHHCoulombIntegrals
-
+  in: { Data: $HPHHCoulombIntegrals }
+  out: { Out: $HPHHCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $HPHPCoulombIntegrals
-  out:
-    Out: $HPHPCoulombIntegrals
-
+  in: { Data: $HPHPCoulombIntegrals }
+  out: { Out: $HPHPCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $HPPHCoulombIntegrals
-  out:
-    Out: $HPPHCoulombIntegrals
-
+  in: { Data: $HPPHCoulombIntegrals }
+  out: { Out: $HPPHCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $HPPPCoulombIntegrals
-  out:
-    Out: $HPPPCoulombIntegrals
-
+  in: { Data: $HPPPCoulombIntegrals }
+  out: { Out: $HPPPCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $PHHHCoulombIntegrals
-  out:
-    Out: $PHHHCoulombIntegrals
-
+  in: { Data: $PHHHCoulombIntegrals }
+  out: { Out: $PHHHCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $PHHPCoulombIntegrals
-  out:
-    Out: $PHHPCoulombIntegrals
-
+  in: { Data: $PHHPCoulombIntegrals }
+  out: { Out: $PHHPCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $PHPHCoulombIntegrals
-  out:
-    Out: $PHPHCoulombIntegrals
-
+  in: { Data: $PHPHCoulombIntegrals }
+  out: { Out: $PHPHCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $PHPPCoulombIntegrals
-  out:
-    Out: $PHPPCoulombIntegrals
-
+  in: { Data: $PHPPCoulombIntegrals }
+  out: { Out: $PHPPCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $PPHHCoulombIntegrals
-  out:
-    Out: $PPHHCoulombIntegrals
-
+  in: { Data: $PPHHCoulombIntegrals }
+  out: { Out: $PPHHCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $PPHPCoulombIntegrals
-  out:
-    Out: $PPHPCoulombIntegrals
-
+  in: { Data: $PPHPCoulombIntegrals }
+  out: { Out: $PPHPCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $PPPHCoulombIntegrals
-  out:
-    Out: $PPPHCoulombIntegrals
-
+  in: { Data: $PPPHCoulombIntegrals }
+  out: { Out: $PPPHCoulombIntegrals }
 
 - name: TensorUnrestricter
-  in:
-    Data: $PPPPCoulombIntegrals
-  out:
-    Out: $PPPPCoulombIntegrals
-
+  in: { Data: $PPPPCoulombIntegrals }
+  out: { Out: $PPPPCoulombIntegrals }
 
 - name: TensorAntisymmetrizer
   in:
@@ -226,48 +198,6 @@
     PPHPCoulombIntegrals: $PPHPCoulombIntegrals
     PPPHCoulombIntegrals: $PPPHCoulombIntegrals
     PPPPCoulombIntegrals: $PPPPCoulombIntegrals
-  out:
-    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
-    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
-    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
-    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
-    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
-    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
-    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
-    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
-    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
-    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
-    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
-    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
-    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
-    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
-    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
-    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
-
-
-- name: TensorWriter
-  in:
-    Data: $PPHHCoulombIntegrals
-    file: "PPHHCoulombIntegrals.unrestricted"
-  out:
-    {}
-
-
-- name: TensorWriter
-  in:
-    Data: $HoleEigenEnergies
-    file: "HoleEigenEnergies.unrestricted"
-  out:
-    {}
-
-
-- name: TensorWriter
-  in:
-    Data: $ParticleEigenEnergies
-    file: "ParticleEigenEnergies.unrestricted"
-  out:
-    {}
-
 
 - name: UccsdAmplitudesFromCoulombIntegrals
   in:
@@ -275,9 +205,10 @@
     ParticleEigenEnergies: $ParticleEigenEnergies
     antisymmetrize: 1
     unrestricted: 1
-    maxIterations: 50
-    mixer: "DiisMixer"
-    energyConvergence: 0.00000000001
+    maxIterations: *maxIterations
+    mixer: *mixer
+    maxResidua: *maxResidua
+    energyConvergence: *energyConvergence
     HHHHCoulombIntegrals: $HHHHCoulombIntegrals
     HHHPCoulombIntegrals: $HHHPCoulombIntegrals
     HHPHCoulombIntegrals: $HHPHCoulombIntegrals
@@ -286,7 +217,6 @@
     HPHPCoulombIntegrals: $HPHPCoulombIntegrals
     HPPHCoulombIntegrals: $HPPHCoulombIntegrals
     HPPPCoulombIntegrals: $HPPPCoulombIntegrals
-    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
     PHHPCoulombIntegrals: $PHHPCoulombIntegrals
     PHPHCoulombIntegrals: $PHPHCoulombIntegrals
     PHPPCoulombIntegrals: $PHPPCoulombIntegrals
@@ -297,24 +227,20 @@
   out:
     UccsdEnergy: $UccsdEnergy
 
-
-- name: TensorWriter
-  in:
-    Data: $UccsdEnergy
-  out:
-    {}
-
+- { name: TensorWriter, in: { Data: $UccsdEnergy } }
 
 - name: UccsdAmplitudesFromCoulombIntegrals
   in:
-    HoleEigenEnergies: $HoleEigenEnergies
-    ParticleEigenEnergies: $ParticleEigenEnergies
     antisymmetrize: 1
     unrestricted: 1
     intermediates: 0
-    maxIterations: 50
-    mixer: "DiisMixer"
-    energyConvergence: 0.00000000001
+    maxIterations: *maxIterations
+    mixer: *mixer
+    maxResidua: *maxResidua
+    energyConvergence: *energyConvergence
+    # tensors
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
     HHHHCoulombIntegrals: $HHHHCoulombIntegrals
     HHHPCoulombIntegrals: $HHHPCoulombIntegrals
     HHPHCoulombIntegrals: $HHPHCoulombIntegrals
@@ -323,7 +249,6 @@
     HPHPCoulombIntegrals: $HPHPCoulombIntegrals
     HPPHCoulombIntegrals: $HPPHCoulombIntegrals
     HPPPCoulombIntegrals: $HPPPCoulombIntegrals
-    PHHHCoulombIntegrals: $PHHHCoulombIntegrals
     PHHPCoulombIntegrals: $PHHPCoulombIntegrals
     PHPHCoulombIntegrals: $PHPHCoulombIntegrals
     PHPPCoulombIntegrals: $PHPPCoulombIntegrals
@@ -333,10 +258,81 @@
     PPPPCoulombIntegrals: $PPPPCoulombIntegrals
   out:
     UccsdEnergy: $UccsdEnergyHirata
+    UccsdSinglesAmplitudes: $UccsdSinglesAmplitudes
+    UccsdDoublesAmplitudes: $UccsdDoublesAmplitudes
 
 
-- name: TensorWriter
+- { name: TensorWriter, in: { Data: $UccsdEnergyHirata } }
+
+- name: UccsdtAmplitudesFromCoulombIntegrals
   in:
-    Data: $UccsdEnergyHirata
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    antisymmetrize: 1
+    unrestricted: 1
+    maxIterations: *maxIterations
+    mixer: *mixer
+    maxResidua: *maxResidua
+    energyConvergence: *energyConvergence
+    # tensors
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
   out:
-    {}
+    UccsdtEnergy: $UccsdEnergy
+
+- { name: TensorWriter, in: { Data: $UccsdEnergy } }
+
+- name: CcsdEquationOfMotionDavidson
+  in:
+    intermediates: 1
+    eigenstates: 4
+    #maxBasisSize
+    amplitudesConvergence: *amplitudesConvergence
+    energyConvergence: *energyConvergence
+    # tensors
+    SinglesAmplitudes: $UccsdSinglesAmplitudes
+    DoublesAmplitudes: $UccsdDoublesAmplitudes
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+  comments: |
+    # Options for Fock Matrix
+    ParticleEigenEnergies
+    HoleEigenEnergies
+    HPFockMatrix
+    HHFockMatrix
+    PPFockMatrix
+    # structure factor
+    CoulombVertex
+    CoulombKernel
+    structureFactorRange
+    structureFactorOnlySingles
+    structureFactorOnlyDoubles
+    structureFactorHartreeInOneBody
+    structureFactorFockInOneBody
