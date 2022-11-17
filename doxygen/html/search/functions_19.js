@@ -107,7 +107,7 @@ var searchData=
   ['_7etensorcontraction_104',['~TensorContraction',['../classsisi4s_1_1TensorContraction.html#a695cbc7ec4ebe8e21dba2e27eca854e3',1,'sisi4s::TensorContraction']]],
   ['_7etensordata_105',['~TensorData',['../classsisi4s_1_1TensorData.html#a9f1d158f7bf077abea3ae190ebe92d1e',1,'sisi4s::TensorData']]],
   ['_7etensorgetmax_106',['~TensorGetMax',['../classsisi4s_1_1TensorGetMax.html#a8f2485a804de75e28df916787022fd64',1,'sisi4s::TensorGetMax']]],
-  ['_7etensornorm_107',['~TensorNorm',['../classsisi4s_1_1TensorNorm.html#a5b94caccaea0cfba3be7afa222b9220c',1,'sisi4s::TensorNorm']]],
+  ['_7etensornorm_107',['~TensorNorm',['../classsisi4s_1_1TensorNorm.html#acb7117e60831af3f72ef17bce031cf86',1,'sisi4s::TensorNorm']]],
   ['_7etensorreader_108',['~TensorReader',['../classsisi4s_1_1TensorReader.html#aeca06bec4bea67321447aba761c68da3',1,'sisi4s::TensorReader']]],
   ['_7etensorreduceijij_109',['~TensorReduceijij',['../structsisi4s_1_1TensorReduceijij.html#ae4e4b17fd6f39b095865b539446048f3',1,'sisi4s::TensorReduceijij']]],
   ['_7etensorslicer_110',['~TensorSlicer',['../structsisi4s_1_1TensorSlicer.html#ae2ed72bbd696bd2955a3729531be0cbc',1,'sisi4s::TensorSlicer']]],
