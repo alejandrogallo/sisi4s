@@ -59,6 +59,78 @@ in which case you can test the following
 
 ** TODO CTF
 
+* Input
+** Yaml
+
+For now the main input format of {{{sisi4s}}}
+is yaml. A typical input for an algorithm is the following
+
+#+begin_src yaml
+- name: UccsdAmplitudesFromCoulombIntegrals
+  in:
+    energyConvergence: 1e-8
+    maxIterations: 50
+    antisymmetrize: 1
+    unrestricted: 1
+    mixer: "DiisMixer"
+    maxResidua: 4
+    HoleEigenEnergies: $HoleEigenEnergies
+    ParticleEigenEnergies: $ParticleEigenEnergies
+    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+  out:
+    UccsdDoublesAmplitudes: $UccsdDoublesAmplitudes
+    UccsdSinglesAmplitudes: $UccsdSinglesAmplitudes
+    UccsdEnergy: $UccsdEnergy
+#+end_src
+
+From here, we can see that every algorithm block consists
+of an `in` section and an `out` section.
+
+#+begin_src yaml
+- name: UccsdAmplitudesFromCoulombIntegrals
+  in:
+    ...
+  out:
+    ...
+#+end_src
+
+Some rules extending yaml semantics have to be considered.
+Strings that start with a =$= sign are internal variables
+such as tensors. The reason of forcing this is to
+differentiate between yaml strings and symbols
+representing the name of an internal tensor.
+
+If you have a big file and you want to disable a step,
+in addition to =in= and =out=, you can supply a =disable=
+section with values =true= or =false=, i.e.,
+
+#+begin_src yaml
+- name: UccsdAmplitudesFromCoulombIntegrals
+  disable: true
+  in:
+    ...
+  out:
+    ...
+#+end_src
+
+will simply ignore =UccsdAmplitudesFromCoulombIntegrals=.
+
+
+
 * TODO Developer's corner
 
 ** TODO Writing documentation

@@ -27,6 +27,8 @@ InputFileParser<InputFileFormat::YAML>::parse() {
     std::string name = node["name"].as<std::string>();
     std::vector<Argument> arguments;
 
+    if (node["disable"] && node["disable"].as<bool>()) continue;
+
     for (auto const& _inout: {"in", "out"}) {
       YAML::Node const inout = node[_inout];
       for (YAML::const_iterator it = inout.begin(); it != inout.end(); ++it) {
