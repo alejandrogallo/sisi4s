@@ -67,27 +67,100 @@ in which case you can test the following
 2.3 TODO CTF
 ~~~~~~~~~~~~
 
-3 TODO Developer's corner
+3 Input
+-------
+
+3.1 Yaml
+~~~~~~~~
+
+For now the main input format of ``SiSi4S``
+is yaml. A typical input for an algorithm is the following
+
+.. code:: yaml
+
+    - name: UccsdAmplitudesFromCoulombIntegrals
+      in:
+        energyConvergence: 1e-8
+        maxIterations: 50
+        antisymmetrize: 1
+        unrestricted: 1
+        mixer: "DiisMixer"
+        maxResidua: 4
+        HoleEigenEnergies: $HoleEigenEnergies
+        ParticleEigenEnergies: $ParticleEigenEnergies
+        HHHHCoulombIntegrals: $HHHHCoulombIntegrals
+        PPPPCoulombIntegrals: $PPPPCoulombIntegrals
+        HHHPCoulombIntegrals: $HHHPCoulombIntegrals
+        HHPPCoulombIntegrals: $HHPPCoulombIntegrals
+        HPHHCoulombIntegrals: $HPHHCoulombIntegrals
+        HPHPCoulombIntegrals: $HPHPCoulombIntegrals
+        HPPPCoulombIntegrals: $HPPPCoulombIntegrals
+        PPHHCoulombIntegrals: $PPHHCoulombIntegrals
+        PPHPCoulombIntegrals: $PPHPCoulombIntegrals
+        HPPHCoulombIntegrals: $HPPHCoulombIntegrals
+        PHPPCoulombIntegrals: $PHPPCoulombIntegrals
+        HHPHCoulombIntegrals: $HHPHCoulombIntegrals
+        PPPHCoulombIntegrals: $PPPHCoulombIntegrals
+        PHPHCoulombIntegrals: $PHPHCoulombIntegrals
+        PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+      out:
+        UccsdDoublesAmplitudes: $UccsdDoublesAmplitudes
+        UccsdSinglesAmplitudes: $UccsdSinglesAmplitudes
+        UccsdEnergy: $UccsdEnergy
+
+From here, we can see that every algorithm block consists
+of an \`in\` section and an \`out\` section.
+
+.. code:: yaml
+
+    - name: UccsdAmplitudesFromCoulombIntegrals
+      in:
+        ...
+      out:
+        ...
+
+Some rules extending yaml semantics have to be considered.
+Strings that start with a ``$`` sign are internal variables
+such as tensors. The reason of forcing this is to
+differentiate between yaml strings and symbols
+representing the name of an internal tensor.
+
+If you have a big file and you want to disable a step,
+in addition to ``in`` and ``out``, you can supply a ``disable``
+section with values ``true`` or ``false``, i.e.,
+
+.. code:: yaml
+
+    - name: UccsdAmplitudesFromCoulombIntegrals
+      disable: true
+      in:
+        ...
+      out:
+        ...
+
+will simply ignore ``UccsdAmplitudesFromCoulombIntegrals``.
+
+4 TODO Developer's corner
 -------------------------
 
-3.1 TODO Writing documentation
+4.1 TODO Writing documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-3.2 TODO Adding new algorithms
+4.2 TODO Adding new algorithms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-4 Technical details
+5 Technical details
 -------------------
 
 .. _binary-tensor-file-format:
 
-4.1 Binary tensor file format
+5.1 Binary tensor file format
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - all integers in the headers are encoded in
   `little endian <https://en.wikipedia.org/wiki/Endianness>`_.
 
-4.1.1 Header
+5.1.1 Header
 ^^^^^^^^^^^^
 
 .. table::
@@ -118,7 +191,7 @@ in which case you can test the following
 
 .. _tensor-flags:
 
-4.1.1.1 Tensor flags
+5.1.1.1 Tensor flags
 ::::::::::::::::::::
 
 .. table::
@@ -139,7 +212,7 @@ in which case you can test the following
 
 .. _dimension-information:
 
-4.1.2 Dimension information
+5.1.2 Dimension information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After the tensor header, dimension headers follow for each dimension,
@@ -163,7 +236,7 @@ starting with the leftmost index.
 
 .. _dimension-flags:
 
-4.1.2.1 Dimension flags
+5.1.2.1 Dimension flags
 :::::::::::::::::::::::
 
 .. table::
@@ -188,7 +261,7 @@ case.
 
 .. _variable-chunks:
 
-4.1.3 Variable chunks
+5.1.3 Variable chunks
 ^^^^^^^^^^^^^^^^^^^^^
 
 After the fixed chunks for each tensor dimension come the variable
@@ -211,7 +284,7 @@ that implementations can skip ignored or unknown chunks.
 
 .. _symmetry-chunk:
 
-4.1.3.1 Symmetry chunk
+5.1.3.1 Symmetry chunk
 ::::::::::::::::::::::
 
 Symmetry information for each known symmetry operation on the tensor's
@@ -255,7 +328,7 @@ and :math:`\mathrm{pad}_a(N)=\mathrm{align}_a(N)-N`.
 
 .. _symmetry-flags:
 
-4.1.3.1.1 Symmetry flags
+5.1.3.1.1 Symmetry flags
 ''''''''''''''''''''''''
 
 .. table::
@@ -276,7 +349,7 @@ and :math:`\mathrm{pad}_a(N)=\mathrm{align}_a(N)-N`.
 
 .. _tensor-data:
 
-4.1.4 Tensor data
+5.1.4 Tensor data
 ^^^^^^^^^^^^^^^^^
 
 The global index :math:`I` of each tensor value is given by
@@ -291,7 +364,7 @@ dimension information.
 
 .. _sequential-values:
 
-4.1.4.1 Sequential values
+5.1.4.1 Sequential values
 :::::::::::::::::::::::::
 
 If the IX flag is 0 the tensor values are given in a continuous sequence
@@ -323,7 +396,7 @@ index-value storage is supported in version 1.0.
 
 .. _index-value-storage:
 
-4.1.4.2 Index-value storage
+5.1.4.2 Index-value storage
 :::::::::::::::::::::::::::
 
 If the IX flag is 1 the tensor values are given in pairs of index and
@@ -349,7 +422,7 @@ value.
 
 .. _fourier-transformed-overlap-densities:
 
-4.2 Fourier Transformed Overlap Densities
+5.2 Fourier Transformed Overlap Densities
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``FTOD`` is one of the possible input files, providing information on
@@ -378,7 +451,7 @@ following structure
 
 There is also a binary version ``FTODDUMP`` of this file.
 
-4.2.1 Header
+5.2.1 Header
 ^^^^^^^^^^^^
 
 - The first line is reserved for comments. It is ignored by cc4s
@@ -401,7 +474,7 @@ There is also a binary version ``FTODDUMP`` of this file.
 
 .. _overlap-densities:
 
-4.2.2 Overlap densities
+5.2.2 Overlap densities
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 The rest of the file contains lines of at least 6 numbers, again in
@@ -433,7 +506,7 @@ assumed to be zero.
 
 .. _fourier-transformed-overlap-densities---binary:
 
-4.3 Fourier Transformed Overlap Densities - Binary
+5.3 Fourier Transformed Overlap Densities - Binary
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``FTODDUMP`` is one of the possible input files, providing information
@@ -465,7 +538,7 @@ chunk.
 
 .. _header:
 
-4.3.1 Header
+5.3.1 Header
 ^^^^^^^^^^^^
 
 .. table::
@@ -492,7 +565,7 @@ chunk.
 
 .. _data-chunks:
 
-4.3.2 Data Chunks
+5.3.2 Data Chunks
 ^^^^^^^^^^^^^^^^^
 
 Each chunk starts with an 8 character magic and an 8 byte integer giving
@@ -502,7 +575,7 @@ them.
 
 .. _real-part-of-chi:
 
-4.3.2.1 Real part of :math:`\chi`
+5.3.2.1 Real part of :math:`\chi`
 :::::::::::::::::::::::::::::::::
 
 .. table::
@@ -529,14 +602,14 @@ them.
 
 .. _imaginary-part-of-chi:
 
-4.3.2.2 Imaginary part of :math:`\chi`
+5.3.2.2 Imaginary part of :math:`\chi`
 ::::::::::::::::::::::::::::::::::::::
 
 Analogous to the real part chunk but with the magic "``FTODimag``".
 
 .. _real-part-of-chi_ia:
 
-4.3.2.3 Real part of :math:`\chi_i^a`
+5.3.2.3 Real part of :math:`\chi_i^a`
 :::::::::::::::::::::::::::::::::::::
 
 .. table::
@@ -567,14 +640,14 @@ Analogous to the real part chunk but with the magic "``FTODimag``".
 
 .. _imaginary-part-of-chi_ia:
 
-4.3.2.4 Imaginary part of :math:`\chi_i^a`
+5.3.2.4 Imaginary part of :math:`\chi_i^a`
 ::::::::::::::::::::::::::::::::::::::::::
 
 Analogous to the real part chunk but with the magic "``FTIAimag``".
 
 .. _eigenenergies-varepsilon_p:
 
-4.3.2.5 Eigenenergies :math:`\varepsilon_p`
+5.3.2.5 Eigenenergies :math:`\varepsilon_p`
 :::::::::::::::::::::::::::::::::::::::::::
 
 .. table::

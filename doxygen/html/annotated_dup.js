@@ -239,6 +239,7 @@ var annotated_dup =
       [ "LapackInverse", "classsisi4s_1_1LapackInverse.html", null ],
       [ "LapackInverse< Complex64 >", "classsisi4s_1_1LapackInverse_3_01Complex64_01_4.html", "classsisi4s_1_1LapackInverse_3_01Complex64_01_4" ],
       [ "LapackMatrix", "classsisi4s_1_1LapackMatrix.html", "classsisi4s_1_1LapackMatrix" ],
+      [ "Let", "classsisi4s_1_1Let.html", "classsisi4s_1_1Let" ],
       [ "LinearMixer", "classsisi4s_1_1LinearMixer.html", "classsisi4s_1_1LinearMixer" ],
       [ "LineNumberStream", "classsisi4s_1_1LineNumberStream.html", "classsisi4s_1_1LineNumberStream" ],
       [ "Log", "classsisi4s_1_1Log.html", null ],
