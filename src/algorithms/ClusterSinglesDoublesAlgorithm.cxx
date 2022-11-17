@@ -248,9 +248,9 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
 
 template <typename F>
 PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
-  std::initializer_list<std::string> amplitudeNames,
-  std::initializer_list<std::initializer_list<int>> amplitudeLens,
-  std::initializer_list<std::string> amplitudeIndices
+  std::vector<std::string> amplitudeNames,
+  std::vector<std::vector<TensorIndex>> amplitudeLens,
+  std::vector<std::string> amplitudeIndices
 ) {
   std::vector<PTR(Tensor<F>)> amplitudeTensors;
   auto lensIterator( amplitudeLens.begin() );
@@ -266,7 +266,7 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
              << YAML::Value << initialDataName.str();
     } else {
       // otherwise, use zeros as initial amplitudes
-      std::vector<int> lens(*lensIterator);
+      std::vector<TensorIndex> lens(*lensIterator);
       std::vector<int> syms(lens.size(), NS);
       amplitudeTensors.push_back(
         NEW(Tensor<F>,
@@ -282,12 +282,26 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
   );
 }
 
+template
+PTR(FockVector<sisi4s::Float64>)
+  ClusterSinglesDoublesAlgorithm::createAmplitudes
+  (std::vector<std::string> amplitudeNames,
+   std::vector<std::vector<TensorIndex>> amplitudeLens,
+   std::vector<std::string> amplitudeIndices);
+
+template
+PTR(FockVector<sisi4s::Complex64>)
+  ClusterSinglesDoublesAlgorithm::createAmplitudes
+  (std::vector<std::string> amplitudeNames,
+   std::vector<std::vector<TensorIndex>> amplitudeLens,
+   std::vector<std::string> amplitudeIndices);
 
 template <typename F>
-void ClusterSinglesDoublesAlgorithm::storeAmplitudes(
-  const PTR(const FockVector<F>) &amplitudes,
-  std::initializer_list<std::string> names
-) {
+void
+ClusterSinglesDoublesAlgorithm::storeAmplitudes
+(const PTR(const FockVector<F>)
+ &amplitudes,
+ std::vector<std::string> names) {
   int component(0);
   for (auto name: names) {
     if (isArgumentGiven(getDataName(name, "Amplitudes"))) {

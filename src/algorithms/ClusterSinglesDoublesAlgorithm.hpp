@@ -10,7 +10,7 @@
 #include <util/Tensor.hpp>
 
 #include <string>
-#include <initializer_list>
+#include <vector>
 
 namespace sisi4s {
   /**
@@ -104,15 +104,15 @@ namespace sisi4s {
 
     template <typename F>
     PTR(FockVector<F>) createAmplitudes(
-      std::initializer_list<std::string> amplitudeNames,
-      std::initializer_list<std::initializer_list<int>> amplitudeLens,
-      std::initializer_list<std::string> amplitudeIndices
+      std::vector<std::string> amplitudeNames,
+      std::vector<std::vector<TensorIndex>> amplitudeLens,
+      std::vector<std::string> amplitudeIndices
     );
 
     template <typename F>
     void storeAmplitudes(
       const PTR(const FockVector<F>) &amplitudes,
-      std::initializer_list<std::string> names
+      std::vector<std::string> names
     );
 
     /**
