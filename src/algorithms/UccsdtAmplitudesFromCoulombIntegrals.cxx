@@ -29,6 +29,8 @@ UccsdtAmplitudesFromCoulombIntegrals::~UccsdtAmplitudesFromCoulombIntegrals() {
 }
 
 void UccsdtAmplitudesFromCoulombIntegrals::run() {
+  setIntegerArgument("antisymmetrize", 1);
+  setIntegerArgument("unrestricted", 1);
   ClusterSinglesDoublesTriplesAlgorithm::run();
 }
 
