@@ -1,3 +1,16 @@
+#include <util/Documentation.hpp>
+SISI_DOC(
+* Documentation
+
+This module contains convenience routines in order to read
+molecular orbitals from the following codes:
+
+- NWCHEM
+- PSI4
+- TURBOMOLE
+
+
+* END)
 #include <string>
 #include <vector>
 #include <algorithm>
