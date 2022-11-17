@@ -56,62 +56,66 @@
 </li>
 <li><p><a class="reference internal" href="#input" id="id28">3 Input</a></p>
 <ul>
-<li><p><a class="reference internal" href="#yaml" id="id29">3.1 Yaml</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#todo-developer-s-corner" id="id30">4 TODO Developer’s corner</a></p>
+<li><p><a class="reference internal" href="#yaml" id="id29">3.1 Yaml</a></p>
 <ul>
-<li><p><a class="reference internal" href="#todo-writing-documentation" id="id31">4.1 TODO Writing documentation</a></p></li>
-<li><p><a class="reference internal" href="#todo-adding-new-algorithms" id="id32">4.2 TODO Adding new algorithms</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#technical-details" id="id33">5 Technical details</a></p>
-<ul>
-<li><p><a class="reference internal" href="#binary-tensor-file-format" id="id34">5.1 Binary tensor file format</a></p>
-<ul>
-<li><p><a class="reference internal" href="#header" id="id35">5.1.1 Header</a></p>
-<ul>
-<li><p><a class="reference internal" href="#tensor-flags" id="id36">5.1.1.1 Tensor flags</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#dimension-information" id="id37">5.1.2 Dimension information</a></p>
-<ul>
-<li><p><a class="reference internal" href="#dimension-flags" id="id38">5.1.2.1 Dimension flags</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#variable-chunks" id="id39">5.1.3 Variable chunks</a></p>
-<ul>
-<li><p><a class="reference internal" href="#symmetry-chunk" id="id40">5.1.3.1 Symmetry chunk</a></p>
-<ul>
-<li><p><a class="reference internal" href="#symmetry-flags" id="id41">5.1.3.1.1 Symmetry flags</a></p></li>
+<li><p><a class="reference internal" href="#disabling-steps" id="id30">3.1.1 Disabling steps</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#tensor-data" id="id42">5.1.4 Tensor data</a></p>
+<li><p><a class="reference internal" href="#todo-developer-s-corner" id="id31">4 TODO Developer’s corner</a></p>
 <ul>
-<li><p><a class="reference internal" href="#sequential-values" id="id43">5.1.4.1 Sequential values</a></p></li>
-<li><p><a class="reference internal" href="#index-value-storage" id="id44">5.1.4.2 Index-value storage</a></p></li>
+<li><p><a class="reference internal" href="#todo-writing-documentation" id="id32">4.1 TODO Writing documentation</a></p></li>
+<li><p><a class="reference internal" href="#todo-adding-new-algorithms" id="id33">4.2 TODO Adding new algorithms</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#technical-details" id="id34">5 Technical details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#binary-tensor-file-format" id="id35">5.1 Binary tensor file format</a></p>
+<ul>
+<li><p><a class="reference internal" href="#header" id="id36">5.1.1 Header</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tensor-flags" id="id37">5.1.1.1 Tensor flags</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#dimension-information" id="id38">5.1.2 Dimension information</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dimension-flags" id="id39">5.1.2.1 Dimension flags</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#variable-chunks" id="id40">5.1.3 Variable chunks</a></p>
+<ul>
+<li><p><a class="reference internal" href="#symmetry-chunk" id="id41">5.1.3.1 Symmetry chunk</a></p>
+<ul>
+<li><p><a class="reference internal" href="#symmetry-flags" id="id42">5.1.3.1.1 Symmetry flags</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#fourier-transformed-overlap-densities" id="id45">5.2 Fourier Transformed Overlap Densities</a></p>
+<li><p><a class="reference internal" href="#tensor-data" id="id43">5.1.4 Tensor data</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id12" id="id46">5.2.1 Header</a></p></li>
-<li><p><a class="reference internal" href="#overlap-densities" id="id47">5.2.2 Overlap densities</a></p></li>
+<li><p><a class="reference internal" href="#sequential-values" id="id44">5.1.4.1 Sequential values</a></p></li>
+<li><p><a class="reference internal" href="#index-value-storage" id="id45">5.1.4.2 Index-value storage</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#fourier-transformed-overlap-densities-binary" id="id48">5.3 Fourier Transformed Overlap Densities - Binary</a></p>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#fourier-transformed-overlap-densities" id="id46">5.2 Fourier Transformed Overlap Densities</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id15" id="id49">5.3.1 Header</a></p></li>
-<li><p><a class="reference internal" href="#data-chunks" id="id50">5.3.2 Data Chunks</a></p>
+<li><p><a class="reference internal" href="#id12" id="id47">5.2.1 Header</a></p></li>
+<li><p><a class="reference internal" href="#overlap-densities" id="id48">5.2.2 Overlap densities</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#fourier-transformed-overlap-densities-binary" id="id49">5.3 Fourier Transformed Overlap Densities - Binary</a></p>
 <ul>
-<li><p><a class="reference internal" href="#real-part-of-chi" id="id51">5.3.2.1 Real part of <span class="math notranslate nohighlight">\(\chi\)</span></a></p></li>
-<li><p><a class="reference internal" href="#imaginary-part-of-chi" id="id52">5.3.2.2 Imaginary part of <span class="math notranslate nohighlight">\(\chi\)</span></a></p></li>
-<li><p><a class="reference internal" href="#real-part-of-chi-i-a" id="id53">5.3.2.3 Real part of <span class="math notranslate nohighlight">\(\chi_i^a\)</span></a></p></li>
-<li><p><a class="reference internal" href="#imaginary-part-of-chi-i-a" id="id54">5.3.2.4 Imaginary part of <span class="math notranslate nohighlight">\(\chi_i^a\)</span></a></p></li>
-<li><p><a class="reference internal" href="#eigenenergies-varepsilon-p" id="id55">5.3.2.5 Eigenenergies <span class="math notranslate nohighlight">\(\varepsilon_p\)</span></a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id50">5.3.1 Header</a></p></li>
+<li><p><a class="reference internal" href="#data-chunks" id="id51">5.3.2 Data Chunks</a></p>
+<ul>
+<li><p><a class="reference internal" href="#real-part-of-chi" id="id52">5.3.2.1 Real part of <span class="math notranslate nohighlight">\(\chi\)</span></a></p></li>
+<li><p><a class="reference internal" href="#imaginary-part-of-chi" id="id53">5.3.2.2 Imaginary part of <span class="math notranslate nohighlight">\(\chi\)</span></a></p></li>
+<li><p><a class="reference internal" href="#real-part-of-chi-i-a" id="id54">5.3.2.3 Real part of <span class="math notranslate nohighlight">\(\chi_i^a\)</span></a></p></li>
+<li><p><a class="reference internal" href="#imaginary-part-of-chi-i-a" id="id55">5.3.2.4 Imaginary part of <span class="math notranslate nohighlight">\(\chi_i^a\)</span></a></p></li>
+<li><p><a class="reference internal" href="#eigenenergies-varepsilon-p" id="id56">5.3.2.5 Eigenenergies <span class="math notranslate nohighlight">\(\varepsilon_p\)</span></a></p></li>
 </ul>
 </li>
 </ul>
@@ -226,6 +230,8 @@ Strings that start with a <code class="docutils literal notranslate"><span class
 such as tensors. The reason of forcing this is to
 differentiate between yaml strings and symbols
 representing the name of an internal tensor.</p>
+<section id="disabling-steps">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">3.1.1 Disabling steps</a><a class="headerlink" href="#disabling-steps" title="Permalink to this heading">¶</a></h3>
 <p>If you have a big file and you want to disable a step,
 in addition to <code class="docutils literal notranslate"><span class="pre">in</span></code> and <code class="docutils literal notranslate"><span class="pre">out</span></code>, you can supply a <code class="docutils literal notranslate"><span class="pre">disable</span></code>
 section with values <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>, i.e.,</p>
@@ -240,25 +246,26 @@ section with values <code class="docutils literal notranslate"><span class="pre"
 <p>will simply ignore <code class="docutils literal notranslate"><span class="pre">UccsdAmplitudesFromCoulombIntegrals</span></code>.</p>
 </section>
 </section>
+</section>
 <section id="todo-developer-s-corner">
-<h1><a class="toc-backref" href="#id30" role="doc-backlink">4 TODO Developer’s corner</a><a class="headerlink" href="#todo-developer-s-corner" title="Permalink to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id31" role="doc-backlink">4 TODO Developer’s corner</a><a class="headerlink" href="#todo-developer-s-corner" title="Permalink to this heading">¶</a></h1>
 <section id="todo-writing-documentation">
-<h2><a class="toc-backref" href="#id31" role="doc-backlink">4.1 TODO Writing documentation</a><a class="headerlink" href="#todo-writing-documentation" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">4.1 TODO Writing documentation</a><a class="headerlink" href="#todo-writing-documentation" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="todo-adding-new-algorithms">
-<h2><a class="toc-backref" href="#id32" role="doc-backlink">4.2 TODO Adding new algorithms</a><a class="headerlink" href="#todo-adding-new-algorithms" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">4.2 TODO Adding new algorithms</a><a class="headerlink" href="#todo-adding-new-algorithms" title="Permalink to this heading">¶</a></h2>
 </section>
 </section>
 <section id="technical-details">
-<h1><a class="toc-backref" href="#id33" role="doc-backlink">5 Technical details</a><a class="headerlink" href="#technical-details" title="Permalink to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id34" role="doc-backlink">5 Technical details</a><a class="headerlink" href="#technical-details" title="Permalink to this heading">¶</a></h1>
 <section id="binary-tensor-file-format">
-<span id="id1"></span><h2><a class="toc-backref" href="#id34" role="doc-backlink">5.1 Binary tensor file format</a><a class="headerlink" href="#binary-tensor-file-format" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2><a class="toc-backref" href="#id35" role="doc-backlink">5.1 Binary tensor file format</a><a class="headerlink" href="#binary-tensor-file-format" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>all integers in the headers are encoded in
 <a class="reference external" href="https://en.wikipedia.org/wiki/Endianness">little endian</a>.</p></li>
 </ul>
 <section id="header">
-<h3><a class="toc-backref" href="#id35" role="doc-backlink">5.1.1 Header</a><a class="headerlink" href="#header" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">5.1.1 Header</a><a class="headerlink" href="#header" title="Permalink to this heading">¶</a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Offset</p></th>
@@ -327,7 +334,7 @@ section with values <code class="docutils literal notranslate"><span class="pre"
 </table>
 <p>&lt;note&gt;TODO: alignment of data chunks or not&lt;/note&gt;</p>
 <section id="tensor-flags">
-<span id="id2"></span><h4><a class="toc-backref" href="#id36" role="doc-backlink">5.1.1.1 Tensor flags</a><a class="headerlink" href="#tensor-flags" title="Permalink to this heading">¶</a></h4>
+<span id="id2"></span><h4><a class="toc-backref" href="#id37" role="doc-backlink">5.1.1.1 Tensor flags</a><a class="headerlink" href="#tensor-flags" title="Permalink to this heading">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Bit</p></th>
@@ -357,7 +364,7 @@ section with values <code class="docutils literal notranslate"><span class="pre"
 </section>
 </section>
 <section id="dimension-information">
-<span id="id3"></span><h3><a class="toc-backref" href="#id37" role="doc-backlink">5.1.2 Dimension information</a><a class="headerlink" href="#dimension-information" title="Permalink to this heading">¶</a></h3>
+<span id="id3"></span><h3><a class="toc-backref" href="#id38" role="doc-backlink">5.1.2 Dimension information</a><a class="headerlink" href="#dimension-information" title="Permalink to this heading">¶</a></h3>
 <p>After the tensor header, dimension headers follow for each dimension,
 starting with the leftmost index.</p>
 <table class="docutils align-default">
@@ -403,7 +410,7 @@ starting with the leftmost index.</p>
 </tbody>
 </table>
 <section id="dimension-flags">
-<span id="id4"></span><h4><a class="toc-backref" href="#id38" role="doc-backlink">5.1.2.1 Dimension flags</a><a class="headerlink" href="#dimension-flags" title="Permalink to this heading">¶</a></h4>
+<span id="id4"></span><h4><a class="toc-backref" href="#id39" role="doc-backlink">5.1.2.1 Dimension flags</a><a class="headerlink" href="#dimension-flags" title="Permalink to this heading">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Bit</p></th>
@@ -436,7 +443,7 @@ case.</p>
 </section>
 </section>
 <section id="variable-chunks">
-<span id="id5"></span><h3><a class="toc-backref" href="#id39" role="doc-backlink">5.1.3 Variable chunks</a><a class="headerlink" href="#variable-chunks" title="Permalink to this heading">¶</a></h3>
+<span id="id5"></span><h3><a class="toc-backref" href="#id40" role="doc-backlink">5.1.3 Variable chunks</a><a class="headerlink" href="#variable-chunks" title="Permalink to this heading">¶</a></h3>
 <p>After the fixed chunks for each tensor dimension come the variable
 chunks providing additional information on the structure of the tensor
 data, such as on symmetry relations. Each variable chunk provides the
@@ -473,7 +480,7 @@ that implementations can skip ignored or unknown chunks.</p>
 </tbody>
 </table>
 <section id="symmetry-chunk">
-<span id="id6"></span><h4><a class="toc-backref" href="#id40" role="doc-backlink">5.1.3.1 Symmetry chunk</a><a class="headerlink" href="#symmetry-chunk" title="Permalink to this heading">¶</a></h4>
+<span id="id6"></span><h4><a class="toc-backref" href="#id41" role="doc-backlink">5.1.3.1 Symmetry chunk</a><a class="headerlink" href="#symmetry-chunk" title="Permalink to this heading">¶</a></h4>
 <p>Symmetry information for each known symmetry operation on the tensor’s
 index order. Each symmetry operation consists of a permutation
 <span class="math notranslate nohighlight">\(\sigma(a,b,\ldots)\)</span> of the indices and a subsequent operation <span class="math notranslate nohighlight">\(s(x)\)</span> on
@@ -557,7 +564,7 @@ s\left(T_{\sigma(i,j,k,l)}\right)\,, \text{ with } s(x) = -x \text{ and
 <p>where <span class="math notranslate nohighlight">\(\textrm{align}_a(N)=a\lceil N/a \rceil\)</span>
 and <span class="math notranslate nohighlight">\(\mathrm{pad}_a(N)=\mathrm{align}_a(N)-N\)</span>.</p>
 <section id="symmetry-flags">
-<span id="id7"></span><h5><a class="toc-backref" href="#id41" role="doc-backlink">5.1.3.1.1 Symmetry flags</a><a class="headerlink" href="#symmetry-flags" title="Permalink to this heading">¶</a></h5>
+<span id="id7"></span><h5><a class="toc-backref" href="#id42" role="doc-backlink">5.1.3.1.1 Symmetry flags</a><a class="headerlink" href="#symmetry-flags" title="Permalink to this heading">¶</a></h5>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Bit</p></th>
@@ -588,7 +595,7 @@ and <span class="math notranslate nohighlight">\(\mathrm{pad}_a(N)=\mathrm{align
 </section>
 </section>
 <section id="tensor-data">
-<span id="id8"></span><h3><a class="toc-backref" href="#id42" role="doc-backlink">5.1.4 Tensor data</a><a class="headerlink" href="#tensor-data" title="Permalink to this heading">¶</a></h3>
+<span id="id8"></span><h3><a class="toc-backref" href="#id43" role="doc-backlink">5.1.4 Tensor data</a><a class="headerlink" href="#tensor-data" title="Permalink to this heading">¶</a></h3>
 <p>The global index <span class="math notranslate nohighlight">\(I\)</span> of each tensor value is given by</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">bN_0</span> <span class="o">+</span> <span class="n">cN_0N_1</span> <span class="o">+</span> \<span class="n">ldots</span>\<span class="p">,,</span>
 </pre></div>
@@ -597,7 +604,7 @@ and <span class="math notranslate nohighlight">\(\mathrm{pad}_a(N)=\mathrm{align
 <span class="math notranslate nohighlight">\(a,b,\ldots\)</span> is the index in each dimension in the order given in the
 dimension information.</p>
 <section id="sequential-values">
-<span id="id9"></span><h4><a class="toc-backref" href="#id43" role="doc-backlink">5.1.4.1 Sequential values</a><a class="headerlink" href="#sequential-values" title="Permalink to this heading">¶</a></h4>
+<span id="id9"></span><h4><a class="toc-backref" href="#id44" role="doc-backlink">5.1.4.1 Sequential values</a><a class="headerlink" href="#sequential-values" title="Permalink to this heading">¶</a></h4>
 <p>If the IX flag is 0 the tensor values are given in a continuous sequence
 of ascending global index <span class="math notranslate nohighlight">\(I\)</span>.</p>
 <div class="admonition note">
@@ -651,7 +658,7 @@ index-value storage is supported in version 1.0.</p>
 </table>
 </section>
 <section id="index-value-storage">
-<span id="id10"></span><h4><a class="toc-backref" href="#id44" role="doc-backlink">5.1.4.2 Index-value storage</a><a class="headerlink" href="#index-value-storage" title="Permalink to this heading">¶</a></h4>
+<span id="id10"></span><h4><a class="toc-backref" href="#id45" role="doc-backlink">5.1.4.2 Index-value storage</a><a class="headerlink" href="#index-value-storage" title="Permalink to this heading">¶</a></h4>
 <p>If the IX flag is 1 the tensor values are given in pairs of index and
 value.</p>
 <table class="docutils align-default">
@@ -706,7 +713,7 @@ value.</p>
 </section>
 </section>
 <section id="fourier-transformed-overlap-densities">
-<span id="id11"></span><h2><a class="toc-backref" href="#id45" role="doc-backlink">5.2 Fourier Transformed Overlap Densities</a><a class="headerlink" href="#fourier-transformed-overlap-densities" title="Permalink to this heading">¶</a></h2>
+<span id="id11"></span><h2><a class="toc-backref" href="#id46" role="doc-backlink">5.2 Fourier Transformed Overlap Densities</a><a class="headerlink" href="#fourier-transformed-overlap-densities" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">FTOD</span></code> is one of the possible input files, providing information on
 the orbitals and the eigenenergies of the reference system. The file
 provides the Fourier transformed overlap densities <span class="math notranslate nohighlight">\(\chi_q^p({\bf G})\)</span>
@@ -723,7 +730,7 @@ given by</p>
 following structure</p>
 <p>There is also a binary version <code class="docutils literal notranslate"><span class="pre">FTODDUMP</span></code> of this file.</p>
 <section id="id12">
-<h3><a class="toc-backref" href="#id46" role="doc-backlink">5.2.1 Header</a><a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">5.2.1 Header</a><a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The first line is reserved for comments. It is ignored by cc4s</p></li>
 <li><p>The second line provides information on the size of the system. The
@@ -741,7 +748,7 @@ the structure of the data to follow.</p></li>
 </ul>
 </section>
 <section id="overlap-densities">
-<span id="id13"></span><h3><a class="toc-backref" href="#id47" role="doc-backlink">5.2.2 Overlap densities</a><a class="headerlink" href="#overlap-densities" title="Permalink to this heading">¶</a></h3>
+<span id="id13"></span><h3><a class="toc-backref" href="#id48" role="doc-backlink">5.2.2 Overlap densities</a><a class="headerlink" href="#overlap-densities" title="Permalink to this heading">¶</a></h3>
 <p>The rest of the file contains lines of at least 6 numbers, again in
 white-space separated columns:</p>
 <ol class="arabic simple">
@@ -766,7 +773,7 @@ assumed to be zero.</p>
 </section>
 </section>
 <section id="fourier-transformed-overlap-densities-binary">
-<span id="id14"></span><h2><a class="toc-backref" href="#id48" role="doc-backlink">5.3 Fourier Transformed Overlap Densities - Binary</a><a class="headerlink" href="#fourier-transformed-overlap-densities-binary" title="Permalink to this heading">¶</a></h2>
+<span id="id14"></span><h2><a class="toc-backref" href="#id49" role="doc-backlink">5.3 Fourier Transformed Overlap Densities - Binary</a><a class="headerlink" href="#fourier-transformed-overlap-densities-binary" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">FTODDUMP</span></code> is one of the possible input files, providing information
 on the orbitals and the eigenenergies of the reference system. The file
 provides the Fourier transformed overlap densities <span class="math notranslate nohighlight">\(\Gamma_{q\bf G}^p\)</span>
@@ -786,7 +793,7 @@ chunk. The order of the other chunks is arbitrary. The fields within a
 chunk are given by their respective offset relative to the start of the
 chunk.</p>
 <section id="id15">
-<span id="id16"></span><h3><a class="toc-backref" href="#id49" role="doc-backlink">5.3.1 Header</a><a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
+<span id="id16"></span><h3><a class="toc-backref" href="#id50" role="doc-backlink">5.3.1 Header</a><a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Offset</p></th>
@@ -840,13 +847,13 @@ chunk.</p>
 </table>
 </section>
 <section id="data-chunks">
-<span id="id17"></span><h3><a class="toc-backref" href="#id50" role="doc-backlink">5.3.2 Data Chunks</a><a class="headerlink" href="#data-chunks" title="Permalink to this heading">¶</a></h3>
+<span id="id17"></span><h3><a class="toc-backref" href="#id51" role="doc-backlink">5.3.2 Data Chunks</a><a class="headerlink" href="#data-chunks" title="Permalink to this heading">¶</a></h3>
 <p>Each chunk starts with an 8 character magic and an 8 byte integer giving
 the size of the entire chunk, including the magic and the size field.
 The size is provided so that implementations can skip chunks unknown to
 them.</p>
 <section id="real-part-of-chi">
-<span id="id18"></span><h4><a class="toc-backref" href="#id51" role="doc-backlink">5.3.2.1 Real part of <span class="math notranslate nohighlight">\(\chi\)</span></a><a class="headerlink" href="#real-part-of-chi" title="Permalink to this heading">¶</a></h4>
+<span id="id18"></span><h4><a class="toc-backref" href="#id52" role="doc-backlink">5.3.2.1 Real part of <span class="math notranslate nohighlight">\(\chi\)</span></a><a class="headerlink" href="#real-part-of-chi" title="Permalink to this heading">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Offset</p></th>
@@ -900,11 +907,11 @@ them.</p>
 </table>
 </section>
 <section id="imaginary-part-of-chi">
-<span id="id19"></span><h4><a class="toc-backref" href="#id52" role="doc-backlink">5.3.2.2 Imaginary part of <span class="math notranslate nohighlight">\(\chi\)</span></a><a class="headerlink" href="#imaginary-part-of-chi" title="Permalink to this heading">¶</a></h4>
+<span id="id19"></span><h4><a class="toc-backref" href="#id53" role="doc-backlink">5.3.2.2 Imaginary part of <span class="math notranslate nohighlight">\(\chi\)</span></a><a class="headerlink" href="#imaginary-part-of-chi" title="Permalink to this heading">¶</a></h4>
 <p>Analogous to the real part chunk but with the magic “<code class="docutils literal notranslate"><span class="pre">FTODimag</span></code>”.</p>
 </section>
 <section id="real-part-of-chi-i-a">
-<span id="real-part-of-chi-ia"></span><h4><a class="toc-backref" href="#id53" role="doc-backlink">5.3.2.3 Real part of <span class="math notranslate nohighlight">\(\chi_i^a\)</span></a><a class="headerlink" href="#real-part-of-chi-i-a" title="Permalink to this heading">¶</a></h4>
+<span id="real-part-of-chi-ia"></span><h4><a class="toc-backref" href="#id54" role="doc-backlink">5.3.2.3 Real part of <span class="math notranslate nohighlight">\(\chi_i^a\)</span></a><a class="headerlink" href="#real-part-of-chi-i-a" title="Permalink to this heading">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Offset</p></th>
@@ -968,11 +975,11 @@ them.</p>
 </table>
 </section>
 <section id="imaginary-part-of-chi-i-a">
-<span id="imaginary-part-of-chi-ia"></span><h4><a class="toc-backref" href="#id54" role="doc-backlink">5.3.2.4 Imaginary part of <span class="math notranslate nohighlight">\(\chi_i^a\)</span></a><a class="headerlink" href="#imaginary-part-of-chi-i-a" title="Permalink to this heading">¶</a></h4>
+<span id="imaginary-part-of-chi-ia"></span><h4><a class="toc-backref" href="#id55" role="doc-backlink">5.3.2.4 Imaginary part of <span class="math notranslate nohighlight">\(\chi_i^a\)</span></a><a class="headerlink" href="#imaginary-part-of-chi-i-a" title="Permalink to this heading">¶</a></h4>
 <p>Analogous to the real part chunk but with the magic “<code class="docutils literal notranslate"><span class="pre">FTIAimag</span></code>”.</p>
 </section>
 <section id="eigenenergies-varepsilon-p">
-<span id="id20"></span><h4><a class="toc-backref" href="#id55" role="doc-backlink">5.3.2.5 Eigenenergies <span class="math notranslate nohighlight">\(\varepsilon_p\)</span></a><a class="headerlink" href="#eigenenergies-varepsilon-p" title="Permalink to this heading">¶</a></h4>
+<span id="id20"></span><h4><a class="toc-backref" href="#id56" role="doc-backlink">5.3.2.5 Eigenenergies <span class="math notranslate nohighlight">\(\varepsilon_p\)</span></a><a class="headerlink" href="#eigenenergies-varepsilon-p" title="Permalink to this heading">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Offset</p></th>
@@ -1041,7 +1048,10 @@ them.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#input">3 Input</a><ul>
-<li><a class="reference internal" href="#yaml">3.1 Yaml</a></li>
+<li><a class="reference internal" href="#yaml">3.1 Yaml</a><ul>
+<li><a class="reference internal" href="#disabling-steps">3.1.1 Disabling steps</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#todo-developer-s-corner">4 TODO Developer’s corner</a><ul>
