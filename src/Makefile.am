@@ -85,7 +85,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/FiniteSizeCorrection.cxx                            \
 ./algorithms/TensorAntisymmetrizer.cxx                           \
 ./algorithms/UccsdAmplitudesFromCoulombIntegrals.cxx             \
-./algorithms/UccsdtAmplitudesFromCoulombIntegrals.cxx             \
+./algorithms/UccsdtAmplitudesFromCoulombIntegrals.cxx            \
 ./algorithms/CcsdEquationOfMotionDavidson.cxx                    \
 ./algorithms/UCcsdIPEquationOfMotionDavidson.cxx                 \
 ./algorithms/UCcsdEAEquationOfMotionDavidson.cxx                 \
@@ -98,6 +98,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/UegVertexGenerator.cxx                              \
 ./algorithms/CoulombIntegralsFromVertex.cxx                      \
 ./algorithms/Exit.cxx                                            \
+./algorithms/Let.cxx                                             \
 ./algorithms/PQRSCoulombIntegralsToVertex.cxx
 
 ## FOR LIBINT2
