@@ -71,10 +71,22 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
     getRealArgument("energyConvergence", DEFAULT_ENERGY_CONVERGENCE)
   );
 
+  EMIT()
+    << YAML::Key << "maxIterations" << YAML::Value << maxIterationsCount
+    << YAML::Key << "amplitudesConvergence"
+    << YAML::Value << std::abs(amplitudesConvergence)
+    << YAML::Key << "energyConvergence"
+    << YAML::Value << std::abs(energyConvergence);
+
+  EMIT() << YAML::Key << "iterations" << YAML::Value;
+  EMIT() << YAML::BeginSeq;
+
   F e(0), previousE(0);
   int i(0);
   for (; i < maxIterationsCount; ++i) {
+    EMIT() << YAML::BeginMap;
     LOG(0, getCapitalizedAbbreviation()) << "iteration: " << i+1 << std::endl;
+    EMIT() << YAML::Key << "iteration" << YAML::Value << i+1;
     // call the getResiduum of the actual algorithm,
     // which will be specified by inheriting classes
     auto estimatedAmplitudes( getResiduum(i, amplitudes) );
@@ -90,9 +102,14 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
       std::abs(
         amplitudesChange->dot(*amplitudesChange) / amplitudes->dot(*amplitudes)
       ) < std::abs(amplitudesConvergence * amplitudesConvergence)
-    ) break;
+        ) {
+      EMIT() << YAML::EndMap;
+      break;
+    }
     previousE = e;
+    EMIT() << YAML::EndMap;
   }
+  EMIT() << YAML::EndSeq;
 
   if (maxIterationsCount == 0) {
     LOG(0, getCapitalizedAbbreviation()) <<
