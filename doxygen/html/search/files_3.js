@@ -8,12 +8,13 @@ var searchData=
   ['delete_2ehpp_5',['Delete.hpp',['../Delete_8hpp.html',1,'']]],
   ['diismixer_2ecxx_6',['DiisMixer.cxx',['../DiisMixer_8cxx.html',1,'']]],
   ['diismixer_2ehpp_7',['DiisMixer.hpp',['../DiisMixer_8hpp.html',1,'']]],
-  ['doublesamplitudesdecomposition_2ecxx_8',['DoublesAmplitudesDecomposition.cxx',['../DoublesAmplitudesDecomposition_8cxx.html',1,'']]],
-  ['doublesamplitudesdecomposition_2ehpp_9',['DoublesAmplitudesDecomposition.hpp',['../DoublesAmplitudesDecomposition_8hpp.html',1,'']]],
-  ['doublesamplitudesfromvertex_2ecxx_10',['DoublesAmplitudesFromVertex.cxx',['../DoublesAmplitudesFromVertex_8cxx.html',1,'']]],
-  ['doublesamplitudesfromvertex_2ehpp_11',['DoublesAmplitudesFromVertex.hpp',['../DoublesAmplitudesFromVertex_8hpp.html',1,'']]],
-  ['drccdenergyfromcoulombintegrals_2ecxx_12',['DrccdEnergyFromCoulombIntegrals.cxx',['../DrccdEnergyFromCoulombIntegrals_8cxx.html',1,'']]],
-  ['drccdenergyfromcoulombintegrals_2ehpp_13',['DrccdEnergyFromCoulombIntegrals.hpp',['../DrccdEnergyFromCoulombIntegrals_8hpp.html',1,'']]],
-  ['drytensor_2ecxx_14',['DryTensor.cxx',['../DryTensor_8cxx.html',1,'']]],
-  ['drytensor_2ehpp_15',['DryTensor.hpp',['../DryTensor_8hpp.html',1,'']]]
+  ['documentation_2ehpp_8',['Documentation.hpp',['../Documentation_8hpp.html',1,'']]],
+  ['doublesamplitudesdecomposition_2ecxx_9',['DoublesAmplitudesDecomposition.cxx',['../DoublesAmplitudesDecomposition_8cxx.html',1,'']]],
+  ['doublesamplitudesdecomposition_2ehpp_10',['DoublesAmplitudesDecomposition.hpp',['../DoublesAmplitudesDecomposition_8hpp.html',1,'']]],
+  ['doublesamplitudesfromvertex_2ecxx_11',['DoublesAmplitudesFromVertex.cxx',['../DoublesAmplitudesFromVertex_8cxx.html',1,'']]],
+  ['doublesamplitudesfromvertex_2ehpp_12',['DoublesAmplitudesFromVertex.hpp',['../DoublesAmplitudesFromVertex_8hpp.html',1,'']]],
+  ['drccdenergyfromcoulombintegrals_2ecxx_13',['DrccdEnergyFromCoulombIntegrals.cxx',['../DrccdEnergyFromCoulombIntegrals_8cxx.html',1,'']]],
+  ['drccdenergyfromcoulombintegrals_2ehpp_14',['DrccdEnergyFromCoulombIntegrals.hpp',['../DrccdEnergyFromCoulombIntegrals_8hpp.html',1,'']]],
+  ['drytensor_2ecxx_15',['DryTensor.cxx',['../DryTensor_8cxx.html',1,'']]],
+  ['drytensor_2ehpp_16',['DryTensor.hpp',['../DryTensor_8hpp.html',1,'']]]
 ];

@@ -1,5 +1,8 @@
 var NAVTREEINDEX26 =
 {
+"namespacesisi4s.html#a0ae00bfe773466284d8b353f1bc65e4a":[2,0,6,272],
+"namespacesisi4s.html#a10d6d290d14104e30791d37abd5d025a":[2,0,6,230],
+"namespacesisi4s.html#a1144543bd0254bc080bc5eb82c7fa087":[2,0,6,281],
 "namespacesisi4s.html#a1695e67f99e3219626943923a40886a1":[2,0,6,225],
 "namespacesisi4s.html#a1e9d78005344619227766a9c62020617":[2,0,6,290],
 "namespacesisi4s.html#a2261732db2670a035671ccf20c24fde5":[2,0,6,286],
@@ -246,8 +249,5 @@ var NAVTREEINDEX26 =
 "structCtfIntegralProvider.html#a9fd3365a71212a0a413e3c3f99e75dab":[3,0,12,1],
 "structCtfIntegralProvider.html#afd9d4c8e365f85ba088c0c9f5dd9b4a7":[3,0,12,2],
 "structIntegralParser.html":[3,0,14],
-"structIntegralParser.html#a04eeb58b936558017a73796c731fe55d":[3,0,14,9],
-"structIntegralParser.html#a22880c369f04fbcc247bc0188e0a09a6":[3,0,14,8],
-"structIntegralParser.html#a3abd0dac8e5b32c7c57b12180add840e":[3,0,14,4],
-"structIntegralParser.html#a42c506cb6dbd6fb2d1aece52e614975f":[3,0,14,3]
+"structIntegralParser.html#a04eeb58b936558017a73796c731fe55d":[3,0,14,9]
 };

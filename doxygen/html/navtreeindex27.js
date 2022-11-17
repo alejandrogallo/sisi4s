@@ -1,5 +1,8 @@
 var NAVTREEINDEX27 =
 {
+"structIntegralParser.html#a22880c369f04fbcc247bc0188e0a09a6":[3,0,14,8],
+"structIntegralParser.html#a3abd0dac8e5b32c7c57b12180add840e":[3,0,14,4],
+"structIntegralParser.html#a42c506cb6dbd6fb2d1aece52e614975f":[3,0,14,3],
 "structIntegralParser.html#a6aa71ee8d25570a5cf17e22f760fbefb":[3,0,14,12],
 "structIntegralParser.html#a9ff2fa59e708cb1ef99850ae27e59d47":[3,0,14,6],
 "structIntegralParser.html#aa2406573013466aba71cc0e9536b0586":[3,0,14,7],
@@ -246,8 +249,5 @@ var NAVTREEINDEX27 =
 "structsisi4s_1_1MeanCorrelationHoleDepth.html#a940ff082b9e2e5715f7fbb3a4bddb932":[2,0,6,109,3],
 "structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html":[3,0,5,123],
 "structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html":[2,0,6,123],
-"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a1d341e75fad3c4a6ba5bf9c02dda09b4":[3,0,5,123,0],
-"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a1d341e75fad3c4a6ba5bf9c02dda09b4":[2,0,6,123,0],
-"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a530fe0ea48ca968e6f9d61d4cbfd6896":[3,0,5,123,4],
-"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a530fe0ea48ca968e6f9d61d4cbfd6896":[2,0,6,123,4]
+"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a1d341e75fad3c4a6ba5bf9c02dda09b4":[3,0,5,123,0]
 };

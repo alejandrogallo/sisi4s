@@ -1,5 +1,8 @@
 var NAVTREEINDEX28 =
 {
+"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a1d341e75fad3c4a6ba5bf9c02dda09b4":[2,0,6,123,0],
+"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a530fe0ea48ca968e6f9d61d4cbfd6896":[3,0,5,123,4],
+"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a530fe0ea48ca968e6f9d61d4cbfd6896":[2,0,6,123,4],
 "structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a562a0488b12676166a51cfd118a51eb6":[3,0,5,123,1],
 "structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a562a0488b12676166a51cfd118a51eb6":[2,0,6,123,1],
 "structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a664dfd859b6247f83ddb5c29c330554e":[2,0,6,123,2],

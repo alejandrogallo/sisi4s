@@ -10,6 +10,7 @@ var dir_b7878ad5ecbf2506f4125b9d34c97e45 =
     [ "Config.hpp", "Config_8hpp.html", null ],
     [ "CTF.hpp", "CTF_8hpp.html", null ],
     [ "CtfMachineTensor.hpp", "CtfMachineTensor_8hpp.html", "CtfMachineTensor_8hpp" ],
+    [ "Documentation.hpp", "Documentation_8hpp.html", "Documentation_8hpp" ],
     [ "Emitter.cxx", "Emitter_8cxx.html", null ],
     [ "Emitter.hpp", "Emitter_8hpp.html", "Emitter_8hpp" ],
     [ "Exception.hpp", "Exception_8hpp.html", "Exception_8hpp" ],
