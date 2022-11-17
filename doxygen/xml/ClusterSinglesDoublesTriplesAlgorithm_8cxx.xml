@@ -9,6 +9,7 @@
     <includes refid="DryTensor_8hpp" local="no">DryTensor.hpp</includes>
     <includes refid="SharedPointer_8hpp" local="no">util/SharedPointer.hpp</includes>
     <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
+    <includes refid="Emitter_8hpp" local="no">util/Emitter.hpp</includes>
     <includes refid="Exception_8hpp" local="no">util/Exception.hpp</includes>
     <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includes refid="Options_8hpp" local="no">Options.hpp</includes>
@@ -115,6 +116,8 @@
         <childnode refid="30" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
         </childnode>
         <childnode refid="25" relation="include">
         </childnode>
@@ -279,6 +282,16 @@
         <childnode refid="24" relation="include">
         </childnode>
       </node>
+      <node id="53">
+        <label>util/Emitter.hpp</label>
+        <link refid="Emitter_8hpp"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
       <node id="25">
         <label>util/Exception.hpp</label>
         <link refid="Exception_8hpp"/>
@@ -431,6 +444,9 @@
       <node id="21">
         <label>vector</label>
       </node>
+      <node id="54">
+        <label>yaml-cpp/yaml.h</label>
+      </node>
     </incdepgraph>
     <briefdescription>
     </briefdescription>
@@ -444,106 +460,124 @@
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="DryTensor_8hpp" kindref="compound">DryTensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Options_8hpp" kindref="compound">Options.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;initializer_list&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Emitter_8hpp" kindref="compound">util/Emitter.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Exception_8hpp" kindref="compound">util/Exception.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Options_8hpp" kindref="compound">Options.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;initializer_list&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18" refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1aa736d18860fb96576e628dfc1b08bd49" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1aa736d18860fb96576e628dfc1b08bd49" kindref="member">ClusterSinglesDoublesTriplesAlgorithm::~ClusterSinglesDoublesTriplesAlgorithm</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21" refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1af2082a60d2049e5307f018630825147e" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1af2082a60d2049e5307f018630825147e" kindref="member">ClusterSinglesDoublesTriplesAlgorithm::ClusterSinglesDoublesTriplesAlgorithm</ref>(</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
-<codeline lineno="23"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" kindref="compound">ClusterSinglesDoublesAlgorithm</ref>(argumentList)<sp/>{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1aa736d18860fb96576e628dfc1b08bd49" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1aa736d18860fb96576e628dfc1b08bd49" kindref="member">ClusterSinglesDoublesTriplesAlgorithm::~ClusterSinglesDoublesTriplesAlgorithm</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1af2082a60d2049e5307f018630825147e" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1af2082a60d2049e5307f018630825147e" kindref="member">ClusterSinglesDoublesTriplesAlgorithm::ClusterSinglesDoublesTriplesAlgorithm</ref>(</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" kindref="compound">ClusterSinglesDoublesAlgorithm</ref>(argumentList)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27" refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1ac08d3e28a27584d55b02585b7df309bd" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1ac08d3e28a27584d55b02585b7df309bd" kindref="member">ClusterSinglesDoublesTriplesAlgorithm::run</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*Vabij(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(</highlight><highlight class="stringliteral">&quot;PPHHCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;double&gt;</ref><sp/>*realVabij(</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;double&gt;</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(Vabij));</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e(0.0);</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(realVabij)<sp/>{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>e<sp/>=<sp/>run&lt;double&gt;();</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>e<sp/>=<sp/>std::real(<sp/>run&lt;complex&gt;()<sp/>);</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" kindref="member">setRealArgument</ref>(<ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ac4e86100aee3802ce4a75a737eff7ec0" kindref="member">getDataName</ref>(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Energy&quot;</highlight><highlight class="normal">),<sp/>e);</highlight></codeline>
-<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="40" refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1aa86fb955293c874f806a98263ab39213" refkind="member"><highlight class="normal">F<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1ac08d3e28a27584d55b02585b7df309bd" kindref="member">ClusterSinglesDoublesTriplesAlgorithm::run</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(getTensorArgument&lt;&gt;(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">)-&gt;lens[0]);</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(getTensorArgument&lt;&gt;(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">)-&gt;lens[0]);</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>amplitudes(</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>createAmplitudes&lt;F&gt;(</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;Singles&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Doubles&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Triples&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{{Nv,No},<sp/>{Nv,Nv,No,No},<sp/>{Nv,Nv,Nv,No,No,No}},</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">}</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>mixer,<sp/>by<sp/>default<sp/>use<sp/>the<sp/>linear<sp/>one</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/>std::string<sp/>mixerName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;mixer&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;LinearMixer&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)<sp/>mixer(<sp/><ref refid="classsisi4s_1_1MixerFactory" kindref="compound">MixerFactory&lt;F&gt;::create</ref>(mixerName,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!mixer)<sp/>{</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>stringStream;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>stringStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Mixer<sp/>not<sp/>implemented:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mixerName;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(stringStream.str());</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>number<sp/>of<sp/>iterations<sp/>for<sp/>determining<sp/>the<sp/>amplitudes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxIterationsCount(</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;maxIterations&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ac342808772869d43a6c6c4e0e29976f9" kindref="member">DEFAULT_MAX_ITERATIONS</ref>)</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/>F<sp/>amplitudesConvergence(</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;amplitudesConvergence&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a36189181b2981707339c7b0cc961fabd" kindref="member">DEFAULT_AMPLITUDES_CONVERGENCE</ref>)</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/>F<sp/>energyConvergence(</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;energyConvergence&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a1f05fc3f863fc5c5523d511af19dad39" kindref="member">DEFAULT_ENERGY_CONVERGENCE</ref>)</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/>F<sp/>e(0),<sp/>previousE(0);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>i<sp/>&lt;<sp/>maxIterationsCount;<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a110026d41b3740bb8bdbad146ccfd785" kindref="member">getCapitalizedAbbreviation</ref>())<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;iteration:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>i+1<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>call<sp/>the<sp/>getResiduum<sp/>of<sp/>the<sp/>actual<sp/>algorithm,</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>which<sp/>will<sp/>be<sp/>specified<sp/>by<sp/>inheriting<sp/>classes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>estimatedAmplitudes(<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a2d9bf8bbaba99dce4acf5b3413f843eb" kindref="member">getResiduum</ref>(i,<sp/>amplitudes)<sp/>);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a8327421acb8285d0fc20f9605cfa5937" kindref="member">estimateAmplitudesFromResiduum</ref>(estimatedAmplitudes,<sp/>amplitudes);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>amplitudesChange(<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>,<sp/>*estimatedAmplitudes)<sp/>);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>*amplitudesChange<sp/>-=<sp/>*amplitudes;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>mixer-&gt;append(estimatedAmplitudes,<sp/>amplitudesChange);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>mixer&apos;s<sp/>best<sp/>guess<sp/>for<sp/>amplitudes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>amplitudes<sp/>=<sp/>mixer-&gt;get();</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>e<sp/>=<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a9dceabd979aefa0f1e012c4e62e60847" kindref="member">getEnergy</ref>(amplitudes);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::abs((e-previousE)/e)<sp/>&lt;<sp/>std::abs(energyConvergence)<sp/>&amp;&amp;</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::abs(</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>amplitudesChange-&gt;dot(*amplitudesChange)<sp/>/<sp/>amplitudes-&gt;dot(*amplitudes)</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>&lt;<sp/>std::abs(amplitudesConvergence<sp/>*<sp/>amplitudesConvergence)</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>previousE<sp/>=<sp/>e;</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxIterationsCount<sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a110026d41b3740bb8bdbad146ccfd785" kindref="member">getCapitalizedAbbreviation</ref>())<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;computing<sp/>energy<sp/>from<sp/>given<sp/>amplitudes&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1ac08d3e28a27584d55b02585b7df309bd" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1ac08d3e28a27584d55b02585b7df309bd" kindref="member">ClusterSinglesDoublesTriplesAlgorithm::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*Vabij(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(</highlight><highlight class="stringliteral">&quot;PPHHCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;double&gt;</ref><sp/>*realVabij(</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;double&gt;</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(Vabij));</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>e(0.0);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(realVabij)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>e<sp/>=<sp/>run&lt;double&gt;();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>e<sp/>=<sp/>std::real(<sp/>run&lt;complex&gt;()<sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" kindref="member">setRealArgument</ref>(<ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ac4e86100aee3802ce4a75a737eff7ec0" kindref="member">getDataName</ref>(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Energy&quot;</highlight><highlight class="normal">),<sp/>e);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="41" refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1aa86fb955293c874f806a98263ab39213" refkind="member"><highlight class="normal">F<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1ac08d3e28a27584d55b02585b7df309bd" kindref="member">ClusterSinglesDoublesTriplesAlgorithm::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(getTensorArgument&lt;&gt;(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">)-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No(getTensorArgument&lt;&gt;(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">)-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>amplitudes(</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>createAmplitudes&lt;F&gt;(</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;Singles&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Doubles&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Triples&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{{Nv,No},<sp/>{Nv,Nv,No,No},<sp/>{Nv,Nv,Nv,No,No,No}},</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;abcijk&quot;</highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>mixer,<sp/>by<sp/>default<sp/>use<sp/>the<sp/>linear<sp/>one</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>std::string<sp/>mixerName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;mixer&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;LinearMixer&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)<sp/>mixer(<sp/><ref refid="classsisi4s_1_1MixerFactory" kindref="compound">MixerFactory&lt;F&gt;::create</ref>(mixerName,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!mixer)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>stringStream;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>stringStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Mixer<sp/>not<sp/>implemented:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>mixerName;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(stringStream.str());</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>number<sp/>of<sp/>iterations<sp/>for<sp/>determining<sp/>the<sp/>amplitudes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxIterationsCount(</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;maxIterations&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ac342808772869d43a6c6c4e0e29976f9" kindref="member">DEFAULT_MAX_ITERATIONS</ref>)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>F<sp/>amplitudesConvergence(</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;amplitudesConvergence&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a36189181b2981707339c7b0cc961fabd" kindref="member">DEFAULT_AMPLITUDES_CONVERGENCE</ref>)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>F<sp/>energyConvergence(</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;energyConvergence&quot;</highlight><highlight class="normal">,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a1f05fc3f863fc5c5523d511af19dad39" kindref="member">DEFAULT_ENERGY_CONVERGENCE</ref>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;maxIterations&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>maxIterationsCount</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;amplitudesConvergence&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>std::abs(amplitudesConvergence)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;energyConvergence&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>std::abs(energyConvergence);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;iterations&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::BeginSeq;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>F<sp/>e(0),<sp/>previousE(0);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>i<sp/>&lt;<sp/>maxIterationsCount;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::BeginMap;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a110026d41b3740bb8bdbad146ccfd785" kindref="member">getCapitalizedAbbreviation</ref>())<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;iteration:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>i+1<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;iteration&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>i+1;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>call<sp/>the<sp/>getResiduum<sp/>of<sp/>the<sp/>actual<sp/>algorithm,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>which<sp/>will<sp/>be<sp/>specified<sp/>by<sp/>inheriting<sp/>classes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>estimatedAmplitudes(<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a2d9bf8bbaba99dce4acf5b3413f843eb" kindref="member">getResiduum</ref>(i,<sp/>amplitudes)<sp/>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a8327421acb8285d0fc20f9605cfa5937" kindref="member">estimateAmplitudesFromResiduum</ref>(estimatedAmplitudes,<sp/>amplitudes);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>amplitudesChange(<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>,<sp/>*estimatedAmplitudes)<sp/>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>*amplitudesChange<sp/>-=<sp/>*amplitudes;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>mixer-&gt;append(estimatedAmplitudes,<sp/>amplitudesChange);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>mixer&apos;s<sp/>best<sp/>guess<sp/>for<sp/>amplitudes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>amplitudes<sp/>=<sp/>mixer-&gt;get();</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>e<sp/>=<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a9dceabd979aefa0f1e012c4e62e60847" kindref="member">getEnergy</ref>(amplitudes);</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>maxIterationsCount)<sp/>{</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a110026d41b3740bb8bdbad146ccfd785" kindref="member">getCapitalizedAbbreviation</ref>())<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;WARNING:<sp/>energy<sp/>or<sp/>amplitudes<sp/>convergence<sp/>not<sp/>reached.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ae62a6db326edd595700ad5bbf4029ba7" kindref="member">storeAmplitudes</ref>(amplitudes,<sp/>{</highlight><highlight class="stringliteral">&quot;Singles&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Doubles&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Triples&quot;</highlight><highlight class="normal">});</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>e;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::abs((e-previousE)/e)<sp/>&lt;<sp/>std::abs(energyConvergence)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::abs(</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>amplitudesChange-&gt;dot(*amplitudesChange)<sp/>/<sp/>amplitudes-&gt;dot(*amplitudes)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>&lt;<sp/>std::abs(amplitudesConvergence<sp/>*<sp/>amplitudesConvergence)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndMap;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>previousE<sp/>=<sp/>e;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndMap;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndSeq;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxIterationsCount<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a110026d41b3740bb8bdbad146ccfd785" kindref="member">getCapitalizedAbbreviation</ref>())<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;computing<sp/>energy<sp/>from<sp/>given<sp/>amplitudes&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>e<sp/>=<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a9dceabd979aefa0f1e012c4e62e60847" kindref="member">getEnergy</ref>(amplitudes);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>maxIterationsCount)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a110026d41b3740bb8bdbad146ccfd785" kindref="member">getCapitalizedAbbreviation</ref>())<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;WARNING:<sp/>energy<sp/>or<sp/>amplitudes<sp/>convergence<sp/>not<sp/>reached.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ae62a6db326edd595700ad5bbf4029ba7" kindref="member">storeAmplitudes</ref>(amplitudes,<sp/>{</highlight><highlight class="stringliteral">&quot;Singles&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Doubles&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Triples&quot;</highlight><highlight class="normal">});</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>e;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/ClusterSinglesDoublesTriplesAlgorithm.cxx"/>
   </compounddef>
