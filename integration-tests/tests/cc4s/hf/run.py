@@ -2,4 +2,4 @@
 
 from testis import call
 
-call("{SISI4S_RUN} -i cc4s.in")
+call("{SISI4S_RUN} -i in.yaml")
