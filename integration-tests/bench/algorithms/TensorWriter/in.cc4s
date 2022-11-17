@@ -10,7 +10,7 @@ TensorContraction [
   (Result C)
 ].
 
-TensorNorm [(A C)] [Norm].
+TensorNorm [(Data C)] [Norm].
 TensorWriter [(Data C) (file "CColumnMajor.dat")] [].
 TensorWriter [(Data C) (rowIndexOrder "i") (columnIndexOrder "j")] [].
 TensorWriter [(Data C) (rowIndexOrder "ji") (file "CRowMajor.dat")] [].
