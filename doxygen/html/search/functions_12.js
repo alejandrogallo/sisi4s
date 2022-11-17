@@ -99,7 +99,7 @@ var searchData=
   ['status_5fknown_96',['status_known',['../namespaceghc_1_1filesystem.html#a2f5d075292823eda15f4b1091ef1da60',1,'ghc::filesystem']]],
   ['stdvectortotensor_97',['stdVectorToTensor',['../CoulombIntegralsFromRotatedCoulombIntegrals_8cxx.html#ab1909dd58075ee188ac6b52b69bda1c3',1,'CoulombIntegralsFromRotatedCoulombIntegrals.cxx']]],
   ['stem_98',['stem',['../classghc_1_1filesystem_1_1path.html#a6915836dca91d9f472b10ac48b75b809',1,'ghc::filesystem::path']]],
-  ['storeamplitudes_99',['storeAmplitudes',['../classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ae62a6db326edd595700ad5bbf4029ba7',1,'sisi4s::ClusterSinglesDoublesAlgorithm']]],
+  ['storeamplitudes_99',['storeAmplitudes',['../classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a8c410f8d8c866f724b0df1be1654eafc',1,'sisi4s::ClusterSinglesDoublesAlgorithm']]],
   ['strerror_5fadapter_100',['strerror_adapter',['../namespaceghc_1_1filesystem_1_1detail.html#a6653ae82ba3d4feba6ab937ef344e1ac',1,'ghc::filesystem::detail::strerror_adapter(int posix, char *buffer)'],['../namespaceghc_1_1filesystem_1_1detail.html#a8d7b6a1fb9e443b1e2d19f4af05ea4f7',1,'ghc::filesystem::detail::strerror_adapter(char *gnu, char *)']]],
   ['string_101',['string',['../classghc_1_1filesystem_1_1path.html#aaafc2ba2286333b12320e07c1c94b0bd',1,'ghc::filesystem::path::string() const'],['../classghc_1_1filesystem_1_1path.html#ad12852454dfea7faec6753a0b8d73576',1,'ghc::filesystem::path::string(const Allocator &amp;a=Allocator()) const']]],
   ['structurefactor_102',['structureFactor',['../classsisi4s_1_1SimilarityTransformedHamiltonian.html#a38e4e848464faa11aabcb3883af74b33',1,'sisi4s::SimilarityTransformedHamiltonian']]],

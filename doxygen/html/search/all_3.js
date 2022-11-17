@@ -238,7 +238,7 @@ var searchData=
   ['create_5fsymlink_235',['create_symlink',['../namespaceghc_1_1filesystem_1_1detail.html#a894ad225d79646d9008807afab031b83',1,'ghc::filesystem::detail::create_symlink()'],['../namespaceghc_1_1filesystem.html#a61737ec48dcb411ac9c3b1d94fe867ed',1,'ghc::filesystem::create_symlink(const path &amp;to, const path &amp;new_symlink, std::error_code &amp;ec) noexcept']]],
   ['create_5fsymlinks_236',['create_symlinks',['../namespaceghc_1_1filesystem.html#a9bb500e754afb372a0c2c0c14dd326b2a0e556d0167c1732aede37f4b39b59bce',1,'ghc::filesystem']]],
   ['createalgorithm_237',['createAlgorithm',['../namespacesisi4s.html#aeeda71beb90d864c4ecd8884ef0047d9',1,'sisi4s']]],
-  ['createamplitudes_238',['createAmplitudes',['../classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a02eb026b75d6ea58467eb12301e5e56f',1,'sisi4s::ClusterSinglesDoublesAlgorithm']]],
+  ['createamplitudes_238',['createAmplitudes',['../classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a40841e4df855f8e0fa34fa3498fcff06',1,'sisi4s::ClusterSinglesDoublesAlgorithm']]],
   ['createmixer_239',['createMixer',['../namespacesisi4s.html#a750057c17f439eace42ddea0b53206d3',1,'sisi4s']]],
   ['createtensor_240',['createTensor',['../classsisi4s_1_1CtfMachineTensorFactory.html#a6866f2608af2b2d148f08e66ab28b09a',1,'sisi4s::CtfMachineTensorFactory']]],
   ['cross_241',['cross',['../classsisi4s_1_1Vector.html#acf318cab813d8dcc4e7b062cf260f3d6',1,'sisi4s::Vector']]],

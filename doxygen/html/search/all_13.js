@@ -190,7 +190,7 @@ var searchData=
   ['stem_187',['stem',['../classghc_1_1filesystem_1_1path.html#a6915836dca91d9f472b10ac48b75b809',1,'ghc::filesystem::path']]],
   ['sth_188',['STH',['../classsisi4s_1_1SimilarityTransformedHamiltonian.html#ae9f54296b37b44dda58829a54204b807',1,'sisi4s::SimilarityTransformedHamiltonian']]],
   ['sticky_5fbit_189',['sticky_bit',['../namespaceghc_1_1filesystem.html#a2dd23f153d201e7557a43c7644ccf44aa3a3b94501085ac7f29f89b8335e886d7',1,'ghc::filesystem']]],
-  ['storeamplitudes_190',['storeAmplitudes',['../classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ae62a6db326edd595700ad5bbf4029ba7',1,'sisi4s::ClusterSinglesDoublesAlgorithm']]],
+  ['storeamplitudes_190',['storeAmplitudes',['../classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a8c410f8d8c866f724b0df1be1654eafc',1,'sisi4s::ClusterSinglesDoublesAlgorithm']]],
   ['str_191',['Str',['../namespacepars.html#ac5b8a61cf5a52ea4b0365c437734c71b',1,'pars']]],
   ['str_192',['str',['../namespaceCLI_1_1detail.html#ab4542375c903302c3876ce0403d55596',1,'CLI::detail']]],
   ['stream_193',['stream',['../classsisi4s_1_1InputFileParser_3_01InputFileFormat_1_1CC4S_01_4.html#a657d819f83f6f2690c630e141e3482f5',1,'sisi4s::InputFileParser&lt; InputFileFormat::CC4S &gt;::stream()'],['../classsisi4s_1_1LineNumberStream.html#afea26afa4374b5287d384aaa7c9d78c5',1,'sisi4s::LineNumberStream::stream()'],['../classsisi4s_1_1Scanner.html#a636a024e8bdfba40b633c4a6f6bd5e34',1,'sisi4s::Scanner::stream()']]],

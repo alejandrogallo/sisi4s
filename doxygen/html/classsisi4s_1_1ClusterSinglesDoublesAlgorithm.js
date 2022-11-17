@@ -3,7 +3,7 @@ var classsisi4s_1_1ClusterSinglesDoublesAlgorithm =
     [ "ClusterSinglesDoublesAlgorithm", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#aca642fac031d6cf872f37fca186aa4cf", null ],
     [ "~ClusterSinglesDoublesAlgorithm", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ae9a26c9301b58c31814252d646cc939e", null ],
     [ "calculateExcitationEnergies", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ae4959c22cc14927799d18483a690b71f", null ],
-    [ "createAmplitudes", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a02eb026b75d6ea58467eb12301e5e56f", null ],
+    [ "createAmplitudes", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a40841e4df855f8e0fa34fa3498fcff06", null ],
     [ "dryAmplitudesFromResiduum", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ade1d1692d84a624ce299bbc2f847da8e", null ],
     [ "estimateAmplitudesFromResiduum", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a8327421acb8285d0fc20f9605cfa5937", null ],
     [ "getAbbreviation", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ab3f7208a643558d8c36324038e0d3130", null ],
@@ -19,5 +19,5 @@ var classsisi4s_1_1ClusterSinglesDoublesAlgorithm =
     [ "sliceCoupledCoulombIntegrals", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#af1e6b020e4bd275e813f4f968cd64f12", null ],
     [ "sliceCoupledCoulombIntegrals", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a4cc0b4527b8b77bdde36752e3aca89cc", null ],
     [ "sliceIntoResiduum", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a7556ba788700ffa070101e38130e77eb", null ],
-    [ "storeAmplitudes", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#ae62a6db326edd595700ad5bbf4029ba7", null ]
+    [ "storeAmplitudes", "classsisi4s_1_1ClusterSinglesDoublesAlgorithm.html#a8c410f8d8c866f724b0df1be1654eafc", null ]
 ];
