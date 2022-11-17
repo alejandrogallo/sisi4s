@@ -10,7 +10,7 @@ TensorSum [
 ] [
   Result (ResultIndex "ij")
 ].
-TensorNorm [(A Result)] [Norm].
+TensorNorm [(Data Result)] [Norm].
 % assert Norm == 0
 
 TensorWriter [(Data A) (mode "binary")] [].
@@ -23,5 +23,5 @@ TensorSum [
 ] [
   Result (ResultIndex "ij")
 ].
-TensorNorm [(A Result)] [Norm].
+TensorNorm [(Data Result)] [Norm].
 % assert Norm == 0

@@ -5,21 +5,7 @@
 
 using namespace sisi4s;
 
-
-ALGORITHM_REGISTRAR_DEFINITION(TensorNorm);
-
-TensorNorm::TensorNorm(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
-
-TensorNorm::~TensorNorm() {
-}
-
-/**
- * \brief Testing environement
- */
-void TensorNorm::run() {
+IMPLEMENT_ALGORITHM(TensorNorm) {
   Tensor<double> *A(getTensorArgument("Data"));
   double norm(frobeniusNorm(*A));
   LOG(0, "TensorNorm") << "norm = " << norm << std::endl;

@@ -5,19 +5,7 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-  class TensorNorm: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(TensorNorm);
-    TensorNorm(
-      std::vector<Argument> const &argumentList
-    );
-    virtual ~TensorNorm();
-    virtual void run();
-
-    static Algorithm *create(std::vector<Argument> const &argumentList) {
-      return new TensorNorm(argumentList);
-    }
-  };
+  DEFINE_ALGORITHM_HEADER(TensorNorm,);
 }
 
 #endif
