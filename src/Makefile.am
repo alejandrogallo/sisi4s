@@ -98,7 +98,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/UegVertexGenerator.cxx                              \
 ./algorithms/CoulombIntegralsFromVertex.cxx                      \
 ./algorithms/Exit.cxx                                            \
-./algorithms/Let.cxx                                             \
+./algorithms/Nop.cxx                                             \
 ./algorithms/PQRSCoulombIntegralsToVertex.cxx
 
 ## FOR LIBINT2

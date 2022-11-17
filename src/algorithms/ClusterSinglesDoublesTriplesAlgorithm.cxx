@@ -5,6 +5,7 @@
 #include <DryTensor.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Log.hpp>
+#include <util/Emitter.hpp>
 #include <util/Exception.hpp>
 #include <util/Tensor.hpp>
 #include <Options.hpp>
