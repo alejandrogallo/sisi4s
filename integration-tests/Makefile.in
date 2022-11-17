@@ -21,16 +21,16 @@ BINARY_LINKS = $(patsubst %,%/sisi4s,$(TEST_FOLDERS))
 
 link: $(TEST_FOLDERS) $(TESTIS_LINKS) $(BINARY_LINKS)
 $(TESTIS_LINKS): $(TESTIS)
-	ln -rs $< $@
+	ln -frs $< $@
 
 $(BINARY_LINKS):
 	mkdir -p $(@D)
-	ln -rs $(SISI4S_PATH) $@
+	ln -frs $(SISI4S_PATH) $@
 
 @abs_builddir@/%: @abs_srcdir@/%
 	mkdir -p $(@D)
 	cp -r $< $@
-	ln -rs $< $@/src
+	ln -frs $< $@/src
 
 ifneq ($(MAKECMDGOALS),data)
 ifneq ($(MAKECMDGOALS),pyyaml)
@@ -89,7 +89,7 @@ pyyaml: lib/python/yaml
 lib/python/yaml:
 	git clone https://github.com/yaml/pyyaml
 	mkdir -p $(@D)
-	ln -rs pyyaml/lib/yaml/ $@
+	ln -frs pyyaml/lib/yaml/ $@
 
 
 .PHONY: test check all gdb clean data pyyaml clean-all list

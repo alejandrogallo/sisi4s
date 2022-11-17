@@ -43,8 +43,8 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/SimilarityTransformedHamiltonian.cxx                \
 ./algorithms/sthamiltonian/wabij.cxx                             \
 ./algorithms/sthamiltonian/wabcijk.cxx                           \
-./algorithms/ClusterSinglesDoublesAlgorithm.cxx                  \
 ./algorithms/ClusterSinglesDoublesTriplesAlgorithm.cxx           \
+./algorithms/ClusterSinglesDoublesAlgorithm.cxx                  \
 ./algorithms/CcsdPreconditioner.cxx                              \
 ./algorithms/ParticleHoleCoulombIntegrals.cxx                    \
 ./algorithms/CcsdEnergyFromCoulombIntegralsReference.cxx         \
