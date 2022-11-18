@@ -1,4 +1,5 @@
 #+macro: sisi4s =SiSi4S=
+#+macro: libint [[https://github.com/evaleev/libint][libint]]
 
 * Introduction
 
@@ -53,9 +54,44 @@ in which case you can test the following
 
 
 
-** TODO Libint
+** Libint
 
-- =BOOST_ROOT=
+We use the {{{libint}}} library
+for some algorithms such as molecular Hartree-Fock.
+
+Our build system is able to compile the library on itself.
+Notable dependencies of {{{libint}}}
+are =libboost= and =libgmp=.
+
+On systems similar to ubuntu these packages should be available
+under package identifiers similar to
+
+- =libgmp3-dev=
+- =libboost1.71-all-dev=
+
+Please refer to {{{libint}}}'s website
+for further information.
+
+*** Using an already compiled version
+
+If you want to reuse an already compiled verison of {{{libint}}}
+you can give the path to the configure script such as
+
+#+begin_src shell :eval no 
+./configure --with-libint=/absolute/path/to/your/libint
+#+end_src
+
+*** Disabling libint
+
+If you don't want to use [[https://github.com/evaleev/libint][libint]] since it takes
+a long time to build and it requires =libboost=,
+you can disable the algorithms that use it with the
+=configure= flag
+
+#+begin_src shell :eval no 
+./configure --disable-libint
+#+end_src
+
 
 ** TODO CTF
 

@@ -101,12 +101,14 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/Nop.cxx                                             \
 ./algorithms/PQRSCoulombIntegralsToVertex.cxx
 
-## FOR LIBINT2
-sisi4s_SOURCES +=                                                  \
+if DISABLE_LIBINT
+else
+sisi4s_SOURCES +=                                                \
 ./algorithms/HartreeFockFromGaussian.cxx                         \
 ./algorithms/OneBodyFromGaussian.cxx                             \
 ./algorithms/NuclearRepulsionEnergy.cxx                          \
 ./algorithms/CoulombIntegralsFromGaussian.cxx
+endif
 
 sisi4s_CPPFLAGS = $(EXTERNAL_CPPFLAGS)
 sisi4s_LDADD = $(EXTERNAL_LDFLAGS)
@@ -116,10 +118,8 @@ sisi4s_LDADD = $(EXTERNAL_LDFLAGS)
 ## ./algorithms/UPerturbativeTriples.cxx                            \
 ## ./algorithms/DoublesAmplitudesFromVertex.cxx                     \
 ## ./algorithms/ComplexTensorSum.cxx                                \
-
 ## ./algorithms/TensorContraction.cxx                               \
 ## ./algorithms/ApproximateParticleHoleCoulombVertex.cxx            \
-
 ## ./algorithms/PerturbativeTriples.cxx                             \
 ## ./algorithms/CoulombVertexDecomposition.cxx                      \
 ## ./algorithms/ParticleHoleCoulombVertexDecomposition.cxx          \

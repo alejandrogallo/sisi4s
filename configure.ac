@@ -73,10 +73,24 @@ AC_ARG_WITH(libint,
              LIBINT_LD_LIBRARY_PATH="`readlink -f $withval`/lib";
              LIBS="${LIBS} -L${LIBINT_LD_LIBRARY_PATH} -lint2"
              BUILD_LIBINT=NO],
-            [BUILD_LIBINT=YES
-             external_ldflags_add "libint/lib/libint2.a"
-             external_cppflags_add "libint/include/"
-             EXTERNAL_DEPENDENCIES="libint ${EXTERNAL_DEPENDENCIES}"])
+            [BUILD_LIBINT=YES])
+
+AC_ARG_ENABLE([libint],
+              [AS_HELP_STRING([--disable-libint],
+                              [Don't enable libint if it is not going to be used])],
+              [DISABLE_LIBINT=yes
+               BUILD_LIBINT=NO],
+              [DISABLE_LIBINT=no
+               AC_DEFINE([HAVE_LIBINT],
+                         [1],
+                         [Wether libint is used])])
+
+# Do this here after --disable-libint has been processed
+if test x$BUILD_LIBINT = xYES; then
+  EXTERNAL_DEPENDENCIES="libint ${EXTERNAL_DEPENDENCIES}"
+  external_ldflags_add "libint/lib/libint2.a"
+  external_cppflags_add "libint/include/"
+fi
 
 dnl EIGEN WITH OPTION
 AC_ARG_WITH(eigen,
@@ -253,16 +267,18 @@ dnl -----------------------------------------------------------------------
 dnl CHECK LIBINT
 dnl -----------------------------------------------------------------------
 AM_CONDITIONAL([WITH_BUILD_LIBINT], [test x${BUILD_LIBINT} = xYES])
+AM_CONDITIONAL([DISABLE_LIBINT], [test x${DISABLE_LIBINT} = xyes])
 LIBINT_MAX_AM=4
 AC_ARG_VAR([LIBINT_MAX_AM],
            [Maximum angular momentum for libint. Default: 4],)
-if test xNO = x${BUILD_LIBINT}; then
+if test xNO = x${BUILD_LIBINT} && test x${DISABLE_LIBINT} = xno; then
   CPPFLAGS="$CPPFLAGS -I${LIBINT_CPATH}"
   #LDFLAGS="$LDFLAGS -L${LIBINT_LD_LIBRARY_PATH} -lint2"
   AC_CHECK_HEADER([libint2.h],
                   [],
                   [AC_MSG_ERROR([no libint2.hpp header found in $CPPFLAGS])])
 fi
+
 
 dnl -----------------------------------------------------------------------
 dnl CHECK EIGEN
