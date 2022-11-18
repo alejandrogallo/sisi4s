@@ -59,10 +59,47 @@ in which case you can test the following
         CXX=icc \
         --with-blas="-L${MKL_HOME}/lib/intel64/ -mkl -lmkl_intel_lp64"
 
-2.2 TODO Libint
-~~~~~~~~~~~~~~~
+2.2 Libint
+~~~~~~~~~~
 
-- ``BOOST_ROOT``
+We use the `libint <https://github.com/evaleev/libint>`_ library
+for some algorithms such as molecular Hartree-Fock.
+
+Our build system is able to compile the library on itself.
+Notable dependencies of `libint <https://github.com/evaleev/libint>`_
+are ``libboost`` and ``libgmp``.
+
+On systems similar to ubuntu these packages should be available
+under package identifiers similar to
+
+- ``libgmp3-dev``
+
+- ``libboost1.71-all-dev``
+
+Please refer to `libint <https://github.com/evaleev/libint>`_'s website
+for further information.
+
+2.2.1 Using an already compiled version
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you want to reuse an already compiled verison of `libint <https://github.com/evaleev/libint>`_
+you can give the path to the configure script such as
+
+.. code:: shell
+
+    ./configure --with-libint=/absolute/path/to/your/libint
+
+2.2.2 Disabling libint
+^^^^^^^^^^^^^^^^^^^^^^
+
+If you don't want to use `libint <https://github.com/evaleev/libint>`_ since it takes
+a long time to build and it requires ``libboost``,
+you can disable the algorithms that use it with the
+``configure`` flag
+
+.. code:: shell
+
+    ./configure --disable-libint
 
 2.3 TODO CTF
 ~~~~~~~~~~~~
@@ -674,7 +711,7 @@ Analogous to the real part chunk but with the magic "``FTIAimag``".
 6 Algorithms
 ------------
 
-6.1 MoReader
+6.1 MoReader :interface:
 ~~~~~~~~~~~~
 
 This module contains convenience routines in order to read
