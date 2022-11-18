@@ -16,7 +16,7 @@ jobs:
         cuda:
           - false
     env:
-      WITH_SHELL: nix-shell ~/sisi4s/etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run
+      WITH_SHELL: nix-shell /home/runner/work/sisi4s/sisi4s/etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run
       NJ: 4
     steps:
     - uses: actions/checkout@v2.3.4

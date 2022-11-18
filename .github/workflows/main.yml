@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      WITH_SHELL: nix-shell ~/sisi4s/etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run
+      WITH_SHELL: nix-shell /home/runner/work/sisi4s/sisi4s/etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run
       NJ: 4
 
     strategy:
