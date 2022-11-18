@@ -3,7 +3,7 @@
 We use mostly nix, with the current environment
 
 #+begin_src yaml :noweb-ref nix-env
-WITH_SHELL: nix-shell \"$(git rev-parse --show-toplevel)\"/etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run
+WITH_SHELL: nix-shell ~/sisi4s/etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run
 NJ: 4
 #+end_src
 
