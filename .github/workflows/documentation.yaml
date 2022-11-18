@@ -1,0 +1,51 @@
+name: Documentation
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_SHELL_FILE: $(git rev-parse --show-toplevel)/etc/env/nix/shell.nix
+      WITH_SHELL: "nix-shell $PROJECT_SHELL_FILE --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
+      NJ: 4
+    steps:
+    - uses: actions/checkout@v2.3.4
+
+    - name: Install Nix
+      uses: cachix/install-nix-action@v15
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Configure
+      run: |
+        mkdir -p build && cd build
+        ${WITH_SHELL} '../bootstrap.sh'
+        ${WITH_SHELL} '../configure --enable-docs'
+        ${WITH_SHELL} 'emacs --version'
+        ${WITH_SHELL} 'python --version'
+        ${WITH_SHELL} 'sphinx-build --version'
+
+    - name: doxygen
+      run: |
+        mkdir -p build && cd build
+        ${WITH_SHELL} 'make -C docs doxygen'
+
+    - name: sphinx
+      run: |
+        mkdir -p build && cd build
+        ${WITH_SHELL} 'make -C docs sphinx'
+
+    - name: nojekyll
+      run: |
+        touch build/docs/build/.nojekyll
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+         branch: gh-pages
+         folder: ./build/docs/build

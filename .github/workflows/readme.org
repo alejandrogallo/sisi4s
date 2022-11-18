@@ -1,0 +1,240 @@
+* Nix
+
+We use mostly nix, with the current environment
+
+#+begin_src yaml :noweb-ref nix-env
+PROJECT_SHELL_FILE: $(git rev-parse --show-toplevel)/etc/env/nix/shell.nix
+WITH_SHELL: "nix-shell $PROJECT_SHELL_FILE --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
+NJ: 4
+#+end_src
+
+and with the current action
+#+begin_src yaml :noweb-ref nix-action
+- name: Install Nix
+  uses: cachix/install-nix-action@v15
+  with:
+    nix_path: nixpkgs=channel:nixos-unstable
+#+end_src
+
+
+
+* Building
+
+#+begin_src yaml :tangle main.yml :noweb yes 
+name: ci
+
+on:
+  push:
+    branches: [ master, newbuild ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      <<nix-env>>
+
+    strategy:
+      matrix:
+        compiler:
+          - gcc11
+          - gcc10
+          - gcc9
+          - gcc8
+          - gcc7
+          - gcc6
+          - clang13
+          - clang12
+          - clang11
+          - clang10
+          - clang9
+          - clang8
+          - clang7
+          - clang6
+          - clang5
+        cuda:
+          - false
+
+    steps:
+    - uses: actions/checkout@v2.3.4
+
+    <<nix-action>>
+
+    - name: Install nix dependencies
+      run: $WITH_SHELL 'env'
+
+    - name: Bootstraping
+      run: $WITH_SHELL './bootstrap.sh'
+
+    - name: Configure
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL '../../configure'
+
+    - name: CTF
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make -j$NJ -C extern/ctf'
+
+    - name: LIBINT
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make -j$NJ -C extern/libint'
+
+    - name: EIGEN
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make -j$NJ -C extern/eigen'
+
+    - name: YAMLCPP
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make -j$NJ -C extern/yaml-cpp'
+
+    - name: Extern
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make -j$NJ extern'
+
+    - name: sisi4s
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make -j$NJ sisi4s'
+
+    - name: Run integration tests
+      run: |
+        mkdir -p build/${{matrix.compiler}}
+        cd build/${{matrix.compiler}}
+        $WITH_SHELL 'make -C integration-tests/ pyyaml run'
+#+end_src
+
+* Documentation
+
+#+begin_src yaml :tangle documentation.yaml :noweb yes 
+name: Documentation
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    env:
+      <<nix-env>>
+    steps:
+    - uses: actions/checkout@v2.3.4
+
+    <<nix-action>>
+
+    - name: Configure
+      run: |
+        mkdir -p build && cd build
+        ${WITH_SHELL} '../bootstrap.sh'
+        ${WITH_SHELL} '../configure --enable-docs'
+        ${WITH_SHELL} 'emacs --version'
+        ${WITH_SHELL} 'python --version'
+        ${WITH_SHELL} 'sphinx-build --version'
+
+    - name: doxygen
+      run: |
+        mkdir -p build && cd build
+        ${WITH_SHELL} 'make -C docs doxygen'
+
+    - name: sphinx
+      run: |
+        mkdir -p build && cd build
+        ${WITH_SHELL} 'make -C docs sphinx'
+
+    - name: nojekyll
+      run: |
+        touch build/docs/build/.nojekyll
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+         branch: gh-pages
+         folder: ./build/docs/build
+#+end_src
+
+* CodeQL
+
+#+begin_src yaml :tangle codeql.yml :noweb yes 
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "master" ]
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    env:
+      <<nix-env>>
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'cpp' ]
+        cuda:
+          - false
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    <<nix-action>>
+
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+        # If you wish to specify custom queries, you can do so here or in a config file.
+        # By default, queries listed here will override any specified in a config file.
+        # Prefix the list here with "+" to use these queries and those in the config file.
+
+        # Details on CodeQL's query packs refer to : https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
+        # queries: security-extended,security-and-quality
+
+
+    # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
+    # If this step fails, then you should remove it and run the build manually (see below)
+    # - name: Autobuild
+    #   uses: github/codeql-action/autobuild@v2
+
+    # ℹ️ Command-line programs to run using the OS shell.
+    # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
+
+    #   If the Autobuild fails above, remove it and uncomment the following three lines.
+    #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
+
+    - run: |
+      echo "Run, Build Application using script"
+      ${WITH_SHELL} "./bootstrap.sh"
+      ${WITH_SHELL} "./configure"
+      ${WITH_SHELL} 'make -j$NJ'
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{matrix.language}}"
+#+end_src
