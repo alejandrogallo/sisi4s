@@ -3,8 +3,7 @@
 We use mostly nix, with the current environment
 
 #+begin_src yaml :noweb-ref nix-env
-PROJECT_SHELL_FILE: $(git rev-parse --show-toplevel)/etc/env/nix/shell.nix
-WITH_SHELL: "nix-shell $PROJECT_SHELL_FILE --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
+WITH_SHELL: "nix-shell $(git rev-parse --show-toplevel)/etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
 NJ: 4
 #+end_src
 
@@ -130,6 +129,12 @@ on:
 jobs:
   documentation:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler:
+          - gcc11
+        cuda:
+          - false
     env:
       <<nix-env>>
     steps:
@@ -194,6 +199,8 @@ jobs:
       fail-fast: false
       matrix:
         language: [ 'cpp' ]
+        compiler:
+          - gcc11
         cuda:
           - false
 

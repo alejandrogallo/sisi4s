@@ -12,8 +12,7 @@ jobs:
     name: Analyze
     runs-on: ubuntu-latest
     env:
-      PROJECT_SHELL_FILE: $(git rev-parse --show-toplevel)/etc/env/nix/shell.nix
-      WITH_SHELL: "nix-shell $PROJECT_SHELL_FILE --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
+      WITH_SHELL: "nix-shell $(git rev-parse --show-toplevel)/etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run"
       NJ: 4
     permissions:
       actions: read
@@ -24,6 +23,8 @@ jobs:
       fail-fast: false
       matrix:
         language: [ 'cpp' ]
+        compiler:
+          - gcc11
         cuda:
           - false
 
