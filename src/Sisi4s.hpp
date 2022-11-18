@@ -16,6 +16,7 @@
 #define SISI4S_DEFINED
 
 #include <util/Time.hpp>
+#include <util/Documentation.hpp>
 
 #include <util/CTF.hpp>
 #include <Options.hpp>
