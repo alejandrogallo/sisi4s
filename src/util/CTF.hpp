@@ -7,5 +7,6 @@
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wdeprecated-copy"
 #pragma GCC diagnostic ignored "-Wcast-function-type"
+#pragma GCC diagnostic ignored "-Wwritable-strings"
 #include <ctf.hpp>
 #pragma GCC diagnostic pop
