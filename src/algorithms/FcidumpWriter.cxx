@@ -21,14 +21,13 @@ struct TensorInfo {
   const std::vector<Index> indices;
 };
 
-inline std::ostream&
-operator<<(std::ostream &s, const FcidumpReader::FcidumpHeader& h) {
-  return s    <<
-    "&FCI"    << std::endl <<
-    " NORB="  << h.norb << std::endl <<
-    " NELEC=" << h.nelec << std::endl <<
-    " MS2="   << h.ms2 << std::endl <<
-    "/" << std::endl;
+inline std::ostream &operator<<(std::ostream &s,
+                                const FcidumpReader::FcidumpHeader &h) {
+  return s << "&FCI" << std::endl
+           << " NORB=" << h.norb << std::endl
+           << " NELEC=" << h.nelec << std::endl
+           << " MS2=" << h.ms2 << std::endl
+           << "/" << std::endl;
 }
 
 void FcidumpWriter::run() {
@@ -40,33 +39,22 @@ void FcidumpWriter::run() {
   int Nv(NxUndefined);
   FcidumpReader::FcidumpHeader header;
 
-
   const std::vector<TensorInfo> allIntegrals({
-    {"hhhh", {NO,NO,NO,NO}},
-    {"hhhp", {NO,NO,NO,NV}},
-    {"hhph", {NO,NO,NV,NO}},
-    {"hhpp", {NO,NO,NV,NV}},
-    {"hphh", {NO,NV,NO,NO}},
-    {"hphp", {NO,NV,NO,NV}},
-    {"hpph", {NO,NV,NV,NO}},
-    {"hppp", {NO,NV,NV,NV}},
-    {"phhh", {NV,NO,NO,NO}},
-    {"phhp", {NV,NO,NO,NV}},
-    {"phph", {NV,NO,NV,NO}},
-    {"phpp", {NV,NO,NV,NV}},
-    {"pphh", {NV,NV,NO,NO}},
-    {"pphp", {NV,NV,NO,NV}},
-    {"ppph", {NV,NV,NV,NO}},
-    {"pppp", {NV,NV,NV,NV}},
-    {"hh",   {NO, NO}},
-    {"pp",   {NV, NV}},
-    {"hp",   {NO, NV}},
-    {"ph",   {NV, NO}},
+      {"hhhh", {NO, NO, NO, NO}}, {"hhhp", {NO, NO, NO, NV}},
+      {"hhph", {NO, NO, NV, NO}}, {"hhpp", {NO, NO, NV, NV}},
+      {"hphh", {NO, NV, NO, NO}}, {"hphp", {NO, NV, NO, NV}},
+      {"hpph", {NO, NV, NV, NO}}, {"hppp", {NO, NV, NV, NV}},
+      {"phhh", {NV, NO, NO, NO}}, {"phhp", {NV, NO, NO, NV}},
+      {"phph", {NV, NO, NV, NO}}, {"phpp", {NV, NO, NV, NV}},
+      {"pphh", {NV, NV, NO, NO}}, {"pphp", {NV, NV, NO, NV}},
+      {"ppph", {NV, NV, NV, NO}}, {"pppp", {NV, NV, NV, NV}},
+      {"hh", {NO, NO}},           {"pp", {NV, NV}},
+      {"hp", {NO, NV}},           {"ph", {NV, NO}},
   });
 
   // find out No and Nv
-  for (const auto& integral: allIntegrals) {
-    auto& is(integral.indices);
+  for (const auto &integral : allIntegrals) {
+    auto &is(integral.indices);
     if (isArgumentGiven(integral.name)) {
       auto it(std::find(is.begin(), is.end(), NO));
       if (No != NxUndefined && it != is.end()) {
@@ -100,16 +88,14 @@ void FcidumpWriter::run() {
   LOG(0, "FcidumpWriter") << "No        = " << No << std::endl;
   LOG(0, "FcidumpWriter") << "Nv        = " << Nv << std::endl;
 
-  for (const auto& integral: allIntegrals) {
-    if (! isArgumentGiven(integral.name)) continue;
+  for (const auto &integral : allIntegrals) {
+    if (!isArgumentGiven(integral.name)) continue;
     auto tensor(getTensorArgument<double>(integral.name));
     // TODO
-
   }
 
   std::ifstream file(filePath);
   std::string line;
   if (file.is_open()) {}
   file.close();
-
 }

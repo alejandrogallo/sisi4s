@@ -7,17 +7,17 @@
 
 namespace sisi4s {
 
-class ComplexTensorReader: public Algorithm {
- public:
+class ComplexTensorReader : public Algorithm {
+public:
   ALGORITHM_REGISTRAR_DECLARATION(ComplexTensorReader);
   explicit ComplexTensorReader(std::vector<Argument> const &argumentList);
   virtual ~ComplexTensorReader();
   /**
-    * \brief Reads real tensor data into the tensor Data.
-    */
+   * \brief Reads real tensor data into the tensor Data.
+   */
   virtual void run();
 };
 
-}  // namespace sisi4s
+} // namespace sisi4s
 
-#endif  //  SRC_ALGORITHMS_COMPLEXTENSORREADER_HPP_
+#endif //  SRC_ALGORITHMS_COMPLEXTENSORREADER_HPP_

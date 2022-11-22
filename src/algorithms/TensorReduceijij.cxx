@@ -21,7 +21,6 @@ void TensorReduceijij::run() {
 
   allocatedTensorArgument<double>("Out", t);
 
-  LOG(1, "TensorReduceijij") << "Ni: "<< Ni << std::endl;
-  LOG(1, "TensorReduceijij") << "Nj: "<< Nj << std::endl;
-
+  LOG(1, "TensorReduceijij") << "Ni: " << Ni << std::endl;
+  LOG(1, "TensorReduceijij") << "Nj: " << Nj << std::endl;
 }

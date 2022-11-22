@@ -6,22 +6,21 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(FromComplexTensor);
 
-FromComplexTensor::FromComplexTensor(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+FromComplexTensor::FromComplexTensor(std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-FromComplexTensor::~FromComplexTensor() {
-}
+FromComplexTensor::~FromComplexTensor() {}
 
 /**
  * \brief Testing environement
  */
 void FromComplexTensor::run() {
   Tensor<complex> *A(getTensorArgument<complex>("A"));
-  Tensor<double> *RealA(new Tensor<>(A->order, A->lens, A->sym, *A->wrld, "RealA"));
+  Tensor<double> *RealA(
+      new Tensor<>(A->order, A->lens, A->sym, *A->wrld, "RealA"));
   if (isArgumentGiven("imagA")) {
-    Tensor<double> *ImagA(new Tensor<>(A->order, A->lens, A->sym, *A->wrld, "ImagA"));
+    Tensor<double> *ImagA(
+        new Tensor<>(A->order, A->lens, A->sym, *A->wrld, "ImagA"));
     fromComplexTensor(*A, *RealA, *ImagA);
     allocatedTensorArgument("imagA", ImagA);
   } else {
@@ -29,4 +28,3 @@ void FromComplexTensor::run() {
   }
   allocatedTensorArgument("RealA", RealA);
 }
-

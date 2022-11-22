@@ -1,5 +1,4 @@
-#include<algorithms/Nop.hpp>
+#include <algorithms/Nop.hpp>
 
 using namespace sisi4s;
-IMPLEMENT_ALGORITHM(Nop) {
-}
+IMPLEMENT_ALGORITHM(Nop) {}

@@ -1,5 +1,5 @@
 /*Copyright (c) 2017, Andreas Grueneis and Felix Hummel, all rights reserved.*/
-#ifndef CLUSTER_SINGLES_DOUBLES_TRIPLES_QUADRUPLES_ALGORITHM_DEFINED 
+#ifndef CLUSTER_SINGLES_DOUBLES_TRIPLES_QUADRUPLES_ALGORITHM_DEFINED
 #define CLUSTER_SINGLES_DOUBLES_TRIPLES_QUADRUPLES_ALGORITHM_DEFINED
 
 #include <algorithms/Algorithm.hpp>
@@ -14,51 +14,46 @@
 #include <initializer_list>
 
 namespace sisi4s {
+/**
+ * \brief Contains all the necessary tools for an algorithm with
+ * singles, doubles and triples amplitudes.
+ * It calculates the energy from the amplitudes
+ * \f$T_{a}^{i}\f$, \f$T_{ab}^{ij}\f$ \f$T_{abc}^{ijk}\f$ and the Coulomb
+ * integrals \f$V_{ij}^{ab}\f$.
+ * For calculating the amplitudes it calls the iteration
+ * routine of the actual algorithm.
+ **/
+class ClusterSinglesDoublesTriplesQuadruplesAlgorithm
+    : public ClusterSinglesDoublesAlgorithm {
+
+public:
+  ClusterSinglesDoublesTriplesQuadruplesAlgorithm(
+      std::vector<Argument> const &argumentList);
+  virtual ~ClusterSinglesDoublesTriplesQuadruplesAlgorithm();
   /**
-   * \brief Contains all the necessary tools for an algorithm with
-   * singles, doubles and triples amplitudes.
-   * It calculates the energy from the amplitudes
-   * \f$T_{a}^{i}\f$, \f$T_{ab}^{ij}\f$ \f$T_{abc}^{ijk}\f$ and the Coulomb
-   * integrals \f$V_{ij}^{ab}\f$.
-   * For calculating the amplitudes it calls the iteration
-   * routine of the actual algorithm.
-   **/
-  class ClusterSinglesDoublesTriplesQuadruplesAlgorithm:
-    public ClusterSinglesDoublesAlgorithm {
+   * \brief Calculates the energy of a ClusterSinglesDoubles algorithm
+   */
+  virtual void run();
 
-  public:
+  // TODO: dryRun
 
-    ClusterSinglesDoublesTriplesQuadruplesAlgorithm(
-      std::vector<Argument> const &argumentList
-    );
-    virtual ~ClusterSinglesDoublesTriplesQuadruplesAlgorithm();
-    /**
-     * \brief Calculates the energy of a ClusterSinglesDoubles algorithm
-     */
-    virtual void run();
+  /**
+   * \brief Returns the abbreviation of the concrete algorithm, e.g. "Ccd",
+   * "Dcd".
+   */
+  virtual std::string getAbbreviation() = 0;
 
-    // TODO: dryRun
+  /**
+   * \brief Defines the default number of iterations (16).
+   */
+  static int constexpr DEFAULT_MAX_ITERATIONS = 16;
 
-    /**
-     * \brief Returns the abbreviation of the concrete algorithm, e.g. "Ccd",
-     * "Dcd".
-     */
-    virtual std::string getAbbreviation() = 0;
+  static double constexpr DEFAULT_LEVEL_SHIFT = 0.0;
 
-    /**
-     * \brief Defines the default number of iterations (16).
-     */
-    static int constexpr DEFAULT_MAX_ITERATIONS = 16;
-
-    static double constexpr DEFAULT_LEVEL_SHIFT = 0.0;
-
-  protected:
-    template <typename F>
-    F run();
-
-  };
-}
+protected:
+  template <typename F>
+  F run();
+};
+} // namespace sisi4s
 
 #endif
-
-

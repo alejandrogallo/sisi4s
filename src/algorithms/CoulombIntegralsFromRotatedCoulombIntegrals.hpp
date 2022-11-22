@@ -7,16 +7,15 @@
 
 namespace sisi4s {
 
-  class CoulombIntegralsFromRotatedCoulombIntegrals: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(CoulombIntegralsFromRotatedCoulombIntegrals);
-    CoulombIntegralsFromRotatedCoulombIntegrals(
-      std::vector<Argument> const &argumentList
-    ): Algorithm(argumentList) {}
-    ~CoulombIntegralsFromRotatedCoulombIntegrals() {}
-    virtual void run();
-  };
-}
+class CoulombIntegralsFromRotatedCoulombIntegrals : public Algorithm {
+public:
+  ALGORITHM_REGISTRAR_DECLARATION(CoulombIntegralsFromRotatedCoulombIntegrals);
+  CoulombIntegralsFromRotatedCoulombIntegrals(
+      std::vector<Argument> const &argumentList)
+      : Algorithm(argumentList) {}
+  ~CoulombIntegralsFromRotatedCoulombIntegrals() {}
+  virtual void run();
+};
+} // namespace sisi4s
 
 #endif
-

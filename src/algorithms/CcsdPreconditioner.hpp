@@ -9,125 +9,138 @@
 
 namespace sisi4s {
 
+/**
+ * \brief Implements the diagonal preconditionar for the davidson method
+ * \tparam F It is the field variable to be used, in general it will be
+ * complex
+ */
+template <typename F>
+class CcsdPreconditioner {
+public:
+  typedef SDFockVector<F> V;
+
+  CcsdPreconditioner() {}
+  ~CcsdPreconditioner() {}
+
   /**
-   * \brief Implements the diagonal preconditionar for the davidson method
-   * \tparam F It is the field variable to be used, in general it will be
-   * complex
+   * \brief Setters for the main tensors
    */
-  template <typename F>
-  class CcsdPreconditioner {
-  public:
-    typedef SDFockVector<F> V;
+  CcsdPreconditioner &setTai(Tensor<F> *t) {
+    Tai = t;
+    return *this;
+  }
+  CcsdPreconditioner &setTabij(Tensor<F> *t) {
+    Tabij = t;
+    return *this;
+  }
+  CcsdPreconditioner &setFij(Tensor<F> *t) {
+    Fij = t;
+    return *this;
+  }
+  CcsdPreconditioner &setFab(Tensor<F> *t) {
+    Fab = t;
+    return *this;
+  }
+  CcsdPreconditioner &setVabcd(Tensor<F> *t) {
+    Vabcd = t;
+    return *this;
+  }
+  CcsdPreconditioner &setViajb(Tensor<F> *t) {
+    Viajb = t;
+    return *this;
+  }
+  CcsdPreconditioner &setVijab(Tensor<F> *t) {
+    Vijab = t;
+    return *this;
+  }
+  CcsdPreconditioner &setVijkl(Tensor<F> *t) {
+    Vijkl = t;
+    return *this;
+  }
 
-    CcsdPreconditioner(){}
-    ~CcsdPreconditioner(){}
+  CcsdPreconditioner &setSpinFlip(bool t) {
+    spinFlip = t;
+    return *this;
+  }
 
-    /**
-     * \brief Setters for the main tensors
-     */
-    CcsdPreconditioner&
-    setTai(Tensor<F> *t) { Tai = t; return *this;}
-    CcsdPreconditioner&
-    setTabij(Tensor<F> *t) { Tabij = t; return *this;}
-    CcsdPreconditioner&
-    setFij(Tensor<F> *t) { Fij = t; return *this;}
-    CcsdPreconditioner&
-    setFab(Tensor<F> *t) { Fab = t; return *this;}
-    CcsdPreconditioner&
-    setVabcd(Tensor<F> *t) { Vabcd = t; return *this;}
-    CcsdPreconditioner&
-    setViajb(Tensor<F> *t) { Viajb = t; return *this;}
-    CcsdPreconditioner&
-    setVijab(Tensor<F> *t) { Vijab = t; return *this;}
-    CcsdPreconditioner&
-    setVijkl(Tensor<F> *t) { Vijkl = t; return *this;}
+  CcsdPreconditioner &setRandom(bool t) {
+    preconditionerRandom = t;
+    return *this;
+  }
+  CcsdPreconditioner &setRandomSigma(double t) {
+    preconditionerRandomSigma = t;
+    return *this;
+  }
 
-    CcsdPreconditioner&
-    setSpinFlip(bool t) { spinFlip = t; return *this; }
+  /**
+   * \brief Get initial basis
+   * \param[in] eigenVectorsCount Number of eigen vectors
+   */
+  std::vector<SDFockVector<F>> getInitialBasis(int eigenVectorsCount);
 
-    CcsdPreconditioner&
-    setRandom(bool t) { preconditionerRandom = t; return *this;}
-    CcsdPreconditioner&
-    setRandomSigma(double t) { preconditionerRandomSigma=t; return *this;}
+  SFockVector<F> getCorrection(const complex eigenValue,
+                               SFockVector<F> &residuum);
 
-    /**
-     * \brief Get initial basis
-     * \param[in] eigenVectorsCount Number of eigen vectors
-     */
-    std::vector<SDFockVector<F>> getInitialBasis(int eigenVectorsCount);
+  SDFockVector<F> getCorrection(const complex eigenValue,
+                                SDFockVector<F> &residuum);
 
-    SFockVector<F>
-    getCorrection(const complex eigenValue, SFockVector<F> &residuum);
+  SDTFockVector<F> getCorrection(const complex eigenValue,
+                                 SDTFockVector<F> &residuum);
 
-    SDFockVector<F>
-    getCorrection(const complex eigenValue, SDFockVector<F> &residuum);
+  void calculateDiagonal();
+  PTR(V) getDiagonal() {
+    if (!diagonalH) calculateDiagonal();
+    return diagonalH;
+  }
 
-    SDTFockVector<F>
-    getCorrection(const complex eigenValue, SDTFockVector<F> &residuum);
+  PTR(SDFockVector<F>) diagonalH;
+  Tensor<F> *Fij;
+  Tensor<F> *Fab;
+  Tensor<F> *Tai = nullptr;
+  Tensor<F> *Tabij = nullptr;
+  Tensor<F> *Vabcd = nullptr;
+  Tensor<F> *Viajb = nullptr;
+  Tensor<F> *Vijab = nullptr;
+  Tensor<F> *Vijkl = nullptr;
 
-    void calculateDiagonal();
-    PTR(V) getDiagonal() {
-      if (!diagonalH) calculateDiagonal();
-      return diagonalH;
-    }
+private:
+  /**
+   * Wether or not to use random preconditioners.
+   */
+  bool preconditionerRandom = false;
 
-    PTR(SDFockVector<F>) diagonalH;
-    Tensor<F> *Fij;
-    Tensor<F> *Fab;
-    Tensor<F> *Tai = nullptr;
-    Tensor<F> *Tabij = nullptr;
-    Tensor<F> *Vabcd = nullptr;
-    Tensor<F> *Viajb = nullptr;
-    Tensor<F> *Vijab = nullptr;
-    Tensor<F> *Vijkl = nullptr;
+  // wether or not to use spin flip in the filtering
+  bool spinFlip = false;
 
-  private:
-    /**
-     * Wether or not to use random preconditioners.
-     */
-    bool preconditionerRandom = false;
+  /**
+   * The standard deviation used in the normal distribution to create
+   * random preconditioners.
+   */
+  double preconditionerRandomSigma = 1.0;
+};
 
-    // wether or not to use spin flip in the filtering
-    bool spinFlip = false;
+template <typename F>
+class IPCcsdPreconditioner : public CcsdPreconditioner<F> {
+public:
+  void calculateDiagonal();
 
-    /**
-     * The standard deviation used in the normal distribution to create
-     * random preconditioners.
-     */
-    double preconditionerRandomSigma = 1.0;
+  std::vector<SDFockVector<F>> getInitialBasis(int eigenVectorsCount);
 
-  };
+  SDFockVector<F> getCorrection(const complex eigenValue,
+                                SDFockVector<F> &residuum);
+};
 
-  template <typename F>
-  class IPCcsdPreconditioner: public CcsdPreconditioner<F> {
-  public:
+template <typename F>
+class EACcsdPreconditioner : public CcsdPreconditioner<F> {
+public:
+  void calculateDiagonal();
 
-    void calculateDiagonal();
+  std::vector<SDFockVector<F>> getInitialBasis(int eigenVectorsCount);
 
-    std::vector<SDFockVector<F>>
-    getInitialBasis(int eigenVectorsCount);
+  SDFockVector<F> getCorrection(const complex eigenValue,
+                                SDFockVector<F> &residuum);
+};
 
-    SDFockVector<F>
-    getCorrection(const complex eigenValue, SDFockVector<F> &residuum);
-
-  };
-
-  template <typename F>
-  class EACcsdPreconditioner: public CcsdPreconditioner<F> {
-  public:
-
-    void calculateDiagonal();
-
-    std::vector<SDFockVector<F>>
-    getInitialBasis(int eigenVectorsCount);
-
-    SDFockVector<F>
-    getCorrection(const complex eigenValue, SDFockVector<F> &residuum);
-
-  };
-
-}
+} // namespace sisi4s
 
 #endif
-
-

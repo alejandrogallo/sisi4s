@@ -34,27 +34,27 @@ void FockMatrixFromCoulombIntegrals::run() {
   auto fij(new Tensor<double>(2, oo.data(), syms.data(), *Sisi4s::world));
   const auto hh(getTensorArgument<double>("HHMatrix"));
   const auto hhhh(getTensorArgument<double>("HHHHCoulombIntegrals"));
-  (*fij)["ij"]  = (*hh)["ij"];
-  (*fij)["ij"] += (+2.0)*(*hhhh)["ikjk"];
-  (*fij)["ij"] += (-1.0)*(*hhhh)["ikkj"];
+  (*fij)["ij"] = (*hh)["ij"];
+  (*fij)["ij"] += (+2.0) * (*hhhh)["ikjk"];
+  (*fij)["ij"] += (-1.0) * (*hhhh)["ikkj"];
   allocatedTensorArgument<double>("HHFockMatrix", fij);
 
   // ab: PP PHPH PHHP
   auto fab(new Tensor<double>(2, vv.data(), syms.data(), *Sisi4s::world));
   const auto pp(getTensorArgument<double>("PPMatrix"));
   const auto phhp(getTensorArgument<double>("PHHPCoulombIntegrals"));
-  (*fab)["ab"]  = (*pp)["ab"];
-  (*fab)["ab"] += (+2.0)*(*phph)["akbk"];
-  (*fab)["ab"] += (-1.0)*(*phhp)["akkb"];
+  (*fab)["ab"] = (*pp)["ab"];
+  (*fab)["ab"] += (+2.0) * (*phph)["akbk"];
+  (*fab)["ab"] += (-1.0) * (*phhp)["akkb"];
   allocatedTensorArgument<double>("PPFockMatrix", fab);
 
   // ai: PH PHHH
   auto fai(new Tensor<double>(2, vo.data(), syms.data(), *Sisi4s::world));
   const auto ph(getTensorArgument<double>("PHMatrix"));
   const auto phhh(getTensorArgument<double>("PHHHCoulombIntegrals"));
-  (*fai)["ai"]  = (*ph)["ai"];
-  (*fai)["ai"] += (+2.0)*(*phhh)["akik"];
-  (*fai)["ai"] += (-1.0)*(*phhh)["akki"];
+  (*fai)["ai"] = (*ph)["ai"];
+  (*fai)["ai"] += (+2.0) * (*phhh)["akik"];
+  (*fai)["ai"] += (-1.0) * (*phhh)["akki"];
   allocatedTensorArgument<double>("PHFockMatrix", fai);
 
   // ia: HP HHPH HHHP
@@ -71,20 +71,14 @@ void FockMatrixFromCoulombIntegrals::run() {
   allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
 
   CTF::Scalar<double> energy;
-  energy[""]  = (+2.0) * (*hh)["ii"];
+  energy[""] = (+2.0) * (*hh)["ii"];
   energy[""] += (+2.0) * (*hhhh)["ikik"];
   energy[""] += (-1.0) * (*hhhh)["ikki"];
   const double dEnergy(energy.get_val());
 
-  EMIT() << YAML::Key << "energy"
-         << YAML::Value << dEnergy
-         << YAML::Key << "No"
-         << YAML::Value << No
-         << YAML::Key << "Nv"
-         << YAML::Value << Nv
-         ;
+  EMIT() << YAML::Key << "energy" << YAML::Value << dEnergy << YAML::Key << "No"
+         << YAML::Value << No << YAML::Key << "Nv" << YAML::Value << Nv;
 
   LOG(0, "FockMatrixFromCoulombIntegrals")
-    << "energy= " << dEnergy << std::endl;
-
+      << "energy= " << dEnergy << std::endl;
 }

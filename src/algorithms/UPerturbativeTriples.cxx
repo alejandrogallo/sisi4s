@@ -11,33 +11,31 @@ using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(UPerturbativeTriples);
 
 UPerturbativeTriples::UPerturbativeTriples(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+    std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-UPerturbativeTriples::~UPerturbativeTriples() {
-}
+UPerturbativeTriples::~UPerturbativeTriples() {}
 
 void UPerturbativeTriples::run() {
-  Tensor<double>  *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<double>  *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
+  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
   Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
   Tensor<double> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
   Tensor<double> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
   Tensor<double> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
-  Tensor<double>   *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
+  Tensor<double> *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
 
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
 
-  int vvvooo[] = { Nv, Nv, Nv, No, No, No };
-  int   syms[] = { NS, NS, NS, NS, NS, NS };
+  int vvvooo[] = {Nv, Nv, Nv, No, No, No};
+  int syms[] = {NS, NS, NS, NS, NS, NS};
   Tensor<double> SVabcijk(6, vvvooo, syms, *Vabij->wrld, "SVabcijk");
   // TODO: erase 0.5
-  SVabcijk["abcijk"]  = 0.5 * (*Tai)["ai"] * (*Vabij)["bcjk"];
+  SVabcijk["abcijk"] = 0.5 * (*Tai)["ai"] * (*Vabij)["bcjk"];
 
   Tensor<double> DVabcijk(6, vvvooo, syms, *Vabij->wrld, "DVabcijk");
-  DVabcijk["abcijk"]  =          (*Tabij)["adij"] * (*Vabci)["bcdk"];
+  DVabcijk["abcijk"] = (*Tabij)["adij"] * (*Vabci)["bcdk"];
   DVabcijk["abcijk"] += (-1.0) * (*Tabij)["abil"] * (*Vijka)["jklc"];
 
   Tensor<double> Tabcijk(6, vvvooo, syms, *Vabij->wrld, "Tabcijk");
@@ -101,59 +99,58 @@ void UPerturbativeTriples::run() {
    *
    */
 
-  Tabcijk["defjki"]  = 0.0;
+  Tabcijk["defjki"] = 0.0;
   SVabcijk["abcijk"] = 0.0;
 
   // VABCI PART   -------------------------------------------------------------
   DVabcijk["abcijk"] = (*Tabij)["adij"] * (*Vabci)["bcdk"];
   //--
-  Tabcijk["defjki"] += (+ 1.0) * DVabcijk["defjki"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["edfjki"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["fedjki"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["defjki"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["edfjki"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["fedjki"];
   //--
-  Tabcijk["defjki"] += (+ 1.0) * DVabcijk["defkij"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["edfkij"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["fedkij"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["defkij"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["edfkij"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["fedkij"];
   //--
-  Tabcijk["defjki"] += (+ 1.0) * DVabcijk["defijk"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["edfijk"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["fedijk"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["defijk"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["edfijk"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["fedijk"];
 
   // SAVE antisymmetrized VABCI PART FOR LATER
-  //SVabcijk["abcijk"] += Tabcijk["abcijk"];
+  // SVabcijk["abcijk"] += Tabcijk["abcijk"];
 
   // VIJKA PART   -------------------------------------------------------------
   DVabcijk["defkij"] = (*Tabij)["deok"] * (*Vijka)["ijof"];
   //--
-  Tabcijk["defjki"] += ( + 1.0  ) * DVabcijk["defkij"];
-  Tabcijk["defjki"] += ( - 1.0  ) * DVabcijk["dfekij"];
-  Tabcijk["defjki"] += ( - 1.0  ) * DVabcijk["fedkij"];
-  Tabcijk["defjki"] += ( - 1.0  ) * DVabcijk["defjik"];
-  Tabcijk["defjki"] += ( + 1.0  ) * DVabcijk["dfejik"];
-  Tabcijk["defjki"] += ( + 1.0  ) * DVabcijk["fedjik"];
-  Tabcijk["defjki"] += ( - 1.0  ) * DVabcijk["defikj"];
-  Tabcijk["defjki"] += ( + 1.0  ) * DVabcijk["dfeikj"];
-  Tabcijk["defjki"] += ( + 1.0  ) * DVabcijk["fedikj"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["defkij"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["dfekij"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["fedkij"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["defjik"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["dfejik"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["fedjik"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["defikj"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["dfeikj"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["fedikj"];
 
   // Add antisymmetrized VIJKA part
-  //SVabcijk["abcijk"] += Tabcijk["abcijk"];
+  // SVabcijk["abcijk"] += Tabcijk["abcijk"];
 
   // Save antisymmetrized in DVabcijk
   DVabcijk["abcijk"] = Tabcijk["abcijk"];
 
   // Singles part -------------------------------------------------------------
-  SVabcijk["defkij"] = ( + 1.0  ) * (*Tai)["dk"] * (*Vabij)["efij"];
+  SVabcijk["defkij"] = (+1.0) * (*Tai)["dk"] * (*Vabij)["efij"];
   // --
-  Tabcijk["defkij"] += ( + 1.0  ) * SVabcijk["defkij"];
-  Tabcijk["defkij"] += ( - 1.0  ) * SVabcijk["edfkij"];
-  Tabcijk["defkij"] += ( - 1.0  ) * SVabcijk["fedkij"];
-  Tabcijk["defkij"] += ( - 1.0  ) * SVabcijk["defjik"];
-  Tabcijk["defkij"] += ( + 1.0  ) * SVabcijk["edfjik"];
-  Tabcijk["defkij"] += ( + 1.0  ) * SVabcijk["fedjik"];
-  Tabcijk["defkij"] += ( - 1.0  ) * SVabcijk["defikj"];
-  Tabcijk["defkij"] += ( + 1.0  ) * SVabcijk["edfikj"];
-  Tabcijk["defkij"] += ( + 1.0  ) * SVabcijk["fedikj"];
-
+  Tabcijk["defkij"] += (+1.0) * SVabcijk["defkij"];
+  Tabcijk["defkij"] += (-1.0) * SVabcijk["edfkij"];
+  Tabcijk["defkij"] += (-1.0) * SVabcijk["fedkij"];
+  Tabcijk["defkij"] += (-1.0) * SVabcijk["defjik"];
+  Tabcijk["defkij"] += (+1.0) * SVabcijk["edfjik"];
+  Tabcijk["defkij"] += (+1.0) * SVabcijk["fedjik"];
+  Tabcijk["defkij"] += (-1.0) * SVabcijk["defikj"];
+  Tabcijk["defkij"] += (+1.0) * SVabcijk["edfikj"];
+  Tabcijk["defkij"] += (+1.0) * SVabcijk["fedikj"];
 
   // HIRATA Implementation
   // ---------------------
@@ -177,20 +174,20 @@ void UPerturbativeTriples::run() {
 #ifdef OLD_HIRATA
   Tabcijk["defjki"] = 0.0;
   //--
-  Tabcijk["defjki"] += (+ 1.0) * DVabcijk["defjki"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["edfjki"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["fedjki"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["defjki"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["edfjki"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["fedjki"];
   //--
-  Tabcijk["defjki"] += (+ 1.0) * DVabcijk["defkij"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["edfkij"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["fedkij"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["defkij"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["edfkij"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["fedkij"];
   //--
-  Tabcijk["defjki"] += (+ 1.0) * DVabcijk["defijk"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["edfijk"];
-  Tabcijk["defjki"] += (- 1.0) * DVabcijk["fedijk"];
+  Tabcijk["defjki"] += (+1.0) * DVabcijk["defijk"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["edfijk"];
+  Tabcijk["defjki"] += (-1.0) * DVabcijk["fedijk"];
 
   //
-  DVabcijk["defjki"] =  Tabcijk["defjki"];
+  DVabcijk["defjki"] = Tabcijk["defjki"];
 
   /*
   //--
@@ -207,15 +204,15 @@ void UPerturbativeTriples::run() {
     ( - 1.0  ) * Tabij["gfij"] * Vabic["edkg"];
     */
 
-  Tabcijk["defjki"] += (+ 1.0) * SVabcijk["defjki"];
-  Tabcijk["defjki"] += (- 1.0) * SVabcijk["edfjki"];
-  Tabcijk["defjki"] += (- 1.0) * SVabcijk["fedjki"];
-  Tabcijk["defjki"] += (- 1.0) * SVabcijk["defkji"];
-  Tabcijk["defjki"] += (+ 1.0) * SVabcijk["edfkji"];
-  Tabcijk["defjki"] += (+ 1.0) * SVabcijk["fedkji"];
-  Tabcijk["defjki"] += (- 1.0) * SVabcijk["defjik"];
-  Tabcijk["defjki"] += (+ 1.0) * SVabcijk["edfjik"];
-  Tabcijk["defjki"] += (+ 1.0) * SVabcijk["fedjik"];
+  Tabcijk["defjki"] += (+1.0) * SVabcijk["defjki"];
+  Tabcijk["defjki"] += (-1.0) * SVabcijk["edfjki"];
+  Tabcijk["defjki"] += (-1.0) * SVabcijk["fedjki"];
+  Tabcijk["defjki"] += (-1.0) * SVabcijk["defkji"];
+  Tabcijk["defjki"] += (+1.0) * SVabcijk["edfkji"];
+  Tabcijk["defjki"] += (+1.0) * SVabcijk["fedkji"];
+  Tabcijk["defjki"] += (-1.0) * SVabcijk["defjik"];
+  Tabcijk["defjki"] += (+1.0) * SVabcijk["edfjik"];
+  Tabcijk["defjki"] += (+1.0) * SVabcijk["fedjik"];
 #endif
 
   //( + 1.0  ) * Tai["dk"] * Vabij["efij"];
@@ -227,8 +224,6 @@ void UPerturbativeTriples::run() {
   //( - 1.0  ) * Tai["di"] * Vabij["efkj"];
   //( + 1.0  ) * Tai["ei"] * Vabij["dfkj"];
   //( + 1.0  ) * Tai["fi"] * Vabij["edkj"];
-
-
 
   /**********************
   // Gauss implementaiton
@@ -282,31 +277,36 @@ void UPerturbativeTriples::run() {
   //Tabcijk["abcijk"] += (+1.0) * SVabcijk["cbaijk"];
   */
 
-  SVabcijk["abcijk"]  =          (*epsi)["i"];
-  SVabcijk["abcijk"] +=          (*epsi)["j"];
-  SVabcijk["abcijk"] +=          (*epsi)["k"];
+  SVabcijk["abcijk"] = (*epsi)["i"];
+  SVabcijk["abcijk"] += (*epsi)["j"];
+  SVabcijk["abcijk"] += (*epsi)["k"];
   SVabcijk["abcijk"] += (-1.0) * (*epsa)["a"];
   SVabcijk["abcijk"] += (-1.0) * (*epsa)["b"];
   SVabcijk["abcijk"] += (-1.0) * (*epsa)["c"];
   Bivar_Function<> fDivide(&divide<double>);
-  Tabcijk.contract(
-    1.0, Tabcijk,"abcijk", SVabcijk,"abcijk", 0.0,"abcijk", fDivide
-  );
+  Tabcijk.contract(1.0,
+                   Tabcijk,
+                   "abcijk",
+                   SVabcijk,
+                   "abcijk",
+                   0.0,
+                   "abcijk",
+                   fDivide);
 
   Scalar<> energy(*Sisi4s::world);
-  energy[""]  = (1.0 / 36.0) * DVabcijk["abcijk"] * Tabcijk["abcijk"];
-//  energy[""] += DVabcijk["bacjik"] * Tabcijk["abcijk"];
-//  energy[""] += DVabcijk["acbikj"] * Tabcijk["abcijk"];
-//  energy[""] += DVabcijk["cbakji"] * Tabcijk["abcijk"];
-//  energy[""] += DVabcijk["cabkij"] * Tabcijk["abcijk"];
-//  energy[""] += DVabcijk["bcajki"] * Tabcijk["abcijk"];
+  energy[""] = (1.0 / 36.0) * DVabcijk["abcijk"] * Tabcijk["abcijk"];
+  //  energy[""] += DVabcijk["bacjik"] * Tabcijk["abcijk"];
+  //  energy[""] += DVabcijk["acbikj"] * Tabcijk["abcijk"];
+  //  energy[""] += DVabcijk["cbakji"] * Tabcijk["abcijk"];
+  //  energy[""] += DVabcijk["cabkij"] * Tabcijk["abcijk"];
+  //  energy[""] += DVabcijk["bcajki"] * Tabcijk["abcijk"];
 
   double eTriples(energy.get_val());
-  //double eCcsd(getRealArgument("CcsdEnergy"));
-  //double e(eCcsd + eTriples);
-  //LOG(0, "PerturbativeTriples") << "e=" << e << std::endl;
-  //LOG(1, "PerturbativeTriples") << "ccsd=" << eCcsd << std::endl;
-  
+  // double eCcsd(getRealArgument("CcsdEnergy"));
+  // double e(eCcsd + eTriples);
+  // LOG(0, "PerturbativeTriples") << "e=" << e << std::endl;
+  // LOG(1, "PerturbativeTriples") << "ccsd=" << eCcsd << std::endl;
+
   LOG(0, "PerturbativeTriples") << "triples=" << eTriples << std::endl;
 
   setRealArgument("PerturbativeTriplesEnergy", energy);
@@ -318,37 +318,29 @@ void UPerturbativeTriples::dryRun() {
   getTensorArgument<double, DryTensor<double>>("PPPHCoulombIntegrals");
 
   DryTensor<> *Tai(
-    getTensorArgument<double, DryTensor<double>>("CcsdSinglesAmplitudes")
-  );
+      getTensorArgument<double, DryTensor<double>>("CcsdSinglesAmplitudes"));
   DryTensor<> *Tabij(
-    getTensorArgument<double, DryTensor<double>>("CcsdDoublesAmplitudes")
-  );
+      getTensorArgument<double, DryTensor<double>>("CcsdDoublesAmplitudes"));
 
   // Read the Particle/Hole Eigenenergies epsi epsa required for the energy
   DryTensor<> *epsi(
-    getTensorArgument<double, DryTensor<double>>("HoleEigenEnergies")
-  );
+      getTensorArgument<double, DryTensor<double>>("HoleEigenEnergies"));
   DryTensor<> *epsa(
-    getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies")
-  );
-  
+      getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies"));
+
   // Compute the No,Nv
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
 
   // Allocate the doubles amplitudes
-  int vvvooo[] = { Nv, Nv , Nv , No , No , No };
-  int   syms[] = { NS, NS,  NS , NS , NS , NS };
+  int vvvooo[] = {Nv, Nv, Nv, No, No, No};
+  int syms[] = {NS, NS, NS, NS, NS, NS};
   DryTensor<> Tabcijk(6, vvvooo, syms, SOURCE_LOCATION);
 
-  {
-    DryTensor<> Zabcijk(6, vvvooo, syms, SOURCE_LOCATION);
-  }
+  { DryTensor<> Zabcijk(6, vvvooo, syms, SOURCE_LOCATION); }
 
   DryTensor<> Zai(*Tai, SOURCE_LOCATION);
   DryTensor<> Zabij(*Tabij, SOURCE_LOCATION);
 
   DryScalar<> energy();
 }
-
-

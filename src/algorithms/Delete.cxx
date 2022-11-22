@@ -6,13 +6,10 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(Delete);
 
-Delete::Delete(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+Delete::Delete(std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-Delete::~Delete() {
-}
+Delete::~Delete() {}
 
 void Delete::run() {
   Data *data(getArgumentData("Data"));
@@ -37,4 +34,3 @@ void Delete::dryRun() {
     LOG(0, "Delete") << "Data not allocated." << std::endl;
   }
 }
-

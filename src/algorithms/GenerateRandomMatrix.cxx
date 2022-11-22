@@ -6,16 +6,13 @@
 
 using namespace sisi4s;
 
-
 ALGORITHM_REGISTRAR_DEFINITION(GenerateRandomMatrix);
 
 GenerateRandomMatrix::GenerateRandomMatrix(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+    std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-GenerateRandomMatrix::~GenerateRandomMatrix() {
-}
+GenerateRandomMatrix::~GenerateRandomMatrix() {}
 
 /**
  * \brief Testing environement
@@ -31,10 +28,10 @@ void GenerateRandomMatrix::run() {
   } else if (symmetry == "hollow") {
     sym = SH;
   }
-  CTF::Matrix<double> *C(new CTF::Matrix<double>(m, n, sym, *Sisi4s::world, "C"));
+  CTF::Matrix<double> *C(
+      new CTF::Matrix<double>(m, n, sym, *Sisi4s::world, "C"));
   DefaultRandomEngine random;
   std::normal_distribution<double> normalDistribution(0.0, 1.0);
   setRandomTensor(*C, normalDistribution, random);
   allocatedTensorArgument("Result", C);
 }
-

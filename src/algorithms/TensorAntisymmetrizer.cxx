@@ -19,7 +19,7 @@ using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(TensorAntisymmetrizer);
 
 bool isSelfAntisymmetrizable(const IntegralInfo &i) {
-  for (const auto &j: i.getAntisymmetrizers()) {
+  for (const auto &j : i.getAntisymmetrizers()) {
     if (j.name == i.name) return true;
   }
   return false;
@@ -27,39 +27,37 @@ bool isSelfAntisymmetrizable(const IntegralInfo &i) {
 
 void TensorAntisymmetrizer::run() {
   const std::vector<IntegralInfo> infos(
-    { {"HHHHCoulombIntegrals", {NO,NO,NO,NO}, "ijkl"}
-    , {"HHHPCoulombIntegrals", {NO,NO,NO,NV}, "ijka"}
-    , {"HHPHCoulombIntegrals", {NO,NO,NV,NO}, "ijak"}
-    , {"HHPPCoulombIntegrals", {NO,NO,NV,NV}, "ijab"}
-    , {"HPHHCoulombIntegrals", {NO,NV,NO,NO}, "iajk"}
-    , {"HPHPCoulombIntegrals", {NO,NV,NO,NV}, "iajb"}
-    , {"HPPHCoulombIntegrals", {NO,NV,NV,NO}, "iabj"}
-    , {"HPPPCoulombIntegrals", {NO,NV,NV,NV}, "iabc"}
-    , {"PHHHCoulombIntegrals", {NV,NO,NO,NO}, "aijk"}
-    , {"PHHPCoulombIntegrals", {NV,NO,NO,NV}, "aijb"}
-    , {"PHPHCoulombIntegrals", {NV,NO,NV,NO}, "aibj"}
-    , {"PHPPCoulombIntegrals", {NV,NO,NV,NV}, "aibc"}
-    , {"PPHHCoulombIntegrals", {NV,NV,NO,NO}, "abij"}
-    , {"PPHPCoulombIntegrals", {NV,NV,NO,NV}, "abic"}
-    , {"PPPHCoulombIntegrals", {NV,NV,NV,NO}, "abci"}
-    , {"PPPPCoulombIntegrals", {NV,NV,NV,NV}, "abcd"}
-    } );
+      {{"HHHHCoulombIntegrals", {NO, NO, NO, NO}, "ijkl"},
+       {"HHHPCoulombIntegrals", {NO, NO, NO, NV}, "ijka"},
+       {"HHPHCoulombIntegrals", {NO, NO, NV, NO}, "ijak"},
+       {"HHPPCoulombIntegrals", {NO, NO, NV, NV}, "ijab"},
+       {"HPHHCoulombIntegrals", {NO, NV, NO, NO}, "iajk"},
+       {"HPHPCoulombIntegrals", {NO, NV, NO, NV}, "iajb"},
+       {"HPPHCoulombIntegrals", {NO, NV, NV, NO}, "iabj"},
+       {"HPPPCoulombIntegrals", {NO, NV, NV, NV}, "iabc"},
+       {"PHHHCoulombIntegrals", {NV, NO, NO, NO}, "aijk"},
+       {"PHHPCoulombIntegrals", {NV, NO, NO, NV}, "aijb"},
+       {"PHPHCoulombIntegrals", {NV, NO, NV, NO}, "aibj"},
+       {"PHPPCoulombIntegrals", {NV, NO, NV, NV}, "aibc"},
+       {"PPHHCoulombIntegrals", {NV, NV, NO, NO}, "abij"},
+       {"PPHPCoulombIntegrals", {NV, NV, NO, NV}, "abic"},
+       {"PPPHCoulombIntegrals", {NV, NV, NV, NO}, "abci"},
+       {"PPPPCoulombIntegrals", {NV, NV, NV, NV}, "abcd"}});
 
   // Only copy integrals that are not self-antisymmetrizable
   std::map<std::string, PTR(Tensor<double>)> integralCopies;
   for (const auto &integral : infos) {
-  if ( isArgumentGiven(integral.name) && !isSelfAntisymmetrizable(integral) ) {
-    LOG(1, "TensorAntisymmetrizer")
-      << "Copying " << integral.name
-      << std::endl;
-    integralCopies[integral.name]
-      = NEW(Tensor<double>, *getTensorArgument<double>(integral.name));
-  }
+    if (isArgumentGiven(integral.name) && !isSelfAntisymmetrizable(integral)) {
+      LOG(1, "TensorAntisymmetrizer")
+          << "Copying " << integral.name << std::endl;
+      integralCopies[integral.name] =
+          NEW(Tensor<double>, *getTensorArgument<double>(integral.name));
+    }
   }
 
   for (const auto &integral : infos) {
     bool antisymmetrized(false);
-    if ( ! isArgumentGiven(integral.name) ) continue;
+    if (!isArgumentGiven(integral.name)) continue;
 
     auto antigrals(integral.getAntisymmetrizers());
     // sort antigrals so that integral be the first
@@ -70,17 +68,16 @@ void TensorAntisymmetrizer::run() {
            return a.name == integral.name;
          });
 
-    for (const auto& antigral: antigrals) {
+    for (const auto &antigral : antigrals) {
       if (isArgumentGiven(antigral.name)) {
         LOG(1, "TensorAntisymmetrizer")
-          << integral.name
-          << " from " << antigral.name << std::endl;
-        LOG(1, "TensorAntisymmetrizer") << "  "
-          << integral.name << "[" << integral.ids << "] -= "
-          << antigral.name << "[" << antigral.ids << "]"
-          << std::endl;
+            << integral.name << " from " << antigral.name << std::endl;
+        LOG(1, "TensorAntisymmetrizer")
+            << "  " << integral.name << "[" << integral.ids
+            << "] -= " << antigral.name << "[" << antigral.ids << "]"
+            << std::endl;
         auto inteCtf(getTensorArgument<double>(integral.name));
-        Tensor<double>* antiCtf;
+        Tensor<double> *antiCtf;
         if (antigral.name == integral.name) {
           antiCtf = inteCtf;
         } else {
@@ -97,16 +94,13 @@ void TensorAntisymmetrizer::run() {
     // wrong, we don't have enough integrals to do this, panic!
     if (!antisymmetrized) {
       LOG(1, "TensorAntisymmetrizer")
-        << "error: "
-        << integral.name << " could not be antisymmetrized"
-        << std::endl;
-      LOG(1, "TensorAntisymmetrizer")
-        << "error: possibilities: " << std::endl;
-      for (const auto& antigral: integral.getAntisymmetrizers()) {
+          << "error: " << integral.name << " could not be antisymmetrized"
+          << std::endl;
+      LOG(1, "TensorAntisymmetrizer") << "error: possibilities: " << std::endl;
+      for (const auto &antigral : integral.getAntisymmetrizers()) {
         LOG(1, "TensorAntisymmetrizer") << "> " << antigral.name << std::endl;
       }
       throw new EXCEPTION("Antisymmetrization error");
     }
   }
-
 }

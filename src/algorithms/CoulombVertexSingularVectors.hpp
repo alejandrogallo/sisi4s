@@ -5,26 +5,25 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-  class CoulombVertexSingularVectors: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(CoulombVertexSingularVectors);
-    CoulombVertexSingularVectors(std::vector<Argument> const &argumentList);
-    virtual ~CoulombVertexSingularVectors();
-    /**
-     * \brief Calculates left singular vectors of the full Coulomb vertex
-     * \f$\tilde\Gamma^q_{rG}\f$.
-     */
-    virtual void run();
-    /**
-     * \brief Dry run for calculating the left singular vectors of
-     * \f$\Gamma^q_{rG}\f$.
-     */
-    virtual void dryRun();
+class CoulombVertexSingularVectors : public Algorithm {
+public:
+  ALGORITHM_REGISTRAR_DECLARATION(CoulombVertexSingularVectors);
+  CoulombVertexSingularVectors(std::vector<Argument> const &argumentList);
+  virtual ~CoulombVertexSingularVectors();
+  /**
+   * \brief Calculates left singular vectors of the full Coulomb vertex
+   * \f$\tilde\Gamma^q_{rG}\f$.
+   */
+  virtual void run();
+  /**
+   * \brief Dry run for calculating the left singular vectors of
+   * \f$\Gamma^q_{rG}\f$.
+   */
+  virtual void dryRun();
 
-    static double constexpr DEFAULT_FIELD_VARIABLES_RANK = 0.5;
-    static int64_t constexpr DEFAULT_FIELD_VARIABLES_SIZE = -1;
-  };
-}
+  static double constexpr DEFAULT_FIELD_VARIABLES_RANK = 0.5;
+  static int64_t constexpr DEFAULT_FIELD_VARIABLES_SIZE = -1;
+};
+} // namespace sisi4s
 
 #endif
-

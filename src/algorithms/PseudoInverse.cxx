@@ -8,13 +8,10 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(PseudoInverse);
 
-PseudoInverse::PseudoInverse(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+PseudoInverse::PseudoInverse(std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-PseudoInverse::~PseudoInverse() {
-}
+PseudoInverse::~PseudoInverse() {}
 
 void PseudoInverse::run() {
   Tensor<complex> *A(getTensorArgument<complex>("A"));
@@ -25,4 +22,3 @@ void PseudoInverse::run() {
   Tensor<complex> *inverseA(new Tensor<complex>(pseudoInverse.get()));
   allocatedTensorArgument<complex>("InverseA", inverseA);
 }
-

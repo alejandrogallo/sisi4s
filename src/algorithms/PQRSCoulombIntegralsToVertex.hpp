@@ -7,18 +7,15 @@
 #include <vector>
 
 namespace sisi4s {
-  class PQRSCoulombIntegralsToVertex: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(PQRSCoulombIntegralsToVertex);
-    PQRSCoulombIntegralsToVertex(
-      std::vector<Argument> const &argumentList
-    );
-    virtual ~PQRSCoulombIntegralsToVertex();
-    virtual void run();
-  protected:
+class PQRSCoulombIntegralsToVertex : public Algorithm {
+public:
+  ALGORITHM_REGISTRAR_DECLARATION(PQRSCoulombIntegralsToVertex);
+  PQRSCoulombIntegralsToVertex(std::vector<Argument> const &argumentList);
+  virtual ~PQRSCoulombIntegralsToVertex();
+  virtual void run();
 
-  };
-}
-
+protected:
+};
+} // namespace sisi4s
 
 #endif

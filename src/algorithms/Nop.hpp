@@ -5,7 +5,7 @@
 
 namespace sisi4s {
 
-  DEFINE_ALGORITHM_HEADER(Nop,);
+DEFINE_ALGORITHM_HEADER(Nop, );
 
 }
 

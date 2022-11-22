@@ -4,16 +4,15 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-  struct TensorAntisymmetrizer: public Algorithm {
-    ALGORITHM_REGISTRAR_DECLARATION(TensorAntisymmetrizer);
+struct TensorAntisymmetrizer : public Algorithm {
+  ALGORITHM_REGISTRAR_DECLARATION(TensorAntisymmetrizer);
 
-    TensorAntisymmetrizer(
-      std::vector<Argument> const &argumentList): Algorithm(argumentList) {}
-    ~TensorAntisymmetrizer(){};
+  TensorAntisymmetrizer(std::vector<Argument> const &argumentList)
+      : Algorithm(argumentList) {}
+  ~TensorAntisymmetrizer(){};
 
-    virtual void run();
-  };
-}
+  virtual void run();
+};
+} // namespace sisi4s
 
 #endif
-

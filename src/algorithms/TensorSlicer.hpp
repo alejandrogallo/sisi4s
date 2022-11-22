@@ -4,14 +4,13 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-  struct TensorSlicer: public Algorithm {
-    ALGORITHM_REGISTRAR_DECLARATION(TensorSlicer);
-    TensorSlicer(std::vector<Argument> const &argumentList)
+struct TensorSlicer : public Algorithm {
+  ALGORITHM_REGISTRAR_DECLARATION(TensorSlicer);
+  TensorSlicer(std::vector<Argument> const &argumentList)
       : Algorithm(argumentList) {}
-    ~TensorSlicer(){};
-    virtual void run();
-  };
-}
+  ~TensorSlicer(){};
+  virtual void run();
+};
+} // namespace sisi4s
 
 #endif
-

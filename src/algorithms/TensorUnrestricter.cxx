@@ -14,9 +14,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorUnrestricter);
 
-
-Tensor<double>*
-unrestrictTensor(Tensor<double> &tensor) {
+Tensor<double> *unrestrictTensor(Tensor<double> &tensor) {
 
   // check order of tensor
   const std::set<int> _supportedLens({1, 2, 4});
@@ -28,68 +26,69 @@ unrestrictTensor(Tensor<double> &tensor) {
   // {N0, N1, ... , Nn} for a n-dimensional tensor
   std::vector<int> lens(tensor.lens, tensor.lens + tensor.order);
   std::vector<int> syms(tensor.sym, tensor.sym + tensor.order);
-  std::for_each(lens.begin(), lens.end(), [](int& i) {i *= 2;});
+  std::for_each(lens.begin(), lens.end(), [](int &i) { i *= 2; });
 
-  auto result(new Tensor<double>(
-    tensor.order, lens.data(), syms.data(), *Sisi4s::world,
-    ("u" + std::string(tensor.name)).c_str() ));
+  auto result(new Tensor<double>(tensor.order,
+                                 lens.data(),
+                                 syms.data(),
+                                 *Sisi4s::world,
+                                 ("u" + std::string(tensor.name)).c_str()));
 
   // vector of vectors of int
   // { MapEquivalenceForLens0, MapEquivalenceForLens1, ... }
-  std::vector< std::vector<int> > permuter(tensor.order);
-  std::vector< int* > permuterIds(tensor.order);
+  std::vector<std::vector<int>> permuter(tensor.order);
+  std::vector<int *> permuterIds(tensor.order);
 
   // resize the equivalence mappings
-  for (unsigned int i(0) ; i < lens.size() ; i++) {
+  for (unsigned int i(0); i < lens.size(); i++) {
     permuter[i].resize(tensor.lens[i]);
   }
 
-  std::vector< std::function<void(int&)> > transformers({
+  std::vector<std::function<void(int &)>> transformers({
       // gerade
-      [](int &i) { i = 2*i; },
+      [](int &i) { i = 2 * i; },
       // ungerade
-      [](int &i) { i = 2*i + 1; },
+      [](int &i) { i = 2 * i + 1; },
   });
 
   if (tensor.order == 1 || tensor.order == 2)
-  for (auto& transformer: transformers) {
-    for (unsigned int i(0) ; i < lens.size() ; i++) {
-      auto& mapping = permuter[i];
-      std::iota(mapping.begin(), mapping.end(), 0);
-      std::for_each(mapping.begin(), mapping.end(), transformer);
-      permuterIds[i] = mapping.data();
+    for (auto &transformer : transformers) {
+      for (unsigned int i(0); i < lens.size(); i++) {
+        auto &mapping = permuter[i];
+        std::iota(mapping.begin(), mapping.end(), 0);
+        std::for_each(mapping.begin(), mapping.end(), transformer);
+        permuterIds[i] = mapping.data();
+      }
+      result->permute(1.0, tensor, permuterIds.data(), 1.0);
     }
-    result->permute(1.0, tensor, permuterIds.data(), 1.0);
-  }
 
   if (tensor.order == 4)
-  for (auto& transLeft: transformers) {
-  for (auto& transRight: transformers) {
-    for (auto& i: std::vector<int>({0, 2})) {
-    for (auto& j: std::vector<int>({1, 3})) {
-      auto& mappingLeft = permuter[i];
-      auto& mappingRight = permuter[j];
+    for (auto &transLeft : transformers) {
+      for (auto &transRight : transformers) {
+        for (auto &i : std::vector<int>({0, 2})) {
+          for (auto &j : std::vector<int>({1, 3})) {
+            auto &mappingLeft = permuter[i];
+            auto &mappingRight = permuter[j];
 
-      std::iota(mappingLeft.begin(), mappingLeft.end(), 0);
-      std::iota(mappingRight.begin(), mappingRight.end(), 0);
+            std::iota(mappingLeft.begin(), mappingLeft.end(), 0);
+            std::iota(mappingRight.begin(), mappingRight.end(), 0);
 
-      std::for_each(mappingLeft.begin(), mappingLeft.end(), transLeft);
-      std::for_each(mappingRight.begin(), mappingRight.end(), transRight);
+            std::for_each(mappingLeft.begin(), mappingLeft.end(), transLeft);
+            std::for_each(mappingRight.begin(), mappingRight.end(), transRight);
 
-      permuterIds[i] = mappingLeft.data();
-      permuterIds[j] = mappingRight.data();
+            permuterIds[i] = mappingLeft.data();
+            permuterIds[j] = mappingRight.data();
+          }
+        }
+        result->permute(1.0, tensor, permuterIds.data(), 1.0);
+      }
     }
-    }
-    result->permute(1.0, tensor, permuterIds.data(), 1.0);
-  }
-  }
 
   return result;
 }
 
 void TensorUnrestricter::run() {
   allocatedTensorArgument<double>(
-    "Out",
-    unrestrictTensor(
-      *getTensorArgument<double>("Data")));
+      "Out",
+      unrestrictTensor(*getTensorArgument<double>("Data")));
 }

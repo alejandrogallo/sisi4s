@@ -15,15 +15,12 @@
 
 using namespace sisi4s;
 
-
-ClusterSinglesDoublesTriplesAlgorithm::~ClusterSinglesDoublesTriplesAlgorithm() {
-}
+ClusterSinglesDoublesTriplesAlgorithm::
+    ~ClusterSinglesDoublesTriplesAlgorithm() {}
 
 ClusterSinglesDoublesTriplesAlgorithm::ClusterSinglesDoublesTriplesAlgorithm(
-  std::vector<Argument> const &argumentList
-): ClusterSinglesDoublesAlgorithm(argumentList) {
-}
-
+    std::vector<Argument> const &argumentList)
+    : ClusterSinglesDoublesAlgorithm(argumentList) {}
 
 void ClusterSinglesDoublesTriplesAlgorithm::run() {
   Data *Vabij(getArgumentData("PPHHCoulombIntegrals"));
@@ -32,7 +29,7 @@ void ClusterSinglesDoublesTriplesAlgorithm::run() {
   if (realVabij) {
     e = run<double>();
   } else {
-    e = std::real( run<complex>() );
+    e = std::real(run<complex>());
   }
   setRealArgument(getDataName("", "Energy"), e);
 }
@@ -42,17 +39,14 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
   int Nv(getTensorArgument<>("ParticleEigenEnergies")->lens[0]);
   int No(getTensorArgument<>("HoleEigenEnergies")->lens[0]);
 
-  PTR(const FockVector<F>) amplitudes(
-    createAmplitudes<F>(
+  PTR(const FockVector<F>) amplitudes(createAmplitudes<F>(
       {"Singles", "Doubles", "Triples"},
-      {{Nv,No}, {Nv,Nv,No,No}, {Nv,Nv,Nv,No,No,No}},
-      {"ai", "abij", "abcijk"}
-    )
-  );
+      {{Nv, No}, {Nv, Nv, No, No}, {Nv, Nv, Nv, No, No, No}},
+      {"ai", "abij", "abcijk"}));
 
   // create a mixer, by default use the linear one
   std::string mixerName(getTextArgument("mixer", "LinearMixer"));
-  PTR(Mixer<F>) mixer( MixerFactory<F>::create(mixerName, this));
+  PTR(Mixer<F>) mixer(MixerFactory<F>::create(mixerName, this));
   if (!mixer) {
     std::stringstream stringStream;
     stringStream << "Mixer not implemented: " << mixerName;
@@ -61,22 +55,17 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
 
   // number of iterations for determining the amplitudes
   int maxIterationsCount(
-    getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS)
-  );
+      getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS));
 
   F amplitudesConvergence(
-    getRealArgument("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE)
-  );
+      getRealArgument("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE));
   F energyConvergence(
-    getRealArgument("energyConvergence", DEFAULT_ENERGY_CONVERGENCE)
-  );
+      getRealArgument("energyConvergence", DEFAULT_ENERGY_CONVERGENCE));
 
-  EMIT()
-    << YAML::Key << "maxIterations" << YAML::Value << maxIterationsCount
-    << YAML::Key << "amplitudesConvergence"
-    << YAML::Value << std::abs(amplitudesConvergence)
-    << YAML::Key << "energyConvergence"
-    << YAML::Value << std::abs(energyConvergence);
+  EMIT() << YAML::Key << "maxIterations" << YAML::Value << maxIterationsCount
+         << YAML::Key << "amplitudesConvergence" << YAML::Value
+         << std::abs(amplitudesConvergence) << YAML::Key << "energyConvergence"
+         << YAML::Value << std::abs(energyConvergence);
 
   EMIT() << YAML::Key << "iterations" << YAML::Value;
   EMIT() << YAML::BeginSeq;
@@ -85,24 +74,22 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
   int i(0);
   for (; i < maxIterationsCount; ++i) {
     EMIT() << YAML::BeginMap;
-    LOG(0, getCapitalizedAbbreviation()) << "iteration: " << i+1 << std::endl;
-    EMIT() << YAML::Key << "iteration" << YAML::Value << i+1;
+    LOG(0, getCapitalizedAbbreviation()) << "iteration: " << i + 1 << std::endl;
+    EMIT() << YAML::Key << "iteration" << YAML::Value << i + 1;
     // call the getResiduum of the actual algorithm,
     // which will be specified by inheriting classes
-    auto estimatedAmplitudes( getResiduum(i, amplitudes) );
+    auto estimatedAmplitudes(getResiduum(i, amplitudes));
     estimateAmplitudesFromResiduum(estimatedAmplitudes, amplitudes);
-    auto amplitudesChange( NEW(FockVector<F>, *estimatedAmplitudes) );
+    auto amplitudesChange(NEW(FockVector<F>, *estimatedAmplitudes));
     *amplitudesChange -= *amplitudes;
     mixer->append(estimatedAmplitudes, amplitudesChange);
     // get mixer's best guess for amplitudes
     amplitudes = mixer->get();
     e = getEnergy(amplitudes);
-    if (
-      std::abs((e-previousE)/e) < std::abs(energyConvergence) &&
-      std::abs(
-        amplitudesChange->dot(*amplitudesChange) / amplitudes->dot(*amplitudes)
-      ) < std::abs(amplitudesConvergence * amplitudesConvergence)
-        ) {
+    if (std::abs((e - previousE) / e) < std::abs(energyConvergence)
+        && std::abs(amplitudesChange->dot(*amplitudesChange)
+                    / amplitudes->dot(*amplitudes))
+               < std::abs(amplitudesConvergence * amplitudesConvergence)) {
       EMIT() << YAML::EndMap;
       break;
     }
@@ -112,12 +99,13 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
   EMIT() << YAML::EndSeq;
 
   if (maxIterationsCount == 0) {
-    LOG(0, getCapitalizedAbbreviation()) <<
-      "computing energy from given amplitudes" << std::endl;
+    LOG(0, getCapitalizedAbbreviation())
+        << "computing energy from given amplitudes" << std::endl;
     e = getEnergy(amplitudes);
   } else if (i == maxIterationsCount) {
-    LOG(0, getCapitalizedAbbreviation()) <<
-      "WARNING: energy or amplitudes convergence not reached." << std::endl;
+    LOG(0, getCapitalizedAbbreviation())
+        << "WARNING: energy or amplitudes convergence not reached."
+        << std::endl;
   }
 
   storeAmplitudes(amplitudes, {"Singles", "Doubles", "Triples"});

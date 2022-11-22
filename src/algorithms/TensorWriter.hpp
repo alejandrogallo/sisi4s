@@ -5,22 +5,21 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-  class TensorWriter: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(TensorWriter);
-    TensorWriter(std::vector<Argument> const &args)
+class TensorWriter : public Algorithm {
+public:
+  ALGORITHM_REGISTRAR_DECLARATION(TensorWriter);
+  TensorWriter(std::vector<Argument> const &args)
       : Algorithm(args) {}
-    ~TensorWriter() {}
-    /**
-     * \brief Writes the real tensor data given as Data argument to a file.
-     */
-    virtual void run();
+  ~TensorWriter() {}
+  /**
+   * \brief Writes the real tensor data given as Data argument to a file.
+   */
+  virtual void run();
 
-  protected:
-    template <typename F>
-    void write(const std::string &name);
-  };
-}
+protected:
+  template <typename F>
+  void write(const std::string &name);
+};
+} // namespace sisi4s
 
 #endif
-

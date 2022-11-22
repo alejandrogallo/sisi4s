@@ -8,12 +8,10 @@ using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(SingleParticleOccupancies);
 
 SingleParticleOccupancies::SingleParticleOccupancies(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+    std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-SingleParticleOccupancies::~SingleParticleOccupancies() {
-}
+SingleParticleOccupancies::~SingleParticleOccupancies() {}
 
 void SingleParticleOccupancies::run() {
   // Read the DRCCD amplitudes Tabij
@@ -35,14 +33,14 @@ void SingleParticleOccupancies::run() {
   Bivar_Function<> fDivide(&divide<double>);
   Tensor<double> Da(false, *Na);
   Da["a"] = TT[""];
-  Na->contract(1.0, *Na,"a", Da,"a", 0.0,"a", fDivide);
+  Na->contract(1.0, *Na, "a", Da, "a", 0.0, "a", fDivide);
 
   // calculate <Psi|Ni|Psi>
   (*Ni)["i"] = -2.0 * (*Tabij)["abij"] * (*Tabij)["abij"];
   // calculate <Psi|Na|Psi> / <Psi|Psi>
   Tensor<double> Di(false, *Ni);
   Di["i"] = TT[""];
-  Ni->contract(1.0, *Ni,"i", Di,"i", 0.0,"i", fDivide);
+  Ni->contract(1.0, *Ni, "i", Di, "i", 0.0, "i", fDivide);
   (*Ni)["i"] += 1.0;
 
   allocatedTensorArgument<>("ParticleOccupancies", Na);
@@ -52,8 +50,7 @@ void SingleParticleOccupancies::run() {
 void SingleParticleOccupancies::dryRun() {
   // Read the DRCCD amplitudes Tabij
   DryTensor<> *Tabij(
-    getTensorArgument<double, DryTensor<>>("DoublesAmplitudes")
-  );
+      getTensorArgument<double, DryTensor<>>("DoublesAmplitudes"));
 
   int no(Tabij->lens[2]), nv(Tabij->lens[0]);
   // create particle and hole occupancies
@@ -70,4 +67,3 @@ void SingleParticleOccupancies::dryRun() {
   allocatedTensorArgument<double, DryTensor<>>("ParticleOccupancies", Na);
   allocatedTensorArgument<double, DryTensor<>>("HoleOccupancies", Ni);
 }
-

@@ -2,7 +2,7 @@
 #include <algorithms/ComplexTensorWriter.hpp>
 #include <util/TensorIo.hpp>
 #include <util/Log.hpp>
-#include <fstream> 
+#include <fstream>
 #include <iomanip>
 #include <util/Tensor.hpp>
 #include <util/Emitter.hpp>
@@ -12,12 +12,10 @@ using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorWriter);
 
 ComplexTensorWriter::ComplexTensorWriter(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+    std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-ComplexTensorWriter::~ComplexTensorWriter() {
-}
+ComplexTensorWriter::~ComplexTensorWriter() {}
 
 void ComplexTensorWriter::run() {
   Tensor<complex> *A(getTensorArgument<complex>("Data"));
@@ -36,18 +34,15 @@ void ComplexTensorWriter::run() {
     std::string rowIndexOrder(getTextArgument("rowIndexOrder", ""));
     std::string columnIndexOrder(getTextArgument("columnIndexOrder", ""));
     std::string delimiter(getTextArgument("delimiter", " "));
-    TensorIo::writeText<complex>(
-      fileName, *A, rowIndexOrder, columnIndexOrder, delimiter
-    );
+    TensorIo::writeText<complex>(fileName,
+                                 *A,
+                                 rowIndexOrder,
+                                 columnIndexOrder,
+                                 delimiter);
     EMIT() << YAML::Key << "file" << YAML::Value << fileName;
   }
 
   int64_t indexCount(1);
-  for (int dim(0); dim < A->order; ++dim) {
-    indexCount *= A->lens[dim];
-  }
+  for (int dim(0); dim < A->order; ++dim) { indexCount *= A->lens[dim]; }
   EMIT() << YAML::Key << "elements" << YAML::Value << indexCount;
-
-
 }
-

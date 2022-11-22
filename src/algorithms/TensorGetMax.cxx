@@ -9,8 +9,6 @@ ALGORITHM_REGISTRAR_DEFINITION(TensorGetMax);
 void TensorGetMax::run() {
   auto tensor(getTensorArgument<double>("Data"));
   double max{tensor->norm_infty()};
-  LOG(1, "TensorGetMax")
-    << tensor->get_name() << ":"
-    << "max: " << max
-    << std::endl;
+  LOG(1, "TensorGetMax") << tensor->get_name() << ":"
+                         << "max: " << max << std::endl;
 }

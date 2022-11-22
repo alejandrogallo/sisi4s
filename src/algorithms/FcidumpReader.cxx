@@ -15,19 +15,19 @@ ALGORITHM_REGISTRAR_DEFINITION(FcidumpReader);
 
 FcidumpReader::FcidumpHeader
 FcidumpReader::parseHeader(const std::string &filePath) {
-  FcidumpReader::FcidumpHeader header{.norb=0, .nelec=0, .uhf=0, .ms2=0};
-  std::regex
-    rnorb{"NORB\\s*=\\s*([0-9]+)"},
-    rnelec{"NELEC\\s*=\\s*([0-9]+)"},
-    ruhf{"UHF\\s*=\\s*([01])"},
-    rms2{"MS2\\s*=\\s*([0-9]+)"},
-    rend{"^\\s*([/]|&END|\\$)\\s*$"};
+  FcidumpReader::FcidumpHeader header{.norb = 0,
+                                      .nelec = 0,
+                                      .uhf = 0,
+                                      .ms2 = 0};
+  std::regex rnorb{"NORB\\s*=\\s*([0-9]+)"}, rnelec{"NELEC\\s*=\\s*([0-9]+)"},
+      ruhf{"UHF\\s*=\\s*([01])"}, rms2{"MS2\\s*=\\s*([0-9]+)"},
+      rend{"^\\s*([/]|&END|\\$)\\s*$"};
   std::string line;
   std::ifstream file(filePath);
   if (file.is_open()) {
-    while(std::getline(file, line)) {
+    while (std::getline(file, line)) {
       std::smatch matches;
-      std::regex_search(line, matches, rnorb);  // parse norb
+      std::regex_search(line, matches, rnorb); // parse norb
       if (matches.size()) header.norb = atoi(std::string{matches[1]}.c_str());
       std::regex_search(line, matches, rnelec); // parse nelec
       if (matches.size()) header.nelec = atoi(std::string{matches[1]}.c_str());
@@ -47,8 +47,7 @@ FcidumpReader::parseHeader(const std::string &filePath) {
   return header;
 }
 
-int
-indexToLenght(const char a, const int No, const int Nv) {
+int indexToLenght(const char a, const int No, const int Nv) {
   if (a == 'h') {
     return No;
   } else if (a == 'p') {
@@ -80,14 +79,14 @@ struct IntegralParser {
   // general size of the tensor
   size_t dimension;
   IntegralParser(std::string name_, const FcidumpReader::FcidumpHeader &header)
-      :name(name_) {
+      : name(name_) {
 
     if (!std::regex_match(name, std::regex{"^[hpt]*$"})) {
       throw new EXCEPTION("Name should be a combination of [hpt] or empty");
     }
 
     // create the chemistName of this integral
-    chemistName = (name.size() == 4) ?  permuteIndices(name, 1, 2) : name;
+    chemistName = (name.size() == 4) ? permuteIndices(name, 1, 2) : name;
 
     uhf = header.uhf;
     No = (uhf == 1 ? 1 : 0.5) * header.nelec;
@@ -95,21 +94,22 @@ struct IntegralParser {
     // build syms
     syms.insert(syms.begin(), name.size(), NS);
     // build lens
-    std::for_each(name.begin(), name.end(),
-                  [&](const char& a){
-                    lens.push_back(indexToLenght(a, No, Nv)); });
+    std::for_each(name.begin(), name.end(), [&](const char &a) {
+      lens.push_back(indexToLenght(a, No, Nv));
+    });
     // build dimensio
-    dimension = std::accumulate(lens.begin(), lens.end(), 1,
-                                std::multiplies<int>());
+    dimension =
+        std::accumulate(lens.begin(), lens.end(), 1, std::multiplies<int>());
     // start to build regex for the numbers
     // it starts with the numerical value of the integral
     std::string regex_str{"^\\s*(\\S+)"};
     // and then so many indices as lens we have
-    std::for_each(lens.begin(), lens.end(),
-                  [&](int){ regex_str += "\\s+([1-9][0-9]*)"; });
+    std::for_each(lens.begin(), lens.end(), [&](int) {
+      regex_str += "\\s+([1-9][0-9]*)";
+    });
     // if lens is less that the number of columns available, the rest should
     // be zeros
-    for (size_t i(0); i<(index_columns - lens.size()); ++i) {
+    for (size_t i(0); i < (index_columns - lens.size()); ++i) {
       regex_str += "\\s+0";
     }
     // end with possible padding zeros
@@ -128,26 +128,27 @@ struct IntegralParser {
     if (matches.size() == 0) return false;
 
     // check if the line relates to this integral
-    for(unsigned int i(2); i<matches.size(); i++) {
+    for (unsigned int i(2); i < matches.size(); i++) {
       int k = std::atoi(std::string{matches[i]}.c_str());
       // what is the corresponding index in our integrals, H or P?
-      const char _HorPorT(chemistName[i-2]);
+      const char _HorPorT(chemistName[i - 2]);
       // if the index is not what we're expecting then return false
-      if ((k <= No && _HorPorT == 'p') || (k > No && _HorPorT == 'h')) return false;
+      if ((k <= No && _HorPorT == 'p') || (k > No && _HorPorT == 'h'))
+        return false;
       if (_HorPorT == 'p') {
-        gIndices[i-2] =  k - No - 1;
+        gIndices[i - 2] = k - No - 1;
       } else if (_HorPorT == 'h') {
-        gIndices[i-2] = k - 1;
+        gIndices[i - 2] = k - 1;
       } else {
         // just get the pure index if
-        gIndices[i-2] = k - 1;
+        gIndices[i - 2] = k - 1;
       }
     }
-    //LOG(1, "FcidumpReader") << name << ":(" << chemistName << "):"
-                            //<< line << std::endl;
+    // LOG(1, "FcidumpReader") << name << ":(" << chemistName << "):"
+    //<< line << std::endl;
 
     // this will be in physics notation
-    {// build up gIndexLens (1, N_1, N_1 * N_2, ..., N_1 *...* N_n-1)
+    { // build up gIndexLens (1, N_1, N_1 * N_2, ..., N_1 *...* N_n-1)
       // copy lens into tempLens
       std::vector<int> tempLens(lens);
       // remove the last lens, the last element
@@ -156,30 +157,32 @@ struct IntegralParser {
       tempLens.insert(tempLens.begin(), 1);
       // create the list with the partial products of the elements
       // in tempLens, and store them in gIndexLens.begin()
-      std::partial_sum(tempLens.begin(), tempLens.end(),
-                       gIndexLens.begin(), std::multiplies<int>());
+      std::partial_sum(tempLens.begin(),
+                       tempLens.end(),
+                       gIndexLens.begin(),
+                       std::multiplies<int>());
     }
     // gIndices was read in chemist notation since it comes from a chemistName
     // so we have to change it back to physics notation to store the index
     // correctly
     if (gIndices.size() == 4) gIndices = permuteIndices(gIndices, 1, 2);
     values.push_back(std::atof(std::string{matches[1]}.c_str()));
-    indices.push_back(
-      std::inner_product(
-        gIndexLens.begin(), gIndexLens.end(), gIndices.begin(), 0));
+    indices.push_back(std::inner_product(gIndexLens.begin(),
+                                         gIndexLens.end(),
+                                         gIndices.begin(),
+                                         0));
     return true;
   }
 
-  Tensor<double>* allocateTensor() {
+  Tensor<double> *allocateTensor() {
     const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
     auto t(new Tensor<double>(lens.size(),
-                                   lens.data(),
-                                   syms.data(),
-                                   *Sisi4s::world));
+                              lens.data(),
+                              syms.data(),
+                              *Sisi4s::world));
     t->write(rank_m * indices.size(), indices.data(), values.data());
     return t;
   }
-
 };
 
 void FcidumpReader::run() {
@@ -202,33 +205,32 @@ void FcidumpReader::run() {
   LOG(0, "FcidumpReader") << "Nv      = " << Nv << std::endl;
 
   const std::vector<IntegralInfo> twoBody({
-    {"tttt", {NP,NP,NP,NP}, "pqrs"},
-    {"hhhh", {NO,NO,NO,NO}, "ijkl"},
-    {"hhhp", {NO,NO,NO,NV}, "ijka"},
-    {"hhph", {NO,NO,NV,NO}, "ijak"},
-    {"hhpp", {NO,NO,NV,NV}, "ijab"},
-    {"hphh", {NO,NV,NO,NO}, "iajk"},
-    {"hphp", {NO,NV,NO,NV}, "iajb"},
-    {"hpph", {NO,NV,NV,NO}, "iabj"},
-    {"hppp", {NO,NV,NV,NV}, "iabc"},
-    {"phhh", {NV,NO,NO,NO}, "aijk"},
-    {"phhp", {NV,NO,NO,NV}, "aijb"},
-    {"phph", {NV,NO,NV,NO}, "aibj"},
-    {"phpp", {NV,NO,NV,NV}, "aibc"},
-    {"pphh", {NV,NV,NO,NO}, "abij"},
-    {"pphp", {NV,NV,NO,NV}, "abic"},
-    {"ppph", {NV,NV,NV,NO}, "abci"},
-    {"pppp", {NV,NV,NV,NV}, "abcd"},
+      {"tttt", {NP, NP, NP, NP}, "pqrs"},
+      {"hhhh", {NO, NO, NO, NO}, "ijkl"},
+      {"hhhp", {NO, NO, NO, NV}, "ijka"},
+      {"hhph", {NO, NO, NV, NO}, "ijak"},
+      {"hhpp", {NO, NO, NV, NV}, "ijab"},
+      {"hphh", {NO, NV, NO, NO}, "iajk"},
+      {"hphp", {NO, NV, NO, NV}, "iajb"},
+      {"hpph", {NO, NV, NV, NO}, "iabj"},
+      {"hppp", {NO, NV, NV, NV}, "iabc"},
+      {"phhh", {NV, NO, NO, NO}, "aijk"},
+      {"phhp", {NV, NO, NO, NV}, "aijb"},
+      {"phph", {NV, NO, NV, NO}, "aibj"},
+      {"phpp", {NV, NO, NV, NV}, "aibc"},
+      {"pphh", {NV, NV, NO, NO}, "abij"},
+      {"pphp", {NV, NV, NO, NV}, "abic"},
+      {"ppph", {NV, NV, NV, NO}, "abci"},
+      {"pppp", {NV, NV, NV, NV}, "abcd"},
   });
 
   const std::vector<std::string> integralNames{
-    "tt", "tttt",
-    "hh", "pp", "hp", "ph",
-    "hhhh", "hhhp", "hhph", "hhpp", "hphh", "hphp", "hpph", "hppp",
-    "phhh", "phhp", "phph", "phpp", "pphh", "pphp", "ppph", "pppp" };
+      "tt",   "tttt", "hh",   "pp",   "hp",   "ph",   "hhhh", "hhhp",
+      "hhph", "hhpp", "hphh", "hphp", "hpph", "hppp", "phhh", "phhp",
+      "phph", "phpp", "pphh", "pphp", "ppph", "pppp"};
   std::vector<IntegralParser> integralParsers;
 
-  for (const auto& name: integralNames) {
+  for (const auto &name : integralNames) {
     if (isArgumentGiven(name)) {
       integralParsers.push_back(IntegralParser(name, header));
       LOG(0, "FcidumpReader") << "Parsing " << name << std::endl;
@@ -238,9 +240,10 @@ void FcidumpReader::run() {
   std::ifstream file(filePath);
   std::string line;
   if (file.is_open()) {
-    while(std::getline(file, line)) {
-      for (auto it=integralParsers.begin(); it != integralParsers.end(); ++it){
-        if ((*it).match(line)){
+    while (std::getline(file, line)) {
+      for (auto it = integralParsers.begin(); it != integralParsers.end();
+           ++it) {
+        if ((*it).match(line)) {
           // Swap position of the first element in the parsers because
           // it's highly probable that the line in the fcidump also referes
           // to this integral, for large files and many integrals this will
@@ -254,12 +257,11 @@ void FcidumpReader::run() {
   file.close();
   LOG(0, "FcidumpReader") << "parsing done" << std::endl;
 
-  for (auto& parser: integralParsers) {
-    const auto& name(parser.name);
+  for (auto &parser : integralParsers) {
+    const auto &name(parser.name);
     if (isArgumentGiven(name)) {
       LOG(0, "FcidumpReader") << "Exporting: " << parser.name << std::endl;
       allocatedTensorArgument<double>(name, parser.allocateTensor());
     }
   }
-
 }

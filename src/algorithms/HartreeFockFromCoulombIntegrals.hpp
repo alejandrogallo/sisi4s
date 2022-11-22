@@ -7,26 +7,21 @@
 
 namespace sisi4s {
 
-  using MatrixColumnMajor = Eigen::Matrix< double
-                                         , Eigen::Dynamic
-                                         , Eigen::Dynamic
-                                         , Eigen::ColMajor
-                                         >;
+using MatrixColumnMajor =
+    Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor>;
 
-  class HartreeFockFromCoulombIntegrals: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(HartreeFockFromCoulombIntegrals);
-    HartreeFockFromCoulombIntegrals(
-      std::vector<Argument> const &argumentList): Algorithm(argumentList) {}
-    ~HartreeFockFromCoulombIntegrals(){}
+class HartreeFockFromCoulombIntegrals : public Algorithm {
+public:
+  ALGORITHM_REGISTRAR_DECLARATION(HartreeFockFromCoulombIntegrals);
+  HartreeFockFromCoulombIntegrals(std::vector<Argument> const &argumentList)
+      : Algorithm(argumentList) {}
+  ~HartreeFockFromCoulombIntegrals() {}
 
-    virtual void run();
+  virtual void run();
+};
 
-  };
+MatrixColumnMajor toEigenMatrix(Tensor<double> &ctf);
 
-  MatrixColumnMajor toEigenMatrix(Tensor<double> &ctf);
-
-}
+} // namespace sisi4s
 
 #endif
-

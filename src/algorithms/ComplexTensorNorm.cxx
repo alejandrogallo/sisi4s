@@ -6,16 +6,12 @@
 
 using namespace sisi4s;
 
-
 ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorNorm);
 
-ComplexTensorNorm::ComplexTensorNorm(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+ComplexTensorNorm::ComplexTensorNorm(std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-ComplexTensorNorm::~ComplexTensorNorm() {
-}
+ComplexTensorNorm::~ComplexTensorNorm() {}
 
 /**
  * \brief Testing environement

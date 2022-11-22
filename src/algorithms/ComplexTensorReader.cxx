@@ -13,12 +13,10 @@ using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorReader);
 
 ComplexTensorReader::ComplexTensorReader(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+    std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-ComplexTensorReader::~ComplexTensorReader() {
-}
+ComplexTensorReader::~ComplexTensorReader() {}
 
 void ComplexTensorReader::run() {
   std::string dataName(getArgumentData("Data")->getName());
@@ -36,7 +34,7 @@ void ComplexTensorReader::run() {
   } else {
     std::string fileName(getTextArgument("file", dataName + ".dat"));
     std::string delimiter(getTextArgument("delimiter", " "));
-    int64_t bufferSize(getIntegerArgument("bufferSize", 128l*1024*1024));
+    int64_t bufferSize(getIntegerArgument("bufferSize", 128l * 1024 * 1024));
     A = TensorIo::readText<complex>(fileName, delimiter, bufferSize);
     EMIT() << YAML::Key << "file" << YAML::Value << fileName;
   }
@@ -45,11 +43,6 @@ void ComplexTensorReader::run() {
   EMIT() << YAML::Key << "Data" << YAML::Value << dataName;
 
   int64_t indexCount(1);
-  for (int dim(0); dim < A->order; ++dim) {
-    indexCount *= A->lens[dim];
-  }
+  for (int dim(0); dim < A->order; ++dim) { indexCount *= A->lens[dim]; }
   EMIT() << YAML::Key << "elements" << YAML::Value << indexCount;
-
-
 }
-

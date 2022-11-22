@@ -5,26 +5,26 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-  class ParticleHoleCoulombVertexSingularVectors: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(ParticleHoleCoulombVertexSingularVectors);
-    ParticleHoleCoulombVertexSingularVectors(std::vector<Argument> const &argumentList);
-    virtual ~ParticleHoleCoulombVertexSingularVectors();
-    /**
-     * \brief Calculates left singular vectors of the particle-hole Coulomb vertex
-     * \f$\tilde\Gamma^a_{iG}\f$.
-     */
-    virtual void run();
-    /**
-     * \brief Dry run for calculating the left singular vectors of
-     * \f$\Gamma^a_{iG}\f$.
-     */
-    virtual void dryRun();
+class ParticleHoleCoulombVertexSingularVectors : public Algorithm {
+public:
+  ALGORITHM_REGISTRAR_DECLARATION(ParticleHoleCoulombVertexSingularVectors);
+  ParticleHoleCoulombVertexSingularVectors(
+      std::vector<Argument> const &argumentList);
+  virtual ~ParticleHoleCoulombVertexSingularVectors();
+  /**
+   * \brief Calculates left singular vectors of the particle-hole Coulomb vertex
+   * \f$\tilde\Gamma^a_{iG}\f$.
+   */
+  virtual void run();
+  /**
+   * \brief Dry run for calculating the left singular vectors of
+   * \f$\Gamma^a_{iG}\f$.
+   */
+  virtual void dryRun();
 
-    static double constexpr DEFAULT_REDUCTION = 0.5;
-    static int64_t constexpr DEFAULT_FIELD_VARIABLES = -1;
-  };
-}
+  static double constexpr DEFAULT_REDUCTION = 0.5;
+  static int64_t constexpr DEFAULT_FIELD_VARIABLES = -1;
+};
+} // namespace sisi4s
 
 #endif
-

@@ -15,17 +15,12 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexDecomposition);
 
-ParticleHoleCoulombVertexDecomposition::
-  ParticleHoleCoulombVertexDecomposition
-(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+ParticleHoleCoulombVertexDecomposition::ParticleHoleCoulombVertexDecomposition(
+    std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
 ParticleHoleCoulombVertexDecomposition::
-  ~ParticleHoleCoulombVertexDecomposition()
-{
-}
+    ~ParticleHoleCoulombVertexDecomposition() {}
 
 void ParticleHoleCoulombVertexDecomposition::run() {
   GammaGai = getTensorArgument<complex>("ParticleHoleCoulombVertex");
@@ -33,71 +28,81 @@ void ParticleHoleCoulombVertexDecomposition::run() {
   int Nv(GammaGai->lens[1]);
   int No(GammaGai->lens[2]);
   rank = getIntegerArgument("rank", NG);
-  realFactorOrbitals = getIntegerArgument(
-    "realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS
-  );
-  normalizedFactorOrbitals = getIntegerArgument(
-    "normalizedFactorOrbitals", DEFAULT_NORMALIZED_FACTOR_ORBITALS
-  );
+  realFactorOrbitals =
+      getIntegerArgument("realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS);
+  normalizedFactorOrbitals =
+      getIntegerArgument("normalizedFactorOrbitals",
+                         DEFAULT_NORMALIZED_FACTOR_ORBITALS);
   LOG(0, "RALS") << "Tensor rank decomposition with rank=" << rank
-    << ", realFactorOrbitals=" << realFactorOrbitals
-    << ", normalizedFactorOrbitals=" << normalizedFactorOrbitals << std::endl;
-  LOG(1, "RALS") << "decomposing Coulomb vertex with NG=" << NG
-    << " No=" << No << " Nv=" << Nv << std::endl;
+                 << ", realFactorOrbitals=" << realFactorOrbitals
+                 << ", normalizedFactorOrbitals=" << normalizedFactorOrbitals
+                 << std::endl;
+  LOG(1, "RALS") << "decomposing Coulomb vertex with NG=" << NG << " No=" << No
+                 << " Nv=" << Nv << std::endl;
 
   // allocate factor tensors
-  PiiR = new Matrix<complex>(
-    No, int(rank), NS, *GammaGai->wrld, "PiiR", GammaGai->profile
-  );
-  PiaR = new Matrix<complex>(
-    Nv, int(rank), NS, *GammaGai->wrld, "PiaR", GammaGai->profile
-  );
-  LambdaGR = new Matrix<complex>(
-    NG, int(rank), NS, *GammaGai->wrld, "LambdaGR", GammaGai->profile
-  );
+  PiiR = new Matrix<complex>(No,
+                             int(rank),
+                             NS,
+                             *GammaGai->wrld,
+                             "PiiR",
+                             GammaGai->profile);
+  PiaR = new Matrix<complex>(Nv,
+                             int(rank),
+                             NS,
+                             *GammaGai->wrld,
+                             "PiaR",
+                             GammaGai->profile);
+  LambdaGR = new Matrix<complex>(NG,
+                                 int(rank),
+                                 NS,
+                                 *GammaGai->wrld,
+                                 "LambdaGR",
+                                 GammaGai->profile);
   DefaultRandomEngine random;
   std::normal_distribution<double> normalDistribution(0.0, 1.0);
   setRandomTensor(*PiiR, normalDistribution, random);
-  realizePi(*PiiR); normalizePi(*PiiR);
+  realizePi(*PiiR);
+  normalizePi(*PiiR);
   setRandomTensor(*PiaR, normalDistribution, random);
-  realizePi(*PiiR); normalizePi(*PiaR);
+  realizePi(*PiiR);
+  normalizePi(*PiaR);
   setRandomTensor(*LambdaGR, normalDistribution, random);
   allocatedTensorArgument<complex>("HoleFactorOrbitals", PiiR);
   allocatedTensorArgument<complex>("ParticleFactorOrbitals", PiaR);
   allocatedTensorArgument<complex>("ParticleHoleCoulombFactors", LambdaGR);
 
-  Gamma0Gai = new Tensor<complex>(
-    3, GammaGai->lens, GammaGai->sym, *GammaGai->wrld, "Gamma0Gai",
-    GammaGai->profile
-  );
+  Gamma0Gai = new Tensor<complex>(3,
+                                  GammaGai->lens,
+                                  GammaGai->sym,
+                                  *GammaGai->wrld,
+                                  "Gamma0Gai",
+                                  GammaGai->profile);
   if (isArgumentGiven("ComposedParticleHoleCoulombVertex")) {
-    allocatedTensorArgument<complex>(
-      "ComposedParticleHoleCoulombVertex", Gamma0Gai
-    );
+    allocatedTensorArgument<complex>("ComposedParticleHoleCoulombVertex",
+                                     Gamma0Gai);
   }
 
   double swampingThreshold(
-    getRealArgument("swampingThreshold", DEFAULT_SWAMPING_THRESHOLD)
-  );
+      getRealArgument("swampingThreshold", DEFAULT_SWAMPING_THRESHOLD));
   double regularizationFriction(
-    getRealArgument("regularizationFriction", DEFAULT_REGULARIZATION_FRICTION)
-  );
+      getRealArgument("regularizationFriction",
+                      DEFAULT_REGULARIZATION_FRICTION));
   regularizationEstimatorPiiR =
-    new AlternatingLeastSquaresRegularizationEstimator(
-      swampingThreshold, regularizationFriction, 1
-    );
+      new AlternatingLeastSquaresRegularizationEstimator(swampingThreshold,
+                                                         regularizationFriction,
+                                                         1);
   regularizationEstimatorPiaR =
-    new AlternatingLeastSquaresRegularizationEstimator(
-      swampingThreshold, regularizationFriction, 1
-    );
+      new AlternatingLeastSquaresRegularizationEstimator(swampingThreshold,
+                                                         regularizationFriction,
+                                                         1);
   regularizationEstimatorLambdaGR =
-    new AlternatingLeastSquaresRegularizationEstimator(
-      swampingThreshold, regularizationFriction, 1
-    );
+      new AlternatingLeastSquaresRegularizationEstimator(swampingThreshold,
+                                                         regularizationFriction,
+                                                         1);
   int64_t iterationsCount(0);
   int64_t maxIterationsCount(
-    getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS)
-  );
+      getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS));
   double delta(getRealArgument("delta", DEFAULT_DELTA));
   Delta = std::numeric_limits<double>::infinity();
   epsilonStep = getIntegerArgument("epsilonStep", DEFAULT_EPSILON_STEP);
@@ -105,50 +110,48 @@ void ParticleHoleCoulombVertexDecomposition::run() {
   while (iterationsCount < maxIterationsCount && Delta > delta) {
     fit(iterationsCount);
     ++iterationsCount;
-    if (epsilonStep > 0 && iterationsCount%epsilonStep == 0) evaluateMp2Error();
+    if (epsilonStep > 0 && iterationsCount % epsilonStep == 0)
+      evaluateMp2Error();
   }
 }
 
 void ParticleHoleCoulombVertexDecomposition::dryRun() {
   // NOTE that in the dry run GammaGai,... are local variables
-  DryTensor<complex> *GammaGai(
-    getTensorArgument<complex, DryTensor<complex>>("ParticleHoleCoulombVertex")
-  );
+  DryTensor<complex> *GammaGai(getTensorArgument<complex, DryTensor<complex>>(
+      "ParticleHoleCoulombVertex"));
   int NG(GammaGai->lens[0]);
   int Nv(GammaGai->lens[1]);
   int No(GammaGai->lens[2]);
   rank = getIntegerArgument("rank", NG);
-  realFactorOrbitals = getIntegerArgument(
-    "realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS
-  );
-  normalizedFactorOrbitals = getIntegerArgument(
-    "normalizedFactorOrbitals", DEFAULT_NORMALIZED_FACTOR_ORBITALS
-  );
+  realFactorOrbitals =
+      getIntegerArgument("realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS);
+  normalizedFactorOrbitals =
+      getIntegerArgument("normalizedFactorOrbitals",
+                         DEFAULT_NORMALIZED_FACTOR_ORBITALS);
   LOG(0, "RALS") << "Tensor rank decomposition with rank=" << rank
-    << ", realFactorOrbitals=" << realFactorOrbitals
-    << ", normalizedFactorOrbitals=" << normalizedFactorOrbitals << std::endl;
-  LOG(1, "RALS") << "decompising Coulomb vertex with NG=" << NG
-    << " No=" << No << " Nv=" << Nv << std::endl;
+                 << ", realFactorOrbitals=" << realFactorOrbitals
+                 << ", normalizedFactorOrbitals=" << normalizedFactorOrbitals
+                 << std::endl;
+  LOG(1, "RALS") << "decompising Coulomb vertex with NG=" << NG << " No=" << No
+                 << " Nv=" << Nv << std::endl;
 
   // allocate factor tensors
   DryTensor<complex> *PiiR(new DryMatrix<complex>(No, int(rank), NS));
   DryTensor<complex> *PiaR(new DryMatrix<complex>(Nv, int(rank), NS));
   DryTensor<complex> *LambdaGR(new DryMatrix<complex>(NG, int(rank), NS));
+  allocatedTensorArgument<complex, DryTensor<complex>>("HoleFactorOrbitals",
+                                                       PiiR);
+  allocatedTensorArgument<complex, DryTensor<complex>>("ParticleFactorOrbitals",
+                                                       PiaR);
   allocatedTensorArgument<complex, DryTensor<complex>>(
-    "HoleFactorOrbitals", PiiR
-  );
-  allocatedTensorArgument<complex, DryTensor<complex>>(
-    "ParticleFactorOrbitals", PiaR
-  );
-  allocatedTensorArgument<complex, DryTensor<complex>>(
-    "ParticleHoleCoulombFactors", LambdaGR
-  );
+      "ParticleHoleCoulombFactors",
+      LambdaGR);
 
   DryTensor<complex> *Gamma0Gai(GammaGai);
   if (isArgumentGiven("ComposedParticleHoleCoulombVertex")) {
     allocatedTensorArgument<complex, DryTensor<complex>>(
-      "ComposedParticleHoleCoulombVertex", Gamma0Gai
-    );
+        "ComposedParticleHoleCoulombVertex",
+        Gamma0Gai);
   }
 
   dryFit(GammaGai, PiaR, PiiR, LambdaGR, Gamma0Gai);
@@ -157,89 +160,110 @@ void ParticleHoleCoulombVertexDecomposition::dryRun() {
   if (epsilonStep > 0) dryEvaluateMp2(*GammaGai);
 }
 
-
 void ParticleHoleCoulombVertexDecomposition::fit(
-  int64_t const iterationsCount
-) {
-  fitRegularizedAlternatingLeastSquaresFactor(
-    *GammaGai,"Gai", *PiaR,'a', *LambdaGR,'G',
-    *PiiR,'i', regularizationEstimatorPiiR
-  );
+    int64_t const iterationsCount) {
+  fitRegularizedAlternatingLeastSquaresFactor(*GammaGai,
+                                              "Gai",
+                                              *PiaR,
+                                              'a',
+                                              *LambdaGR,
+                                              'G',
+                                              *PiiR,
+                                              'i',
+                                              regularizationEstimatorPiiR);
   if (realFactorOrbitals) realizePi(*PiiR);
   if (normalizedFactorOrbitals) normalizePi(*PiiR);
-  fitRegularizedAlternatingLeastSquaresFactor(
-    *GammaGai,"Gai", *LambdaGR,'G', *PiiR,'i',
-    *PiaR,'a', regularizationEstimatorPiaR
-  );
+  fitRegularizedAlternatingLeastSquaresFactor(*GammaGai,
+                                              "Gai",
+                                              *LambdaGR,
+                                              'G',
+                                              *PiiR,
+                                              'i',
+                                              *PiaR,
+                                              'a',
+                                              regularizationEstimatorPiaR);
   if (realFactorOrbitals) realizePi(*PiaR);
   if (normalizedFactorOrbitals) normalizePi(*PiaR);
-  fitRegularizedAlternatingLeastSquaresFactor(
-    *GammaGai,"Gai", *PiiR,'i',*PiaR,'a',
-    *LambdaGR,'G', regularizationEstimatorLambdaGR
-  );
+  fitRegularizedAlternatingLeastSquaresFactor(*GammaGai,
+                                              "Gai",
+                                              *PiiR,
+                                              'i',
+                                              *PiaR,
+                                              'a',
+                                              *LambdaGR,
+                                              'G',
+                                              regularizationEstimatorLambdaGR);
 
-  composeCanonicalPolyadicDecompositionTensors(
-    *LambdaGR, *PiaR, *PiiR, *Gamma0Gai
-  );
+  composeCanonicalPolyadicDecompositionTensors(*LambdaGR,
+                                               *PiaR,
+                                               *PiiR,
+                                               *Gamma0Gai);
 
   (*Gamma0Gai)["Gai"] -= (*GammaGai)["Gai"];
   Delta = frobeniusNorm(*Gamma0Gai);
-  LOG(0, "RALS") << "iteration=" << (iterationsCount+1)
-    << " Delta=" << Delta << std::endl;
+  LOG(0, "RALS") << "iteration=" << (iterationsCount + 1) << " Delta=" << Delta
+                 << std::endl;
   (*Gamma0Gai)["Gai"] += (*GammaGai)["Gai"];
 }
 
 void ParticleHoleCoulombVertexDecomposition::dryFit(
-  DryTensor<complex> *GammaGai,
-  DryTensor<complex> *PiaR,
-  DryTensor<complex> *PiiR,
-  DryTensor<complex> *LambdaGR,
-  DryTensor<complex> *Gamma0Gai
-) {
-  dryFitRegularizedAlternatingLeastSquaresFactor(
-    *GammaGai,"Gai", *PiaR,'a', *LambdaGR,'G',
-    *PiiR,'i'
-  );
-  dryFitRegularizedAlternatingLeastSquaresFactor(
-    *GammaGai,"Gai", *LambdaGR,'G', *PiiR,'i',
-    *PiaR,'a'
-  );
-  dryFitRegularizedAlternatingLeastSquaresFactor(
-    *GammaGai,"Gai", *PiiR,'i',*PiaR,'a',
-    *LambdaGR,'G'
-  );
+    DryTensor<complex> *GammaGai,
+    DryTensor<complex> *PiaR,
+    DryTensor<complex> *PiiR,
+    DryTensor<complex> *LambdaGR,
+    DryTensor<complex> *Gamma0Gai) {
+  dryFitRegularizedAlternatingLeastSquaresFactor(*GammaGai,
+                                                 "Gai",
+                                                 *PiaR,
+                                                 'a',
+                                                 *LambdaGR,
+                                                 'G',
+                                                 *PiiR,
+                                                 'i');
+  dryFitRegularizedAlternatingLeastSquaresFactor(*GammaGai,
+                                                 "Gai",
+                                                 *LambdaGR,
+                                                 'G',
+                                                 *PiiR,
+                                                 'i',
+                                                 *PiaR,
+                                                 'a');
+  dryFitRegularizedAlternatingLeastSquaresFactor(*GammaGai,
+                                                 "Gai",
+                                                 *PiiR,
+                                                 'i',
+                                                 *PiaR,
+                                                 'a',
+                                                 *LambdaGR,
+                                                 'G');
 
-  dryComposeCanonicalPolyadicDecompositionTensors(
-    *LambdaGR, *PiaR, *PiiR, *Gamma0Gai
-  );
+  dryComposeCanonicalPolyadicDecompositionTensors(*LambdaGR,
+                                                  *PiaR,
+                                                  *PiiR,
+                                                  *Gamma0Gai);
 }
 
-
-void ParticleHoleCoulombVertexDecomposition::normalizePi(
-  Tensor<complex> &Pi
-) {
+void ParticleHoleCoulombVertexDecomposition::normalizePi(Tensor<complex> &Pi) {
   CTF::Bivar_Function<complex> fDot(&sisi4s::dot<complex>);
   CTF::Vector<complex> norm(Pi.lens[0], *Pi.wrld);
   // norm["q"] = Pi["qR"] * conj(Pi["qR"])
-  norm.contract(1.0, Pi,"qR", Pi,"qR", 0.0,"q", fDot);
+  norm.contract(1.0, Pi, "qR", Pi, "qR", 0.0, "q", fDot);
   Tensor<complex> quotient(Pi);
   CTF::Univar_Function<complex> fSqrt(&sisi4s::sqrt<complex>);
   // quotient["qR"] = sqrt(norm["q"])
-  quotient.sum(1.0, norm,"q", 0.0,"qR", fSqrt);
+  quotient.sum(1.0, norm, "q", 0.0, "qR", fSqrt);
   CTF::Bivar_Function<complex> fDivide(&sisi4s::divide<complex>);
   // Pi["qR"] = Pi["qR"] / quotient["qR"]
-  Pi.contract(1.0, Pi,"qR", quotient,"qR", 0.0,"qR", fDivide);
+  Pi.contract(1.0, Pi, "qR", quotient, "qR", 0.0, "qR", fDivide);
   double normalization(frobeniusNorm(quotient));
   LOG(2, "RALS") << "|normalization quotient|=" << normalization << std::endl;
 }
 
-void ParticleHoleCoulombVertexDecomposition::realizePi(
-  Tensor<complex> &Pi
-) {
+void ParticleHoleCoulombVertexDecomposition::realizePi(Tensor<complex> &Pi) {
   CTF::Univar_Function<complex> fConj(&sisi4s::conj<complex>);
   Tensor<complex> conjX(Pi);
   // conjX["qR"] = Pi["qR"]
-  conjX.sum(1.0, Pi,"qR", 0.0,"qR", fConj);
+  conjX.sum(1.0, Pi, "qR", 0.0, "qR", fConj);
   Pi["qR"] += conjX["qR"];
   Pi["qR"] *= 0.5;
 }
@@ -248,42 +272,46 @@ void ParticleHoleCoulombVertexDecomposition::evaluateMp2Error() {
   double approximateMp2(evaluateMp2(*Gamma0Gai));
   LOG(2, "RALS") << "approxiomate mp2=" << approximateMp2 << std::endl;
   LOG(2, "RALS") << "mp2=" << mp2Energy << std::endl;
-  LOG(1, "RALS") << "epsilon=" << ((approximateMp2-mp2Energy)/mp2Energy) << std::endl;
+  LOG(1, "RALS") << "epsilon=" << ((approximateMp2 - mp2Energy) / mp2Energy)
+                 << std::endl;
 }
 
-double ParticleHoleCoulombVertexDecomposition::evaluateMp2(
-  Tensor<complex> &Gamma
-) {
+double
+ParticleHoleCoulombVertexDecomposition::evaluateMp2(Tensor<complex> &Gamma) {
   // FIXME: use sequence type for output to factorize this code
-  Tensor<double> realGammaGai(
-    3, Gamma.lens, Gamma.sym, *Gamma.wrld, "RealGammaGai"
-  );
-  Tensor<double> imagGammaGai(
-    3, Gamma.lens, Gamma.sym, *Gamma.wrld, "ImagGammaGai"
-  );
+  Tensor<double> realGammaGai(3,
+                              Gamma.lens,
+                              Gamma.sym,
+                              *Gamma.wrld,
+                              "RealGammaGai");
+  Tensor<double> imagGammaGai(3,
+                              Gamma.lens,
+                              Gamma.sym,
+                              *Gamma.wrld,
+                              "ImagGammaGai");
   // split into real and imaginary parts
   fromComplexTensor(Gamma, realGammaGai, imagGammaGai);
 
   // allocate coulomb integrals
   int Nv(Gamma.lens[1]);
   int No(Gamma.lens[2]);
-  int lens[] = { Nv, Nv, No, No };
-  int syms[] = { NS, NS, NS, NS };
+  int lens[] = {Nv, Nv, No, No};
+  int syms[] = {NS, NS, NS, NS};
   Tensor<double> Vabij(4, lens, syms, *Gamma.wrld, "Vabij");
-  Vabij["abij"] =  realGammaGai["gai"] * realGammaGai["gbj"];
+  Vabij["abij"] = realGammaGai["gai"] * realGammaGai["gbj"];
   Vabij["abij"] += imagGammaGai["gai"] * imagGammaGai["gbj"];
 
   Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
   Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
- 
+
   Tensor<double> Tabij(false, Vabij);
-  Tabij["abij"] =  (*epsi)["i"];
+  Tabij["abij"] = (*epsi)["i"];
   Tabij["abij"] += (*epsi)["j"];
   Tabij["abij"] -= (*epsa)["a"];
   Tabij["abij"] -= (*epsa)["b"];
 
   CTF::Bivar_Function<> fDivide(&divide<double>);
-  Tabij.contract(1.0, Vabij,"abij", Tabij,"abij", 0.0,"abij", fDivide);
+  Tabij.contract(1.0, Vabij, "abij", Tabij, "abij", 0.0, "abij", fDivide);
 
   CTF::Scalar<> energy(*Vabij.wrld);
   double dire, exce;
@@ -295,10 +323,8 @@ double ParticleHoleCoulombVertexDecomposition::evaluateMp2(
   return dire + exce;
 }
 
-
 void ParticleHoleCoulombVertexDecomposition::dryEvaluateMp2(
-  DryTensor<complex> &Gamma
-) {
+    DryTensor<complex> &Gamma) {
   // FIXME: use sequence type for output to factorize this code
   DryTensor<> realGammaGai(3, Gamma.lens.data(), Gamma.syms.data());
   DryTensor<> imagGammaGai(3, Gamma.lens.data(), Gamma.syms.data());
@@ -306,19 +332,16 @@ void ParticleHoleCoulombVertexDecomposition::dryEvaluateMp2(
   // allocate coulomb integrals
   int Nv(Gamma.lens[1]);
   int No(Gamma.lens[2]);
-  int lens[] = { Nv, Nv, No, No };
-  int syms[] = { NS, NS, NS, NS };
+  int lens[] = {Nv, Nv, No, No};
+  int syms[] = {NS, NS, NS, NS};
   DryTensor<> Vabij(4, lens, syms);
 
   DryTensor<> *epsi(
-    getTensorArgument<double, DryTensor<double>>("HoleEigenEnergies")
-  );
+      getTensorArgument<double, DryTensor<double>>("HoleEigenEnergies"));
   DryTensor<> *epsa(
-    getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies")
-  );
+      getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies"));
   epsi->use();
   epsa->use();
   DryTensor<> Tabij(Vabij);
   DryScalar<> energy();
 }
-

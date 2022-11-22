@@ -4,16 +4,15 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-  struct FockMatrixFromCoulombIntegrals: public Algorithm {
-    ALGORITHM_REGISTRAR_DECLARATION(FockMatrixFromCoulombIntegrals);
+struct FockMatrixFromCoulombIntegrals : public Algorithm {
+  ALGORITHM_REGISTRAR_DECLARATION(FockMatrixFromCoulombIntegrals);
 
-    FockMatrixFromCoulombIntegrals(
-      std::vector<Argument> const &argumentList): Algorithm(argumentList) {}
-    ~FockMatrixFromCoulombIntegrals(){};
+  FockMatrixFromCoulombIntegrals(std::vector<Argument> const &argumentList)
+      : Algorithm(argumentList) {}
+  ~FockMatrixFromCoulombIntegrals(){};
 
-    virtual void run();
-  };
-}
+  virtual void run();
+};
+} // namespace sisi4s
 
 #endif
-

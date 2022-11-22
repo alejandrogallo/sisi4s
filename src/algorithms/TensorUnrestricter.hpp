@@ -4,16 +4,15 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-  struct TensorUnrestricter: public Algorithm {
-    ALGORITHM_REGISTRAR_DECLARATION(TensorUnrestricter);
+struct TensorUnrestricter : public Algorithm {
+  ALGORITHM_REGISTRAR_DECLARATION(TensorUnrestricter);
 
-    TensorUnrestricter(
-      std::vector<Argument> const &argumentList): Algorithm(argumentList) {}
-    ~TensorUnrestricter(){};
+  TensorUnrestricter(std::vector<Argument> const &argumentList)
+      : Algorithm(argumentList) {}
+  ~TensorUnrestricter(){};
 
-    virtual void run();
-  };
-}
+  virtual void run();
+};
+} // namespace sisi4s
 
 #endif
-

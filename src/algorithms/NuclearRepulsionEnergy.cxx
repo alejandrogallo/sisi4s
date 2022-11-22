@@ -11,9 +11,7 @@ using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(NuclearRepulsionEnergy);
 #define LOGGER(_l) LOG(_l, "NuclearRepulsionEnergy")
 
-double
-getEnergy(const std::vector<libint2::Atom>& structure)
-{
+double getEnergy(const std::vector<libint2::Atom> &structure) {
   unsigned int i, j;
   double enuc(0.0), r2(0.0);
   LOGGER(1) << "Calculating nuclear repulsion energy" << std::endl;
@@ -23,8 +21,8 @@ getEnergy(const std::vector<libint2::Atom>& structure)
       r2 += pow(structure[i].x - structure[j].x, 2);
       r2 += pow(structure[i].y - structure[j].y, 2);
       r2 += pow(structure[i].z - structure[j].z, 2);
-      enuc += structure[i].atomic_number * structure[j].atomic_number
-              / sqrt(r2);
+      enuc +=
+          structure[i].atomic_number * structure[j].atomic_number / sqrt(r2);
     }
   }
   return enuc;
@@ -32,7 +30,7 @@ getEnergy(const std::vector<libint2::Atom>& structure)
 
 void NuclearRepulsionEnergy::run() {
 
-  checkArgumentsOrDie( { "xyzStructureFile" } );
+  checkArgumentsOrDie({"xyzStructureFile"});
   const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
 
   LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
@@ -42,11 +40,8 @@ void NuclearRepulsionEnergy::run() {
 
   double enuc = getEnergy(atoms);
 
-  LOGGER(1)
-    << std::setprecision(15) << std::setw(10)
-    << "energy =" << enuc
-    << std::endl;
+  LOGGER(1) << std::setprecision(15) << std::setw(10) << "energy =" << enuc
+            << std::endl;
 
   EMIT() << YAML::Key << "energy" << YAML::Value << enuc;
-
 }

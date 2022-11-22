@@ -5,16 +5,14 @@
 
 namespace sisi4s {
 
-  class NuclearRepulsionEnergy: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(NuclearRepulsionEnergy);
-    NuclearRepulsionEnergy(
-      std::vector<Argument> const &argumentList
-    ): Algorithm(argumentList) {}
-    ~NuclearRepulsionEnergy() {}
-    virtual void run();
-  };
-}
+class NuclearRepulsionEnergy : public Algorithm {
+public:
+  ALGORITHM_REGISTRAR_DECLARATION(NuclearRepulsionEnergy);
+  NuclearRepulsionEnergy(std::vector<Argument> const &argumentList)
+      : Algorithm(argumentList) {}
+  ~NuclearRepulsionEnergy() {}
+  virtual void run();
+};
+} // namespace sisi4s
 
 #endif
-

@@ -18,24 +18,21 @@ char const *CoulombVertexReader::Chunk::EPSILONS_MAGIC = "FTODepsi";
 ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexReader);
 
 CoulombVertexReader::CoulombVertexReader(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+    std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-CoulombVertexReader::~CoulombVertexReader() {
-}
+CoulombVertexReader::~CoulombVertexReader() {}
 
 void CoulombVertexReader::run() {
   std::string fileName(getTextArgument("file"));
-  LOG(0, "Reader") <<
-    "Reading Coulomb vertex from file " << fileName << std::endl;
+  LOG(0, "Reader") << "Reading Coulomb vertex from file " << fileName
+                   << std::endl;
   MPI_File file;
-  int mpiError(
-    MPI_File_open(
-      Sisi4s::world->comm, fileName.c_str(), MPI_MODE_RDONLY,
-      MPI_INFO_NULL, &file
-    )
-  );
+  int mpiError(MPI_File_open(Sisi4s::world->comm,
+                             fileName.c_str(),
+                             MPI_MODE_RDONLY,
+                             MPI_INFO_NULL,
+                             &file));
   if (mpiError) throw new EXCEPTION("Failed to open file");
   // Read header: obtain NG,No,Nv,Np
   Header header;
@@ -47,7 +44,7 @@ void CoulombVertexReader::run() {
   int No(header.No);
   int Nv(header.Nv);
   int Np(No + Nv);
-  
+
   // Print NG, No, Nv, Np
   LOG(1, "Reader") << "NG=" << NG << std::endl;
   LOG(1, "Reader") << "No=" << No << std::endl;
@@ -55,13 +52,15 @@ void CoulombVertexReader::run() {
   LOG(1, "Reader") << "Np=" << Np << std::endl;
 
   // Allocate output tensors
-  int vertexLens[] = { NG, Np, Np };
-  int vertexSyms[] = { NS, NS, NS };
+  int vertexLens[] = {NG, Np, Np};
+  int vertexSyms[] = {NS, NS, NS};
   Tensor<double> *epsi(new CTF::Vector<>(No, *Sisi4s::world, "epsi"));
   Tensor<double> *epsa(new CTF::Vector<>(Nv, *Sisi4s::world, "epsa"));
-  Tensor<complex> *GammaGqr(
-    new Tensor<complex>(3, vertexLens, vertexSyms, *Sisi4s::world, "GammaGqr")
-  );
+  Tensor<complex> *GammaGqr(new Tensor<complex>(3,
+                                                vertexLens,
+                                                vertexSyms,
+                                                *Sisi4s::world,
+                                                "GammaGqr"));
 
   // Enter the allocated data (and by that type the output data to tensors)
   allocatedTensorArgument("HoleEigenEnergies", epsi);
@@ -69,12 +68,16 @@ void CoulombVertexReader::run() {
   allocatedTensorArgument<complex>("CoulombVertex", GammaGqr);
 
   // Real and imaginary parts are read in seperately
-  Tensor<double> realGammaGqr(
-    3, vertexLens, vertexSyms, *Sisi4s::world, "RealGammaGqr"
-  );
-  Tensor<double> imagGammaGqr(
-    3, vertexLens, vertexSyms, *Sisi4s::world, "ImagGammaGqr"
-  );
+  Tensor<double> realGammaGqr(3,
+                              vertexLens,
+                              vertexSyms,
+                              *Sisi4s::world,
+                              "RealGammaGqr");
+  Tensor<double> imagGammaGqr(3,
+                              vertexLens,
+                              vertexSyms,
+                              *Sisi4s::world,
+                              "ImagGammaGqr");
 
   int64_t offset(sizeof(header));
   MPI_Offset fileSize;
@@ -84,17 +87,18 @@ void CoulombVertexReader::run() {
     MPI_File_read_at(file, offset, &chunk, sizeof(chunk), MPI_BYTE, &status);
     if (strncmp(chunk.magic, Chunk::REALS_MAGIC, sizeof(chunk.magic)) == 0) {
       LOG(1, "Reader") << "reading " << realGammaGqr.get_name() << std::endl;
-      realGammaGqr.read_dense_from_file(file, offset+sizeof(chunk));
-    } else
-    if (strncmp(chunk.magic, Chunk::IMAGS_MAGIC, sizeof(chunk.magic)) == 0) {
+      realGammaGqr.read_dense_from_file(file, offset + sizeof(chunk));
+    } else if (strncmp(chunk.magic, Chunk::IMAGS_MAGIC, sizeof(chunk.magic))
+               == 0) {
       LOG(1, "Reader") << "reading " << imagGammaGqr.get_name() << std::endl;
-      imagGammaGqr.read_dense_from_file(file, offset+sizeof(chunk));
-    } else
-    if (strncmp(chunk.magic, Chunk::EPSILONS_MAGIC, sizeof(chunk.magic)) == 0) {
+      imagGammaGqr.read_dense_from_file(file, offset + sizeof(chunk));
+    } else if (strncmp(chunk.magic, Chunk::EPSILONS_MAGIC, sizeof(chunk.magic))
+               == 0) {
       LOG(1, "Reader") << "reading " << epsi->get_name() << ", "
-        << epsa->get_name() << std::endl;
-      epsi->read_dense_from_file(file, offset+sizeof(chunk));
-      epsa->read_dense_from_file(file, offset+sizeof(chunk)+No*sizeof(double));
+                       << epsa->get_name() << std::endl;
+      epsi->read_dense_from_file(file, offset + sizeof(chunk));
+      epsa->read_dense_from_file(file,
+                                 offset + sizeof(chunk) + No * sizeof(double));
     }
     offset += chunk.size;
   }
@@ -108,9 +112,9 @@ void CoulombVertexReader::run() {
 
 void CoulombVertexReader::dryRun() {
   std::string fileName(getTextArgument("file"));
-  LOG(0, "Reader") <<
-    "Reading Coulomb vertex from file " << fileName << std::endl;
-  std::ifstream file(fileName.c_str(), std::ios::binary|std::ios::in);
+  LOG(0, "Reader") << "Reading Coulomb vertex from file " << fileName
+                   << std::endl;
+  std::ifstream file(fileName.c_str(), std::ios::binary | std::ios::in);
   if (!file.is_open()) throw new EXCEPTION("Failed to open file");
   // Read header
   Header header;
@@ -123,7 +127,7 @@ void CoulombVertexReader::dryRun() {
   int No(header.No);
   int Nv(header.Nv);
   int Np(No + Nv);
-  
+
   // Print NG, No, Nv, Np
   LOG(1, "Reader") << "NG=" << NG << std::endl;
   LOG(1, "Reader") << "No=" << No << std::endl;
@@ -131,19 +135,17 @@ void CoulombVertexReader::dryRun() {
   LOG(1, "Reader") << "Np=" << Np << std::endl;
 
   // Allocate output tensors
-  int vertexLens[] = { NG, Np, Np };
-  int vertexSyms[] = { NS, NS, NS };
+  int vertexLens[] = {NG, Np, Np};
+  int vertexSyms[] = {NS, NS, NS};
   DryTensor<> *epsi(new DryVector<>(No, SOURCE_LOCATION));
   DryTensor<> *epsa(new DryVector<>(Nv, SOURCE_LOCATION));
   DryTensor<complex> *GammaGqr(
-    new DryTensor<complex>(3, vertexLens, vertexSyms, SOURCE_LOCATION)
-  );
+      new DryTensor<complex>(3, vertexLens, vertexSyms, SOURCE_LOCATION));
   // Enter the allocated data (and by that type the output data to tensors)
   allocatedTensorArgument("HoleEigenEnergies", epsi);
   allocatedTensorArgument("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<complex, DryTensor<complex>>(
-    "CoulombVertex", GammaGqr
-  );
+  allocatedTensorArgument<complex, DryTensor<complex>>("CoulombVertex",
+                                                       GammaGqr);
 
   // Real and imaginary parts are read in seperately
   DryTensor<> realGammaGqr(3, vertexLens, vertexSyms, SOURCE_LOCATION);
@@ -166,17 +168,19 @@ void CoulombVertexReader::unrestrictVertex() {
   auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
   // The field variable NG remains the same
   int vertexLens[] = {static_cast<int>(GammaGqr->lens[0]),
-                      static_cast<int>(2*GammaGqr->lens[1]),
-                      static_cast<int>(2*GammaGqr->lens[2])};
-  auto uGammaGqr(
-    new Tensor<complex>(3, vertexLens, GammaGqr->sym, *Sisi4s::world, "uGammaGqr")
-  );
+                      static_cast<int>(2 * GammaGqr->lens[1]),
+                      static_cast<int>(2 * GammaGqr->lens[2])};
+  auto uGammaGqr(new Tensor<complex>(3,
+                                     vertexLens,
+                                     GammaGqr->sym,
+                                     *Sisi4s::world,
+                                     "uGammaGqr"));
 
   int *upUnrestrictedStates(new int[GammaGqr->lens[1]]);
   for (int q(0); q < GammaGqr->lens[1]; ++q) {
-    upUnrestrictedStates[q] = 2*q;
+    upUnrestrictedStates[q] = 2 * q;
   }
-  int *upUp[] = { nullptr, upUnrestrictedStates, upUnrestrictedStates };
+  int *upUp[] = {nullptr, upUnrestrictedStates, upUnrestrictedStates};
   // do uGammaGqr[G, upUn[q], upUn[r]] = GammaGqr[G,q,r] with upUn[q] = 2q.
   // NOTE: the behavior of all below permute calls is documented differently
   // in v1.4.1
@@ -185,9 +189,9 @@ void CoulombVertexReader::unrestrictVertex() {
 
   int *downUnrestrictedStates(new int[GammaGqr->lens[1]]);
   for (int q(0); q < GammaGqr->lens[1]; ++q) {
-    downUnrestrictedStates[q] = 2*q+1;
+    downUnrestrictedStates[q] = 2 * q + 1;
   }
-  int *downDown[] = { nullptr, downUnrestrictedStates, downUnrestrictedStates };
+  int *downDown[] = {nullptr, downUnrestrictedStates, downUnrestrictedStates};
   // do uGammaGqr[G, dnUn[q], dnUn[r]] = GammaGqr[G,q,r] with dnUn[q] = 2q+1.
   uGammaGqr->permute(1.0, *GammaGqr, downDown, 1.0);
   delete downUnrestrictedStates;
@@ -199,24 +203,22 @@ void CoulombVertexReader::unrestrictVertex() {
 
 void CoulombVertexReader::unrestrictEigenEnergies(const std::string &name) {
   auto eps(getTensorArgument(name + "EigenEnergies"));
-  int lens[] = { static_cast<int>(2*eps->lens[0]) };
-  auto uEps(
-    new Tensor<double>(
-      1, lens, eps->sym, *Sisi4s::world, ("u" + name + "EigenEnergies").c_str()
-    )
-  );
+  int lens[] = {static_cast<int>(2 * eps->lens[0])};
+  auto uEps(new Tensor<double>(1,
+                               lens,
+                               eps->sym,
+                               *Sisi4s::world,
+                               ("u" + name + "EigenEnergies").c_str()));
 
   int *upUnrestrictedStates(new int[eps->lens[0]]);
-  for (int i(0); i < eps->lens[0]; ++i) {
-    upUnrestrictedStates[i] = 2*i;
-  }
+  for (int i(0); i < eps->lens[0]; ++i) { upUnrestrictedStates[i] = 2 * i; }
   // do uEps[upUn[i]] = eps[i] with upUn[i] = 2i
   uEps->permute(1.0, *eps, &upUnrestrictedStates, 1.0);
   delete upUnrestrictedStates;
 
   int *downUnrestrictedStates(new int[eps->lens[0]]);
   for (int i(0); i < eps->lens[0]; ++i) {
-    downUnrestrictedStates[i] = 2*i + 1;
+    downUnrestrictedStates[i] = 2 * i + 1;
   }
   // do uEps[dnUn[i]] = eps[i] with dnUn[i] = 2i+1
   uEps->permute(1.0, *eps, &downUnrestrictedStates, 1.0);
@@ -226,4 +228,3 @@ void CoulombVertexReader::unrestrictEigenEnergies(const std::string &name) {
   // FIXME: eigen energies should be given after handleUnrestricted
   allocatedTensorArgument<>(name + "EigenEnergies", uEps);
 }
-

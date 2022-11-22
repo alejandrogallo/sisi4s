@@ -12,16 +12,14 @@ using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(SliceCoulombVertex);
 
 SliceCoulombVertex::SliceCoulombVertex(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+    std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-SliceCoulombVertex::~SliceCoulombVertex() {
-}
+SliceCoulombVertex::~SliceCoulombVertex() {}
 
 void SliceCoulombVertex::run() {
   // Read the Coulomb vertex GammaGqr
-  Tensor<complex> *GammaGqr( getTensorArgument<complex>("CoulombVertex"));
+  Tensor<complex> *GammaGqr(getTensorArgument<complex>("CoulombVertex"));
 
   // Read the Particle/Hole Eigenenergies
   Tensor<double> *epsi(getTensorArgument<>("HoleEigenEnergies"));
@@ -32,27 +30,23 @@ void SliceCoulombVertex::run() {
   int Np(GammaGqr->lens[1]);
 
   // Allocate and compute GammaGai
-  int GaiStart[] = {0 ,No, 0};
-  int GaiEnd[]   = {NG,Np,No};
+  int GaiStart[] = {0, No, 0};
+  int GaiEnd[] = {NG, Np, No};
   Tensor<complex> *GammaGai(
-    new Tensor<complex>(GammaGqr->slice(GaiStart,GaiEnd))
-  );
+      new Tensor<complex>(GammaGqr->slice(GaiStart, GaiEnd)));
   allocatedTensorArgument<complex>("ParticleHoleCoulombVertex", GammaGai);
 }
 
 void SliceCoulombVertex::dryRun() {
   // Read the Coulomb vertex GammaGqr
   DryTensor<complex> *GammaGqr(
-    getTensorArgument<complex, DryTensor<complex>>("CoulombVertex")
-  );
+      getTensorArgument<complex, DryTensor<complex>>("CoulombVertex"));
 
   // Read the Particle/Hole Eigenenergies
   DryTensor<> *epsi(
-    getTensorArgument<double, DryTensor<double>>("HoleEigenEnergies")
-  );
+      getTensorArgument<double, DryTensor<double>>("HoleEigenEnergies"));
   DryTensor<> *epsa(
-    getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies")
-  );
+      getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies"));
 
   // Compute the No,Nv,NG
   int NG(GammaGqr->lens[0]);
@@ -60,11 +54,11 @@ void SliceCoulombVertex::dryRun() {
   int Nv(epsa->lens[0]);
 
   // Allocate and compute GammaGab,GammaGai,GammaGij from GammaGqr
-  int GaiLens[] = { NG,Nv,No };
-  int GaiSyms[] = { NS,NS,NS };
+  int GaiLens[] = {NG, Nv, No};
+  int GaiSyms[] = {NS, NS, NS};
   DryTensor<complex> *GammaGai(new DryTensor<complex>(3, GaiLens, GaiSyms));
 
   allocatedTensorArgument<complex, DryTensor<complex>>(
-    "ParticleHoleCoulombVertex", GammaGai
-  );
+      "ParticleHoleCoulombVertex",
+      GammaGai);
 }

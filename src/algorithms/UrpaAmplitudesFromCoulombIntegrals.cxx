@@ -16,38 +16,35 @@ ALGORITHM_REGISTRAR_DEFINITION(UrpaAmplitudesFromCoulombIntegrals);
 
 PTR(FockVector<sisi4s::complex>)
 UrpaAmplitudesFromCoulombIntegrals::getResiduum(
-  const int iterationStep,
-  const PTR(const FockVector<complex>) &amplitudes
-) {
-  if (iterationStep == 0){
-    LOG(1, getAbbreviation()) <<
-       "WARNING: Using complex version of Urpa" << std::endl;
-    LOG(1, getAbbreviation()) <<
-       "WARNING: Complex version is not tested." << std::endl;
+    const int iterationStep,
+    const PTR(const FockVector<complex>) &amplitudes) {
+  if (iterationStep == 0) {
+    LOG(1, getAbbreviation())
+        << "WARNING: Using complex version of Urpa" << std::endl;
+    LOG(1, getAbbreviation())
+        << "WARNING: Complex version is not tested." << std::endl;
   }
   return getResiduumTemplate<complex>(iterationStep, amplitudes);
 }
 
 PTR(FockVector<double>) UrpaAmplitudesFromCoulombIntegrals::getResiduum(
-  const int iterationStep, const PTR(const FockVector<double>) &amplitudes
-) {
+    const int iterationStep,
+    const PTR(const FockVector<double>) &amplitudes) {
   return getResiduumTemplate<double>(iterationStep, amplitudes);
 }
 
 template <typename F>
 PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
-  const int iterationStep, const PTR(const FockVector<F>) &amplitudes
-) {
+    const int iterationStep,
+    const PTR(const FockVector<F>) &amplitudes) {
   Tensor<double> *epsi(
-    getTensorArgument<double, Tensor<double> >("HoleEigenEnergies")
-  );
+      getTensorArgument<double, Tensor<double>>("HoleEigenEnergies"));
 
   Tensor<double> *epsa(
-    getTensorArgument<double, Tensor<double> >("ParticleEigenEnergies")
-  );
+      getTensorArgument<double, Tensor<double>>("ParticleEigenEnergies"));
 
   // Get couloumb integrals
-  auto Vijab(getTensorArgument<F, Tensor<F> >("HHPPCoulombIntegrals"));
+  auto Vijab(getTensorArgument<F, Tensor<F>>("HHPPCoulombIntegrals"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int vv[] = {Nv, Nv};
@@ -57,33 +54,20 @@ PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   Tensor<F> *Fij(new Tensor<F>(2, oo, syms, *Sisi4s::world, "Fij"));
   Tensor<F> *Fia;
 
-  if (
-    isArgumentGiven("HPFockMatrix") &&
-    isArgumentGiven("HHFockMatrix") &&
-    isArgumentGiven("PPFockMatrix")
-  ) {
-    if (iterationStep == 0){
+  if (isArgumentGiven("HPFockMatrix") && isArgumentGiven("HHFockMatrix")
+      && isArgumentGiven("PPFockMatrix")) {
+    if (iterationStep == 0) {
       LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
     }
-    Fia = getTensorArgument<F, Tensor<F> >("HPFockMatrix");
-    Fab = getTensorArgument<F, Tensor<F> >("PPFockMatrix");
-    Fij = getTensorArgument<F, Tensor<F> >("HHFockMatrix");
+    Fia = getTensorArgument<F, Tensor<F>>("HPFockMatrix");
+    Fab = getTensorArgument<F, Tensor<F>>("PPFockMatrix");
+    Fij = getTensorArgument<F, Tensor<F>>("HHFockMatrix");
   } else {
     Fia = NULL;
-    CTF::Transform<double, F>(
-      std::function<void(double, F &)>(
-        [](double eps, F &f) { f = eps; }
-      )
-    ) (
-      (*epsi)["i"], (*Fij)["ii"]
-    );
-    CTF::Transform<double, F>(
-      std::function<void(double, F &)>(
-        [](double eps, F &f) { f = eps; }
-      )
-    ) (
-      (*epsa)["a"], (*Fab)["aa"]
-    );
+    CTF::Transform<double, F>(std::function<void(double, F &)>(
+        [](double eps, F &f) { f = eps; }))((*epsi)["i"], (*Fij)["ii"]);
+    CTF::Transform<double, F>(std::function<void(double, F &)>(
+        [](double eps, F &f) { f = eps; }))((*epsa)["a"], (*Fab)["aa"]);
   }
 
   // Create T and R and intermediates
@@ -101,20 +85,22 @@ PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   auto Rabij(residuum->get(1));
   Rabij->set_name("Rabij");
 
-  if (iterationStep == 0){
+  if (iterationStep == 0) {
     LOG(1, getAbbreviation())
-      << "Set initial Rabij amplitudes to Vijab" << std::endl;
+        << "Set initial Rabij amplitudes to Vijab" << std::endl;
     (*Rabij)["abij"] = (*Vijab)["ijab"];
     return residuum;
   }
 
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
 
-  H.setFij(Fij).setFab(Fab).setFia(Fia)
-    .setVijab(Vijab)
-    .setTai(Tai.get())
-    .setTabij(Tabij.get())
-    .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::GENERAL);
+  H.setFij(Fij)
+      .setFab(Fab)
+      .setFia(Fia)
+      .setVijab(Vijab)
+      .setTai(Tai.get())
+      .setTabij(Tabij.get())
+      .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::GENERAL);
 
   // T1 equations:
   //
@@ -123,9 +109,9 @@ PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   //
   auto Wai = H.getAI_RPA();
   (*Rai)["ai"] += (*Wai)["ai"];
-  //These are the residum equations, we have to substract them from Wai
-  (*Rai)["bi"] += ( - 1.0  ) * (*Fab)["bc"] * (*Tai)["ci"];
-  (*Rai)["bi"] += ( + 1.0  ) * (*Fij)["ki"] * (*Tai)["bk"];
+  // These are the residum equations, we have to substract them from Wai
+  (*Rai)["bi"] += (-1.0) * (*Fab)["bc"] * (*Tai)["ci"];
+  (*Rai)["bi"] += (+1.0) * (*Fij)["ki"] * (*Tai)["bk"];
 
   // T2 equations:
   //
@@ -134,12 +120,11 @@ PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   //
   auto Wabij = H.getABIJ_RPA();
   (*Rabij)["abij"] += (*Wabij)["abij"];
-  //These are the residum equations, substract them from Wabij
-  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fij)["mi"] * (*Tabij)["cdmj"];
-  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fij)["mj"] * (*Tabij)["cdmi"];
-  (*Rabij)["cdij"] += ( + 1.0  ) * (*Fab)["de"] * (*Tabij)["ecij"];
-  (*Rabij)["cdij"] += ( - 1.0  ) * (*Fab)["ce"] * (*Tabij)["edij"];
+  // These are the residum equations, substract them from Wabij
+  (*Rabij)["cdij"] += (+1.0) * (*Fij)["mi"] * (*Tabij)["cdmj"];
+  (*Rabij)["cdij"] += (-1.0) * (*Fij)["mj"] * (*Tabij)["cdmi"];
+  (*Rabij)["cdij"] += (+1.0) * (*Fab)["de"] * (*Tabij)["ecij"];
+  (*Rabij)["cdij"] += (-1.0) * (*Fab)["ce"] * (*Tabij)["edij"];
 
   return residuum;
-
 }

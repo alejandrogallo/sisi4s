@@ -8,25 +8,22 @@
 
 namespace sisi4s {
 
-  class UnrestrictedEquationOfMotionSinglesFromRpa: public Algorithm {
-  public:
-    ALGORITHM_REGISTRAR_DECLARATION(UnrestrictedEquationOfMotionSinglesFromRpa);
-    UnrestrictedEquationOfMotionSinglesFromRpa(
-      std::vector<Argument> const &argumentList
-    );
-    virtual ~UnrestrictedEquationOfMotionSinglesFromRpa();
+class UnrestrictedEquationOfMotionSinglesFromRpa : public Algorithm {
+public:
+  ALGORITHM_REGISTRAR_DECLARATION(UnrestrictedEquationOfMotionSinglesFromRpa);
+  UnrestrictedEquationOfMotionSinglesFromRpa(
+      std::vector<Argument> const &argumentList);
+  virtual ~UnrestrictedEquationOfMotionSinglesFromRpa();
 
-    virtual void run();
+  virtual void run();
 
-    template<typename F>
-    void run();
+  template <typename F>
+  void run();
 
-  protected:
-    static constexpr int DEFAULT_MAX_ITERATIONS = 16;
+protected:
+  static constexpr int DEFAULT_MAX_ITERATIONS = 16;
+};
 
-  };
-
-}
+} // namespace sisi4s
 
 #endif
-

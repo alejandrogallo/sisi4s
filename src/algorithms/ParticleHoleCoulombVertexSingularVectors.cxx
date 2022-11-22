@@ -11,24 +11,25 @@
 #include <memory>
 
 using namespace sisi4s;
-using std::shared_ptr;
 using std::make_shared;
+using std::shared_ptr;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexSingularVectors);
 
-ParticleHoleCoulombVertexSingularVectors::ParticleHoleCoulombVertexSingularVectors(
-  std::vector<Argument> const &argumentList
-): Algorithm(argumentList) {
-}
+ParticleHoleCoulombVertexSingularVectors::
+    ParticleHoleCoulombVertexSingularVectors(
+        std::vector<Argument> const &argumentList)
+    : Algorithm(argumentList) {}
 
-ParticleHoleCoulombVertexSingularVectors::~ParticleHoleCoulombVertexSingularVectors() {
-}
+ParticleHoleCoulombVertexSingularVectors::
+    ~ParticleHoleCoulombVertexSingularVectors() {}
 
 void ParticleHoleCoulombVertexSingularVectors::run() {
   // read the particle-hole Coulomb vertex GammaGai
   // Its singular value decomposition is U.Sigma.W*
   // where W* is a matrix with the compound orbital index (a,i)
-  Tensor<complex> *GammaGai( getTensorArgument<complex>("FullParticleHoleCoulombVertex"));
+  Tensor<complex> *GammaGai(
+      getTensorArgument<complex>("FullParticleHoleCoulombVertex"));
 
   // construct the conjugate of the Coulomb vertex GammaGai
   Tensor<complex> conjGammaGai(*GammaGai);
@@ -38,8 +39,8 @@ void ParticleHoleCoulombVertexSingularVectors::run() {
   int NG(GammaGai->lens[0]);
   CTF::Matrix<complex> USSUT(NG, NG, *GammaGai->wrld, "USSUT");
   LOG(1, "ParticleHoleCoulombVertexSingularVectors")
-    << "Contracting over orbitals of " << GammaGai->get_name()
-    << " to get U.Sigma^2.U*, with NG=" << NG << std::endl;
+      << "Contracting over orbitals of " << GammaGai->get_name()
+      << " to get U.Sigma^2.U*, with NG=" << NG << std::endl;
   USSUT["GH"] = conjGammaGai["Gai"] * (*GammaGai)["Hai"];
 
   // use ScaLapack routines to diagonalise the USSUT matrix, i.e. find U
@@ -62,10 +63,9 @@ void ParticleHoleCoulombVertexSingularVectors::run() {
   CTF::Matrix<complex> U(USSUT);
   scaU->write(U);
   // slice singular vectors U corresponding to NF largest singular values S
-  int start[] = {0, NG-NF}, end[] = {NG, NG};
-  allocatedTensorArgument<complex>(
-    "ParticleHoleCoulombVertexSingularVectors", new Tensor<complex>(U.slice(start, end))
-  );
+  int start[] = {0, NG - NF}, end[] = {NG, NG};
+  allocatedTensorArgument<complex>("ParticleHoleCoulombVertexSingularVectors",
+                                   new Tensor<complex>(U.slice(start, end)));
 
   // TODO: also write out the singular values
   delete[] SS;
@@ -73,9 +73,8 @@ void ParticleHoleCoulombVertexSingularVectors::run() {
 
 void ParticleHoleCoulombVertexSingularVectors::dryRun() {
   // Read the Coulomb vertex GammaGai
-  DryTensor<complex> *GammaGai(
-    getTensorArgument<complex, DryTensor<complex>>("FullParticleHoleCoulombVertex")
-  );
+  DryTensor<complex> *GammaGai(getTensorArgument<complex, DryTensor<complex>>(
+      "FullParticleHoleCoulombVertex"));
 
   DryTensor<complex> conjGammaGai(*GammaGai, SOURCE_LOCATION);
 
@@ -89,8 +88,6 @@ void ParticleHoleCoulombVertexSingularVectors::dryRun() {
   }
 
   allocatedTensorArgument<complex, DryTensor<complex>>(
-    "ParticleHoleCoulombVertexSingularVectors",
-    new DryMatrix<complex>(NG, NF, NS, SOURCE_LOCATION)
-  );
+      "ParticleHoleCoulombVertexSingularVectors",
+      new DryMatrix<complex>(NG, NF, NS, SOURCE_LOCATION));
 }
-
