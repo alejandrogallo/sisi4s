@@ -12,18 +12,17 @@
 #include <regex>
 #include <numeric>
 
-
 namespace nwchem {
 
-  using namespace pars;
+using namespace pars;
 
-  struct BasisSetParser {
-    std::smatch match;
-    bool matches(const std::string &t, const Regex &r);
-    Basis parseBasis (std::fstream &f, const std::string name);
-    BasisSet parseFile(const std::string &fileName);
-  };
+struct BasisSetParser {
+  std::smatch match;
+  bool matches(const std::string &t, const Regex &r);
+  Basis parseBasis(std::fstream &f, const std::string name);
+  BasisSet parseFile(const std::string &fileName);
+};
 
-}
+} // namespace nwchem
 
 #endif

@@ -7,26 +7,20 @@ using namespace pars;
 using namespace nwchem;
 using namespace am;
 
-const Regex spherical = oneOf({ "SPHERICAL", "spherical" })
-          , no_line   = bof + blank + anyOf + eof
-          , comment   = bof + "#" + print + anyOf
-          , atom      = upper + lower + optional
-          , sep       = blank + oneOrMore
-          , shell_symbol  = oneOf({"S", "P", "D", "F", "G", "H", "I", "K"})
-          , shell_header  = bof + capture(atom.s) + sep.s
-                          + capture(shell_symbol.s)
-                          + blank + anyOf
-          , shell_content = bof + blank + anyOf
-                          + capture(realNumber) + sep.s
-                          + capture(realNumber)
-          , basis_token   = oneOf({ "basis", "BASIS" })
-          , basis_name    = "\"" + capture(print + oneOrMore) + "\""
-          , basis_header  = group(basis_token.s) + sep.s
-                          + basis_name.s + sep.s
-                          + group(spherical.s)
-                          + blank + anyOf
-          , basis_end     = bof + group(oneOf({ "end", "END" }))
-          ;
+const Regex spherical = oneOf({"SPHERICAL", "spherical"}),
+            no_line = bof + blank + anyOf + eof,
+            comment = bof + "#" + print + anyOf,
+            atom = upper + lower + optional, sep = blank + oneOrMore,
+            shell_symbol = oneOf({"S", "P", "D", "F", "G", "H", "I", "K"}),
+            shell_header = bof + capture(atom.s) + sep.s
+                         + capture(shell_symbol.s) + blank + anyOf,
+            shell_content = bof + blank + anyOf + capture(realNumber) + sep.s
+                          + capture(realNumber),
+            basis_token = oneOf({"basis", "BASIS"}),
+            basis_name = "\"" + capture(print + oneOrMore) + "\"",
+            basis_header = group(basis_token.s) + sep.s + basis_name.s + sep.s
+                         + group(spherical.s) + blank + anyOf,
+            basis_end = bof + group(oneOf({"end", "END"}));
 
 Basis BasisSetParser::parseBasis(std::fstream &f, const std::string name) {
   std::string line;
@@ -35,8 +29,9 @@ Basis BasisSetParser::parseBasis(std::fstream &f, const std::string name) {
   std::string atom, shSymbol;
 
   auto addShellToBasis = [&]() {
-    shells.push_back( { atom, am::fromString(shSymbol), { coe, exp } } );
-    coe.resize(0); exp.resize(0);
+    shells.push_back({atom, am::fromString(shSymbol), {coe, exp}});
+    coe.resize(0);
+    exp.resize(0);
   };
 
   while (std::getline(f, line)) {
@@ -50,18 +45,16 @@ Basis BasisSetParser::parseBasis(std::fstream &f, const std::string name) {
 
     if (matches(line, basis_end)) {
       addShellToBasis();
-      return { atom, name, shells };
+      return {atom, name, shells};
     }
 
-    if (! matches(line, shell_content) ) throw "in: " + line;
+    if (!matches(line, shell_content)) throw "in: " + line;
 
     coe.push_back(std::atof(std::string(match[2]).c_str()));
     exp.push_back(std::atof(std::string(match[1]).c_str()));
-
   }
 
   throw "Not able to parse basis, fix your input";
-
 }
 
 bool BasisSetParser::matches(const std::string &t, const Regex &r) {
@@ -78,19 +71,17 @@ BasisSet BasisSetParser::parseFile(const std::string &fileName) {
   while (std::getline(f, line)) {
 
     // ignore empty or comment lines
-    if ( matches(line, no_line) || matches(line, comment) ) continue;
+    if (matches(line, no_line) || matches(line, comment)) continue;
 
     // Parse basis whenever we find basis...
     if (matches(line, basis_header)) {
-                              // v-- name
+      // v-- name
       bs.push_back(parseBasis(f, match[1].str()));
       continue;
     }
 
     throw "I don't understand: " + line;
-
   }
 
   return bs;
-
 }
