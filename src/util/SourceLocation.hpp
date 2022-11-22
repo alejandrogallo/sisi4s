@@ -7,41 +7,38 @@
 #include <ostream>
 
 namespace sisi4s {
-  class SourceLocation;
-  std::ostream &operator <<(std::ostream &stream, SourceLocation const &l);
+class SourceLocation;
+std::ostream &operator<<(std::ostream &stream, SourceLocation const &l);
 
-  class SourceLocation {
-  public:
-    SourceLocation(): file("<unknown>"), line(0) {
-    }
-    SourceLocation(SourceLocation const &l): file(l.file), line(l.line) {
-    }
-    SourceLocation(
-      std::string const &file_, int line_
-    ): file(file_), line(line_) {
-    }
-    std::string getLocation() const {
-      std::stringstream stream;
-      stream << *this;
-      return stream.str();
-    }
-    std::string getFile() const {
-      return file;
-    }
-    int getLine() const {
-      return line;
-    }
-  protected:
-    std::string file;
-    int line;
-  };
-
-  inline std::ostream &operator <<(
-    std::ostream &stream, SourceLocation const &location
-  ) {
-    return stream << location.getFile()  << "(" << location.getLine() << ")";
+class SourceLocation {
+public:
+  SourceLocation()
+      : file("<unknown>")
+      , line(0) {}
+  SourceLocation(SourceLocation const &l)
+      : file(l.file)
+      , line(l.line) {}
+  SourceLocation(std::string const &file_, int line_)
+      : file(file_)
+      , line(line_) {}
+  std::string getLocation() const {
+    std::stringstream stream;
+    stream << *this;
+    return stream.str();
   }
+  std::string getFile() const { return file; }
+  int getLine() const { return line; }
+
+protected:
+  std::string file;
+  int line;
+};
+
+inline std::ostream &operator<<(std::ostream &stream,
+                                SourceLocation const &location) {
+  return stream << location.getFile() << "(" << location.getLine() << ")";
 }
+} // namespace sisi4s
 
 #define SOURCE_LOCATION SourceLocation(__FILE__, __LINE__)
 

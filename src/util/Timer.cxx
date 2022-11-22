@@ -8,8 +8,9 @@ using namespace sisi4s;
  * written to upon destruction of the object marking the end of the
  * measurement.
  */
-Timer::Timer(Time *time_): time(time_), start(Time::getCurrentRealTime()) {
-}
+Timer::Timer(Time *time_)
+    : time(time_)
+    , start(Time::getCurrentRealTime()) {}
 
 /**
  * Destroys the timer object concluding the time measurement

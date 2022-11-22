@@ -5,13 +5,13 @@
 
 namespace sisi4s {
 
-  template <typename F>
-  using Tensor = CTF::Tensor<F>;
+template <typename F>
+using Tensor = CTF::Tensor<F>;
 
-  using TensorIndex = int64_t;
+using TensorIndex = int64_t;
 
-  template <typename F>
-  using Matrix = CTF::Matrix<F>;
+template <typename F>
+using Matrix = CTF::Matrix<F>;
 
-}  // namespace sisi4s
+} // namespace sisi4s
 #endif

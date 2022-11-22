@@ -23,16 +23,14 @@ struct Basis {
   const std::vector<Shell> shells;
   size_t size() const { return shells.size(); }
   size_t nbf() const {
-    return
-    std::accumulate( shells.begin()
-                   , shells.end()
-                   , 0
-                   , [&](size_t i, const Shell &s){ return i + s.size(); }
-                   );
+    return std::accumulate(
+        shells.begin(),
+        shells.end(),
+        0,
+        [&](size_t i, const Shell &s) { return i + s.size(); });
   }
 };
 
 typedef std::vector<Basis> BasisSet;
-
 
 #endif

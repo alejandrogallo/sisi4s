@@ -8,32 +8,45 @@ namespace sisi4s {
 enum Index { NO, NV, NP };
 
 template <typename A>
-A permuteIndices(const A& a, size_t i, size_t j) {
-  A b(a); b[i] = a[j]; b[j] = a[i]; return b;
+A permuteIndices(const A &a, size_t i, size_t j) {
+  A b(a);
+  b[i] = a[j];
+  b[j] = a[i];
+  return b;
 }
 
 // p | q
 // r | s
 template <typename A>
-A vSym(const A& a) { return permuteIndices(permuteIndices(a, 0, 1), 2, 3); }
+A vSym(const A &a) {
+  return permuteIndices(permuteIndices(a, 0, 1), 2, 3);
+}
 // p  q
 // -----
 // r  s
 template <typename A>
-A hSym(const A& a) { return permuteIndices(permuteIndices(a, 0, 2), 1, 3); }
+A hSym(const A &a) {
+  return permuteIndices(permuteIndices(a, 0, 2), 1, 3);
+}
 // p  q
 // -
 // r  s
 template <typename A>
-A vlSym(const A& a) { return permuteIndices(a, 0, 2); }
+A vlSym(const A &a) {
+  return permuteIndices(a, 0, 2);
+}
 // p|q
 // r s
 template <typename A>
-A upTr(const A& a) { return permuteIndices(a, 0, 1); }
+A upTr(const A &a) {
+  return permuteIndices(a, 0, 1);
+}
 // p q
 // r|s
 template <typename A>
-A downTr(const A& a) { return permuteIndices(a, 2, 3); }
+A downTr(const A &a) {
+  return permuteIndices(a, 2, 3);
+}
 
 // struct used to store information about the names, indices ranges
 // and string indices for ctf. It computes also IntegralInfos for
@@ -42,8 +55,10 @@ struct IntegralInfo {
   std::string name;
   std::array<Index, 4> indices;
   std::string ids;
-  IntegralInfo(std::string n, std::array<Index, 4> i, std::string is):
-    name(n), indices(i), ids(is){}
+  IntegralInfo(std::string n, std::array<Index, 4> i, std::string is)
+      : name(n)
+      , indices(i)
+      , ids(is) {}
 
   std::vector<IntegralInfo> getAntisymmetrizers() const {
     std::vector<IntegralInfo> result;
@@ -52,13 +67,13 @@ struct IntegralInfo {
     // build up targets
     targets.push_back({upTr(name), upTr(indices), upTr(ids)});
     targets.push_back({downTr(name), downTr(indices), downTr(ids)});
-    for (auto& t: targets) {
+    for (auto &t : targets) {
       std::vector<IntegralInfo> equivalents;
       // set up the equivalent tensors for the current target
-      equivalents.push_back({vSym(t.name),  vSym(t.indices),  vSym(t.ids)});
-      equivalents.push_back({hSym(t.name),  hSym(t.indices),  hSym(t.ids)});
+      equivalents.push_back({vSym(t.name), vSym(t.indices), vSym(t.ids)});
+      equivalents.push_back({hSym(t.name), hSym(t.indices), hSym(t.ids)});
       equivalents.push_back({vlSym(t.name), vlSym(t.indices), vlSym(t.ids)});
-      for (auto& eq: equivalents) {
+      for (auto &eq : equivalents) {
         if (names.count(eq.name) >= 1) continue;
         names.insert(eq.name);
         result.push_back({eq.name, eq.indices, eq.ids});
@@ -66,9 +81,8 @@ struct IntegralInfo {
     }
     return result;
   }
-
 };
 
-}
+} // namespace sisi4s
 
 #endif

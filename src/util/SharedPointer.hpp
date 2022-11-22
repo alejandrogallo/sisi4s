@@ -11,4 +11,3 @@
 #define NEW(TYPE, ...) std::make_shared<TYPE>(__VA_ARGS__)
 
 #endif
-
