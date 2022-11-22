@@ -40,7 +40,7 @@ jobs:
 
     - name: Files changed
       run: |
-        files="$(git diff --names-only)"
+        files="$(git diff --name-only)"
         if [[ -n "$files" ]]; then
           echo files changed
           echo $files
