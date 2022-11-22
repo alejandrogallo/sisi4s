@@ -1,4 +1,3 @@
-/*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef UPERTURBATIVE_TRIPLES_DEFINED
 #define UPERTURBATIVE_TRIPLES_DEFINED
 

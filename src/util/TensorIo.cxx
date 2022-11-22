@@ -1,4 +1,3 @@
-/*Copyright (c) 2018, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #include <util/TensorIo.hpp>
 #include <util/BinaryTensorFormat.hpp>
 #include <util/Scanner.hpp>

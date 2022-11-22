@@ -1,4 +1,3 @@
-/*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef REGULARIZED_ALTERNATING_LEAST_SQUARES_DEFINED
 #define REGULARIZED_ALTERNATING_LEAST_SQUARES_DEFINED
 

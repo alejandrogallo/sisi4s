@@ -1,4 +1,3 @@
-/*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef COULOMB_VERTEX_READER_DEFINED
 #define COULOMB_VERTEX_READER_DEFINED
 

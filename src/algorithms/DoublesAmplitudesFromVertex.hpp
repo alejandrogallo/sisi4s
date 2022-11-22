@@ -1,4 +1,3 @@
-/*Copyright (c) 2017, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef DOUBLES_AMPLITUDES_FROM_VERTEX_DEFINED
 #define DOUBLES_AMPLITUDES_FROM_VERTEX_DEFINED
 

@@ -1,5 +1,3 @@
-/*Copyright (c) 2017, Andreas Grueneis, Felix Hummel and Alejandro Gallo, all
- * rights reserved.*/
 #ifndef ___CLUSTERSINGLESDOUBLESALGORITHM_DEFINED_PEACE
 #define ___CLUSTERSINGLESDOUBLESALGORITHM_DEFINED_PEACE
 

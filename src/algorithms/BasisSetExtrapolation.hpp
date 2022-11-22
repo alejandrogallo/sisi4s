@@ -1,4 +1,3 @@
-/*Copyright (c) 2018, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef BASIS_SET_EXTRAPOLATION_FUNCTION_DEFINED
 #define BASIS_SET_EXTRAPOLATION_FUNCTION_DEFINED
 

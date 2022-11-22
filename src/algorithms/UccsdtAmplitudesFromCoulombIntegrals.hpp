@@ -1,5 +1,3 @@
-/*Copyright (c) 2017, Andreas Grueneis, Felix Hummel and Alejandro Gallo, all
- * rights reserved.*/
 #ifndef UCCSDT_FROM_COULOMB_INTEGRALS_DEFINED
 #define UCCSDT_FROM_COULOMB_INTEGRALS_DEFINED
 

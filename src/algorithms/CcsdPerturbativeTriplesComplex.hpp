@@ -1,4 +1,3 @@
-/*Copyright (c) 2017, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef CCSD_PERTURBATIVE_TRIPLES_COMPLEX_DEFINED
 #define CCSD_PERTURBATIVE_TRIPLES_COMPLEX_DEFINED
 

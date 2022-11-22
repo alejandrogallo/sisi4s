@@ -1,4 +1,3 @@
-/*Copyright (c) 2017, Andreas Grueneis and Felix Hummel, almost all rights
  * reserved.*/
 #ifndef PARENTHESIS_TRIPLES
 #define PARENTHESIS_TRIPLES

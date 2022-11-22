@@ -1,4 +1,3 @@
-/*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef GENERATE_RANDOM_COMPLEX_MATRIX_DEFINED
 #define GENERATE_RANDOM_COMPLEX_MATRIX_DEFINED
 

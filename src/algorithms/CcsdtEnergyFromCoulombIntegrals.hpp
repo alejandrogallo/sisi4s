@@ -1,4 +1,3 @@
-/*Copyright (c) 2022, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef CCSDTENERGYFROMCOULOMBINTEGRALS_HPP_
 #define CCSDTENERGYFROMCOULOMBINTEGRALS_HPP_
 

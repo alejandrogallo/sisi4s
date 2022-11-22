@@ -1,4 +1,3 @@
-/*Copyright (c) 2016, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef PSEUDO_INVERSE_DEFINED
 #define PSEUDO_INVERSE_DEFINED
 

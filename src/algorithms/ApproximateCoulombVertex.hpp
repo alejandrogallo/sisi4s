@@ -1,4 +1,3 @@
-/*Copyright (c) 2016, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef APPROXIMATE_COULOMB_VERTEX_DEFINED
 #define APPROXIMATE_COULOMB_VERTEX_DEFINED
 

@@ -1,4 +1,3 @@
-/*Copyright (c) 2016, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #include <algorithms/PseudoInverse.hpp>
 #include <math/PseudoInverseHermitianSvd.hpp>
 #include <util/Log.hpp>

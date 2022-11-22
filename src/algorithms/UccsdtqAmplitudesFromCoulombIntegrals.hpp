@@ -1,4 +1,3 @@
-/*Copyright (c) 2017, Andreas Grueneis, Felix Hummel and Alejandro Gallo, all
  * rights reserved.*/
 #ifndef UCCSDTQ_FROM_COULOMB_INTEGRALS_DEFINED
 #define UCCSDTQ_FROM_COULOMB_INTEGRALS_DEFINED

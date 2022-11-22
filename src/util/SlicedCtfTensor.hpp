@@ -1,4 +1,3 @@
-/*Copyright (c) 2017, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef SLICED_CTF_TENSOR_DEFINED
 #define SLICED_CTF_TENSOR_DEFINED
 

@@ -1,4 +1,3 @@
-/*Copyright (c) 2016, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #include <algorithms/ComplexTensorReader.hpp>
 #include <math/Complex.hpp>
 #include <util/TensorIo.hpp>

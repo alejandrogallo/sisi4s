@@ -1,4 +1,3 @@
-/*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef FROM_COMPLEX_TENSOR_DEFINED
 #define FROM_COMPLEX_TENSOR_DEFINED
 

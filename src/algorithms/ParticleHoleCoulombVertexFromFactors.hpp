@@ -1,4 +1,3 @@
-/*Copyright (c) 2017, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef PARTICLE_HOLE_COULOMB_VERTEX_FROM_FACTORS_DEFINED
 #define PARTICLE_HOLE_COULOMB_VERTEX_FROM_FACTORS_DEFINED
 

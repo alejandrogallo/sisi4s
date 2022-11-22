@@ -1,4 +1,3 @@
-/* Copyright 2020. Erwin Schroedinger and Egyl Hylleraas */
 #ifndef __MEAN_CORRELATION_HOLE_DEPTH_BLAH_DEFINED
 
 #  include <algorithms/Algorithm.hpp>

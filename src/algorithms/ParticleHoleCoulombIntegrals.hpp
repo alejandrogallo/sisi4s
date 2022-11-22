@@ -1,4 +1,3 @@
-/*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef PARTICLE_HOLE_COULOMB_INTEGRALS_DEFINED
 #define PARTICLE_HOLE_COULOMB_INTEGRALS_DEFINED
 

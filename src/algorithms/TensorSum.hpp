@@ -1,4 +1,3 @@
-/*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef TENSOR_SUM_DEFINED
 #define TENSOR_SUM_DEFINED
 

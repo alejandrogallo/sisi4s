@@ -1,4 +1,3 @@
-/*Copyright (c) 2018, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef PQRS_COULOMB_INTEGRALS_TO_VERTEX
 #define PQRS_COULOMB_INTEGRALS_TO_VERTEX
 

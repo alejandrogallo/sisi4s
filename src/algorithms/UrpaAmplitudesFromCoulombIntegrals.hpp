@@ -1,5 +1,3 @@
-/*Copyright (c) 2017, Andreas Grueneis, Felix Hummel and Alejandro Gallo, all
- * rights reserved.*/
 #ifndef URPA_ALGORITHM__DEFINED
 #define URPA_ALGORITHM__DEFINED
 #include <algorithms/ClusterSinglesDoublesAlgorithm.hpp>

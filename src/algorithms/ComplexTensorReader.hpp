@@ -1,4 +1,3 @@
-/*Copyright (c) 2016, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef SRC_ALGORITHMS_COMPLEXTENSORREADER_HPP_
 #define SRC_ALGORITHMS_COMPLEXTENSORREADER_HPP_
 #include <vector>

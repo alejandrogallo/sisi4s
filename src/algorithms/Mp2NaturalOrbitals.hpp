@@ -1,4 +1,3 @@
-/*Copyright (c) 2015, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef MP2_NATURAL_ORBITALS
 #define MP2_NATURAL_ORBITALS
 

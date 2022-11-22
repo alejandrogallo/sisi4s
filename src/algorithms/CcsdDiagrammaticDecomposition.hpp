@@ -1,4 +1,3 @@
-/*Copyright (c) 2018, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 #ifndef CCSD_DIAGRAMMATIC_DECOMPOSITION
 #define CCSD_DIAGRAMMATIC_DECOMPOSITION
 

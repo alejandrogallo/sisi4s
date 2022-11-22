@@ -1,4 +1,3 @@
-/*Copyright (c) 2016, Andreas Grueneis and Felix Hummel, all rights reserved.*/
 
 #include <algorithms/ParticleHoleCoulombVertexDecomposition.hpp>
 #include <math/CanonicalPolyadicDecomposition.hpp>
