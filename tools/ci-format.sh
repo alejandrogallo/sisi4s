@@ -8,5 +8,7 @@ type -f clang-format || {
 }
 
 fmt="clang-format -i {}"
-find src/ -name '*.cxx' -exec $fmt \; \
-      -or -name '*.hpp' -exec $fmt \;
+vendor="-not -path *vendor*"
+set -x
+find src/ $vendor -name '*.cxx' -exec $fmt \; \
+      -or $vendor -name '*.hpp' -exec $fmt \;
