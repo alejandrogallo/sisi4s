@@ -272,8 +272,9 @@ jobs:
     - name: Build
       run: |
         ${WITH_SHELL} "./bootstrap.sh"
-        ${WITH_SHELL} "./configure"
-        ${WITH_SHELL} "make -j$NJ"
+        ${WITH_SHELL} "mkdir -p build"
+        ${WITH_SHELL} "cd build && ../configure"
+        ${WITH_SHELL} "cd build && make -j$NJ"
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
