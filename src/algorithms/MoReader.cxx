@@ -401,13 +401,14 @@ void MoReader::run() {
   }
 }
 
-SISI_DOC(*Documentation
+SISI_DOC(
+* Documentation
 
-             This module contains convenience routines in order to read
-                 molecular orbitals from the following codes
-         :
+This module contains convenience routines in order to read
+molecular orbitals from the following codes:
 
-         -NWCHEM - PSI4
-             - TURBOMOLE
+- NWCHEM
+- PSI4
+- TURBOMOLE
 
-                   * END)
+* END)
