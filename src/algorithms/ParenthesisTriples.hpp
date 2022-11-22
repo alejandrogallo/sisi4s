@@ -1,4 +1,3 @@
- * reserved.*/
 #ifndef PARENTHESIS_TRIPLES
 #define PARENTHESIS_TRIPLES
 
