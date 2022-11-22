@@ -3,7 +3,7 @@
 #define OPTIONS_DEFINED
 
 #include <string>
-#include <extern/CLI11.hpp>
+#include <vendor/CLI11.hpp>
 
 namespace sisi4s {
 struct Options {

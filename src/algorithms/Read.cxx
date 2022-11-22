@@ -4,7 +4,7 @@
 #include <Sisi4s.hpp>
 #include <algorithms/Read.hpp>
 #include <util/Tensor.hpp>
-#include <extern/filesystem.hpp>
+#include <vendor/filesystem.hpp>
 
 namespace sisi4s {
 

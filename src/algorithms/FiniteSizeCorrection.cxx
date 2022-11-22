@@ -6,8 +6,8 @@
 #include <math/MathFunctions.hpp>
 #include <math/Vector.hpp>
 #include <math/Interpolation.hpp>
-#include <gte/TricubicInterpolation.hpp>
-#include <gte/TrilinearInterpolation.hpp>
+#include <vendor/gte/TricubicInterpolation.hpp>
+#include <vendor/gte/TrilinearInterpolation.hpp>
 #include <util/MpiCommunicator.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
