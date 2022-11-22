@@ -56,47 +56,45 @@
 <codeline lineno="6" refid="namespacepars" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepars" kindref="compound">pars</ref><sp/>{</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight></codeline>
 <codeline lineno="8" refid="namespacepars_1abf63d88b9d2972448bb8e2e8f3e86300" refkind="member"><highlight class="normal">std::string<sp/><ref refid="namespacepars_1abf63d88b9d2972448bb8e2e8f3e86300" kindref="member">oneOf</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;<sp/>&amp;v)<sp/>{</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::accumulate</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>v.begin()</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>v.end()</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>std::string(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>std::function&lt;<ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>(<ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>,<sp/><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>)&gt;(</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref><sp/>&amp;a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref><sp/>&amp;b){<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.size()<sp/>?<sp/>a<sp/>+<sp/><ref refid="namespacepars_1abb95bf38925d724f1c91dc07e8d14363" kindref="member">orOf</ref><sp/>+<sp/>b<sp/>:<sp/>b;<sp/>}</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
-<codeline lineno="21" refid="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" refkind="member"><highlight class="normal">std::vector&lt;std::string&gt;<sp/><ref refid="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" kindref="member">parseVector</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;l)<sp/>{</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structpars_1_1Regex" kindref="compound">Regex</ref><sp/>base<sp/>=<sp/><ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">capture</ref>(</highlight><highlight class="stringliteral">&quot;[^,]&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="namespacepars_1a71161c67c796117fe14c18beb97b4de2" kindref="member">oneOrMore</ref>);</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/>std::smatch<sp/>match;</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/>std::string<sp/>lcopy(l);</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/>result;</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(std::regex_search(lcopy,<sp/>match,<sp/>base.<ref refid="structpars_1_1Regex_1a79e1cba281b5ea7efe06b5de947037ff" kindref="member">r</ref>))<sp/>{</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>result.push_back(match[1].str());</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>lcopy<sp/>=<sp/>match.suffix();</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
-<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;&gt;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="namespacepars_1afa37affba88c42a393cc80f2b42caf50" kindref="member">parseVector&lt;double&gt;</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;l)<sp/>{</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>res;</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;s:<sp/>parseVector&lt;std::string&gt;(l))</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>res.push_back(std::atof(s.c_str()));</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;&gt;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal">std::vector&lt;int&gt;<sp/><ref refid="namespacepars_1a6d4a77824971572b20b53e09f62618bd" kindref="member">parseVector&lt;int&gt;</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;l)<sp/>{</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>res;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;s:<sp/>parseVector&lt;std::string&gt;(l))</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>res.push_back(std::atoi(s.c_str()));</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
-<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::accumulate(</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>v.begin(),</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>v.end(),</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;<ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>(<ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>,<sp/><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref>)&gt;([](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref><sp/>&amp;a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacepars_1ac5b8a61cf5a52ea4b0365c437734c71b" kindref="member">Str</ref><sp/>&amp;b)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.size()<sp/>?<sp/>a<sp/>+<sp/><ref refid="namespacepars_1abb95bf38925d724f1c91dc07e8d14363" kindref="member">orOf</ref><sp/>+<sp/>b<sp/>:<sp/>b;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}));</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
+<codeline lineno="19" refid="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" refkind="member"><highlight class="normal">std::vector&lt;std::string&gt;<sp/><ref refid="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" kindref="member">parseVector</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;l)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structpars_1_1Regex" kindref="compound">Regex</ref><sp/>base<sp/>=<sp/><ref refid="namespacepars_1a9253594a7f8dfb9207a05eb210460d8d" kindref="member">capture</ref>(</highlight><highlight class="stringliteral">&quot;[^,]&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="namespacepars_1a71161c67c796117fe14c18beb97b4de2" kindref="member">oneOrMore</ref>);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>std::smatch<sp/>match;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>std::string<sp/>lcopy(l);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/>result;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(std::regex_search(lcopy,<sp/>match,<sp/>base.<ref refid="structpars_1_1Regex_1a79e1cba281b5ea7efe06b5de947037ff" kindref="member">r</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>result.push_back(match[1].str());</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>lcopy<sp/>=<sp/>match.suffix();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="namespacepars_1afa37affba88c42a393cc80f2b42caf50" kindref="member">parseVector&lt;double&gt;</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;l)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>res;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;s<sp/>:<sp/>parseVector&lt;std::string&gt;(l))</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>res.push_back(std::atof(s.c_str()));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">std::vector&lt;int&gt;<sp/><ref refid="namespacepars_1a6d4a77824971572b20b53e09f62618bd" kindref="member">parseVector&lt;int&gt;</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;l)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>res;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;s<sp/>:<sp/>parseVector&lt;std::string&gt;(l))</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>res.push_back(std::atoi(s.c_str()));</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>pars</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/util/Parsing.cxx"/>
   </compounddef>

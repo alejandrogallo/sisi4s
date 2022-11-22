@@ -97,58 +97,6 @@
         <childnode refid="21" relation="include">
         </childnode>
       </node>
-      <node id="34">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
-        </childnode>
-        <childnode refid="47" relation="include">
-        </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-      </node>
       <node id="18">
         <label>math/Complex.hpp</label>
         <link refid="Complex_8hpp"/>
@@ -281,6 +229,58 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
+      <node id="34">
+        <label>vendor/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
       <node id="40">
         <label>algorithm</label>
       </node>
@@ -388,42 +388,40 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2017,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CCSD_ENERGY_FROM_COULOMB_INTEGRALS_REFERENCE_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CCSD_ENERGY_FROM_COULOMB_INTEGRALS_REFERENCE_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ClusterSinglesDoublesAlgorithm_8hpp" kindref="compound">algorithms/ClusterSinglesDoublesAlgorithm.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>algorithm<sp/>is<sp/>now<sp/>based<sp/>on<sp/>the<sp/>ClusterSinglesDoublesAlgorithm</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>inheriting<sp/>its<sp/>iteration<sp/>and<sp/>slicing<sp/>functionality.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Only<sp/>the<sp/>abstract<sp/>(left<sp/>out)<sp/>methods<sp/>getAbbreviation<sp/>and<sp/>iterate<sp/>have</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>be<sp/>implemented.</highlight></codeline>
-<codeline lineno="19" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference" refkind="compound"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference" kindref="compound">CcsdEnergyFromCoulombIntegralsReference</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" kindref="compound">ClusterSinglesDoublesAlgorithm</ref><sp/>{</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="21" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1adbb6f10d1dd46e6de250be0592e000c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" kindref="member">ALGORITHM_REGISTRAR_DECLARATION</ref>(<ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference" kindref="compound">CcsdEnergyFromCoulombIntegralsReference</ref>);</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference" kindref="compound">CcsdEnergyFromCoulombIntegralsReference</ref>(</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1aaeefe294079ae0d6edef5bc36a641c32" kindref="member">~CcsdEnergyFromCoulombIntegralsReference</ref>();</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a7cb182353cdcf4257727e708411e148c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a7cb182353cdcf4257727e708411e148c" kindref="member">getAbbreviation</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Ccsd&quot;</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a1a5ee47a0888e60c8d90f12a466c18eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int64_t<sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a1a5ee47a0888e60c8d90f12a466c18eb" kindref="member">DEFAULT_SLICE_SIZE</ref><sp/>=<sp/>-1;</highlight></codeline>
-<codeline lineno="34" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a76d0299235ccb6c055178de439c8ace6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int64_t<sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a76d0299235ccb6c055178de439c8ace6" kindref="member">DEFAULT_DISTINGUISHABLE</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;double&gt;</ref>)<sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a07394de3d5697dec37b8f5fa64da3fda" kindref="member">getResiduum</ref>(</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iteration,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;double&gt;</ref>)<sp/>&amp;amplitudes</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="45" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a428dfafd0a2b88752a4088793852fe91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;complex&gt;</ref>)<sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a428dfafd0a2b88752a4088793852fe91" kindref="member">getResiduum</ref>(</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iteration,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;complex&gt;</ref>)<sp/>&amp;amplitudes</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>CCSD_ENERGY_FROM_COULOMB_INTEGRALS_REFERENCE_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CCSD_ENERGY_FROM_COULOMB_INTEGRALS_REFERENCE_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ClusterSinglesDoublesAlgorithm_8hpp" kindref="compound">algorithms/ClusterSinglesDoublesAlgorithm.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>this<sp/>algorithm<sp/>is<sp/>now<sp/>based<sp/>on<sp/>the<sp/>ClusterSinglesDoublesAlgorithm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>inheriting<sp/>its<sp/>iteration<sp/>and<sp/>slicing<sp/>functionality.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Only<sp/>the<sp/>abstract<sp/>(left<sp/>out)<sp/>methods<sp/>getAbbreviation<sp/>and<sp/>iterate<sp/>have</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>to<sp/>be<sp/>implemented.</highlight></codeline>
+<codeline lineno="18" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference" refkind="compound"><highlight class="comment"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference" kindref="compound">CcsdEnergyFromCoulombIntegralsReference</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" kindref="compound">ClusterSinglesDoublesAlgorithm</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1adbb6f10d1dd46e6de250be0592e000c1" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="Algorithm_8hpp_1a4ffc3a9c4af45241536daf63a73956b8" kindref="member">ALGORITHM_REGISTRAR_DECLARATION</ref>(<ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference" kindref="compound">CcsdEnergyFromCoulombIntegralsReference</ref>);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference" kindref="compound">CcsdEnergyFromCoulombIntegralsReference</ref>(</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1aaeefe294079ae0d6edef5bc36a641c32" kindref="member">~CcsdEnergyFromCoulombIntegralsReference</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a7cb182353cdcf4257727e708411e148c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a7cb182353cdcf4257727e708411e148c" kindref="member">getAbbreviation</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Ccsd&quot;</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a1a5ee47a0888e60c8d90f12a466c18eb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int64_t<sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a1a5ee47a0888e60c8d90f12a466c18eb" kindref="member">DEFAULT_SLICE_SIZE</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="33" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a76d0299235ccb6c055178de439c8ace6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int64_t<sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a76d0299235ccb6c055178de439c8ace6" kindref="member">DEFAULT_DISTINGUISHABLE</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;double&gt;</ref>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a07394de3d5697dec37b8f5fa64da3fda" kindref="member">getResiduum</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iteration,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;double&gt;</ref>)<sp/>&amp;amplitudes);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;complex&gt;</ref>)</highlight></codeline>
+<codeline lineno="45" refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a428dfafd0a2b88752a4088793852fe91" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a07394de3d5697dec37b8f5fa64da3fda" kindref="member">getResiduum</ref>(const<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iteration,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(const<sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>&gt;)<sp/>&amp;amplitudes);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdEnergyFromCoulombIntegralsReference.hpp"/>
   </compounddef>

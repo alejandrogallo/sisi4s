@@ -58,58 +58,6 @@
         <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="34">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
-        </childnode>
-        <childnode refid="47" relation="include">
-        </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-      </node>
       <node id="18">
         <label>math/Complex.hpp</label>
         <link refid="Complex_8hpp"/>
@@ -252,6 +200,58 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
+      <node id="34">
+        <label>vendor/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
       <node id="40">
         <label>algorithm</label>
       </node>
@@ -345,35 +345,29 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2017,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Mixer_8hpp" kindref="compound">mixers/Mixer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="8" refid="classsisi4s_1_1Mixer_1a2ec5f3a84f2c48df9281c9d37a76207a" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Mixer_1a2ec5f3a84f2c48df9281c9d37a76207a" kindref="member">Mixer&lt;F&gt;::Mixer</ref>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm_):<sp/>algorithm(algorithm_)<sp/>{</highlight></codeline>
-<codeline lineno="9"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="12" refid="classsisi4s_1_1Mixer_1a85026e8a94b704a13e65445b80fc7821" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Mixer_1a85026e8a94b704a13e65445b80fc7821" kindref="member">Mixer&lt;F&gt;::~Mixer</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Mixer" kindref="compound">sisi4s::Mixer&lt;sisi4s::Float64&gt;</ref>;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Mixer" kindref="compound">sisi4s::Mixer&lt;sisi4s::Complex64&gt;</ref>;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="21"><highlight class="normal">std::map&lt;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>std::string,</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/>std::function&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)<sp/>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm)&gt;</highlight></codeline>
-<codeline lineno="24"><highlight class="normal">&gt;<sp/>*<ref refid="classsisi4s_1_1MixerFactory" kindref="compound">MixerFactory&lt;F&gt;::mixerMap</ref>;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1MixerFactory" kindref="compound">sisi4s::MixerFactory&lt;sisi4s::Float64&gt;</ref>;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1MixerFactory" kindref="compound">sisi4s::MixerFactory&lt;sisi4s::Complex64&gt;</ref>;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Mixer_8hpp" kindref="compound">mixers/Mixer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="7" refid="classsisi4s_1_1Mixer_1a2ec5f3a84f2c48df9281c9d37a76207a" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Mixer_1a2ec5f3a84f2c48df9281c9d37a76207a" kindref="member">Mixer&lt;F&gt;::Mixer</ref>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm_)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>algorithm(algorithm_)<sp/>{}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="11" refid="classsisi4s_1_1Mixer_1a85026e8a94b704a13e65445b80fc7821" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Mixer_1a85026e8a94b704a13e65445b80fc7821" kindref="member">Mixer&lt;F&gt;::~Mixer</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Mixer" kindref="compound">sisi4s::Mixer&lt;sisi4s::Float64&gt;</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Mixer" kindref="compound">sisi4s::Mixer&lt;sisi4s::Complex64&gt;</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">std::map&lt;std::string,<sp/>std::function&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm)&gt;&gt;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1MixerFactory" kindref="compound">MixerFactory&lt;F&gt;::mixerMap</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1MixerFactory" kindref="compound">sisi4s::MixerFactory&lt;sisi4s::Float64&gt;</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1MixerFactory" kindref="compound">sisi4s::MixerFactory&lt;sisi4s::Complex64&gt;</ref>;</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/Mixer.cxx"/>
   </compounddef>

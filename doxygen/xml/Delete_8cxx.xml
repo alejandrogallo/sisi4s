@@ -167,46 +167,41 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2016,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Delete_8hpp" kindref="compound">algorithms/Delete.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1Delete" kindref="compound">Delete</ref>);</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9" refid="classsisi4s_1_1Delete_1a5654681d871c0830194e54da60470d7f" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Delete_1a5654681d871c0830194e54da60470d7f" kindref="member">Delete::Delete</ref>(</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
-<codeline lineno="11"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
-<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14" refid="classsisi4s_1_1Delete_1a8d7f363340d734e4adced38687d09722" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Delete_1a8d7f363340d734e4adced38687d09722" kindref="member">Delete::~Delete</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17" refid="classsisi4s_1_1Delete_1a7a9aeca46f0ca9b059edf018b66ef163" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Delete_1a7a9aeca46f0ca9b059edf018b66ef163" kindref="member">Delete::run</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*data(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data)<sp/>{</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>dataName(data-&gt;<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>());</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>remention<sp/>it<sp/>in<sp/>case<sp/>it<sp/>will<sp/>be<sp/>written<sp/>to<sp/>in<sp/>the<sp/>future</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref>(dataName);</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;Delete&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Data<sp/>not<sp/>allocated.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29" refid="classsisi4s_1_1Delete_1a0baf68ab059126441f90b6cfa6a03cc3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Delete_1a0baf68ab059126441f90b6cfa6a03cc3" kindref="member">Delete::dryRun</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*data(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data)<sp/>{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>dataName(data-&gt;<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>());</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>remention<sp/>it<sp/>in<sp/>case<sp/>it<sp/>will<sp/>be<sp/>written<sp/>to<sp/>in<sp/>the<sp/>future</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref>(dataName);</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;Delete&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Data<sp/>not<sp/>allocated.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Delete_8hpp" kindref="compound">algorithms/Delete.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1Delete" kindref="compound">Delete</ref>);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="classsisi4s_1_1Delete_1a5654681d871c0830194e54da60470d7f" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Delete_1a5654681d871c0830194e54da60470d7f" kindref="member">Delete::Delete</ref>(std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="classsisi4s_1_1Delete_1a8d7f363340d734e4adced38687d09722" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1Delete_1a8d7f363340d734e4adced38687d09722" kindref="member">Delete::~Delete</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="classsisi4s_1_1Delete_1a7a9aeca46f0ca9b059edf018b66ef163" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Delete_1a7a9aeca46f0ca9b059edf018b66ef163" kindref="member">Delete::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*data(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>dataName(data-&gt;<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>());</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>remention<sp/>it<sp/>in<sp/>case<sp/>it<sp/>will<sp/>be<sp/>written<sp/>to<sp/>in<sp/>the<sp/>future</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref>(dataName);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;Delete&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Data<sp/>not<sp/>allocated.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="classsisi4s_1_1Delete_1a0baf68ab059126441f90b6cfa6a03cc3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Delete_1a0baf68ab059126441f90b6cfa6a03cc3" kindref="member">Delete::dryRun</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*data(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>dataName(data-&gt;<ref refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" kindref="member">getName</ref>());</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>remention<sp/>it<sp/>in<sp/>case<sp/>it<sp/>will<sp/>be<sp/>written<sp/>to<sp/>in<sp/>the<sp/>future</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref>(dataName);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;Delete&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Data<sp/>not<sp/>allocated.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Delete.cxx"/>
   </compounddef>

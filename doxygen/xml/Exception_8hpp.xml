@@ -1191,18 +1191,6 @@
         <label>wabij.cxx</label>
         <link refid="wabij_8cxx"/>
       </node>
-      <node id="198">
-        <label>TricubicInterpolation.hpp</label>
-        <link refid="TricubicInterpolation_8hpp"/>
-        <childnode refid="89" relation="include">
-        </childnode>
-      </node>
-      <node id="199">
-        <label>TrilinearInterpolation.hpp</label>
-        <link refid="TrilinearInterpolation_8hpp"/>
-        <childnode refid="89" relation="include">
-        </childnode>
-      </node>
       <node id="5">
         <label>CanonicalPolyadicDecomposition.cxx</label>
         <link refid="CanonicalPolyadicDecomposition_8cxx"/>
@@ -1493,6 +1481,18 @@
         <childnode refid="34" relation="include">
         </childnode>
       </node>
+      <node id="198">
+        <label>TricubicInterpolation.hpp</label>
+        <link refid="TricubicInterpolation_8hpp"/>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="199">
+        <label>TrilinearInterpolation.hpp</label>
+        <link refid="TrilinearInterpolation_8hpp"/>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
     </invincdepgraph>
     <innerclass refid="classsisi4s_1_1Exception" prot="public">sisi4s::Exception</innerclass>
     <innerclass refid="classsisi4s_1_1DetailedException" prot="public">sisi4s::DetailedException</innerclass>
@@ -1508,7 +1508,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/util/Exception.hpp" line="9" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Exception.hpp" bodystart="9" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/util/Exception.hpp" line="8" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Exception.hpp" bodystart="8" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" prot="public" static="no">
         <name>Assert</name>
@@ -1521,7 +1521,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/util/Exception.hpp" line="11" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Exception.hpp" bodystart="11" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/util/Exception.hpp" line="10" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/Exception.hpp" bodystart="10" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1529,56 +1529,62 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2015,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>EXCEPTION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXCEPTION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9" refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXCEPTION(message)<sp/>\</highlight></codeline>
-<codeline lineno="10"><highlight class="preprocessor"><sp/><sp/>sisi4s::DetailedException((message),<sp/>__FILE__,<sp/>__LINE__)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11" refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Assert(condition,<sp/>message)<sp/>\</highlight></codeline>
-<codeline lineno="12"><highlight class="preprocessor"><sp/><sp/>if<sp/>(!(condition))<sp/>throw<sp/>new<sp/>EXCEPTION(message);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>{</highlight></codeline>
-<codeline lineno="15" refid="classsisi4s_1_1Exception" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Exception" kindref="compound">Exception</ref><sp/>{</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="17" refid="classsisi4s_1_1Exception_1ab48c48f2fbd5b73109df6eecb60f3b03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1Exception_1ab48c48f2fbd5b73109df6eecb60f3b03" kindref="member">getMessage</ref>()<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20" refid="classsisi4s_1_1DetailedException" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1DetailedException" kindref="compound">DetailedException</ref><sp/>{</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="22" refid="classsisi4s_1_1DetailedException_1a5280b500209520dea9ee19206655db04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DetailedException_1a5280b500209520dea9ee19206655db04" kindref="member">DetailedException</ref>(</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;message_,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;file_,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line_</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/>message(message_),<sp/>file(file_),<sp/>line(line_),<sp/>column(0)<sp/>{</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="26" refid="classsisi4s_1_1DetailedException_1af51dc889b177bcc2feb907fd82d30329" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DetailedException_1af51dc889b177bcc2feb907fd82d30329" kindref="member">DetailedException</ref>(</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;message_,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;file_,</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line_,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>column_</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/>message(message_),<sp/>file(file_),<sp/>line(line_),<sp/>column(column_)<sp/>{</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="31" refid="classsisi4s_1_1DetailedException_1a10029d7a8f7307708239b74e16ba59b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DetailedException_1a10029d7a8f7307708239b74e16ba59b4" kindref="member">DetailedException</ref>(</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::stringstream<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;stream_,<sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;file_,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line_</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>):<sp/>message(stream_.str()),<sp/>file(file_),<sp/>line(line_)<sp/>{</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="35" refid="classsisi4s_1_1DetailedException_1abcac89ce097b5272dc534d894c7b356f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DetailedException_1abcac89ce097b5272dc534d894c7b356f" kindref="member">~DetailedException</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="37" refid="classsisi4s_1_1DetailedException_1ab039eec76ac9bfe6cccdcb731d5c0e01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1DetailedException_1ab039eec76ac9bfe6cccdcb731d5c0e01" kindref="member">getMessage</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::stringstream<sp/>sStream;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sStream<sp/>&lt;&lt;<sp/>message<sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\tat<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>file<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>line;</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(column<sp/>&gt;<sp/>0)<sp/>sStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>column;</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sStream.str();</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>message,<sp/>file;</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line,<sp/>column;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>EXCEPTION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXCEPTION_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXCEPTION(message)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor"><sp/><sp/>sisi4s::DetailedException((message),<sp/>__FILE__,<sp/>__LINE__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Assert(condition,<sp/>message)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor"><sp/><sp/>if<sp/>(!(condition))<sp/>throw<sp/>new<sp/>EXCEPTION(message);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="14" refid="classsisi4s_1_1Exception" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Exception" kindref="compound">Exception</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16" refid="classsisi4s_1_1Exception_1ab48c48f2fbd5b73109df6eecb60f3b03" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1Exception_1ab48c48f2fbd5b73109df6eecb60f3b03" kindref="member">getMessage</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1DetailedException" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1DetailedException" kindref="compound">DetailedException</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1DetailedException_1a5280b500209520dea9ee19206655db04" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DetailedException_1a5280b500209520dea9ee19206655db04" kindref="member">DetailedException</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;message_,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;file_,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line_)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>message(message_)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>file(file_)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>line(line_)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>column(0)<sp/>{}</highlight></codeline>
+<codeline lineno="28" refid="classsisi4s_1_1DetailedException_1af51dc889b177bcc2feb907fd82d30329" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DetailedException_1af51dc889b177bcc2feb907fd82d30329" kindref="member">DetailedException</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;message_,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;file_,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line_,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>column_)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>message(message_)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>file(file_)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>line(line_)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>column(column_)<sp/>{}</highlight></codeline>
+<codeline lineno="36" refid="classsisi4s_1_1DetailedException_1a10029d7a8f7307708239b74e16ba59b4" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DetailedException_1a10029d7a8f7307708239b74e16ba59b4" kindref="member">DetailedException</ref>(std::stringstream<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;stream_,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;file_,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line_)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>message(stream_.str())</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>file(file_)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>line(line_)<sp/>{}</highlight></codeline>
+<codeline lineno="42" refid="classsisi4s_1_1DetailedException_1abcac89ce097b5272dc534d894c7b356f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DetailedException_1abcac89ce097b5272dc534d894c7b356f" kindref="member">~DetailedException</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="43" refid="classsisi4s_1_1DetailedException_1ab039eec76ac9bfe6cccdcb731d5c0e01" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1DetailedException_1ab039eec76ac9bfe6cccdcb731d5c0e01" kindref="member">getMessage</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>sStream;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>sStream<sp/>&lt;&lt;<sp/>message<sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\tat<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>file<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>line;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(column<sp/>&gt;<sp/>0)<sp/>sStream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>column;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sStream.str();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>std::string<sp/>message,<sp/>file;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line,<sp/>column;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/util/Exception.hpp"/>
   </compounddef>

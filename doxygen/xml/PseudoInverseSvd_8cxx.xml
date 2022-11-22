@@ -221,106 +221,90 @@
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="14" refid="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" kindref="member">PseudoInverseSvd&lt;F&gt;::PseudoInverseSvd</ref>(</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon</highlight></codeline>
-<codeline lineno="16"><highlight class="normal">):</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(A.lens[0],<sp/>A.lens[1])</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>CTF<sp/>matrices<sp/>into<sp/>ScaLapack<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>blacsWorld(A.wrld-&gt;rank,<sp/>A.wrld-&gt;np);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>only<sp/>works<sp/>for<sp/>quadratic<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>ScaA(A,</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;({(int)A.lens[0],<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)A.lens[1]}).data(),</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blacsWorld);</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref><sp/>ScaU(ScaA);</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref><sp/>ScaVT(ScaA);</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>SVD<sp/>using<sp/>ScaLapack</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackSingularValueDecomposition" kindref="compound">ScaLapackSingularValueDecomposition&lt;F&gt;</ref><sp/>svd(&amp;ScaA,<sp/>&amp;ScaU,<sp/>&amp;ScaVT);</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*sigma(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[A.lens[0]]);</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/>svd.decompose(sigma);</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>real<sp/>sigma<sp/>into<sp/>complex<sp/>CTF<sp/>vector<sp/>of<sp/>their<sp/>pseudo<sp/>inverses</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>only<sp/>works<sp/>for<sp/>quadratic<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/>CTF::Vector&lt;F&gt;<sp/>S(A.lens[0],<sp/>*A.wrld,<sp/></highlight><highlight class="stringliteral">&quot;Sigma&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localSigmaCount(A.wrld-&gt;rank<sp/>==<sp/>0<sp/>?<sp/>ScaA.lens[0]<sp/>:<sp/>0);</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/>F<sp/>*sigmaValues(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>F[localSigmaCount]);</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/>int64_t<sp/>*sigmaIndices(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[localSigmaCount]);</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>i(0);<sp/>i<sp/>&lt;<sp/>localSigmaCount;<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>sigmaIndices[i]<sp/>=<sp/>i;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>invert<sp/>singular<sp/>values</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>sigmaValues[i]<sp/>=<sp/>(sigma[i]<sp/>&gt;<sp/>epsilon)<sp/>?<sp/>1<sp/>/<sp/>sigma[i]<sp/>:<sp/>0;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>warn<sp/>about<sp/>very<sp/>small<sp/>singular<sp/>values<sp/>above<sp/>epsilon</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/>S.write(localSigmaCount,<sp/>sigmaIndices,<sp/>sigmaValues);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>ScaLapack<sp/>result<sp/>matrices<sp/>to<sp/>CTF</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/>CTF::Matrix&lt;F&gt;<sp/>U(A.lens[0],<sp/>A.lens[1]);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/>ScaU.<ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">write</ref>(U);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/>CTF::Matrix&lt;F&gt;<sp/>VT(A.lens[0],<sp/>A.lens[1]);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/>ScaVT.<ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">write</ref>(VT);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>sigmaIndices;<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>sigmaValues;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>sigma;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>recompose<sp/>in<sp/>CTF<sp/>to<sp/>get<sp/>pseudo<sp/>inverse<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" kindref="member">inverse</ref>[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>=<sp/>VT[</highlight><highlight class="stringliteral">&quot;ki&quot;</highlight><highlight class="normal">]<sp/>*<sp/>S[</highlight><highlight class="stringliteral">&quot;k&quot;</highlight><highlight class="normal">]<sp/>*<sp/>U[</highlight><highlight class="stringliteral">&quot;jk&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/>CTF::Univar_Function&lt;F&gt;<sp/>fConj(conj&lt;F&gt;);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" kindref="member">inverse</ref>.sum(1.0,<ref refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" kindref="member">inverse</ref>,</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">,<sp/>0.0,</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">,<sp/>fConj);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="63" refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" refkind="member"><highlight class="normal">CTF::Matrix&lt;F&gt;<sp/>&amp;<ref refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" kindref="member">PseudoInverseSvd&lt;F&gt;::get</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>;</highlight></codeline>
-<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><ref refid="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" kindref="member">PseudoInverseSvd&lt;sisi4s::Float64&gt;::PseudoInverseSvd</ref>(</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::Float64&gt;</ref><sp/>&amp;matrix,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon</highlight></codeline>
-<codeline lineno="71"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal">CTF::Matrix&lt;sisi4s::Float64&gt;<sp/>&amp;<ref refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" kindref="member">PseudoInverseSvd&lt;sisi4s::Float64&gt;::get</ref>();</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><ref refid="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" kindref="member">PseudoInverseSvd&lt;sisi4s::Complex64&gt;::PseudoInverseSvd</ref>(</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::Complex64&gt;</ref><sp/>&amp;matrix,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon</highlight></codeline>
-<codeline lineno="78"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal">CTF::Matrix&lt;sisi4s::Complex64&gt;<sp/>&amp;<ref refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" kindref="member">PseudoInverseSvd&lt;sisi4s::Complex64&gt;::get</ref>();</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="84" refid="classsisi4s_1_1DryPseudoInverseSvd_1ad4ff0934e6cdfe062ee9ddf6a5fed31a" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseSvd_1ad4ff0934e6cdfe062ee9ddf6a5fed31a" kindref="member">DryPseudoInverseSvd&lt;F&gt;::DryPseudoInverseSvd</ref>(</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix_</highlight></codeline>
-<codeline lineno="86"><highlight class="normal">):</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(matrix_.lens[0],<sp/>matrix_.lens[1],<sp/>NS)</highlight></codeline>
-<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="92" refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;F&gt;</ref><sp/>&amp;<ref refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" kindref="member">DryPseudoInverseSvd&lt;F&gt;::get</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>;</highlight></codeline>
-<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseSvd_1ad4ff0934e6cdfe062ee9ddf6a5fed31a" kindref="member">sisi4s::DryPseudoInverseSvd&lt;sisi4s::Float64&gt;::DryPseudoInverseSvd</ref>(</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><ref refid="classsisi4s_1_1DryTensor" kindref="compound">sisi4s::DryTensor&lt;sisi4s::Float64&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix);</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">sisi4s::DryMatrix&lt;sisi4s::Float64&gt;</ref></highlight></codeline>
-<codeline lineno="103"><highlight class="normal">&amp;<ref refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" kindref="member">sisi4s::DryPseudoInverseSvd&lt;sisi4s::Float64&gt;::get</ref>();</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseSvd_1ad4ff0934e6cdfe062ee9ddf6a5fed31a" kindref="member">sisi4s::DryPseudoInverseSvd&lt;sisi4s::Complex64&gt;::DryPseudoInverseSvd</ref>(</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;sisi4s::Complex64&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix</highlight></codeline>
-<codeline lineno="108"><highlight class="normal">);</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">sisi4s::DryMatrix&lt;sisi4s::Complex64&gt;</ref></highlight></codeline>
-<codeline lineno="111"><highlight class="normal">&amp;<ref refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" kindref="member">sisi4s::DryPseudoInverseSvd&lt;sisi4s::Complex64&gt;::get</ref>();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="13" refid="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" kindref="member">PseudoInverseSvd&lt;F&gt;::PseudoInverseSvd</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(A.lens[0],<sp/>A.lens[1])<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>CTF<sp/>matrices<sp/>into<sp/>ScaLapack<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>blacsWorld(A.wrld-&gt;rank,<sp/>A.wrld-&gt;np);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>only<sp/>works<sp/>for<sp/>quadratic<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref><sp/>ScaA(</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>A,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,<sp/>2&gt;({(int)A.lens[0],<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)A.lens[1]}).data(),</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blacsWorld);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref><sp/>ScaU(ScaA);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref><sp/>ScaVT(ScaA);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>SVD<sp/>using<sp/>ScaLapack</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackSingularValueDecomposition" kindref="compound">ScaLapackSingularValueDecomposition&lt;F&gt;</ref><sp/>svd(&amp;ScaA,<sp/>&amp;ScaU,<sp/>&amp;ScaVT);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*sigma(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[A.lens[0]]);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>svd.decompose(sigma);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>real<sp/>sigma<sp/>into<sp/>complex<sp/>CTF<sp/>vector<sp/>of<sp/>their<sp/>pseudo<sp/>inverses</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>only<sp/>works<sp/>for<sp/>quadratic<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>CTF::Vector&lt;F&gt;<sp/>S(A.lens[0],<sp/>*A.wrld,<sp/></highlight><highlight class="stringliteral">&quot;Sigma&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localSigmaCount(A.wrld-&gt;rank<sp/>==<sp/>0<sp/>?<sp/>ScaA.lens[0]<sp/>:<sp/>0);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>F<sp/>*sigmaValues(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>F[localSigmaCount]);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>int64_t<sp/>*sigmaIndices(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[localSigmaCount]);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>i(0);<sp/>i<sp/>&lt;<sp/>localSigmaCount;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>sigmaIndices[i]<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>invert<sp/>singular<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>sigmaValues[i]<sp/>=<sp/>(sigma[i]<sp/>&gt;<sp/>epsilon)<sp/>?<sp/>1<sp/>/<sp/>sigma[i]<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>warn<sp/>about<sp/>very<sp/>small<sp/>singular<sp/>values<sp/>above<sp/>epsilon</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>S.write(localSigmaCount,<sp/>sigmaIndices,<sp/>sigmaValues);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>ScaLapack<sp/>result<sp/>matrices<sp/>to<sp/>CTF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>CTF::Matrix&lt;F&gt;<sp/>U(A.lens[0],<sp/>A.lens[1]);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>ScaU.<ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">write</ref>(U);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>CTF::Matrix&lt;F&gt;<sp/>VT(A.lens[0],<sp/>A.lens[1]);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>ScaVT.<ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">write</ref>(VT);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>sigmaIndices;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>sigmaValues;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>sigma;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>recompose<sp/>in<sp/>CTF<sp/>to<sp/>get<sp/>pseudo<sp/>inverse<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" kindref="member">inverse</ref>[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>=<sp/>VT[</highlight><highlight class="stringliteral">&quot;ki&quot;</highlight><highlight class="normal">]<sp/>*<sp/>S[</highlight><highlight class="stringliteral">&quot;k&quot;</highlight><highlight class="normal">]<sp/>*<sp/>U[</highlight><highlight class="stringliteral">&quot;jk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>CTF::Univar_Function&lt;F&gt;<sp/>fConj(conj&lt;F&gt;);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" kindref="member">inverse</ref>.sum(1.0,<sp/><ref refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" kindref="member">inverse</ref>,<sp/></highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">,<sp/>0.0,<sp/></highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">,<sp/>fConj);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="60" refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" refkind="member"><highlight class="normal">CTF::Matrix&lt;F&gt;<sp/>&amp;<ref refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" kindref="member">PseudoInverseSvd&lt;F&gt;::get</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" kindref="member">PseudoInverseSvd&lt;sisi4s::Float64&gt;::PseudoInverseSvd</ref>(</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::Float64&gt;</ref><sp/>&amp;matrix,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>CTF::Matrix&lt;sisi4s::Float64&gt;<sp/>&amp;<ref refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" kindref="member">PseudoInverseSvd&lt;sisi4s::Float64&gt;::get</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1PseudoInverseSvd_1a53851b6cb0399fb80d19d7e86d473fe5" kindref="member">PseudoInverseSvd&lt;sisi4s::Complex64&gt;::PseudoInverseSvd</ref>(</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::Complex64&gt;</ref><sp/>&amp;matrix,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>CTF::Matrix&lt;sisi4s::Complex64&gt;<sp/>&amp;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><ref refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" kindref="member">PseudoInverseSvd&lt;sisi4s::Complex64&gt;::get</ref>();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="77" refid="classsisi4s_1_1DryPseudoInverseSvd_1ad4ff0934e6cdfe062ee9ddf6a5fed31a" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseSvd_1ad4ff0934e6cdfe062ee9ddf6a5fed31a" kindref="member">DryPseudoInverseSvd&lt;F&gt;::DryPseudoInverseSvd</ref>(<ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix_)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(matrix_.lens[0],<sp/>matrix_.lens[1],<sp/>NS)<sp/>{}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="81" refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;F&gt;</ref><sp/>&amp;<ref refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" kindref="member">DryPseudoInverseSvd&lt;F&gt;::get</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryPseudoInverseSvd_1ad4ff0934e6cdfe062ee9ddf6a5fed31a" kindref="member">sisi4s::DryPseudoInverseSvd&lt;sisi4s::Float64&gt;::DryPseudoInverseSvd</ref>(</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">sisi4s::DryTensor&lt;sisi4s::Float64&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">sisi4s::DryMatrix&lt;sisi4s::Float64&gt;</ref><sp/>&amp;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" kindref="member">sisi4s::DryPseudoInverseSvd&lt;sisi4s::Float64&gt;::get</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryPseudoInverseSvd_1ad4ff0934e6cdfe062ee9ddf6a5fed31a" kindref="member">sisi4s::DryPseudoInverseSvd&lt;sisi4s::Complex64&gt;::DryPseudoInverseSvd</ref>(</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;sisi4s::Complex64&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">sisi4s::DryMatrix&lt;sisi4s::Complex64&gt;</ref><sp/>&amp;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" kindref="member">sisi4s::DryPseudoInverseSvd&lt;sisi4s::Complex64&gt;::get</ref>();</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.cxx"/>
   </compounddef>

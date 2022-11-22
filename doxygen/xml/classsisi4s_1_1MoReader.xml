@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="13" column="80" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="13" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="13" column="78" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classsisi4s_1_1MoReader_1af4e10550fae8882d093b5f0b10607d1c" prot="public" static="yes" mutable="no">
         <type>std::map&lt; std::string, std::map&lt; std::string, std::string &gt; &gt;</type>
@@ -25,29 +25,26 @@
         <argsstring></argsstring>
         <name>DEFAULT_SCALINGS</name>
         <qualifiedname>sisi4s::MoReader::DEFAULT_SCALINGS</qualifiedname>
-        <initializer>=
-  { { &quot;nwchem&quot;,    { {&quot;DScaling&quot;,         &quot;1,1,1,-1,1&quot;          }
-                   , {&quot;FScaling&quot;,       &quot;1,1,1,1,-1,1,-1&quot;       }
-                   , {&quot;GScaling&quot;,     &quot;1,1,1,1,1,-1,1,-1,1&quot;     }
-                   , {&quot;HScaling&quot;,   &quot;1,1,1,1,1,1,-1,1,-1,1,-1&quot;  }
-                   , {&quot;IScaling&quot;, &quot;1,1,1,1,1,1,1,-1,1,-1,1,-1,1&quot;}
-                   }
-    }
-  , { &quot;psi4&quot;, {} }
-  , { &quot;turbomole&quot;, { {&quot;FScaling&quot;,       &quot;1, 1, 1, 1, 1, 1,-1&quot;        }
-                   , {&quot;GScaling&quot;,   &quot; 1, 1, 1, 1,-1, 1,-1, 1, 1&quot;     }
-                   , {&quot;HScaling&quot;,&quot; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1&quot;  }
-                   }
-    }
-  }</initializer>
+        <initializer>= {
+        {&quot;nwchem&quot;,
+         {{&quot;DScaling&quot;, &quot;1,1,1,-1,1&quot;},
+          {&quot;FScaling&quot;, &quot;1,1,1,1,-1,1,-1&quot;},
+          {&quot;GScaling&quot;, &quot;1,1,1,1,1,-1,1,-1,1&quot;},
+          {&quot;HScaling&quot;, &quot;1,1,1,1,1,1,-1,1,-1,1,-1&quot;},
+          {&quot;IScaling&quot;, &quot;1,1,1,1,1,1,1,-1,1,-1,1,-1,1&quot;}}},
+        {&quot;psi4&quot;, {}},
+        {&quot;turbomole&quot;,
+         {{&quot;FScaling&quot;, &quot;1, 1, 1, 1, 1, 1,-1&quot;},
+          {&quot;GScaling&quot;, &quot; 1, 1, 1, 1,-1, 1,-1, 1, 1&quot;},
+          {&quot;HScaling&quot;, &quot; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1&quot;}}}}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="21" column="7" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="21" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="144" endline="429">run</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="20" column="7" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="20" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="136" endline="402">run</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classsisi4s_1_1MoReader_1a423e8844bb037527b06cb50f295b08c9" prot="public" static="yes" mutable="no">
         <type>std::map&lt; std::string, std::map&lt; std::string, std::string &gt; &gt;</type>
@@ -55,24 +52,21 @@
         <argsstring></argsstring>
         <name>DEFAULT_REORDER</name>
         <qualifiedname>sisi4s::MoReader::DEFAULT_REORDER</qualifiedname>
-        <initializer>=
-  { { &quot;nwchem&quot;, {} }
-  , { &quot;psi4&quot;, {} }
-  , { &quot;turbomole&quot;, { { &quot;DReorder&quot;,        &quot;3,2,0,1,4&quot;      }
-                   , { &quot;FReorder&quot;,      &quot;6,3,2,0,1,4,5&quot;    }
-                   , { &quot;GReorder&quot;,    &quot;7,6,3,2,0,1,4,5,8&quot;  }
-                   , { &quot;HReorder&quot;, &quot;10,7,6,3,2,0,1,4,5,8,9&quot;}
-                   }
-    }
-  }</initializer>
+        <initializer>= {{&quot;nwchem&quot;, {}},
+                                 {&quot;psi4&quot;, {}},
+                                 {&quot;turbomole&quot;,
+                                  {{&quot;DReorder&quot;, &quot;3,2,0,1,4&quot;},
+                                   {&quot;FReorder&quot;, &quot;6,3,2,0,1,4,5&quot;},
+                                   {&quot;GReorder&quot;, &quot;7,6,3,2,0,1,4,5,8&quot;},
+                                   {&quot;HReorder&quot;, &quot;10,7,6,3,2,0,1,4,5,8,9&quot;}}}}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="21" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="21" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="144" endline="429">run</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="20" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="20" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="136" endline="402">run</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classsisi4s_1_1MoReader_1ad4d6ddcd3a21326537127f5723656f6b" prot="public" static="yes" mutable="no">
         <type>std::vector&lt; std::string &gt;</type>
@@ -87,8 +81,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="23" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="23" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="144" endline="429">run</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="22" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="22" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="136" endline="402">run</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -105,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="24" column="23" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="24" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="23" column="21" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classsisi4s_1_1MoReader_1a5a49c54ccab1d3a4ac7f00ee3e54a443" prot="public" static="no" mutable="no">
         <type>const std::string</type>
@@ -120,8 +114,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="24" column="29" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="24" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="144" endline="429">run</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="23" column="27" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="23" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="136" endline="402">run</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classsisi4s_1_1MoReader_1aa9c9f8241e31f49e12c319e56f62571c" prot="public" static="no" mutable="no">
         <type>const std::string</type>
@@ -129,14 +123,14 @@
         <argsstring></argsstring>
         <name>TURBOMOLE</name>
         <qualifiedname>sisi4s::MoReader::TURBOMOLE</qualifiedname>
-        <initializer>=&quot;turbomole&quot;</initializer>
+        <initializer>= &quot;turbomole&quot;</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="24" column="37" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="24" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="23" column="35" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -153,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="13" column="25" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="13" bodyend="13"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="13" column="23" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="13" bodyend="13"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1MoReader_1af70de6e7bc0a8c797679a0c07b6026df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -171,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="14" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="14" bodyend="16"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="14" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="14" bodyend="15"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1MoReader_1aed7eef3a38abfdb294222343c6a06301" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -185,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="17" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="17" bodyend="17"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="16" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="16" bodyend="16"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -200,29 +194,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="18" column="18" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.cxx" bodystart="144" bodyend="429"/>
-        <references refid="classsisi4s_1_1MoReader_1ad4d6ddcd3a21326537127f5723656f6b" compoundref="MoReader_8hpp" startline="23">BACKENDS</references>
-        <references refid="classsisi4s_1_1MoReader_1a423e8844bb037527b06cb50f295b08c9" compoundref="MoReader_8hpp" startline="21">DEFAULT_REORDER</references>
-        <references refid="classsisi4s_1_1MoReader_1af4e10550fae8882d093b5f0b10607d1c" compoundref="MoReader_8hpp" startline="21">DEFAULT_SCALINGS</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="17" column="16" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.cxx" bodystart="136" bodyend="402"/>
+        <references refid="classsisi4s_1_1MoReader_1ad4d6ddcd3a21326537127f5723656f6b" compoundref="MoReader_8hpp" startline="22">BACKENDS</references>
+        <references refid="classsisi4s_1_1MoReader_1a423e8844bb037527b06cb50f295b08c9" compoundref="MoReader_8hpp" startline="20">DEFAULT_REORDER</references>
+        <references refid="classsisi4s_1_1MoReader_1af4e10550fae8882d093b5f0b10607d1c" compoundref="MoReader_8hpp" startline="20">DEFAULT_SCALINGS</references>
         <references refid="structnwchem_1_1MovecReader_1ad8716ffd74cd3b18bbe44bac84266a4a" compoundref="MovecsParser_8hpp" startline="35">nwchem::MovecReader::eigenvalues</references>
-        <references refid="MoReader_8cxx_1a718024b869cdd4f94ad15f06f8a47372" compoundref="MoReader_8cxx" startline="40" endline="69">findShellIndices</references>
-        <references refid="namespaceam_1ac6b40085587bff5481ac689700436e24" compoundref="AngularMomentum_8cxx" startline="8" endline="14">am::fromString</references>
-        <references refid="MoReader_8cxx_1a4bf5f610a118a6a7960598e15fa0350c" compoundref="MoReader_8cxx" startline="29" endline="37">frozenElement</references>
-        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="100" endline="110">sisi4s::Algorithm::getIntegerArgument</references>
+        <references refid="MoReader_8cxx_1a718024b869cdd4f94ad15f06f8a47372" compoundref="MoReader_8cxx" startline="42" endline="69">findShellIndices</references>
+        <references refid="namespaceam_1ac6b40085587bff5481ac689700436e24" compoundref="AngularMomentum_8cxx" startline="6" endline="16">am::fromString</references>
+        <references refid="MoReader_8cxx_1a4bf5f610a118a6a7960598e15fa0350c" compoundref="MoReader_8cxx" startline="30" endline="40">frozenElement</references>
+        <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="93" endline="103">sisi4s::Algorithm::getIntegerArgument</references>
         <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">sisi4s::Algorithm::getTextArgument</references>
         <references refid="HartreeFockFromCoulombIntegrals_8cxx_1a2c6b636f505e7848aa4e9d039c74ea71" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="11">IF_GIVEN</references>
-        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="34" endline="36">sisi4s::Algorithm::isArgumentGiven</references>
+        <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="32" endline="34">sisi4s::Algorithm::isArgumentGiven</references>
         <references refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" compoundref="CcsdEquationOfMotionDavidson_8cxx" startline="26">LOGGER</references>
         <references refid="structnwchem_1_1MovecReader_1a36c15b9782dd991bb9ad507269b48630" compoundref="MovecsParser_8hpp" startline="35">nwchem::MovecReader::mos</references>
         <references refid="structnwchem_1_1MovecReader_1a60ca0713cc3cdf01299b48e2ae9464f1" compoundref="MovecsParser_8hpp" startline="33">nwchem::MovecReader::Np</references>
-        <references refid="classsisi4s_1_1MoReader_1a5a49c54ccab1d3a4ac7f00ee3e54a443" compoundref="MoReader_8hpp" startline="24">NWCHEM</references>
+        <references refid="classsisi4s_1_1MoReader_1a5a49c54ccab1d3a4ac7f00ee3e54a443" compoundref="MoReader_8hpp" startline="23">NWCHEM</references>
         <references refid="structnwchem_1_1MovecReader_1a200b59e33c9e65da13546a46e01b1822" compoundref="MovecsParser_8hpp" startline="35">nwchem::MovecReader::occupations</references>
-        <references refid="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" compoundref="BasisParser_8cxx" startline="72" endline="96">nwchem::BasisSetParser::parseFile</references>
-        <references refid="structShellParser_1a56f3162c870481b312406801f061ee68" compoundref="MoReader_8cxx" startline="84" endline="108">ShellParser::parseString</references>
-        <references refid="namespacepars_1afa37affba88c42a393cc80f2b42caf50" compoundref="Parsing_8cxx" startline="34" endline="39">pars::parseVector&lt; double &gt;</references>
-        <references refid="namespacepars_1a6d4a77824971572b20b53e09f62618bd" compoundref="Parsing_8cxx" startline="42" endline="47">pars::parseVector&lt; int &gt;</references>
-        <references refid="namespaceam_1a04e47e5931d5d6e94c7052151abe8650" compoundref="AngularMomentum_8cxx" startline="6" endline="6">am::toInt</references>
-        <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="31">sisi4s::Sisi4s::world</references>
+        <references refid="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" compoundref="BasisParser_8cxx" startline="65" endline="87">nwchem::BasisSetParser::parseFile</references>
+        <references refid="structShellParser_1a56f3162c870481b312406801f061ee68" compoundref="MoReader_8cxx" startline="85" endline="108">ShellParser::parseString</references>
+        <references refid="namespacepars_1afa37affba88c42a393cc80f2b42caf50" compoundref="Parsing_8cxx" startline="32" endline="37">pars::parseVector&lt; double &gt;</references>
+        <references refid="namespacepars_1a6d4a77824971572b20b53e09f62618bd" compoundref="Parsing_8cxx" startline="40" endline="45">pars::parseVector&lt; int &gt;</references>
+        <references refid="namespaceam_1a04e47e5931d5d6e94c7052151abe8650" compoundref="AngularMomentum_8cxx" startline="4" endline="4">am::toInt</references>
+        <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="17">sisi4s::Sisi4s::world</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -275,7 +269,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="11" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="11" bodyend="26"/>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" line="11" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/MoReader.hpp" bodystart="11" bodyend="24"/>
     <listofallmembers>
       <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::MoReader</scope><name>Algorithm</name></member>
       <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::MoReader</scope><name>allocateContainerArgument</name></member>

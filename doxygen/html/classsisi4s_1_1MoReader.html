@@ -181,7 +181,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4e06e88c35ea3bc32236bd3fe639e0b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a49c54ccab1d3a4ac7f00ee3e54a443"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1MoReader.html#a5a49c54ccab1d3a4ac7f00ee3e54a443">NWCHEM</a> = &quot;nwchem&quot;</td></tr>
 <tr class="separator:a5a49c54ccab1d3a4ac7f00ee3e54a443"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9c9f8241e31f49e12c319e56f62571c"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1MoReader.html#aa9c9f8241e31f49e12c319e56f62571c">TURBOMOLE</a> =&quot;turbomole&quot;</td></tr>
+<tr class="memitem:aa9c9f8241e31f49e12c319e56f62571c"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1MoReader.html#aa9c9f8241e31f49e12c319e56f62571c">TURBOMOLE</a> = &quot;turbomole&quot;</td></tr>
 <tr class="separator:aa9c9f8241e31f49e12c319e56f62571c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
@@ -367,16 +367,13 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">  { { <span class="stringliteral">&quot;nwchem&quot;</span>, {} }</div>
-<div class="line">  , { <span class="stringliteral">&quot;psi4&quot;</span>, {} }</div>
-<div class="line">  , { <span class="stringliteral">&quot;turbomole&quot;</span>, { { <span class="stringliteral">&quot;DReorder&quot;</span>,        <span class="stringliteral">&quot;3,2,0,1,4&quot;</span>      }</div>
-<div class="line">                   , { <span class="stringliteral">&quot;FReorder&quot;</span>,      <span class="stringliteral">&quot;6,3,2,0,1,4,5&quot;</span>    }</div>
-<div class="line">                   , { <span class="stringliteral">&quot;GReorder&quot;</span>,    <span class="stringliteral">&quot;7,6,3,2,0,1,4,5,8&quot;</span>  }</div>
-<div class="line">                   , { <span class="stringliteral">&quot;HReorder&quot;</span>, <span class="stringliteral">&quot;10,7,6,3,2,0,1,4,5,8,9&quot;</span>}</div>
-<div class="line">                   }</div>
-<div class="line">    }</div>
-<div class="line">  }</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= {{<span class="stringliteral">&quot;nwchem&quot;</span>, {}},</div>
+<div class="line">                                 {<span class="stringliteral">&quot;psi4&quot;</span>, {}},</div>
+<div class="line">                                 {<span class="stringliteral">&quot;turbomole&quot;</span>,</div>
+<div class="line">                                  {{<span class="stringliteral">&quot;DReorder&quot;</span>, <span class="stringliteral">&quot;3,2,0,1,4&quot;</span>},</div>
+<div class="line">                                   {<span class="stringliteral">&quot;FReorder&quot;</span>, <span class="stringliteral">&quot;6,3,2,0,1,4,5&quot;</span>},</div>
+<div class="line">                                   {<span class="stringliteral">&quot;GReorder&quot;</span>, <span class="stringliteral">&quot;7,6,3,2,0,1,4,5,8&quot;</span>},</div>
+<div class="line">                                   {<span class="stringliteral">&quot;HReorder&quot;</span>, <span class="stringliteral">&quot;10,7,6,3,2,0,1,4,5,8,9&quot;</span>}}}}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -399,21 +396,18 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">  { { <span class="stringliteral">&quot;nwchem&quot;</span>,    { {<span class="stringliteral">&quot;DScaling&quot;</span>,         <span class="stringliteral">&quot;1,1,1,-1,1&quot;</span>          }</div>
-<div class="line">                   , {<span class="stringliteral">&quot;FScaling&quot;</span>,       <span class="stringliteral">&quot;1,1,1,1,-1,1,-1&quot;</span>       }</div>
-<div class="line">                   , {<span class="stringliteral">&quot;GScaling&quot;</span>,     <span class="stringliteral">&quot;1,1,1,1,1,-1,1,-1,1&quot;</span>     }</div>
-<div class="line">                   , {<span class="stringliteral">&quot;HScaling&quot;</span>,   <span class="stringliteral">&quot;1,1,1,1,1,1,-1,1,-1,1,-1&quot;</span>  }</div>
-<div class="line">                   , {<span class="stringliteral">&quot;IScaling&quot;</span>, <span class="stringliteral">&quot;1,1,1,1,1,1,1,-1,1,-1,1,-1,1&quot;</span>}</div>
-<div class="line">                   }</div>
-<div class="line">    }</div>
-<div class="line">  , { <span class="stringliteral">&quot;psi4&quot;</span>, {} }</div>
-<div class="line">  , { <span class="stringliteral">&quot;turbomole&quot;</span>, { {<span class="stringliteral">&quot;FScaling&quot;</span>,       <span class="stringliteral">&quot;1, 1, 1, 1, 1, 1,-1&quot;</span>        }</div>
-<div class="line">                   , {<span class="stringliteral">&quot;GScaling&quot;</span>,   <span class="stringliteral">&quot; 1, 1, 1, 1,-1, 1,-1, 1, 1&quot;</span>     }</div>
-<div class="line">                   , {<span class="stringliteral">&quot;HScaling&quot;</span>,<span class="stringliteral">&quot; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1&quot;</span>  }</div>
-<div class="line">                   }</div>
-<div class="line">    }</div>
-<div class="line">  }</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">        {<span class="stringliteral">&quot;nwchem&quot;</span>,</div>
+<div class="line">         {{<span class="stringliteral">&quot;DScaling&quot;</span>, <span class="stringliteral">&quot;1,1,1,-1,1&quot;</span>},</div>
+<div class="line">          {<span class="stringliteral">&quot;FScaling&quot;</span>, <span class="stringliteral">&quot;1,1,1,1,-1,1,-1&quot;</span>},</div>
+<div class="line">          {<span class="stringliteral">&quot;GScaling&quot;</span>, <span class="stringliteral">&quot;1,1,1,1,1,-1,1,-1,1&quot;</span>},</div>
+<div class="line">          {<span class="stringliteral">&quot;HScaling&quot;</span>, <span class="stringliteral">&quot;1,1,1,1,1,1,-1,1,-1,1,-1&quot;</span>},</div>
+<div class="line">          {<span class="stringliteral">&quot;IScaling&quot;</span>, <span class="stringliteral">&quot;1,1,1,1,1,1,1,-1,1,-1,1,-1,1&quot;</span>}}},</div>
+<div class="line">        {<span class="stringliteral">&quot;psi4&quot;</span>, {}},</div>
+<div class="line">        {<span class="stringliteral">&quot;turbomole&quot;</span>,</div>
+<div class="line">         {{<span class="stringliteral">&quot;FScaling&quot;</span>, <span class="stringliteral">&quot;1, 1, 1, 1, 1, 1,-1&quot;</span>},</div>
+<div class="line">          {<span class="stringliteral">&quot;GScaling&quot;</span>, <span class="stringliteral">&quot; 1, 1, 1, 1,-1, 1,-1, 1, 1&quot;</span>},</div>
+<div class="line">          {<span class="stringliteral">&quot;HScaling&quot;</span>, <span class="stringliteral">&quot; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1&quot;</span>}}}}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -474,7 +468,7 @@ Here is the call graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string sisi4s::MoReader::TURBOMOLE =&quot;turbomole&quot;</td>
+          <td class="memname">const std::string sisi4s::MoReader::TURBOMOLE = &quot;turbomole&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

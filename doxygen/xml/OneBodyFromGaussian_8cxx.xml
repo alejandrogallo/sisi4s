@@ -120,58 +120,6 @@
         <childnode refid="30" relation="include">
         </childnode>
       </node>
-      <node id="34">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
-        </childnode>
-        <childnode refid="47" relation="include">
-        </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-      </node>
       <node id="23">
         <label>math/Complex.hpp</label>
         <link refid="Complex_8hpp"/>
@@ -272,6 +220,58 @@
         <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>vendor/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
         </childnode>
       </node>
       <node id="30">
@@ -393,9 +393,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" prot="public" static="no">
+      <memberdef kind="typedef" id="OneBodyFromGaussian_8cxx_1ae6983b6cb8d50a0a4329c5b49bcbf090" prot="public" static="no">
         <type>Eigen::Matrix&lt; double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor &gt;</type>
-        <definition>using RowMajor =  Eigen::Matrix&lt; double , Eigen::Dynamic , Eigen::Dynamic , Eigen::RowMajor &gt;</definition>
+        <definition>using RowMajor =  Eigen::Matrix&lt;double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor&gt;</definition>
         <argsstring></argsstring>
         <name>RowMajor</name>
         <briefdescription>
@@ -404,12 +404,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" line="20" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" bodystart="24" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" line="20" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" bodystart="21" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
       <memberdef kind="function" id="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">RowMajor</ref></type>
+        <type><ref refid="OneBodyFromGaussian_8cxx_1ae6983b6cb8d50a0a4329c5b49bcbf090" kindref="member">RowMajor</ref></type>
         <definition>RowMajor getOneBodyIntegrals</definition>
         <argsstring>(const libint2::BasisSet &amp;shells, const libint2::Operator op, const std::vector&lt; libint2::Atom &gt; &amp;atoms)</argsstring>
         <name>getOneBodyIntegrals</name>
@@ -431,10 +431,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" line="37" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" bodystart="38" bodyend="80"/>
-        <references refid="structSinfo_1a117354078ba76050d60578589e01aa5e" compoundref="OneBodyFromGaussian_8cxx" startline="30">Sinfo::begin</references>
-        <references refid="structSinfo_1a56917325db02b1022282842df658f344" compoundref="OneBodyFromGaussian_8cxx" startline="30">Sinfo::size</references>
-        <referencedby refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" compoundref="OneBodyFromGaussian_8cxx" startline="83" endline="134">sisi4s::OneBodyFromGaussian::run</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" line="32" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx" bodystart="32" bodyend="72"/>
+        <references refid="structSinfo_1a117354078ba76050d60578589e01aa5e" compoundref="OneBodyFromGaussian_8cxx" startline="26">Sinfo::begin</references>
+        <references refid="structSinfo_1a56917325db02b1022282842df658f344" compoundref="OneBodyFromGaussian_8cxx" startline="26">Sinfo::size</references>
+        <referencedby refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" compoundref="OneBodyFromGaussian_8cxx" startline="74" endline="123">sisi4s::OneBodyFromGaussian::run</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -461,121 +461,110 @@
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20" refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">RowMajor</ref><sp/>=<sp/>Eigen::Matrix&lt;<sp/>double</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Eigen::Dynamic</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Eigen::Dynamic</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Eigen::RowMajor</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1OneBodyFromGaussian" kindref="compound">OneBodyFromGaussian</ref>);</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29" refid="structSinfo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structSinfo" kindref="compound">Sinfo</ref><sp/>{</highlight></codeline>
-<codeline lineno="30" refid="structSinfo_1a117354078ba76050d60578589e01aa5e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>,<sp/><ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>;</highlight></codeline>
-<codeline lineno="31" refid="structSinfo_1a8c1bbfb0fed1a58a2c700d16309c5b1f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="structSinfo_1a8c1bbfb0fed1a58a2c700d16309c5b1f" kindref="member">Sinfo</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>libint2::BasisSet<sp/>&amp;shells,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i)</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>(shells[i].<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>())</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>(shells.shell2bf()[i])<sp/>{}</highlight></codeline>
-<codeline lineno="34"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="20" refid="OneBodyFromGaussian_8cxx_1ae6983b6cb8d50a0a4329c5b49bcbf090" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="OneBodyFromGaussian_8cxx_1ae6983b6cb8d50a0a4329c5b49bcbf090" kindref="member">RowMajor</ref><sp/>=</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>Eigen::Dynamic,<sp/>Eigen::Dynamic,<sp/>Eigen::RowMajor&gt;;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1OneBodyFromGaussian" kindref="compound">OneBodyFromGaussian</ref>);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="structSinfo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structSinfo" kindref="compound">Sinfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="26" refid="structSinfo_1a117354078ba76050d60578589e01aa5e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>,<sp/><ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>;</highlight></codeline>
+<codeline lineno="27" refid="structSinfo_1a8c1bbfb0fed1a58a2c700d16309c5b1f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="structSinfo_1a8c1bbfb0fed1a58a2c700d16309c5b1f" kindref="member">Sinfo</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>libint2::BasisSet<sp/>&amp;shells,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>(shells[i].<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>())</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>(shells.shell2bf()[i])<sp/>{}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" refkind="member"><highlight class="normal"><ref refid="OneBodyFromGaussian_8cxx_1ae6983b6cb8d50a0a4329c5b49bcbf090" kindref="member">RowMajor</ref><sp/><ref refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" kindref="member">getOneBodyIntegrals</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>libint2::BasisSet<sp/>&amp;shells,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>libint2::Operator<sp/>op,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;libint2::Atom&gt;<sp/>&amp;atoms)<sp/>{</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37" refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" refkind="member"><highlight class="normal"><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">RowMajor</ref><sp/><ref refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" kindref="member">getOneBodyIntegrals</ref></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>libint2::BasisSet&amp;<sp/>shells</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>libint2::Operator<sp/>op</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;libint2::Atom&gt;&amp;<sp/>atoms</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>number<sp/>of<sp/>basis<sp/>set<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>Np<sp/>=<sp/>shells.nbf();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1ae6983b6cb8d50a0a4329c5b49bcbf090" kindref="member">RowMajor</ref><sp/>result(RowMajor::Zero(Np,<sp/>Np));</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>construct<sp/>the<sp/>overlap<sp/>integrals<sp/>engine</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>libint2::Engine<sp/>engine(op,<sp/>shells.max_nprim(),<sp/>shells.max_l(),<sp/>0);</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>number<sp/>of<sp/>basis<sp/>set<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>Np<sp/>=<sp/>shells.nbf();</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="OneBodyFromGaussian_8cxx_1af15357e5a6095bdbc8f359c8ffc3b455" kindref="member">RowMajor</ref><sp/>result(RowMajor::Zero(Np,<sp/>Np));</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>construct<sp/>the<sp/>overlap<sp/>integrals<sp/>engine</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/>libint2::Engine<sp/>engine(op,<sp/>shells.max_nprim(),<sp/>shells.max_l(),<sp/>0);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(op<sp/>==<sp/>libint2::Operator::nuclear)<sp/>{</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>engine.set_params(libint2::make_point_charges(atoms));</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(op<sp/>==<sp/>libint2::Operator::nuclear)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>engine.set_params(libint2::make_point_charges(atoms));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;resultBuffer<sp/>=<sp/>engine.results();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>loop<sp/>over<sp/>unique<sp/>shell<sp/>pairs<sp/>p&gt;=q</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>p<sp/>=<sp/>0;<sp/>p<sp/>&lt;<sp/>shells.size();<sp/>++p)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>q<sp/>=<sp/>0;<sp/>q<sp/>&lt;=<sp/>p;<sp/>++q)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structSinfo" kindref="compound">Sinfo</ref><sp/>P(shells,<sp/>p),<sp/>Q(shells,<sp/>q);</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>resultBuffer<sp/>=<sp/>engine.results();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>engine.compute(shells[p],<sp/>shells[q]);</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>loop<sp/>over<sp/>unique<sp/>shell<sp/>pairs<sp/>p&gt;=q</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>p<sp/>=<sp/>0;<sp/>p<sp/>&lt;<sp/>shells.size();<sp/>++p)<sp/>{</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>q<sp/>=<sp/>0;<sp/>q<sp/>&lt;=<sp/>p<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>++q)<sp/>{</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structSinfo" kindref="compound">Sinfo</ref><sp/>P(shells,<sp/>p),<sp/>Q(shells,<sp/>q);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>engine.compute(shells[p],<sp/>shells[q]);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>copy<sp/>the<sp/>result<sp/>buffer<sp/>of<sp/>size<sp/>(P.size*Q.size)<sp/>to<sp/>the</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bufferMatrix,<sp/>needed<sp/>to<sp/>do<sp/>a<sp/>block<sp/>assignment<sp/>to<sp/>the<sp/>Eigen<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Map&lt;const<sp/>RowMajor&gt;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bufferMatrix(resultBuffer[0],<sp/>P.size,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>result.block(P.begin,<sp/>Q.<ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>,<sp/>P.size,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>)<sp/>=<sp/>bufferMatrix;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>copy<sp/>the<sp/>result<sp/>buffer<sp/>of<sp/>size<sp/>(P.size*Q.size)<sp/>to<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bufferMatrix,<sp/>needed<sp/>to<sp/>do<sp/>a<sp/>block<sp/>assignment<sp/>to<sp/>the<sp/>Eigen<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Map&lt;const<sp/>RowMajor&gt;<sp/>bufferMatrix(resultBuffer[0],<sp/>P.size,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result.block(P.begin,<sp/>Q.<ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>,<sp/>P.size,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>)<sp/>=<sp/>bufferMatrix;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p<sp/>!=<sp/>q)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>transpose<sp/>and<sp/>copy<sp/>to<sp/>the<sp/>non-explicitly<sp/>calculated<sp/>block</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.block(Q.<ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>,<sp/>P.begin,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>,<sp/>P.size)<sp/>=</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bufferMatrix.transpose();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="comment">//<sp/>q</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>}<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>p</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p<sp/>!=<sp/>q)<sp/>{</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>transpose<sp/>and<sp/>copy<sp/>to<sp/>the<sp/>non-explicitly<sp/>calculated<sp/>block</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result.block(Q.<ref refid="structSinfo_1a117354078ba76050d60578589e01aa5e" kindref="member">begin</ref>,<sp/>P.begin,<sp/>Q.<ref refid="structSinfo_1a56917325db02b1022282842df658f344" kindref="member">size</ref>,<sp/>P.size)<sp/>=<sp/>bufferMatrix.transpose();</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" kindref="member">OneBodyFromGaussian::run</ref>()<sp/>{</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>q</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>p</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83" refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" kindref="member">OneBodyFromGaussian::run</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/>libint2::initialize();</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" kindref="member">checkArgumentsOrDie</ref>({</highlight><highlight class="stringliteral">&quot;xyzStructureFile&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;basisSet&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">});</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>xyzStructureFile(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;xyzStructureFile&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">))</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>basisSet(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;basisSet&quot;</highlight><highlight class="normal">))</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>kernel(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;nuclear&quot;</highlight><highlight class="normal">))</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/>std::ifstream<sp/>structureFileStream(xyzStructureFile.c_str());</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;libint2::Atom&gt;<sp/>atoms(libint2::read_dotxyz(structureFileStream));</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/>structureFileStream.close();</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>libint2::BasisSet<sp/>shells(basisSet,<sp/>atoms);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(shells.nbf());</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>libint2::Operator<sp/>op([&amp;](</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;nuclear&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::nuclear;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;overlap&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::overlap;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;kinetic&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::kinetic;</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Kernel<sp/>not<sp/>recognised&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/>}());</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><ref refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;kernel:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>kernel<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><ref refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;structure:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>xyzStructureFile<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Np&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>Np</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;xyz&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>xyzStructureFile</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;basis-set&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>basisSet</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>kernel</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>libint2::initialize();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" kindref="member">checkArgumentsOrDie</ref>({</highlight><highlight class="stringliteral">&quot;xyzStructureFile&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;basisSet&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">});</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>xyzStructureFile(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;xyzStructureFile&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)),</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>basisSet(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;basisSet&quot;</highlight><highlight class="normal">)),</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>kernel(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;nuclear&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>std::ifstream<sp/>structureFileStream(xyzStructureFile.c_str());</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;libint2::Atom&gt;<sp/>atoms(</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>libint2::read_dotxyz(structureFileStream));</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>structureFileStream.close();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>libint2::BasisSet<sp/>shells(basisSet,<sp/>atoms);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Np(shells.nbf());</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>libint2::Operator<sp/>op([&amp;](</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;nuclear&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::nuclear;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;overlap&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::overlap;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(kernel<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;kinetic&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>libint2::Operator::kinetic;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Kernel<sp/>not<sp/>recognised&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}());</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><ref refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;kernel:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>kernel<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><ref refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;structure:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>xyzStructureFile<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Np&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>Np<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;xyz&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>xyzStructureFile<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;basis-set&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>basisSet<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;kernel&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>kernel;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result(<ref refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" kindref="member">getOneBodyIntegrals</ref>(shells,<sp/>op,<sp/>atoms));</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*data(&amp;result(0));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><ref refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;computation<sp/>done&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>libint2::finalize();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rank_m<sp/>=<sp/>int(<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;rank<sp/>==<sp/>0);<sp/></highlight><highlight class="comment">//<sp/>rank<sp/>mask</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>lens(2,<sp/>Np);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>syms(2,<sp/>NS);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Opq(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref>(2,<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>));</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result(<ref refid="OneBodyFromGaussian_8cxx_1a6fd48deacc2314d3bc8e87c62c88f93c" kindref="member">getOneBodyIntegrals</ref>(shells,<sp/>op,<sp/>atoms));</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*data(&amp;result(0));</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><ref refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;computation<sp/>done&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/>libint2::finalize();</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rank_m<sp/>=<sp/>int(<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;rank<sp/>==<sp/>0);<sp/></highlight><highlight class="comment">//<sp/>rank<sp/>mask</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>lens(2,<sp/>Np);</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>syms(2,<sp/>NS);</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Opq(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref>(2,<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>));</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int64_t&gt;<sp/>indices(rank_m<sp/>*<sp/>Np*Np);</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>std::iota(indices.begin(),<sp/>indices.end(),<sp/>0);</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;writing<sp/>into<sp/>ctf<sp/>tensor&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>Opq-&gt;write(indices.size(),<sp/>indices.data(),<sp/>data);</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">,<sp/>Opq);</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int64_t&gt;<sp/>indices(rank_m<sp/>*<sp/>Np<sp/>*<sp/>Np);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>std::iota(indices.begin(),<sp/>indices.end(),<sp/>0);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="CcsdEquationOfMotionDavidson_8cxx_1a69b675a9468ba9cfcccefdf2bce2d3b1" kindref="member">LOGGER</ref>(1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;writing<sp/>into<sp/>ctf<sp/>tensor&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>Opq-&gt;write(indices.size(),<sp/>indices.data(),<sp/>data);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">,<sp/>Opq);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/OneBodyFromGaussian.cxx"/>
   </compounddef>

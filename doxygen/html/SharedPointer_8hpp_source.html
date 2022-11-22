@@ -93,20 +93,18 @@ $(document).ready(function(){initNavTree('SharedPointer_8hpp_source.html',''); i
   <div class="headertitle"><div class="title">SharedPointer.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="SharedPointer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*Copyright (c) 2017, Andreas Grueneis and Felix Hummel, all rights reserved.*/</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef SHARED_POINTER_DEFINED</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define SHARED_POINTER_DEFINED</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// provide convenience macros for shared pointers</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="SharedPointer_8hpp.html#a741e091aff51aed5f16b309962085404">    9</a></span><span class="preprocessor">#define PTR(TYPE) std::shared_ptr&lt;TYPE&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="SharedPointer_8hpp.html#a79efac8da8cf76d0023444b4adc2e776">   10</a></span><span class="preprocessor">#define WEAK_PTR(TYPE) std::weak_ptr&lt;TYPE&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="SharedPointer_8hpp.html#a106f61c342cfd013eb570c37328070ae">   11</a></span><span class="preprocessor">#define NEW(TYPE, ...) std::make_shared&lt;TYPE&gt;(__VA_ARGS__)</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<a href="SharedPointer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SHARED_POINTER_DEFINED</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SHARED_POINTER_DEFINED</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// provide convenience macros for shared pointers</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="SharedPointer_8hpp.html#a741e091aff51aed5f16b309962085404">    8</a></span><span class="preprocessor">#define PTR(TYPE) std::shared_ptr&lt;TYPE&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="SharedPointer_8hpp.html#a79efac8da8cf76d0023444b4adc2e776">    9</a></span><span class="preprocessor">#define WEAK_PTR(TYPE) std::weak_ptr&lt;TYPE&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="SharedPointer_8hpp.html#a106f61c342cfd013eb570c37328070ae">   10</a></span><span class="preprocessor">#define NEW(TYPE, ...) std::make_shared&lt;TYPE&gt;(__VA_ARGS__)</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

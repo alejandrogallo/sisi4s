@@ -128,21 +128,20 @@
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;regex&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;numeric&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16" refid="namespacenwchem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenwchem" kindref="compound">nwchem</ref><sp/>{</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepars" kindref="compound">pars</ref>;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20" refid="structnwchem_1_1BasisSetParser" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structnwchem_1_1BasisSetParser" kindref="compound">BasisSetParser</ref><sp/>{</highlight></codeline>
-<codeline lineno="21" refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::smatch<sp/><ref refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" kindref="member">match</ref>;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structnwchem_1_1BasisSetParser_1a897f82a03eca6f0768e6fee1da071dc5" kindref="member">matches</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;t,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structpars_1_1Regex" kindref="compound">Regex</ref><sp/>&amp;r);</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structBasis" kindref="compound">Basis</ref><sp/><ref refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" kindref="member">parseBasis</ref><sp/>(std::fstream<sp/>&amp;f,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>name);</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">BasisSet</ref><sp/><ref refid="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" kindref="member">parseFile</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;fileName);</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="15" refid="namespacenwchem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenwchem" kindref="compound">nwchem</ref><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepars" kindref="compound">pars</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="structnwchem_1_1BasisSetParser" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structnwchem_1_1BasisSetParser" kindref="compound">BasisSetParser</ref><sp/>{</highlight></codeline>
+<codeline lineno="20" refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" refkind="member"><highlight class="normal"><sp/><sp/>std::smatch<sp/><ref refid="structnwchem_1_1BasisSetParser_1a8731a13d65c8243999af4277f5f5d47d" kindref="member">match</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structnwchem_1_1BasisSetParser_1a897f82a03eca6f0768e6fee1da071dc5" kindref="member">matches</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;t,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structpars_1_1Regex" kindref="compound">Regex</ref><sp/>&amp;r);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="structBasis" kindref="compound">Basis</ref><sp/><ref refid="structnwchem_1_1BasisSetParser_1abdc326c61770f5a0554e09c676496cab" kindref="member">parseBasis</ref>(std::fstream<sp/>&amp;f,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>name);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="BasisSet_8hpp_1ad0ff2dd7a949f1830da34b68ceb30575" kindref="member">BasisSet</ref><sp/><ref refid="structnwchem_1_1BasisSetParser_1a191753ecb9daab8db5bc1a01a2624218" kindref="member">parseFile</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;fileName);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>nwchem</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/nwchem/BasisParser.hpp"/>
   </compounddef>

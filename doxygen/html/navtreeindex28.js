@@ -1,5 +1,6 @@
 var NAVTREEINDEX28 =
 {
+"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a1d341e75fad3c4a6ba5bf9c02dda09b4":[3,0,5,123,0],
 "structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a1d341e75fad3c4a6ba5bf9c02dda09b4":[2,0,6,123,0],
 "structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a530fe0ea48ca968e6f9d61d4cbfd6896":[3,0,5,123,4],
 "structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a530fe0ea48ca968e6f9d61d4cbfd6896":[2,0,6,123,4],
@@ -95,14 +96,14 @@ var NAVTREEINDEX28 =
 "structsisi4s_1_1TensorUnrestricter.html#afd695afbe9c380c9efb8c8a2f7cfca75":[2,0,6,185,2],
 "structsisi4s_1_1VectorTensor.html":[3,0,5,213],
 "structsisi4s_1_1VectorTensor.html":[2,0,6,213],
+"structsisi4s_1_1VectorTensor.html#a3785e8561897faf86cc529d9a9152acf":[3,0,5,213,3],
+"structsisi4s_1_1VectorTensor.html#a3785e8561897faf86cc529d9a9152acf":[2,0,6,213,3],
 "structsisi4s_1_1VectorTensor.html#a4a677374fd03f416c60d6036e0e9e9a0":[2,0,6,213,2],
 "structsisi4s_1_1VectorTensor.html#a4a677374fd03f416c60d6036e0e9e9a0":[3,0,5,213,2],
 "structsisi4s_1_1VectorTensor.html#ad294d21f8bffc70e623aaf2fab05d888":[2,0,6,213,1],
 "structsisi4s_1_1VectorTensor.html#ad294d21f8bffc70e623aaf2fab05d888":[3,0,5,213,1],
 "structsisi4s_1_1VectorTensor.html#ad9d5a626ffbf098f37728040da611f09":[2,0,6,213,0],
 "structsisi4s_1_1VectorTensor.html#ad9d5a626ffbf098f37728040da611f09":[3,0,5,213,0],
-"structsisi4s_1_1VectorTensor.html#aff64de6eb0b60843ca2b063d5329e22d":[2,0,6,213,3],
-"structsisi4s_1_1VectorTensor.html#aff64de6eb0b60843ca2b063d5329e22d":[3,0,5,213,3],
 "structsisi4s_1_1cc4s_1_1Dimension.html":[2,0,6,0,0],
 "structsisi4s_1_1cc4s_1_1Dimension.html":[3,0,5,0,0],
 "structsisi4s_1_1cc4s_1_1Dimension.html#a9fb1a5b582c1832bc419a08da90b6acc":[2,0,6,0,0,0],

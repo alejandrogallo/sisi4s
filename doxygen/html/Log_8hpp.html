@@ -139,7 +139,7 @@ Macros</h2></td></tr>
 <tr class="separator:ae553676326b69ce508ea4c6f9134093b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3577749fb48d57a158b8ac1a0b3ab57e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#a3577749fb48d57a158b8ac1a0b3ab57e">LOG</a>(...)</td></tr>
 <tr class="separator:a3577749fb48d57a158b8ac1a0b3ab57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac44a665179bef54595113d3ff847089a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#ac44a665179bef54595113d3ff847089a">LOG_RANK</a>(...)&#160;&#160;&#160;  <a class="el" href="classsisi4s_1_1Log.html#a2b90ecc681dbe2e5cd0fcceaf6fd1dce">sisi4s::Log::getLogStream</a>().prepare(<a class="el" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>(), __FILE__, __VA_ARGS__)</td></tr>
+<tr class="memitem:ac44a665179bef54595113d3ff847089a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#ac44a665179bef54595113d3ff847089a">LOG_RANK</a>(...)</td></tr>
 <tr class="separator:ac44a665179bef54595113d3ff847089a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -158,9 +158,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>() != 0) { \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>() != 0) {                                           \</div>
 <div class="line">  } <span class="keywordflow">else</span> std::ofstream(NAME, std::ofstream::app)</div>
-<div class="ttc" id="aclasssisi4s_1_1Log_html_a3b9a1f9dbead15c2485684ef6e503a08"><div class="ttname"><a href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a></div><div class="ttdeci">static int getRank()</div><div class="ttdef"><b>Definition:</b> Log.cxx:58</div></div>
+<div class="ttc" id="aclasssisi4s_1_1Log_html_a3b9a1f9dbead15c2485684ef6e503a08"><div class="ttname"><a href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a></div><div class="ttdeci">static int getRank()</div><div class="ttdef"><b>Definition:</b> Log.cxx:47</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -179,10 +179,10 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>() != 0) { \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>() != 0) {                                           \</div>
 <div class="line">  } <span class="keywordflow">else</span> <a class="code hl_function" href="classsisi4s_1_1Log.html#a2b90ecc681dbe2e5cd0fcceaf6fd1dce">sisi4s::Log::getLogStream</a>().<a class="code hl_function" href="classsisi4s_1_1LogStream.html#abc6d2d4b5786d75d42084300050a82f2">prepare</a>(0, __FILE__, __VA_ARGS__)</div>
-<div class="ttc" id="aclasssisi4s_1_1LogStream_html_abc6d2d4b5786d75d42084300050a82f2"><div class="ttname"><a href="classsisi4s_1_1LogStream.html#abc6d2d4b5786d75d42084300050a82f2">sisi4s::LogStream::prepare</a></div><div class="ttdeci">std::ostream &amp; prepare(int const rank, std::string const &amp;sourceFileName, int const level, std::string const &amp;category=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> Log.cxx:24</div></div>
-<div class="ttc" id="aclasssisi4s_1_1Log_html_a2b90ecc681dbe2e5cd0fcceaf6fd1dce"><div class="ttname"><a href="classsisi4s_1_1Log.html#a2b90ecc681dbe2e5cd0fcceaf6fd1dce">sisi4s::Log::getLogStream</a></div><div class="ttdeci">static LogStream &amp; getLogStream()</div><div class="ttdef"><b>Definition:</b> Log.cxx:78</div></div>
+<div class="ttc" id="aclasssisi4s_1_1LogStream_html_abc6d2d4b5786d75d42084300050a82f2"><div class="ttname"><a href="classsisi4s_1_1LogStream.html#abc6d2d4b5786d75d42084300050a82f2">sisi4s::LogStream::prepare</a></div><div class="ttdeci">std::ostream &amp; prepare(int const rank, std::string const &amp;sourceFileName, int const level, std::string const &amp;category=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> Log.cxx:19</div></div>
+<div class="ttc" id="aclasssisi4s_1_1Log_html_a2b90ecc681dbe2e5cd0fcceaf6fd1dce"><div class="ttname"><a href="classsisi4s_1_1Log.html#a2b90ecc681dbe2e5cd0fcceaf6fd1dce">sisi4s::Log::getLogStream</a></div><div class="ttdeci">static LogStream &amp; getLogStream()</div><div class="ttdef"><b>Definition:</b> Log.cxx:57</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -197,11 +197,14 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>...</em></td><td>)</td>
-          <td>&#160;&#160;&#160;  <a class="el" href="classsisi4s_1_1Log.html#a2b90ecc681dbe2e5cd0fcceaf6fd1dce">sisi4s::Log::getLogStream</a>().prepare(<a class="el" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>(), __FILE__, __VA_ARGS__)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">  <a class="code hl_function" href="classsisi4s_1_1Log.html#a2b90ecc681dbe2e5cd0fcceaf6fd1dce">sisi4s::Log::getLogStream</a>().<a class="code hl_function" href="classsisi4s_1_1LogStream.html#abc6d2d4b5786d75d42084300050a82f2">prepare</a>(<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>(),                  \</div>
+<div class="line">                                      __FILE__,                                \</div>
+<div class="line">                                      __VA_ARGS__)</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8806969f7e3eda27deabefc7154c11cb" name="a8806969f7e3eda27deabefc7154c11cb"></a>
@@ -219,7 +222,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>() != 0) { \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>() != 0) {                                           \</div>
 <div class="line">  } <span class="keywordflow">else</span> std::ofstream(NAME, std::ofstream::out)</div>
 </div><!-- fragment -->
 </div>
@@ -238,7 +241,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>() != 0) { \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>() != 0) {                                           \</div>
 <div class="line">  } <span class="keywordflow">else</span> std::cout</div>
 </div><!-- fragment -->
 <p>Provides an output stream for writing a log message of the log level specified by the argument. Note that this macro must be used as a statement and cannot be used as an rvalue. </p>
@@ -259,7 +262,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>() != 0) { \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (<a class="code hl_function" href="classsisi4s_1_1Log.html#a3b9a1f9dbead15c2485684ef6e503a08">sisi4s::Log::getRank</a>() != 0) {                                           \</div>
 <div class="line">  } <span class="keywordflow">else</span> std::cout &lt;&lt; <span class="stringliteral">&quot;WARNING: &quot;</span></div>
 </div><!-- fragment -->
 </div>

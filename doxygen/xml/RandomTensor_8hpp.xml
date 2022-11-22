@@ -39,58 +39,6 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="18">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-      </node>
       <node id="2">
         <label>math/Complex.hpp</label>
         <link refid="Complex_8hpp"/>
@@ -149,6 +97,58 @@
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>vendor/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
         </childnode>
       </node>
       <node id="27">
@@ -328,64 +328,57 @@
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;random&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Distribution,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>RandomEngine</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/>&gt;</highlight></codeline>
-<codeline lineno="14" refid="namespacesisi4s_1a2e93670459c4d5d087e89f55952bbe62" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a2e93670459c4d5d087e89f55952bbe62" kindref="member">setRandom</ref>(</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;value,<sp/>Distribution<sp/>&amp;distribution,<sp/>RandomEngine<sp/>&amp;randomEngine</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//#ifdef<sp/>INTEL_COMPILER</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>value<sp/>=<sp/>distribution(randomEngine);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>value<sp/>=<sp/>-1.0<sp/>+<sp/>2.0*rand()<sp/>/<sp/>RAND_MAX;<sp/>//<sp/>distribution(randomEngine);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>value<sp/>=<sp/>distribution(randomEngine);</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Distribution,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>RandomEngine</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/>&gt;</highlight></codeline>
-<codeline lineno="28" refid="namespacesisi4s_1a2261732db2670a035671ccf20c24fde5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a2e93670459c4d5d087e89f55952bbe62" kindref="member">setRandom</ref>(</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;value,<sp/>Distribution<sp/>&amp;distribution,<sp/>RandomEngine<sp/>&amp;randomEngine</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//#ifdef<sp/>INTEL_COMPILER</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>value.real()<sp/>=<sp/>-1.0<sp/>+<sp/>2.0*rand()<sp/>/<sp/>RAND_MAX;<sp/>//<sp/>distribution(randomEngine);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>value.imag()<sp/>=<sp/>-1.0<sp/>+<sp/>2.0*rand()<sp/>/<sp/>RAND_MAX;<sp/>//<sp/>distribution(randomEngine);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>value.real(distribution(randomEngine));</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>value.imag(distribution(randomEngine));</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="classsisi4s_1_1DefaultRandomEngine" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1DefaultRandomEngine" kindref="compound">DefaultRandomEngine</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>std::mt19937<sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="42" refid="classsisi4s_1_1DefaultRandomEngine_1a58f0dcc9838d38e4daa31c8aaa4f7711" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DefaultRandomEngine_1a58f0dcc9838d38e4daa31c8aaa4f7711" kindref="member">DefaultRandomEngine</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>seed(<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;rank);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/>std::normal_distribution&lt;double&gt;<sp/>normalDistribution(0.0,<sp/>1.0);</highlight></codeline>
-<codeline lineno="49"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Distribution,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>RandomEngine</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/>&gt;</highlight></codeline>
-<codeline lineno="53" refid="namespacesisi4s_1adb5622106d23e3d14c736c4793512e5c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1adb5622106d23e3d14c736c4793512e5c" kindref="member">setRandomTensor</ref>(</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;t,<sp/>Distribution<sp/>&amp;distribution,<sp/>RandomEngine<sp/>&amp;randomEngine</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>indicesCount,<sp/>*indices;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>F<sp/>*values;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>t.read_local(&amp;indicesCount,<sp/>&amp;indices,<sp/>&amp;values);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>i(0);<sp/>i<sp/>&lt;<sp/>indicesCount;<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a2e93670459c4d5d087e89f55952bbe62" kindref="member">setRandom</ref>(values[i],<sp/>distribution,<sp/>randomEngine);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>t.write(indicesCount,<sp/>indices,<sp/>values);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>free(indices);<sp/>free(values);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Distribution,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>RandomEngine&gt;</highlight></codeline>
+<codeline lineno="12" refid="namespacesisi4s_1a2e93670459c4d5d087e89f55952bbe62" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a2e93670459c4d5d087e89f55952bbe62" kindref="member">setRandom</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;value,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Distribution<sp/>&amp;distribution,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RandomEngine<sp/>&amp;randomEngine)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//#ifdef<sp/>INTEL_COMPILER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>value<sp/>=<sp/>distribution(randomEngine);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>value<sp/>=<sp/>-1.0<sp/>+<sp/>2.0*rand()<sp/>/<sp/>RAND_MAX;<sp/>//<sp/>distribution(randomEngine);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>value<sp/>=<sp/>distribution(randomEngine);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Distribution,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>RandomEngine&gt;</highlight></codeline>
+<codeline lineno="24" refid="namespacesisi4s_1a2261732db2670a035671ccf20c24fde5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a2e93670459c4d5d087e89f55952bbe62" kindref="member">setRandom</ref>(<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;value,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Distribution<sp/>&amp;distribution,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RandomEngine<sp/>&amp;randomEngine)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//#ifdef<sp/>INTEL_COMPILER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>value.real()<sp/>=<sp/>-1.0<sp/>+<sp/>2.0*rand()<sp/>/<sp/>RAND_MAX;<sp/>//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>distribution(randomEngine);<sp/>value.imag()<sp/>=<sp/>-1.0<sp/>+<sp/>2.0*rand()<sp/>/<sp/>RAND_MAX;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>//<sp/>distribution(randomEngine);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>value.real(distribution(randomEngine));</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>value.imag(distribution(randomEngine));</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classsisi4s_1_1DefaultRandomEngine" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1DefaultRandomEngine" kindref="compound">DefaultRandomEngine</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>std::mt19937<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="39" refid="classsisi4s_1_1DefaultRandomEngine_1a58f0dcc9838d38e4daa31c8aaa4f7711" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DefaultRandomEngine_1a58f0dcc9838d38e4daa31c8aaa4f7711" kindref="member">DefaultRandomEngine</ref>()<sp/>{<sp/>seed(<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;rank);<sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/>std::normal_distribution&lt;double&gt;<sp/>normalDistribution(0.0,<sp/>1.0);</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Distribution,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>RandomEngine&gt;</highlight></codeline>
+<codeline lineno="46" refid="namespacesisi4s_1adb5622106d23e3d14c736c4793512e5c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1adb5622106d23e3d14c736c4793512e5c" kindref="member">setRandomTensor</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;t,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Distribution<sp/>&amp;distribution,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RandomEngine<sp/>&amp;randomEngine)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>int64_t<sp/>indicesCount,<sp/>*indices;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>F<sp/>*values;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>t.read_local(&amp;indicesCount,<sp/>&amp;indices,<sp/>&amp;values);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>i(0);<sp/>i<sp/>&lt;<sp/>indicesCount;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a2e93670459c4d5d087e89f55952bbe62" kindref="member">setRandom</ref>(values[i],<sp/>distribution,<sp/>randomEngine);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>t.write(indicesCount,<sp/>indices,<sp/>values);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>free(indices);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>free(values);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/math/RandomTensor.hpp"/>
   </compounddef>

@@ -88,17 +88,13 @@
         <param><defname>c</defname></param>
         <param><defname>r</defname></param>
         <param><defname>i</defname></param>
-        <initializer>{ \
-  <ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>( \
-    (c).order==(r).order &amp;&amp; (c).order==(i).order, \
-    &quot;Incompatible tensor orders&quot; \
-  ); \
-  for (int k(0); k &lt; c.order; ++k) \
-    <ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>( \
-      (c).lens[k]==(r).lens[k] &amp;&amp; (c).lens[k]==(i).lens[k], \
-      &quot;Incompatible tensor shapes&quot; \
-    ); \
-}</initializer>
+        <initializer>  {                                                                            \
+    <ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>((c).order == (r).order &amp;&amp; (c).order == (i).order,                   \
+           &quot;Incompatible tensor orders&quot;);                                      \
+    for (int k(0); k &lt; c.order; ++k)                                           \
+      <ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>((c).lens[k] == (r).lens[k] &amp;&amp; (c).lens[k] == (i).lens[k],         \
+             &quot;Incompatible tensor shapes&quot;);                                    \
+  }</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -111,30 +107,24 @@
         <name>AssertCompatibleTensorShape</name>
         <param><defname>c</defname></param>
         <param><defname>r</defname></param>
-        <initializer>{ \
-  <ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>( \
-    (c).order==(r).order, \
-    &quot;Incompatible tensor orders&quot; \
-  ); \
-  for (int k(0); k &lt; c.order; ++k) \
-    <ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>( \
-      (c).lens[k]==(r).lens[k], \
-      &quot;Incompatible tensor shapes&quot; \
-    ); \
-}</initializer>
+        <initializer>  {                                                                            \
+    <ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>((c).order == (r).order, &quot;Incompatible tensor orders&quot;);              \
+    for (int k(0); k &lt; c.order; ++k)                                           \
+      <ref refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" kindref="member">Assert</ref>((c).lens[k] == (r).lens[k], &quot;Incompatible tensor shapes&quot;);        \
+  }</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" line="20" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="20" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" line="16" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="16" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" prot="public" static="no">
         <name>Indices</name>
         <param><defname>Tensor</defname></param>
-        <initializer>  char indices[(Tensor).order]; \
-  for (int i(0); i &lt; (Tensor).order; ++i) { indices[i] = &apos;a&apos;+i; } \
+        <initializer>  char indices[(Tensor).order];                                                \
+  for (int i(0); i &lt; (Tensor).order; ++i) { indices[i] = &apos;a&apos; + i; }            \
   indices[(Tensor).order] = 0</initializer>
         <briefdescription>
         </briefdescription>
@@ -142,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" line="33" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="33" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" line="23" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -156,148 +146,98 @@
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;complex&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7" refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AssertCompatibleTensorShapes(c,r,i)<sp/>\</highlight></codeline>
-<codeline lineno="8"><highlight class="preprocessor">{<sp/>\</highlight></codeline>
-<codeline lineno="9"><highlight class="preprocessor"><sp/><sp/>Assert(<sp/>\</highlight></codeline>
-<codeline lineno="10"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(c).order==(r).order<sp/>&amp;&amp;<sp/>(c).order==(i).order,<sp/>\</highlight></codeline>
-<codeline lineno="11"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>&quot;Incompatible<sp/>tensor<sp/>orders&quot;</highlight><highlight class="normal"><sp/>\</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/>);<sp/>\</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/>for<sp/>(int<sp/>k(0);<sp/>k<sp/>&lt;<sp/>c.order;<sp/>++k)<sp/>\</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>Assert(<sp/>\</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(c).lens[k]==(r).lens[k]<sp/>&amp;&amp;<sp/>(c).lens[k]==(i).lens[k],<sp/>\</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Incompatible<sp/>tensor<sp/>shapes&quot;<sp/>\</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>);<sp/>\</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20" refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AssertCompatibleTensorShape(c,r)<sp/>\</highlight></codeline>
-<codeline lineno="21"><highlight class="preprocessor">{<sp/>\</highlight></codeline>
-<codeline lineno="22"><highlight class="preprocessor"><sp/><sp/>Assert(<sp/>\</highlight></codeline>
-<codeline lineno="23"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(c).order==(r).order,<sp/>\</highlight></codeline>
-<codeline lineno="24"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>&quot;Incompatible<sp/>tensor<sp/>orders&quot;</highlight><highlight class="normal"><sp/>\</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/>);<sp/>\</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/>for<sp/>(int<sp/>k(0);<sp/>k<sp/>&lt;<sp/>c.order;<sp/>++k)<sp/>\</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>Assert(<sp/>\</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(c).lens[k]==(r).lens[k],<sp/>\</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Incompatible<sp/>tensor<sp/>shapes&quot;<sp/>\</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>);<sp/>\</highlight></codeline>
-<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33" refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Indices(Tensor)<sp/>\</highlight></codeline>
-<codeline lineno="34"><highlight class="preprocessor"><sp/><sp/>char<sp/>indices[(Tensor).order];<sp/>\</highlight></codeline>
-<codeline lineno="35"><highlight class="preprocessor"><sp/><sp/>for<sp/>(int<sp/>i(0);<sp/>i<sp/>&lt;<sp/>(Tensor).order;<sp/>++i)<sp/>{<sp/>indices[i]<sp/>=<sp/>&apos;a&apos;+i;<sp/>}<sp/>\</highlight></codeline>
-<codeline lineno="36"><highlight class="preprocessor"><sp/><sp/>indices[(Tensor).order]<sp/>=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AssertCompatibleTensorShapes(c,<sp/>r,<sp/>i)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="8"><highlight class="preprocessor"><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>Assert((c).order<sp/>==<sp/>(r).order<sp/>&amp;&amp;<sp/>(c).order<sp/>==<sp/>(i).order,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="10"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Incompatible<sp/>tensor<sp/>orders&quot;</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>for<sp/>(int<sp/>k(0);<sp/>k<sp/>&lt;<sp/>c.order;<sp/>++k)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Assert((c).lens[k]<sp/>==<sp/>(r).lens[k]<sp/>&amp;&amp;<sp/>(c).lens[k]<sp/>==<sp/>(i).lens[k],<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Incompatible<sp/>tensor<sp/>shapes&quot;);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AssertCompatibleTensorShape(c,<sp/>r)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>Assert((c).order<sp/>==<sp/>(r).order,<sp/>&quot;Incompatible<sp/>tensor<sp/>orders&quot;</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>for<sp/>(int<sp/>k(0);<sp/>k<sp/>&lt;<sp/>c.order;<sp/>++k)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Assert((c).lens[k]<sp/>==<sp/>(r).lens[k],<sp/>&quot;Incompatible<sp/>tensor<sp/>shapes&quot;);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Indices(Tensor)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor"><sp/><sp/>char<sp/>indices[(Tensor).order];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor"><sp/><sp/>for<sp/>(int<sp/>i(0);<sp/>i<sp/>&lt;<sp/>(Tensor).order;<sp/>++i)<sp/>{<sp/>indices[i]<sp/>=<sp/>&apos;a&apos;<sp/>+<sp/>i;<sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"><sp/><sp/>indices[(Tensor).order]<sp/>=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" kindref="member">sisi4s::fromComplexTensor</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;C,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;I)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" kindref="member">AssertCompatibleTensorShapes</ref>(C,<sp/>R,<sp/>I);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" kindref="member">fromComplexTensor</ref>(C,<sp/>R);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>I[indices]<sp/>=<sp/>CTF::Function&lt;complex,<sp/>double&gt;(std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>)&gt;(</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[](<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>c)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c.imag();<sp/>}))(C[indices]);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" kindref="member">sisi4s::fromComplexTensor</ref>(</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;C,</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;I</highlight></codeline>
-<codeline lineno="43"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" kindref="member">AssertCompatibleTensorShapes</ref>(C,R,I);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" kindref="member">fromComplexTensor</ref>(C,<sp/>R);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/>I[indices]<sp/>=<sp/>CTF::Function&lt;complex,<sp/>double&gt;(</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>)&gt;([](<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>c){<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c.imag();<sp/>})</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/>)<sp/>(</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>C[indices]</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="38" refid="namespacesisi4s_1a41d0ed33fae9ffd4daee5515290bca54" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" kindref="member">sisi4s::fromComplexTensor</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;C,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;I)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" kindref="member">AssertCompatibleTensorShapes</ref>(C,<sp/>R,<sp/>I);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>R[indices]<sp/>=<sp/>C[indices];</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>I[indices]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="namespacesisi4s_1a4250fb84afe218d327351f6e6e92bb2d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" kindref="member">sisi4s::fromComplexTensor</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;C,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" kindref="member">AssertCompatibleTensorShape</ref>(C,<sp/>R);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>R[indices]<sp/>=<sp/>CTF::Function&lt;complex,<sp/>double&gt;(std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>)&gt;(</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[](<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>c)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c.real();<sp/>}))(C[indices]);</highlight></codeline>
 <codeline lineno="52"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54" refid="namespacesisi4s_1a41d0ed33fae9ffd4daee5515290bca54" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" kindref="member">sisi4s::fromComplexTensor</ref>(</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;C,</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;I</highlight></codeline>
-<codeline lineno="57"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" kindref="member">AssertCompatibleTensorShapes</ref>(C,R,I);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/>R[indices]<sp/>=<sp/>C[indices];</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/>I[indices]<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64" refid="namespacesisi4s_1a4250fb84afe218d327351f6e6e92bb2d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ad6f7eb8262f28cfa6afcabe5c42c8521" kindref="member">sisi4s::fromComplexTensor</ref>(</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;C,</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R</highlight></codeline>
-<codeline lineno="67"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" kindref="member">AssertCompatibleTensorShape</ref>(C,R);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/>R[indices]<sp/>=<sp/>CTF::Function&lt;complex,<sp/>double&gt;(</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>)&gt;([](<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>c){<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c.real();<sp/>})</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/>)<sp/>(</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>C[indices]</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77" refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" kindref="member">sisi4s::toComplexTensor</ref>(</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;I,</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;C</highlight></codeline>
-<codeline lineno="80"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" kindref="member">AssertCompatibleTensorShapes</ref>(C,R,I);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" kindref="member">toComplexTensor</ref>(R,<sp/>C);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/>CTF::Transform&lt;double,<sp/>complex&gt;(</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;)&gt;(</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>i,<sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;<sp/>c)<sp/>{</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">//#ifdef<sp/>INTEL_COMPILER</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.imag()<sp/>=<sp/>i;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">//#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.imag(i);</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/>)<sp/>(</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>I[indices],<sp/>C[indices]</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99" refid="namespacesisi4s_1add6f24ee3967bb84399e82f2081681a5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" kindref="member">sisi4s::toComplexTensor</ref>(</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R,</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;C</highlight></codeline>
-<codeline lineno="102"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" kindref="member">AssertCompatibleTensorShape</ref>(C,R);</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/>CTF::Transform&lt;double,<sp/>complex&gt;(</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;)&gt;(</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r,<sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;<sp/>c)<sp/>{</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">//#ifdef<sp/>INTEL_COMPILER</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.real()<sp/>=<sp/>r;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment">//#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.real(r);</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.imag(0);</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">//#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/>)<sp/>(</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>R[indices],<sp/>C[indices]</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121" refid="namespacesisi4s_1a014e33dae327f57e5b44d284a6f82219" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" kindref="member">sisi4s::toComplexTensor</ref>(</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R,</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;C</highlight></codeline>
-<codeline lineno="124"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" kindref="member">AssertCompatibleTensorShape</ref>(C,R);</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/>C[indices]<sp/>=<sp/>R[indices];</highlight></codeline>
-<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130" refid="namespacesisi4s_1a900cd067a0e92de9ff85372102f9c596" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ab3f1696a0e7735d418f8996311daa8c4" kindref="member">sisi4s::conjugate</ref>(</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;C</highlight></codeline>
-<codeline lineno="132"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/>CTF::Transform&lt;complex&gt;(</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;)&gt;<sp/>(</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[](<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;c){<sp/>c<sp/>=<sp/>std::conj(c);<sp/>}</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/>)<sp/>(</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>C[indices]</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="143" refid="namespacesisi4s_1ab3f1696a0e7735d418f8996311daa8c4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ab3f1696a0e7735d418f8996311daa8c4" kindref="member">sisi4s::conjugate</ref>(</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;C</highlight></codeline>
-<codeline lineno="145"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>;-)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" kindref="member">sisi4s::toComplexTensor</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;I,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;C)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a6ee41e7aac8595a4a49313301607c7ca" kindref="member">AssertCompatibleTensorShapes</ref>(C,<sp/>R,<sp/>I);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" kindref="member">toComplexTensor</ref>(R,<sp/>C);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>CTF::Transform&lt;double,<sp/>complex&gt;(</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;)&gt;([](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>i,<sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;c)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//#ifdef<sp/>INTEL_COMPILER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.imag()<sp/>=<sp/>i;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.imag(i);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}))(I[indices],<sp/>C[indices]);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="namespacesisi4s_1add6f24ee3967bb84399e82f2081681a5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" kindref="member">sisi4s::toComplexTensor</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;C)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" kindref="member">AssertCompatibleTensorShape</ref>(C,<sp/>R);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>CTF::Transform&lt;double,<sp/>complex&gt;(</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;)&gt;([](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r,<sp/><ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;c)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//#ifdef<sp/>INTEL_COMPILER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.real()<sp/>=<sp/>r;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.real(r);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.imag(0);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}))(R[indices],<sp/>C[indices]);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="namespacesisi4s_1a014e33dae327f57e5b44d284a6f82219" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a2653420c2b1b1224ad8f6b1d538228f1" kindref="member">sisi4s::toComplexTensor</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;R,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;C)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1a4fcb60ade2ef95fce940523ea8120f3c" kindref="member">AssertCompatibleTensorShape</ref>(C,<sp/>R);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>C[indices]<sp/>=<sp/>R[indices];</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="namespacesisi4s_1a900cd067a0e92de9ff85372102f9c596" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ab3f1696a0e7735d418f8996311daa8c4" kindref="member">sisi4s::conjugate</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>&amp;C)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><ref refid="ComplexTensor_8cxx_1ac431f9dda53ccf76b2526c6b93fb7f09" kindref="member">Indices</ref>(C);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>CTF::Transform&lt;complex&gt;(std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;)&gt;(</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[](<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref><sp/>&amp;c)<sp/>{<sp/>c<sp/>=<sp/>std::conj(c);<sp/>}))(C[indices]);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="namespacesisi4s_1ab3f1696a0e7735d418f8996311daa8c4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1ab3f1696a0e7735d418f8996311daa8c4" kindref="member">sisi4s::conjugate</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&amp;C)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>;-)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/math/ComplexTensor.cxx"/>
   </compounddef>

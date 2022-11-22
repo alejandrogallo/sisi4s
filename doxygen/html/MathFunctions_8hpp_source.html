@@ -103,101 +103,102 @@ $(document).ready(function(){initNavTree('MathFunctions_8hpp_source.html',''); i
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="Log_8hpp.html">util/Log.hpp</a>&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacesisi4s.html">sisi4s</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <span class="comment">// constants</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F=<span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a60e4277fc0d188844658dd5264190e59">   13</a></span>  <span class="keyword">constexpr</span> F <a class="code hl_function" href="namespacesisi4s.html#a60e4277fc0d188844658dd5264190e59">Pi</a>() {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">return</span> std::acos(F(-1));</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  }</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// constants</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F = <span class="keywordtype">double</span>&gt;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a60e4277fc0d188844658dd5264190e59">   13</a></span><span class="keyword">constexpr</span> F <a class="code hl_function" href="namespacesisi4s.html#a60e4277fc0d188844658dd5264190e59">Pi</a>() {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keywordflow">return</span> std::acos(F(-1));</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F=<span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a9b9e76b0c2b3fdfe2be4324883376fda">   18</a></span>  <span class="keyword">constexpr</span> F <a class="code hl_function" href="namespacesisi4s.html#a9b9e76b0c2b3fdfe2be4324883376fda">Tau</a>() {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">return</span> 2 * Pi&lt;F&gt;();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F = <span class="keywordtype">double</span>&gt;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a9b9e76b0c2b3fdfe2be4324883376fda">   18</a></span><span class="keyword">constexpr</span> F <a class="code hl_function" href="namespacesisi4s.html#a9b9e76b0c2b3fdfe2be4324883376fda">Tau</a>() {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keywordflow">return</span> 2 * Pi&lt;F&gt;();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="comment">// univariate functions</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F=<span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a40947d88c4989cacff153a78af67f686">   24</a></span>  <span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#a40947d88c4989cacff153a78af67f686">sqrt</a>(F <span class="keyword">const</span> x) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">return</span> std::sqrt(x);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// univariate functions</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F = <span class="keywordtype">double</span>&gt;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a40947d88c4989cacff153a78af67f686">   24</a></span><span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#a40947d88c4989cacff153a78af67f686">sqrt</a>(F <span class="keyword">const</span> x) {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordflow">return</span> std::sqrt(x);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F=<span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#ab4577a58307bc686ea6f58bc3d0249d3">   29</a></span>  <span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#ab4577a58307bc686ea6f58bc3d0249d3">abs</a>(F <span class="keyword">const</span> x) {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> std::abs(x);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F = <span class="keywordtype">double</span>&gt;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#ab4577a58307bc686ea6f58bc3d0249d3">   29</a></span><span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#ab4577a58307bc686ea6f58bc3d0249d3">abs</a>(F <span class="keyword">const</span> x) {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keywordflow">return</span> std::abs(x);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#abc3ea35f1434b9c5021b9195449d1f9b">   34</a></span>  <span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#abc3ea35f1434b9c5021b9195449d1f9b">conj</a>(F <span class="keyword">const</span> x) {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">return</span> std::conj(x);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#abc3ea35f1434b9c5021b9195449d1f9b">   34</a></span><span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#abc3ea35f1434b9c5021b9195449d1f9b">conj</a>(F <span class="keyword">const</span> x) {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keywordflow">return</span> std::conj(x);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#aa8b450b30cd5b37aaf1fe14ba54b6d86">   39</a></span>  <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code hl_function" href="namespacesisi4s.html#abc3ea35f1434b9c5021b9195449d1f9b">conj</a>(<span class="keywordtype">double</span> <span class="keyword">const</span> x) {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> x;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#aa8b450b30cd5b37aaf1fe14ba54b6d86">   39</a></span><span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code hl_function" href="namespacesisi4s.html#abc3ea35f1434b9c5021b9195449d1f9b">conj</a>(<span class="keywordtype">double</span> <span class="keyword">const</span> x) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordflow">return</span> x;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="comment">// bivariate functions</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F=<span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a92d239b67d4a13717f4e7f93ad9591f2">   45</a></span>  <span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#a92d239b67d4a13717f4e7f93ad9591f2">dot</a>(F <span class="keyword">const</span> x, F <span class="keyword">const</span> y) {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesisi4s.html#abc3ea35f1434b9c5021b9195449d1f9b">conj</a>(x) * y;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// bivariate functions</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F = <span class="keywordtype">double</span>&gt;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a92d239b67d4a13717f4e7f93ad9591f2">   45</a></span><span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#a92d239b67d4a13717f4e7f93ad9591f2">dot</a>(F <span class="keyword">const</span> x, F <span class="keyword">const</span> y) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesisi4s.html#abc3ea35f1434b9c5021b9195449d1f9b">conj</a>(x) * y;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F=<span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a9fa5b3be804515448387f0d0a362aee4">   53</a></span>  <span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#a9fa5b3be804515448387f0d0a362aee4">realDot</a>(F <span class="keyword">const</span> x, F <span class="keyword">const</span> y) {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">return</span> std::real(x*<a class="code hl_function" href="namespacesisi4s.html#abc3ea35f1434b9c5021b9195449d1f9b">conj</a>(y));</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F = <span class="keywordtype">double</span>&gt;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a9fa5b3be804515448387f0d0a362aee4">   53</a></span><span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#a9fa5b3be804515448387f0d0a362aee4">realDot</a>(F <span class="keyword">const</span> x, F <span class="keyword">const</span> y) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keywordflow">return</span> std::real(x * <a class="code hl_function" href="namespacesisi4s.html#abc3ea35f1434b9c5021b9195449d1f9b">conj</a>(y));</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F=<span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a4669111dd0ce1279c5e4c2ef1d764afb">   58</a></span>  <span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#a4669111dd0ce1279c5e4c2ef1d764afb">divide</a>(F <span class="keyword">const</span> x, F <span class="keyword">const</span> y) {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> x / y;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F = <span class="keywordtype">double</span>&gt;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a4669111dd0ce1279c5e4c2ef1d764afb">   58</a></span><span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#a4669111dd0ce1279c5e4c2ef1d764afb">divide</a>(F <span class="keyword">const</span> x, F <span class="keyword">const</span> y) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keywordflow">return</span> x / y;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F=<span class="keywordtype">double</span>&gt;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a656f9002a915dfd1122f159f96db10b8">   63</a></span>  <span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#a656f9002a915dfd1122f159f96db10b8">multiply</a>(F <span class="keyword">const</span> x, F <span class="keyword">const</span> y) {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> x * y;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F = <span class="keywordtype">double</span>&gt;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a656f9002a915dfd1122f159f96db10b8">   63</a></span><span class="keyword">inline</span> F <a class="code hl_function" href="namespacesisi4s.html#a656f9002a915dfd1122f159f96db10b8">multiply</a>(F <span class="keyword">const</span> x, F <span class="keyword">const</span> y) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keywordflow">return</span> x * y;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#aae36a475bbea733a01982cbf5f741cc1">   68</a></span>  <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code hl_function" href="namespacesisi4s.html#aae36a475bbea733a01982cbf5f741cc1">frobeniusNorm</a>(<a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor&lt;F&gt;</a> &amp;t) {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">char</span> *indices(<span class="keyword">new</span> <span class="keywordtype">char</span>[t.order+1]);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> index(0); index &lt; t.order; ++index) indices[index] = <span class="charliteral">&#39;a&#39;</span> + index;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    indices[t.order] = 0;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    CTF::Bivar_Function&lt;F&gt; fRealDot(&amp;sisi4s::realDot&lt;F&gt;);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    CTF::Scalar&lt;F&gt; s(*t.wrld);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    s.contract(1.0, t,indices, t,indices, 0.0,<span class="stringliteral">&quot;&quot;</span>, fRealDot);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> std::sqrt(std::real(s.get_val()));</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#aae36a475bbea733a01982cbf5f741cc1">   68</a></span><span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code hl_function" href="namespacesisi4s.html#aae36a475bbea733a01982cbf5f741cc1">frobeniusNorm</a>(<a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor&lt;F&gt;</a> &amp;t) {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keywordtype">char</span> *indices(<span class="keyword">new</span> <span class="keywordtype">char</span>[t.order + 1]);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> index(0); index &lt; t.order; ++index) indices[index] = <span class="charliteral">&#39;a&#39;</span> + index;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  indices[t.order] = 0;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  CTF::Bivar_Function&lt;F&gt; fRealDot(&amp;sisi4s::realDot&lt;F&gt;);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  CTF::Scalar&lt;F&gt; s(*t.wrld);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  s.contract(1.0, t, indices, t, indices, 0.0, <span class="stringliteral">&quot;&quot;</span>, fRealDot);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keywordflow">return</span> std::sqrt(std::real(s.get_val()));</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a1e9d78005344619227766a9c62020617">   85</a></span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacesisi4s.html#a1e9d78005344619227766a9c62020617">symmetrize</a>(std::string indices, std::string permuted,</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      <a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor&lt;F&gt;</a> &amp;t, F prefactor=1) {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    t[indices.c_str()] += prefactor * t[permuted.c_str()];</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a064f1996a620381ea305851bf71b734b">   90</a></span>  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacesisi4s.html#a064f1996a620381ea305851bf71b734b">checkAntisymmetry</a>(<a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor&lt;F&gt;</a> &amp;t){</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor&lt;F&gt;</a> testResultUp(t);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor&lt;F&gt;</a> testResultDown(t);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    F normValue;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    testResultUp[<span class="stringliteral">&quot;abij&quot;</span>] += testResultUp[<span class="stringliteral">&quot;baij&quot;</span>];</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    testResultDown[<span class="stringliteral">&quot;abij&quot;</span>] += testResultDown[<span class="stringliteral">&quot;abji&quot;</span>];</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    normValue = testResultUp.norm1();</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    normValue += testResultDown.norm1();</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">if</span> (normValue &gt;= 1e-3) {</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      t.print();</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      <a class="code hl_define" href="Log_8hpp.html#a3577749fb48d57a158b8ac1a0b3ab57e">LOG</a>(0, <span class="stringliteral">&quot;AntisymmetryCheck&quot;</span>) &lt;&lt; t.get_name()</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        &lt;&lt; <span class="stringliteral">&quot;: zero tensor norm &quot;</span> &lt;&lt; normValue &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>      exit(1);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  }</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a1e9d78005344619227766a9c62020617">   85</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacesisi4s.html#a1e9d78005344619227766a9c62020617">symmetrize</a>(std::string indices,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                       std::string permuted,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                       <a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor&lt;F&gt;</a> &amp;t,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                       F prefactor = 1) {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  t[indices.c_str()] += prefactor * t[permuted.c_str()];</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="namespacesisi4s.html#a064f1996a620381ea305851bf71b734b">   92</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacesisi4s.html#a064f1996a620381ea305851bf71b734b">checkAntisymmetry</a>(<a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor&lt;F&gt;</a> &amp;t) {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor&lt;F&gt;</a> testResultUp(t);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <a class="code hl_typedef" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor&lt;F&gt;</a> testResultDown(t);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  F normValue;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  testResultUp[<span class="stringliteral">&quot;abij&quot;</span>] += testResultUp[<span class="stringliteral">&quot;baij&quot;</span>];</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  testResultDown[<span class="stringliteral">&quot;abij&quot;</span>] += testResultDown[<span class="stringliteral">&quot;abji&quot;</span>];</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  normValue = testResultUp.norm1();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  normValue += testResultDown.norm1();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <span class="keywordflow">if</span> (normValue &gt;= 1e-3) {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    t.print();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <a class="code hl_define" href="Log_8hpp.html#a3577749fb48d57a158b8ac1a0b3ab57e">LOG</a>(0, <span class="stringliteral">&quot;AntisymmetryCheck&quot;</span>)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        &lt;&lt; t.get_name() &lt;&lt; <span class="stringliteral">&quot;: zero tensor norm &quot;</span> &lt;&lt; normValue &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    exit(1);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>} <span class="comment">// namespace sisi4s</span></div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aComplex_8hpp_html"><div class="ttname"><a href="Complex_8hpp.html">Complex.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="Log_8hpp.html">Log.hpp</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a3577749fb48d57a158b8ac1a0b3ab57e"><div class="ttname"><a href="Log_8hpp.html#a3577749fb48d57a158b8ac1a0b3ab57e">LOG</a></div><div class="ttdeci">#define LOG(...)</div><div class="ttdef"><b>Definition:</b> Log.hpp:113</div></div>
+<div class="ttc" id="aLog_8hpp_html_a3577749fb48d57a158b8ac1a0b3ab57e"><div class="ttname"><a href="Log_8hpp.html#a3577749fb48d57a158b8ac1a0b3ab57e">LOG</a></div><div class="ttdeci">#define LOG(...)</div><div class="ttdef"><b>Definition:</b> Log.hpp:110</div></div>
 <div class="ttc" id="aTensor_8hpp_html"><div class="ttname"><a href="Tensor_8hpp.html">Tensor.hpp</a></div></div>
-<div class="ttc" id="anamespacesisi4s_html"><div class="ttname"><a href="namespacesisi4s.html">sisi4s</a></div><div class="ttdef"><b>Definition:</b> Algorithm.hpp:11</div></div>
-<div class="ttc" id="anamespacesisi4s_html_a064f1996a620381ea305851bf71b734b"><div class="ttname"><a href="namespacesisi4s.html#a064f1996a620381ea305851bf71b734b">sisi4s::checkAntisymmetry</a></div><div class="ttdeci">void checkAntisymmetry(Tensor&lt; F &gt; &amp;t)</div><div class="ttdef"><b>Definition:</b> MathFunctions.hpp:90</div></div>
+<div class="ttc" id="anamespacesisi4s_html"><div class="ttname"><a href="namespacesisi4s.html">sisi4s</a></div><div class="ttdef"><b>Definition:</b> Algorithm.hpp:10</div></div>
+<div class="ttc" id="anamespacesisi4s_html_a064f1996a620381ea305851bf71b734b"><div class="ttname"><a href="namespacesisi4s.html#a064f1996a620381ea305851bf71b734b">sisi4s::checkAntisymmetry</a></div><div class="ttdeci">void checkAntisymmetry(Tensor&lt; F &gt; &amp;t)</div><div class="ttdef"><b>Definition:</b> MathFunctions.hpp:92</div></div>
 <div class="ttc" id="anamespacesisi4s_html_a1695e67f99e3219626943923a40886a1"><div class="ttname"><a href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">sisi4s::Tensor</a></div><div class="ttdeci">CTF::Tensor&lt; F &gt; Tensor</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:9</div></div>
 <div class="ttc" id="anamespacesisi4s_html_a1e9d78005344619227766a9c62020617"><div class="ttname"><a href="namespacesisi4s.html#a1e9d78005344619227766a9c62020617">sisi4s::symmetrize</a></div><div class="ttdeci">void symmetrize(std::string indices, std::string permuted, Tensor&lt; F &gt; &amp;t, F prefactor=1)</div><div class="ttdoc">Apply a permutation operator and antisymmetrize accordingly, e.g. antiSymmetrize(X,...</div><div class="ttdef"><b>Definition:</b> MathFunctions.hpp:85</div></div>
 <div class="ttc" id="anamespacesisi4s_html_a40947d88c4989cacff153a78af67f686"><div class="ttname"><a href="namespacesisi4s.html#a40947d88c4989cacff153a78af67f686">sisi4s::sqrt</a></div><div class="ttdeci">F sqrt(F const x)</div><div class="ttdef"><b>Definition:</b> MathFunctions.hpp:24</div></div>

@@ -70,58 +70,6 @@
         <childnode refid="21" relation="include">
         </childnode>
       </node>
-      <node id="33">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
-        </childnode>
-        <childnode refid="47" relation="include">
-        </childnode>
-      </node>
       <node id="17">
         <label>math/Complex.hpp</label>
         <link refid="Complex_8hpp"/>
@@ -256,6 +204,58 @@
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>vendor/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
         </childnode>
       </node>
       <node id="39">
@@ -420,8 +420,8 @@
       <memberdef kind="define" id="Mixer_8hpp_1a32a5609c2d7da90515d9093b4fbe9031" prot="public" static="no">
         <name>MIXER_REGISTRAR_DECLARATION</name>
         <param><defname>NAME</defname></param>
-        <initializer>    virtual std::string getName() { return #NAME; } \
-    static MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; registrar_</initializer>
+        <initializer>  virtual std::string getName() { return #NAME; }                              \
+  static MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; registrar_</initializer>
         <briefdescription>
 <para>Auxiliary macro declaring the mixer registrar for the mixer type of the given name. This macro is to be used in the algorith declaration within the .hpp file. Note that name is a symbol name not a string. </para>
         </briefdescription>
@@ -429,13 +429,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/Mixer.hpp" line="135" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/Mixer.hpp" bodystart="135" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/Mixer.hpp" line="127" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/Mixer.hpp" bodystart="127" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="Mixer_8hpp_1a7ec8522b70a56ac8cef5b47c623c59c0" prot="public" static="no">
         <name>MIXER_REGISTRAR_DEFINITION</name>
         <param><defname>NAME</defname></param>
-        <initializer>    template &lt;typename F&gt; \
-    MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; NAME&lt;F&gt;::registrar_(#NAME)</initializer>
+        <initializer>  template &lt;typename F&gt;                                                        \
+  MixerRegistrar&lt;F, NAME&lt;F&gt;&gt; NAME&lt;F&gt;::registrar_(#NAME)</initializer>
         <briefdescription>
 <para>Auxiliary macro defining the mixer registrar for the mixer type of the given name. This macro is to be used in the mixer definition within the .cxx file. Note that name is a symbol name not a string. </para>
         </briefdescription>
@@ -443,7 +443,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/Mixer.hpp" line="145" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/Mixer.hpp" bodystart="145" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/Mixer.hpp" line="137" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/Mixer.hpp" bodystart="137" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -451,103 +451,94 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2017,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MIXER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MIXER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Algorithm_8hpp" kindref="compound">algorithms/Algorithm.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="FockVector_8hpp" kindref="compound">math/FockVector.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="14" refid="classsisi4s_1_1Mixer" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer</ref><sp/>{</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer</ref>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*<ref refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" kindref="member">algorithm</ref>);</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Mixer_1a85026e8a94b704a13e65445b80fc7821" kindref="member">~Mixer</ref>();</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22" refid="classsisi4s_1_1Mixer_1acc2c6554aafc2460847d197f1868a6d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1Mixer_1acc2c6554aafc2460847d197f1868a6d0" kindref="member">getName</ref>()<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31" refid="classsisi4s_1_1Mixer_1a0ae97a54c9153b371b48986ac4227237" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Mixer_1a0ae97a54c9153b371b48986ac4227237" kindref="member">append</ref>(</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;A,</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;R</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42" refid="classsisi4s_1_1Mixer_1aa68d5ab21cadfc03cec2f2ef8f0b8552" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1Mixer_1aa68d5ab21cadfc03cec2f2ef8f0b8552" kindref="member">get</ref>()<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51" refid="classsisi4s_1_1Mixer_1a8b258c724a7297925db03548ed8668ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1Mixer_1a8b258c724a7297925db03548ed8668ef" kindref="member">getResiduum</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MIXER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MIXER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Algorithm_8hpp" kindref="compound">algorithms/Algorithm.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="FockVector_8hpp" kindref="compound">math/FockVector.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="13" refid="classsisi4s_1_1Mixer" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer</ref><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer</ref>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*<ref refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" kindref="member">algorithm</ref>);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Mixer_1a85026e8a94b704a13e65445b80fc7821" kindref="member">~Mixer</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1Mixer_1acc2c6554aafc2460847d197f1868a6d0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classsisi4s_1_1Mixer_1acc2c6554aafc2460847d197f1868a6d0" kindref="member">getName</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classsisi4s_1_1Mixer_1a0ae97a54c9153b371b48986ac4227237" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Mixer_1a0ae97a54c9153b371b48986ac4227237" kindref="member">append</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;R)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="classsisi4s_1_1Mixer_1aa68d5ab21cadfc03cec2f2ef8f0b8552" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1Mixer_1aa68d5ab21cadfc03cec2f2ef8f0b8552" kindref="member">get</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="classsisi4s_1_1Mixer_1a8b258c724a7297925db03548ed8668ef" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1Mixer_1a8b258c724a7297925db03548ed8668ef" kindref="member">getResiduum</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*<ref refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" kindref="member">algorithm</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53" refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*<ref refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" kindref="member">algorithm</ref>;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="57" refid="classsisi4s_1_1MixerFactory" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1MixerFactory" kindref="compound">MixerFactory</ref><sp/>{</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/>FIXME:<sp/>find<sp/>out<sp/>why<sp/>typedef<sp/>doesn&apos;t<sp/>work<sp/>in<sp/>this<sp/>case</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/>typedef<sp/>std::map&lt;</highlight></codeline>
-<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>std::string,</highlight></codeline>
-<codeline lineno="63"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;Mixer&lt;F&gt;<sp/>*(Algorithm<sp/>*)&gt;</highlight></codeline>
-<codeline lineno="64"><highlight class="comment"><sp/><sp/><sp/><sp/>&gt;<sp/>MixerMap;</highlight></codeline>
-<codeline lineno="65"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72" refid="classsisi4s_1_1MixerFactory_1a6b7e64c5758f4727dbe902450e2d1744" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1MixerFactory_1a6b7e64c5758f4727dbe902450e2d1744" kindref="member">create</ref>(</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>iterator(<ref refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" kindref="member">getMixerMap</ref>()-&gt;find(name));</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>iterator<sp/>!=<sp/><ref refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" kindref="member">getMixerMap</ref>()-&gt;end()<sp/>?</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iterator-&gt;second(algorithm)<sp/>:<sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)();</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::map&lt;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string,</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)<sp/>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm)&gt;</highlight></codeline>
-<codeline lineno="83" refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>*<ref refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" kindref="member">getMixerMap</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1MixerFactory_1a3affa82288bfbe8f7af45cbb5d281652" kindref="member">mixerMap</ref><sp/>?<sp/><ref refid="classsisi4s_1_1MixerFactory_1a3affa82288bfbe8f7af45cbb5d281652" kindref="member">mixerMap</ref><sp/>:<sp/>(</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1MixerFactory_1a3affa82288bfbe8f7af45cbb5d281652" kindref="member">mixerMap</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>std::map&lt;</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string,</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)<sp/>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*)&gt;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::map&lt;</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string,</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)<sp/>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*)&gt;</highlight></codeline>
-<codeline lineno="94" refid="classsisi4s_1_1MixerFactory_1a3affa82288bfbe8f7af45cbb5d281652" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>*<ref refid="classsisi4s_1_1MixerFactory_1a3affa82288bfbe8f7af45cbb5d281652" kindref="member">mixerMap</ref>;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/>static<sp/>MixerMap<sp/>*getMixerMap()<sp/>{</highlight></codeline>
-<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>mixerMap<sp/>?<sp/>mixerMap<sp/>:<sp/>(mixerMap<sp/>=<sp/>new<sp/>MixerMap);</highlight></codeline>
-<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/>static<sp/>MixerMap<sp/>*mixerMap;</highlight></codeline>
-<codeline lineno="100"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="54" refid="classsisi4s_1_1MixerFactory" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1MixerFactory" kindref="compound">MixerFactory</ref><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>find<sp/>out<sp/>why<sp/>typedef<sp/>doesn&apos;t<sp/>work<sp/>in<sp/>this<sp/>case</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>typedef<sp/>std::map&lt;</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string,</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;Mixer&lt;F&gt;<sp/>*(Algorithm<sp/>*)&gt;</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&gt;<sp/>MixerMap;</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="classsisi4s_1_1MixerFactory_1a6b7e64c5758f4727dbe902450e2d1744" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1MixerFactory_1a6b7e64c5758f4727dbe902450e2d1744" kindref="member">create</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name,<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>iterator(<ref refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" kindref="member">getMixerMap</ref>()-&gt;find(name));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>iterator<sp/>!=<sp/><ref refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" kindref="member">getMixerMap</ref>()-&gt;end()<sp/>?<sp/>iterator-&gt;second(algorithm)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::map&lt;std::string,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm)&gt;&gt;<sp/>*</highlight></codeline>
+<codeline lineno="78" refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" kindref="member">getMixerMap</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1MixerFactory_1a9b3e93b8262b61e5399866c6a5d38c4e" kindref="member">mixerMap</ref></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="classsisi4s_1_1MixerFactory_1a9b3e93b8262b61e5399866c6a5d38c4e" kindref="member">mixerMap</ref></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(<ref refid="classsisi4s_1_1MixerFactory_1a9b3e93b8262b61e5399866c6a5d38c4e" kindref="member">mixerMap</ref><sp/>=</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>std::map&lt;std::string,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*)&gt;&gt;);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>std::function&lt;<ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*)&gt;&gt;</highlight></codeline>
+<codeline lineno="86" refid="classsisi4s_1_1MixerFactory_1a9b3e93b8262b61e5399866c6a5d38c4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1MixerFactory_1a9b3e93b8262b61e5399866c6a5d38c4e" kindref="member">mixerMap</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>static<sp/>MixerMap<sp/>*getMixerMap()<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>mixerMap<sp/>?<sp/>mixerMap<sp/>:<sp/>(mixerMap<sp/>=<sp/>new<sp/>MixerMap);</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>static<sp/>MixerMap<sp/>*mixerMap;</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>MixerType&gt;</highlight></codeline>
+<codeline lineno="99" refid="namespacesisi4s_1a750057c17f439eace42ddea0b53206d3" refkind="member"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)<sp/><ref refid="namespacesisi4s_1a750057c17f439eace42ddea0b53206d3" kindref="member">createMixer</ref>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(MixerType,<sp/>algorithm);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>MixerType&gt;</highlight></codeline>
-<codeline lineno="107" refid="namespacesisi4s_1a750057c17f439eace42ddea0b53206d3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer&lt;F&gt;</ref>)<sp/><ref refid="namespacesisi4s_1a750057c17f439eace42ddea0b53206d3" kindref="member">createMixer</ref>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm)<sp/>{</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(MixerType,<sp/>algorithm);</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>MixerType&gt;</highlight></codeline>
-<codeline lineno="117" refid="classsisi4s_1_1MixerRegistrar" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1MixerRegistrar" kindref="compound">MixerRegistrar</ref>:<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1MixerFactory" kindref="compound">MixerFactory</ref>&lt;F&gt;<sp/>{</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="124" refid="classsisi4s_1_1MixerRegistrar_1a39e6101e1a716322132c18799ef9a351" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1MixerRegistrar_1a39e6101e1a716322132c18799ef9a351" kindref="member">MixerRegistrar</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*<ref refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" kindref="member">MixerFactory&lt;F&gt;::getMixerMap</ref>())[name]<sp/>=<sp/>&amp;createMixer&lt;F,<sp/>MixerType&gt;;</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="135" refid="Mixer_8hpp_1a32a5609c2d7da90515d9093b4fbe9031" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>MIXER_REGISTRAR_DECLARATION(NAME)<sp/>\</highlight></codeline>
-<codeline lineno="136"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>virtual<sp/>std::string<sp/>getName()<sp/>{<sp/>return<sp/>#NAME;<sp/>}<sp/>\</highlight></codeline>
-<codeline lineno="137"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>static<sp/>MixerRegistrar&lt;F,<sp/>NAME&lt;F&gt;&gt;<sp/>registrar_</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="145" refid="Mixer_8hpp_1a7ec8522b70a56ac8cef5b47c623c59c0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>MIXER_REGISTRAR_DEFINITION(NAME)<sp/>\</highlight></codeline>
-<codeline lineno="146"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>template<sp/>&lt;typename<sp/>F&gt;<sp/>\</highlight></codeline>
-<codeline lineno="147"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>MixerRegistrar&lt;F,<sp/>NAME&lt;F&gt;&gt;<sp/>NAME&lt;F&gt;::registrar_(#NAME)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>MixerType&gt;</highlight></codeline>
+<codeline lineno="109" refid="classsisi4s_1_1MixerRegistrar" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1MixerRegistrar" kindref="compound">MixerRegistrar</ref><sp/>:<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1MixerFactory" kindref="compound">MixerFactory</ref>&lt;F&gt;<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="116" refid="classsisi4s_1_1MixerRegistrar_1a39e6101e1a716322132c18799ef9a351" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1MixerRegistrar_1a39e6101e1a716322132c18799ef9a351" kindref="member">MixerRegistrar</ref>(std::string<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>(*<ref refid="classsisi4s_1_1MixerFactory_1a1079c28d2e75196490dcb6718a0e359e" kindref="member">MixerFactory&lt;F&gt;::getMixerMap</ref>())[name]<sp/>=<sp/>&amp;createMixer&lt;F,<sp/>MixerType&gt;;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="Mixer_8hpp_1a32a5609c2d7da90515d9093b4fbe9031" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MIXER_REGISTRAR_DECLARATION(NAME)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor"><sp/><sp/>virtual<sp/>std::string<sp/>getName()<sp/>{<sp/>return<sp/>#NAME;<sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor"><sp/><sp/>static<sp/>MixerRegistrar&lt;F,<sp/>NAME&lt;F&gt;&gt;<sp/>registrar_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137" refid="Mixer_8hpp_1a7ec8522b70a56ac8cef5b47c623c59c0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MIXER_REGISTRAR_DEFINITION(NAME)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="138"><highlight class="preprocessor"><sp/><sp/>template<sp/>&lt;typename<sp/>F&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor"><sp/><sp/>MixerRegistrar&lt;F,<sp/>NAME&lt;F&gt;&gt;<sp/>NAME&lt;F&gt;::registrar_(#NAME)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/Mixer.hpp"/>
   </compounddef>

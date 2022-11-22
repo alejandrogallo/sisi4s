@@ -195,29 +195,28 @@
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;random&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="13" refid="classsisi4s_1_1PseudoInverseSvd" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1PseudoInverseSvd" kindref="compound">PseudoInverseSvd</ref><sp/>{</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1PseudoInverseSvd" kindref="compound">PseudoInverseSvd</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon<sp/>=<sp/>1e-12);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Matrix&lt;F&gt;<sp/>&amp;<ref refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" kindref="member">get</ref>();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="13" refid="classsisi4s_1_1PseudoInverseSvd" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1PseudoInverseSvd" kindref="compound">PseudoInverseSvd</ref><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1PseudoInverseSvd" kindref="compound">PseudoInverseSvd</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;A,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon<sp/>=<sp/>1e-12);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>CTF::Matrix&lt;F&gt;<sp/>&amp;<ref refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" kindref="member">get</ref>();</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="19" refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Matrix&lt;F&gt;<sp/><ref refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" kindref="member">inverse</ref>;</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" refkind="member"><highlight class="normal"><sp/><sp/>CTF::Matrix&lt;F&gt;<sp/><ref refid="classsisi4s_1_1PseudoInverseSvd_1aac99a52d781420b531c06aa7b4792707" kindref="member">inverse</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="23" refid="classsisi4s_1_1DryPseudoInverseSvd" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseSvd" kindref="compound">DryPseudoInverseSvd</ref><sp/>{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryPseudoInverseSvd" kindref="compound">DryPseudoInverseSvd</ref>(<ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix);</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;F&gt;</ref><sp/>&amp;<ref refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" kindref="member">get</ref>();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="23" refid="classsisi4s_1_1DryPseudoInverseSvd" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1DryPseudoInverseSvd" kindref="compound">DryPseudoInverseSvd</ref><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryPseudoInverseSvd" kindref="compound">DryPseudoInverseSvd</ref>(<ref refid="classsisi4s_1_1DryTensor" kindref="compound">DryTensor&lt;F&gt;</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;F&gt;</ref><sp/>&amp;<ref refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" kindref="member">get</ref>();</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="29" refid="classsisi4s_1_1DryPseudoInverseSvd_1a85799ee3bcae8130d2c8b64b2681a1db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;F&gt;</ref><sp/><ref refid="classsisi4s_1_1DryPseudoInverseSvd_1a85799ee3bcae8130d2c8b64b2681a1db" kindref="member">inverse</ref>;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29" refid="classsisi4s_1_1DryPseudoInverseSvd_1a85799ee3bcae8130d2c8b64b2681a1db" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DryMatrix" kindref="compound">DryMatrix&lt;F&gt;</ref><sp/><ref refid="classsisi4s_1_1DryPseudoInverseSvd_1a85799ee3bcae8130d2c8b64b2681a1db" kindref="member">inverse</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/math/PseudoInverseSvd.hpp"/>
   </compounddef>

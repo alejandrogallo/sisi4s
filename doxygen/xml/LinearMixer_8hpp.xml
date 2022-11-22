@@ -60,58 +60,6 @@
         <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="34">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
-        </childnode>
-        <childnode refid="47" relation="include">
-        </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-      </node>
       <node id="18">
         <label>math/Complex.hpp</label>
         <link refid="Complex_8hpp"/>
@@ -256,6 +204,58 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
+      <node id="34">
+        <label>vendor/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
       <node id="40">
         <label>algorithm</label>
       </node>
@@ -363,37 +363,33 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2017,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>LINEAR_MIXER_DEFINED<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LINEAR_MIXER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Mixer_8hpp" kindref="compound">mixers/Mixer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="11" refid="classsisi4s_1_1LinearMixer" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1LinearMixer" kindref="compound">LinearMixer</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer</ref>&lt;F&gt;<sp/>{</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="13" refid="classsisi4s_1_1LinearMixer_1a6ae502dab8ab8552de2eacab4165225c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Mixer_8hpp_1a32a5609c2d7da90515d9093b4fbe9031" kindref="member">MIXER_REGISTRAR_DECLARATION</ref>(<ref refid="classsisi4s_1_1LinearMixer" kindref="compound">LinearMixer</ref>);</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1LinearMixer" kindref="compound">LinearMixer</ref>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*<ref refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" kindref="member">algorithm</ref>);</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1LinearMixer_1aaaac1d215d7820085f442b1fe24d7c0c" kindref="member">~LinearMixer</ref>();</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1LinearMixer_1ab77b6f3b939579fb5ea595c79cca2235" kindref="member">append</ref>(</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;A,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;R</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1LinearMixer_1a0fab9bf69d0470207ba58970517d587b" kindref="member">get</ref>();</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1LinearMixer_1a40b684bebe91b4ba310c5c2df9f4a4f6" kindref="member">getResiduum</ref>();</highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>LINEAR_MIXER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LINEAR_MIXER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Mixer_8hpp" kindref="compound">mixers/Mixer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="10" refid="classsisi4s_1_1LinearMixer" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1LinearMixer" kindref="compound">LinearMixer</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer</ref>&lt;F&gt;<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="12" refid="classsisi4s_1_1LinearMixer_1a6ae502dab8ab8552de2eacab4165225c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="Mixer_8hpp_1a32a5609c2d7da90515d9093b4fbe9031" kindref="member">MIXER_REGISTRAR_DECLARATION</ref>(<ref refid="classsisi4s_1_1LinearMixer" kindref="compound">LinearMixer</ref>);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1LinearMixer" kindref="compound">LinearMixer</ref>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*<ref refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" kindref="member">algorithm</ref>);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1LinearMixer_1aaaac1d215d7820085f442b1fe24d7c0c" kindref="member">~LinearMixer</ref>();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1LinearMixer_1ab77b6f3b939579fb5ea595c79cca2235" kindref="member">append</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;A,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;R);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1LinearMixer_1a0fab9bf69d0470207ba58970517d587b" kindref="member">get</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1LinearMixer_1a40b684bebe91b4ba310c5c2df9f4a4f6" kindref="member">getResiduum</ref>();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="classsisi4s_1_1LinearMixer_1a94158a1a78ff451a0bd6b6506b2e8b13" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1LinearMixer_1a94158a1a78ff451a0bd6b6506b2e8b13" kindref="member">last</ref>;</highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1LinearMixer_1ac6f3ae76bd71ab6a64db09021019628b" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1LinearMixer_1ac6f3ae76bd71ab6a64db09021019628b" kindref="member">lastResiduum</ref>;</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23" refid="classsisi4s_1_1LinearMixer_1a94158a1a78ff451a0bd6b6506b2e8b13" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1LinearMixer_1a94158a1a78ff451a0bd6b6506b2e8b13" kindref="member">last</ref>;</highlight></codeline>
-<codeline lineno="24" refid="classsisi4s_1_1LinearMixer_1ac6f3ae76bd71ab6a64db09021019628b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1LinearMixer_1ac6f3ae76bd71ab6a64db09021019628b" kindref="member">lastResiduum</ref>;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26" refid="classsisi4s_1_1LinearMixer_1ab7a82431dc8d7d88749b6b677a23c606" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1LinearMixer_1ab7a82431dc8d7d88749b6b677a23c606" kindref="member">ratio</ref>;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classsisi4s_1_1LinearMixer_1ab7a82431dc8d7d88749b6b677a23c606" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1LinearMixer_1ab7a82431dc8d7d88749b6b677a23c606" kindref="member">ratio</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/LinearMixer.hpp"/>
   </compounddef>

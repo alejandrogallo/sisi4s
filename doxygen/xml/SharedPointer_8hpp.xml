@@ -639,7 +639,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" line="9" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" bodystart="9" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" line="8" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" bodystart="8" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="SharedPointer_8hpp_1a79efac8da8cf76d0023444b4adc2e776" prot="public" static="no">
         <name>WEAK_PTR</name>
@@ -651,7 +651,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" line="10" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" bodystart="10" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" line="9" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" bodystart="9" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" prot="public" static="no">
         <name>NEW</name>
@@ -664,7 +664,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" line="11" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" bodystart="11" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" line="10" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp" bodystart="10" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -672,20 +672,18 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2017,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SHARED_POINTER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHARED_POINTER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>provide<sp/>convenience<sp/>macros<sp/>for<sp/>shared<sp/>pointers</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9" refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PTR(TYPE)<sp/>std::shared_ptr&lt;TYPE&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10" refid="SharedPointer_8hpp_1a79efac8da8cf76d0023444b4adc2e776" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WEAK_PTR(TYPE)<sp/>std::weak_ptr&lt;TYPE&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11" refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NEW(TYPE,<sp/>...)<sp/>std::make_shared&lt;TYPE&gt;(__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SHARED_POINTER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHARED_POINTER_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>provide<sp/>convenience<sp/>macros<sp/>for<sp/>shared<sp/>pointers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PTR(TYPE)<sp/>std::shared_ptr&lt;TYPE&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="SharedPointer_8hpp_1a79efac8da8cf76d0023444b4adc2e776" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WEAK_PTR(TYPE)<sp/>std::weak_ptr&lt;TYPE&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NEW(TYPE,<sp/>...)<sp/>std::make_shared&lt;TYPE&gt;(__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/util/SharedPointer.hpp"/>
   </compounddef>

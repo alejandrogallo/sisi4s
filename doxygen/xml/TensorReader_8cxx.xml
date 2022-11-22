@@ -94,58 +94,6 @@
         <childnode refid="50" relation="include">
         </childnode>
       </node>
-      <node id="29">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-      </node>
       <node id="9">
         <label>math/Complex.hpp</label>
         <link refid="Complex_8hpp"/>
@@ -258,6 +206,58 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
+      <node id="29">
+        <label>vendor/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
       <node id="37">
         <label>algorithm</label>
       </node>
@@ -361,72 +361,65 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2018,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="TensorIo_8hpp" kindref="compound">util/TensorIo.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Emitter_8hpp" kindref="compound">util/Emitter.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="TensorReader_8hpp" kindref="compound">algorithms/TensorReader.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="TensorIo_8hpp" kindref="compound">util/TensorIo.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Emitter_8hpp" kindref="compound">util/Emitter.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="TensorReader_8hpp" kindref="compound">algorithms/TensorReader.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(TensorReader);</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(TensorReader);</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18" refid="classsisi4s_1_1TensorReader_1a16d2bde80287b0e270b21813eceacc0c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1TensorReader_1a16d2bde80287b0e270b21813eceacc0c" kindref="member">TensorReader::TensorReader</ref>(std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList)</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{}</highlight></codeline>
+<codeline lineno="16" refid="classsisi4s_1_1TensorReader_1a16d2bde80287b0e270b21813eceacc0c" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1TensorReader_1a16d2bde80287b0e270b21813eceacc0c" kindref="member">TensorReader::TensorReader</ref>(std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1TensorReader_1aeca06bec4bea67321447aba761c68da3" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1TensorReader_1aeca06bec4bea67321447aba761c68da3" kindref="member">TensorReader::~TensorReader</ref>()<sp/>{}</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21" refid="classsisi4s_1_1TensorReader_1aeca06bec4bea67321447aba761c68da3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1TensorReader_1aeca06bec4bea67321447aba761c68da3" kindref="member">TensorReader::~TensorReader</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21" refid="classsisi4s_1_1TensorReader_1a8c763af7429934cf13a90448360868fb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TensorReader_1a8c763af7429934cf13a90448360868fb" kindref="member">TensorReader::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>std::string<sp/>name(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">)-&gt;<ref refid="classsisi4s_1_1TensorReader_1aefd52d0fa9c22cb4f96bc7dce7073885" kindref="member">getName</ref>());</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24" refid="classsisi4s_1_1TensorReader_1a8c763af7429934cf13a90448360868fb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1TensorReader_1a8c763af7429934cf13a90448360868fb" kindref="member">TensorReader::run</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>name(<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">)-&gt;<ref refid="classsisi4s_1_1TensorReader_1aefd52d0fa9c22cb4f96bc7dce7073885" kindref="member">getName</ref>());</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>sure<sp/>all<sp/>processes<sp/>start<sp/>reading<sp/>the<sp/>file<sp/>at<sp/>the<sp/>same<sp/>time<sp/>in<sp/>case</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>it<sp/>has<sp/>been<sp/>modified<sp/>before</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_Barrier(<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;comm);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>precision(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;precision&quot;</highlight><highlight class="normal">,<sp/>64));</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(precision)<sp/>{</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>64:</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>allocatedTensorArgument&lt;Float64&gt;(</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">,<sp/>read&lt;Float64&gt;(name));</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="40" refid="classsisi4s_1_1TensorReader_1ad0249ec92061f12cc888a8e276ed7a3a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*<ref refid="classsisi4s_1_1TensorReader_1ad0249ec92061f12cc888a8e276ed7a3a" kindref="member">TensorReader::read</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;name)<sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*A;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>mode(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;mode&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;text&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mode<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;binary&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>fileName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,<sp/>name<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.bin&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>fileName;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>A<sp/>=<sp/>TensorIo::readBinary&lt;F&gt;(fileName);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>fileName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,<sp/>name<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.dat&quot;</highlight><highlight class="normal">).c_str());</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>delimiter(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;delimiter&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/>bufferSize(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;bufferSize&quot;</highlight><highlight class="normal">,<sp/>128l*1024*1024));</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>A<sp/>=<sp/>TensorIo::readText&lt;F&gt;(fileName,<sp/>delimiter,<sp/>bufferSize);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>fileName;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>A-&gt;set_name(name.c_str());</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>name;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>indexCount(1);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>A-&gt;order;<sp/>++dim)<sp/>{</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>indexCount<sp/>*=<sp/>A-&gt;lens[dim];</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;elements&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>indexCount;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>A;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>sure<sp/>all<sp/>processes<sp/>start<sp/>reading<sp/>the<sp/>file<sp/>at<sp/>the<sp/>same<sp/>time<sp/>in<sp/>case</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>it<sp/>has<sp/>been<sp/>modified<sp/>before</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>MPI_Barrier(<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>-&gt;comm);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>int64_t<sp/>precision(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;precision&quot;</highlight><highlight class="normal">,<sp/>64));</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(precision)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>64:<sp/>allocatedTensorArgument&lt;Float64&gt;(</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">,<sp/>read&lt;Float64&gt;(name));<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="35" refid="classsisi4s_1_1TensorReader_1ad0249ec92061f12cc888a8e276ed7a3a" refkind="member"><highlight class="normal"><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*<ref refid="classsisi4s_1_1TensorReader_1ad0249ec92061f12cc888a8e276ed7a3a" kindref="member">TensorReader::read</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;name)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*A;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>std::string<sp/>mode(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;mode&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;text&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mode<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;binary&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>fileName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,<sp/>name<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.bin&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>fileName;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>A<sp/>=<sp/>TensorIo::readBinary&lt;F&gt;(fileName);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>fileName(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal">,<sp/>name<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.dat&quot;</highlight><highlight class="normal">).c_str());</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>delimiter(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;delimiter&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>bufferSize(<ref refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" kindref="member">getIntegerArgument</ref>(</highlight><highlight class="stringliteral">&quot;bufferSize&quot;</highlight><highlight class="normal">,<sp/>128l<sp/>*<sp/>1024<sp/>*<sp/>1024));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>A<sp/>=<sp/>TensorIo::readText&lt;F&gt;(fileName,<sp/>delimiter,<sp/>bufferSize);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;file&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>fileName;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>A-&gt;set_name(name.c_str());</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>name;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>int64_t<sp/>indexCount(1);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(0);<sp/>dim<sp/>&lt;<sp/>A-&gt;order;<sp/>++dim)<sp/>{<sp/>indexCount<sp/>*=<sp/>A-&gt;lens[dim];<sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;elements&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>indexCount;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>A;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorReader.cxx"/>
   </compounddef>

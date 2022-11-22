@@ -141,18 +141,12 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">{ \</div>
-<div class="line">  Assert( \</div>
-<div class="line">    (c).order==(r).order, \</div>
-<div class="line">    <span class="stringliteral">&quot;Incompatible tensor orders&quot;</span> \</div>
-<div class="line">  ); \</div>
-<div class="line">  for (<span class="keywordtype">int</span> k(0); k &lt; c.order; ++k) \</div>
-<div class="line">    <a class="code hl_define" href="Exception_8hpp.html#aa6490e8f97f5dc90591264a4d94a1c09">Assert</a>( \</div>
-<div class="line">      (c).lens[k]==(r).lens[k], \</div>
-<div class="line">      <span class="stringliteral">&quot;Incompatible tensor shapes&quot;</span> \</div>
-<div class="line">    ); \</div>
-<div class="line">}</div>
-<div class="ttc" id="aException_8hpp_html_aa6490e8f97f5dc90591264a4d94a1c09"><div class="ttname"><a href="Exception_8hpp.html#aa6490e8f97f5dc90591264a4d94a1c09">Assert</a></div><div class="ttdeci">#define Assert(condition, message)</div><div class="ttdef"><b>Definition:</b> Exception.hpp:11</div></div>
+<b>Value:</b><div class="fragment"><div class="line">  {                                                                            \</div>
+<div class="line">    Assert((c).order == (r).order, <span class="stringliteral">&quot;Incompatible tensor orders&quot;</span>);              \</div>
+<div class="line">    for (<span class="keywordtype">int</span> k(0); k &lt; c.order; ++k)                                           \</div>
+<div class="line">      <a class="code hl_define" href="Exception_8hpp.html#aa6490e8f97f5dc90591264a4d94a1c09">Assert</a>((c).lens[k] == (r).lens[k], <span class="stringliteral">&quot;Incompatible tensor shapes&quot;</span>);        \</div>
+<div class="line">  }</div>
+<div class="ttc" id="aException_8hpp_html_aa6490e8f97f5dc90591264a4d94a1c09"><div class="ttname"><a href="Exception_8hpp.html#aa6490e8f97f5dc90591264a4d94a1c09">Assert</a></div><div class="ttdeci">#define Assert(condition, message)</div><div class="ttdef"><b>Definition:</b> Exception.hpp:10</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -187,17 +181,13 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">{ \</div>
-<div class="line">  Assert( \</div>
-<div class="line">    (c).order==(r).order &amp;&amp; (c).order==(i).order, \</div>
-<div class="line">    <span class="stringliteral">&quot;Incompatible tensor orders&quot;</span> \</div>
-<div class="line">  ); \</div>
-<div class="line">  for (<span class="keywordtype">int</span> k(0); k &lt; c.order; ++k) \</div>
-<div class="line">    <a class="code hl_define" href="Exception_8hpp.html#aa6490e8f97f5dc90591264a4d94a1c09">Assert</a>( \</div>
-<div class="line">      (c).lens[k]==(r).lens[k] &amp;&amp; (c).lens[k]==(i).lens[k], \</div>
-<div class="line">      <span class="stringliteral">&quot;Incompatible tensor shapes&quot;</span> \</div>
-<div class="line">    ); \</div>
-<div class="line">}</div>
+<b>Value:</b><div class="fragment"><div class="line">  {                                                                            \</div>
+<div class="line">    Assert((c).order == (r).order &amp;&amp; (c).order == (i).order,                   \</div>
+<div class="line">           <span class="stringliteral">&quot;Incompatible tensor orders&quot;</span>);                                      \</div>
+<div class="line">    for (<span class="keywordtype">int</span> k(0); k &lt; c.order; ++k)                                           \</div>
+<div class="line">      <a class="code hl_define" href="Exception_8hpp.html#aa6490e8f97f5dc90591264a4d94a1c09">Assert</a>((c).lens[k] == (r).lens[k] &amp;&amp; (c).lens[k] == (i).lens[k],         \</div>
+<div class="line">             <span class="stringliteral">&quot;Incompatible tensor shapes&quot;</span>);                                    \</div>
+<div class="line">  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -216,8 +206,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordtype">char</span> indices[(Tensor).order]; \</div>
-<div class="line">  for (<span class="keywordtype">int</span> i(0); i &lt; (Tensor).order; ++i) { indices[i] = <span class="charliteral">&#39;a&#39;</span>+i; } \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordtype">char</span> indices[(Tensor).order];                                                \</div>
+<div class="line">  for (<span class="keywordtype">int</span> i(0); i &lt; (Tensor).order; ++i) { indices[i] = <span class="charliteral">&#39;a&#39;</span> + i; }            \</div>
 <div class="line">  indices[(Tensor).order] = 0</div>
 </div><!-- fragment -->
 </div>

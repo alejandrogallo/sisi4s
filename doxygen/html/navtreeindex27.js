@@ -1,5 +1,6 @@
 var NAVTREEINDEX27 =
 {
+"structIntegralParser.html#a04eeb58b936558017a73796c731fe55d":[3,0,14,9],
 "structIntegralParser.html#a22880c369f04fbcc247bc0188e0a09a6":[3,0,14,8],
 "structIntegralParser.html#a3abd0dac8e5b32c7c57b12180add840e":[3,0,14,4],
 "structIntegralParser.html#a42c506cb6dbd6fb2d1aece52e614975f":[3,0,14,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX27 =
 "structsisi4s_1_1MeanCorrelationHoleDepth.html#a940ff082b9e2e5715f7fbb3a4bddb932":[3,0,5,109,3],
 "structsisi4s_1_1MeanCorrelationHoleDepth.html#a940ff082b9e2e5715f7fbb3a4bddb932":[2,0,6,109,3],
 "structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html":[3,0,5,123],
-"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html":[2,0,6,123],
-"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a1d341e75fad3c4a6ba5bf9c02dda09b4":[3,0,5,123,0]
+"structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html":[2,0,6,123]
 };

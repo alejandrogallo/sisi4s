@@ -198,23 +198,19 @@
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1ComplexTensorNorm" kindref="compound">ComplexTensorNorm</ref>);</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight></codeline>
-<codeline lineno="12" refid="classsisi4s_1_1ComplexTensorNorm_1a0aefa8efe464e1281c10d5af569cf27e" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ComplexTensorNorm_1a0aefa8efe464e1281c10d5af569cf27e" kindref="member">ComplexTensorNorm::ComplexTensorNorm</ref>(</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/>std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList</highlight></codeline>
-<codeline lineno="14"><highlight class="normal">):<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{</highlight></codeline>
-<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17" refid="classsisi4s_1_1ComplexTensorNorm_1a6ff3d292c0e03bac579350a2aefd4d07" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ComplexTensorNorm_1a6ff3d292c0e03bac579350a2aefd4d07" kindref="member">ComplexTensorNorm::~ComplexTensorNorm</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23" refid="classsisi4s_1_1ComplexTensorNorm_1a391ff0c1f973a4c3a3591d3bcd2a10c7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ComplexTensorNorm_1a391ff0c1f973a4c3a3591d3bcd2a10c7" kindref="member">ComplexTensorNorm::run</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*A(getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;A&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>norm(<ref refid="namespacesisi4s_1aae36a475bbea733a01982cbf5f741cc1" kindref="member">frobeniusNorm</ref>(*A));</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;|A|<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>norm<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" kindref="member">setRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;Norm&quot;</highlight><highlight class="normal">,<sp/>norm);</highlight></codeline>
-<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><ref refid="Algorithm_8hpp_1a07e9ffa67ed21886a687b27719c949e1" kindref="member">ALGORITHM_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1ComplexTensorNorm" kindref="compound">ComplexTensorNorm</ref>);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="classsisi4s_1_1ComplexTensorNorm_1a0aefa8efe464e1281c10d5af569cf27e" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ComplexTensorNorm_1a0aefa8efe464e1281c10d5af569cf27e" kindref="member">ComplexTensorNorm::ComplexTensorNorm</ref>(std::vector&lt;Argument&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;argumentList)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref>(argumentList)<sp/>{}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="classsisi4s_1_1ComplexTensorNorm_1a6ff3d292c0e03bac579350a2aefd4d07" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ComplexTensorNorm_1a6ff3d292c0e03bac579350a2aefd4d07" kindref="member">ComplexTensorNorm::~ComplexTensorNorm</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classsisi4s_1_1ComplexTensorNorm_1a391ff0c1f973a4c3a3591d3bcd2a10c7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ComplexTensorNorm_1a391ff0c1f973a4c3a3591d3bcd2a10c7" kindref="member">ComplexTensorNorm::run</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;complex&gt;</ref><sp/>*A(getTensorArgument&lt;complex&gt;(</highlight><highlight class="stringliteral">&quot;A&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>norm(<ref refid="namespacesisi4s_1aae36a475bbea733a01982cbf5f741cc1" kindref="member">frobeniusNorm</ref>(*A));</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;|A|<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>norm<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" kindref="member">setRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;Norm&quot;</highlight><highlight class="normal">,<sp/>norm);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/ComplexTensorNorm.cxx"/>
   </compounddef>

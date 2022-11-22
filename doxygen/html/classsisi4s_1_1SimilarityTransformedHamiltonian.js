@@ -70,7 +70,7 @@ var classsisi4s_1_1SimilarityTransformedHamiltonian =
     [ "setVijak", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a8edf6d46c7e98a6a7a2b54b2fdd50e12", null ],
     [ "setVijka", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#aeb15fe7be120e6738ee8b0d95435bcae", null ],
     [ "setVijkl", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a602dbced04318d71ca4bd329d7b33349", null ],
-    [ "structureFactor", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a38e4e848464faa11aabcb3883af74b33", null ],
+    [ "structureFactor", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#abce6e7053876b8d689a0c2753c17f289", null ],
     [ "useStantonIntermediatesUCCSD", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a74fe2b80e50cfe49ce6156297b410765", null ],
     [ "useStantonIntermediatesUCCSD", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#ae8ee68fd7f9e4e9d7a15af3beb3a77ca", null ]
 ];

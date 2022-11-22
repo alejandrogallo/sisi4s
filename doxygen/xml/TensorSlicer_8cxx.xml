@@ -85,58 +85,6 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="29">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-      </node>
       <node id="18">
         <label>math/Complex.hpp</label>
         <link refid="Complex_8hpp"/>
@@ -215,6 +163,58 @@
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>vendor/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
         </childnode>
       </node>
       <node id="36">
@@ -330,7 +330,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorSlicer.cxx" line="13" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorSlicer.cxx" bodystart="13" bodyend="17"/>
-        <referencedby refid="structsisi4s_1_1TensorSlicer_1a2a5a3ba1ccb504d6bc5e7b0799ee85a7" compoundref="TensorSlicer_8cxx" startline="19" endline="45">sisi4s::TensorSlicer::run</referencedby>
+        <referencedby refid="structsisi4s_1_1TensorSlicer_1a2a5a3ba1ccb504d6bc5e7b0799ee85a7" compoundref="TensorSlicer_8cxx" startline="19" endline="44">sisi4s::TensorSlicer::run</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -352,7 +352,7 @@
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
 <codeline lineno="13" refid="TensorSlicer_8cxx_1acbb9a293ee6b3341497558a839bcd112" refkind="member"><highlight class="normal">std::string<sp/><ref refid="TensorSlicer_8cxx_1acbb9a293ee6b3341497558a839bcd112" kindref="member">_showVector</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;F&gt;<sp/>&amp;v)<sp/>{</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><sp/><sp/>std::stringstream<sp/>s;</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;i:<sp/>v)<sp/>s<sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;i<sp/>:<sp/>v)<sp/>s<sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;{&quot;</highlight><highlight class="normal"><sp/>+<sp/>s.str()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;}&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="17"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
@@ -360,29 +360,28 @@
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" kindref="member">checkArgumentsOrDie</ref>({</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Begin&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;End&quot;</highlight><highlight class="normal">});</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>begin(<ref refid="namespacepars_1a6d4a77824971572b20b53e09f62618bd" kindref="member">pars::parseVector&lt;int&gt;</ref>(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;Begin&quot;</highlight><highlight class="normal">)))</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>end(<ref refid="namespacepars_1a6d4a77824971572b20b53e09f62618bd" kindref="member">pars::parseVector&lt;int&gt;</ref>(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;End&quot;</highlight><highlight class="normal">)))</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;TensorSlicer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;begin:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="TensorSlicer_8cxx_1acbb9a293ee6b3341497558a839bcd112" kindref="member">_showVector</ref>(begin)<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;TensorSlicer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;end:<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="TensorSlicer_8cxx_1acbb9a293ee6b3341497558a839bcd112" kindref="member">_showVector</ref>(end)<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>T(getTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;TensorSlicer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;slicing...&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>t(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref>(T-&gt;slice(begin.data(),<sp/>end.data())));</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;TensorSlicer&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;lens:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="TensorSlicer_8cxx_1acbb9a293ee6b3341497558a839bcd112" kindref="member">_showVector</ref>(std::vector&lt;int&gt;(t-&gt;lens,<sp/>t-&gt;lens<sp/>+<sp/>t-&gt;order))</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;TensorSlicer&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;sym:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="TensorSlicer_8cxx_1acbb9a293ee6b3341497558a839bcd112" kindref="member">_showVector</ref>(std::vector&lt;int&gt;(t-&gt;sym,<sp/>t-&gt;sym<sp/>+<sp/>t-&gt;order))</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">,<sp/>t);</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>begin(<ref refid="namespacepars_1a6d4a77824971572b20b53e09f62618bd" kindref="member">pars::parseVector&lt;int&gt;</ref>(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;Begin&quot;</highlight><highlight class="normal">))),</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>end(<ref refid="namespacepars_1a6d4a77824971572b20b53e09f62618bd" kindref="member">pars::parseVector&lt;int&gt;</ref>(<ref refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" kindref="member">getTextArgument</ref>(</highlight><highlight class="stringliteral">&quot;End&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;TensorSlicer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;begin:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="TensorSlicer_8cxx_1acbb9a293ee6b3341497558a839bcd112" kindref="member">_showVector</ref>(begin)<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;TensorSlicer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;end:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="TensorSlicer_8cxx_1acbb9a293ee6b3341497558a839bcd112" kindref="member">_showVector</ref>(end)<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>T(getTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;Data&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;TensorSlicer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;slicing...&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>t(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref>(T-&gt;slice(begin.data(),<sp/>end.data())));</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;TensorSlicer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;lens:<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="TensorSlicer_8cxx_1acbb9a293ee6b3341497558a839bcd112" kindref="member">_showVector</ref>(</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;(t-&gt;lens,<sp/>t-&gt;lens<sp/>+<sp/>t-&gt;order))</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/></highlight><highlight class="stringliteral">&quot;TensorSlicer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;sym:<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="TensorSlicer_8cxx_1acbb9a293ee6b3341497558a839bcd112" kindref="member">_showVector</ref>(</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;(t-&gt;sym,<sp/>t-&gt;sym<sp/>+<sp/>t-&gt;order))</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>allocatedTensorArgument&lt;double&gt;(</highlight><highlight class="stringliteral">&quot;Out&quot;</highlight><highlight class="normal">,<sp/>t);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorSlicer.cxx"/>
   </compounddef>

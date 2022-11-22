@@ -164,58 +164,6 @@
         <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="35">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
-        </childnode>
-        <childnode refid="47" relation="include">
-        </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-        <childnode refid="49" relation="include">
-        </childnode>
-      </node>
       <node id="19">
         <label>math/Complex.hpp</label>
         <link refid="Complex_8hpp"/>
@@ -366,6 +314,58 @@
         <childnode refid="13" relation="include">
         </childnode>
       </node>
+      <node id="35">
+        <label>vendor/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
       <node id="41">
         <label>algorithm</label>
       </node>
@@ -483,133 +483,118 @@
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;sisi4s::complex&gt;</ref>)</highlight></codeline>
 <codeline lineno="18" refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1ac8043aabb57d83b17c1d2392fb7e10a3" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals" kindref="compound">UrpaAmplitudesFromCoulombIntegrals</ref>::getResiduum(</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/>const<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iterationStep,</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/>const<sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(const<sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>&gt;)<sp/>&amp;amplitudes</highlight></codeline>
-<codeline lineno="21"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(iterationStep<sp/>==<sp/>0){</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/>getAbbreviation())<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;WARNING:<sp/>Using<sp/>complex<sp/>version<sp/>of<sp/>Urpa&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/>getAbbreviation())<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;WARNING:<sp/>Complex<sp/>version<sp/>is<sp/>not<sp/>tested.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>getResiduumTemplate&lt;complex&gt;(iterationStep,<sp/>amplitudes);</highlight></codeline>
-<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31" refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1a9f9c7804ae484e97d9fd48aec9fb5e45" refkind="member"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;double&gt;</ref>)<sp/><ref refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1a9f9c7804ae484e97d9fd48aec9fb5e45" kindref="member">UrpaAmplitudesFromCoulombIntegrals::getResiduum</ref>(</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iterationStep,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;double&gt;</ref>)<sp/>&amp;amplitudes</highlight></codeline>
-<codeline lineno="33"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>getResiduumTemplate&lt;double&gt;(iterationStep,<sp/>amplitudes);</highlight></codeline>
-<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="38" refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1ae9bbdc47787514f0c53c017d6b339ad2" refkind="member"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1ae9bbdc47787514f0c53c017d6b339ad2" kindref="member">UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate</ref>(</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iterationStep,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;amplitudes</highlight></codeline>
-<codeline lineno="40"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>*epsi(</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&gt;(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>*epsa(</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>&gt;(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>const<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iterationStep,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>const<sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(const<sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt;<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">complex</ref>&gt;)<sp/>&amp;amplitudes)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(iterationStep<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/>getAbbreviation())</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;WARNING:<sp/>Using<sp/>complex<sp/>version<sp/>of<sp/>Urpa&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/>getAbbreviation())</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;WARNING:<sp/>Complex<sp/>version<sp/>is<sp/>not<sp/>tested.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>getResiduumTemplate&lt;complex&gt;(iterationStep,<sp/>amplitudes);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1a9f9c7804ae484e97d9fd48aec9fb5e45" refkind="member"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;double&gt;</ref>)<sp/><ref refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1a9f9c7804ae484e97d9fd48aec9fb5e45" kindref="member">UrpaAmplitudesFromCoulombIntegrals::getResiduum</ref>(</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iterationStep,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;double&gt;</ref>)<sp/>&amp;amplitudes)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>getResiduumTemplate&lt;double&gt;(iterationStep,<sp/>amplitudes);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="37" refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1ae9bbdc47787514f0c53c017d6b339ad2" refkind="member"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1ae9bbdc47787514f0c53c017d6b339ad2" kindref="member">UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate</ref>(</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iterationStep,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;amplitudes)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>*epsi(</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;HoleEigenEnergies&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>*epsa(</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;ParticleEigenEnergies&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>couloumb<sp/>integrals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Vijab(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;F,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>&gt;(</highlight><highlight class="stringliteral">&quot;HHPPCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>couloumb<sp/>integrals</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Vijab(<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;F,<sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&gt;(</highlight><highlight class="stringliteral">&quot;HHPPCoulombIntegrals&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(epsa-&gt;lens[0]),<sp/>No(epsi-&gt;lens[0]);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vv[]<sp/>=<sp/>{Nv,<sp/>Nv};</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>oo[]<sp/>=<sp/>{No,<sp/>No};</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{NS,<sp/>NS};</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*Fab(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>(2,<sp/>vv,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Fab&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*Fij(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>(2,<sp/>oo,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Fij&quot;</highlight><highlight class="normal">));</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*Fia;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;HPFockMatrix&quot;</highlight><highlight class="normal">)<sp/>&amp;&amp;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;HHFockMatrix&quot;</highlight><highlight class="normal">)<sp/>&amp;&amp;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;PPFockMatrix&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(iterationStep<sp/>==<sp/>0){</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/><ref refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1aa26d08a9a890615d25790feaa2c1865d" kindref="member">getAbbreviation</ref>())<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Using<sp/>non-canonical<sp/>orbitals&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>Fia<sp/>=<sp/>getTensorArgument&lt;F,<sp/>Tensor&lt;F&gt;<sp/>&gt;(</highlight><highlight class="stringliteral">&quot;HPFockMatrix&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>Fab<sp/>=<sp/>getTensorArgument&lt;F,<sp/>Tensor&lt;F&gt;<sp/>&gt;(</highlight><highlight class="stringliteral">&quot;PPFockMatrix&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>Fij<sp/>=<sp/>getTensorArgument&lt;F,<sp/>Tensor&lt;F&gt;<sp/>&gt;(</highlight><highlight class="stringliteral">&quot;HHFockMatrix&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>Fia<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Transform&lt;double,<sp/>F&gt;(</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>F<sp/>&amp;)&gt;(</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eps,<sp/>F<sp/>&amp;f)<sp/>{<sp/>f<sp/>=<sp/>eps;<sp/>}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>(</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*epsi)[</highlight><highlight class="stringliteral">&quot;i&quot;</highlight><highlight class="normal">],<sp/>(*Fij)[</highlight><highlight class="stringliteral">&quot;ii&quot;</highlight><highlight class="normal">]</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Transform&lt;double,<sp/>F&gt;(</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>F<sp/>&amp;)&gt;(</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eps,<sp/>F<sp/>&amp;f)<sp/>{<sp/>f<sp/>=<sp/>eps;<sp/>}</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>(</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*epsa)[</highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">],<sp/>(*Fab)[</highlight><highlight class="stringliteral">&quot;aa&quot;</highlight><highlight class="normal">]</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>T<sp/>and<sp/>R<sp/>and<sp/>intermediates</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>the<sp/>amplitudes<sp/>Tai<sp/>and<sp/>Tabij</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Tai(amplitudes-&gt;<ref refid="classsisi4s_1_1FockVector_1aebf4e090f20a7bb83c434396b274c89c" kindref="member">get</ref>(0));</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/>Tai-&gt;set_name(</highlight><highlight class="stringliteral">&quot;Tai&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Tabij(amplitudes-&gt;<ref refid="classsisi4s_1_1FockVector_1aebf4e090f20a7bb83c434396b274c89c" kindref="member">get</ref>(1));</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/>Tabij-&gt;set_name(</highlight><highlight class="stringliteral">&quot;Tabij&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>residuum(<ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>,<sp/>*amplitudes));</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/>*residuum<sp/>*=<sp/>0.0;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocate<sp/>Tensors<sp/>for<sp/>T2<sp/>amplitudes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Rai(residuum-&gt;get(0));</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/>Rai-&gt;set_name(</highlight><highlight class="stringliteral">&quot;Rai&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Rabij(residuum-&gt;get(1));</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/>Rabij-&gt;set_name(</highlight><highlight class="stringliteral">&quot;Rabij&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(iterationStep<sp/>==<sp/>0){</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/><ref refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1aa26d08a9a890615d25790feaa2c1865d" kindref="member">getAbbreviation</ref>())</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Set<sp/>initial<sp/>Rabij<sp/>amplitudes<sp/>to<sp/>Vijab&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*Vijab)[</highlight><highlight class="stringliteral">&quot;ijab&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>residuum;</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian&lt;F&gt;</ref><sp/>H(Fij-&gt;lens[0],<sp/>Fab-&gt;lens[0]);</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/>H.setFij(Fij).setFab(Fab).setFia(Fia)</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>.setVijab(Vijab)</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>.setTai(Tai.get())</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>.setTabij(Tabij.get())</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>.setDressing(<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian&lt;F&gt;::Dressing::GENERAL</ref>);</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>T1<sp/>equations:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Nv(epsa-&gt;lens[0]),<sp/>No(epsi-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vv[]<sp/>=<sp/>{Nv,<sp/>Nv};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>oo[]<sp/>=<sp/>{No,<sp/>No};</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>syms[]<sp/>=<sp/>{NS,<sp/>NS};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*Fab(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>(2,<sp/>vv,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Fab&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*Fij(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>(2,<sp/>oo,<sp/>syms,<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Fij&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*Fia;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;HPFockMatrix&quot;</highlight><highlight class="normal">)<sp/>&amp;&amp;<sp/><ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;HHFockMatrix&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/><ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(</highlight><highlight class="stringliteral">&quot;PPFockMatrix&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(iterationStep<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0,<sp/><ref refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1aa26d08a9a890615d25790feaa2c1865d" kindref="member">getAbbreviation</ref>())<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Using<sp/>non-canonical<sp/>orbitals&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>Fia<sp/>=<sp/>getTensorArgument&lt;F,<sp/>Tensor&lt;F&gt;&gt;(</highlight><highlight class="stringliteral">&quot;HPFockMatrix&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>Fab<sp/>=<sp/>getTensorArgument&lt;F,<sp/>Tensor&lt;F&gt;&gt;(</highlight><highlight class="stringliteral">&quot;PPFockMatrix&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>Fij<sp/>=<sp/>getTensorArgument&lt;F,<sp/>Tensor&lt;F&gt;&gt;(</highlight><highlight class="stringliteral">&quot;HHFockMatrix&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>Fia<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Transform&lt;double,<sp/>F&gt;(std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>F<sp/>&amp;)&gt;(</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eps,<sp/>F<sp/>&amp;f)<sp/>{<sp/>f<sp/>=<sp/>eps;<sp/>}))((*epsi)[</highlight><highlight class="stringliteral">&quot;i&quot;</highlight><highlight class="normal">],<sp/>(*Fij)[</highlight><highlight class="stringliteral">&quot;ii&quot;</highlight><highlight class="normal">]);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Transform&lt;double,<sp/>F&gt;(std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>F<sp/>&amp;)&gt;(</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eps,<sp/>F<sp/>&amp;f)<sp/>{<sp/>f<sp/>=<sp/>eps;<sp/>}))((*epsa)[</highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">],<sp/>(*Fab)[</highlight><highlight class="stringliteral">&quot;aa&quot;</highlight><highlight class="normal">]);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>T<sp/>and<sp/>R<sp/>and<sp/>intermediates</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>the<sp/>amplitudes<sp/>Tai<sp/>and<sp/>Tabij</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Tai(amplitudes-&gt;<ref refid="classsisi4s_1_1FockVector_1aebf4e090f20a7bb83c434396b274c89c" kindref="member">get</ref>(0));</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>Tai-&gt;set_name(</highlight><highlight class="stringliteral">&quot;Tai&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Tabij(amplitudes-&gt;<ref refid="classsisi4s_1_1FockVector_1aebf4e090f20a7bb83c434396b274c89c" kindref="member">get</ref>(1));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>Tabij-&gt;set_name(</highlight><highlight class="stringliteral">&quot;Tabij&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>residuum(<ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>,<sp/>*amplitudes));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>*residuum<sp/>*=<sp/>0.0;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allocate<sp/>Tensors<sp/>for<sp/>T2<sp/>amplitudes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Rai(residuum-&gt;get(0));</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>Rai-&gt;set_name(</highlight><highlight class="stringliteral">&quot;Rai&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Rabij(residuum-&gt;get(1));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>Rabij-&gt;set_name(</highlight><highlight class="stringliteral">&quot;Rabij&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(iterationStep<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/><ref refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1aa26d08a9a890615d25790feaa2c1865d" kindref="member">getAbbreviation</ref>())</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Set<sp/>initial<sp/>Rabij<sp/>amplitudes<sp/>to<sp/>Vijab&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">]<sp/>=<sp/>(*Vijab)[</highlight><highlight class="stringliteral">&quot;ijab&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>residuum;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian&lt;F&gt;</ref><sp/>H(Fij-&gt;lens[0],<sp/>Fab-&gt;lens[0]);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>H.setFij(Fij)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.setFab(Fab)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.setFia(Fia)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.setVijab(Vijab)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.setTai(Tai.get())</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.setTabij(Tabij.get())</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.setDressing(<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian&lt;F&gt;::Dressing::GENERAL</ref>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>T1<sp/>equations:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>singles<sp/>amplitude<sp/>equations<sp/>are<sp/>simply<sp/>taking<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Wai<sp/>part<sp/>of<sp/>the<sp/>\bar<sp/>H<sp/>and<sp/>setting<sp/>it<sp/>to<sp/>zero</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Wai<sp/>=<sp/>H.getAI_RPA();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*Wai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>These<sp/>are<sp/>the<sp/>residum<sp/>equations,<sp/>we<sp/>have<sp/>to<sp/>substract<sp/>them<sp/>from<sp/>Wai</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;bi&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*Fab)[</highlight><highlight class="stringliteral">&quot;bc&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ci&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;bi&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>(*Fij)[</highlight><highlight class="stringliteral">&quot;ki&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;bk&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>T2<sp/>equations:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>doubles<sp/>amplitude<sp/>equations<sp/>are<sp/>simply<sp/>taking<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Wabij<sp/>part<sp/>of<sp/>the<sp/>\bar<sp/>H<sp/>and<sp/>setting<sp/>it<sp/>to<sp/>zero</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>singles<sp/>amplitude<sp/>equations<sp/>are<sp/>simply<sp/>taking<sp/>the</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Wai<sp/>part<sp/>of<sp/>the<sp/>\bar<sp/>H<sp/>and<sp/>setting<sp/>it<sp/>to<sp/>zero</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Wai<sp/>=<sp/>H.getAI_RPA();</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*Wai)[</highlight><highlight class="stringliteral">&quot;ai&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//These<sp/>are<sp/>the<sp/>residum<sp/>equations,<sp/>we<sp/>have<sp/>to<sp/>substract<sp/>them<sp/>from<sp/>Wai</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;bi&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>(*Fab)[</highlight><highlight class="stringliteral">&quot;bc&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;ci&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/>(*Rai)[</highlight><highlight class="stringliteral">&quot;bi&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>(*Fij)[</highlight><highlight class="stringliteral">&quot;ki&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tai)[</highlight><highlight class="stringliteral">&quot;bk&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>T2<sp/>equations:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>doubles<sp/>amplitude<sp/>equations<sp/>are<sp/>simply<sp/>taking<sp/>the</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Wabij<sp/>part<sp/>of<sp/>the<sp/>\bar<sp/>H<sp/>and<sp/>setting<sp/>it<sp/>to<sp/>zero</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Wabij<sp/>=<sp/>H.getABIJ_RPA();</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*Wabij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//These<sp/>are<sp/>the<sp/>residum<sp/>equations,<sp/>substract<sp/>them<sp/>from<sp/>Wabij</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;cdij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>(*Fij)[</highlight><highlight class="stringliteral">&quot;mi&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;cdmj&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;cdij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>(*Fij)[</highlight><highlight class="stringliteral">&quot;mj&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;cdmi&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;cdij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>+<sp/>1.0<sp/><sp/>)<sp/>*<sp/>(*Fab)[</highlight><highlight class="stringliteral">&quot;de&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;ecij&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;cdij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(<sp/>-<sp/>1.0<sp/><sp/>)<sp/>*<sp/>(*Fab)[</highlight><highlight class="stringliteral">&quot;ce&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;edij&quot;</highlight><highlight class="normal">];</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>residuum;</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Wabij<sp/>=<sp/>H.getABIJ_RPA();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(*Wabij)[</highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>These<sp/>are<sp/>the<sp/>residum<sp/>equations,<sp/>substract<sp/>them<sp/>from<sp/>Wabij</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;cdij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>(*Fij)[</highlight><highlight class="stringliteral">&quot;mi&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;cdmj&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;cdij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*Fij)[</highlight><highlight class="stringliteral">&quot;mj&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;cdmi&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;cdij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(+1.0)<sp/>*<sp/>(*Fab)[</highlight><highlight class="stringliteral">&quot;de&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;ecij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>(*Rabij)[</highlight><highlight class="stringliteral">&quot;cdij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>(-1.0)<sp/>*<sp/>(*Fab)[</highlight><highlight class="stringliteral">&quot;ce&quot;</highlight><highlight class="normal">]<sp/>*<sp/>(*Tabij)[</highlight><highlight class="stringliteral">&quot;edij&quot;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>residuum;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/UrpaAmplitudesFromCoulombIntegrals.cxx"/>
   </compounddef>

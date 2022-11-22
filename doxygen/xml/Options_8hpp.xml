@@ -3,7 +3,7 @@
   <compounddef id="Options_8hpp" kind="file" language="C++">
     <compoundname>Options.hpp</compoundname>
     <includes local="no">string</includes>
-    <includes refid="CLI11_8hpp" local="no">extern/CLI11.hpp</includes>
+    <includes refid="CLI11_8hpp" local="no">vendor/CLI11.hpp</includes>
     <includedby refid="ClusterSinglesDoublesAlgorithm_8cxx" local="no">ClusterSinglesDoublesAlgorithm.cxx</includedby>
     <includedby refid="ClusterSinglesDoublesTriplesAlgorithm_8cxx" local="no">ClusterSinglesDoublesTriplesAlgorithm.cxx</includedby>
     <includedby refid="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8cxx" local="no">ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx</includedby>
@@ -20,7 +20,7 @@
         </childnode>
       </node>
       <node id="3">
-        <label>extern/CLI11.hpp</label>
+        <label>vendor/CLI11.hpp</label>
         <link refid="CLI11_8hpp"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -915,32 +915,30 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/*Copyright<sp/>(c)<sp/>2015,<sp/>Andreas<sp/>Grueneis<sp/>and<sp/>Felix<sp/>Hummel,<sp/>all<sp/>rights<sp/>reserved.*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>OPTIONS_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OPTIONS_DEFINED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CLI11_8hpp" kindref="compound">extern/CLI11.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
-<codeline lineno="9" refid="structsisi4s_1_1Options" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsisi4s_1_1Options" kindref="compound">Options</ref><sp/>{</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight></codeline>
-<codeline lineno="11" refid="structsisi4s_1_1Options_1af03fafd1ebc9eaa265e0da0438b20388" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCLI_1_1App" kindref="compound">CLI::App</ref><sp/><ref refid="structsisi4s_1_1Options_1af03fafd1ebc9eaa265e0da0438b20388" kindref="member">app</ref>;</highlight></codeline>
-<codeline lineno="12" refid="structsisi4s_1_1Options_1a5ef5e5592971b29d31795e3fe12a070b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1a5ef5e5592971b29d31795e3fe12a070b" kindref="member">logLevel</ref>;</highlight></codeline>
-<codeline lineno="13" refid="structsisi4s_1_1Options_1a61fa80dc5acae55d584cdc61b6d910c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structsisi4s_1_1Options_1a61fa80dc5acae55d584cdc61b6d910c7" kindref="member">inFile</ref>,<sp/><ref refid="structsisi4s_1_1Options_1a04e8b0c2b603635f4d8c2cd9326108ff" kindref="member">logFile</ref>,<sp/><ref refid="structsisi4s_1_1Options_1afcbdc610814674ab94367ad5177f5c1d" kindref="member">yamlOutFile</ref>;</highlight></codeline>
-<codeline lineno="14" refid="structsisi4s_1_1Options_1a85158c1bd83a1832f232b2ace71a7e97" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1a85158c1bd83a1832f232b2ace71a7e97" kindref="member">argc</ref>;</highlight></codeline>
-<codeline lineno="15" refid="structsisi4s_1_1Options_1a02b621baf3d40ef8ddee53e044ceeec6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/><ref refid="structsisi4s_1_1Options_1a02b621baf3d40ef8ddee53e044ceeec6" kindref="member">argv</ref>;</highlight></codeline>
-<codeline lineno="16" refid="structsisi4s_1_1Options_1aa141cb663543d7037583b61d4ac0a210" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1aa141cb663543d7037583b61d4ac0a210" kindref="member">cc4s</ref>,<sp/><ref refid="structsisi4s_1_1Options_1aaee7bdb89fa4695fd6a6913d6bb872b3" kindref="member">listAlgorithms</ref>,<sp/><ref refid="structsisi4s_1_1Options_1a427f29f5495dd7b86db119061975890e" kindref="member">dryRun</ref>;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18" refid="structsisi4s_1_1Options_1a88bd0a42bce5dad3f2d4e031e4e2eb58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1a88bd0a42bce5dad3f2d4e031e4e2eb58" kindref="member">DEFAULT_LOG_LEVEL</ref><sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structsisi4s_1_1Options" kindref="compound">Options</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1a85158c1bd83a1832f232b2ace71a7e97" kindref="member">argc</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="structsisi4s_1_1Options_1a02b621baf3d40ef8ddee53e044ceeec6" kindref="member">argv</ref>);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1ad20c3a9a952216298228bf397501ba20" kindref="member">parse</ref>();</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>OPTIONS_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OPTIONS_DEFINED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="CLI11_8hpp" kindref="compound">vendor/CLI11.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref><sp/>{</highlight></codeline>
+<codeline lineno="8" refid="structsisi4s_1_1Options" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsisi4s_1_1Options" kindref="compound">Options</ref><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="structsisi4s_1_1Options_1af03fafd1ebc9eaa265e0da0438b20388" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classCLI_1_1App" kindref="compound">CLI::App</ref><sp/><ref refid="structsisi4s_1_1Options_1af03fafd1ebc9eaa265e0da0438b20388" kindref="member">app</ref>;</highlight></codeline>
+<codeline lineno="11" refid="structsisi4s_1_1Options_1a5ef5e5592971b29d31795e3fe12a070b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1a5ef5e5592971b29d31795e3fe12a070b" kindref="member">logLevel</ref>;</highlight></codeline>
+<codeline lineno="12" refid="structsisi4s_1_1Options_1a61fa80dc5acae55d584cdc61b6d910c7" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="structsisi4s_1_1Options_1a61fa80dc5acae55d584cdc61b6d910c7" kindref="member">inFile</ref>,<sp/><ref refid="structsisi4s_1_1Options_1a04e8b0c2b603635f4d8c2cd9326108ff" kindref="member">logFile</ref>,<sp/><ref refid="structsisi4s_1_1Options_1afcbdc610814674ab94367ad5177f5c1d" kindref="member">yamlOutFile</ref>;</highlight></codeline>
+<codeline lineno="13" refid="structsisi4s_1_1Options_1a85158c1bd83a1832f232b2ace71a7e97" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1a85158c1bd83a1832f232b2ace71a7e97" kindref="member">argc</ref>;</highlight></codeline>
+<codeline lineno="14" refid="structsisi4s_1_1Options_1a02b621baf3d40ef8ddee53e044ceeec6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="structsisi4s_1_1Options_1a02b621baf3d40ef8ddee53e044ceeec6" kindref="member">argv</ref>;</highlight></codeline>
+<codeline lineno="15" refid="structsisi4s_1_1Options_1aa141cb663543d7037583b61d4ac0a210" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1aa141cb663543d7037583b61d4ac0a210" kindref="member">cc4s</ref>,<sp/><ref refid="structsisi4s_1_1Options_1aaee7bdb89fa4695fd6a6913d6bb872b3" kindref="member">listAlgorithms</ref>,<sp/><ref refid="structsisi4s_1_1Options_1a427f29f5495dd7b86db119061975890e" kindref="member">dryRun</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="structsisi4s_1_1Options_1a88bd0a42bce5dad3f2d4e031e4e2eb58" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1a88bd0a42bce5dad3f2d4e031e4e2eb58" kindref="member">DEFAULT_LOG_LEVEL</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><ref refid="structsisi4s_1_1Options" kindref="compound">Options</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1a85158c1bd83a1832f232b2ace71a7e97" kindref="member">argc</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="structsisi4s_1_1Options_1a02b621baf3d40ef8ddee53e044ceeec6" kindref="member">argv</ref>);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1Options_1ad20c3a9a952216298228bf397501ba20" kindref="member">parse</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/Options.hpp"/>
   </compounddef>

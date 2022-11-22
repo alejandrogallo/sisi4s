@@ -79,58 +79,6 @@
         <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="36">
-        <label>extern/CLI11.hpp</label>
-        <link refid="CLI11_8hpp"/>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="47" relation="include">
-        </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-        <childnode refid="49" relation="include">
-        </childnode>
-        <childnode refid="50" relation="include">
-        </childnode>
-      </node>
       <node id="53">
         <label>extern/Lapack.hpp</label>
         <link refid="Lapack_8hpp"/>
@@ -337,6 +285,58 @@
         <childnode refid="14" relation="include">
         </childnode>
       </node>
+      <node id="36">
+        <label>vendor/CLI11.hpp</label>
+        <link refid="CLI11_8hpp"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
       <node id="42">
         <label>algorithm</label>
       </node>
@@ -454,18 +454,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" line="17" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" bodystart="17" bodyend="33"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" line="16" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" bodystart="16" bodyend="41"/>
         <references refid="Lapack_8hpp_1aaacdf33c1d8272c5fd148b2e002c12a6">dsysv_</references>
-        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="113">LOG</references>
-        <referencedby refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" compoundref="DiisMixer_8cxx" startline="92" endline="164">sisi4s::DiisMixer&lt; F &gt;::append</referencedby>
-        <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a1549bac3e662a0bdf1cf6ab25608dff4" compoundref="IterativePseudoInverse_8cxx" startline="138" endline="140">sisi4s::IterativePseudoInverse&lt; F &gt;::get</referencedby>
-        <referencedby refid="classsisi4s_1_1DryIterativePseudoInverse_1a5ff102b8c781f0a691fb55c1e17df138" compoundref="IterativePseudoInverse_8cxx" startline="231" endline="233">sisi4s::DryIterativePseudoInverse&lt; F &gt;::get</referencedby>
-        <referencedby refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a46b877b901122cd64420b885070e3609" compoundref="PseudoInverseHermitianSvd_8cxx" startline="58" endline="60">sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::get</referencedby>
-        <referencedby refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a20b16bbf7672a641dfdfc42ddba39d98" compoundref="PseudoInverseHermitianSvd_8cxx" startline="88" endline="90">sisi4s::DryPseudoInverseHermitianSvd&lt; F &gt;::get</referencedby>
-        <referencedby refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" compoundref="PseudoInverseSvd_8cxx" startline="63" endline="65">sisi4s::PseudoInverseSvd&lt; F &gt;::get</referencedby>
-        <referencedby refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" compoundref="PseudoInverseSvd_8cxx" startline="92" endline="94">sisi4s::DryPseudoInverseSvd&lt; F &gt;::get</referencedby>
-        <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a96558b1a79ac7e0bcdeb64127855241e" compoundref="IterativePseudoInverse_8cxx" startline="65" endline="104">sisi4s::IterativePseudoInverse&lt; F &gt;::iterate</referencedby>
-        <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a206b9b605d859aec9f8abbc15e919ed1" compoundref="IterativePseudoInverse_8cxx" startline="107" endline="135">sisi4s::IterativePseudoInverse&lt; F &gt;::iterateQuadratically</referencedby>
+        <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="110">LOG</references>
+        <referencedby refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" compoundref="DiisMixer_8cxx" startline="103" endline="180">sisi4s::DiisMixer&lt; F &gt;::append</referencedby>
+        <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a1549bac3e662a0bdf1cf6ab25608dff4" compoundref="IterativePseudoInverse_8cxx" startline="131" endline="133">sisi4s::IterativePseudoInverse&lt; F &gt;::get</referencedby>
+        <referencedby refid="classsisi4s_1_1DryIterativePseudoInverse_1a5ff102b8c781f0a691fb55c1e17df138" compoundref="IterativePseudoInverse_8cxx" startline="217" endline="219">sisi4s::DryIterativePseudoInverse&lt; F &gt;::get</referencedby>
+        <referencedby refid="classsisi4s_1_1PseudoInverseHermitianSvd_1a46b877b901122cd64420b885070e3609" compoundref="PseudoInverseHermitianSvd_8cxx" startline="57" endline="59">sisi4s::PseudoInverseHermitianSvd&lt; F &gt;::get</referencedby>
+        <referencedby refid="classsisi4s_1_1DryPseudoInverseHermitianSvd_1a20b16bbf7672a641dfdfc42ddba39d98" compoundref="PseudoInverseHermitianSvd_8cxx" startline="80" endline="82">sisi4s::DryPseudoInverseHermitianSvd&lt; F &gt;::get</referencedby>
+        <referencedby refid="classsisi4s_1_1PseudoInverseSvd_1a2533006daf67fb34b871189a4e450a0f" compoundref="PseudoInverseSvd_8cxx" startline="60" endline="62">sisi4s::PseudoInverseSvd&lt; F &gt;::get</referencedby>
+        <referencedby refid="classsisi4s_1_1DryPseudoInverseSvd_1afe11a03ae59bab6dc745c070a6cc9569" compoundref="PseudoInverseSvd_8cxx" startline="81" endline="83">sisi4s::DryPseudoInverseSvd&lt; F &gt;::get</referencedby>
+        <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a96558b1a79ac7e0bcdeb64127855241e" compoundref="IterativePseudoInverse_8cxx" startline="62" endline="99">sisi4s::IterativePseudoInverse&lt; F &gt;::iterate</referencedby>
+        <referencedby refid="classsisi4s_1_1IterativePseudoInverse_1a206b9b605d859aec9f8abbc15e919ed1" compoundref="IterativePseudoInverse_8cxx" startline="102" endline="128">sisi4s::IterativePseudoInverse&lt; F &gt;::iterateQuadratically</referencedby>
       </memberdef>
       <memberdef kind="function" id="DiisMixer_8cxx_1a165e38a9fd7153eb617622257f385dd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref> &gt;</type>
@@ -486,7 +486,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" line="35" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" bodystart="35" bodyend="41"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" line="43" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" bodystart="43" bodyend="48"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -505,175 +505,189 @@
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="IterativePseudoInverse_8hpp" kindref="compound">math/IterativePseudoInverse.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><ref refid="Mixer_8hpp_1a7ec8522b70a56ac8cef5b47c623c59c0" kindref="member">MIXER_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1DiisMixer" kindref="compound">DiisMixer</ref>);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17" refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" refkind="member"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>matrix,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N</highlight></codeline>
-<codeline lineno="19"><highlight class="normal">){</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>column(N,0);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>ipiv(N);</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>work(N);</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/>column[0]<sp/>=<sp/>-1.0;</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>one(1);<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>info;</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="Lapack_8hpp_1aaacdf33c1d8272c5fd148b2e002c12a6" kindref="member">dsysv_</ref>(</highlight><highlight class="stringliteral">&quot;U&quot;</highlight><highlight class="normal">,<sp/>&amp;N,<sp/>&amp;one,<sp/>matrix.data(),<sp/>&amp;N,<sp/>ipiv.data(),<sp/>column.data(),<sp/>&amp;N,<sp/>work.data(),<sp/>&amp;N,<sp/>&amp;info);</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>info<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Problem<sp/>diagonalization<sp/>of<sp/>matrix:\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i:<sp/>matrix)<sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(9)<sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;problem<sp/>diagonalization\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>column;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35" refid="DiisMixer_8cxx_1a165e38a9fd7153eb617622257f385dd7" refkind="member"><highlight class="normal">std::vector&lt;sisi4s::complex&gt;<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/>std::vector&lt;sisi4s::complex&gt;<sp/>matrix,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N</highlight></codeline>
-<codeline lineno="37"><highlight class="normal">){</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/>std::vector&lt;sisi4s::complex&gt;<sp/>column(N);</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;TODO&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><ref refid="Mixer_8hpp_1a7ec8522b70a56ac8cef5b47c623c59c0" kindref="member">MIXER_REGISTRAR_DEFINITION</ref>(<ref refid="classsisi4s_1_1DiisMixer" kindref="compound">DiisMixer</ref>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" refkind="member"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(std::vector&lt;double&gt;<sp/>matrix,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>column(N,<sp/>0);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>ipiv(N);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>work(N);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>column[0]<sp/>=<sp/>-1.0;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>one(1);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>info;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><ref refid="Lapack_8hpp_1aaacdf33c1d8272c5fd148b2e002c12a6" kindref="member">dsysv_</ref>(</highlight><highlight class="stringliteral">&quot;U&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;N,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;one,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>matrix.data(),</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;N,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ipiv.data(),</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>column.data(),</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;N,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>work.data(),</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;N,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;info);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(info<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Problem<sp/>diagonalization<sp/>of<sp/>matrix:\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>:<sp/>matrix)<sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(9)<sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;problem<sp/>diagonalization\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>column;</highlight></codeline>
 <codeline lineno="41"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="45" refid="classsisi4s_1_1DiisMixer_1ae6af3fd3aa23a5891216897f380e76d3" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer_1ae6af3fd3aa23a5891216897f380e76d3" kindref="member">DiisMixer&lt;F&gt;::DiisMixer</ref>(</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm</highlight></codeline>
-<codeline lineno="47"><highlight class="normal">):</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer</ref>&lt;F&gt;(algorithm),<sp/>next(nullptr),<sp/>nextResiduum(nullptr)</highlight></codeline>
-<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N(<sp/><ref refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" kindref="member">algorithm</ref>-&gt;<ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;maxResidua&quot;</highlight><highlight class="normal">,<sp/>4)<sp/>);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,</highlight><highlight class="stringliteral">&quot;DiisMixer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;maxResidua=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>N<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;mixer&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::BeginMap;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;type&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;diis&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;max-residua&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>N;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndMap;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DiisMixer_1abf50da4af38e051f8ede8ceca8e3e828" kindref="member">amplitudes</ref>.resize(N);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DiisMixer_1adaa1f7416b9b099de7a17a893e48b4cc" kindref="member">residua</ref>.resize(N);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/>nextIndex<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="43" refid="DiisMixer_8cxx_1a165e38a9fd7153eb617622257f385dd7" refkind="member"><highlight class="normal">std::vector&lt;sisi4s::complex&gt;<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(std::vector&lt;sisi4s::complex&gt;<sp/>matrix,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>std::vector&lt;sisi4s::complex&gt;<sp/>column(N);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;TODO&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>column;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="51" refid="classsisi4s_1_1DiisMixer_1ae6af3fd3aa23a5891216897f380e76d3" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer_1ae6af3fd3aa23a5891216897f380e76d3" kindref="member">DiisMixer&lt;F&gt;::DiisMixer</ref>(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>*algorithm)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1Mixer" kindref="compound">Mixer</ref>&lt;F&gt;(algorithm)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>next(nullptr)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>nextResiduum(nullptr)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N(<ref refid="classsisi4s_1_1Mixer_1a480f4a09504b9e69cbf90a58298928fe" kindref="member">algorithm</ref>-&gt;<ref refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" kindref="member">getRealArgument</ref>(</highlight><highlight class="stringliteral">&quot;maxResidua&quot;</highlight><highlight class="normal">,<sp/>4));</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;DiisMixer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;maxResidua=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>N<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;mixer&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::BeginMap;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;type&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;diis&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;max-residua&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>N;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndMap;</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>initial<sp/>overlap<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lens{{N+1,<sp/>N+1}};</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>syms{{NS,<sp/>NS}};</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/>B<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>lens.size(),<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;B&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>one(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>*B);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/>one[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>1.0;</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperRightBegin{{0,1}};</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperLeftBegin{{1,0}};</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperRightEnd{{1,N+1}};</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lowerLeftEnd{{N+1,1}};</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/>B-&gt;slice(</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>upperRightBegin.data(),<sp/>upperRightEnd.data(),<sp/>1.0,</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>one,</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>upperRightBegin.data(),<sp/>upperRightEnd.data(),<sp/>-1.0</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/>B-&gt;slice(</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>upperLeftBegin.data(),<sp/>lowerLeftEnd.data(),<sp/>1.0,</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>one,</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>upperLeftBegin.data(),<sp/>lowerLeftEnd.data(),<sp/>-1.0</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
-<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="88" refid="classsisi4s_1_1DiisMixer_1ad23b184bf538b751e3fba1affbce35d2" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer_1ad23b184bf538b751e3fba1affbce35d2" kindref="member">DiisMixer&lt;F&gt;::~DiisMixer</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="92" refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" kindref="member">DiisMixer&lt;F&gt;::append</ref>(</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;A,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;R</highlight></codeline>
-<codeline lineno="94"><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>replace<sp/>amplidue<sp/>and<sp/>residuum<sp/>at<sp/>nextIndex</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/>amplitudes[nextIndex]<sp/>=<sp/>A;</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/>residua[nextIndex]<sp/>=<sp/>R;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DiisMixer_1abf50da4af38e051f8ede8ceca8e3e828" kindref="member">amplitudes</ref>.resize(N);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1DiisMixer_1adaa1f7416b9b099de7a17a893e48b4cc" kindref="member">residua</ref>.resize(N);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>nextIndex<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>initial<sp/>overlap<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>lens{{N<sp/>+<sp/>1,<sp/>N<sp/>+<sp/>1}};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>syms{{NS,<sp/>NS}};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>B<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lens.size(),</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lens.data(),</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>syms.data(),</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;B&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>one(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>*B);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>one[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>1.0;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>upperRightBegin{{0,<sp/>1}};</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>upperLeftBegin{{1,<sp/>0}};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>upperRightEnd{{1,<sp/>N<sp/>+<sp/>1}};</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>lowerLeftEnd{{N<sp/>+<sp/>1,<sp/>1}};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>B-&gt;slice(upperRightBegin.data(),</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>upperRightEnd.data(),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>one,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>upperRightBegin.data(),</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>upperRightEnd.data(),</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-1.0);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>B-&gt;slice(upperLeftBegin.data(),</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lowerLeftEnd.data(),</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0,</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>one,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>upperLeftBegin.data(),</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lowerLeftEnd.data(),</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-1.0);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>1x1<sp/>matrix<sp/>to<sp/>enter<sp/>new<sp/>overlap<sp/>elements</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N(residua.size());</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lens{{1,<sp/>1}};</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>syms{{NS,<sp/>NS}};</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>one(lens.size(),<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/>one[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>1.0;</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(residua[i])<sp/>{</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>colBegin{{nextIndex+1,i+1}};</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>colEnd{{nextIndex+2,i+2}};</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>rowBegin{{i+1,nextIndex+1}};</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>rowEnd{{i+2,nextIndex+2}};</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>oneBegin{{0,0}};</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,2&gt;<sp/>oneEnd{{1,1}};</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>F<sp/>overlap(<sp/>2.0*std::real(residua[i]-&gt;<ref refid="namespacesisi4s_1a92d239b67d4a13717f4e7f93ad9591f2" kindref="member">dot</ref>(*R))<sp/>);</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>B-&gt;slice(</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>colBegin.data(),<sp/>colEnd.data(),<sp/>0.0,</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>one,</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oneBegin.data(),<sp/>oneEnd.data(),<sp/>overlap</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>nextIndex)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>B-&gt;slice(</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rowBegin.data(),<sp/>rowEnd.data(),<sp/>0.0,</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>one,</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oneBegin.data(),<sp/>oneEnd.data(),<sp/>overlap</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(count<sp/>&lt;<sp/>N)<sp/>++count;</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>B-&gt;print();</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>now,<sp/>pseudo-invert<sp/>upper<sp/>left<sp/>corner<sp/>of<sp/>B<sp/>and<sp/>read<sp/>out<sp/>its<sp/>first<sp/>column</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(count+1);</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>upperLeftBegin{{0,<sp/>0}};</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/>std::array&lt;int,2&gt;<sp/>lowerRightEnd{{count+1,<sp/>count+1}};</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/>std::vector&lt;F&gt;<sp/>column(count+1);</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/>std::vector&lt;F&gt;<sp/>matrix(dim*dim);</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/>B-&gt;slice(upperLeftBegin.data(),<sp/>lowerRightEnd.data()).read_all(matrix.data());</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/>column<sp/>=<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(matrix,<sp/>dim);</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;DiisMixer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;lambda&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>column[0]<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;mixing&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>YAML::BeginMap;</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>imaginary<sp/>part<sp/>dismissed</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;lambda&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>std::real(column[0]);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/>next<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>,<sp/>*A);</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/>*next<sp/>*=<sp/>F(0);</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/>nextResiduum<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>,<sp/>*R);</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/>*nextResiduum<sp/>*=<sp/>F(0);</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;weights&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>YAML::Flow<sp/>&lt;&lt;<sp/>YAML::BeginSeq;</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j(0);<sp/>j<sp/>&lt;<sp/>count;<sp/>++j)<sp/>{</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(<sp/>(nextIndex+N-j)<sp/>%<sp/>N<sp/>);</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;DiisMixer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;w^(-&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(j+1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>column[i+1]<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>imaginary<sp/>part<sp/>dismissed</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>std::real(column[i+1]);</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>*next<sp/>+=<sp/>column[i+1]<sp/>*<sp/>*amplitudes[i];</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>*nextResiduum<sp/>+=<sp/>column[i+1]<sp/>*<sp/>*residua[i];</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndSeq;</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Comment(</highlight><highlight class="stringliteral">&quot;w(-1),<sp/>...<sp/>,<sp/>w(-max-residua)&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndMap;</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/>nextIndex<sp/>=<sp/>(nextIndex+1)<sp/>%<sp/>N;</highlight></codeline>
-<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="167" refid="classsisi4s_1_1DiisMixer_1afaccc8b03ebe58b5138aa64f5875ebea" refkind="member"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1DiisMixer_1afaccc8b03ebe58b5138aa64f5875ebea" kindref="member">DiisMixer&lt;F&gt;::get</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>next;</highlight></codeline>
-<codeline lineno="169"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"></highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="172" refid="classsisi4s_1_1DiisMixer_1a321ce7d54ba7b64a85832546e8bc65ab" refkind="member"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1DiisMixer_1a321ce7d54ba7b64a85832546e8bc65ab" kindref="member">DiisMixer&lt;F&gt;::getResiduum</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nextResiduum;</highlight></codeline>
-<codeline lineno="174"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer" kindref="compound">sisi4s::DiisMixer&lt;sisi4s::Float64&gt;</ref>;</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer" kindref="compound">sisi4s::DiisMixer&lt;sisi4s::Complex64&gt;</ref>;</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="100" refid="classsisi4s_1_1DiisMixer_1ad23b184bf538b751e3fba1affbce35d2" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer_1ad23b184bf538b751e3fba1affbce35d2" kindref="member">DiisMixer&lt;F&gt;::~DiisMixer</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="103" refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" kindref="member">DiisMixer&lt;F&gt;::append</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/>&amp;R)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>replace<sp/>amplidue<sp/>and<sp/>residuum<sp/>at<sp/>nextIndex</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>amplitudes[nextIndex]<sp/>=<sp/>A;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>residua[nextIndex]<sp/>=<sp/>R;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>1x1<sp/>matrix<sp/>to<sp/>enter<sp/>new<sp/>overlap<sp/>elements</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N(residua.size());</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>lens{{1,<sp/>1}};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>syms{{NS,<sp/>NS}};</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>one(lens.size(),<sp/>lens.data(),<sp/>syms.data(),<sp/>*<ref refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" kindref="member">Sisi4s::world</ref>,<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>one[</highlight><highlight class="stringliteral">&quot;ij&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>1.0;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);<sp/>i<sp/>&lt;<sp/>N;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(residua[i])<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>colBegin{{nextIndex<sp/>+<sp/>1,<sp/>i<sp/>+<sp/>1}};</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>colEnd{{nextIndex<sp/>+<sp/>2,<sp/>i<sp/>+<sp/>2}};</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>rowBegin{{i<sp/>+<sp/>1,<sp/>nextIndex<sp/>+<sp/>1}};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>rowEnd{{i<sp/>+<sp/>2,<sp/>nextIndex<sp/>+<sp/>2}};</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>oneBegin{{0,<sp/>0}};</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>oneEnd{{1,<sp/>1}};</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>F<sp/>overlap(2.0<sp/>*<sp/>std::real(residua[i]-&gt;<ref refid="namespacesisi4s_1a92d239b67d4a13717f4e7f93ad9591f2" kindref="member">dot</ref>(*R)));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>B-&gt;slice(colBegin.data(),</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>colEnd.data(),</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0,</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>one,</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oneBegin.data(),</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oneEnd.data(),</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>overlap);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>nextIndex)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>B-&gt;slice(rowBegin.data(),</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rowEnd.data(),</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>one,</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oneBegin.data(),</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oneEnd.data(),</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>overlap);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(count<sp/>&lt;<sp/>N)<sp/>++count;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>B-&gt;print();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>now,<sp/>pseudo-invert<sp/>upper<sp/>left<sp/>corner<sp/>of<sp/>B<sp/>and<sp/>read<sp/>out<sp/>its<sp/>first<sp/>column</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim(count<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>upperLeftBegin{{0,<sp/>0}};</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>std::array&lt;int,<sp/>2&gt;<sp/>lowerRightEnd{{count<sp/>+<sp/>1,<sp/>count<sp/>+<sp/>1}};</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>std::vector&lt;F&gt;<sp/>column(count<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>std::vector&lt;F&gt;<sp/>matrix(dim<sp/>*<sp/>dim);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>B-&gt;slice(upperLeftBegin.data(),<sp/>lowerRightEnd.data()).read_all(matrix.data());</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>column<sp/>=<sp/><ref refid="DiisMixer_8cxx_1ae6495ef1bd76c6cd022e102143fbed2f" kindref="member">inverse</ref>(matrix,<sp/>dim);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;DiisMixer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;lambda&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>column[0]<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;mixing&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>YAML::BeginMap;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>imaginary<sp/>part<sp/>dismissed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;lambda&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>std::real(column[0]);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>next<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>,<sp/>*A);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>*next<sp/>*=<sp/>F(0);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>nextResiduum<sp/>=<sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>,<sp/>*R);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>*nextResiduum<sp/>*=<sp/>F(0);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Key<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;weights&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Value<sp/>&lt;&lt;<sp/>YAML::Flow<sp/>&lt;&lt;<sp/>YAML::BeginSeq;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j(0);<sp/>j<sp/>&lt;<sp/>count;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i((nextIndex<sp/>+<sp/>N<sp/>-<sp/>j)<sp/>%<sp/>N);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;DiisMixer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;w^(-&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(j<sp/>+<sp/>1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>column[i<sp/>+<sp/>1]</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>imaginary<sp/>part<sp/>dismissed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>std::real(column[i<sp/>+<sp/>1]);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>*next<sp/>+=<sp/>column[i<sp/>+<sp/>1]<sp/>*<sp/>*amplitudes[i];</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>*nextResiduum<sp/>+=<sp/>column[i<sp/>+<sp/>1]<sp/>*<sp/>*residua[i];</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndSeq;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::Comment(</highlight><highlight class="stringliteral">&quot;w(-1),<sp/>...<sp/>,<sp/>w(-max-residua)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><ref refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" kindref="member">EMIT</ref>()<sp/>&lt;&lt;<sp/>YAML::EndMap;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>nextIndex<sp/>=<sp/>(nextIndex<sp/>+<sp/>1)<sp/>%<sp/>N;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="183" refid="classsisi4s_1_1DiisMixer_1afaccc8b03ebe58b5138aa64f5875ebea" refkind="member"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1DiisMixer_1afaccc8b03ebe58b5138aa64f5875ebea" kindref="member">DiisMixer&lt;F&gt;::get</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>next;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="188" refid="classsisi4s_1_1DiisMixer_1a321ce7d54ba7b64a85832546e8bc65ab" refkind="member"><highlight class="normal"><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1DiisMixer_1a321ce7d54ba7b64a85832546e8bc65ab" kindref="member">DiisMixer&lt;F&gt;::getResiduum</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nextResiduum;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer" kindref="compound">sisi4s::DiisMixer&lt;sisi4s::Float64&gt;</ref>;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsisi4s_1_1DiisMixer" kindref="compound">sisi4s::DiisMixer&lt;sisi4s::Complex64&gt;</ref>;</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx"/>
   </compounddef>

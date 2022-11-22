@@ -111,7 +111,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a43788583963f9257c2f38ed107b29926"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structpars_1_1Regex.html">Regex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structShellParser.html#a43788583963f9257c2f38ed107b29926">shell_symbol</a> = <a class="el" href="namespacepars.html#abf63d88b9d2972448bb8e2e8f3e86300">pars::oneOf</a>({&quot;S&quot;, &quot;P&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;I&quot;, &quot;K&quot;})</td></tr>
+<tr class="memitem:a43788583963f9257c2f38ed107b29926"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structpars_1_1Regex.html">Regex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structShellParser.html#a43788583963f9257c2f38ed107b29926">shell_symbol</a></td></tr>
 <tr class="separator:a43788583963f9257c2f38ed107b29926"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8a5825f5c78d2114312104c5d2219e9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structpars_1_1Regex.html">Regex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structShellParser.html#af8a5825f5c78d2114312104c5d2219e9">atom</a> = <a class="el" href="namespacepars.html#a8e4122733980cf5623d19f2ba68ccf12">pars::upper</a> + <a class="el" href="namespacepars.html#a020cf386310223423b06c230ee658c13">pars::lower</a> + <a class="el" href="namespacepars.html#a832dec230b6f898fda8c99bf54323d18">pars::optional</a></td></tr>
 <tr class="separator:af8a5825f5c78d2114312104c5d2219e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,14 +187,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_function" href="namespacepars.html#a9253594a7f8dfb9207a05eb210460d8d">pars::capture</a>(<a class="code hl_variable" href="structShellParser.html#af8a5825f5c78d2114312104c5d2219e9">atom</a>.s) + <a class="code hl_variable" href="structShellParser.html#a0fd93fb86f4e83dbc0efcfa63848ed3d">sep</a>.s</div>
-<div class="line">                         + <a class="code hl_function" href="namespacepars.html#a9253594a7f8dfb9207a05eb210460d8d">pars::capture</a>(<a class="code hl_function" href="namespacepars.html#a56722e3642335e4646823756ceb888ca">pars::group</a>(<a class="code hl_variable" href="structShellParser.html#a68ac3a9fbc765070c8bf0650569cba1a">shell</a>.s)+ <a class="code hl_function" href="namespacepars.html#a71161c67c796117fe14c18beb97b4de2">pars::oneOrMore</a>)</div>
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">                  <a class="code hl_function" href="namespacepars.html#a9253594a7f8dfb9207a05eb210460d8d">pars::capture</a>(<a class="code hl_variable" href="structShellParser.html#af8a5825f5c78d2114312104c5d2219e9">atom</a>.s) + <a class="code hl_variable" href="structShellParser.html#a0fd93fb86f4e83dbc0efcfa63848ed3d">sep</a>.s</div>
+<div class="line">                  + <a class="code hl_function" href="namespacepars.html#a9253594a7f8dfb9207a05eb210460d8d">pars::capture</a>(<a class="code hl_function" href="namespacepars.html#a56722e3642335e4646823756ceb888ca">pars::group</a>(<a class="code hl_variable" href="structShellParser.html#a68ac3a9fbc765070c8bf0650569cba1a">shell</a>.s) + <a class="code hl_function" href="namespacepars.html#a71161c67c796117fe14c18beb97b4de2">pars::oneOrMore</a>)</div>
 <div class="ttc" id="anamespacepars_html_a56722e3642335e4646823756ceb888ca"><div class="ttname"><a href="namespacepars.html#a56722e3642335e4646823756ceb888ca">pars::group</a></div><div class="ttdeci">const std::function&lt; Str(Str)&gt; group([](const Str &amp;i) { return &quot;(?:&quot;+i+&quot;)&quot;;})</div></div>
 <div class="ttc" id="anamespacepars_html_a71161c67c796117fe14c18beb97b4de2"><div class="ttname"><a href="namespacepars.html#a71161c67c796117fe14c18beb97b4de2">pars::oneOrMore</a></div><div class="ttdeci">const Str oneOrMore(&quot;+&quot;)</div></div>
 <div class="ttc" id="anamespacepars_html_a9253594a7f8dfb9207a05eb210460d8d"><div class="ttname"><a href="namespacepars.html#a9253594a7f8dfb9207a05eb210460d8d">pars::capture</a></div><div class="ttdeci">const std::function&lt; Str(Str)&gt; capture([](const Str &amp;i) { return &quot;(&quot;+i+&quot;)&quot;;})</div></div>
-<div class="ttc" id="astructShellParser_html_a0fd93fb86f4e83dbc0efcfa63848ed3d"><div class="ttname"><a href="structShellParser.html#a0fd93fb86f4e83dbc0efcfa63848ed3d">ShellParser::sep</a></div><div class="ttdeci">const Regex sep</div><div class="ttdef"><b>Definition:</b> MoReader.cxx:74</div></div>
-<div class="ttc" id="astructShellParser_html_a68ac3a9fbc765070c8bf0650569cba1a"><div class="ttname"><a href="structShellParser.html#a68ac3a9fbc765070c8bf0650569cba1a">ShellParser::shell</a></div><div class="ttdeci">const Regex shell</div><div class="ttdef"><b>Definition:</b> MoReader.cxx:75</div></div>
-<div class="ttc" id="astructShellParser_html_af8a5825f5c78d2114312104c5d2219e9"><div class="ttname"><a href="structShellParser.html#af8a5825f5c78d2114312104c5d2219e9">ShellParser::atom</a></div><div class="ttdeci">const Regex atom</div><div class="ttdef"><b>Definition:</b> MoReader.cxx:73</div></div>
+<div class="ttc" id="astructShellParser_html_a0fd93fb86f4e83dbc0efcfa63848ed3d"><div class="ttname"><a href="structShellParser.html#a0fd93fb86f4e83dbc0efcfa63848ed3d">ShellParser::sep</a></div><div class="ttdeci">const Regex sep</div><div class="ttdef"><b>Definition:</b> MoReader.cxx:75</div></div>
+<div class="ttc" id="astructShellParser_html_a68ac3a9fbc765070c8bf0650569cba1a"><div class="ttname"><a href="structShellParser.html#a68ac3a9fbc765070c8bf0650569cba1a">ShellParser::shell</a></div><div class="ttdeci">const Regex shell</div><div class="ttdef"><b>Definition:</b> MoReader.cxx:76</div></div>
+<div class="ttc" id="astructShellParser_html_af8a5825f5c78d2114312104c5d2219e9"><div class="ttname"><a href="structShellParser.html#af8a5825f5c78d2114312104c5d2219e9">ShellParser::atom</a></div><div class="ttdeci">const Regex atom</div><div class="ttdef"><b>Definition:</b> MoReader.cxx:74</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -223,12 +224,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_function" href="namespacepars.html#a1cce466723c30e92152dd3a9ede48df0">pars::blank</a> + <a class="code hl_function" href="namespacepars.html#a6dd95daa3e3817a64dd5b6d4fff8d417">pars::anyOf</a></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_function" href="namespacepars.html#a1cce466723c30e92152dd3a9ede48df0">pars::blank</a></div>
+<div class="line">                    + <a class="code hl_function" href="namespacepars.html#a6dd95daa3e3817a64dd5b6d4fff8d417">pars::anyOf</a></div>
 <div class="line">                    </div>
 <div class="line">                    + <a class="code hl_function" href="namespacepars.html#a9253594a7f8dfb9207a05eb210460d8d">pars::capture</a>(<a class="code hl_function" href="namespacepars.html#aa92e8770e3c0ac070ea65b8e6f97dc65">pars::digit</a> + <a class="code hl_function" href="namespacepars.html#a71161c67c796117fe14c18beb97b4de2">pars::oneOrMore</a>)</div>
 <div class="line">                    </div>
-<div class="line">                    + <a class="code hl_function" href="namespacepars.html#a9253594a7f8dfb9207a05eb210460d8d">pars::capture</a>(<a class="code hl_variable" href="structShellParser.html#a43788583963f9257c2f38ed107b29926">shell_symbol</a>.s)</div>
-<div class="line">                    + <a class="code hl_function" href="namespacepars.html#a1cce466723c30e92152dd3a9ede48df0">pars::blank</a> + <a class="code hl_function" href="namespacepars.html#a6dd95daa3e3817a64dd5b6d4fff8d417">pars::anyOf</a></div>
+<div class="line">                    + <a class="code hl_function" href="namespacepars.html#a9253594a7f8dfb9207a05eb210460d8d">pars::capture</a>(<a class="code hl_variable" href="structShellParser.html#a43788583963f9257c2f38ed107b29926">shell_symbol</a>.s) + <a class="code hl_function" href="namespacepars.html#a1cce466723c30e92152dd3a9ede48df0">pars::blank</a> + <a class="code hl_function" href="namespacepars.html#a6dd95daa3e3817a64dd5b6d4fff8d417">pars::anyOf</a></div>
 <div class="ttc" id="anamespacepars_html_a1cce466723c30e92152dd3a9ede48df0"><div class="ttname"><a href="namespacepars.html#a1cce466723c30e92152dd3a9ede48df0">pars::blank</a></div><div class="ttdeci">const Str blank(&quot;[[:blank:]]&quot;)</div></div>
 <div class="ttc" id="anamespacepars_html_a6dd95daa3e3817a64dd5b6d4fff8d417"><div class="ttname"><a href="namespacepars.html#a6dd95daa3e3817a64dd5b6d4fff8d417">pars::anyOf</a></div><div class="ttdeci">const Str anyOf(&quot;*&quot;)</div></div>
 <div class="ttc" id="anamespacepars_html_aa92e8770e3c0ac070ea65b8e6f97dc65"><div class="ttname"><a href="namespacepars.html#aa92e8770e3c0ac070ea65b8e6f97dc65">pars::digit</a></div><div class="ttdeci">const Str digit(&quot;[[:digit:]]&quot;)</div></div>
@@ -243,11 +244,14 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structpars_1_1Regex.html">Regex</a> ShellParser::shell_symbol = <a class="el" href="namespacepars.html#abf63d88b9d2972448bb8e2e8f3e86300">pars::oneOf</a>({&quot;S&quot;, &quot;P&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;I&quot;, &quot;K&quot;})</td>
+          <td class="memname">const <a class="el" href="structpars_1_1Regex.html">Regex</a> ShellParser::shell_symbol</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">                  <a class="code hl_function" href="namespacepars.html#abf63d88b9d2972448bb8e2e8f3e86300">pars::oneOf</a>({<span class="stringliteral">&quot;S&quot;</span>, <span class="stringliteral">&quot;P&quot;</span>, <span class="stringliteral">&quot;D&quot;</span>, <span class="stringliteral">&quot;F&quot;</span>, <span class="stringliteral">&quot;G&quot;</span>, <span class="stringliteral">&quot;H&quot;</span>, <span class="stringliteral">&quot;I&quot;</span>, <span class="stringliteral">&quot;K&quot;</span>})</div>
+<div class="ttc" id="anamespacepars_html_abf63d88b9d2972448bb8e2e8f3e86300"><div class="ttname"><a href="namespacepars.html#abf63d88b9d2972448bb8e2e8f3e86300">pars::oneOf</a></div><div class="ttdeci">std::string oneOf(const std::vector&lt; std::string &gt; &amp;v)</div><div class="ttdef"><b>Definition:</b> Parsing.cxx:8</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>

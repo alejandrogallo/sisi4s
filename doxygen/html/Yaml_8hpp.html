@@ -142,15 +142,15 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                            \</div>
-<div class="line">    if (!node[key].IsDefined()) {                                 \</div>
-<div class="line">      std::stringstream s;                                        \</div>
-<div class="line">      <span class="keyword">const</span> <span class="keyword">auto</span> mark = node.Mark();                              \</div>
-<div class="line">      s &lt;&lt; <span class="stringliteral">&quot;Node in line:col &quot;</span> &lt;&lt; mark.line &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; mark.column \</div>
-<div class="line">        &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span> &lt;&lt; node &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>                               \</div>
-<div class="line">        &lt;&lt; <span class="stringliteral">&quot;should have a key &quot;</span> &lt;&lt; key &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;                 \</div>
-<div class="line">      <span class="keywordflow">throw</span> s.str();                                              \</div>
-<div class="line">    }                                                             \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                         \</div>
+<div class="line">    if (!node[key].IsDefined()) {                                              \</div>
+<div class="line">      std::stringstream s;                                                     \</div>
+<div class="line">      <span class="keyword">const</span> <span class="keyword">auto</span> mark = node.Mark();                                           \</div>
+<div class="line">      s &lt;&lt; <span class="stringliteral">&quot;Node in line:col &quot;</span> &lt;&lt; mark.line &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; mark.column &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>    \</div>
+<div class="line">        &lt;&lt; node &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>                                                      \</div>
+<div class="line">        &lt;&lt; <span class="stringliteral">&quot;should have a key &quot;</span> &lt;&lt; key &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;                              \</div>
+<div class="line">      <span class="keywordflow">throw</span> s.str();                                                           \</div>
+<div class="line">    }                                                                          \</div>
 <div class="line">  } <span class="keywordflow">while</span> (0)</div>
 </div><!-- fragment -->
 </div>

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['c_0',['c',['../classsisi4s_1_1RandomGenerator.html#a1bd24ae26b497e657e509e5dea614b16',1,'sisi4s::RandomGenerator']]],
-  ['c_1',['C',['../structVectorIntegralProvider.html#a1baa10790ff866727cf21858b6408630',1,'VectorIntegralProvider']]],
+  ['c_0',['C',['../structVectorIntegralProvider.html#a1baa10790ff866727cf21858b6408630',1,'VectorIntegralProvider']]],
+  ['c_1',['c',['../classsisi4s_1_1RandomGenerator.html#a1bd24ae26b497e657e509e5dea614b16',1,'sisi4s::RandomGenerator']]],
   ['callback_5f_2',['callback_',['../classCLI_1_1Option.html#ab79262b952902ff5e1cba6e3788aca54',1,'CLI::Option']]],
   ['capacity_3',['capacity',['../structghc_1_1filesystem_1_1space__info.html#ae3aaec720c16cab46c72d253be7dca9d',1,'ghc::filesystem::space_info']]],
   ['cartesiangrid_4',['cartesianGrid',['../classsisi4s_1_1FiniteSizeCorrection.html#aa90205ef2a30f792951481f3f04e03fb',1,'sisi4s::FiniteSizeCorrection']]],
