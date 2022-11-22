@@ -13,29 +13,29 @@
  * limitations under the License.
  */
 #ifndef SISI4S_DEFINED
-#define SISI4S_DEFINED
+#  define SISI4S_DEFINED
 
-#include <util/Time.hpp>
-#include <util/Documentation.hpp>
+#  include <util/Time.hpp>
+#  include <util/Documentation.hpp>
 
-#include <util/CTF.hpp>
-#include <Options.hpp>
+#  include <util/CTF.hpp>
+#  include <Options.hpp>
 
 namespace sisi4s {
-  class Sisi4s {
-  public:
-    void run();
-    void dryRun();
+class Sisi4s {
+public:
+  void run();
+  void dryRun();
 
-    // static properties, accessible from everywhere
-    static CTF::World *world;
-    static Options *options;
+  // static properties, accessible from everywhere
+  static CTF::World *world;
+  static Options *options;
 
-    void printBanner();
-    void printStatistics();
-    void listHosts();
-  };
-}
+  void printBanner();
+  void printStatistics();
+  void listHosts();
+};
+} // namespace sisi4s
 
 #endif
 
