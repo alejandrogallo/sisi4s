@@ -176,6 +176,55 @@ jobs:
          folder: ./build/docs/build
 #+end_src
 
+* Code formatting
+
+#+begin_src yaml :tangle format.yaml :noweb yes 
+name: Documentation
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  clang-format:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler:
+          - clang13
+        cuda:
+          - false
+    env:
+      <<nix-env>>
+    steps:
+    - uses: actions/checkout@v2.3.4
+
+    - name: pwd
+      run: |
+        pwd
+
+    <<nix-action>>
+
+    - name: Format
+      run: |
+        ${WITH_SHELL} './tools/ci-format.sh'
+
+    - name: Format
+      run: |
+        ${WITH_SHELL} './tools/ci-format.sh'
+
+    - name: Files changed
+      run: |
+        files="$(git diff --names-only)"
+        if [[ -n "$files" ]]; then
+          echo files changed
+          echo $files
+          exit 1
+        fi
+#+end_src
+
 * CodeQL
 
 #+begin_src yaml :tangle codeql.yml :noweb yes 

@@ -1,0 +1,48 @@
+name: Documentation
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  clang-format:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler:
+          - clang13
+        cuda:
+          - false
+    env:
+      WITH_SHELL: nix-shell /home/runner/work/sisi4s/sisi4s/etc/env/nix/shell.nix --argstr compiler ${{matrix.compiler}} --arg cuda ${{matrix.cuda}} --run
+      NJ: 4
+    steps:
+    - uses: actions/checkout@v2.3.4
+
+    - name: pwd
+      run: |
+        pwd
+
+    - name: Install Nix
+      uses: cachix/install-nix-action@v15
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Format
+      run: |
+        ${WITH_SHELL} './tools/ci-format.sh'
+
+    - name: Format
+      run: |
+        ${WITH_SHELL} './tools/ci-format.sh'
+
+    - name: Files changed
+      run: |
+        files="$(git diff --names-only)"
+        if [[ -n "$files" ]]; then
+          echo files changed
+          echo $files
+          exit 1
+        fi
