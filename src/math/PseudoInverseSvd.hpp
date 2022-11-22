@@ -9,26 +9,25 @@
 #include <random>
 
 namespace sisi4s {
-  template <typename F>
-  class PseudoInverseSvd {
-  public:
-    PseudoInverseSvd(Tensor<F> &A, double epsilon = 1e-12);
-    CTF::Matrix<F> &get();
+template <typename F>
+class PseudoInverseSvd {
+public:
+  PseudoInverseSvd(Tensor<F> &A, double epsilon = 1e-12);
+  CTF::Matrix<F> &get();
 
-  protected:
-    CTF::Matrix<F> inverse;
-  };
+protected:
+  CTF::Matrix<F> inverse;
+};
 
-  template <typename F>
-  class DryPseudoInverseSvd {
-  public:
-    DryPseudoInverseSvd(DryTensor<F> const &matrix);
-    DryMatrix<F> &get();
+template <typename F>
+class DryPseudoInverseSvd {
+public:
+  DryPseudoInverseSvd(DryTensor<F> const &matrix);
+  DryMatrix<F> &get();
 
-  protected:
-    DryMatrix<F> inverse;
-  };
-}
+protected:
+  DryMatrix<F> inverse;
+};
+} // namespace sisi4s
 
 #endif
-

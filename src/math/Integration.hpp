@@ -5,29 +5,28 @@
 #include <iostream>
 #include <string>
 namespace sisi4s {
-  template<typename Method, typename F, typename Float>
+template <typename Method, typename F, typename Float>
 
-  double integrate(F f, Float a, Float b, int steps, Method m){
-    double s = 0;
-    double h = (b-a)/steps;
-    for (int i = 0; i < steps; ++i)
-      s += m(f, a + h*i, h);
-    return h*s;
-  }
-  class trapezium{
-  public:
-    template<typename F, typename Float>
-    double operator()(F f, Float x, Float h) const{
-      return (f(x) + f(x+h))/2;
-    }
-  };
- 
-  class simpson{
-  public:
-    template<typename F, typename Float>
-    double operator()(F f, Float x, Float h) const{
-      return (f(x) + 4*f(x+h/2) + f(x+h))/6;
-    }
-  };
+double integrate(F f, Float a, Float b, int steps, Method m) {
+  double s = 0;
+  double h = (b - a) / steps;
+  for (int i = 0; i < steps; ++i) s += m(f, a + h * i, h);
+  return h * s;
 }
+class trapezium {
+public:
+  template <typename F, typename Float>
+  double operator()(F f, Float x, Float h) const {
+    return (f(x) + f(x + h)) / 2;
+  }
+};
+
+class simpson {
+public:
+  template <typename F, typename Float>
+  double operator()(F f, Float x, Float h) const {
+    return (f(x) + 4 * f(x + h / 2) + f(x + h)) / 6;
+  }
+};
+} // namespace sisi4s
 #endif
