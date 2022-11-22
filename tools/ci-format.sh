@@ -1,3 +1,12 @@
 #!/usr/bin/env bash
 
-find src/ -name '*.cxx' -or -name '*.hpp' -exec clang-format -i {} \;
+set -eu
+
+type -f clang-format || {
+  echo "install clang-format"
+  exit 1
+}
+
+fmt="clang-format -i {}"
+find src/ -name '*.cxx' -exec $fmt \; \
+      -or -name '*.hpp' -exec $fmt \;
