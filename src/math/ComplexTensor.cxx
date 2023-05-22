@@ -59,11 +59,11 @@ void sisi4s::toComplexTensor(Tensor<double> &R,
   toComplexTensor(R, C);
   CTF::Transform<double, complex>(
       std::function<void(double, complex &)>([](double i, complex &c) {
-        //#ifdef INTEL_COMPILER
-        //        c.imag() = i;
-        //#else
+        // #ifdef INTEL_COMPILER
+        //         c.imag() = i;
+        // #else
         c.imag(i);
-        //#endif
+        // #endif
       }))(I[indices], C[indices]);
 }
 
@@ -72,12 +72,12 @@ void sisi4s::toComplexTensor(Tensor<double> &R, Tensor<complex> &C) {
   Indices(C);
   CTF::Transform<double, complex>(
       std::function<void(double, complex &)>([](double r, complex &c) {
-        //#ifdef INTEL_COMPILER
-        //        c.real() = r;
-        //#else
+        // #ifdef INTEL_COMPILER
+        //         c.real() = r;
+        // #else
         c.real(r);
         c.imag(0);
-        //#endif
+        // #endif
       }))(R[indices], C[indices]);
 }
 

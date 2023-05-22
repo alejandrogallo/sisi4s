@@ -11,7 +11,9 @@
 
 struct Atom {
   const std::string symbol;
-  const struct { double x, y, z; } position;
+  const struct {
+    double x, y, z;
+  } position;
 };
 
 namespace pars {

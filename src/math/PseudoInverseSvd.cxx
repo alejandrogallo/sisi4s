@@ -1,3 +1,5 @@
+#include <array>
+
 #include <math/PseudoInverseSvd.hpp>
 
 #include <math/MathFunctions.hpp>

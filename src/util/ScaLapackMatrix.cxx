@@ -1,3 +1,4 @@
+#include <array>
 #include <util/ScaLapackMatrix.hpp>
 
 #include <extern/ScaLapack.hpp>

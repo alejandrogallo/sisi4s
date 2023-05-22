@@ -1,11 +1,13 @@
 #ifndef UEG_VERTEX_GENERATOR_DEFINED
 #define UEG_VERTEX_GENERATOR_DEFINED
 
+#include <array>
+
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-using ivec = array<int, 3>;
-using dvec = array<double, 4>;
+using ivec = std::array<int, 3>;
+using dvec = std::array<double, 4>;
 
 class UegVertexGenerator : public Algorithm {
 public:

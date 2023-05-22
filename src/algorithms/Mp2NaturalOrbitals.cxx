@@ -1,16 +1,18 @@
-#include <algorithms/Mp2NaturalOrbitals.hpp>
-//#include <math/MathFunctions.hpp>
-//#include <math/ComplexTensor.hpp>
-//#include <DryTensor.hpp>
+#include <array>
+#include <iostream>
 #include <algorithm>
 #include <numeric>
+
+#include <algorithms/Mp2NaturalOrbitals.hpp>
+// #include <math/MathFunctions.hpp>
+// #include <math/ComplexTensor.hpp>
+// #include <DryTensor.hpp>
 #include <extern/Lapack.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
 #include <util/Tensor.hpp>
-#include <iostream>
-//#include <Options.hpp>
+// #include <Options.hpp>
 
 using namespace sisi4s;
 

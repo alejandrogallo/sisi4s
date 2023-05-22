@@ -859,23 +859,23 @@ void ParenthesisTriples::run() {
         integralContainer.i = &Vppph[ijk[0] * NvCube];
         integralContainer.j = &Vppph[ijk[1] * NvCube];
         integralContainer.k = &Vppph[ijk[2] * NvCube];
-        //#pragma omp parallel for
-        // for(int64_t v(0); v<NvCube; v++){
-        //  Vpppijk = Vppph + ijk[0]*NvCube;
-        //  Vpppijk + NvCube = Vppph + ijk[1]*NvCube;
-        //  Vpppijk + NvCube + NvCube = Vppph + ijk[2]*NvCube;
-        //  Vpppijk[v]          = Vppph[v + ijk[0]*NvCube];
-        //  Vpppijk[v+NvCube]   = Vppph[v + ijk[1]*NvCube];
-        //  Vpppijk[v+2*NvCube] = Vppph[v + ijk[2]*NvCube];
-        //}
+        // #pragma omp parallel for
+        //  for(int64_t v(0); v<NvCube; v++){
+        //   Vpppijk = Vppph + ijk[0]*NvCube;
+        //   Vpppijk + NvCube = Vppph + ijk[1]*NvCube;
+        //   Vpppijk + NvCube + NvCube = Vppph + ijk[2]*NvCube;
+        //   Vpppijk[v]          = Vppph[v + ijk[0]*NvCube];
+        //   Vpppijk[v+NvCube]   = Vppph[v + ijk[1]*NvCube];
+        //   Vpppijk[v+2*NvCube] = Vppph[v + ijk[2]*NvCube];
+        // }
       } else if (PPPHOnTheFly) {
         integralContainer = getVpppijkOnTheFly(ijk, vtensor);
-        //#pragma omp parallel for
-        // for (int64_t v(0); v<NvCube; v++){
-        //  Vpppijk[v]          = integralContainer.i[v];
-        //  Vpppijk[v+NvCube]   = integralContainer.j[v];
-        //  Vpppijk[v+2*NvCube] = integralContainer.k[v];
-        //}
+        // #pragma omp parallel for
+        //  for (int64_t v(0); v<NvCube; v++){
+        //   Vpppijk[v]          = integralContainer.i[v];
+        //   Vpppijk[v+NvCube]   = integralContainer.j[v];
+        //   Vpppijk[v+2*NvCube] = integralContainer.k[v];
+        // }
       } else {
         getVpppijkFromVertex(ijk, scratch, Vpppijk);
         integralContainer.i = Vpppijk;
