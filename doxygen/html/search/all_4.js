@@ -139,5 +139,5 @@ var searchData=
   ['dsysv_5f_136',['dsysv_',['../Lapack_8hpp.html#aaacdf33c1d8272c5fd148b2e002c12a6',1,'Lapack.hpp']]],
   ['dummy_137',['dummy',['../namespaceCLI_1_1detail.html#a01c35a876e2917ffdc1ee618e0c06619',1,'CLI::detail']]],
   ['dvabc_138',['DVabc',['../classsisi4s_1_1CcsdPerturbativeTriples.html#a3dc369ba55cc0135a17957316470d7d8',1,'sisi4s::CcsdPerturbativeTriples']]],
-  ['dvec_139',['dvec',['../namespacesisi4s.html#a7d76f1823c4e9c365c31cf2b81607482',1,'sisi4s']]]
+  ['dvec_139',['dvec',['../namespacesisi4s.html#a9b9b6ef118faf2c1952a20842d5de4ec',1,'sisi4s']]]
 ];

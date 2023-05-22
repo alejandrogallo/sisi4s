@@ -14,6 +14,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -157,7 +158,7 @@ libraries.</p>
 <p>This section documents past instances of issues and correct solutions to the building.</p>
 <p>Make sure to provide correct <code class="docutils literal notranslate"><span class="pre">mpi</span></code> wrapper scripts to the configure script, for instance
 supply <code class="docutils literal notranslate"><span class="pre">MPICXX</span></code> and <code class="docutils literal notranslate"><span class="pre">CXX</span></code> variables to the <code class="docutils literal notranslate"><span class="pre">./configure</span></code> script:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./configure <span class="nv">MPICXX</span><span class="o">=</span>mpiicc <span class="nv">CXX</span><span class="o">=</span>icc
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./configure<span class="w"> </span><span class="nv">MPICXX</span><span class="o">=</span>mpiicc<span class="w"> </span><span class="nv">CXX</span><span class="o">=</span>icc
 </pre></div>
 </div>
 </section>
@@ -172,10 +173,10 @@ with names prefixed by <code class="docutils literal notranslate"><span class="p
 </ul>
 <p>It is possible that the configure script can not discover the <code class="docutils literal notranslate"><span class="pre">BLAS</span></code> libraries,
 in which case you can test the following</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./configure <span class="se">\</span>
-    <span class="nv">MPICXX</span><span class="o">=</span>mpiicc <span class="se">\</span>
-    <span class="nv">CXX</span><span class="o">=</span>icc <span class="se">\</span>
-    --with-blas<span class="o">=</span><span class="s2">&quot;-L</span><span class="si">${</span><span class="nv">MKL_HOME</span><span class="si">}</span><span class="s2">/lib/intel64/ -mkl -lmkl_intel_lp64&quot;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./configure<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">MPICXX</span><span class="o">=</span>mpiicc<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">CXX</span><span class="o">=</span>icc<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--with-blas<span class="o">=</span><span class="s2">&quot;-L</span><span class="si">${</span><span class="nv">MKL_HOME</span><span class="si">}</span><span class="s2">/lib/intel64/ -mkl -lmkl_intel_lp64&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -199,7 +200,7 @@ for further information.</p>
 <h3><a class="toc-backref" href="#id32" role="doc-backlink">2.2.1 Using an already compiled version</a><a class="headerlink" href="#using-an-already-compiled-version" title="Permalink to this heading">¶</a></h3>
 <p>If you want to reuse an already compiled verison of <a class="reference external" href="https://github.com/evaleev/libint">libint</a>
 you can give the path to the configure script such as</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./configure --with-libint<span class="o">=</span>/absolute/path/to/your/libint
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./configure<span class="w"> </span>--with-libint<span class="o">=</span>/absolute/path/to/your/libint
 </pre></div>
 </div>
 </section>
@@ -209,7 +210,7 @@ you can give the path to the configure script such as</p>
 a long time to build and it requires <code class="docutils literal notranslate"><span class="pre">libboost</span></code>,
 you can disable the algorithms that use it with the
 <code class="docutils literal notranslate"><span class="pre">configure</span></code> flag</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./configure --disable-libint
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./configure<span class="w"> </span>--disable-libint
 </pre></div>
 </div>
 </section>
@@ -224,44 +225,44 @@ you can disable the algorithms that use it with the
 <h2><a class="toc-backref" href="#id36" role="doc-backlink">3.1 Yaml</a><a class="headerlink" href="#yaml" title="Permalink to this heading">¶</a></h2>
 <p>For now the main input format of <code class="docutils literal notranslate"><span class="pre">SiSi4S</span></code>
 is yaml. A typical input for an algorithm is the following</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UccsdAmplitudesFromCoulombIntegrals</span><span class="w"></span>
-<span class="w">  </span><span class="nt">in</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">energyConvergence</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-8</span><span class="w"></span>
-<span class="w">    </span><span class="nt">maxIterations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span><span class="w"></span>
-<span class="w">    </span><span class="nt">antisymmetrize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">unrestricted</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">mixer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DiisMixer&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">maxResidua</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
-<span class="w">    </span><span class="nt">HoleEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HoleEigenEnergies</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ParticleEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$ParticleEigenEnergies</span><span class="w"></span>
-<span class="w">    </span><span class="nt">HHHHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HHHHCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PPPPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PPPPCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">HHHPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HHHPCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">HHPPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HHPPCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">HPHHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HPHHCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">HPHPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HPHPCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">HPPPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HPPPCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PPHHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PPHHCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PPHPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PPHPCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">HPPHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HPPHCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PHPPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PHPPCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">HHPHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HHPHCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PPPHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PPPHCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PHPHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PHPHCoulombIntegrals</span><span class="w"></span>
-<span class="w">    </span><span class="nt">PHHPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PHHPCoulombIntegrals</span><span class="w"></span>
-<span class="w">  </span><span class="nt">out</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">UccsdDoublesAmplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$UccsdDoublesAmplitudes</span><span class="w"></span>
-<span class="w">    </span><span class="nt">UccsdSinglesAmplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$UccsdSinglesAmplitudes</span><span class="w"></span>
-<span class="w">    </span><span class="nt">UccsdEnergy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$UccsdEnergy</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UccsdAmplitudesFromCoulombIntegrals</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">energyConvergence</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1e-8</span>
+<span class="w">    </span><span class="nt">maxIterations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="w">    </span><span class="nt">antisymmetrize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">unrestricted</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">mixer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DiisMixer&quot;</span>
+<span class="w">    </span><span class="nt">maxResidua</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">    </span><span class="nt">HoleEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HoleEigenEnergies</span>
+<span class="w">    </span><span class="nt">ParticleEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$ParticleEigenEnergies</span>
+<span class="w">    </span><span class="nt">HHHHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HHHHCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">PPPPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PPPPCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">HHHPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HHHPCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">HHPPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HHPPCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">HPHHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HPHHCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">HPHPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HPHPCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">HPPPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HPPPCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">PPHHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PPHHCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">PPHPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PPHPCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">HPPHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HPPHCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">PHPPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PHPPCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">HHPHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$HHPHCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">PPPHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PPPHCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">PHPHCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PHPHCoulombIntegrals</span>
+<span class="w">    </span><span class="nt">PHHPCoulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$PHHPCoulombIntegrals</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">UccsdDoublesAmplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$UccsdDoublesAmplitudes</span>
+<span class="w">    </span><span class="nt">UccsdSinglesAmplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$UccsdSinglesAmplitudes</span>
+<span class="w">    </span><span class="nt">UccsdEnergy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$UccsdEnergy</span>
 </pre></div>
 </div>
 <p>From here, we can see that every algorithm block consists
 of an `in` section and an `out` section.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UccsdAmplitudesFromCoulombIntegrals</span><span class="w"></span>
-<span class="w">  </span><span class="nt">in</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
-<span class="w">  </span><span class="nt">out</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UccsdAmplitudesFromCoulombIntegrals</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
 <p>Some rules extending yaml semantics have to be considered.
@@ -274,12 +275,12 @@ representing the name of an internal tensor.</p>
 <p>If you have a big file and you want to disable a step,
 in addition to <code class="docutils literal notranslate"><span class="pre">in</span></code> and <code class="docutils literal notranslate"><span class="pre">out</span></code>, you can supply a <code class="docutils literal notranslate"><span class="pre">disable</span></code>
 section with values <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>, i.e.,</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UccsdAmplitudesFromCoulombIntegrals</span><span class="w"></span>
-<span class="w">  </span><span class="nt">disable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">in</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
-<span class="w">  </span><span class="nt">out</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UccsdAmplitudesFromCoulombIntegrals</span>
+<span class="w">  </span><span class="nt">disable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
 <p>will simply ignore <code class="docutils literal notranslate"><span class="pre">UccsdAmplitudesFromCoulombIntegrals</span></code>.</p>
@@ -1206,7 +1207,7 @@ molecular orbitals from the following codes:</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 1980, Alejandro Gallo.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

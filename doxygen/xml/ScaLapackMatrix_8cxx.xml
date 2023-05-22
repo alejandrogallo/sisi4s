@@ -1,49 +1,48 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="ScaLapackMatrix_8cxx" kind="file" language="C++">
     <compoundname>ScaLapackMatrix.cxx</compoundname>
+    <includes local="no">array</includes>
     <includes refid="ScaLapackMatrix_8hpp" local="no">util/ScaLapackMatrix.hpp</includes>
     <includes refid="ScaLapack_8hpp" local="no">extern/ScaLapack.hpp</includes>
     <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
     <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
     <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <incdepgraph>
-      <node id="7">
+      <node id="8">
         <label>extern/ScaLapack.hpp</label>
         <link refid="ScaLapack_8hpp"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>math/Complex.hpp</label>
-        <link refid="Complex_8hpp"/>
         <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
         </childnode>
       </node>
       <node id="9">
-        <label>math/Float.hpp</label>
-        <link refid="Float_8hpp"/>
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
       </node>
-      <node id="3">
+      <node id="10">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
         <label>util/BlacsWorld.hpp</label>
         <link refid="BlacsWorld_8hpp"/>
       </node>
-      <node id="5">
+      <node id="6">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="6" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="13">
         <label>util/Log.hpp</label>
         <link refid="Log_8hpp"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
@@ -51,85 +50,92 @@
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>ScaLapackMatrix.cxx</label>
         <link refid="ScaLapackMatrix_8cxx"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>util/ScaLapackMatrix.hpp</label>
-        <link refid="ScaLapackMatrix_8hpp"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>util/Tensor.hpp</label>
-        <link refid="Tensor_8hpp"/>
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="13">
+      <node id="3">
+        <label>util/ScaLapackMatrix.hpp</label>
+        <link refid="ScaLapackMatrix_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>util/Tensor.hpp</label>
+        <link refid="Tensor_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
         <label>util/Time.hpp</label>
         <link refid="Time_8hpp"/>
-        <childnode refid="14" relation="include">
-        </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
         <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
       </node>
-      <node id="18">
-        <label>cmath</label>
-      </node>
-      <node id="11">
-        <label>complex</label>
-      </node>
-      <node id="15">
-        <label>cstdint</label>
-      </node>
-      <node id="6">
-        <label>ctf.hpp</label>
-      </node>
-      <node id="14">
-        <label>ctime</label>
-      </node>
-      <node id="22">
-        <label>fstream</label>
-      </node>
-      <node id="16">
-        <label>iomanip</label>
-      </node>
-      <node id="20">
-        <label>iostream</label>
-      </node>
-      <node id="10">
-        <label>ostream</label>
-      </node>
-      <node id="17">
-        <label>sstream</label>
-      </node>
-      <node id="21">
-        <label>streambuf</label>
+      <node id="2">
+        <label>array</label>
       </node>
       <node id="19">
+        <label>cmath</label>
+      </node>
+      <node id="12">
+        <label>complex</label>
+      </node>
+      <node id="16">
+        <label>cstdint</label>
+      </node>
+      <node id="7">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="15">
+        <label>ctime</label>
+      </node>
+      <node id="23">
+        <label>fstream</label>
+      </node>
+      <node id="17">
+        <label>iomanip</label>
+      </node>
+      <node id="21">
+        <label>iostream</label>
+      </node>
+      <node id="11">
+        <label>ostream</label>
+      </node>
+      <node id="18">
+        <label>sstream</label>
+      </node>
+      <node id="22">
+        <label>streambuf</label>
+      </node>
+      <node id="20">
         <label>string</label>
       </node>
     </incdepgraph>
@@ -138,170 +144,171 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapackMatrix_8hpp" kindref="compound">util/ScaLapackMatrix.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapack_8hpp" kindref="compound">extern/ScaLapack.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10" refid="classsisi4s_1_1ScaLapackDescriptor_1a504c665e16ce96bf271d4adf81d3634f" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a504c665e16ce96bf271d4adf81d3634f" kindref="member">ScaLapackDescriptor::ScaLapackDescriptor</ref>(<ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens_[2],</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize_)</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>dataType(1)</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>blacsContext(blacsWorld-&gt;context)<sp/>{</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d(0);<sp/>d<sp/>&lt;<sp/>2;<sp/>++d)<sp/>{</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab895910fe3d39be1e9d529d58cece907" kindref="member">lens</ref>[d]<sp/>=<sp/>lens_[d];</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a86ec3dd5c5d2e042de5711e5c21c3a74" kindref="member">blockSize</ref>[d]<sp/>=<sp/>std::min(blockSize_,<sp/>lens_[d]);</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab46d8269b88725c3b2e18f1b97a505a2" kindref="member">offset</ref>[d]<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[d]<sp/>=<sp/><ref refid="ScaLapack_8hpp_1aba716574a34a26860840095f2c1fb2c7" kindref="member">numroc_</ref>(&amp;<ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab895910fe3d39be1e9d529d58cece907" kindref="member">lens</ref>[d],</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="classsisi4s_1_1ScaLapackDescriptor_1a86ec3dd5c5d2e042de5711e5c21c3a74" kindref="member">blockSize</ref>[d],</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blacsWorld-&gt;<ref refid="classsisi4s_1_1BlacsWorld_1a1c0057db4593cc4e4bedeb468c85dafb" kindref="member">firstElement</ref>[d],</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab46d8269b88725c3b2e18f1b97a505a2" kindref="member">offset</ref>[d],</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blacsWorld-&gt;<ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[d]);</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;rank=&quot;<sp/>&lt;&lt;<sp/>blacsWorld-&gt;rank<sp/>&lt;&lt;<sp/>&quot;,<sp/>lens[&quot;<sp/>&lt;&lt;<sp/>d<sp/>&lt;&lt;<sp/>&quot;]=&quot;<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lens[d]<sp/>&lt;&lt;<sp/>std::endl;<sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;rank=&quot;<sp/>&lt;&lt;<sp/>blacsWorld-&gt;rank<sp/>&lt;&lt;<sp/>&quot;,</highlight></codeline>
-<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blockSize[&quot;<sp/>&lt;&lt;<sp/>d<sp/>&lt;&lt;<sp/>&quot;]=&quot;<sp/>&lt;&lt;<sp/>blockSize[d]<sp/>&lt;&lt;<sp/>std::endl;<sp/>std::cout<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="28" refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" refkind="member"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;rank=&quot;<sp/>&lt;&lt;<sp/>blacsWorld-&gt;rank<sp/>&lt;&lt;<sp/>&quot;,<sp/>offset[&quot;<sp/>&lt;&lt;<sp/>d<sp/>&lt;&lt;<sp/>&quot;]=&quot;<sp/>&lt;&lt;<sp/>offset[d]<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::endl;<sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;rank=&quot;<sp/>&lt;&lt;<sp/>blacsWorld-&gt;rank<sp/>&lt;&lt;<sp/>&quot;,<sp/>localLens[&quot;<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="30"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d<sp/>&lt;&lt;<sp/>&quot;]=&quot;<sp/>&lt;&lt;<sp/>localLens[d]<sp/>&lt;&lt;<sp/>std::endl;<sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;rank=&quot;<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blacsWorld-&gt;rank<sp/>&lt;&lt;<sp/>&quot;,<sp/>firstelement[&quot;<sp/>&lt;&lt;<sp/>d<sp/>&lt;&lt;<sp/>&quot;]=&quot;<sp/>&lt;&lt;</highlight></codeline>
-<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blacsWorld-&gt;firstElement[d]<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="33" refid="classsisi4s_1_1ScaLapackMatrix_1af72b9014d2b6581ef50923a100a5e82d" refkind="member"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="38" refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;F&gt;::ScaLapackMatrix</ref>(<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref><sp/>&amp;A)</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor" kindref="compound">ScaLapackDescriptor</ref>(A)</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>blacsWorld(A.blacsWorld)</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>localIndices(new<sp/>int64_t[localLens[0]<sp/>*<sp/>localLens[1]])</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>localValues(new<sp/>F[localLens[0]<sp/>*<sp/>localLens[1]])<sp/>{</highlight></codeline>
-<codeline lineno="43" refid="classsisi4s_1_1ScaLapackMatrix_1a6f48bf2fef2cc94865bfcec00022c46b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>i(0);<sp/>i<sp/>&lt;<sp/>static_cast&lt;int64_t&gt;(<ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[0])<sp/>*<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[1];</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" kindref="member">localIndices</ref>[i]<sp/>=<sp/>A.<ref refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" kindref="member">localIndices</ref>[i];</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" kindref="member">localValues</ref>[i]<sp/>=<sp/>A.<ref refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" kindref="member">localValues</ref>[i];</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51" refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;sisi4s::Float64&gt;::ScaLapackMatrix</ref>(</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;sisi4s::Float64&gt;</ref><sp/>&amp;A);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;sisi4s::Complex64&gt;::ScaLapackMatrix</ref>(</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;sisi4s::Complex64&gt;</ref><sp/>&amp;A);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="57" refid="classsisi4s_1_1ScaLapackMatrix_1af72b9014d2b6581ef50923a100a5e82d" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;F&gt;::ScaLapackMatrix</ref>(CTF::Matrix&lt;F&gt;<sp/>&amp;A,</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld_,</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize)</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor" kindref="compound">ScaLapackDescriptor</ref>(blacsWorld_,</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,<sp/>2&gt;{{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(A.lens[0]),</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(A.lens[1])}}</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.data(),</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blockSize)</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>blacsWorld(blacsWorld_)<sp/>{</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>local<sp/>data</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/>localValues<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>F[localLens[0]<sp/>*<sp/>localLens[1]];</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/>localIndices<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[localLens[0]<sp/>*<sp/>localLens[1]];</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>determine<sp/>global<sp/>indices<sp/>of<sp/>local<sp/>data<sp/>in<sp/>block<sp/>cyclic<sp/>distribution<sp/>scheme</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/>int64_t<sp/>index(0);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localJ(0);<sp/>localJ<sp/>&lt;<sp/>localLens[1];<sp/>++localJ)<sp/>{</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>j(getGlobalIndex(localJ,<sp/>1));</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localI(0);<sp/>localI<sp/>&lt;<sp/>localLens[0];<sp/>++localI)<sp/>{</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/>i(getGlobalIndex(localI,<sp/>0));</highlight></codeline>
-<codeline lineno="75" refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>localIndices[index++]<sp/>=<sp/>i<sp/>+<sp/>lens[0]<sp/>*<sp/>j;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/>A.read(localLens[0]<sp/>*<sp/>localLens[1],<sp/>localIndices,<sp/>localValues);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="82" refid="classsisi4s_1_1ScaLapackMatrix_1a850105afa55cd95764b2fbfe76b65716" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;sisi4s::Float64&gt;::ScaLapackMatrix</ref>(</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Matrix&lt;sisi4s::Float64&gt;<sp/>&amp;A,</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize);</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;sisi4s::Complex64&gt;::ScaLapackMatrix</ref>(</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Matrix&lt;Complex64&gt;<sp/>&amp;A,</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,</highlight></codeline>
-<codeline lineno="89" refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize);</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="92" refid="classsisi4s_1_1ScaLapackMatrix_1a6f48bf2fef2cc94865bfcec00022c46b" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;F&gt;::ScaLapackMatrix</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">sisi4s::Tensor&lt;F&gt;</ref><sp/>&amp;A,</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens_[2],</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld_,</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize)</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor" kindref="compound">ScaLapackDescriptor</ref>(blacsWorld_,<sp/>lens_,<sp/>blockSize)</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>blacsWorld(blacsWorld_)<sp/>{</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>local<sp/>data</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" kindref="member">localValues</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>F[<ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[0]<sp/>*<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[1]];</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" kindref="member">localIndices</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[<ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[0]<sp/>*<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[1]];</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>determine<sp/>global<sp/>indices<sp/>of<sp/>local<sp/>data<sp/>in<sp/>block<sp/>cyclic<sp/>distribution<sp/>scheme</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/>int64_t<sp/>index(0);</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localJ(0);<sp/>localJ<sp/>&lt;<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[1];<sp/>++localJ)<sp/>{</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>j(<ref refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" kindref="member">getGlobalIndex</ref>(localJ,<sp/>1));</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localI(0);<sp/>localI<sp/>&lt;<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[0];<sp/>++localI)<sp/>{</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/>i(<ref refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" kindref="member">getGlobalIndex</ref>(localI,<sp/>0));</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" kindref="member">localIndices</ref>[index++]<sp/>=<sp/>i<sp/>+<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab895910fe3d39be1e9d529d58cece907" kindref="member">lens</ref>[0]<sp/>*<sp/>j;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/>A.read(index,<sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" kindref="member">localIndices</ref>,<sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" kindref="member">localValues</ref>);</highlight></codeline>
-<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;Float64&gt;::ScaLapackMatrix</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>&amp;A,</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens_[2],</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize);</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;Complex64&gt;::ScaLapackMatrix</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Complex64&gt;</ref><sp/>&amp;A,</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens_[2],</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize);</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="124" refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" kindref="member">ScaLapackMatrix&lt;F&gt;::~ScaLapackMatrix</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>localValues;</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>localIndices;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" kindref="member">ScaLapackMatrix&lt;Float64&gt;::~ScaLapackMatrix</ref>();</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" kindref="member">ScaLapackMatrix&lt;Complex64&gt;::~ScaLapackMatrix</ref>();</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="134" refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;F&gt;::write</ref>(CTF::Matrix&lt;F&gt;<sp/>&amp;A)<sp/>{</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>for<sp/>all<sp/>processes<sp/>to<sp/>finish<sp/>pending<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/>blacsWorld-&gt;barrier();</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/>A.write(localLens[0]<sp/>*<sp/>localLens[1],<sp/>localIndices,<sp/>localValues);</highlight></codeline>
-<codeline lineno="138"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="141" refid="classsisi4s_1_1ScaLapackMatrix_1a850105afa55cd95764b2fbfe76b65716" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;F&gt;::write</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;A)<sp/>{</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>for<sp/>all<sp/>processes<sp/>to<sp/>finish<sp/>pending<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/>blacsWorld-&gt;barrier();</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/>A.write(localLens[0]<sp/>*<sp/>localLens[1],<sp/>localIndices,<sp/>localValues);</highlight></codeline>
-<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;Float64&gt;::write</ref>(CTF::Matrix&lt;Float64&gt;<sp/>&amp;A);</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;Complex64&gt;::write</ref>(CTF::Matrix&lt;Complex64&gt;<sp/>&amp;A);</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;Float64&gt;::write</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>&amp;A);</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;Complex64&gt;::write</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Complex64&gt;</ref><sp/>&amp;A);</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
-<codeline lineno="155" refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" kindref="member">ScaLapackMatrix&lt;F&gt;::getGlobalIndex</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localIndex,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d)<sp/>{</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>to<sp/>and<sp/>from<sp/>Fortran<sp/>indices</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/>++localIndex;</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1ac4325b5dd5fe6fc506aa35d8ca1df48c" kindref="member">indxl2g_</ref>(&amp;localIndex,</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blockSize[d],</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blacsWorld-&gt;firstElement[d],</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;offset[d],</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blacsWorld-&gt;lens[d])</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>1;</highlight></codeline>
-<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapackMatrix_8hpp" kindref="compound">util/ScaLapackMatrix.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ScaLapack_8hpp" kindref="compound">extern/ScaLapack.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Complex_8hpp" kindref="compound">math/Complex.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="classsisi4s_1_1ScaLapackDescriptor_1a504c665e16ce96bf271d4adf81d3634f" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a504c665e16ce96bf271d4adf81d3634f" kindref="member">ScaLapackDescriptor::ScaLapackDescriptor</ref>(<ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens_[2],</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize_)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>dataType(1)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>blacsContext(blacsWorld-&gt;context)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d(0);<sp/>d<sp/>&lt;<sp/>2;<sp/>++d)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab895910fe3d39be1e9d529d58cece907" kindref="member">lens</ref>[d]<sp/>=<sp/>lens_[d];</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1a86ec3dd5c5d2e042de5711e5c21c3a74" kindref="member">blockSize</ref>[d]<sp/>=<sp/>std::min(blockSize_,<sp/>lens_[d]);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab46d8269b88725c3b2e18f1b97a505a2" kindref="member">offset</ref>[d]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[d]<sp/>=<sp/><ref refid="ScaLapack_8hpp_1aba716574a34a26860840095f2c1fb2c7" kindref="member">numroc_</ref>(&amp;<ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab895910fe3d39be1e9d529d58cece907" kindref="member">lens</ref>[d],</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="classsisi4s_1_1ScaLapackDescriptor_1a86ec3dd5c5d2e042de5711e5c21c3a74" kindref="member">blockSize</ref>[d],</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blacsWorld-&gt;<ref refid="classsisi4s_1_1BlacsWorld_1a1c0057db4593cc4e4bedeb468c85dafb" kindref="member">firstElement</ref>[d],</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab46d8269b88725c3b2e18f1b97a505a2" kindref="member">offset</ref>[d],</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blacsWorld-&gt;<ref refid="classsisi4s_1_1BlacsWorld_1a653f00f9b23a3278a393b2acf80eae01" kindref="member">lens</ref>[d]);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;rank=&quot;<sp/>&lt;&lt;<sp/>blacsWorld-&gt;rank<sp/>&lt;&lt;<sp/>&quot;,<sp/>lens[&quot;<sp/>&lt;&lt;<sp/>d<sp/>&lt;&lt;<sp/>&quot;]=&quot;<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lens[d]<sp/>&lt;&lt;<sp/>std::endl;<sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;rank=&quot;<sp/>&lt;&lt;<sp/>blacsWorld-&gt;rank<sp/>&lt;&lt;<sp/>&quot;,</highlight></codeline>
+<codeline lineno="28" refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" refkind="member"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blockSize[&quot;<sp/>&lt;&lt;<sp/>d<sp/>&lt;&lt;<sp/>&quot;]=&quot;<sp/>&lt;&lt;<sp/>blockSize[d]<sp/>&lt;&lt;<sp/>std::endl;<sp/>std::cout<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;rank=&quot;<sp/>&lt;&lt;<sp/>blacsWorld-&gt;rank<sp/>&lt;&lt;<sp/>&quot;,<sp/>offset[&quot;<sp/>&lt;&lt;<sp/>d<sp/>&lt;&lt;<sp/>&quot;]=&quot;<sp/>&lt;&lt;<sp/>offset[d]<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::endl;<sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;rank=&quot;<sp/>&lt;&lt;<sp/>blacsWorld-&gt;rank<sp/>&lt;&lt;<sp/>&quot;,<sp/>localLens[&quot;<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d<sp/>&lt;&lt;<sp/>&quot;]=&quot;<sp/>&lt;&lt;<sp/>localLens[d]<sp/>&lt;&lt;<sp/>std::endl;<sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;rank=&quot;<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blacsWorld-&gt;rank<sp/>&lt;&lt;<sp/>&quot;,<sp/>firstelement[&quot;<sp/>&lt;&lt;<sp/>d<sp/>&lt;&lt;<sp/>&quot;]=&quot;<sp/>&lt;&lt;</highlight></codeline>
+<codeline lineno="33" refid="classsisi4s_1_1ScaLapackMatrix_1af72b9014d2b6581ef50923a100a5e82d" refkind="member"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blacsWorld-&gt;firstElement[d]<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="39" refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;F&gt;::ScaLapackMatrix</ref>(<ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;F&gt;</ref><sp/>&amp;A)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor" kindref="compound">ScaLapackDescriptor</ref>(A)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>blacsWorld(A.blacsWorld)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>localIndices(new<sp/>int64_t[localLens[0]<sp/>*<sp/>localLens[1]])</highlight></codeline>
+<codeline lineno="43" refid="classsisi4s_1_1ScaLapackMatrix_1a6f48bf2fef2cc94865bfcec00022c46b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>localValues(new<sp/>F[localLens[0]<sp/>*<sp/>localLens[1]])<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int64_t<sp/>i(0);<sp/>i<sp/>&lt;<sp/>static_cast&lt;int64_t&gt;(localLens[0])<sp/>*<sp/>localLens[1];</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>localIndices[i]<sp/>=<sp/>A.<ref refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" kindref="member">localIndices</ref>[i];</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>localValues[i]<sp/>=<sp/>A.<ref refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" kindref="member">localValues</ref>[i];</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" refkind="member"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;sisi4s::Float64&gt;::ScaLapackMatrix</ref>(</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;sisi4s::Float64&gt;</ref><sp/>&amp;A);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;sisi4s::Complex64&gt;::ScaLapackMatrix</ref>(</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix" kindref="compound">ScaLapackMatrix&lt;sisi4s::Complex64&gt;</ref><sp/>&amp;A);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="58" refid="classsisi4s_1_1ScaLapackMatrix_1af72b9014d2b6581ef50923a100a5e82d" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;F&gt;::ScaLapackMatrix</ref>(CTF::Matrix&lt;F&gt;<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld_,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor" kindref="compound">ScaLapackDescriptor</ref>(blacsWorld_,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;int,<sp/>2&gt;{{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(A.lens[0]),</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(A.lens[1])}}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.data(),</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blockSize)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>blacsWorld(blacsWorld_)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>local<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>localValues<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>F[localLens[0]<sp/>*<sp/>localLens[1]];</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>localIndices<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[localLens[0]<sp/>*<sp/>localLens[1]];</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>determine<sp/>global<sp/>indices<sp/>of<sp/>local<sp/>data<sp/>in<sp/>block<sp/>cyclic<sp/>distribution<sp/>scheme</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>int64_t<sp/>index(0);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localJ(0);<sp/>localJ<sp/>&lt;<sp/>localLens[1];<sp/>++localJ)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>j(getGlobalIndex(localJ,<sp/>1));</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localI(0);<sp/>localI<sp/>&lt;<sp/>localLens[0];<sp/>++localI)<sp/>{</highlight></codeline>
+<codeline lineno="75" refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/>i(getGlobalIndex(localI,<sp/>0));</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>localIndices[index++]<sp/>=<sp/>i<sp/>+<sp/>lens[0]<sp/>*<sp/>j;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>A.read(localLens[0]<sp/>*<sp/>localLens[1],<sp/>localIndices,<sp/>localValues);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="classsisi4s_1_1ScaLapackMatrix_1a850105afa55cd95764b2fbfe76b65716" refkind="member"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;sisi4s::Float64&gt;::ScaLapackMatrix</ref>(</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Matrix&lt;sisi4s::Float64&gt;<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;sisi4s::Complex64&gt;::ScaLapackMatrix</ref>(</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>CTF::Matrix&lt;Complex64&gt;<sp/>&amp;A,</highlight></codeline>
+<codeline lineno="89" refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="93" refid="classsisi4s_1_1ScaLapackMatrix_1a6f48bf2fef2cc94865bfcec00022c46b" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;F&gt;::ScaLapackMatrix</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">sisi4s::Tensor&lt;F&gt;</ref><sp/>&amp;A,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens_[2],</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld_,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor" kindref="compound">ScaLapackDescriptor</ref>(blacsWorld_,<sp/>lens_,<sp/>blockSize)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>blacsWorld(blacsWorld_)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>local<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" kindref="member">localValues</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>F[<ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[0]<sp/>*<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[1]];</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" kindref="member">localIndices</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>int64_t[<ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[0]<sp/>*<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[1]];</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>determine<sp/>global<sp/>indices<sp/>of<sp/>local<sp/>data<sp/>in<sp/>block<sp/>cyclic<sp/>distribution<sp/>scheme</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>int64_t<sp/>index(0);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localJ(0);<sp/>localJ<sp/>&lt;<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[1];<sp/>++localJ)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>j(<ref refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" kindref="member">getGlobalIndex</ref>(localJ,<sp/>1));</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localI(0);<sp/>localI<sp/>&lt;<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ae7d95c709d5aa4159d46cd9bd877dbf9" kindref="member">localLens</ref>[0];<sp/>++localI)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/>i(<ref refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" kindref="member">getGlobalIndex</ref>(localI,<sp/>0));</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" kindref="member">localIndices</ref>[index++]<sp/>=<sp/>i<sp/>+<sp/><ref refid="classsisi4s_1_1ScaLapackDescriptor_1ab895910fe3d39be1e9d529d58cece907" kindref="member">lens</ref>[0]<sp/>*<sp/>j;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>A.read(index,<sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ade8ce7b5fdb9c251a0070245b1b43c49" kindref="member">localIndices</ref>,<sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1aef9d4955b26f9402bbe6a7a2091fa48c" kindref="member">localValues</ref>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;Float64&gt;::ScaLapackMatrix</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>&amp;A,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens_[2],</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1a3c8aefa084c7ccd7b6582ad05890dfd8" kindref="member">ScaLapackMatrix&lt;Complex64&gt;::ScaLapackMatrix</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Complex64&gt;</ref><sp/>&amp;A,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lens_[2],</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1BlacsWorld" kindref="compound">BlacsWorld</ref><sp/>*blacsWorld,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockSize);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="125" refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" refkind="member"><highlight class="normal"><ref refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" kindref="member">ScaLapackMatrix&lt;F&gt;::~ScaLapackMatrix</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>localValues;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>localIndices;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" kindref="member">ScaLapackMatrix&lt;Float64&gt;::~ScaLapackMatrix</ref>();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1af637b22c35ba76051852f21058569c46" kindref="member">ScaLapackMatrix&lt;Complex64&gt;::~ScaLapackMatrix</ref>();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="135" refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;F&gt;::write</ref>(CTF::Matrix&lt;F&gt;<sp/>&amp;A)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>for<sp/>all<sp/>processes<sp/>to<sp/>finish<sp/>pending<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>blacsWorld-&gt;barrier();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>A.write(localLens[0]<sp/>*<sp/>localLens[1],<sp/>localIndices,<sp/>localValues);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="142" refid="classsisi4s_1_1ScaLapackMatrix_1a850105afa55cd95764b2fbfe76b65716" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;F&gt;::write</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>&amp;A)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>for<sp/>all<sp/>processes<sp/>to<sp/>finish<sp/>pending<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>blacsWorld-&gt;barrier();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>A.write(localLens[0]<sp/>*<sp/>localLens[1],<sp/>localIndices,<sp/>localValues);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;Float64&gt;::write</ref>(CTF::Matrix&lt;Float64&gt;<sp/>&amp;A);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;Complex64&gt;::write</ref>(CTF::Matrix&lt;Complex64&gt;<sp/>&amp;A);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;Float64&gt;::write</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Float64&gt;</ref><sp/>&amp;A);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ab370789a696c00bc6ea67b169c2caf25" kindref="member">ScaLapackMatrix&lt;Complex64&gt;::write</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;Complex64&gt;</ref><sp/>&amp;A);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="156" refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1ScaLapackMatrix_1ae0f82a2ab2355be692fcd5476d8f9842" kindref="member">ScaLapackMatrix&lt;F&gt;::getGlobalIndex</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localIndex,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>to<sp/>and<sp/>from<sp/>Fortran<sp/>indices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>++localIndex;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="ScaLapack_8hpp_1ac4325b5dd5fe6fc506aa35d8ca1df48c" kindref="member">indxl2g_</ref>(&amp;localIndex,</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blockSize[d],</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blacsWorld-&gt;firstElement[d],</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;offset[d],</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;blacsWorld-&gt;lens[d])</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/util/ScaLapackMatrix.cxx"/>
   </compounddef>
