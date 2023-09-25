@@ -31,6 +31,9 @@ public:
   virtual void run() = 0;
   virtual void dryRun();
 
+  std::string note;
+  bool fallible = false;
+
   bool isArgumentGiven(std::string const &argumentName);
   // retrieving input arguments
   std::string getTextArgument(std::string const &argumentName);

@@ -63,6 +63,8 @@ std::vector<Algorithm *> InputFileParser<InputFileFormat::YAML>::parse() {
     }
 
     Algorithm *algorithm(AlgorithmFactory::create(name, arguments));
+    if (node["note"]) { algorithm->note = node["note"].as<std::string>(); }
+    if (node["fallible"]) { algorithm->fallible = node["fallible"].as<bool>(); }
     algorithms.push_back(algorithm);
   }
   return algorithms;

@@ -56,15 +56,35 @@ void Sisi4s::run() {
       EMIT() << YAML::BeginMap;
       LOG(0, "root") << "step=" << (i + 1) << ", " << algorithms[i]->getName()
                      << std::endl;
-      EMIT() << YAML::Key << "step" << YAML::Value << (i + 1) << YAML::Key
-             << "name" << YAML::Value << algorithms[i]->getName();
+      EMIT() << YAML::Key << "step"                     //
+             << YAML::Value << (i + 1)                  //
+             << YAML::Key << "name"                     //
+             << YAML::Value << algorithms[i]->getName() //
+             << YAML::Key << "note"                     //
+             << YAML::Value << algorithms[i]->note;
 
       int64_t flops;
       Time time;
       {
         FlopsCounter flopsCounter(&flops);
         Timer timer(&time);
-        algorithms[i]->run();
+        const auto fallible = algorithms[i]->fallible;
+        if (fallible) {
+#define ___CATCH(type, var, string)                                            \
+  catch (type var) {                                                           \
+    LOG(0, "root") << "[41mERROR:[0m (fallible error encountered) "          \
+                   << string << std::endl;                                     \
+  }
+          try {
+            algorithms[i]->run();
+          }
+          ___CATCH(std::exception const &, ex, ex.what())
+          ___CATCH(std::string const &, ex, ex)
+          ___CATCH(char *const, ex, ex)
+#undef ___CATCH
+        } else {
+          algorithms[i]->run();
+        }
         delete algorithms[i];
       }
 
