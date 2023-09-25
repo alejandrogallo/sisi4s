@@ -447,6 +447,7 @@ private:
 void CoulombIntegralsFromGaussian::run() {
 
   checkArgumentsOrDie({"xyzStructureFile",
+                       "xyzStructureString",
                        "basisSet",
                        "kernel",
                        "chemistNotation",
@@ -461,6 +462,7 @@ void CoulombIntegralsFromGaussian::run() {
 
   const std::string xyzStructureFile(getTextArgument("xyzStructureFile", "")),
       basisSet(getTextArgument("basisSet")),
+      xyz_structure_string(getTextArgument("xyzStructureString", "")),
       kernel(getTextArgument("kernel", "coulomb"));
   const bool chemistNotation(getIntegerArgument("chemistNotation", 1) == 1);
   const CoulombIntegralsProvider::Distribution mpiDistribution = [&] {
@@ -473,10 +475,20 @@ void CoulombIntegralsFromGaussian::run() {
     return r;
   }();
 
-  std::ifstream structureFileStream(xyzStructureFile);
-  if (!structureFileStream.good()) throw "Bad file: " + xyzStructureFile;
-  const auto atoms(libint2::read_dotxyz(structureFileStream));
-  structureFileStream.close();
+  // TODO: refactor this from HartreeFockFromGaussian
+  std::vector<libint2::Atom> atoms;
+  if (xyzStructureFile.size()) {
+    LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
+    std::ifstream structureFileStream(xyzStructureFile.c_str());
+    atoms = libint2::read_dotxyz(structureFileStream);
+    structureFileStream.close();
+  } else if (xyz_structure_string.size()) {
+    std::istringstream s;
+    s.str(xyz_structure_string);
+    atoms = libint2::read_dotxyz(s);
+  } else {
+    throw "xyzStructureFile or xyzStructureString has to be provided";
+  }
   const libint2::BasisSet shells(basisSet, atoms, true);
   const int Np(shells.nbf());
   const Operator op = [kernel] {

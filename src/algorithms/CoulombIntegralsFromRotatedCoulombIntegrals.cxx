@@ -484,6 +484,7 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
 
   LOGGER(1) << "Using engine: " << engineType << std::endl;
   LOGGER(1) << "Using chemistNotation?: " << chemistNotation << std::endl;
+  // TODO: Support physicist notation
 
   if (engineType == EngineInfo::VECTOR_FAST) {
     VectorIntegralProvider engine(No,

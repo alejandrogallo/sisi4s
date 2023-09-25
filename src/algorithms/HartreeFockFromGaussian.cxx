@@ -211,6 +211,7 @@ Eigen::MatrixXd getTwoBodyFock(const libint2::BasisSet &shells,
 void HartreeFockFromGaussian::run() {
 
   std::vector<std::string> allArguments = {"xyzStructureFile",
+                                           "xyzStructureString",
                                            "basisSet",
                                            "CoreHamiltonian",
                                            "energyDifference",
@@ -225,6 +226,7 @@ void HartreeFockFromGaussian::run() {
   checkArgumentsOrDie(allArguments);
 
   const std::string xyzStructureFile(getTextArgument("xyzStructureFile", "")),
+      xyz_structure_string(getTextArgument("xyzStructureString", "")),
       basisSet(getTextArgument("basisSet", "sto-3g"));
   double electronicConvergence(getRealArgument("energyDifference", 1e-4));
   int numberOfElectrons(getIntegerArgument("numberOfElectrons", -1));
@@ -239,10 +241,19 @@ void HartreeFockFromGaussian::run() {
   LOGGER(1) << "MAX_AM: " << LIBINT_MAX_AM << std::endl;
   libint2::initialize();
 
-  LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
-  std::ifstream structureFileStream(xyzStructureFile.c_str());
-  std::vector<libint2::Atom> atoms(libint2::read_dotxyz(structureFileStream));
-  structureFileStream.close();
+  std::vector<libint2::Atom> atoms;
+  if (xyzStructureFile.size()) {
+    LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
+    std::ifstream structureFileStream(xyzStructureFile.c_str());
+    atoms = libint2::read_dotxyz(structureFileStream);
+    structureFileStream.close();
+  } else if (xyz_structure_string.size()) {
+    std::istringstream s;
+    s.str(xyz_structure_string);
+    atoms = libint2::read_dotxyz(s);
+  } else {
+    throw "xyzStructureFile or xyzStructureString has to be provided";
+  }
 
   if (numberOfElectrons == -1) {
     numberOfElectrons = 0;
