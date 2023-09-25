@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="classsisi4s_1_1CoulombVertexReader" kind="class" language="C++" prot="public">
     <compoundname>sisi4s::CoulombVertexReader</compoundname>
     <basecompoundref refid="classsisi4s_1_1Algorithm" prot="public" virt="non-virtual">sisi4s::Algorithm</basecompoundref>
@@ -78,7 +78,7 @@
         <qualifiedname>sisi4s::CoulombVertexReader::run</qualifiedname>
         <reimplements refid="classsisi4s_1_1Algorithm_1aacd7ce50628f515d50d178213db8b320">run</reimplements>
         <briefdescription>
-<para>Reads the Full Coulomb Vertex <formula id="6">$\Gamma_{pG}^q$</formula> and the occupied and virtual orbital energies <formula id="30">$\varepsilon_i, \varepsilon_a$</formula> from binary data file, and stores them in the CTF Tensors GammaGqr, epsi, epsa. </para>
+<para>Reads the Full Coulomb Vertex <formula id="6">$\Gamma_{pG}^q$</formula> and the occupied and virtual orbital energies <formula id="29">$\varepsilon_i, \varepsilon_a$</formula> from binary data file, and stores them in the CTF Tensors GammaGqr, epsi, epsa. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -188,7 +188,7 @@
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Reads the Coulomb vertex <formula id="6">$\Gamma_{pG}^q$</formula> and the occupied and virtual orbital energies <formula id="30">$\varepsilon_i, \varepsilon_a$</formula> from binary data file, and stores them in the CTF Tensors GammaGqr, epsi, epsa. </para>
+<para>Reads the Coulomb vertex <formula id="6">$\Gamma_{pG}^q$</formula> and the occupied and virtual orbital energies <formula id="29">$\varepsilon_i, \varepsilon_a$</formula> from binary data file, and stores them in the CTF Tensors GammaGqr, epsi, epsa. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -247,6 +247,7 @@
       <member refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>checkArgumentsOrDie</name></member>
       <member refid="classsisi4s_1_1CoulombVertexReader_1aac61b8b5e7fdb200c4261db7bb45189a" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>CoulombVertexReader</name></member>
       <member refid="classsisi4s_1_1CoulombVertexReader_1aac17c1f0bfabec70d85b88618ff7c5d8" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexReader</scope><name>dryRun</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a212c9eb28f189ff7e99d16dafa6b3b2b" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>fallible</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getArgumentData</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getBooleanArgument</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getBooleanArgument</name></member>
@@ -265,6 +266,7 @@
       <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>getTextArgument</name></member>
       <member refid="classsisi4s_1_1CoulombVertexReader_1a163292add0d88caaaef64e5062e73564" prot="protected" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>handleUnrestricted</name></member>
       <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ab80e81db3e585192db7fb9d7818b788c" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>note</name></member>
       <member refid="classsisi4s_1_1CoulombVertexReader_1a4d2130d27e88298b3e36ff043dc1d0d3" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>registrar_</name></member>
       <member refid="classsisi4s_1_1CoulombVertexReader_1ab7a866749df48712c5b9b02d892be4d9" prot="public" virt="virtual"><scope>sisi4s::CoulombVertexReader</scope><name>run</name></member>
       <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::CoulombVertexReader</scope><name>setIntegerArgument</name></member>

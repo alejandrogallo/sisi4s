@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="namespacesisi4s" kind="namespace" language="C++">
     <compoundname>sisi4s</compoundname>
     <innerclass refid="classsisi4s_1_1Algorithm" prot="public">sisi4s::Algorithm</innerclass>
@@ -486,7 +486,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="139" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="139" bodyend="141"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="142" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="142" bodyend="144"/>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1a3e0e5db8049adce93ba9fc38d7aaeb7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -536,7 +536,7 @@
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/HartreeFockFromCoulombIntegrals.hpp" line="23" column="19" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/HartreeFockFromCoulombIntegrals.cxx" bodystart="19" bodyend="34" declfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/HartreeFockFromCoulombIntegrals.hpp" declline="23" declcolumn="19"/>
         <referencedby refid="HartreeFockFromCoulombIntegrals_8cxx_1ad975fce2e7f66fbfc1fa217992c552c5" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="53" endline="61">getFockMatrix</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="63" endline="241">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
-        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="459">sisi4s::HartreeFockFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="470">sisi4s::HartreeFockFromGaussian::run</referencedby>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1a7ee8b12aa5d454657d4c3fa35b4608b3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -590,7 +590,7 @@
           <declname>T</declname>
         </param>
         <briefdescription>
-<para>Calculates <formula id="49">$T_{ijk}=A_{iR}B_{jR}C_{kR}$</formula> with minimal memory footprint. </para>
+<para>Calculates <formula id="48">$T_{ijk}=A_{iR}B_{jR}C_{kR}$</formula> with minimal memory footprint. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -631,7 +631,7 @@
           <declname>T</declname>
         </param>
         <briefdescription>
-<para>Performs a dry run of the calculation <formula id="49">$T_{ijk}=A_{iR}B_{jR}C_{kR}$</formula> with minimal memory footprint. </para>
+<para>Performs a dry run of the calculation <formula id="48">$T_{ijk}=A_{iR}B_{jR}C_{kR}$</formula> with minimal memory footprint. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -690,7 +690,7 @@
           <declname>idxA</declname>
         </param>
         <briefdescription>
-<para>Calculates <formula id="50">$A_{iR} = T_{ijk}B^{jR}C^{kR}$</formula> using a contraction order with minimal memory footprint. </para>
+<para>Calculates <formula id="49">$A_{iR} = T_{ijk}B^{jR}C^{kR}$</formula> using a contraction order with minimal memory footprint. </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -698,7 +698,7 @@
 <parametername direction="in">T</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the tensor <formula id="51">$T_{ijk}$</formula> </para>
+<para>the tensor <formula id="50">$T_{ijk}$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -706,7 +706,7 @@
 <parametername direction="in">indicesT</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the indices to compose <formula id="52">$T$</formula>, e.g. &quot;ijk&quot; </para>
+<para>the indices to compose <formula id="51">$T$</formula>, e.g. &quot;ijk&quot; </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -714,7 +714,7 @@
 <parametername direction="in">B</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the tensor <formula id="53">$B_{jR}$</formula> </para>
+<para>the tensor <formula id="52">$B_{jR}$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -722,7 +722,7 @@
 <parametername direction="in">idxB</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the index letter <formula id="54">$B$</formula> has in common with <formula id="52">$T$</formula> </para>
+<para>the index letter <formula id="53">$B$</formula> has in common with <formula id="51">$T$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -730,7 +730,7 @@
 <parametername direction="in">C</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the tensor <formula id="55">$C_{kR}$</formula> </para>
+<para>the tensor <formula id="54">$C_{kR}$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -738,7 +738,7 @@
 <parametername direction="in">idxC</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the index letter <formula id="56">$C$</formula> has in common with <formula id="52">$T$</formula> </para>
+<para>the index letter <formula id="55">$C$</formula> has in common with <formula id="51">$T$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -746,7 +746,7 @@
 <parametername direction="out">A</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the tensor <formula id="57">$A_{iR}$</formula> </para>
+<para>the tensor <formula id="56">$A_{iR}$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -754,7 +754,7 @@
 <parametername direction="in">idxA</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the index letter <formula id="58">$A$</formula> has in common with <formula id="52">$T$</formula> </para>
+<para>the index letter <formula id="57">$A$</formula> has in common with <formula id="51">$T$</formula> </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -813,7 +813,7 @@
           <declname>idxA</declname>
         </param>
         <briefdescription>
-<para>Performs a dry run of the calculation <formula id="50">$A_{iR} = T_{ijk}B^{jR}C^{kR}$</formula> using a contraction order with minimal memory footprint. </para>
+<para>Performs a dry run of the calculation <formula id="49">$A_{iR} = T_{ijk}B^{jR}C^{kR}$</formula> using a contraction order with minimal memory footprint. </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -821,7 +821,7 @@
 <parametername direction="in">T</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the tensor <formula id="51">$T_{ijk}$</formula> </para>
+<para>the tensor <formula id="50">$T_{ijk}$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -829,7 +829,7 @@
 <parametername direction="in">indicesT</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the indices to compose <formula id="52">$T$</formula>, e.g. &quot;ijk&quot; </para>
+<para>the indices to compose <formula id="51">$T$</formula>, e.g. &quot;ijk&quot; </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -837,7 +837,7 @@
 <parametername direction="in">B</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the tensor <formula id="53">$B_{jR}$</formula> </para>
+<para>the tensor <formula id="52">$B_{jR}$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -845,7 +845,7 @@
 <parametername direction="in">idxB</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the index letter <formula id="54">$B$</formula> has in common with <formula id="52">$T$</formula> </para>
+<para>the index letter <formula id="53">$B$</formula> has in common with <formula id="51">$T$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -853,7 +853,7 @@
 <parametername direction="in">C</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the tensor <formula id="55">$C_{kR}$</formula> </para>
+<para>the tensor <formula id="54">$C_{kR}$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -861,7 +861,7 @@
 <parametername direction="in">idxC</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the index letter <formula id="56">$C$</formula> has in common with <formula id="52">$T$</formula> </para>
+<para>the index letter <formula id="55">$C$</formula> has in common with <formula id="51">$T$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -869,7 +869,7 @@
 <parametername direction="out">A</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the tensor <formula id="57">$A_{iR}$</formula> </para>
+<para>the tensor <formula id="56">$A_{iR}$</formula> </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -877,7 +877,7 @@
 <parametername direction="in">idxA</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the index letter <formula id="58">$A$</formula> has in common with <formula id="52">$T$</formula> </para>
+<para>the index letter <formula id="57">$A$</formula> has in common with <formula id="51">$T$</formula> </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -1605,7 +1605,6 @@
         <referencedby refid="NuclearRepulsionEnergy_8cxx_1aaceb2c1481a73d85f851e6d8b4a2e9da" compoundref="NuclearRepulsionEnergy_8cxx" startline="14" endline="29">getEnergy</referencedby>
         <referencedby refid="HartreeFockFromGaussian_8cxx_1a07b361d629f995b4df9d6b4724e4d68b" compoundref="HartreeFockFromGaussian_8cxx" startline="67" endline="82">getNuclearRepulsionEnergy</referencedby>
         <referencedby refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a46fac3f3f22f920dc41e0c0d37e58c22" compoundref="PQRSCoulombIntegralsToVertex_8cxx" startline="26" endline="196">sisi4s::PQRSCoulombIntegralsToVertex::run</referencedby>
-        <referencedby refid="classsisi4s_1_1UegVertexGenerator_1a7f2b63e4e37a5f74313403b5a41d5cbf" compoundref="UegVertexGenerator_8cxx" startline="49" endline="229">sisi4s::UegVertexGenerator::run</referencedby>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1ab4577a58307bc686ea6f58bc3d0249d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="classsisi4s_1_1Algorithm" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>sisi4s::Algorithm</compoundname>
     <derivedcompoundref refid="classsisi4s_1_1ApproximateCoulombVertex" prot="public" virt="non-virtual">sisi4s::ApproximateCoulombVertex</derivedcompoundref>
@@ -74,6 +74,37 @@
     <derivedcompoundref refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa" prot="public" virt="non-virtual">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1Write" prot="public" virt="non-virtual">sisi4s::Write</derivedcompoundref>
     <includes refid="Algorithm_8hpp" local="no">Algorithm.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1Algorithm_1ab80e81db3e585192db7fb9d7818b788c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string sisi4s::Algorithm::note</definition>
+        <argsstring></argsstring>
+        <name>note</name>
+        <qualifiedname>sisi4s::Algorithm::note</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="34" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1Algorithm_1a212c9eb28f189ff7e99d16dafa6b3b2b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool sisi4s::Algorithm::fallible</definition>
+        <argsstring></argsstring>
+        <name>fallible</name>
+        <qualifiedname>sisi4s::Algorithm::fallible</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="35" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="protected-attrib">
       <memberdef kind="variable" id="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" prot="protected" static="no" mutable="no">
         <type>std::map&lt; std::string, std::string &gt;</type>
@@ -87,10 +118,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="99" column="12" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="99" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="102" column="12" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="102" bodyend="-1"/>
         <referencedby refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" compoundref="Algorithm_8cxx" startline="15" endline="20">Algorithm</referencedby>
         <referencedby refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="36" endline="54">getArgumentData</referencedby>
-        <referencedby refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" compoundref="Algorithm_8hpp" startline="55" endline="59">getGivenArgumentNames</referencedby>
+        <referencedby refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" compoundref="Algorithm_8hpp" startline="58" endline="62">getGivenArgumentNames</referencedby>
         <referencedby refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="32" endline="34">isArgumentGiven</referencedby>
       </memberdef>
       </sectiondef>
@@ -112,7 +143,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="28" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="15" bodyend="20"/>
-        <references refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" compoundref="Algorithm_8hpp" startline="99">arguments</references>
+        <references refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" compoundref="Algorithm_8hpp" startline="102">arguments</references>
         <references refid="classsisi4s_1_1Argument_1a5c32abc11fbb12c73db239fe52384528" compoundref="Algorithm_8hpp" startline="20" endline="20">sisi4s::Argument::getData</references>
         <references refid="classsisi4s_1_1Argument_1af1413fc817486afbacacf5980f009fe8" compoundref="Algorithm_8hpp" startline="19" endline="19">sisi4s::Argument::getName</references>
       </memberdef>
@@ -378,14 +409,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="34" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="32" bodyend="34"/>
-        <references refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" compoundref="Algorithm_8hpp" startline="99">arguments</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="37" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="32" bodyend="34"/>
+        <references refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" compoundref="Algorithm_8hpp" startline="102">arguments</references>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9a0534c7fbf919273df65232d6d7dcd6" compoundref="CoulombVertexDecomposition_8cxx" startline="24" endline="30">sisi4s::CoulombVertexDecomposition::~CoulombVertexDecomposition</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1abd4fd34cb27d006ece2f61750245e1eb" compoundref="CoulombIntegralsFromVertex_8cxx" startline="583" endline="929">sisi4s::CoulombIntegralsFromVertex::calculateComplexIntegrals</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a011bf1004b284365e04ac9bafe86618d" compoundref="FiniteSizeCorrection_8cxx" startline="352" endline="481">sisi4s::FiniteSizeCorrection::calculateComplexStructureFactor</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="203" endline="541">sisi4s::CoulombIntegralsFromVertex::calculateRealIntegrals</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a40817a0c8ab25b2ab9ac7586a00fc792" compoundref="FiniteSizeCorrection_8cxx" startline="123" endline="350">sisi4s::FiniteSizeCorrection::calculateRealStructureFactor</referencedby>
         <referencedby refid="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx_1ac62942818fd32e904a2c6436afc92320" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="387" endline="405">computeAndExport</referencedby>
+        <referencedby refid="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx_1a78b8eb3f40891cb06813feb82f06d315" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="408" endline="422">computeAndExport</referencedby>
         <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a40841e4df855f8e0fa34fa3498fcff06" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="240" endline="273">sisi4s::ClusterSinglesDoublesAlgorithm::createAmplitudes</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1adf7de0dea0521d15a30ae5110c9f008c" compoundref="CoulombIntegralsFromVertex_8cxx" startline="931" endline="989">sisi4s::CoulombIntegralsFromVertex::dryCalculateComplexIntegrals</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="543" endline="581">sisi4s::CoulombIntegralsFromVertex::dryCalculateRealIntegrals</referencedby>
@@ -400,9 +432,9 @@
         <referencedby refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegrals_1a5ec0fe08374df8bf74029a3eee23942c" compoundref="CcsdEnergyFromCoulombIntegrals_8cxx" startline="27" endline="494">sisi4s::CcsdEnergyFromCoulombIntegrals::getResiduum</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a07394de3d5697dec37b8f5fa64da3fda" compoundref="CcsdEnergyFromCoulombIntegralsReference_8cxx" startline="29" endline="295">sisi4s::CcsdEnergyFromCoulombIntegralsReference::getResiduum</referencedby>
         <referencedby refid="classsisi4s_1_1DrccdEnergyFromCoulombIntegrals_1a4f4018e420fca277719784b2f808c659" compoundref="DrccdEnergyFromCoulombIntegrals_8cxx" startline="32" endline="81">sisi4s::DrccdEnergyFromCoulombIntegrals::getResiduum</referencedby>
-        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac8e9eeb7cdf18eb7158449cd863399c4" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="54" endline="191">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac8e9eeb7cdf18eb7158449cd863399c4" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="54" endline="214">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth</referencedby>
         <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a10a145b2a213255c27cadb9a1751f520" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="109" endline="243">sisi4s::UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
-        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac9b180bf4955ef2b44a17083d7d02915" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="195" endline="1232">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac9b180bf4955ef2b44a17083d7d02915" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="218" endline="1255">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
         <referencedby refid="classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals_1a7865b24bebee7bbe2b5c47fb57427c2d" compoundref="UccsdtqAmplitudesFromCoulombIntegrals_8cxx" startline="53" endline="6321">sisi4s::UccsdtqAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
         <referencedby refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1ae9bbdc47787514f0c53c017d6b339ad2" compoundref="UrpaAmplitudesFromCoulombIntegrals_8cxx" startline="37" endline="130">sisi4s::UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdtEnergyFromCoulombIntegrals_1a43fa4a8a55a98cb2b5fdebcbc2e8e1f2" compoundref="CcsdtEnergyFromCoulombIntegrals_8cxx" startline="17" endline="456">sisi4s::CcsdtEnergyFromCoulombIntegrals::getResiduumTemplate</referencedby>
@@ -411,7 +443,7 @@
         <referencedby refid="classsisi4s_1_1CcsdEquationOfMotionDavidson_1a418beaea4a3a3fe7cf890ba392a7d6ef" compoundref="CcsdEquationOfMotionDavidson_8cxx" startline="78" endline="457">sisi4s::CcsdEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson_1a12e416e743f23f8ec453a9ee2f9a8aad" compoundref="CcsdtEquationOfMotionDavidson_8cxx" startline="43" endline="331">sisi4s::CcsdtEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a69e386caf7acdf30c11b476d522d7a9d" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="38" endline="128">sisi4s::ClusterSinglesDoublesAlgorithm::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="665">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="677">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="23" endline="148">sisi4s::CoulombIntegralsFromVertex::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="32" endline="155">sisi4s::CoulombVertexDecomposition::run</referencedby>
         <referencedby refid="classsisi4s_1_1FcidumpReader_1a25fd961515594f3bdc954899ad9d8f2f" compoundref="FcidumpReader_8cxx" startline="188" endline="267">sisi4s::FcidumpReader::run</referencedby>
@@ -447,7 +479,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="36" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="56" bodyend="66"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="39" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="56" bodyend="66"/>
         <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="8">EXCEPTION</references>
         <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="36" endline="54">getArgumentData</references>
         <references refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" compoundref="Data_8hpp" startline="47" endline="47">sisi4s::Data::getTypeName</references>
@@ -470,15 +502,15 @@
         <referencedby refid="classsisi4s_1_1ComplexTensorReader_1a96e47fa96d57ff620cbabd8ed5c551df" compoundref="ComplexTensorReader_8cxx" startline="20" endline="47">sisi4s::ComplexTensorReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1ComplexTensorSum_1ac49a77afa97ef815547bb935378bd6a5" compoundref="ComplexTensorSum_8cxx" startline="17" endline="25">sisi4s::ComplexTensorSum::run</referencedby>
         <referencedby refid="classsisi4s_1_1ComplexTensorWriter_1a05bdf7e509a37fb475514bfafddab0cd" compoundref="ComplexTensorWriter_8cxx" startline="19" endline="47">sisi4s::ComplexTensorWriter::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="665">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="424" endline="514">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="677">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="424" endline="515">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="32" endline="155">sisi4s::CoulombVertexDecomposition::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexReader_1ab7a866749df48712c5b9b02d892be4d9" compoundref="CoulombVertexReader_8cxx" startline="26" endline="111">sisi4s::CoulombVertexReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1FcidumpReader_1a25fd961515594f3bdc954899ad9d8f2f" compoundref="FcidumpReader_8cxx" startline="188" endline="267">sisi4s::FcidumpReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1FcidumpWriter_1aeeb70afb1962876cba6bfc4a0ced73ab" compoundref="FcidumpWriter_8cxx" startline="33" endline="101">sisi4s::FcidumpWriter::run</referencedby>
         <referencedby refid="classsisi4s_1_1GenerateRandomComplexMatrix_1a336f654cde6a8de4a1ea6d21e2e2f792" compoundref="GenerateRandomComplexMatrix_8cxx" startline="19" endline="32">sisi4s::GenerateRandomComplexMatrix::run</referencedby>
         <referencedby refid="classsisi4s_1_1GenerateRandomMatrix_1ab9d29a0b8d1df8d3d5610ff71e1096d3" compoundref="GenerateRandomMatrix_8cxx" startline="20" endline="37">sisi4s::GenerateRandomMatrix::run</referencedby>
-        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="459">sisi4s::HartreeFockFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="470">sisi4s::HartreeFockFromGaussian::run</referencedby>
         <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="136" endline="402">sisi4s::MoReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1NuclearRepulsionEnergy_1a0b2fed5ecd1a10cfb403b384c9ae0b72" compoundref="NuclearRepulsionEnergy_8cxx" startline="31" endline="47">sisi4s::NuclearRepulsionEnergy::run</referencedby>
         <referencedby refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" compoundref="OneBodyFromGaussian_8cxx" startline="74" endline="123">sisi4s::OneBodyFromGaussian::run</referencedby>
@@ -512,7 +544,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="37" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="67" bodyend="70"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="40" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="67" bodyend="70"/>
         <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">getTextArgument</references>
         <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="32" endline="34">isArgumentGiven</references>
       </memberdef>
@@ -532,7 +564,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="39" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="72" bodyend="87"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="42" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="72" bodyend="87"/>
         <references refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" compoundref="Algorithm_8cxx" startline="56" endline="66">getTextArgument</references>
         <referencedby refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" compoundref="Algorithm_8cxx" startline="88" endline="91">getBooleanArgument</referencedby>
       </memberdef>
@@ -556,7 +588,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="40" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="88" bodyend="91"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="43" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="88" bodyend="91"/>
         <references refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" compoundref="Algorithm_8cxx" startline="72" endline="87">getBooleanArgument</references>
         <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="32" endline="34">isArgumentGiven</references>
       </memberdef>
@@ -576,7 +608,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="41" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="93" bodyend="103"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="44" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="93" bodyend="103"/>
         <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="8">EXCEPTION</references>
         <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="36" endline="54">getArgumentData</references>
         <references refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" compoundref="Data_8hpp" startline="47" endline="47">sisi4s::Data::getTypeName</references>
@@ -601,7 +633,7 @@
         <referencedby refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a07394de3d5697dec37b8f5fa64da3fda" compoundref="CcsdEnergyFromCoulombIntegralsReference_8cxx" startline="29" endline="295">sisi4s::CcsdEnergyFromCoulombIntegralsReference::getResiduum</referencedby>
         <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ad3953e7b817832725e1b69837c5f994b" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="36" endline="42">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduum</referencedby>
         <referencedby refid="classsisi4s_1_1DrccdEnergyFromCoulombIntegrals_1a4f4018e420fca277719784b2f808c659" compoundref="DrccdEnergyFromCoulombIntegrals_8cxx" startline="32" endline="81">sisi4s::DrccdEnergyFromCoulombIntegrals::getResiduum</referencedby>
-        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac8e9eeb7cdf18eb7158449cd863399c4" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="54" endline="191">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac8e9eeb7cdf18eb7158449cd863399c4" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="54" endline="214">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexReader_1a163292add0d88caaaef64e5062e73564" compoundref="CoulombVertexReader_8cxx" startline="156" endline="165">sisi4s::CoulombVertexReader::handleUnrestricted</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="555" endline="918">sisi4s::FiniteSizeCorrection::interpolation3D</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1a9bad578c327384b5b48a0c98a907cded" compoundref="CoulombVertexDecomposition_8cxx" startline="318" endline="377">sisi4s::CoulombVertexDecomposition::iterateQuadraticFactor</referencedby>
@@ -614,8 +646,8 @@
         <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm_1aa86fb955293c874f806a98263ab39213" compoundref="ClusterSinglesDoublesTriplesAlgorithm_8cxx" startline="38" endline="113">sisi4s::ClusterSinglesDoublesTriplesAlgorithm::run</referencedby>
         <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm_1a3dec5575b0b30cead4a4965230969d73" compoundref="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8cxx" startline="38" endline="86">sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm::run</referencedby>
         <referencedby refid="classsisi4s_1_1ComplexTensorReader_1a96e47fa96d57ff620cbabd8ed5c551df" compoundref="ComplexTensorReader_8cxx" startline="20" endline="47">sisi4s::ComplexTensorReader::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="665">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="424" endline="514">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="677">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="424" endline="515">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1aeda1514e735c74e71a87fbb9c35102e0" compoundref="CoulombIntegralsFromVertex_8cxx" startline="23" endline="148">sisi4s::CoulombIntegralsFromVertex::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexDecomposition_1accb34639975cd2eed1188f32d3f239ff" compoundref="CoulombVertexDecomposition_8cxx" startline="32" endline="155">sisi4s::CoulombVertexDecomposition::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexSingularVectors_1a5de084a1b69bb70516fd835a02f34207" compoundref="CoulombVertexSingularVectors_8cxx" startline="25" endline="86">sisi4s::CoulombVertexSingularVectors::run</referencedby>
@@ -626,7 +658,7 @@
         <referencedby refid="classsisi4s_1_1GenerateRandomMatrix_1ab9d29a0b8d1df8d3d5610ff71e1096d3" compoundref="GenerateRandomMatrix_8cxx" startline="20" endline="37">sisi4s::GenerateRandomMatrix::run</referencedby>
         <referencedby refid="classsisi4s_1_1GenerateRandomTensor_1a61e87f5bb5703da14b559f7ce43f68e2" compoundref="GenerateRandomTensor_8cxx" startline="19" endline="29">sisi4s::GenerateRandomTensor::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="63" endline="241">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
-        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="459">sisi4s::HartreeFockFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="470">sisi4s::HartreeFockFromGaussian::run</referencedby>
         <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="136" endline="402">sisi4s::MoReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="569">sisi4s::Mp2NaturalOrbitals::run</referencedby>
         <referencedby refid="structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI_1a530fe0ea48ca968e6f9d61d4cbfd6896" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="18" endline="24">sisi4s::NaturalTransitionOrbitalsFromRhoAI::run</referencedby>
@@ -662,7 +694,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="42" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="104" bodyend="107"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="45" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="104" bodyend="107"/>
         <references refid="classsisi4s_1_1Algorithm_1a5db14be3b0d33bf80218a37223e27667" compoundref="Algorithm_8cxx" startline="93" endline="103">getIntegerArgument</references>
         <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="32" endline="34">isArgumentGiven</references>
       </memberdef>
@@ -682,7 +714,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="44" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="109" bodyend="121"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="47" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="109" bodyend="121"/>
         <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="8">EXCEPTION</references>
         <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="36" endline="54">getArgumentData</references>
         <references refid="classsisi4s_1_1Algorithm_1a1cb9a5e8f19cd8e6b70bb06738ca9413" compoundref="Algorithm_8cxx" startline="126" endline="134">getRealArgumentFromInteger</references>
@@ -715,7 +747,7 @@
         <referencedby refid="classsisi4s_1_1CoulombVertexSingularVectors_1a5de084a1b69bb70516fd835a02f34207" compoundref="CoulombVertexSingularVectors_8cxx" startline="25" endline="86">sisi4s::CoulombVertexSingularVectors::run</referencedby>
         <referencedby refid="classsisi4s_1_1FcidumpWriter_1aeeb70afb1962876cba6bfc4a0ced73ab" compoundref="FcidumpWriter_8cxx" startline="33" endline="101">sisi4s::FcidumpWriter::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="63" endline="241">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
-        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="459">sisi4s::HartreeFockFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="470">sisi4s::HartreeFockFromGaussian::run</referencedby>
         <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="569">sisi4s::Mp2NaturalOrbitals::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="24" endline="115">sisi4s::ParticleHoleCoulombVertexDecomposition::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a09b13599f6597caa907c8d7d2f785ac2" compoundref="ParticleHoleCoulombVertexSingularVectors_8cxx" startline="27" endline="72">sisi4s::ParticleHoleCoulombVertexSingularVectors::run</referencedby>
@@ -750,7 +782,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="45" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="122" bodyend="125"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="48" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="122" bodyend="125"/>
         <references refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" compoundref="Algorithm_8cxx" startline="109" endline="121">getRealArgument</references>
         <references refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" compoundref="Algorithm_8cxx" startline="32" endline="34">isArgumentGiven</references>
       </memberdef>
@@ -780,7 +812,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="48" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="178" bodyend="190"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="51" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="178" bodyend="190"/>
         <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="8">EXCEPTION</references>
         <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="36" endline="54">getArgumentData</references>
         <references refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" compoundref="Data_8hpp" startline="47" endline="47">sisi4s::Data::getTypeName</references>
@@ -808,8 +840,8 @@
         <referencedby refid="classsisi4s_1_1CcsdPerturbativeTriples_1a5fc03e62e96b511c1ffce15abbff3928" compoundref="CcsdPerturbativeTriples_8cxx" startline="98" endline="117">sisi4s::CcsdPerturbativeTriples::getEnergyDenominator</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegrals_1a5ec0fe08374df8bf74029a3eee23942c" compoundref="CcsdEnergyFromCoulombIntegrals_8cxx" startline="27" endline="494">sisi4s::CcsdEnergyFromCoulombIntegrals::getResiduum</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdEnergyFromCoulombIntegralsReference_1a07394de3d5697dec37b8f5fa64da3fda" compoundref="CcsdEnergyFromCoulombIntegralsReference_8cxx" startline="29" endline="295">sisi4s::CcsdEnergyFromCoulombIntegralsReference::getResiduum</referencedby>
-        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac8e9eeb7cdf18eb7158449cd863399c4" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="54" endline="191">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth</referencedby>
-        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac9b180bf4955ef2b44a17083d7d02915" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="195" endline="1232">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac8e9eeb7cdf18eb7158449cd863399c4" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="54" endline="214">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac9b180bf4955ef2b44a17083d7d02915" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="218" endline="1255">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
         <referencedby refid="classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals_1a7865b24bebee7bbe2b5c47fb57427c2d" compoundref="UccsdtqAmplitudesFromCoulombIntegrals_8cxx" startline="53" endline="6321">sisi4s::UccsdtqAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
         <referencedby refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1ae9bbdc47787514f0c53c017d6b339ad2" compoundref="UrpaAmplitudesFromCoulombIntegrals_8cxx" startline="37" endline="130">sisi4s::UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdtEnergyFromCoulombIntegrals_1a43fa4a8a55a98cb2b5fdebcbc2e8e1f2" compoundref="CcsdtEnergyFromCoulombIntegrals_8cxx" startline="17" endline="456">sisi4s::CcsdtEnergyFromCoulombIntegrals::getResiduumTemplate</referencedby>
@@ -817,8 +849,8 @@
         <referencedby refid="classsisi4s_1_1CcsdEquationOfMotionDavidson_1a418beaea4a3a3fe7cf890ba392a7d6ef" compoundref="CcsdEquationOfMotionDavidson_8cxx" startline="78" endline="457">sisi4s::CcsdEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdPerturbativeTriples_1ad094260a4c533e1734768a72b3ae0161" compoundref="CcsdPerturbativeTriples_8cxx" startline="119" endline="248">sisi4s::CcsdPerturbativeTriples::run</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson_1a12e416e743f23f8ec453a9ee2f9a8aad" compoundref="CcsdtEquationOfMotionDavidson_8cxx" startline="43" endline="331">sisi4s::CcsdtEquationOfMotionDavidson::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="665">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="424" endline="514">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="677">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="424" endline="515">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="569">sisi4s::Mp2NaturalOrbitals::run</referencedby>
         <referencedby refid="classsisi4s_1_1OneBodyRotation_1a15a0e3de73688c094a8018f94fa672d5" compoundref="OneBodyRotation_8cxx" startline="13" endline="48">sisi4s::OneBodyRotation::run</referencedby>
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a4050ec17cf598360e6075f120763cd39" compoundref="PerturbativeTriples_8cxx" startline="172" endline="240">sisi4s::PerturbativeTriples::run</referencedby>
@@ -829,6 +861,7 @@
         <referencedby refid="classsisi4s_1_1UPerturbativeTriples_1a44528381f51fc8eae60adce17b8c9109" compoundref="UPerturbativeTriples_8cxx" startline="19" endline="313">sisi4s::UPerturbativeTriples::run</referencedby>
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a569a55b703a8ff8d746c473b58a0e26f" compoundref="PerturbativeTriples_8cxx" startline="19" endline="97">sisi4s::PerturbativeTriples::runInMemory</referencedby>
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a2a445116bb25897a52f0473c50bcb423" compoundref="PerturbativeTriples_8cxx" startline="99" endline="170">sisi4s::PerturbativeTriples::runPiecuch</referencedby>
+        <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a8a2987d0d8c7c99eaab459300874b788" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="748" endline="885">sisi4s::ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors</referencedby>
         <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1aa15c5a3edcb4102f112028ff53f27179" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="568" endline="745">sisi4s::ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdPerturbativeTriples_1a91a20736900b7a0c000ff7352ef38301" compoundref="CcsdPerturbativeTriples_8cxx" startline="32" endline="79">sisi4s::CcsdPerturbativeTriples::sliceTensors</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexReader_1afeba637ffd23f0adf95f74119ddf7429" compoundref="CoulombVertexReader_8cxx" startline="204" endline="230">sisi4s::CoulombVertexReader::unrestrictEigenEnergies</referencedby>
@@ -859,7 +892,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="50" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="145" bodyend="155"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="53" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="145" bodyend="155"/>
         <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="8">EXCEPTION</references>
         <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="36" endline="54">getArgumentData</references>
         <references refid="classsisi4s_1_1Data_1a0ec0b1c7f2356fd43d82ee1dd0246789" compoundref="Data_8hpp" startline="47" endline="47">sisi4s::Data::getTypeName</references>
@@ -895,7 +928,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="52" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="158" bodyend="162"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="55" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="158" bodyend="162"/>
         <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="36" endline="54">getArgumentData</references>
         <references refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" compoundref="Data_8hpp" startline="46" endline="46">sisi4s::Data::getName</references>
       </memberdef>
@@ -911,9 +944,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="55" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="55" bodyend="59"/>
-        <references refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" compoundref="Algorithm_8hpp" startline="99">arguments</references>
-        <referencedby refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" compoundref="Algorithm_8hpp" startline="63" endline="72">checkArgumentsOrDie</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="58" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="58" bodyend="62"/>
+        <references refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" compoundref="Algorithm_8hpp" startline="102">arguments</references>
+        <referencedby refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" compoundref="Algorithm_8hpp" startline="66" endline="75">checkArgumentsOrDie</referencedby>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -931,14 +964,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="63" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="63" bodyend="72"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="66" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="66" bodyend="75"/>
         <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="8">EXCEPTION</references>
-        <references refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" compoundref="Algorithm_8hpp" startline="55" endline="59">getGivenArgumentNames</references>
+        <references refid="classsisi4s_1_1Algorithm_1acfd102240a53352574ed9b5632f1ef59" compoundref="Algorithm_8hpp" startline="58" endline="62">getGivenArgumentNames</references>
         <referencedby refid="classsisi4s_1_1CcsdEquationOfMotionDavidson_1a418beaea4a3a3fe7cf890ba392a7d6ef" compoundref="CcsdEquationOfMotionDavidson_8cxx" startline="78" endline="457">sisi4s::CcsdEquationOfMotionDavidson::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="665">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="424" endline="514">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="677">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromRotatedCoulombIntegrals_1ac4a7f4c21c88a42d9b0a91af3d057901" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="424" endline="515">sisi4s::CoulombIntegralsFromRotatedCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="63" endline="241">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
-        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="459">sisi4s::HartreeFockFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="470">sisi4s::HartreeFockFromGaussian::run</referencedby>
         <referencedby refid="structsisi4s_1_1MeanCorrelationHoleDepth_1a940ff082b9e2e5715f7fbb3a4bddb932" compoundref="MeanCorrelationHoleDepth_8cxx" startline="21" endline="49">sisi4s::MeanCorrelationHoleDepth::run</referencedby>
         <referencedby refid="classsisi4s_1_1NuclearRepulsionEnergy_1a0b2fed5ecd1a10cfb403b384c9ae0b72" compoundref="NuclearRepulsionEnergy_8cxx" startline="31" endline="47">sisi4s::NuclearRepulsionEnergy::run</referencedby>
         <referencedby refid="classsisi4s_1_1OneBodyFromGaussian_1a94efe85ce516f4e7ef180074884639a7" compoundref="OneBodyFromGaussian_8cxx" startline="74" endline="123">sisi4s::OneBodyFromGaussian::run</referencedby>
@@ -999,11 +1032,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="87" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="277" bodyend="284"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="90" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="277" bodyend="284"/>
         <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="36" endline="54">getArgumentData</references>
         <references refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" compoundref="Data_8hpp" startline="46" endline="46">sisi4s::Data::getName</references>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a5a8d285e19c8e3dbca1e9107da4c3460" compoundref="CoulombIntegralsFromVertex_8cxx" startline="203" endline="541">sisi4s::CoulombIntegralsFromVertex::calculateRealIntegrals</referencedby>
         <referencedby refid="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx_1ac62942818fd32e904a2c6436afc92320" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="387" endline="405">computeAndExport</referencedby>
+        <referencedby refid="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx_1a78b8eb3f40891cb06813feb82f06d315" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="408" endline="422">computeAndExport</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombIntegralsFromVertex_1a4f1aace3616d1ee1b0b9b519466e9d08" compoundref="CoulombIntegralsFromVertex_8cxx" startline="543" endline="581">sisi4s::CoulombIntegralsFromVertex::dryCalculateRealIntegrals</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1ab03fab436020be68b42a07d07b0eb3ca" compoundref="FiniteSizeCorrection_8cxx" startline="483" endline="534">sisi4s::FiniteSizeCorrection::dryCalculateStructureFactor</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexReader_1aac17c1f0bfabec70d85b88618ff7c5d8" compoundref="CoulombVertexReader_8cxx" startline="113" endline="154">sisi4s::CoulombVertexReader::dryRun</referencedby>
@@ -1037,7 +1071,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="88" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="352" bodyend="355"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="91" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="352" bodyend="355"/>
         <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="36" endline="54">getArgumentData</references>
         <references refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" compoundref="Data_8hpp" startline="46" endline="46">sisi4s::Data::getName</references>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a22f55b903c4a3f38bd3e395bf51f7aa3" compoundref="FiniteSizeCorrection_8cxx" startline="975" endline="1034">sisi4s::FiniteSizeCorrection::calculateFiniteSizeCorrection</referencedby>
@@ -1075,7 +1109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="89" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="357" bodyend="360"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="92" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="357" bodyend="360"/>
         <references refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" compoundref="Algorithm_8cxx" startline="36" endline="54">getArgumentData</references>
         <references refid="classsisi4s_1_1Data_1a10819dce08cb4dd8d881b9fe02036d69" compoundref="Data_8hpp" startline="46" endline="46">sisi4s::Data::getName</references>
         <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a1668977da91bbd8d13f2ac92e6149b11" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="23" endline="87">sisi4s::UccsdAmplitudesFromCoulombIntegrals::run</referencedby>
@@ -1099,7 +1133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="93" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="126" bodyend="134"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="96" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="126" bodyend="134"/>
         <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="110">LOG</references>
         <references refid="classsisi4s_1_1IntegerData_1a626faf1b2a39b358fcb44d904c9de573" compoundref="Data_8hpp" startline="158">sisi4s::IntegerData::value</references>
         <referencedby refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" compoundref="Algorithm_8cxx" startline="109" endline="121">getRealArgument</referencedby>
@@ -1120,7 +1154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="94" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="135" bodyend="142"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="97" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="135" bodyend="142"/>
         <references refid="Exception_8hpp_1aa6490e8f97f5dc90591264a4d94a1c09" compoundref="Exception_8hpp" startline="10">Assert</references>
         <references refid="classsisi4s_1_1TensorData_1ab4271a62e0c5a4f0e9172edbc61a11a0" compoundref="Data_8hpp" startline="187">sisi4s::TensorData&lt; F, T &gt;::value</references>
         <referencedby refid="classsisi4s_1_1Algorithm_1a36c632fbb19dae4ce2f415705fa5cbcb" compoundref="Algorithm_8cxx" startline="109" endline="121">getRealArgument</referencedby>
@@ -1152,7 +1186,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="96" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="259" bodyend="264"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="99" column="5" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="259" bodyend="264"/>
         <references refid="classsisi4s_1_1RealData_1aa2ebfedadb13cb8ef30ddc96d8351d83" compoundref="Data_8hpp" startline="147">sisi4s::RealData::value</references>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -1171,8 +1205,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="98" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="36" bodyend="54"/>
-        <references refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" compoundref="Algorithm_8hpp" startline="99">arguments</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="101" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.cxx" bodystart="36" bodyend="54"/>
+        <references refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" compoundref="Algorithm_8hpp" startline="102">arguments</references>
         <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="8">EXCEPTION</references>
         <references refid="classsisi4s_1_1Data_1a5b4676e48b4f437d399587e6903f896a" compoundref="Data_8hpp" startline="50" endline="53">sisi4s::Data::get</references>
         <referencedby refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" compoundref="Algorithm_8cxx" startline="158" endline="162">allocateContainerArgument</referencedby>
@@ -1698,7 +1732,7 @@
         <link refid="classsisi4s_1_1Algorithm"/>
       </node>
     </collaborationgraph>
-    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="26" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="26" bodyend="100"/>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="26" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="26" bodyend="103"/>
     <listofallmembers>
       <member refid="classsisi4s_1_1Algorithm_1a16507a06a7726b7fd8ca912fe688533d" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>Algorithm</name></member>
       <member refid="classsisi4s_1_1Algorithm_1af44fa884dcd69ef27bf0292fb5193118" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>allocateContainerArgument</name></member>
@@ -1706,6 +1740,7 @@
       <member refid="classsisi4s_1_1Algorithm_1afdd31e7d5d43fe123fc0bcdd4557e0b9" prot="protected" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>arguments</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a89f4af1584daed17ef628784e7e9c443" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>checkArgumentsOrDie</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de" prot="public" virt="virtual"><scope>sisi4s::Algorithm</scope><name>dryRun</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a212c9eb28f189ff7e99d16dafa6b3b2b" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>fallible</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>getArgumentData</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>getBooleanArgument</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a1c496b172b431784a4b3aa2c02543a52" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>getBooleanArgument</name></member>
@@ -1723,6 +1758,7 @@
       <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>getTextArgument</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>getTextArgument</name></member>
       <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ab80e81db3e585192db7fb9d7818b788c" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>note</name></member>
       <member refid="classsisi4s_1_1Algorithm_1aacd7ce50628f515d50d178213db8b320" prot="public" virt="pure-virtual"><scope>sisi4s::Algorithm</scope><name>run</name></member>
       <member refid="classsisi4s_1_1Algorithm_1ae7d025ea18b3f0b91db42447c0617540" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>setIntegerArgument</name></member>
       <member refid="classsisi4s_1_1Algorithm_1af6f931ab83742cc23b4f4350d54a3fcd" prot="public" virt="non-virtual"><scope>sisi4s::Algorithm</scope><name>setRealArgument</name></member>

@@ -65,7 +65,7 @@ var searchData=
   ['pseudoinverse_62',['PseudoInverse',['../classsisi4s_1_1PseudoInverse.html#afad68beb8031ebcb5e7497144b0bce64',1,'sisi4s::PseudoInverse']]],
   ['pseudoinversehermitiansvd_63',['PseudoInverseHermitianSvd',['../classsisi4s_1_1PseudoInverseHermitianSvd.html#aa96a9de61d98dd09ce41f349954caa75',1,'sisi4s::PseudoInverseHermitianSvd']]],
   ['pseudoinversesvd_64',['PseudoInverseSvd',['../classsisi4s_1_1PseudoInverseSvd.html#a53851b6cb0399fb80d19d7e86d473fe5',1,'sisi4s::PseudoInverseSvd']]],
-  ['ptr_65',['PTR',['../classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4.html#a421c0520564a85ffaba3046da942422a',1,'sisi4s::LapackGeneralEigenSystem&lt; complex &gt;']]],
+  ['ptr_65',['PTR',['../classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4.html#a421c0520564a85ffaba3046da942422a',1,'sisi4s::LapackGeneralEigenSystem&lt; complex &gt;::PTR()'],['../DiisMixer_8cxx.html#abb3faf0c510b1c2e5e317e6d2cffcd77',1,'PTR():&#160;DiisMixer.cxx']]],
   ['punct_66',['punct',['../namespacepars.html#aea75776b14e4bfd141b0e8eff1fecacf',1,'pars']]],
   ['pzgemm_5f_67',['pzgemm_',['../ScaLapack_8hpp.html#adb4c4a730e13df500c723afc7619fd1d',1,'ScaLapack.hpp']]],
   ['pzgesvd_5f_68',['pzgesvd_',['../ScaLapack_8hpp.html#af130b46d871af27f5d62d0c0203a2063',1,'ScaLapack.hpp']]],

@@ -107,7 +107,7 @@ var dir_e6df591b0639d4c4807ef64d058833e2 =
     [ "OneBodyRotation.hpp", "OneBodyRotation_8hpp.html", "OneBodyRotation_8hpp" ],
     [ "ParenthesisTriples.cxx", "ParenthesisTriples_8cxx.html", "ParenthesisTriples_8cxx" ],
     [ "ParenthesisTriples.hpp", "ParenthesisTriples_8hpp.html", "ParenthesisTriples_8hpp" ],
-    [ "ParticleHoleCoulombIntegrals.cxx", "ParticleHoleCoulombIntegrals_8cxx.html", null ],
+    [ "ParticleHoleCoulombIntegrals.cxx", "ParticleHoleCoulombIntegrals_8cxx.html", "ParticleHoleCoulombIntegrals_8cxx" ],
     [ "ParticleHoleCoulombIntegrals.hpp", "ParticleHoleCoulombIntegrals_8hpp.html", null ],
     [ "ParticleHoleCoulombVertexDecomposition.cxx", "ParticleHoleCoulombVertexDecomposition_8cxx.html", null ],
     [ "ParticleHoleCoulombVertexDecomposition.hpp", "ParticleHoleCoulombVertexDecomposition_8hpp.html", "ParticleHoleCoulombVertexDecomposition_8hpp" ],

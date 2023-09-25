@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"Lapack_8hpp.html#a5b048540159b635db2de24c5c90c0f71":[4,0,0,1,1,1],
+"Lapack_8hpp.html#a5dd7884f39150c29793947da3b7a78f4":[4,0,0,1,1,4],
 "Lapack_8hpp.html#a60541bc3a66c8c7b18d491ad9c6e6a4e":[4,0,0,1,1,2],
 "Lapack_8hpp.html#aa5156a837dc04850959f7eec5f83e01c":[4,0,0,1,1,6],
 "Lapack_8hpp.html#aaacdf33c1d8272c5fd148b2e002c12a6":[4,0,0,1,1,5],
@@ -151,6 +153,7 @@ var NAVTREEINDEX2 =
 "Parsing_8hpp.html#aeacba27dd76dc4dea5604c90285023ac":[4,0,0,6,26,3],
 "Parsing_8hpp_source.html":[4,0,0,6,26],
 "ParticleHoleCoulombIntegrals_8cxx.html":[4,0,0,0,107],
+"ParticleHoleCoulombIntegrals_8cxx.html#a881caa995fd805546e30f89c5a8acf99":[4,0,0,0,107,0],
 "ParticleHoleCoulombIntegrals_8hpp.html":[4,0,0,0,108],
 "ParticleHoleCoulombIntegrals_8hpp_source.html":[4,0,0,0,108],
 "ParticleHoleCoulombVertexDecomposition_8cxx.html":[4,0,0,0,109],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "SharedPointer_8hpp.html#a106f61c342cfd013eb570c37328070ae":[4,0,0,6,34,0],
 "SharedPointer_8hpp.html#a741e091aff51aed5f16b309962085404":[4,0,0,6,34,1],
 "SharedPointer_8hpp.html#a79efac8da8cf76d0023444b4adc2e776":[4,0,0,6,34,2],
-"SharedPointer_8hpp_source.html":[4,0,0,6,34],
-"SimilarityTransformedHamiltonian_8cxx.html":[4,0,0,0,125],
-"SimilarityTransformedHamiltonian_8cxx.html#a0f41965a4999bf2971314b18041ac59d":[4,0,0,0,125,1],
-"SimilarityTransformedHamiltonian_8cxx.html#a8a8a507de3f2114529dcd0affa66b44c":[4,0,0,0,125,0]
+"SharedPointer_8hpp_source.html":[4,0,0,6,34]
 };

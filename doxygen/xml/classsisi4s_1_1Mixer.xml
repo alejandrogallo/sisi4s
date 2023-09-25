@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="classsisi4s_1_1Mixer" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>sisi4s::Mixer</compoundname>
     <derivedcompoundref refid="classsisi4s_1_1DiisMixer" prot="public" virt="non-virtual">sisi4s::DiisMixer&lt; F &gt;</derivedcompoundref>
@@ -109,7 +109,7 @@
         <argsstring>()=0</argsstring>
         <name>get</name>
         <qualifiedname>sisi4s::Mixer::get</qualifiedname>
-        <reimplementedby refid="classsisi4s_1_1DiisMixer_1afaccc8b03ebe58b5138aa64f5875ebea">get</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1DiisMixer_1a24699d3b88bdbda1a759fa84f6228a00">get</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1LinearMixer_1a0fab9bf69d0470207ba58970517d587b">get</reimplementedby>
         <briefdescription>
 <para>Returns the current best estimate of the amplitudes according to previously given pairs of amplitudes and residua. Requires one or more previous calls to append. The returned FockVectors must not be changed. </para>
@@ -126,7 +126,7 @@
         <argsstring>()=0</argsstring>
         <name>getResiduum</name>
         <qualifiedname>sisi4s::Mixer::getResiduum</qualifiedname>
-        <reimplementedby refid="classsisi4s_1_1DiisMixer_1a321ce7d54ba7b64a85832546e8bc65ab">getResiduum</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1DiisMixer_1aa77f35eb29b9382c17eb7437c447042e">getResiduum</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1LinearMixer_1a40b684bebe91b4ba310c5c2df9f4a4f6">getResiduum</reimplementedby>
         <briefdescription>
 <para>Returns the estimated residuum of the current best estimate of the amplitdues according to previously given pairs of amplitudes and residua. Requires one or more previous calls to append. The returned FockVectors must not be changed. </para>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="classsisi4s_1_1DiisMixer" kind="class" language="C++" prot="public">
     <compoundname>sisi4s::DiisMixer</compoundname>
     <basecompoundref refid="classsisi4s_1_1Mixer" prot="public" virt="non-virtual">sisi4s::Mixer&lt; F &gt;</basecompoundref>
@@ -10,9 +10,9 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="classsisi4s_1_1DiisMixer_1a20dc3210195a487336b645c91a7a75d1" prot="public" static="yes" mutable="no">
+      <memberdef kind="variable" id="classsisi4s_1_1DiisMixer_1a50dbcff866a2135677abfb1ee6463b53" prot="public" static="yes" mutable="no">
         <type><ref refid="classsisi4s_1_1MixerRegistrar" kindref="compound">MixerRegistrar</ref>&lt; F, <ref refid="classsisi4s_1_1DiisMixer" kindref="compound">DiisMixer</ref>&lt; F &gt; &gt;</type>
-        <definition>MixerRegistrar&lt; F, DiisMixer&lt; F &gt; &gt; DiisMixer::registrar_</definition>
+        <definition>MixerRegistrar&lt;F, DiisMixer &lt;F&gt; &gt; sisi4s::DiisMixer&lt; F &gt;::registrar_</definition>
         <argsstring></argsstring>
         <name>registrar_</name>
         <qualifiedname>sisi4s::DiisMixer::registrar_</qualifiedname>
@@ -33,7 +33,7 @@
         <name>next</name>
         <qualifiedname>sisi4s::DiisMixer::next</qualifiedname>
         <briefdescription>
-<para>The best estimate for the next amplitudes as returned by <ref refid="classsisi4s_1_1DiisMixer_1afaccc8b03ebe58b5138aa64f5875ebea" kindref="member">get()</ref>. </para>
+<para>The best estimate for the next amplitudes as returned by <ref refid="classsisi4s_1_1DiisMixer_1a24699d3b88bdbda1a759fa84f6228a00" kindref="member">get()</ref>. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -48,7 +48,7 @@
         <name>nextResiduum</name>
         <qualifiedname>sisi4s::DiisMixer::nextResiduum</qualifiedname>
         <briefdescription>
-<para>The best estimate for the next residuum as returned by <ref refid="classsisi4s_1_1DiisMixer_1a321ce7d54ba7b64a85832546e8bc65ab" kindref="member">getResiduum()</ref>. </para>
+<para>The best estimate for the next residuum as returned by <ref refid="classsisi4s_1_1DiisMixer_1aa77f35eb29b9382c17eb7437c447042e" kindref="member">getResiduum()</ref>. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -176,9 +176,9 @@
         <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="10">NEW</references>
         <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="17">sisi4s::Sisi4s::world</references>
       </memberdef>
-      <memberdef kind="function" id="classsisi4s_1_1DiisMixer_1afaccc8b03ebe58b5138aa64f5875ebea" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classsisi4s_1_1DiisMixer_1a24699d3b88bdbda1a759fa84f6228a00" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>std::shared_ptr&lt; const <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; F &gt; &gt;</type>
-        <definition>std::shared_ptr&lt; const FockVector&lt; F &gt; &gt; DiisMixer::get</definition>
+        <definition>virtual std::shared_ptr&lt; const FockVector&lt; F &gt; &gt; sisi4s::DiisMixer&lt; F &gt;::get</definition>
         <argsstring>()</argsstring>
         <name>get</name>
         <qualifiedname>sisi4s::DiisMixer::get</qualifiedname>
@@ -190,11 +190,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.hpp" line="19" column="27" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" bodystart="183" bodyend="185"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.hpp" line="19" column="27"/>
       </memberdef>
-      <memberdef kind="function" id="classsisi4s_1_1DiisMixer_1a321ce7d54ba7b64a85832546e8bc65ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classsisi4s_1_1DiisMixer_1aa77f35eb29b9382c17eb7437c447042e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>std::shared_ptr&lt; const <ref refid="classsisi4s_1_1FockVector" kindref="compound">FockVector</ref>&lt; F &gt; &gt;</type>
-        <definition>std::shared_ptr&lt; const FockVector&lt; F &gt; &gt; DiisMixer::getResiduum</definition>
+        <definition>virtual std::shared_ptr&lt; const FockVector&lt; F &gt; &gt; sisi4s::DiisMixer&lt; F &gt;::getResiduum</definition>
         <argsstring>()</argsstring>
         <name>getResiduum</name>
         <qualifiedname>sisi4s::DiisMixer::getResiduum</qualifiedname>
@@ -206,7 +206,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.hpp" line="20" column="27" bodyfile="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.cxx" bodystart="188" bodyend="190"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/mixers/DiisMixer.hpp" line="20" column="27"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -272,13 +272,13 @@
       <member refid="classsisi4s_1_1DiisMixer_1abf50da4af38e051f8ede8ceca8e3e828" prot="public" virt="non-virtual"><scope>sisi4s::DiisMixer</scope><name>amplitudes</name></member>
       <member refid="classsisi4s_1_1DiisMixer_1aeb57aba18a31947900185a6ca031277a" prot="public" virt="virtual"><scope>sisi4s::DiisMixer</scope><name>append</name></member>
       <member refid="classsisi4s_1_1DiisMixer_1ae6af3fd3aa23a5891216897f380e76d3" prot="public" virt="non-virtual"><scope>sisi4s::DiisMixer</scope><name>DiisMixer</name></member>
-      <member refid="classsisi4s_1_1DiisMixer_1afaccc8b03ebe58b5138aa64f5875ebea" prot="public" virt="virtual"><scope>sisi4s::DiisMixer</scope><name>get</name></member>
+      <member refid="classsisi4s_1_1DiisMixer_1a24699d3b88bdbda1a759fa84f6228a00" prot="public" virt="virtual"><scope>sisi4s::DiisMixer</scope><name>get</name></member>
       <member refid="classsisi4s_1_1DiisMixer_1a965678ad86f97c6978d64f206c6618b2" prot="public" virt="virtual"><scope>sisi4s::DiisMixer</scope><name>getName</name></member>
-      <member refid="classsisi4s_1_1DiisMixer_1a321ce7d54ba7b64a85832546e8bc65ab" prot="public" virt="virtual"><scope>sisi4s::DiisMixer</scope><name>getResiduum</name></member>
+      <member refid="classsisi4s_1_1DiisMixer_1aa77f35eb29b9382c17eb7437c447042e" prot="public" virt="virtual"><scope>sisi4s::DiisMixer</scope><name>getResiduum</name></member>
       <member refid="classsisi4s_1_1Mixer_1a2ec5f3a84f2c48df9281c9d37a76207a" prot="public" virt="non-virtual"><scope>sisi4s::DiisMixer</scope><name>Mixer</name></member>
       <member refid="classsisi4s_1_1DiisMixer_1a422ce0ea0296bfa270118ae436ab1475" prot="public" virt="non-virtual"><scope>sisi4s::DiisMixer</scope><name>next</name></member>
       <member refid="classsisi4s_1_1DiisMixer_1acb38bf281ec3ba98934df8b4f10b567d" prot="public" virt="non-virtual"><scope>sisi4s::DiisMixer</scope><name>nextResiduum</name></member>
-      <member refid="classsisi4s_1_1DiisMixer_1a20dc3210195a487336b645c91a7a75d1" prot="public" virt="non-virtual"><scope>sisi4s::DiisMixer</scope><name>registrar_</name></member>
+      <member refid="classsisi4s_1_1DiisMixer_1a50dbcff866a2135677abfb1ee6463b53" prot="public" virt="non-virtual"><scope>sisi4s::DiisMixer</scope><name>registrar_</name></member>
       <member refid="classsisi4s_1_1DiisMixer_1adaa1f7416b9b099de7a17a893e48b4cc" prot="public" virt="non-virtual"><scope>sisi4s::DiisMixer</scope><name>residua</name></member>
       <member refid="classsisi4s_1_1DiisMixer_1ad23b184bf538b751e3fba1affbce35d2" prot="public" virt="virtual"><scope>sisi4s::DiisMixer</scope><name>~DiisMixer</name></member>
       <member refid="classsisi4s_1_1Mixer_1a85026e8a94b704a13e65445b80fc7821" prot="public" virt="virtual"><scope>sisi4s::DiisMixer</scope><name>~Mixer</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="Parsing_8cxx" kind="file" language="C++">
     <compoundname>Parsing.cxx</compoundname>
     <includes refid="Parsing_8hpp" local="no">util/Parsing.hpp</includes>
@@ -81,7 +81,7 @@
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
 <codeline lineno="32"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="namespacepars_1afa37affba88c42a393cc80f2b42caf50" kindref="member">parseVector&lt;double&gt;</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;l)<sp/>{</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>res;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;s<sp/>:<sp/>parseVector&lt;std::string&gt;(l))</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;s<sp/>:<sp/><ref refid="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" kindref="member">parseVector</ref>&lt;std::string&gt;(l))</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>res.push_back(std::atof(s.c_str()));</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
 <codeline lineno="37"><highlight class="normal">}</highlight></codeline>
@@ -89,7 +89,7 @@
 <codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
 <codeline lineno="40"><highlight class="normal">std::vector&lt;int&gt;<sp/><ref refid="namespacepars_1a6d4a77824971572b20b53e09f62618bd" kindref="member">parseVector&lt;int&gt;</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;l)<sp/>{</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>res;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;s<sp/>:<sp/>parseVector&lt;std::string&gt;(l))</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;s<sp/>:<sp/><ref refid="namespacepars_1a6106ddb620f5a82c337db9fc7a2add95" kindref="member">parseVector</ref>&lt;std::string&gt;(l))</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>res.push_back(std::atoi(s.c_str()));</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
 <codeline lineno="45"><highlight class="normal">}</highlight></codeline>

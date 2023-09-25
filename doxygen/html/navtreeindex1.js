@@ -115,6 +115,8 @@ var NAVTREEINDEX1 =
 "Delete_8hpp_source.html":[4,0,0,0,59],
 "DiisMixer_8cxx.html":[4,0,0,3,0],
 "DiisMixer_8cxx.html#a165e38a9fd7153eb617622257f385dd7":[4,0,0,3,0,1],
+"DiisMixer_8cxx.html#a93e6df9af46e2311180537d566123910":[4,0,0,3,0,2],
+"DiisMixer_8cxx.html#abb3faf0c510b1c2e5e317e6d2cffcd77":[4,0,0,3,0,3],
 "DiisMixer_8cxx.html#ae6495ef1bd76c6cd022e102143fbed2f":[4,0,0,3,0,0],
 "DiisMixer_8hpp.html":[4,0,0,3,1],
 "DiisMixer_8hpp_source.html":[4,0,0,3,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "Lapack_8hpp.html":[4,0,0,1,1],
 "Lapack_8hpp.html#a42c0fcb1633b24fa62233af66495e9aa":[4,0,0,1,1,3],
 "Lapack_8hpp.html#a44b3584500939d1adaabb3c0fc0487f1":[4,0,0,1,1,8],
-"Lapack_8hpp.html#a4d8fc02ca066b465ea806785b848ae35":[4,0,0,1,1,0],
-"Lapack_8hpp.html#a5b048540159b635db2de24c5c90c0f71":[4,0,0,1,1,1],
-"Lapack_8hpp.html#a5dd7884f39150c29793947da3b7a78f4":[4,0,0,1,1,4]
+"Lapack_8hpp.html#a4d8fc02ca066b465ea806785b848ae35":[4,0,0,1,1,0]
 };

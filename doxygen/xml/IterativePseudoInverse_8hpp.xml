@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="IterativePseudoInverse_8hpp" kind="file" language="C++">
     <compoundname>IterativePseudoInverse.hpp</compoundname>
     <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
@@ -7,7 +7,6 @@
     <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includes local="no">random</includes>
     <includedby refid="CoulombVertexDecomposition_8cxx" local="no">CoulombVertexDecomposition.cxx</includedby>
-    <includedby refid="DiisMixer_8cxx" local="no">DiisMixer.cxx</includedby>
     <includedby refid="IterativePseudoInverse_8cxx" local="no">IterativePseudoInverse.cxx</includedby>
     <incdepgraph>
       <node id="6">
@@ -150,7 +149,7 @@
         <label>CoulombVertexDecomposition.cxx</label>
         <link refid="CoulombVertexDecomposition_8cxx"/>
       </node>
-      <node id="4">
+      <node id="3">
         <label>IterativePseudoInverse.cxx</label>
         <link refid="IterativePseudoInverse_8cxx"/>
       </node>
@@ -161,12 +160,6 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>DiisMixer.cxx</label>
-        <link refid="DiisMixer_8cxx"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classsisi4s_1_1IterativePseudoInverse" prot="public">sisi4s::IterativePseudoInverse</innerclass>

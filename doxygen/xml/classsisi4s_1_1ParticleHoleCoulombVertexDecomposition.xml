@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition" kind="class" language="C++" prot="public">
     <compoundname>sisi4s::ParticleHoleCoulombVertexDecomposition</compoundname>
     <basecompoundref refid="classsisi4s_1_1Algorithm" prot="public" virt="non-virtual">sisi4s::Algorithm</basecompoundref>
@@ -160,7 +160,7 @@
         <name>Delta</name>
         <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::Delta</qualifiedname>
         <briefdescription>
-<para>The Frobenius norm of the difference between <formula id="33">$\Gamma^a_{iG}$</formula> and its decomposition. </para>
+<para>The Frobenius norm of the difference between <formula id="32">$\Gamma^a_{iG}$</formula> and its decomposition. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -194,7 +194,7 @@
         <name>realFactorOrbitals</name>
         <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::realFactorOrbitals</qualifiedname>
         <briefdescription>
-<para>Whether the factor orbitals <formula id="40">$\Pi_{aR},\Pi_{iR}$</formula> are required to be real. </para>
+<para>Whether the factor orbitals <formula id="39">$\Pi_{aR},\Pi_{iR}$</formula> are required to be real. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -212,7 +212,7 @@
         <name>normalizedFactorOrbitals</name>
         <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::normalizedFactorOrbitals</qualifiedname>
         <briefdescription>
-<para>Whether the factor orbitals <formula id="40">$\Pi_{aR},\Pi_{iR}$</formula> are required to be normalized, i.e. <formula id="18">${\Pi^\ast}^{qR}\Pi_{qR} = \delta{qq}$</formula>. </para>
+<para>Whether the factor orbitals <formula id="39">$\Pi_{aR},\Pi_{iR}$</formula> are required to be normalized, i.e. <formula id="18">${\Pi^\ast}^{qR}\Pi_{qR} = \delta{qq}$</formula>. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -230,7 +230,7 @@
         <name>GammaGai</name>
         <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::GammaGai</qualifiedname>
         <briefdescription>
-<para>The Coulomb vertex <formula id="33">$\Gamma^a_{iG}$</formula> restricted to a particle and a hole index. </para>
+<para>The Coulomb vertex <formula id="32">$\Gamma^a_{iG}$</formula> restricted to a particle and a hole index. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -249,7 +249,7 @@
         <name>Gamma0Gai</name>
         <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::Gamma0Gai</qualifiedname>
         <briefdescription>
-<para>The fit <formula id="41">${\Pi^\ast}^{aR}\Pi_{iR}\Lambda_{GR}$</formula>. </para>
+<para>The fit <formula id="40">${\Pi^\ast}^{aR}\Pi_{iR}\Lambda_{GR}$</formula>. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -269,7 +269,7 @@
         <name>PiiR</name>
         <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::PiiR</qualifiedname>
         <briefdescription>
-<para>The factor orbitals for occupied states <formula id="38">$\Pi_{iR}$</formula>. </para>
+<para>The factor orbitals for occupied states <formula id="37">$\Pi_{iR}$</formula>. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -288,7 +288,7 @@
         <name>PiaR</name>
         <qualifiedname>sisi4s::ParticleHoleCoulombVertexDecomposition::PiaR</qualifiedname>
         <briefdescription>
-<para>The conjugated factor orbitals for virtual states <formula id="42">${\Pi^\ast}^{aR}$</formula>. </para>
+<para>The conjugated factor orbitals for virtual states <formula id="41">${\Pi^\ast}^{aR}$</formula>. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -712,7 +712,7 @@
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Decomposes the particle hole Coulomb vertex <formula id="37">$\Gamma_{iG}^a$</formula> into the occupied factor orbitals <formula id="38">$\Pi_{iR}$</formula>, the virtual factor orbitals <formula id="39">$\Pi_{aR}$</formula>, and the Coulom factors <formula id="14">$\Lambda_{GR}$</formula>. The decomposition is done with a regularized alternating least squares (RALS) algorithm, requiring only a few dozen steps for sufficient convergence. </para>
+<para>Decomposes the particle hole Coulomb vertex <formula id="36">$\Gamma_{iG}^a$</formula> into the occupied factor orbitals <formula id="37">$\Pi_{iR}$</formula>, the virtual factor orbitals <formula id="38">$\Pi_{aR}$</formula>, and the Coulom factors <formula id="14">$\Lambda_{GR}$</formula>. The decomposition is done with a regularized alternating least squares (RALS) algorithm, requiring only a few dozen steps for sufficient convergence. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -792,6 +792,7 @@
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1abcd33f3408c67ad5008858a493c5eb82" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>epsilonStep</name></member>
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ae8dc9156a24e3e2cc3499e2b31e1448b" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>evaluateMp2</name></member>
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aaa1e2c268f0caa1a362d7da3a3528944" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>evaluateMp2Error</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a212c9eb28f189ff7e99d16dafa6b3b2b" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>fallible</name></member>
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a89e580fcc9544ae668ccda0d37256f35" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>fit</name></member>
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a2bc0ca2bb9cc0fd8c547c326af87c9d3" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>Gamma0Gai</name></member>
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1afc3a297a329817c5c005c494ce660ccd" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>GammaGai</name></member>
@@ -816,6 +817,7 @@
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab9a61b1b17494de51d4b8c6a65fac806" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>mp2Energy</name></member>
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aad4247483449c8135d1358d7b6e3d8be" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>normalizedFactorOrbitals</name></member>
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a855080c758691aa6da9c3dc594b19aec" prot="protected" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>normalizePi</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ab80e81db3e585192db7fb9d7818b788c" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>note</name></member>
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1ab95941d5a1249ae3da6fcbb89fb3fd6e" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>ParticleHoleCoulombVertexDecomposition</name></member>
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1aa217eea07b1b57860dcb53f816c764c9" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>PiaR</name></member>
       <member refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a307e0eef486f94e304a3c65c97378436" prot="public" virt="non-virtual"><scope>sisi4s::ParticleHoleCoulombVertexDecomposition</scope><name>PiiR</name></member>

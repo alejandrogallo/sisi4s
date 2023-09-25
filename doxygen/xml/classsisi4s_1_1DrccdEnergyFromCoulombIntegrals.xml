@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="classsisi4s_1_1DrccdEnergyFromCoulombIntegrals" kind="class" language="C++" prot="public">
     <compoundname>sisi4s::DrccdEnergyFromCoulombIntegrals</compoundname>
     <basecompoundref refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" prot="public" virt="non-virtual">sisi4s::ClusterSinglesDoublesAlgorithm</basecompoundref>
@@ -182,7 +182,7 @@
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Implements the iteration routine for the Drccd method. Calculates the amplitudes <formula id="3">$T_{ab}^{ij}$</formula> from the Coulomb Integrals <formula id="7">$V_{ij}^{ab}$</formula> in a <formula id="36">$ \mathcal{O}(N^{6}) $</formula> implementation. </para>
+<para>Implements the iteration routine for the Drccd method. Calculates the amplitudes <formula id="3">$T_{ab}^{ij}$</formula> from the Coulomb Integrals <formula id="7">$V_{ij}^{ab}$</formula> in a <formula id="35">$ \mathcal{O}(N^{6}) $</formula> implementation. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -262,6 +262,7 @@
       <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ade1d1692d84a624ce299bbc2f847da8e" prot="protected" virt="non-virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>dryAmplitudesFromResiduum</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a0ac9917ab9b6bb96fdb054d4bcb472de" prot="public" virt="virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>dryRun</name></member>
       <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a8327421acb8285d0fc20f9605cfa5937" prot="protected" virt="non-virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>estimateAmplitudesFromResiduum</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1a212c9eb28f189ff7e99d16dafa6b3b2b" prot="public" virt="non-virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>fallible</name></member>
       <member refid="classsisi4s_1_1DrccdEnergyFromCoulombIntegrals_1a9d9ef75ba972b805463ae6499de2bec5" prot="public" virt="virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>getAbbreviation</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" prot="protected" virt="non-virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>getArgumentData</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a6a8290511c9ed5034f0e405818fabbce" prot="public" virt="non-virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>getBooleanArgument</name></member>
@@ -286,6 +287,7 @@
       <member refid="classsisi4s_1_1Algorithm_1a5e80a507fac066ab5714b62364cabaaf" prot="public" virt="non-virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>getTextArgument</name></member>
       <member refid="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" virt="non-virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>getTextArgument</name></member>
       <member refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" prot="public" virt="non-virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>isArgumentGiven</name></member>
+      <member refid="classsisi4s_1_1Algorithm_1ab80e81db3e585192db7fb9d7818b788c" prot="public" virt="non-virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>note</name></member>
       <member refid="classsisi4s_1_1DrccdEnergyFromCoulombIntegrals_1a698f29410adbb076ee86ead43f2edc1d" prot="public" virt="non-virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>registrar_</name></member>
       <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4a874bc6491b38c023de6936e298d2f0" prot="public" virt="virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>run</name></member>
       <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a69e386caf7acdf30c11b476d522d7a9d" prot="protected" virt="virtual"><scope>sisi4s::DrccdEnergyFromCoulombIntegrals</scope><name>run</name></member>

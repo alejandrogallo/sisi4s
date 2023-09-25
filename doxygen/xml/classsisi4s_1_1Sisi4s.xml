@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="classsisi4s_1_1Sisi4s" kind="class" language="C++" prot="public">
     <compoundname>sisi4s::Sisi4s</compoundname>
     <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
@@ -21,6 +21,7 @@
         <referencedby refid="classsisi4s_1_1DefaultRandomEngine_1a58f0dcc9838d38e4daa31c8aaa4f7711" compoundref="RandomTensor_8hpp" startline="40" endline="40">sisi4s::DefaultRandomEngine::DefaultRandomEngine</referencedby>
         <referencedby refid="classsisi4s_1_1DiisMixer_1ae6af3fd3aa23a5891216897f380e76d3" compoundref="DiisMixer_8cxx" startline="51" endline="97">sisi4s::DiisMixer&lt; F &gt;::DiisMixer</referencedby>
         <referencedby refid="classsisi4s_1_1FockVectorNdCanonical_1a4e199dd65779c10cd0edc765c058f9ff" compoundref="FockVector_8hpp" startline="525" endline="547">sisi4s::FockVectorNdCanonical&lt; F, N, StartDimension &gt;::FockVectorNdCanonical</referencedby>
+        <referencedby refid="classsisi4s_1_1SDTFockVector_1ae304e116e1fae312b3a9a68fbe244ee3" compoundref="FockVector_8hpp" startline="698" endline="717">sisi4s::SDTFockVector&lt; F &gt;::SDTFockVector</referencedby>
         <referencedby refid="classsisi4s_1_1SDTFockVector_1acc3a7ff428189219e59fc098119e08e1" compoundref="FockVector_8hpp" startline="678" endline="696">sisi4s::SDTFockVector&lt; F &gt;::SDTFockVector</referencedby>
         <referencedby refid="structVectorIntegralProvider_1a168700f4a4110edfadb7821ccbb8edc9" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="62" endline="87">VectorIntegralProvider::VectorIntegralProvider</referencedby>
         <referencedby refid="structIntegralParser_1ab40f18e20fbaf0214a92e69ad5cb1845" compoundref="FcidumpReader_8cxx" startline="177" endline="185">IntegralParser::allocateTensor</referencedby>
@@ -41,7 +42,7 @@
         <referencedby refid="classsisi4s_1_1BasisSetExtrapolation_1a4f49cb830f2873a1edd72cefa95785f1" compoundref="BasisSetExtrapolation_8cxx" startline="312" endline="398">sisi4s::BasisSetExtrapolation::fitF12</referencedby>
         <referencedby refid="structSzOperator_1af7797c06df0ac657c384c8a33defab03" compoundref="CcsdEquationOfMotionDavidson_8cxx" startline="56" endline="63">SzOperator&lt; F &gt;::getAB</referencedby>
         <referencedby refid="classsisi4s_1_1EomOneBodyReducedDensityMatrix_1aeddee3ff5d420842b40c43a23cf772e4" compoundref="OneBodyReducedDensityMatrix_8hpp" startline="117" endline="134">sisi4s::EomOneBodyReducedDensityMatrix&lt; F &gt;::getAB</referencedby>
-        <referencedby refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a31324ff4a8976e64c49e91366fe0918b" compoundref="wabcijk_8cxx" startline="20" endline="849">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::getABCIJK</referencedby>
+        <referencedby refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a31324ff4a8976e64c49e91366fe0918b" compoundref="wabcijk_8cxx" startline="20" endline="987">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::getABCIJK</referencedby>
         <referencedby refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3fb0b9d661c384bbacd5d284d6a2cd0c" compoundref="wabij_8cxx" startline="14" endline="212">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::getABIJ</referencedby>
         <referencedby refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a66a51f8cc9cea8fb42989e4099f150a2" compoundref="wabij_8cxx" startline="215" endline="292">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::getABIJ_RPA</referencedby>
         <referencedby refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a153804660b4b84fc0074b94f0bf4edc1" compoundref="SimilarityTransformedHamiltonian_8cxx" startline="1097" endline="1149">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::getAI</referencedby>
@@ -56,17 +57,18 @@
         <referencedby refid="classsisi4s_1_1IPCcsdPreconditioner_1a2e97db095cdebec9c83d1b60295605ec" compoundref="CcsdPreconditioner_8cxx" startline="575" endline="673">sisi4s::IPCcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
         <referencedby refid="classsisi4s_1_1EACcsdPreconditioner_1a49913544736063c43e265facdc2cc393" compoundref="CcsdPreconditioner_8cxx" startline="402" endline="500">sisi4s::EACcsdPreconditioner&lt; F &gt;::getInitialBasis</referencedby>
         <referencedby refid="classsisi4s_1_1StantonIntermediatesUCCSD_1aef06992baa0aa80c662974cf460d1a7e" compoundref="StantonIntermediatesUCCSD_8cxx" startline="115" endline="138">sisi4s::StantonIntermediatesUCCSD&lt; F &gt;::getRai</referencedby>
-        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac8e9eeb7cdf18eb7158449cd863399c4" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="54" endline="191">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac8e9eeb7cdf18eb7158449cd863399c4" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="54" endline="214">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth</referencedby>
         <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a10a145b2a213255c27cadb9a1751f520" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="109" endline="243">sisi4s::UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
-        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac9b180bf4955ef2b44a17083d7d02915" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="195" endline="1232">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
+        <referencedby refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals_1ac9b180bf4955ef2b44a17083d7d02915" compoundref="UccsdtAmplitudesFromCoulombIntegrals_8cxx" startline="218" endline="1255">sisi4s::UccsdtAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
         <referencedby refid="classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals_1a7865b24bebee7bbe2b5c47fb57427c2d" compoundref="UccsdtqAmplitudesFromCoulombIntegrals_8cxx" startline="53" endline="6321">sisi4s::UccsdtqAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
         <referencedby refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals_1ae9bbdc47787514f0c53c017d6b339ad2" compoundref="UrpaAmplitudesFromCoulombIntegrals_8cxx" startline="37" endline="130">sisi4s::UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate</referencedby>
         <referencedby refid="classsisi4s_1_1FiniteSizeCorrection_1a1263e86e1cfbd0547e5198c46c6eac51" compoundref="FiniteSizeCorrection_8cxx" startline="555" endline="918">sisi4s::FiniteSizeCorrection::interpolation3D</referencedby>
-        <referencedby refid="classsisi4s_1_1Sisi4s_1add11d7b556ddc1f5089851d836a8862b" compoundref="Sisi4s_8cxx" startline="215" endline="253">listHosts</referencedby>
-        <referencedby refid="Sisi4s_8cxx_1a599af1d1867ff8a4fa0cf7be6fe311c8" compoundref="Sisi4s_8cxx" startline="258" endline="298">main</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1add11d7b556ddc1f5089851d836a8862b" compoundref="Sisi4s_8cxx" startline="235" endline="273">listHosts</referencedby>
+        <referencedby refid="Sisi4s_8cxx_1a599af1d1867ff8a4fa0cf7be6fe311c8" compoundref="Sisi4s_8cxx" startline="278" endline="318">main</referencedby>
+        <referencedby refid="classsisi4s_1_1SDTFockVector_1aff239b4f0a8cb4f19b8c2310304a91ae" compoundref="FockVector_8hpp" startline="742" endline="762">sisi4s::SDTFockVector&lt; F &gt;::operator=</referencedby>
         <referencedby refid="classsisi4s_1_1SDTFockVector_1a8c8ea9532275b7dbb3be559172d49aa5" compoundref="FockVector_8hpp" startline="719" endline="740">sisi4s::SDTFockVector&lt; F &gt;::operator=</referencedby>
-        <referencedby refid="classsisi4s_1_1Sisi4s_1a67898fd5a133742f683a61d0e55e9e6b" compoundref="Sisi4s_8cxx" startline="144" endline="172">printBanner</referencedby>
-        <referencedby refid="classsisi4s_1_1Sisi4s_1afe2096757c8e16bec943b7b7f5acbd7f" compoundref="Sisi4s_8cxx" startline="174" endline="213">printStatistics</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1a67898fd5a133742f683a61d0e55e9e6b" compoundref="Sisi4s_8cxx" startline="164" endline="192">printBanner</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1afe2096757c8e16bec943b7b7f5acbd7f" compoundref="Sisi4s_8cxx" startline="194" endline="233">printStatistics</referencedby>
         <referencedby refid="classsisi4s_1_1TensorIo_1a671dcc77e7ded146d8e18ccca6f58051" compoundref="TensorIo_8cxx" startline="13" endline="36">sisi4s::TensorIo::readBinary</referencedby>
         <referencedby refid="classsisi4s_1_1TensorIo_1a76f8a675658b0c0ca47579d67b829336" compoundref="TensorIo_8cxx" startline="229" endline="259">sisi4s::TensorIo::readBinaryHeader</referencedby>
         <referencedby refid="structCoulombIntegralsProvider_1ae6d3501fa0325a7858fddd301629a2de" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="394" endline="426">CoulombIntegralsProvider::readHalfContract</referencedby>
@@ -77,7 +79,7 @@
         <referencedby refid="classsisi4s_1_1CcsdPerturbativeTriples_1ad094260a4c533e1734768a72b3ae0161" compoundref="CcsdPerturbativeTriples_8cxx" startline="119" endline="248">sisi4s::CcsdPerturbativeTriples::run</referencedby>
         <referencedby refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson_1a12e416e743f23f8ec453a9ee2f9a8aad" compoundref="CcsdtEquationOfMotionDavidson_8cxx" startline="43" endline="331">sisi4s::CcsdtEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1ComplexTensorReader_1a96e47fa96d57ff620cbabd8ed5c551df" compoundref="ComplexTensorReader_8cxx" startline="20" endline="47">sisi4s::ComplexTensorReader::run</referencedby>
-        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="665">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1CoulombIntegralsFromGaussian_1a82e5cb0ff4576489f3d5f675ee1612e2" compoundref="CoulombIntegralsFromGaussian_8cxx" startline="447" endline="677">sisi4s::CoulombIntegralsFromGaussian::run</referencedby>
         <referencedby refid="classsisi4s_1_1CoulombVertexReader_1ab7a866749df48712c5b9b02d892be4d9" compoundref="CoulombVertexReader_8cxx" startline="26" endline="111">sisi4s::CoulombVertexReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1DoublesAmplitudesFromVertex_1ac84baa2cdf181d22f093b777fe95a23d" compoundref="DoublesAmplitudesFromVertex_8cxx" startline="19" endline="41">sisi4s::DoublesAmplitudesFromVertex::run</referencedby>
         <referencedby refid="structsisi4s_1_1FockMatrixFromCoulombIntegrals_1af22bad265cfdf61263dce910fc6bb6bd" compoundref="FockMatrixFromCoulombIntegrals_8cxx" startline="23" endline="84">sisi4s::FockMatrixFromCoulombIntegrals::run</referencedby>
@@ -85,7 +87,7 @@
         <referencedby refid="classsisi4s_1_1GenerateRandomMatrix_1ab9d29a0b8d1df8d3d5610ff71e1096d3" compoundref="GenerateRandomMatrix_8cxx" startline="20" endline="37">sisi4s::GenerateRandomMatrix::run</referencedby>
         <referencedby refid="classsisi4s_1_1GenerateRandomTensor_1a61e87f5bb5703da14b559f7ce43f68e2" compoundref="GenerateRandomTensor_8cxx" startline="19" endline="29">sisi4s::GenerateRandomTensor::run</referencedby>
         <referencedby refid="classsisi4s_1_1HartreeFockFromCoulombIntegrals_1a6a4014120ac80decf9affec475f45d03" compoundref="HartreeFockFromCoulombIntegrals_8cxx" startline="63" endline="241">sisi4s::HartreeFockFromCoulombIntegrals::run</referencedby>
-        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="459">sisi4s::HartreeFockFromGaussian::run</referencedby>
+        <referencedby refid="classsisi4s_1_1HartreeFockFromGaussian_1a78840a71ffbe05fbccb0a8ef6ec569af" compoundref="HartreeFockFromGaussian_8cxx" startline="211" endline="470">sisi4s::HartreeFockFromGaussian::run</referencedby>
         <referencedby refid="structsisi4s_1_1MeanCorrelationHoleDepth_1a940ff082b9e2e5715f7fbb3a4bddb932" compoundref="MeanCorrelationHoleDepth_8cxx" startline="21" endline="49">sisi4s::MeanCorrelationHoleDepth::run</referencedby>
         <referencedby refid="classsisi4s_1_1MoReader_1a379f28cce98f856ff1e9d6f26de76d29" compoundref="MoReader_8cxx" startline="136" endline="402">sisi4s::MoReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1Mp2NaturalOrbitals_1a956adca42dfe9d3c0e9d552c4fefcacc" compoundref="Mp2NaturalOrbitals_8cxx" startline="35" endline="569">sisi4s::Mp2NaturalOrbitals::run</referencedby>
@@ -100,10 +102,9 @@
         <referencedby refid="structsisi4s_1_1TensorReduceijij_1ac6d1c32f135cb8305864edd04e3b6d1f" compoundref="TensorReduceijij_8cxx" startline="10" endline="26">sisi4s::TensorReduceijij::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1ab3fa58fddbd938517fed45a270cbd77e" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="43" endline="351">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="43" endline="303">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
-        <referencedby refid="classsisi4s_1_1UegVertexGenerator_1a7f2b63e4e37a5f74313403b5a41d5cbf" compoundref="UegVertexGenerator_8cxx" startline="49" endline="229">sisi4s::UegVertexGenerator::run</referencedby>
         <referencedby refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1ade4d95a7d53a8b596e67d584e98d7f02" compoundref="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" startline="45" endline="208">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa::run</referencedby>
         <referencedby refid="classsisi4s_1_1UPerturbativeTriples_1a44528381f51fc8eae60adce17b8c9109" compoundref="UPerturbativeTriples_8cxx" startline="19" endline="313">sisi4s::UPerturbativeTriples::run</referencedby>
-        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="22" endline="109">run</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="22" endline="129">run</referencedby>
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a569a55b703a8ff8d746c473b58a0e26f" compoundref="PerturbativeTriples_8cxx" startline="19" endline="97">sisi4s::PerturbativeTriples::runInMemory</referencedby>
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a2a445116bb25897a52f0473c50bcb423" compoundref="PerturbativeTriples_8cxx" startline="99" endline="170">sisi4s::PerturbativeTriples::runPiecuch</referencedby>
         <referencedby refid="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx_1ab1909dd58075ee188ac6b52b69bda1c3" compoundref="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx" startline="367" endline="379">stdVectorToTensor</referencedby>
@@ -127,9 +128,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="18" column="18" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" bodystart="18" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1Sisi4s_1aa10e449f2bc2c23663382f0b3ee68f0b" compoundref="Sisi4s_8cxx" startline="111" endline="142">dryRun</referencedby>
-        <referencedby refid="Sisi4s_8cxx_1a599af1d1867ff8a4fa0cf7be6fe311c8" compoundref="Sisi4s_8cxx" startline="258" endline="298">main</referencedby>
-        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="22" endline="109">run</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1aa10e449f2bc2c23663382f0b3ee68f0b" compoundref="Sisi4s_8cxx" startline="131" endline="162">dryRun</referencedby>
+        <referencedby refid="Sisi4s_8cxx_1a599af1d1867ff8a4fa0cf7be6fe311c8" compoundref="Sisi4s_8cxx" startline="278" endline="318">main</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="22" endline="129">run</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -145,17 +146,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="13" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.cxx" bodystart="22" bodyend="109"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="13" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.cxx" bodystart="22" bodyend="129"/>
+        <references refid="Sisi4s_8cxx_1a6b55ed1217355743816350eceee0479b">___CATCH</references>
         <references refid="structsisi4s_1_1Options_1aa141cb663543d7037583b61d4ac0a210" compoundref="Options_8hpp" startline="15">sisi4s::Options::cc4s</references>
         <references refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" compoundref="Emitter_8hpp" startline="30">EMIT</references>
         <references refid="classsisi4s_1_1Time_1acde8b004fc350d2767365a72a31e3c47" compoundref="Time_8hpp" startline="35" endline="37">sisi4s::Time::getFractionalSeconds</references>
         <references refid="structsisi4s_1_1Options_1a61fa80dc5acae55d584cdc61b6d910c7" compoundref="Options_8hpp" startline="12">sisi4s::Options::inFile</references>
-        <references refid="classsisi4s_1_1Sisi4s_1add11d7b556ddc1f5089851d836a8862b" compoundref="Sisi4s_8cxx" startline="215" endline="253">listHosts</references>
+        <references refid="classsisi4s_1_1Sisi4s_1add11d7b556ddc1f5089851d836a8862b" compoundref="Sisi4s_8cxx" startline="235" endline="273">listHosts</references>
         <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="110">LOG</references>
         <references refid="classsisi4s_1_1Sisi4s_1a2394fe5754d7664019b0228c9d087b78" compoundref="Sisi4s_8hpp" startline="18">options</references>
         <references refid="Log_8hpp_1a8839cdf651ee7aca0c558a57fbcca7a1" compoundref="Log_8hpp" startline="98">OUT</references>
-        <references refid="classsisi4s_1_1Sisi4s_1a67898fd5a133742f683a61d0e55e9e6b" compoundref="Sisi4s_8cxx" startline="144" endline="172">printBanner</references>
-        <references refid="classsisi4s_1_1Sisi4s_1afe2096757c8e16bec943b7b7f5acbd7f" compoundref="Sisi4s_8cxx" startline="174" endline="213">printStatistics</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a67898fd5a133742f683a61d0e55e9e6b" compoundref="Sisi4s_8cxx" startline="164" endline="192">printBanner</references>
+        <references refid="classsisi4s_1_1Sisi4s_1afe2096757c8e16bec943b7b7f5acbd7f" compoundref="Sisi4s_8cxx" startline="194" endline="233">printStatistics</references>
         <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="17">world</references>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1Sisi4s_1aa10e449f2bc2c23663382f0b3ee68f0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -170,14 +172,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="14" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.cxx" bodystart="111" bodyend="142"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="14" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.cxx" bodystart="131" bodyend="162"/>
         <references refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" compoundref="Emitter_8hpp" startline="30">EMIT</references>
         <references refid="structsisi4s_1_1Options_1a61fa80dc5acae55d584cdc61b6d910c7" compoundref="Options_8hpp" startline="12">sisi4s::Options::inFile</references>
         <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="110">LOG</references>
         <references refid="classsisi4s_1_1DryMemory_1af5c9c628f505419e35a2f7be26276a29" compoundref="DryTensor_8hpp" startline="31">sisi4s::DryMemory::maxTotalSize</references>
         <references refid="classsisi4s_1_1Sisi4s_1a2394fe5754d7664019b0228c9d087b78" compoundref="Sisi4s_8hpp" startline="18">options</references>
         <references refid="Log_8hpp_1a8839cdf651ee7aca0c558a57fbcca7a1" compoundref="Log_8hpp" startline="98">OUT</references>
-        <references refid="classsisi4s_1_1Sisi4s_1a67898fd5a133742f683a61d0e55e9e6b" compoundref="Sisi4s_8cxx" startline="144" endline="172">printBanner</references>
+        <references refid="classsisi4s_1_1Sisi4s_1a67898fd5a133742f683a61d0e55e9e6b" compoundref="Sisi4s_8cxx" startline="164" endline="192">printBanner</references>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1Sisi4s_1a67898fd5a133742f683a61d0e55e9e6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -191,13 +193,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="20" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.cxx" bodystart="144" bodyend="172"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="20" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.cxx" bodystart="164" bodyend="192"/>
         <references refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" compoundref="Emitter_8hpp" startline="30">EMIT</references>
         <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="110">LOG</references>
         <references refid="Log_8hpp_1a8839cdf651ee7aca0c558a57fbcca7a1" compoundref="Log_8hpp" startline="98">OUT</references>
         <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="17">world</references>
-        <referencedby refid="classsisi4s_1_1Sisi4s_1aa10e449f2bc2c23663382f0b3ee68f0b" compoundref="Sisi4s_8cxx" startline="111" endline="142">dryRun</referencedby>
-        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="22" endline="109">run</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1aa10e449f2bc2c23663382f0b3ee68f0b" compoundref="Sisi4s_8cxx" startline="131" endline="162">dryRun</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="22" endline="129">run</referencedby>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1Sisi4s_1afe2096757c8e16bec943b7b7f5acbd7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -211,12 +213,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="21" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.cxx" bodystart="174" bodyend="213"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="21" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.cxx" bodystart="194" bodyend="233"/>
         <references refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" compoundref="Emitter_8hpp" startline="30">EMIT</references>
         <references refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" compoundref="Log_8hpp" startline="110">LOG</references>
         <references refid="classsisi4s_1_1MpiCommunicator_1a27c1b97bc4e7ae60135dc41a13b226e3" compoundref="MpiCommunicator_8hpp" startline="29" endline="37">sisi4s::MpiCommunicator::reduce</references>
         <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="17">world</references>
-        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="22" endline="109">run</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="22" endline="129">run</referencedby>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1Sisi4s_1add11d7b556ddc1f5089851d836a8862b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -230,10 +232,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="22" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.cxx" bodystart="215" bodyend="253"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.hpp" line="22" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/Sisi4s.cxx" bodystart="235" bodyend="273"/>
         <references refid="Emitter_8hpp_1aaab796d47261553f44525310f031c82a" compoundref="Emitter_8hpp" startline="30">EMIT</references>
         <references refid="classsisi4s_1_1Sisi4s_1ace7b506b09fbfac3743da86db91d49ce" compoundref="Sisi4s_8hpp" startline="17">world</references>
-        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="22" endline="109">run</referencedby>
+        <referencedby refid="classsisi4s_1_1Sisi4s_1a707b4ffd3cce21c09ec1387e8159951a" compoundref="Sisi4s_8cxx" startline="22" endline="129">run</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>

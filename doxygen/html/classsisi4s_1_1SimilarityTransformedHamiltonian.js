@@ -70,7 +70,18 @@ var classsisi4s_1_1SimilarityTransformedHamiltonian =
     [ "setVijak", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a8edf6d46c7e98a6a7a2b54b2fdd50e12", null ],
     [ "setVijka", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#aeb15fe7be120e6738ee8b0d95435bcae", null ],
     [ "setVijkl", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a602dbced04318d71ca4bd329d7b33349", null ],
+    [ "setVVaijb", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a98806a4747b4dbbc54ea5547a54b5207", null ],
+    [ "setVViabc", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#aed308e5748789836b0d5065615373cbe", null ],
+    [ "setVVijab", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a1447169ff4684b1dc83a7061613c0423", null ],
+    [ "setVVijka", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#aa18e44848f85f20af28807fa1e5b6450", null ],
     [ "structureFactor", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#abce6e7053876b8d689a0c2753c17f289", null ],
     [ "useStantonIntermediatesUCCSD", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a74fe2b80e50cfe49ce6156297b410765", null ],
-    [ "useStantonIntermediatesUCCSD", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#ae8ee68fd7f9e4e9d7a15af3beb3a77ca", null ]
+    [ "useStantonIntermediatesUCCSD", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#ae8ee68fd7f9e4e9d7a15af3beb3a77ca", null ],
+    [ "withRingCCSDT", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a6f1b5a252369a53eb9dce4643587fe09", null ],
+    [ "withRingCCSDT", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a431641c87ecd6e3a1cd1bb461e1eb72c", null ],
+    [ "_withRingCCSDT", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a0dd260770916385606a192438efd7d80", null ],
+    [ "VVaijb", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a8913898c9eb78e24abc89737b3985f4c", null ],
+    [ "VViabc", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a6bdde7f08ead006eced6c85a16e2ddd4", null ],
+    [ "VVijab", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#ac04ab15ddf1b3e189ed031bb53429838", null ],
+    [ "VVijka", "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a0b7f603ce325969e34c9a51855c9822a", null ]
 ];

@@ -26,5 +26,7 @@ var classsisi4s_1_1Algorithm =
     [ "run", "classsisi4s_1_1Algorithm.html#aacd7ce50628f515d50d178213db8b320", null ],
     [ "setIntegerArgument", "classsisi4s_1_1Algorithm.html#ae7d025ea18b3f0b91db42447c0617540", null ],
     [ "setRealArgument", "classsisi4s_1_1Algorithm.html#af6f931ab83742cc23b4f4350d54a3fcd", null ],
-    [ "arguments", "classsisi4s_1_1Algorithm.html#afdd31e7d5d43fe123fc0bcdd4557e0b9", null ]
+    [ "arguments", "classsisi4s_1_1Algorithm.html#afdd31e7d5d43fe123fc0bcdd4557e0b9", null ],
+    [ "fallible", "classsisi4s_1_1Algorithm.html#a212c9eb28f189ff7e99d16dafa6b3b2b", null ],
+    [ "note", "classsisi4s_1_1Algorithm.html#ab80e81db3e585192db7fb9d7818b788c", null ]
 ];

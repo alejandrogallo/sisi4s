@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="Lapack_8hpp" kind="file" language="C++">
     <compoundname>Lapack.hpp</compoundname>
     <includes refid="Float_8hpp" local="no">math/Float.hpp</includes>
     <includes refid="Complex_8hpp" local="no">math/Complex.hpp</includes>
-    <includedby refid="DiisMixer_8cxx" local="no">DiisMixer.cxx</includedby>
     <includedby refid="LapackGeneralEigenSystem_8hpp" local="no">LapackGeneralEigenSystem.hpp</includedby>
     <includedby refid="LapackInverse_8hpp" local="no">LapackInverse.hpp</includedby>
     <includedby refid="Mp2NaturalOrbitals_8cxx" local="no">Mp2NaturalOrbitals.cxx</includedby>
@@ -41,39 +40,39 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="5">
+      <node id="4">
         <label>CcsdEquationOfMotionDavidson.cxx</label>
         <link refid="CcsdEquationOfMotionDavidson_8cxx"/>
       </node>
-      <node id="6">
+      <node id="5">
         <label>CcsdtEquationOfMotionDavidson.cxx</label>
         <link refid="CcsdtEquationOfMotionDavidson_8cxx"/>
       </node>
-      <node id="12">
+      <node id="11">
         <label>Mp2NaturalOrbitals.cxx</label>
         <link refid="Mp2NaturalOrbitals_8cxx"/>
       </node>
-      <node id="10">
+      <node id="9">
         <label>NaturalTransitionOrbitalsFromRhoAI.cxx</label>
         <link refid="NaturalTransitionOrbitalsFromRhoAI_8cxx"/>
       </node>
-      <node id="13">
+      <node id="12">
         <label>PQRSCoulombIntegralsToVertex.cxx</label>
         <link refid="PQRSCoulombIntegralsToVertex_8cxx"/>
       </node>
-      <node id="14">
+      <node id="13">
         <label>ParenthesisTriples.cxx</label>
         <link refid="ParenthesisTriples_8cxx"/>
       </node>
-      <node id="7">
+      <node id="6">
         <label>UCcsdEAEquationOfMotionDavidson.cxx</label>
         <link refid="UCcsdEAEquationOfMotionDavidson_8cxx"/>
       </node>
-      <node id="8">
+      <node id="7">
         <label>UCcsdIPEquationOfMotionDavidson.cxx</label>
         <link refid="UCcsdIPEquationOfMotionDavidson_8cxx"/>
       </node>
-      <node id="9">
+      <node id="8">
         <label>UnrestrictedEquationOfMotionSinglesFromRpa.cxx</label>
         <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx"/>
       </node>
@@ -82,7 +81,7 @@
         <link refid="Lapack_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
@@ -90,12 +89,12 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
       </node>
-      <node id="4">
+      <node id="3">
         <label>EigenSystemDavidson.hpp</label>
         <link refid="EigenSystemDavidson_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
@@ -104,22 +103,16 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+      </node>
+      <node id="2">
+        <label>LapackGeneralEigenSystem.hpp</label>
+        <link refid="LapackGeneralEigenSystem_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="2">
-        <label>DiisMixer.cxx</label>
-        <link refid="DiisMixer_8cxx"/>
-      </node>
-      <node id="3">
-        <label>LapackGeneralEigenSystem.hpp</label>
-        <link refid="LapackGeneralEigenSystem_8hpp"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
+      <node id="10">
         <label>LapackInverse.hpp</label>
         <link refid="LapackInverse_8hpp"/>
       </node>

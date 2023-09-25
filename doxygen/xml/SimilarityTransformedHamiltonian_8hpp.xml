@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="SimilarityTransformedHamiltonian_8hpp" kind="file" language="C++">
     <compoundname>SimilarityTransformedHamiltonian.hpp</compoundname>
     <includes refid="Algorithm_8hpp" local="no">algorithms/Algorithm.hpp</includes>
@@ -435,6 +435,26 @@
     <innerclass refid="structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactor" prot="public">sisi4s::SimilarityTransformedHamiltonian::StructureFactor</innerclass>
     <innerclass refid="structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings" prot="public">sisi4s::SimilarityTransformedHamiltonian::StructureFactorSettings</innerclass>
     <innernamespace refid="namespacesisi4s">sisi4s</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="SimilarityTransformedHamiltonian_8hpp_1a98d02381054bb787c13c3b266a82666c" prot="public" static="no">
+        <name>_DEFINE_SETTER</name>
+        <param><defname>type</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>default</defname></param>
+        <initializer>  STH &amp;set##name(type t) {                                                     \
+    name = t;                                                                  \
+    return *this;                                                              \
+  }                                                                            \
+  type name = default</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/SimilarityTransformedHamiltonian.hpp" line="192" column="9" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/SimilarityTransformedHamiltonian.hpp" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -625,88 +645,101 @@
 <codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="190"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="191"><highlight class="normal"></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>coulomb<sp/>bertex<sp/>setter</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="193" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4c0c99f7dbc84f829d3bd6328a5ff102" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">STH</ref><sp/>&amp;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4c0c99f7dbc84f829d3bd6328a5ff102" kindref="member">setGammaGqr</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref><sp/>*t)<sp/>{</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>GammaGqr<sp/>=<sp/>t;</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"></highlight></codeline>
-<codeline lineno="198" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac4532d0cb8c1b426880052d93a7c630a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">STH</ref><sp/>&amp;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac4532d0cb8c1b426880052d93a7c630a" kindref="member">setRightApplyIntermediates</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>useRightApplyIntermediates<sp/>=<sp/>t;</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="202" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3f29787aa62d758f3ca0c0b9dd1413ae" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">STH</ref><sp/>&amp;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3f29787aa62d758f3ca0c0b9dd1413ae" kindref="member">setDressing</ref>(<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69" kindref="member">Dressing</ref><sp/>d)<sp/>{</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>dressing<sp/>=<sp/>d;</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"></highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a590b07134bb38c7eb3a6c34c77ca37bc" kindref="member">getTauABIJ</ref>();</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"></highlight></codeline>
-<codeline lineno="209" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae8ee68fd7f9e4e9d7a15af3beb3a77ca" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">STH</ref><sp/>&amp;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae8ee68fd7f9e4e9d7a15af3beb3a77ca" kindref="member">useStantonIntermediatesUCCSD</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>s)<sp/>{</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>_useStantonIntermediatesUCCSD<sp/>=<sp/>s;</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="213" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a74fe2b80e50cfe49ce6156297b410765" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a74fe2b80e50cfe49ce6156297b410765" kindref="member">useStantonIntermediatesUCCSD</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_useStantonIntermediatesUCCSD;<sp/>}</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"></highlight></codeline>
-<codeline lineno="215" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1acaa9d3c2cf4eab7591f254cc78ac7997" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1acaa9d3c2cf4eab7591f254cc78ac7997" kindref="member">getAbbreviation</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;STH&quot;</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"></highlight></codeline>
-<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_useStantonIntermediatesUCCSD<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD&lt;F&gt;</ref>)<sp/>stantonIntermediatesUccsd;</highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD&lt;F&gt;</ref>)<sp/>getStantonIntermediatesUCCSD();</highlight></codeline>
-<codeline lineno="221"><highlight class="normal"></highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No,<sp/>Nv;</highlight></codeline>
-<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>useRightApplyIntermediates;</highlight></codeline>
-<codeline lineno="224"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69" kindref="member">Dressing</ref><sp/>dressing;</highlight></codeline>
-<codeline lineno="225"><highlight class="normal"></highlight></codeline>
-<codeline lineno="226"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Resources<sp/>that<sp/>should<sp/>be<sp/>destroyed<sp/>after<sp/>the<sp/>class<sp/>gets<sp/>destroyed</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="229"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>)</highlight></codeline>
-<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>one<sp/>body</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="231"><highlight class="normal"><sp/><sp/>Wij,<sp/>Wab,<sp/>Wia,</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Wai</highlight></codeline>
-<codeline lineno="233"><highlight class="normal"></highlight></codeline>
-<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>two<sp/>body</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
-<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Wabij,<sp/>Wijab,<sp/>Wabcd,<sp/>Wabci,<sp/>Waibc,<sp/>Wiabj,<sp/>Wiajk,<sp/>Wijka,</highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Wijkl</highlight></codeline>
-<codeline lineno="238"><highlight class="normal"></highlight></codeline>
-<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>three<sp/>body</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
-<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Wabcijk</highlight></codeline>
-<codeline lineno="242"><highlight class="normal"></highlight></codeline>
-<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>intermediate<sp/>quantities</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Tau_abij;</highlight></codeline>
-<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="SimilarityTransformedHamiltonian_8hpp_1a98d02381054bb787c13c3b266a82666c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_DEFINE_SETTER(type,<sp/>name,<sp/>default)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="193"><highlight class="preprocessor"><sp/><sp/>STH<sp/>&amp;set##name(type<sp/>t)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="194"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>name<sp/>=<sp/>t;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="195"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>return<sp/>*this;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="196"><highlight class="preprocessor"><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="197"><highlight class="preprocessor"><sp/><sp/>type<sp/>name<sp/>=<sp/>default</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a98806a4747b4dbbc54ea5547a54b5207" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="SimilarityTransformedHamiltonian_8hpp_1a98d02381054bb787c13c3b266a82666c" kindref="member">_DEFINE_SETTER</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*,<sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8913898c9eb78e24abc89737b3985f4c" kindref="member">VVaijb</ref>,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="200" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aed308e5748789836b0d5065615373cbe" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="SimilarityTransformedHamiltonian_8hpp_1a98d02381054bb787c13c3b266a82666c" kindref="member">_DEFINE_SETTER</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*,<sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6bdde7f08ead006eced6c85a16e2ddd4" kindref="member">VViabc</ref>,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="201" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa18e44848f85f20af28807fa1e5b6450" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="SimilarityTransformedHamiltonian_8hpp_1a98d02381054bb787c13c3b266a82666c" kindref="member">_DEFINE_SETTER</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*,<sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0b7f603ce325969e34c9a51855c9822a" kindref="member">VVijka</ref>,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="202" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1447169ff4684b1dc83a7061613c0423" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="SimilarityTransformedHamiltonian_8hpp_1a98d02381054bb787c13c3b266a82666c" kindref="member">_DEFINE_SETTER</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*,<sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac04ab15ddf1b3e189ed031bb53429838" kindref="member">VVijab</ref>,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>coulomb<sp/>bertex<sp/>setter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4c0c99f7dbc84f829d3bd6328a5ff102" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">STH</ref><sp/>&amp;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4c0c99f7dbc84f829d3bd6328a5ff102" kindref="member">setGammaGqr</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref><sp/>*t)<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>GammaGqr<sp/>=<sp/>t;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac4532d0cb8c1b426880052d93a7c630a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">STH</ref><sp/>&amp;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac4532d0cb8c1b426880052d93a7c630a" kindref="member">setRightApplyIntermediates</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>useRightApplyIntermediates<sp/>=<sp/>t;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3f29787aa62d758f3ca0c0b9dd1413ae" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">STH</ref><sp/>&amp;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3f29787aa62d758f3ca0c0b9dd1413ae" kindref="member">setDressing</ref>(<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69" kindref="member">Dressing</ref><sp/>d)<sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>dressing<sp/>=<sp/>d;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>)<sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a590b07134bb38c7eb3a6c34c77ca37bc" kindref="member">getTauABIJ</ref>();</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae8ee68fd7f9e4e9d7a15af3beb3a77ca" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">STH</ref><sp/>&amp;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae8ee68fd7f9e4e9d7a15af3beb3a77ca" kindref="member">useStantonIntermediatesUCCSD</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>s)<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>_useStantonIntermediatesUCCSD<sp/>=<sp/>s;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a74fe2b80e50cfe49ce6156297b410765" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a74fe2b80e50cfe49ce6156297b410765" kindref="member">useStantonIntermediatesUCCSD</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_useStantonIntermediatesUCCSD;<sp/>}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1acaa9d3c2cf4eab7591f254cc78ac7997" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1acaa9d3c2cf4eab7591f254cc78ac7997" kindref="member">getAbbreviation</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;STH&quot;</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0dd260770916385606a192438efd7d80" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0dd260770916385606a192438efd7d80" kindref="member">_withRingCCSDT</ref>;</highlight></codeline>
+<codeline lineno="230" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a431641c87ecd6e3a1cd1bb461e1eb72c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">STH</ref><sp/>&amp;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a431641c87ecd6e3a1cd1bb461e1eb72c" kindref="member">withRingCCSDT</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;v)<sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0dd260770916385606a192438efd7d80" kindref="member">_withRingCCSDT</ref><sp/>=<sp/>v;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="234" refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6f1b5a252369a53eb9dce4643587fe09" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6f1b5a252369a53eb9dce4643587fe09" kindref="member">withRingCCSDT</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0dd260770916385606a192438efd7d80" kindref="member">_withRingCCSDT</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_useStantonIntermediatesUCCSD<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD&lt;F&gt;</ref>)<sp/>stantonIntermediatesUccsd;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="classsisi4s_1_1StantonIntermediatesUCCSD" kindref="compound">StantonIntermediatesUCCSD&lt;F&gt;</ref>)<sp/>getStantonIntermediatesUCCSD();</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>No,<sp/>Nv;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>useRightApplyIntermediates;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69" kindref="member">Dressing</ref><sp/>dressing;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Resources<sp/>that<sp/>should<sp/>be<sp/>destroyed<sp/>after<sp/>the<sp/>class<sp/>gets<sp/>destroyed</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>External<sp/>resources<sp/>that<sp/>should<sp/>not<sp/>be<sp/>cleaned<sp/>up<sp/>after</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="249"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Hamiltonian<sp/>class<sp/>gets<sp/>destroyed</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="250"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="251"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref></highlight></codeline>
-<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>T<sp/>amplitudes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Tai<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Tabij<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>*Tabcijk<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Tabcdijkl<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="256"><highlight class="normal"></highlight></codeline>
-<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Fock<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
-<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Fij,<sp/>*Fab,</highlight></codeline>
-<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Fia<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="261"><highlight class="normal"></highlight></codeline>
-<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Coulomb<sp/>integrals</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
-<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Vabcd<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>*Viajb,<sp/>*Vijab,<sp/>*Vijkl,<sp/>*Vijka,<sp/>*Viabc,<sp/>*Viajk,<sp/>*Vabic,</highlight></codeline>
-<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Vaibc,<sp/>*Vaibj,<sp/>*Viabj,<sp/>*Vijak,<sp/>*Vaijb,<sp/>*Vabci,<sp/>*Vabij;</highlight></codeline>
-<codeline lineno="266"><highlight class="normal"></highlight></codeline>
-<codeline lineno="267"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>coulomb<sp/>vertex</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="268"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref><sp/>*GammaGqr<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="269"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="270"><highlight class="normal"></highlight></codeline>
-<codeline lineno="271"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>)</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>one<sp/>body</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>Wij,<sp/>Wab,<sp/>Wia,<sp/>Wai,</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>two<sp/>body</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Wabij,<sp/>Wijab,<sp/>Wabcd,<sp/>Wabci,<sp/>Waibc,<sp/>Wiabj,<sp/>Wiajk,<sp/>Wijka,<sp/>Wijkl,</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>three<sp/>body</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Wabcijk,</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>intermediate<sp/>quantities</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Tau_abij;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>External<sp/>resources<sp/>that<sp/>should<sp/>not<sp/>be<sp/>cleaned<sp/>up<sp/>after</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Hamiltonian<sp/>class<sp/>gets<sp/>destroyed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>T<sp/>amplitudes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Tai<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Tabij<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>*Tabcijk<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>*Tabcdijkl<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Fock<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Fij,<sp/>*Fab,<sp/>*Fia<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
 <codeline lineno="272"><highlight class="normal"></highlight></codeline>
-<codeline lineno="273"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Coulomb<sp/>integrals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*Vabcd<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>*Viajb,<sp/>*Vijab,<sp/>*Vijkl,<sp/>*Vijka,<sp/>*Viabc,</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*Viajk,<sp/>*Vabic,<sp/>*Vaibc,<sp/>*Vaibj,<sp/>*Viabj,<sp/>*Vijak,<sp/>*Vaijb,<sp/>*Vabci,<sp/>*Vabij</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>coulomb<sp/>vertex</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;sisi4s::complex&gt;</ref><sp/>*GammaGqr<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>sisi4s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/SimilarityTransformedHamiltonian.hpp"/>
   </compounddef>
