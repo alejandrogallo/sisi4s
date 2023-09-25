@@ -59,7 +59,9 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
        *epsa =
            getTensorArgument<double, Tensor<double>>("ParticleEigenEnergies");
 
-  bool usingIntermediates = (bool)getIntegerArgument("intermediates", 1);
+  const bool usingIntermediates = (bool)getIntegerArgument("intermediates", 1),
+             withRingCCSDT = (bool)getIntegerArgument("withRingCCSDT", 0);
+
   if (!usingIntermediates) {
     LOG(0, getAbbreviation())
         << "Not using CCSD stanton intermediates, the code will be much slower."
@@ -135,9 +137,12 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
 
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
 
-  H.setFij(Fij)
+  H
+      // fock matrices
+      .setFij(Fij)
       .setFab(Fab)
       .setFia(Fia)
+      // Coulomb Integrals
       .setVabcd(Vabcd)
       .setViajb(Viajb)
       .setVijab(Vijab)
@@ -153,11 +158,29 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
       .setVaijb(Vaijb)
       .setVabci(Vabci)
       .setVabij(Vabij)
+      // CC amplitudes
       .setTai(Tai.get())
       .setTabij(Tabij.get())
       .setTabcijk(Tabcijk.get())
       .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::GENERAL)
-      .useStantonIntermediatesUCCSD(usingIntermediates);
+      .useStantonIntermediatesUCCSD(usingIntermediates)
+      .withRingCCSDT(withRingCCSDT)
+      // end
+      ;
+
+  if (H.withRingCCSDT()) {
+    LOG(1, getAbbreviation()) << "computing RING-CCSDT" << std::endl;
+    H
+        // set non antisymmetric integrals
+        .setVVaijb(
+            getTensorArgument<F, Tensor<F>>("NonAntiPHHPCoulombIntegrals"))
+        .setVVijka(
+            getTensorArgument<F, Tensor<F>>("NonAntiHHHPCoulombIntegrals"))
+        .setVViabc(
+            getTensorArgument<F, Tensor<F>>("NonAntiHPPPCoulombIntegrals"))
+        .setVVijab(
+            getTensorArgument<F, Tensor<F>>("NonAntiHHPPCoulombIntegrals"));
+  }
 
   // T1 equations:
   auto Wai = H.getAI();

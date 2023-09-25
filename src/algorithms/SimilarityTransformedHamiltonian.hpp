@@ -189,6 +189,18 @@ public:
     return *this;
   }
 
+#define _DEFINE_SETTER(type, name, default)                                    \
+  STH &set##name(type t) {                                                     \
+    name = t;                                                                  \
+    return *this;                                                              \
+  }                                                                            \
+  type name = default
+
+  _DEFINE_SETTER(Tensor<F> *, VVaijb, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, VViabc, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, VVijka, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, VVijab, nullptr);
+
   // coulomb bertex setter
   STH &setGammaGqr(Tensor<sisi4s::complex> *t) {
     GammaGqr = t;
@@ -214,6 +226,13 @@ public:
 
   std::string getAbbreviation() const { return "STH"; }
 
+  bool _withRingCCSDT;
+  STH &withRingCCSDT(bool const &v) {
+    _withRingCCSDT = v;
+    return *this;
+  }
+  bool &withRingCCSDT() { return _withRingCCSDT; }
+
 private:
   bool _useStantonIntermediatesUCCSD = false;
   PTR(StantonIntermediatesUCCSD<F>) stantonIntermediatesUccsd;
@@ -228,20 +247,15 @@ private:
   //
   PTR(Tensor<F>)
   // one body
-  Wij, Wab, Wia,
-      Wai
+  Wij, Wab, Wia, Wai,
 
       // two body
-      ,
-      Wabij, Wijab, Wabcd, Wabci, Waibc, Wiabj, Wiajk, Wijka,
-      Wijkl
+      Wabij, Wijab, Wabcd, Wabci, Waibc, Wiabj, Wiajk, Wijka, Wijkl,
 
       // three body
-      ,
-      Wabcijk
+      Wabcijk,
 
       // intermediate quantities
-      ,
       Tau_abij;
 
   //
@@ -251,18 +265,17 @@ private:
   Tensor<F>
       // T amplitudes
       *Tai = nullptr,
-      *Tabij = nullptr, *Tabcijk = nullptr,
-      *Tabcdijkl = nullptr
+      *Tabij = nullptr, *Tabcijk = nullptr, *Tabcdijkl = nullptr,
 
       // Fock matrices
-      ,
-      *Fij, *Fab,
-      *Fia = nullptr
+      *Fij, *Fab, *Fia = nullptr,
 
       // Coulomb integrals
-      ,
-      *Vabcd = nullptr, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc, *Viajk, *Vabic,
-      *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci, *Vabij;
+                      *Vabcd = nullptr, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc,
+      *Viajk, *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci, *Vabij
+
+      ;
+
 
   // coulomb vertex
   Tensor<sisi4s::complex> *GammaGqr = nullptr;

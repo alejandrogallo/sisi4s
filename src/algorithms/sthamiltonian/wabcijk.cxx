@@ -67,7 +67,154 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABCIJK() {
         (-1.0) * (*Tabij)["gfkj"] * (*Tabij)["depi"] * (*Fia)["pg"];
   }
 
-  ST_DEBUG("T2 * V");
+  // Residum equations
+  ST_DEBUG("T3 * Fpq");
+  (*Wabcijk)["defijk"] += (-1.0) * (*Fij)["oi"] * (*Tabcijk)["defojk"];
+  (*Wabcijk)["defijk"] += (+1.0) * (*Fij)["oj"] * (*Tabcijk)["defoik"];
+  (*Wabcijk)["defijk"] += (+1.0) * (*Fij)["ok"] * (*Tabcijk)["defoji"];
+  (*Wabcijk)["defijk"] += (+1.0) * (*Fab)["fg"] * (*Tabcijk)["gdeijk"];
+  (*Wabcijk)["defijk"] += (-1.0) * (*Fab)["eg"] * (*Tabcijk)["gdfijk"];
+  (*Wabcijk)["defijk"] += (-1.0) * (*Fab)["dg"] * (*Tabcijk)["gfeijk"];
+
+  if (withRingCCSDT()) {
+
+    ST_DEBUG("T2 * VV ;; CCSD(T) diagrams");
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabij)["deok"] * (*Viajk)["ofij"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["dfok"] * (*Viajk)["oeij"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["feok"] * (*Viajk)["odij"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["deoj"] * (*Viajk)["ofik"];
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabij)["dfoj"] * (*Viajk)["oeik"];
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabij)["feoj"] * (*Viajk)["odik"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["deoi"] * (*Viajk)["ofkj"];
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabij)["dfoi"] * (*Viajk)["oekj"];
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabij)["feoi"] * (*Viajk)["odkj"];
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabij)["gdjk"] * (*Vabic)["efig"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["gejk"] * (*Vabic)["dfig"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["gfjk"] * (*Vabic)["edig"];
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabij)["gdki"] * (*Vabic)["efjg"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["geki"] * (*Vabic)["dfjg"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["gfki"] * (*Vabic)["edjg"];
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabij)["gdij"] * (*Vabic)["efkg"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["geij"] * (*Vabic)["dfkg"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["gfij"] * (*Vabic)["edkg"];
+    // CCSDT-1 done
+
+    // 1
+    ST_DEBUG("T3 * VViajb");
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabcijk)["gdepjk"] * (*VVaijb)["fpig"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabcijk)["gdfpjk"] * (*VVaijb)["epig"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabcijk)["gfepjk"] * (*VVaijb)["dpig"];
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabcijk)["gdepki"] * (*VVaijb)["fpjg"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabcijk)["gdfpki"] * (*VVaijb)["epjg"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabcijk)["gfepki"] * (*VVaijb)["dpjg"];
+    (*Wabcijk)["defijk"] += (+1.0) * (*Tabcijk)["gdepij"] * (*VVaijb)["fpkg"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabcijk)["gdfpij"] * (*VVaijb)["epkg"];
+    (*Wabcijk)["defijk"] += (-1.0) * (*Tabcijk)["gfepij"] * (*VVaijb)["dpkg"];
+
+    // 2
+    ST_DEBUG("T2 * T2 * VVijka");
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["efoj"] * (*Tabij)["hdIk"] * (*VVijka)["oIih"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["fdoj"] * (*Tabij)["heIk"] * (*VVijka)["oIih"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["deok"] * (*Tabij)["hfIj"] * (*VVijka)["oIih"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["deoj"] * (*Tabij)["hfIk"] * (*VVijka)["oIih"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["fdok"] * (*Tabij)["heIj"] * (*VVijka)["oIih"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["efok"] * (*Tabij)["hdIj"] * (*VVijka)["oIih"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["efoi"] * (*Tabij)["hdIk"] * (*VVijka)["oIjh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["fdoi"] * (*Tabij)["heIk"] * (*VVijka)["oIjh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["deok"] * (*Tabij)["hfIi"] * (*VVijka)["oIjh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["deoi"] * (*Tabij)["hfIk"] * (*VVijka)["oIjh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["fdok"] * (*Tabij)["heIi"] * (*VVijka)["oIjh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["efok"] * (*Tabij)["hdIi"] * (*VVijka)["oIjh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["efoi"] * (*Tabij)["hdIj"] * (*VVijka)["oIkh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["fdoi"] * (*Tabij)["heIj"] * (*VVijka)["oIkh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["deoj"] * (*Tabij)["hfIi"] * (*VVijka)["oIkh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["deoi"] * (*Tabij)["hfIj"] * (*VVijka)["oIkh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["fdoj"] * (*Tabij)["heIi"] * (*VVijka)["oIkh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["efoj"] * (*Tabij)["hdIi"] * (*VVijka)["oIkh"];
+
+    // 3
+    ST_DEBUG("T2 * T2 * VViabc");
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["geij"] * (*Tabij)["hdIk"] * (*VViabc)["Ifgh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["gdij"] * (*Tabij)["heIk"] * (*VViabc)["Ifgh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["gfij"] * (*Tabij)["hdIk"] * (*VViabc)["Iegh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["gfij"] * (*Tabij)["heIk"] * (*VViabc)["Idgh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["gdij"] * (*Tabij)["hfIk"] * (*VViabc)["Iegh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["geij"] * (*Tabij)["hfIk"] * (*VViabc)["Idgh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["geik"] * (*Tabij)["hdIj"] * (*VViabc)["Ifgh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["gdik"] * (*Tabij)["heIj"] * (*VViabc)["Ifgh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["gfik"] * (*Tabij)["hdIj"] * (*VViabc)["Iegh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["gfik"] * (*Tabij)["heIj"] * (*VViabc)["Idgh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["gdik"] * (*Tabij)["hfIj"] * (*VViabc)["Iegh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["geik"] * (*Tabij)["hfIj"] * (*VViabc)["Idgh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["gdkj"] * (*Tabij)["heIi"] * (*VViabc)["Ifgh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["gekj"] * (*Tabij)["hdIi"] * (*VViabc)["Ifgh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["gdkj"] * (*Tabij)["hfIi"] * (*VViabc)["Iegh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["gekj"] * (*Tabij)["hfIi"] * (*VViabc)["Idgh"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabij)["gfkj"] * (*Tabij)["hdIi"] * (*VViabc)["Iegh"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabij)["gfkj"] * (*Tabij)["heIi"] * (*VViabc)["Idgh"];
+
+    // 4
+    ST_DEBUG("T3 * T2 * VVijab (4)");
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabcijk)["gdepjk"] * (*Tabij)["AfJi"] * (*VVijab)["pJgA"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabcijk)["gdfpjk"] * (*Tabij)["AeJi"] * (*VVijab)["pJgA"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabcijk)["gfepjk"] * (*Tabij)["AdJi"] * (*VVijab)["pJgA"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabcijk)["gdepki"] * (*Tabij)["AfJj"] * (*VVijab)["pJgA"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabcijk)["gdfpki"] * (*Tabij)["AeJj"] * (*VVijab)["pJgA"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabcijk)["gfepki"] * (*Tabij)["AdJj"] * (*VVijab)["pJgA"];
+    (*Wabcijk)["defijk"] +=
+        (+1.0) * (*Tabcijk)["gdepij"] * (*Tabij)["AfJk"] * (*VVijab)["pJgA"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabcijk)["gdfpij"] * (*Tabij)["AeJk"] * (*VVijab)["pJgA"];
+    (*Wabcijk)["defijk"] +=
+        (-1.0) * (*Tabcijk)["gfepij"] * (*Tabij)["AdJk"] * (*VVijab)["pJgA"];
+
+    std::cout << "returning early" << std::endl;
+    return Wabcijk;
+  }
+
+  ST_DEBUG("T2 * V ;; CCSD(T) diagrams");
   (*Wabcijk)["defijk"] += (+1.0) * (*Tabij)["deok"] * (*Viajk)["ofij"];
   (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["dfok"] * (*Viajk)["oeij"];
   (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["feok"] * (*Viajk)["odij"];
@@ -86,15 +233,6 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABCIJK() {
   (*Wabcijk)["defijk"] += (+1.0) * (*Tabij)["gdij"] * (*Vabic)["efkg"];
   (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["geij"] * (*Vabic)["dfkg"];
   (*Wabcijk)["defijk"] += (-1.0) * (*Tabij)["gfij"] * (*Vabic)["edkg"];
-
-  // Residum equations
-  ST_DEBUG("T3 * Fpq");
-  (*Wabcijk)["defijk"] += (-1.0) * (*Fij)["oi"] * (*Tabcijk)["defojk"];
-  (*Wabcijk)["defijk"] += (+1.0) * (*Fij)["oj"] * (*Tabcijk)["defoik"];
-  (*Wabcijk)["defijk"] += (+1.0) * (*Fij)["ok"] * (*Tabcijk)["defoji"];
-  (*Wabcijk)["defijk"] += (+1.0) * (*Fab)["fg"] * (*Tabcijk)["gdeijk"];
-  (*Wabcijk)["defijk"] += (-1.0) * (*Fab)["eg"] * (*Tabcijk)["gdfijk"];
-  (*Wabcijk)["defijk"] += (-1.0) * (*Fab)["dg"] * (*Tabcijk)["gfeijk"];
 
   ST_DEBUG("T3 * Vijkl");
   (*Wabcijk)["defijk"] += (+0.5) * (*Tabcijk)["defopk"] * (*Vijkl)["opij"];
