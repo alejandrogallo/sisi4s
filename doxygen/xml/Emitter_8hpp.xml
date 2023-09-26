@@ -5,6 +5,7 @@
     <includes refid="SharedPointer_8hpp" local="no">util/SharedPointer.hpp</includes>
     <includes local="no">string</includes>
     <includes local="no">yaml-cpp/yaml.h</includes>
+    <includedby refid="Algorithm_8cxx" local="no">Algorithm.cxx</includedby>
     <includedby refid="CcsdEquationOfMotionDavidson_8cxx" local="no">CcsdEquationOfMotionDavidson.cxx</includedby>
     <includedby refid="ClusterSinglesDoublesAlgorithm_8cxx" local="no">ClusterSinglesDoublesAlgorithm.cxx</includedby>
     <includedby refid="ClusterSinglesDoublesTriplesAlgorithm_8cxx" local="no">ClusterSinglesDoublesTriplesAlgorithm.cxx</includedby>
@@ -53,83 +54,87 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="19">
+      <node id="20">
         <label>Sisi4s.cxx</label>
         <link refid="Sisi4s_8cxx"/>
       </node>
       <node id="2">
+        <label>Algorithm.cxx</label>
+        <link refid="Algorithm_8cxx"/>
+      </node>
+      <node id="3">
         <label>CcsdEquationOfMotionDavidson.cxx</label>
         <link refid="CcsdEquationOfMotionDavidson_8cxx"/>
       </node>
-      <node id="3">
+      <node id="4">
         <label>ClusterSinglesDoublesAlgorithm.cxx</label>
         <link refid="ClusterSinglesDoublesAlgorithm_8cxx"/>
       </node>
-      <node id="4">
+      <node id="5">
         <label>ClusterSinglesDoublesTriplesAlgorithm.cxx</label>
         <link refid="ClusterSinglesDoublesTriplesAlgorithm_8cxx"/>
       </node>
-      <node id="5">
+      <node id="6">
         <label>ComplexTensorReader.cxx</label>
         <link refid="ComplexTensorReader_8cxx"/>
       </node>
-      <node id="6">
+      <node id="7">
         <label>ComplexTensorWriter.cxx</label>
         <link refid="ComplexTensorWriter_8cxx"/>
       </node>
-      <node id="7">
+      <node id="8">
         <label>CoulombIntegralsFromGaussian.cxx</label>
         <link refid="CoulombIntegralsFromGaussian_8cxx"/>
       </node>
-      <node id="8">
+      <node id="9">
         <label>CoulombIntegralsFromRotatedCoulombIntegrals.cxx</label>
         <link refid="CoulombIntegralsFromRotatedCoulombIntegrals_8cxx"/>
       </node>
-      <node id="9">
+      <node id="10">
         <label>CoulombIntegralsFromVertex.cxx</label>
         <link refid="CoulombIntegralsFromVertex_8cxx"/>
       </node>
-      <node id="11">
+      <node id="12">
         <label>FockMatrixFromCoulombIntegrals.cxx</label>
         <link refid="FockMatrixFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="12">
+      <node id="13">
         <label>HartreeFockFromGaussian.cxx</label>
         <link refid="HartreeFockFromGaussian_8cxx"/>
       </node>
-      <node id="14">
+      <node id="15">
         <label>MeanCorrelationHoleDepth.cxx</label>
         <link refid="MeanCorrelationHoleDepth_8cxx"/>
       </node>
-      <node id="15">
+      <node id="16">
         <label>MoReader.cxx</label>
         <link refid="MoReader_8cxx"/>
       </node>
-      <node id="16">
+      <node id="17">
         <label>NuclearRepulsionEnergy.cxx</label>
         <link refid="NuclearRepulsionEnergy_8cxx"/>
       </node>
-      <node id="17">
+      <node id="18">
         <label>OneBodyFromGaussian.cxx</label>
         <link refid="OneBodyFromGaussian_8cxx"/>
       </node>
-      <node id="18">
+      <node id="19">
         <label>OneBodyRotation.cxx</label>
         <link refid="OneBodyRotation_8cxx"/>
       </node>
-      <node id="20">
+      <node id="21">
         <label>TensorReader.cxx</label>
         <link refid="TensorReader_8cxx"/>
       </node>
-      <node id="21">
+      <node id="22">
         <label>TensorWriter.cxx</label>
         <link refid="TensorWriter_8cxx"/>
       </node>
-      <node id="13">
+      <node id="14">
         <label>LinearMixer.cxx</label>
         <link refid="LinearMixer_8cxx"/>
       </node>
-      <node id="10">
+      <node id="11">
         <label>Emitter.cxx</label>
         <link refid="Emitter_8cxx"/>
       </node>
@@ -175,6 +180,8 @@
         <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
