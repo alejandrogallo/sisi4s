@@ -4,6 +4,7 @@
 #include <math/Complex.hpp>
 #include <DryTensor.hpp>
 #include <util/Exception.hpp>
+#include <util/Emitter.hpp>
 #include <util/Log.hpp>
 #include <iostream>
 #include <sstream>
@@ -62,11 +63,15 @@ std::string Algorithm::getTextArgument(std::string const &name) {
             << "Excpected Text, found " << data->getTypeName() << ".";
     throw new EXCEPTION(sstream.str());
   }
+  EMIT() << YAML::Key << name << YAML::Value << textData->value;
   return textData->value;
 }
 std::string Algorithm::getTextArgument(std::string const &name,
                                        std::string const &defaultValue) {
-  return isArgumentGiven(name) ? getTextArgument(name) : defaultValue;
+  const bool given = isArgumentGiven(name);
+  const auto value = given ? getTextArgument(name) : defaultValue;
+  if (!given) { EMIT() << YAML::Key << name << YAML::Value << value; }
+  return value;
 }
 
 bool Algorithm::getBooleanArgument(std::string const &name) {
@@ -76,18 +81,20 @@ bool Algorithm::getBooleanArgument(std::string const &name) {
    *  (myflag "true")
    */
   std::string text(getTextArgument(name));
-  if (text.compare(".TRUE.") == 0 || text.compare("true") == 0
-      || text.compare("True") == 0 || text.compare("TRUE") == 0
-      || text.compare("1") == 0 || text.compare("t") == 0
-      || text.compare("T") == 0) {
-    return true;
-  } else {
-    return false;
-  }
+  const bool value = text.compare(".TRUE.") == 0 || text.compare("true") == 0
+                  || text.compare("True") == 0 || text.compare("TRUE") == 0
+                  || text.compare("1") == 0 || text.compare("t") == 0
+                  || text.compare("T") == 0;
+  EMIT() << YAML::Key << name << YAML::Value << value;
+  return value;
 }
 bool Algorithm::getBooleanArgument(std::string const &name,
                                    bool const &defaultValue) {
-  return isArgumentGiven(name) ? getBooleanArgument(name) : defaultValue;
+
+  const bool given = isArgumentGiven(name);
+  const auto value = given ? getBooleanArgument(name) : defaultValue;
+  if (!given) { EMIT() << YAML::Key << name << YAML::Value << value; }
+  return value;
 }
 
 int64_t Algorithm::getIntegerArgument(std::string const &name) {
@@ -99,11 +106,16 @@ int64_t Algorithm::getIntegerArgument(std::string const &name) {
             << "Excpected Integer, found " << data->getTypeName() << ".";
     throw new EXCEPTION(sstream.str());
   }
-  return integerData->value;
+  const auto value = integerData->value;
+  EMIT() << YAML::Key << name << YAML::Value << value;
+  return value;
 }
 int64_t Algorithm::getIntegerArgument(std::string const &name,
                                       int64_t const defaultValue) {
-  return isArgumentGiven(name) ? getIntegerArgument(name) : defaultValue;
+  const bool given = isArgumentGiven(name);
+  const auto value = given ? getIntegerArgument(name) : defaultValue;
+  if (!given) { EMIT() << YAML::Key << name << YAML::Value << value; }
+  return value;
 }
 
 sisi4s::real Algorithm::getRealArgument(std::string const &name) {
