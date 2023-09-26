@@ -41,10 +41,13 @@ CTF_COMMIT="53ae5daad851bf3b198ebe1fa761c13b12291116"
 YAML_COMMIT="c9460110e072df84b7dee3eb651f2ec5df75fb18"
 LIBINT_COMMIT="v2.6.0"
 EIGEN_BRANCH="3.3.7"
+ECL_COMMIT="23.9.9"
 AC_SUBST([CTF_COMMIT])
 AC_SUBST([YAML_COMMIT])
 AC_SUBST([LIBINT_COMMIT])
 AC_SUBST([EIGEN_BRANCH])
+AC_SUBST([ECL_COMMIT])
+
 
 dnl -----------------------------------------------------------------------
 dnl Configure switches
@@ -115,6 +118,25 @@ AC_ARG_WITH(yamlcpp,
              external_cppflags_add "yaml-cpp/include/"
              external_ldflags_add "yaml-cpp/lib/libyaml-cpp.a"
              EXTERNAL_DEPENDENCIES="yaml-cpp ${EXTERNAL_DEPENDENCIES}"])
+
+dnl ECL WITH OPTION
+ECL_LIBS="-lecl -leclffi -leclatomic -lgmp -lgc"
+AC_ARG_WITH(ecl,
+            [AS_HELP_STRING([--with-ecl],
+                            [prefix for ecl includes and libraries] )],
+            [ECL_PATH="`readlink -f $withval`";
+             ECL_CPATH="`readlink -f $withval`/include";
+             ECL_LD_LIBRARY_PATH="`readlink -f $withval`/lib";
+             LIBS="${LIBS} -L${ECL_LD_LIBRARY_PATH} ${ECL_LIBS}"
+             BUILD_ECL=NO],
+            [BUILD_ECL=YES
+             EXTERNAL_DEPENDENCIES="ecl ${EXTERNAL_DEPENDENCIES}"])
+
+AC_ARG_ENABLE([lisp],
+              [AS_HELP_STRING([--enable-lisp],
+                              [Enable Common Lisp input])],
+                              [WITH_LISP=yes],
+                              [WITH_LISP=no])
 
 AC_ARG_WITH([clang-check],
             [AS_HELP_STRING([--with-clang-check],
@@ -303,6 +325,26 @@ if test xNO = x${BUILD_YAML}; then
                   [AC_MSG_ERROR([no yaml-cpp/yaml.h header found])])
 fi
 
+dnl -----------------------------------------------------------------------
+dnl CHECK ECL
+dnl -----------------------------------------------------------------------
+AM_CONDITIONAL([WITH_BUILD_ECL],
+               [test x${WITH_LISP} = xyes -a xYES = x${BUILD_ECL} ])
+if test x${WITH_LISP} = xyes; then
+  AC_DEFINE([HAVE_LISP], [1], "Built with lisp support")
+fi
+if test xNO = x${BUILD_ECL} -a xyes = x${WITH_LISP}; then
+  CPPFLAGS="$CPPFLAGS -I${ECL_CPATH}"
+  LDFLAGS="$LDFLAGS -L${ECL_LD_LIBRARY_PATH} ${ECL_LIBS}"
+  AC_CHECK_HEADER([ecl/ecl.h],
+                  [],
+                  [AC_MSG_ERROR([no ecl/ecl.h header found in $CPPFLAGS])])
+fi
+if test xYES = x${BUILD_ECL} -a xyes = x${WITH_LISP}; then
+  external_cppflags_add "ecl/include/"
+  external_ldflags_add "ecl/lib" "-L" "${ECL_LIBS}"
+fi
+
 
 dnl CUDA NVIDIA -----------------------------------------------------------
 
@@ -357,6 +399,7 @@ AC_CONFIG_FILES([
                  extern/eigen/Makefile
                  extern/libint/Makefile
                  extern/ctf/Makefile
+                 extern/ecl/Makefile
                  .dir-locals.el
                ])
 AC_CONFIG_HEADERS([config.h])

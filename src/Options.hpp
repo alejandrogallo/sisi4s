@@ -3,13 +3,14 @@
 
 #include <string>
 #include <vendor/CLI11.hpp>
+#include "config.h"
 
 namespace sisi4s {
 struct Options {
 
   CLI::App app;
   int logLevel;
-  std::string inFile, logFile, yamlOutFile;
+  std::string inFile, logFile, yamlOutFile, lisp_file, name;
   int argc;
   char **argv;
   bool cc4s, listAlgorithms, dryRun;
