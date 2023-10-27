@@ -262,7 +262,7 @@ template&lt;typename H , typename P , typename V &gt; </div>
 <p>... </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td>object representing the matrix whose eigen system is sought offering the following method: V rightApply(V &amp;v); Also, if the dual version of the Davidson algorithm is to be used h should offer the leftApply method V leftApply(V &amp;v); returning the action of h on v standing right of h. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td>object representing the matrix whose eigen system is sought offering the following method: V right_apply(V &amp;v); Also, if the dual version of the Davidson algorithm is to be used h should offer the leftApply method V leftApply(V &amp;v); returning the action of h on v standing right of h. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">eigenVectorsCount</td><td>the number of eigenvalues and vectors to be computed. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>object representing the preconditioner offering the following method: std::vector&lt;V&gt; getInitialBasis(int eigenVectorsCount); returning an initial guess the basis consisting of eigenVectorsCount vectors. V getCorrection(const complex eigenValue, V &amp;residuum); computing the estimated correction for the k-th eigenvector given its eigenvalue and the residuum of the current k-th estimated eigenvector. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tolerance</td><td>the targeted relative tolerance to be met by all residua. </td></tr>

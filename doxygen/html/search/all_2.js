@@ -48,7 +48,7 @@ var searchData=
   ['braket_45',['braket',['../classsisi4s_1_1FockVector.html#a0366d95ec508547de45b887737a4ca0e',1,'sisi4s::FockVector']]],
   ['buffer_46',['buffer',['../classsisi4s_1_1Scanner.html#a8f3bae7850aecea40e861a39d071a675',1,'sisi4s::Scanner']]],
   ['buffer_5fsize_47',['BUFFER_SIZE',['../classsisi4s_1_1Scanner.html#ae076ebb67806f60647f2139e989b0a29',1,'sisi4s::Scanner']]],
-  ['buildindextranslation_48',['buildIndexTranslation',['../classsisi4s_1_1FockVector.html#aa7487ad7e11cba45c0d23d8d68a39da4',1,'sisi4s::FockVector']]],
+  ['build_5findex_5ftranslation_48',['build_index_translation',['../classsisi4s_1_1FockVector.html#a5d9cadb1b9e7035318011a41379d0c6d',1,'sisi4s::FockVector']]],
   ['buildtransformations_49',['buildTransformations',['../structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a664dfd859b6247f83ddb5c29c330554e',1,'sisi4s::NaturalTransitionOrbitalsFromRhoAI']]],
   ['bytespernumber_50',['bytesPerNumber',['../classsisi4s_1_1BinaryTensorHeaderBase.html#ae7559446031b647622a012c5f9fd359d',1,'sisi4s::BinaryTensorHeaderBase']]]
 ];

@@ -103,7 +103,7 @@ var searchData=
   ['_7esingleparticleoccupancies_100',['~SingleParticleOccupancies',['../classsisi4s_1_1SingleParticleOccupancies.html#a676e262924f65b0f572b885e269a55f2',1,'sisi4s::SingleParticleOccupancies']]],
   ['_7eslicecoulombvertex_101',['~SliceCoulombVertex',['../classsisi4s_1_1SliceCoulombVertex.html#a66101c788ca027537a7a1270a85823e8',1,'sisi4s::SliceCoulombVertex']]],
   ['_7eslicedctftensor_102',['~SlicedCtfTensor',['../classsisi4s_1_1SlicedCtfTensor.html#a97761a0216b2563d16efeaa63270c6d3',1,'sisi4s::SlicedCtfTensor']]],
-  ['_7etensorantisymmetrizer_103',['~TensorAntisymmetrizer',['../structsisi4s_1_1TensorAntisymmetrizer.html#ac29aa5b1bedcd62629057d4a4d503b64',1,'sisi4s::TensorAntisymmetrizer']]],
+  ['_7etensorantisymmetrizer_103',['~TensorAntisymmetrizer',['../classsisi4s_1_1TensorAntisymmetrizer.html#ac29aa5b1bedcd62629057d4a4d503b64',1,'sisi4s::TensorAntisymmetrizer']]],
   ['_7etensorcontraction_104',['~TensorContraction',['../classsisi4s_1_1TensorContraction.html#a695cbc7ec4ebe8e21dba2e27eca854e3',1,'sisi4s::TensorContraction']]],
   ['_7etensordata_105',['~TensorData',['../classsisi4s_1_1TensorData.html#a9f1d158f7bf077abea3ae190ebe92d1e',1,'sisi4s::TensorData']]],
   ['_7etensorgetmax_106',['~TensorGetMax',['../classsisi4s_1_1TensorGetMax.html#a8f2485a804de75e28df916787022fd64',1,'sisi4s::TensorGetMax']]],
@@ -111,7 +111,7 @@ var searchData=
   ['_7etensorreader_108',['~TensorReader',['../classsisi4s_1_1TensorReader.html#aeca06bec4bea67321447aba761c68da3',1,'sisi4s::TensorReader']]],
   ['_7etensorreduceijij_109',['~TensorReduceijij',['../structsisi4s_1_1TensorReduceijij.html#ae4e4b17fd6f39b095865b539446048f3',1,'sisi4s::TensorReduceijij']]],
   ['_7etensorslicer_110',['~TensorSlicer',['../structsisi4s_1_1TensorSlicer.html#ae2ed72bbd696bd2955a3729531be0cbc',1,'sisi4s::TensorSlicer']]],
-  ['_7etensorsum_111',['~TensorSum',['../classsisi4s_1_1TensorSum.html#a5fd729d821ae581510787b270c493079',1,'sisi4s::TensorSum']]],
+  ['_7etensorsum_111',['~TensorSum',['../classsisi4s_1_1TensorSum.html#a893cc146939b50dbb09624722f9ddd88',1,'sisi4s::TensorSum']]],
   ['_7etensorunrestricter_112',['~TensorUnrestricter',['../structsisi4s_1_1TensorUnrestricter.html#acf3ed6039ddf63c70279c97c692f771e',1,'sisi4s::TensorUnrestricter']]],
   ['_7etensorwriter_113',['~TensorWriter',['../classsisi4s_1_1TensorWriter.html#a0519842fbeaf3bc2fd6cbcd90704a6ce',1,'sisi4s::TensorWriter']]],
   ['_7etimer_114',['~Timer',['../classsisi4s_1_1Timer.html#a14fa469c4c295c5fa6e66a4ad1092146',1,'sisi4s::Timer']]],
@@ -122,8 +122,9 @@ var searchData=
   ['_7euccsdtamplitudesfromcoulombintegrals_119',['~UccsdtAmplitudesFromCoulombIntegrals',['../classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals.html#a75017c9a1662d1eccccb966d12726b56',1,'sisi4s::UccsdtAmplitudesFromCoulombIntegrals']]],
   ['_7euccsdtqamplitudesfromcoulombintegrals_120',['~UccsdtqAmplitudesFromCoulombIntegrals',['../classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals.html#a28473f30c323084c23208f0c3e35aaf4',1,'sisi4s::UccsdtqAmplitudesFromCoulombIntegrals']]],
   ['_7euegvertexgenerator_121',['~UegVertexGenerator',['../classsisi4s_1_1UegVertexGenerator.html#ab9e610164465ae6a281f86561a66fa1c',1,'sisi4s::UegVertexGenerator']]],
-  ['_7eunrestrictedequationofmotionsinglesfromrpa_122',['~UnrestrictedEquationOfMotionSinglesFromRpa',['../classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa.html#a9245473dcd6f24fff4d4f282650674ec',1,'sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa']]],
-  ['_7euperturbativetriples_123',['~UPerturbativeTriples',['../classsisi4s_1_1UPerturbativeTriples.html#a4405bfe79f036702dbd809c37ddc3c84',1,'sisi4s::UPerturbativeTriples']]],
-  ['_7eurpaamplitudesfromcoulombintegrals_124',['~UrpaAmplitudesFromCoulombIntegrals',['../classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals.html#a1b1e13b20554860bf74d0f60c09b8bbd',1,'sisi4s::UrpaAmplitudesFromCoulombIntegrals']]],
-  ['_7ewrite_125',['~Write',['../classsisi4s_1_1Write.html#a7c2e594d5d1fe5fdbb22aeb2021ad85c',1,'sisi4s::Write']]]
+  ['_7eunrestrictedcis_122',['~UnrestrictedCIS',['../classsisi4s_1_1UnrestrictedCIS.html#a7421261fe0ad983ce9508a2ad1fff819',1,'sisi4s::UnrestrictedCIS']]],
+  ['_7eunrestrictedequationofmotionsinglesfromrpa_123',['~UnrestrictedEquationOfMotionSinglesFromRpa',['../classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa.html#a9245473dcd6f24fff4d4f282650674ec',1,'sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa']]],
+  ['_7euperturbativetriples_124',['~UPerturbativeTriples',['../classsisi4s_1_1UPerturbativeTriples.html#a4405bfe79f036702dbd809c37ddc3c84',1,'sisi4s::UPerturbativeTriples']]],
+  ['_7eurpaamplitudesfromcoulombintegrals_125',['~UrpaAmplitudesFromCoulombIntegrals',['../classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals.html#a1b1e13b20554860bf74d0f60c09b8bbd',1,'sisi4s::UrpaAmplitudesFromCoulombIntegrals']]],
+  ['_7ewrite_126',['~Write',['../classsisi4s_1_1Write.html#a7c2e594d5d1fe5fdbb22aeb2021ad85c',1,'sisi4s::Write']]]
 ];

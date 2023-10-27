@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="classsisi4s_1_1CcsdPreconditioner" kind="class" language="C++" prot="public">
     <compoundname>sisi4s::CcsdPreconditioner</compoundname>
+    <derivedcompoundref refid="classsisi4s_1_1CISPreconditioner" prot="public" virt="non-virtual">sisi4s::CISPreconditioner&lt; F &gt;</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1EACcsdPreconditioner" prot="public" virt="non-virtual">sisi4s::EACcsdPreconditioner&lt; F &gt;</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1IPCcsdPreconditioner" prot="public" virt="non-virtual">sisi4s::IPCcsdPreconditioner&lt; F &gt;</derivedcompoundref>
     <includes refid="CcsdPreconditioner_8hpp" local="no">CcsdPreconditioner.hpp</includes>
@@ -23,10 +24,130 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="20" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="20" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="27" column="24" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="27" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a817f1f184a877adf5459af3b0adc1f39" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Tai</definition>
+        <argsstring></argsstring>
+        <name>Tai</name>
+        <qualifiedname>sisi4s::CcsdPreconditioner::Tai</qualifiedname>
+        <initializer>=  nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="35" column="80" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1afef5288ed545b2b837f3ce50b1fc1a68" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Tabij</definition>
+        <argsstring></argsstring>
+        <name>Tabij</name>
+        <qualifiedname>sisi4s::CcsdPreconditioner::Tabij</qualifiedname>
+        <initializer>=  nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="36" column="84" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a17a79f7dc533eb45e62b86587441f97e" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Fij</definition>
+        <argsstring></argsstring>
+        <name>Fij</name>
+        <qualifiedname>sisi4s::CcsdPreconditioner::Fij</qualifiedname>
+        <initializer>=  nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="37" column="80" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a053d5d2e418c26e27603e2f565db7777" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Fab</definition>
+        <argsstring></argsstring>
+        <name>Fab</name>
+        <qualifiedname>sisi4s::CcsdPreconditioner::Fab</qualifiedname>
+        <initializer>=  nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="38" column="80" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a2c6fa40b06f41ddd7ca6a2cb48d07aa3" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Vabcd</definition>
+        <argsstring></argsstring>
+        <name>Vabcd</name>
+        <qualifiedname>sisi4s::CcsdPreconditioner::Vabcd</qualifiedname>
+        <initializer>=  nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="39" column="84" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1ac6b3168b3362b24e587eca3778276c72" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Vijab</definition>
+        <argsstring></argsstring>
+        <name>Vijab</name>
+        <qualifiedname>sisi4s::CcsdPreconditioner::Vijab</qualifiedname>
+        <initializer>=  nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="40" column="84" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1ad39b0fe531d4c93a898ecef969399a77" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Viajb</definition>
+        <argsstring></argsstring>
+        <name>Viajb</name>
+        <qualifiedname>sisi4s::CcsdPreconditioner::Viajb</qualifiedname>
+        <initializer>=  nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="41" column="84" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a3442db6ac364f985d335628ab0ace7d9" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Vijkl</definition>
+        <argsstring></argsstring>
+        <name>Vijkl</name>
+        <qualifiedname>sisi4s::CcsdPreconditioner::Vijkl</qualifiedname>
+        <initializer>=  nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="42" column="84" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1aadf065fe242b09a94cbf58a370e82b70" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &gt;</type>
         <definition>std::shared_ptr&lt; SDFockVector&lt;F&gt; &gt; sisi4s::CcsdPreconditioner&lt; F &gt;::diagonalH</definition>
@@ -39,134 +160,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="96" column="19" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="96" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a582ef69310de6c4e8bbf1e8fef95f5c1" compoundref="CcsdPreconditioner_8hpp" startline="91" endline="94">sisi4s::CcsdPreconditioner&lt; F &gt;::getDiagonal</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a17a79f7dc533eb45e62b86587441f97e" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
-        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Fij</definition>
-        <argsstring></argsstring>
-        <name>Fij</name>
-        <qualifiedname>sisi4s::CcsdPreconditioner::Fij</qualifiedname>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="97" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="97" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a18480383700abdf73142db6951c5e301" compoundref="CcsdPreconditioner_8hpp" startline="36" endline="39">sisi4s::CcsdPreconditioner&lt; F &gt;::setFij</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a053d5d2e418c26e27603e2f565db7777" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
-        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Fab</definition>
-        <argsstring></argsstring>
-        <name>Fab</name>
-        <qualifiedname>sisi4s::CcsdPreconditioner::Fab</qualifiedname>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="98" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="98" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a0bb053e4a43c1505c1d268697a2e4c73" compoundref="CcsdPreconditioner_8hpp" startline="40" endline="43">sisi4s::CcsdPreconditioner&lt; F &gt;::setFab</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a817f1f184a877adf5459af3b0adc1f39" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
-        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Tai</definition>
-        <argsstring></argsstring>
-        <name>Tai</name>
-        <qualifiedname>sisi4s::CcsdPreconditioner::Tai</qualifiedname>
-        <initializer>= nullptr</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="99" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="99" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1aa5d7868b5d337ddc06de1545765f0f46" compoundref="CcsdPreconditioner_8hpp" startline="28" endline="31">sisi4s::CcsdPreconditioner&lt; F &gt;::setTai</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1afef5288ed545b2b837f3ce50b1fc1a68" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
-        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Tabij</definition>
-        <argsstring></argsstring>
-        <name>Tabij</name>
-        <qualifiedname>sisi4s::CcsdPreconditioner::Tabij</qualifiedname>
-        <initializer>= nullptr</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="100" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="100" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1abd65c40d6bd0540090caeaf85d264db0" compoundref="CcsdPreconditioner_8hpp" startline="32" endline="35">sisi4s::CcsdPreconditioner&lt; F &gt;::setTabij</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a2c6fa40b06f41ddd7ca6a2cb48d07aa3" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
-        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Vabcd</definition>
-        <argsstring></argsstring>
-        <name>Vabcd</name>
-        <qualifiedname>sisi4s::CcsdPreconditioner::Vabcd</qualifiedname>
-        <initializer>= nullptr</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="101" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="101" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a76b6e55f5ecf94314fef4cb1e437cae7" compoundref="CcsdPreconditioner_8hpp" startline="44" endline="47">sisi4s::CcsdPreconditioner&lt; F &gt;::setVabcd</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1ad39b0fe531d4c93a898ecef969399a77" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
-        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Viajb</definition>
-        <argsstring></argsstring>
-        <name>Viajb</name>
-        <qualifiedname>sisi4s::CcsdPreconditioner::Viajb</qualifiedname>
-        <initializer>= nullptr</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="102" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="102" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1aac0746cc605858681110b8cbb4e92c77" compoundref="CcsdPreconditioner_8hpp" startline="48" endline="51">sisi4s::CcsdPreconditioner&lt; F &gt;::setViajb</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1ac6b3168b3362b24e587eca3778276c72" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
-        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Vijab</definition>
-        <argsstring></argsstring>
-        <name>Vijab</name>
-        <qualifiedname>sisi4s::CcsdPreconditioner::Vijab</qualifiedname>
-        <initializer>= nullptr</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="103" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="103" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1af0fb4a42a25479395a1594afc1b0f493" compoundref="CcsdPreconditioner_8hpp" startline="52" endline="55">sisi4s::CcsdPreconditioner&lt; F &gt;::setVijab</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a3442db6ac364f985d335628ab0ace7d9" prot="public" static="no" mutable="no">
-        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
-        <definition>Tensor&lt;F&gt;* sisi4s::CcsdPreconditioner&lt; F &gt;::Vijkl</definition>
-        <argsstring></argsstring>
-        <name>Vijkl</name>
-        <qualifiedname>sisi4s::CcsdPreconditioner::Vijkl</qualifiedname>
-        <initializer>= nullptr</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="104" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="104" bodyend="-1"/>
-        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a9d71e8372ca240fdffc827671b018b79" compoundref="CcsdPreconditioner_8hpp" startline="56" endline="59">sisi4s::CcsdPreconditioner&lt; F &gt;::setVijkl</referencedby>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="78" column="19" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="78" bodyend="-1"/>
+        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a582ef69310de6c4e8bbf1e8fef95f5c1" compoundref="CcsdPreconditioner_8hpp" startline="73" endline="76">sisi4s::CcsdPreconditioner&lt; F &gt;::getDiagonal</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -184,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="110" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="110" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="84" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="84" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a414699e815f8b3591f2fbf2cbe671645" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -199,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="113" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="113" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="87" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classsisi4s_1_1CcsdPreconditioner_1a38baeb657fd2bc45a75fd77311e2b348" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -215,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="119" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="119" bodyend="-1"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="93" column="10" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="93" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -231,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="22" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="22" bodyend="22"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="29" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="29" bodyend="29"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a07c07b2f5da029985545bd31e2701743" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -245,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="23" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="23" bodyend="23"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="30" column="3" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="30" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1aa5d7868b5d337ddc06de1545765f0f46" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
@@ -264,8 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="28" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="28" bodyend="31"/>
-        <references refid="classsisi4s_1_1CcsdPreconditioner_1a817f1f184a877adf5459af3b0adc1f39" compoundref="CcsdPreconditioner_8hpp" startline="99">sisi4s::CcsdPreconditioner&lt; F &gt;::Tai</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="35" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="35" bodyend="35"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1abd65c40d6bd0540090caeaf85d264db0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
@@ -283,8 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="32" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="32" bodyend="35"/>
-        <references refid="classsisi4s_1_1CcsdPreconditioner_1afef5288ed545b2b837f3ce50b1fc1a68" compoundref="CcsdPreconditioner_8hpp" startline="100">sisi4s::CcsdPreconditioner&lt; F &gt;::Tabij</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="36" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="36" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a18480383700abdf73142db6951c5e301" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
@@ -302,8 +295,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="36" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="36" bodyend="39"/>
-        <references refid="classsisi4s_1_1CcsdPreconditioner_1a17a79f7dc533eb45e62b86587441f97e" compoundref="CcsdPreconditioner_8hpp" startline="97">sisi4s::CcsdPreconditioner&lt; F &gt;::Fij</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="37" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="37" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a0bb053e4a43c1505c1d268697a2e4c73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
@@ -321,8 +313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="40" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="40" bodyend="43"/>
-        <references refid="classsisi4s_1_1CcsdPreconditioner_1a053d5d2e418c26e27603e2f565db7777" compoundref="CcsdPreconditioner_8hpp" startline="98">sisi4s::CcsdPreconditioner&lt; F &gt;::Fab</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="38" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="38" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a76b6e55f5ecf94314fef4cb1e437cae7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
@@ -340,27 +331,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="44" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="44" bodyend="47"/>
-        <references refid="classsisi4s_1_1CcsdPreconditioner_1a2c6fa40b06f41ddd7ca6a2cb48d07aa3" compoundref="CcsdPreconditioner_8hpp" startline="101">sisi4s::CcsdPreconditioner&lt; F &gt;::Vabcd</references>
-      </memberdef>
-      <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1aac0746cc605858681110b8cbb4e92c77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
-        <definition>CcsdPreconditioner &amp; sisi4s::CcsdPreconditioner&lt; F &gt;::setViajb</definition>
-        <argsstring>(Tensor&lt; F &gt; *t)</argsstring>
-        <name>setViajb</name>
-        <qualifiedname>sisi4s::CcsdPreconditioner::setViajb</qualifiedname>
-        <param>
-          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="48" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="48" bodyend="51"/>
-        <references refid="classsisi4s_1_1CcsdPreconditioner_1ad39b0fe531d4c93a898ecef969399a77" compoundref="CcsdPreconditioner_8hpp" startline="102">sisi4s::CcsdPreconditioner&lt; F &gt;::Viajb</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="39" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="39" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1af0fb4a42a25479395a1594afc1b0f493" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
@@ -378,8 +349,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="52" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="52" bodyend="55"/>
-        <references refid="classsisi4s_1_1CcsdPreconditioner_1ac6b3168b3362b24e587eca3778276c72" compoundref="CcsdPreconditioner_8hpp" startline="103">sisi4s::CcsdPreconditioner&lt; F &gt;::Vijab</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="40" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1aac0746cc605858681110b8cbb4e92c77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
+        <definition>CcsdPreconditioner &amp; sisi4s::CcsdPreconditioner&lt; F &gt;::setViajb</definition>
+        <argsstring>(Tensor&lt; F &gt; *t)</argsstring>
+        <name>setViajb</name>
+        <qualifiedname>sisi4s::CcsdPreconditioner::setViajb</qualifiedname>
+        <param>
+          <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="41" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="41" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a9d71e8372ca240fdffc827671b018b79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
@@ -397,8 +385,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="56" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="56" bodyend="59"/>
-        <references refid="classsisi4s_1_1CcsdPreconditioner_1a3442db6ac364f985d335628ab0ace7d9" compoundref="CcsdPreconditioner_8hpp" startline="104">sisi4s::CcsdPreconditioner&lt; F &gt;::Vijkl</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="42" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="42" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1af37e2f53fd52ddd2240d7bc49948970b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
@@ -416,7 +403,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="61" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="61" bodyend="64"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="44" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="44" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a19133e109b422e13ab030ad1fa4eae43" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
@@ -434,7 +421,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="66" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="66" bodyend="69"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="48" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="48" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1ad7ba8769f2568541d4cb014ac7e3e4e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1CcsdPreconditioner" kindref="compound">CcsdPreconditioner</ref> &amp;</type>
@@ -452,7 +439,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="70" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="70" bodyend="73"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="52" column="22" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a885a0ffef1ab5a039a69e40e8e8b1c09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt; &gt;</type>
@@ -481,8 +468,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="79" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="149" bodyend="297"/>
-        <references refid="classsisi4s_1_1FockVector_1a76a336f18f4fc9a70c6b31406b8d6717" compoundref="FockVector_8hpp" startline="30">sisi4s::FockVector&lt; F &gt;::componentTensors</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="61" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="149" bodyend="297"/>
+        <references refid="classsisi4s_1_1FockVector_1a2bc10ecd4c0779778cde0f0be85192e8" compoundref="FockVector_8hpp" startline="30">sisi4s::FockVector&lt; F &gt;::component_tensors</references>
         <references refid="classsisi4s_1_1FockVector_1a7f7a9ea49d5eb503a988858d1b9e76cb" compoundref="FockVector_8hpp" startline="226" endline="236">sisi4s::FockVector&lt; F &gt;::dot</references>
         <references refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" compoundref="Exception_8hpp" startline="8">EXCEPTION</references>
         <references refid="CcsdPreconditioner_8cxx_1a279086f8f72e73ab4de59fe05b1fd760" compoundref="CcsdPreconditioner_8cxx" startline="17" endline="51">filterOutSpinFlipEntries</references>
@@ -515,7 +502,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="81" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="314" bodyend="323"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="63" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="314" bodyend="323"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a8aefba0b3f2b4c128f69d6e5eaf5a1fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector</ref>&lt; F &gt;</type>
@@ -537,10 +524,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="84" column="16" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="327" bodyend="371"/>
-        <references refid="classsisi4s_1_1FockVector_1a931498ce2090f83bcff10de589035874" compoundref="FockVector_8hpp" startline="31">sisi4s::FockVector&lt; F &gt;::componentIndices</references>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="66" column="16" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="327" bodyend="371"/>
+        <references refid="classsisi4s_1_1FockVector_1a786a112f10c934f0546155a2706adb96" compoundref="FockVector_8hpp" startline="31">sisi4s::FockVector&lt; F &gt;::component_indices</references>
         <references refid="classsisi4s_1_1FockVector_1aebf4e090f20a7bb83c434396b274c89c" compoundref="FockVector_8hpp" startline="90" endline="92">sisi4s::FockVector&lt; F &gt;::get</references>
-        <references refid="classsisi4s_1_1FockVector_1ad754c5d7c0cb7ab1a487f1f640d7d877" compoundref="FockVector_8hpp" startline="241" endline="241">sisi4s::FockVector&lt; F &gt;::getComponentsCount</references>
+        <references refid="classsisi4s_1_1FockVector_1aec9ea6b57bd63fefdfa59fa5de8572c3" compoundref="FockVector_8hpp" startline="241" endline="241">sisi4s::FockVector&lt; F &gt;::get_components_count</references>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a29ac0b00a098edfe1d72c32a009f2b99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classsisi4s_1_1SDTFockVector" kindref="compound">SDTFockVector</ref>&lt; F &gt;</type>
@@ -562,7 +549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="87" column="17" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="301" bodyend="310"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="69" column="17" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="301" bodyend="310"/>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a19116638d58b82947dc20c9d75e2fa36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -576,10 +563,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="90" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="87" bodyend="145"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="72" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.cxx" bodystart="87" bodyend="145"/>
         <references refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" compoundref="SharedPointer_8hpp" startline="10">NEW</references>
         <references refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" compoundref="SharedPointer_8hpp" startline="8">PTR</references>
-        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a582ef69310de6c4e8bbf1e8fef95f5c1" compoundref="CcsdPreconditioner_8hpp" startline="91" endline="94">sisi4s::CcsdPreconditioner&lt; F &gt;::getDiagonal</referencedby>
+        <referencedby refid="classsisi4s_1_1CcsdPreconditioner_1a582ef69310de6c4e8bbf1e8fef95f5c1" compoundref="CcsdPreconditioner_8hpp" startline="73" endline="76">sisi4s::CcsdPreconditioner&lt; F &gt;::getDiagonal</referencedby>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1CcsdPreconditioner_1a582ef69310de6c4e8bbf1e8fef95f5c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="classsisi4s_1_1CcsdPreconditioner_1a5aafdff11999909d426ebe9449d1f6b3" kindref="member">V</ref> &gt;</type>
@@ -593,9 +580,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="91" column="19" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="91" bodyend="94"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="73" column="19" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="73" bodyend="76"/>
         <references refid="classsisi4s_1_1CcsdPreconditioner_1a19116638d58b82947dc20c9d75e2fa36" compoundref="CcsdPreconditioner_8cxx" startline="87" endline="145">sisi4s::CcsdPreconditioner&lt; F &gt;::calculateDiagonal</references>
-        <references refid="classsisi4s_1_1CcsdPreconditioner_1aadf065fe242b09a94cbf58a370e82b70" compoundref="CcsdPreconditioner_8hpp" startline="96">sisi4s::CcsdPreconditioner&lt; F &gt;::diagonalH</references>
+        <references refid="classsisi4s_1_1CcsdPreconditioner_1aadf065fe242b09a94cbf58a370e82b70" compoundref="CcsdPreconditioner_8hpp" startline="78">sisi4s::CcsdPreconditioner&lt; F &gt;::diagonalH</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -614,17 +601,23 @@
 </para>
     </detaileddescription>
     <inheritancegraph>
+      <node id="2">
+        <label>sisi4s::CISPreconditioner&lt; F &gt;</label>
+        <link refid="classsisi4s_1_1CISPreconditioner"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
       <node id="1">
         <label>sisi4s::CcsdPreconditioner&lt; F &gt;</label>
         <link refid="classsisi4s_1_1CcsdPreconditioner"/>
       </node>
-      <node id="2">
+      <node id="3">
         <label>sisi4s::EACcsdPreconditioner&lt; F &gt;</label>
         <link refid="classsisi4s_1_1EACcsdPreconditioner"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>sisi4s::IPCcsdPreconditioner&lt; F &gt;</label>
         <link refid="classsisi4s_1_1IPCcsdPreconditioner"/>
         <childnode refid="1" relation="public-inheritance">
@@ -637,7 +630,7 @@
         <link refid="classsisi4s_1_1CcsdPreconditioner"/>
       </node>
     </collaborationgraph>
-    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="18" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="18" bodyend="120"/>
+    <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" line="25" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/CcsdPreconditioner.hpp" bodystart="25" bodyend="94"/>
     <listofallmembers>
       <member refid="classsisi4s_1_1CcsdPreconditioner_1a19116638d58b82947dc20c9d75e2fa36" prot="public" virt="non-virtual"><scope>sisi4s::CcsdPreconditioner</scope><name>calculateDiagonal</name></member>
       <member refid="classsisi4s_1_1CcsdPreconditioner_1a9ae198c111525ea966d34a0f8c7b4d28" prot="public" virt="non-virtual"><scope>sisi4s::CcsdPreconditioner</scope><name>CcsdPreconditioner</name></member>

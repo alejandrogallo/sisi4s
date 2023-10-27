@@ -20,6 +20,6 @@ var searchData=
   ['booleandata_17',['BooleanData',['../classsisi4s_1_1BooleanData.html#a841f13b222384b0f29f1ffb6d5f3aad6',1,'sisi4s::BooleanData::BooleanData(std::string const &amp;name_, bool const value_)'],['../classsisi4s_1_1BooleanData.html#ac454d4df6e35aa4b4e12eb5983efe9f1',1,'sisi4s::BooleanData::BooleanData(bool const value_)']]],
   ['bound_18',['Bound',['../classCLI_1_1Bound.html#adbf6cb621fbb0974ecf45d0e505e90bb',1,'CLI::Bound::Bound(T max_val)'],['../classCLI_1_1Bound.html#a2cb653c274038fbd5bd66d12bdc6f7f5',1,'CLI::Bound::Bound(T min_val, T max_val)']]],
   ['braket_19',['braket',['../classsisi4s_1_1FockVector.html#a0366d95ec508547de45b887737a4ca0e',1,'sisi4s::FockVector']]],
-  ['buildindextranslation_20',['buildIndexTranslation',['../classsisi4s_1_1FockVector.html#aa7487ad7e11cba45c0d23d8d68a39da4',1,'sisi4s::FockVector']]],
+  ['build_5findex_5ftranslation_20',['build_index_translation',['../classsisi4s_1_1FockVector.html#a5d9cadb1b9e7035318011a41379d0c6d',1,'sisi4s::FockVector']]],
   ['buildtransformations_21',['buildTransformations',['../structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI.html#a664dfd859b6247f83ddb5c29c330554e',1,'sisi4s::NaturalTransitionOrbitalsFromRhoAI']]]
 ];

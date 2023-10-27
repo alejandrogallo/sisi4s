@@ -7,7 +7,7 @@ var searchData=
   ['last_5fwrite_5ftime_4',['last_write_time',['../namespaceghc_1_1filesystem.html#a77d39983738deaaf54e19d998c33e60d',1,'ghc::filesystem::last_write_time(const path &amp;p, std::error_code &amp;ec) noexcept'],['../namespaceghc_1_1filesystem.html#a96dc395544b1c713afbfb0b199e20d92',1,'ghc::filesystem::last_write_time(const path &amp;p, file_time_type new_time, std::error_code &amp;ec) noexcept'],['../classghc_1_1filesystem_1_1directory__entry.html#a9efb65c02dc852ac48754a4893ddf340',1,'ghc::filesystem::directory_entry::last_write_time()']]],
   ['leastsquarefit_5',['leastSquareFit',['../classsisi4s_1_1FiniteSizeCorrection.html#aaac37f82140fd1c0b0413f0a533e6be7',1,'sisi4s::FiniteSizeCorrection']]],
   ['leftapply_6',['leftApply',['../classsisi4s_1_1SimilarityTransformedHamiltonian.html#ab89ba872da1f38fdf3f5dbd2ed7cabba',1,'sisi4s::SimilarityTransformedHamiltonian']]],
-  ['leftapplyhirata_7',['leftApplyHirata',['../classsisi4s_1_1SimilarityTransformedHamiltonian.html#a89a7bd8e042fd5bd61e8ae29ced9b050',1,'sisi4s::SimilarityTransformedHamiltonian']]],
+  ['leftapply_5fhirata_7',['leftApply_hirata',['../classsisi4s_1_1SimilarityTransformedHamiltonian.html#aa7229c7cb56e874256800892b788b000',1,'sisi4s::SimilarityTransformedHamiltonian']]],
   ['leftapplyintermediates_8',['leftApplyIntermediates',['../classsisi4s_1_1SimilarityTransformedHamiltonian.html#a97c1a2efb9749a4681cd0ee90cf9f46b',1,'sisi4s::SimilarityTransformedHamiltonian']]],
   ['lefteigenerror_9',['leftEigenError',['../classsisi4s_1_1LapackGeneralEigenSystem_3_01complex_01_4.html#a6ff1cce7cf64d7659d0804317f5b62bf',1,'sisi4s::LapackGeneralEigenSystem&lt; complex &gt;']]],
   ['length_10',['length',['../classsisi4s_1_1Vector.html#a136ec801253ede3aa5c4b20b16951230',1,'sisi4s::Vector']]],

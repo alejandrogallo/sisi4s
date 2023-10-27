@@ -74,7 +74,7 @@
         <label>CcsdtEquationOfMotionDavidson.cxx</label>
         <link refid="CcsdtEquationOfMotionDavidson_8cxx"/>
       </node>
-      <node id="9">
+      <node id="10">
         <label>NaturalTransitionOrbitalsFromRhoAI.cxx</label>
         <link refid="NaturalTransitionOrbitalsFromRhoAI_8cxx"/>
       </node>
@@ -87,6 +87,10 @@
         <link refid="UCcsdIPEquationOfMotionDavidson_8cxx"/>
       </node>
       <node id="7">
+        <label>UnrestrictedCIS.cxx</label>
+        <link refid="UnrestrictedCIS_8cxx"/>
+      </node>
+      <node id="8">
         <label>UnrestrictedEquationOfMotionSinglesFromRpa.cxx</label>
         <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx"/>
       </node>
@@ -103,16 +107,18 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
       </node>
-      <node id="8">
+      <node id="9">
         <label>LapackGeneralEigenSystem.hpp</label>
         <link refid="LapackGeneralEigenSystem_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="11">
         <label>LapackInverse.hpp</label>
         <link refid="LapackInverse_8hpp"/>
       </node>
@@ -121,11 +127,11 @@
         <link refid="LapackMatrix_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

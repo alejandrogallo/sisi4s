@@ -25,6 +25,7 @@
     <innerclass refid="classsisi4s_1_1CcsdtEnergyFromCoulombIntegrals" prot="public">sisi4s::CcsdtEnergyFromCoulombIntegrals</innerclass>
     <innerclass refid="classsisi4s_1_1CcsdtEquationOfMotionDavidson" prot="public">sisi4s::CcsdtEquationOfMotionDavidson</innerclass>
     <innerclass refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix" prot="public">sisi4s::CisOneBodyReducedDensityMatrix</innerclass>
+    <innerclass refid="classsisi4s_1_1CISPreconditioner" prot="public">sisi4s::CISPreconditioner</innerclass>
     <innerclass refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" prot="public">sisi4s::ClusterSinglesDoublesAlgorithm</innerclass>
     <innerclass refid="classsisi4s_1_1ClusterSinglesDoublesTriplesAlgorithm" prot="public">sisi4s::ClusterSinglesDoublesTriplesAlgorithm</innerclass>
     <innerclass refid="classsisi4s_1_1ClusterSinglesDoublesTriplesQuadruplesAlgorithm" prot="public">sisi4s::ClusterSinglesDoublesTriplesQuadruplesAlgorithm</innerclass>
@@ -176,7 +177,7 @@
     <innerclass refid="classsisi4s_1_1SourceLocation" prot="public">sisi4s::SourceLocation</innerclass>
     <innerclass refid="classsisi4s_1_1StantonIntermediatesUCCSD" prot="public">sisi4s::StantonIntermediatesUCCSD</innerclass>
     <innerclass refid="classsisi4s_1_1StaticAssert" prot="public">sisi4s::StaticAssert</innerclass>
-    <innerclass refid="structsisi4s_1_1TensorAntisymmetrizer" prot="public">sisi4s::TensorAntisymmetrizer</innerclass>
+    <innerclass refid="classsisi4s_1_1TensorAntisymmetrizer" prot="public">sisi4s::TensorAntisymmetrizer</innerclass>
     <innerclass refid="classsisi4s_1_1TensorContraction" prot="public">sisi4s::TensorContraction</innerclass>
     <innerclass refid="classsisi4s_1_1TensorData" prot="public">sisi4s::TensorData</innerclass>
     <innerclass refid="classsisi4s_1_1TensorGetMax" prot="public">sisi4s::TensorGetMax</innerclass>
@@ -210,6 +211,7 @@
     <innerclass refid="classsisi4s_1_1UccsdtAmplitudesFromCoulombIntegrals" prot="public">sisi4s::UccsdtAmplitudesFromCoulombIntegrals</innerclass>
     <innerclass refid="classsisi4s_1_1UccsdtqAmplitudesFromCoulombIntegrals" prot="public">sisi4s::UccsdtqAmplitudesFromCoulombIntegrals</innerclass>
     <innerclass refid="classsisi4s_1_1UegVertexGenerator" prot="public">sisi4s::UegVertexGenerator</innerclass>
+    <innerclass refid="classsisi4s_1_1UnrestrictedCIS" prot="public">sisi4s::UnrestrictedCIS</innerclass>
     <innerclass refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa" prot="public">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa</innerclass>
     <innerclass refid="classsisi4s_1_1UPerturbativeTriples" prot="public">sisi4s::UPerturbativeTriples</innerclass>
     <innerclass refid="classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals" prot="public">sisi4s::UrpaAmplitudesFromCoulombIntegrals</innerclass>
@@ -409,6 +411,63 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/Float.hpp" line="30" column="27" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/Float.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacesisi4s_1a44d7edf5ab67401c55a6c73e3101e4b4" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classsisi4s_1_1FockVectorNdCanonical" kindref="compound">FockVectorNdCanonical</ref>&lt; F, 1, 0 &gt;</type>
+        <definition>using sisi4s::CISFockVector = typedef FockVectorNdCanonical&lt;F, 1, 0&gt;</definition>
+        <argsstring></argsstring>
+        <name>CISFockVector</name>
+        <qualifiedname>sisi4s::CISFockVector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/FockVector.hpp" line="579" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/FockVector.hpp" bodystart="579" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacesisi4s_1a4dfd59ff5b1e1d23e2060c948e41c311" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classsisi4s_1_1FockVectorNdCanonical" kindref="compound">FockVectorNdCanonical</ref>&lt; F, 2, 0 &gt;</type>
+        <definition>using sisi4s::CISDFockVector = typedef FockVectorNdCanonical&lt;F, 2, 0&gt;</definition>
+        <argsstring></argsstring>
+        <name>CISDFockVector</name>
+        <qualifiedname>sisi4s::CISDFockVector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/FockVector.hpp" line="581" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/FockVector.hpp" bodystart="581" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacesisi4s_1a51e6db147abab09d4971151ee3215427" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classsisi4s_1_1FockVectorNdCanonical" kindref="compound">FockVectorNdCanonical</ref>&lt; F, 3, 0 &gt;</type>
+        <definition>using sisi4s::CISDTFockVector = typedef FockVectorNdCanonical&lt;F, 3, 0&gt;</definition>
+        <argsstring></argsstring>
+        <name>CISDTFockVector</name>
+        <qualifiedname>sisi4s::CISDTFockVector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/math/FockVector.hpp" line="583" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/FockVector.hpp" bodystart="583" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" prot="public" static="no">
         <templateparamlist>
@@ -1154,7 +1213,7 @@
         <referencedby refid="classsisi4s_1_1CoulombVertexSingularVectors_1a5de084a1b69bb70516fd835a02f34207" compoundref="CoulombVertexSingularVectors_8cxx" startline="25" endline="86">sisi4s::CoulombVertexSingularVectors::run</referencedby>
         <referencedby refid="structsisi4s_1_1NaturalTransitionOrbitalsFromRhoAI_1ad5b6b43420a088153556e2497bfd1c2f" compoundref="NaturalTransitionOrbitalsFromRhoAI_8cxx" startline="109" endline="128">sisi4s::NaturalTransitionOrbitalsFromRhoAI::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a09b13599f6597caa907c8d7d2f785ac2" compoundref="ParticleHoleCoulombVertexSingularVectors_8cxx" startline="27" endline="72">sisi4s::ParticleHoleCoulombVertexSingularVectors::run</referencedby>
-        <referencedby refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1abce6e7053876b8d689a0c2753c17f289" compoundref="SimilarityTransformedHamiltonian_8cxx" startline="3785" endline="5660">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::structureFactor</referencedby>
+        <referencedby refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1abce6e7053876b8d689a0c2753c17f289" compoundref="SimilarityTransformedHamiltonian_8cxx" startline="3863" endline="5738">sisi4s::SimilarityTransformedHamiltonian&lt; F &gt;::structureFactor</referencedby>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1a900cd067a0e92de9ff85372102f9c596" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1482,9 +1541,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/runner/work/sisi4s/sisi4s/src/math/FockVector.hpp" line="508" column="8" bodyfile="/home/runner/work/sisi4s/sisi4s/src/math/FockVector.hpp" bodystart="508" bodyend="515"/>
-        <references refid="classsisi4s_1_1FockVector_1a76a336f18f4fc9a70c6b31406b8d6717" compoundref="FockVector_8hpp" startline="30">sisi4s::FockVector&lt; F &gt;::componentTensors</references>
+        <references refid="classsisi4s_1_1FockVector_1a2bc10ecd4c0779778cde0f0be85192e8" compoundref="FockVector_8hpp" startline="30">sisi4s::FockVector&lt; F &gt;::component_tensors</references>
         <references refid="classsisi4s_1_1FockVector_1aebf4e090f20a7bb83c434396b274c89c" compoundref="FockVector_8hpp" startline="90" endline="92">sisi4s::FockVector&lt; F &gt;::get</references>
-        <references refid="classsisi4s_1_1FockVector_1a12f7974afa01def06d0fff6b08c06756" compoundref="FockVector_8hpp" startline="102" endline="104">sisi4s::FockVector&lt; F &gt;::getIndices</references>
+        <references refid="classsisi4s_1_1FockVector_1ac7de529e3d3003f6b402f3b73c493c96" compoundref="FockVector_8hpp" startline="102" endline="104">sisi4s::FockVector&lt; F &gt;::get_indices</references>
         <references refid="FcidumpWriter_8cxx_1a61c1198de1cc7778444ba3c329482b50" compoundref="FcidumpWriter_8cxx" startline="24" endline="31">operator&lt;&lt;</references>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1ab52936dd14e46acf16cadc4a7dbd0e61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">

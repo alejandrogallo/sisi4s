@@ -12,10 +12,12 @@ var searchData=
   ['uccsdtqamplitudesfromcoulombintegrals_2ehpp_9',['UccsdtqAmplitudesFromCoulombIntegrals.hpp',['../UccsdtqAmplitudesFromCoulombIntegrals_8hpp.html',1,'']]],
   ['uegvertexgenerator_2ecxx_10',['UegVertexGenerator.cxx',['../UegVertexGenerator_8cxx.html',1,'']]],
   ['uegvertexgenerator_2ehpp_11',['UegVertexGenerator.hpp',['../UegVertexGenerator_8hpp.html',1,'']]],
-  ['unrestrictedequationofmotionsinglesfromrpa_2ecxx_12',['UnrestrictedEquationOfMotionSinglesFromRpa.cxx',['../UnrestrictedEquationOfMotionSinglesFromRpa_8cxx.html',1,'']]],
-  ['unrestrictedequationofmotionsinglesfromrpa_2ehpp_13',['UnrestrictedEquationOfMotionSinglesFromRpa.hpp',['../UnrestrictedEquationOfMotionSinglesFromRpa_8hpp.html',1,'']]],
-  ['uperturbativetriples_2ecxx_14',['UPerturbativeTriples.cxx',['../UPerturbativeTriples_8cxx.html',1,'']]],
-  ['uperturbativetriples_2ehpp_15',['UPerturbativeTriples.hpp',['../UPerturbativeTriples_8hpp.html',1,'']]],
-  ['urpaamplitudesfromcoulombintegrals_2ecxx_16',['UrpaAmplitudesFromCoulombIntegrals.cxx',['../UrpaAmplitudesFromCoulombIntegrals_8cxx.html',1,'']]],
-  ['urpaamplitudesfromcoulombintegrals_2ehpp_17',['UrpaAmplitudesFromCoulombIntegrals.hpp',['../UrpaAmplitudesFromCoulombIntegrals_8hpp.html',1,'']]]
+  ['unrestrictedcis_2ecxx_12',['UnrestrictedCIS.cxx',['../UnrestrictedCIS_8cxx.html',1,'']]],
+  ['unrestrictedcis_2ehpp_13',['UnrestrictedCIS.hpp',['../UnrestrictedCIS_8hpp.html',1,'']]],
+  ['unrestrictedequationofmotionsinglesfromrpa_2ecxx_14',['UnrestrictedEquationOfMotionSinglesFromRpa.cxx',['../UnrestrictedEquationOfMotionSinglesFromRpa_8cxx.html',1,'']]],
+  ['unrestrictedequationofmotionsinglesfromrpa_2ehpp_15',['UnrestrictedEquationOfMotionSinglesFromRpa.hpp',['../UnrestrictedEquationOfMotionSinglesFromRpa_8hpp.html',1,'']]],
+  ['uperturbativetriples_2ecxx_16',['UPerturbativeTriples.cxx',['../UPerturbativeTriples_8cxx.html',1,'']]],
+  ['uperturbativetriples_2ehpp_17',['UPerturbativeTriples.hpp',['../UPerturbativeTriples_8hpp.html',1,'']]],
+  ['urpaamplitudesfromcoulombintegrals_2ecxx_18',['UrpaAmplitudesFromCoulombIntegrals.cxx',['../UrpaAmplitudesFromCoulombIntegrals_8cxx.html',1,'']]],
+  ['urpaamplitudesfromcoulombintegrals_2ehpp_19',['UrpaAmplitudesFromCoulombIntegrals.hpp',['../UrpaAmplitudesFromCoulombIntegrals_8hpp.html',1,'']]]
 ];

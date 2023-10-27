@@ -9,6 +9,7 @@
     <includedby refid="UccsdAmplitudesFromCoulombIntegrals_8cxx" local="no">UccsdAmplitudesFromCoulombIntegrals.cxx</includedby>
     <includedby refid="UccsdtAmplitudesFromCoulombIntegrals_8cxx" local="no">UccsdtAmplitudesFromCoulombIntegrals.cxx</includedby>
     <includedby refid="UccsdtqAmplitudesFromCoulombIntegrals_8cxx" local="no">UccsdtqAmplitudesFromCoulombIntegrals.cxx</includedby>
+    <includedby refid="UnrestrictedCIS_8cxx" local="no">UnrestrictedCIS.cxx</includedby>
     <includedby refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" local="no">UnrestrictedEquationOfMotionSinglesFromRpa.cxx</includedby>
     <includedby refid="UrpaAmplitudesFromCoulombIntegrals_8cxx" local="no">UrpaAmplitudesFromCoulombIntegrals.cxx</includedby>
     <invincdepgraph>
@@ -41,10 +42,14 @@
         <link refid="UccsdtqAmplitudesFromCoulombIntegrals_8cxx"/>
       </node>
       <node id="9">
+        <label>UnrestrictedCIS.cxx</label>
+        <link refid="UnrestrictedCIS_8cxx"/>
+      </node>
+      <node id="10">
         <label>UnrestrictedEquationOfMotionSinglesFromRpa.cxx</label>
         <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx"/>
       </node>
-      <node id="10">
+      <node id="11">
         <label>UrpaAmplitudesFromCoulombIntegrals.cxx</label>
         <link refid="UrpaAmplitudesFromCoulombIntegrals_8cxx"/>
       </node>
@@ -68,6 +73,8 @@
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

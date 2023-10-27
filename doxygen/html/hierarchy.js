@@ -69,7 +69,7 @@ var hierarchy =
       [ "sisi4s::Read", "classsisi4s_1_1Read.html", null ],
       [ "sisi4s::SingleParticleOccupancies", "classsisi4s_1_1SingleParticleOccupancies.html", null ],
       [ "sisi4s::SliceCoulombVertex", "classsisi4s_1_1SliceCoulombVertex.html", null ],
-      [ "sisi4s::TensorAntisymmetrizer", "structsisi4s_1_1TensorAntisymmetrizer.html", null ],
+      [ "sisi4s::TensorAntisymmetrizer", "classsisi4s_1_1TensorAntisymmetrizer.html", null ],
       [ "sisi4s::TensorContraction", "classsisi4s_1_1TensorContraction.html", null ],
       [ "sisi4s::TensorGetMax", "classsisi4s_1_1TensorGetMax.html", null ],
       [ "sisi4s::TensorNorm", "classsisi4s_1_1TensorNorm.html", null ],
@@ -83,6 +83,7 @@ var hierarchy =
       [ "sisi4s::UCcsdIPEquationOfMotionDavidson", "classsisi4s_1_1UCcsdIPEquationOfMotionDavidson.html", null ],
       [ "sisi4s::UPerturbativeTriples", "classsisi4s_1_1UPerturbativeTriples.html", null ],
       [ "sisi4s::UegVertexGenerator", "classsisi4s_1_1UegVertexGenerator.html", null ],
+      [ "sisi4s::UnrestrictedCIS", "classsisi4s_1_1UnrestrictedCIS.html", null ],
       [ "sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa", "classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa.html", null ],
       [ "sisi4s::Write", "classsisi4s_1_1Write.html", null ]
     ] ],
@@ -162,6 +163,7 @@ var hierarchy =
       [ "sisi4s::AlgorithmRegistrar< sisi4s::UccsdtAmplitudesFromCoulombIntegrals >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::UccsdtqAmplitudesFromCoulombIntegrals >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::UegVertexGenerator >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
+      [ "sisi4s::AlgorithmRegistrar< sisi4s::UnrestrictedCIS >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::UrpaAmplitudesFromCoulombIntegrals >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
       [ "sisi4s::AlgorithmRegistrar< sisi4s::Write >", "classsisi4s_1_1AlgorithmRegistrar.html", null ],
@@ -196,6 +198,7 @@ var hierarchy =
     ] ],
     [ "sisi4s::BlacsWorld", "classsisi4s_1_1BlacsWorld.html", null ],
     [ "sisi4s::CcsdPreconditioner< F >", "classsisi4s_1_1CcsdPreconditioner.html", [
+      [ "sisi4s::CISPreconditioner< F >", "classsisi4s_1_1CISPreconditioner.html", null ],
       [ "sisi4s::EACcsdPreconditioner< F >", "classsisi4s_1_1EACcsdPreconditioner.html", null ],
       [ "sisi4s::IPCcsdPreconditioner< F >", "classsisi4s_1_1IPCcsdPreconditioner.html", null ]
     ] ],

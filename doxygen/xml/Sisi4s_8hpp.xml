@@ -74,6 +74,7 @@
     <includedby refid="UccsdtAmplitudesFromCoulombIntegrals_8cxx" local="no">UccsdtAmplitudesFromCoulombIntegrals.cxx</includedby>
     <includedby refid="UccsdtqAmplitudesFromCoulombIntegrals_8cxx" local="no">UccsdtqAmplitudesFromCoulombIntegrals.cxx</includedby>
     <includedby refid="UegVertexGenerator_8cxx" local="no">UegVertexGenerator.cxx</includedby>
+    <includedby refid="UnrestrictedCIS_8cxx" local="no">UnrestrictedCIS.cxx</includedby>
     <includedby refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" local="no">UnrestrictedEquationOfMotionSinglesFromRpa.cxx</includedby>
     <includedby refid="UrpaAmplitudesFromCoulombIntegrals_8cxx" local="no">UrpaAmplitudesFromCoulombIntegrals.cxx</includedby>
     <incdepgraph>
@@ -258,7 +259,7 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="93">
+      <node id="94">
         <label>Sisi4s.cxx</label>
         <link refid="Sisi4s_8cxx"/>
       </node>
@@ -327,8 +328,6 @@
         </childnode>
         <childnode refid="33" relation="include">
         </childnode>
-        <childnode refid="73" relation="include">
-        </childnode>
         <childnode refid="74" relation="include">
         </childnode>
         <childnode refid="75" relation="include">
@@ -337,9 +336,9 @@
         </childnode>
         <childnode refid="77" relation="include">
         </childnode>
-        <childnode refid="61" relation="include">
-        </childnode>
         <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
         </childnode>
         <childnode refid="79" relation="include">
         </childnode>
@@ -355,9 +354,9 @@
         </childnode>
         <childnode refid="85" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
         <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="87" relation="include">
         </childnode>
@@ -365,11 +364,11 @@
         </childnode>
         <childnode refid="89" relation="include">
         </childnode>
-        <childnode refid="92" relation="include">
-        </childnode>
-        <childnode refid="63" relation="include">
+        <childnode refid="90" relation="include">
         </childnode>
         <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
         </childnode>
         <childnode refid="94" relation="include">
         </childnode>
@@ -387,23 +386,27 @@
         </childnode>
         <childnode refid="101" relation="include">
         </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
         <childnode refid="36" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
-        <childnode refid="102" relation="include">
-        </childnode>
-        <childnode refid="53" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
-        </childnode>
-        <childnode refid="49" relation="include">
-        </childnode>
         <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="55" relation="include">
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -426,7 +429,7 @@
         <label>CcsdEnergyFromCoulombIntegrals.cxx</label>
         <link refid="CcsdEnergyFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="41">
+      <node id="42">
         <label>CcsdEnergyFromCoulombIntegrals.hpp</label>
         <link refid="CcsdEnergyFromCoulombIntegrals_8hpp"/>
         <childnode refid="6" relation="include">
@@ -436,7 +439,7 @@
         <label>CcsdEnergyFromCoulombIntegralsReference.cxx</label>
         <link refid="CcsdEnergyFromCoulombIntegralsReference_8cxx"/>
       </node>
-      <node id="42">
+      <node id="43">
         <label>CcsdEnergyFromCoulombIntegralsReference.hpp</label>
         <link refid="CcsdEnergyFromCoulombIntegralsReference_8hpp"/>
         <childnode refid="7" relation="include">
@@ -479,12 +482,14 @@
         </childnode>
         <childnode refid="38" relation="include">
         </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
       </node>
       <node id="12">
         <label>CcsdtEnergyFromCoulombIntegrals.cxx</label>
         <link refid="CcsdtEnergyFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="44">
+      <node id="45">
         <label>CcsdtEnergyFromCoulombIntegrals.hpp</label>
         <link refid="CcsdtEnergyFromCoulombIntegrals_8hpp"/>
         <childnode refid="12" relation="include">
@@ -494,7 +499,7 @@
         <label>CcsdtEquationOfMotionDavidson.cxx</label>
         <link refid="CcsdtEquationOfMotionDavidson_8cxx"/>
       </node>
-      <node id="39">
+      <node id="40">
         <label>CcsdtEquationOfMotionDavidson.hpp</label>
         <link refid="CcsdtEquationOfMotionDavidson_8hpp"/>
         <childnode refid="13" relation="include">
@@ -504,50 +509,50 @@
         <label>ClusterSinglesDoublesAlgorithm.cxx</label>
         <link refid="ClusterSinglesDoublesAlgorithm_8cxx"/>
       </node>
-      <node id="40">
+      <node id="41">
         <label>ClusterSinglesDoublesAlgorithm.hpp</label>
         <link refid="ClusterSinglesDoublesAlgorithm_8hpp"/>
-        <childnode refid="41" relation="include">
-        </childnode>
         <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="43" relation="include">
         </childnode>
-        <childnode refid="47" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="50" relation="include">
+        <childnode refid="44" relation="include">
         </childnode>
-        <childnode refid="52" relation="include">
+        <childnode refid="48" relation="include">
         </childnode>
-        <childnode refid="54" relation="include">
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
         </childnode>
       </node>
       <node id="15">
         <label>ClusterSinglesDoublesTriplesAlgorithm.cxx</label>
         <link refid="ClusterSinglesDoublesTriplesAlgorithm_8cxx"/>
       </node>
-      <node id="43">
+      <node id="44">
         <label>ClusterSinglesDoublesTriplesAlgorithm.hpp</label>
         <link refid="ClusterSinglesDoublesTriplesAlgorithm_8hpp"/>
-        <childnode refid="44" relation="include">
+        <childnode refid="45" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="45" relation="include">
+        <childnode refid="46" relation="include">
         </childnode>
       </node>
       <node id="16">
         <label>ClusterSinglesDoublesTriplesQuadruplesAlgorithm.cxx</label>
         <link refid="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8cxx"/>
       </node>
-      <node id="47">
+      <node id="48">
         <label>ClusterSinglesDoublesTriplesQuadruplesAlgorithm.hpp</label>
         <link refid="ClusterSinglesDoublesTriplesQuadruplesAlgorithm_8hpp"/>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="48" relation="include">
+        <childnode refid="49" relation="include">
         </childnode>
       </node>
       <node id="17">
@@ -566,7 +571,7 @@
         <label>CoulombIntegralsFromVertex.cxx</label>
         <link refid="CoulombIntegralsFromVertex_8cxx"/>
       </node>
-      <node id="57">
+      <node id="58">
         <label>CoulombVertexDecomposition.cxx</label>
         <link refid="CoulombVertexDecomposition_8cxx"/>
       </node>
@@ -590,14 +595,14 @@
         <label>DoublesAmplitudesFromVertex.cxx</label>
         <link refid="DoublesAmplitudesFromVertex_8cxx"/>
       </node>
-      <node id="51">
+      <node id="52">
         <label>DrccdEnergyFromCoulombIntegrals.cxx</label>
         <link refid="DrccdEnergyFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="50">
+      <node id="51">
         <label>DrccdEnergyFromCoulombIntegrals.hpp</label>
         <link refid="DrccdEnergyFromCoulombIntegrals_8hpp"/>
-        <childnode refid="51" relation="include">
+        <childnode refid="52" relation="include">
         </childnode>
       </node>
       <node id="29">
@@ -616,57 +621,57 @@
         <label>FockMatrixFromCoulombIntegrals.cxx</label>
         <link refid="FockMatrixFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="73">
+      <node id="74">
         <label>GenerateRandomComplexMatrix.cxx</label>
         <link refid="GenerateRandomComplexMatrix_8cxx"/>
       </node>
-      <node id="74">
+      <node id="75">
         <label>GenerateRandomMatrix.cxx</label>
         <link refid="GenerateRandomMatrix_8cxx"/>
       </node>
-      <node id="75">
+      <node id="76">
         <label>GenerateRandomTensor.cxx</label>
         <link refid="GenerateRandomTensor_8cxx"/>
       </node>
-      <node id="76">
+      <node id="77">
         <label>HartreeFockFromCoulombIntegrals.cxx</label>
         <link refid="HartreeFockFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="77">
+      <node id="78">
         <label>HartreeFockFromGaussian.cxx</label>
         <link refid="HartreeFockFromGaussian_8cxx"/>
       </node>
-      <node id="78">
+      <node id="79">
         <label>MeanCorrelationHoleDepth.cxx</label>
         <link refid="MeanCorrelationHoleDepth_8cxx"/>
       </node>
-      <node id="79">
+      <node id="80">
         <label>MoReader.cxx</label>
         <link refid="MoReader_8cxx"/>
       </node>
-      <node id="80">
+      <node id="81">
         <label>Mp2NaturalOrbitals.cxx</label>
         <link refid="Mp2NaturalOrbitals_8cxx"/>
       </node>
-      <node id="65">
+      <node id="66">
         <label>NaturalTransitionOrbitalsFromRhoAI.cxx</label>
         <link refid="NaturalTransitionOrbitalsFromRhoAI_8cxx"/>
       </node>
-      <node id="64">
+      <node id="65">
         <label>NaturalTransitionOrbitalsFromRhoAI.hpp</label>
         <link refid="NaturalTransitionOrbitalsFromRhoAI_8hpp"/>
-        <childnode refid="65" relation="include">
+        <childnode refid="66" relation="include">
         </childnode>
       </node>
-      <node id="81">
+      <node id="82">
         <label>NuclearRepulsionEnergy.cxx</label>
         <link refid="NuclearRepulsionEnergy_8cxx"/>
       </node>
-      <node id="82">
+      <node id="83">
         <label>OneBodyFromGaussian.cxx</label>
         <link refid="OneBodyFromGaussian_8cxx"/>
       </node>
-      <node id="66">
+      <node id="67">
         <label>OneBodyReducedDensityMatrix.hpp</label>
         <link refid="OneBodyReducedDensityMatrix_8hpp"/>
         <childnode refid="8" relation="include">
@@ -677,22 +682,22 @@
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
-        <childnode refid="38" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
       </node>
-      <node id="83">
+      <node id="84">
         <label>OneBodyRotation.cxx</label>
         <link refid="OneBodyRotation_8cxx"/>
       </node>
-      <node id="84">
+      <node id="85">
         <label>PQRSCoulombIntegralsToVertex.cxx</label>
         <link refid="PQRSCoulombIntegralsToVertex_8cxx"/>
       </node>
-      <node id="85">
+      <node id="86">
         <label>ParenthesisTriples.cxx</label>
         <link refid="ParenthesisTriples_8cxx"/>
       </node>
-      <node id="91">
+      <node id="92">
         <label>ParticleHoleCoulombVertexDecomposition.cxx</label>
         <link refid="ParticleHoleCoulombVertexDecomposition_8cxx"/>
       </node>
@@ -700,77 +705,79 @@
         <label>ParticleHoleCoulombVertexFromFactors.cxx</label>
         <link refid="ParticleHoleCoulombVertexFromFactors_8cxx"/>
       </node>
-      <node id="86">
+      <node id="87">
         <label>ParticleHoleCoulombVertexReader.cxx</label>
         <link refid="ParticleHoleCoulombVertexReader_8cxx"/>
       </node>
-      <node id="87">
+      <node id="88">
         <label>ParticleHoleCoulombVertexSingularVectors.cxx</label>
         <link refid="ParticleHoleCoulombVertexSingularVectors_8cxx"/>
       </node>
-      <node id="88">
+      <node id="89">
         <label>PerturbativeTriples.cxx</label>
         <link refid="PerturbativeTriples_8cxx"/>
       </node>
-      <node id="92">
+      <node id="93">
         <label>Read.cxx</label>
         <link refid="Read_8cxx"/>
       </node>
-      <node id="63">
+      <node id="64">
         <label>SimilarityTransformedHamiltonian.cxx</label>
         <link refid="SimilarityTransformedHamiltonian_8cxx"/>
       </node>
-      <node id="67">
+      <node id="68">
         <label>SimilarityTransformedHamiltonian.hpp</label>
         <link refid="SimilarityTransformedHamiltonian_8hpp"/>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="63" relation="include">
+        <childnode refid="64" relation="include">
         </childnode>
         <childnode refid="36" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
-        <childnode refid="53" relation="include">
+        <childnode refid="54" relation="include">
         </childnode>
-        <childnode refid="46" relation="include">
+        <childnode refid="47" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="55" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
-        <childnode refid="68" relation="include">
+        <childnode refid="56" relation="include">
         </childnode>
         <childnode refid="69" relation="include">
         </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
       </node>
-      <node id="94">
+      <node id="95">
         <label>SliceCoulombVertex.cxx</label>
         <link refid="SliceCoulombVertex_8cxx"/>
       </node>
-      <node id="95">
+      <node id="96">
         <label>StantonIntermediatesUCCSD.cxx</label>
         <link refid="StantonIntermediatesUCCSD_8cxx"/>
       </node>
-      <node id="96">
+      <node id="97">
         <label>TensorAntisymmetrizer.cxx</label>
         <link refid="TensorAntisymmetrizer_8cxx"/>
       </node>
-      <node id="98">
+      <node id="99">
         <label>TensorReader.cxx</label>
         <link refid="TensorReader_8cxx"/>
       </node>
-      <node id="99">
+      <node id="100">
         <label>TensorReduceijij.cxx</label>
         <link refid="TensorReduceijij_8cxx"/>
       </node>
-      <node id="100">
+      <node id="101">
         <label>TensorSlicer.cxx</label>
         <link refid="TensorSlicer_8cxx"/>
       </node>
-      <node id="101">
+      <node id="102">
         <label>TensorUnrestricter.cxx</label>
         <link refid="TensorUnrestricter_8cxx"/>
       </node>
@@ -778,7 +785,7 @@
         <label>UCcsdEAEquationOfMotionDavidson.cxx</label>
         <link refid="UCcsdEAEquationOfMotionDavidson_8cxx"/>
       </node>
-      <node id="70">
+      <node id="71">
         <label>UCcsdEAEquationOfMotionDavidson.hpp</label>
         <link refid="UCcsdEAEquationOfMotionDavidson_8hpp"/>
         <childnode refid="36" relation="include">
@@ -788,79 +795,83 @@
         <label>UCcsdIPEquationOfMotionDavidson.cxx</label>
         <link refid="UCcsdIPEquationOfMotionDavidson_8cxx"/>
       </node>
-      <node id="71">
+      <node id="72">
         <label>UCcsdIPEquationOfMotionDavidson.hpp</label>
         <link refid="UCcsdIPEquationOfMotionDavidson_8hpp"/>
         <childnode refid="37" relation="include">
         </childnode>
       </node>
-      <node id="102">
+      <node id="103">
         <label>UPerturbativeTriples.cxx</label>
         <link refid="UPerturbativeTriples_8cxx"/>
       </node>
-      <node id="53">
+      <node id="54">
         <label>UccsdAmplitudesFromCoulombIntegrals.cxx</label>
         <link refid="UccsdAmplitudesFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="52">
+      <node id="53">
         <label>UccsdAmplitudesFromCoulombIntegrals.hpp</label>
         <link refid="UccsdAmplitudesFromCoulombIntegrals_8hpp"/>
-        <childnode refid="53" relation="include">
+        <childnode refid="54" relation="include">
         </childnode>
       </node>
-      <node id="46">
+      <node id="47">
         <label>UccsdtAmplitudesFromCoulombIntegrals.cxx</label>
         <link refid="UccsdtAmplitudesFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="45">
+      <node id="46">
         <label>UccsdtAmplitudesFromCoulombIntegrals.hpp</label>
         <link refid="UccsdtAmplitudesFromCoulombIntegrals_8hpp"/>
-        <childnode refid="46" relation="include">
+        <childnode refid="47" relation="include">
         </childnode>
       </node>
-      <node id="49">
+      <node id="50">
         <label>UccsdtqAmplitudesFromCoulombIntegrals.cxx</label>
         <link refid="UccsdtqAmplitudesFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="48">
+      <node id="49">
         <label>UccsdtqAmplitudesFromCoulombIntegrals.hpp</label>
         <link refid="UccsdtqAmplitudesFromCoulombIntegrals_8hpp"/>
-        <childnode refid="49" relation="include">
+        <childnode refid="50" relation="include">
         </childnode>
       </node>
-      <node id="103">
+      <node id="104">
         <label>UegVertexGenerator.cxx</label>
         <link refid="UegVertexGenerator_8cxx"/>
       </node>
       <node id="38">
+        <label>UnrestrictedCIS.cxx</label>
+        <link refid="UnrestrictedCIS_8cxx"/>
+      </node>
+      <node id="39">
         <label>UnrestrictedEquationOfMotionSinglesFromRpa.cxx</label>
         <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx"/>
       </node>
-      <node id="72">
+      <node id="73">
         <label>UnrestrictedEquationOfMotionSinglesFromRpa.hpp</label>
         <link refid="UnrestrictedEquationOfMotionSinglesFromRpa_8hpp"/>
-        <childnode refid="38" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
       </node>
-      <node id="55">
+      <node id="56">
         <label>UrpaAmplitudesFromCoulombIntegrals.cxx</label>
         <link refid="UrpaAmplitudesFromCoulombIntegrals_8cxx"/>
       </node>
-      <node id="54">
+      <node id="55">
         <label>UrpaAmplitudesFromCoulombIntegrals.hpp</label>
         <link refid="UrpaAmplitudesFromCoulombIntegrals_8hpp"/>
-        <childnode refid="55" relation="include">
+        <childnode refid="56" relation="include">
         </childnode>
       </node>
       <node id="26">
         <label>DefineHolesAndParticles.cxx</label>
         <link refid="DefineHolesAndParticles_8cxx"/>
       </node>
-      <node id="68">
+      <node id="69">
         <label>wabcijk.cxx</label>
         <link refid="wabcijk_8cxx"/>
       </node>
-      <node id="69">
+      <node id="70">
         <label>wabij.cxx</label>
         <link refid="wabij_8cxx"/>
       </node>
@@ -877,90 +888,92 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
         <childnode refid="40" relation="include">
         </childnode>
-        <childnode refid="43" relation="include">
+        <childnode refid="41" relation="include">
         </childnode>
-        <childnode refid="47" relation="include">
+        <childnode refid="44" relation="include">
         </childnode>
-        <childnode refid="56" relation="include">
+        <childnode refid="48" relation="include">
         </childnode>
-        <childnode refid="64" relation="include">
+        <childnode refid="57" relation="include">
         </childnode>
-        <childnode refid="66" relation="include">
+        <childnode refid="65" relation="include">
         </childnode>
         <childnode refid="67" relation="include">
         </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
         <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="70" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
         </childnode>
         <childnode refid="71" relation="include">
         </childnode>
-        <childnode refid="38" relation="include">
+        <childnode refid="37" relation="include">
         </childnode>
         <childnode refid="72" relation="include">
         </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
       </node>
-      <node id="90">
+      <node id="91">
         <label>IterativePseudoInverse.cxx</label>
         <link refid="IterativePseudoInverse_8cxx"/>
       </node>
-      <node id="89">
+      <node id="90">
         <label>RandomTensor.hpp</label>
         <link refid="RandomTensor_8hpp"/>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="57" relation="include">
-        </childnode>
-        <childnode refid="73" relation="include">
+        <childnode refid="58" relation="include">
         </childnode>
         <childnode refid="74" relation="include">
         </childnode>
         <childnode refid="75" relation="include">
         </childnode>
-        <childnode refid="90" relation="include">
+        <childnode refid="76" relation="include">
         </childnode>
         <childnode refid="91" relation="include">
         </childnode>
-        <childnode refid="53" relation="include">
+        <childnode refid="92" relation="include">
         </childnode>
-        <childnode refid="46" relation="include">
+        <childnode refid="54" relation="include">
         </childnode>
-        <childnode refid="49" relation="include">
+        <childnode refid="47" relation="include">
         </childnode>
-        <childnode refid="55" relation="include">
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
         </childnode>
       </node>
-      <node id="59">
+      <node id="60">
         <label>DiisMixer.cxx</label>
         <link refid="DiisMixer_8cxx"/>
       </node>
-      <node id="58">
+      <node id="59">
         <label>DiisMixer.hpp</label>
         <link refid="DiisMixer_8hpp"/>
-        <childnode refid="59" relation="include">
-        </childnode>
-      </node>
-      <node id="61">
-        <label>LinearMixer.cxx</label>
-        <link refid="LinearMixer_8cxx"/>
-      </node>
-      <node id="60">
-        <label>LinearMixer.hpp</label>
-        <link refid="LinearMixer_8hpp"/>
-        <childnode refid="61" relation="include">
+        <childnode refid="60" relation="include">
         </childnode>
       </node>
       <node id="62">
+        <label>LinearMixer.cxx</label>
+        <link refid="LinearMixer_8cxx"/>
+      </node>
+      <node id="61">
+        <label>LinearMixer.hpp</label>
+        <link refid="LinearMixer_8hpp"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
         <label>Mixer.cxx</label>
         <link refid="Mixer_8cxx"/>
       </node>
-      <node id="56">
+      <node id="57">
         <label>Mixer.hpp</label>
         <link refid="Mixer_8hpp"/>
         <childnode refid="14" relation="include">
@@ -969,15 +982,15 @@
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="57" relation="include">
-        </childnode>
         <childnode refid="58" relation="include">
         </childnode>
-        <childnode refid="60" relation="include">
+        <childnode refid="59" relation="include">
         </childnode>
-        <childnode refid="62" relation="include">
+        <childnode refid="61" relation="include">
         </childnode>
         <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
         </childnode>
       </node>
       <node id="24">
@@ -988,7 +1001,7 @@
         <childnode refid="25" relation="include">
         </childnode>
       </node>
-      <node id="97">
+      <node id="98">
         <label>TensorIo.cxx</label>
         <link refid="TensorIo_8cxx"/>
       </node>

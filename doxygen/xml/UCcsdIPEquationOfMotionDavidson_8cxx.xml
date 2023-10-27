@@ -781,14 +781,14 @@
 <codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.setTai(&amp;Tai)</highlight></codeline>
 <codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.setTabij(&amp;Tabij)</highlight></codeline>
 <codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>should<sp/>we<sp/>use<sp/>intermediates<sp/>of<sp/>the<sp/>Wabij<sp/>etc?</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.setRightApplyIntermediates(intermediates)</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.with_right_apply_intermediates(intermediates)</highlight></codeline>
 <codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>.setDressing(<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian&lt;F&gt;::Dressing::CCSD</ref>);</highlight></codeline>
 <codeline lineno="244"><highlight class="normal"></highlight></codeline>
 <codeline lineno="245"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">IPHamiltonian<sp/>{</highlight></codeline>
 <codeline lineno="246"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian" kindref="compound">SimilarityTransformedHamiltonian&lt;F&gt;</ref><sp/>*h;</highlight></codeline>
-<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector&lt;F&gt;</ref><sp/>rightApply(<ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector&lt;F&gt;</ref><sp/>&amp;V)<sp/>{</highlight></codeline>
-<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h-&gt;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2c0860086c2acd3c6a7e5d80cc846b2b" kindref="member">rightApply_CCSD_IP</ref>(V);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector&lt;F&gt;</ref><sp/>right_apply(<ref refid="classsisi4s_1_1SDFockVector" kindref="compound">SDFockVector&lt;F&gt;</ref><sp/>&amp;V)<sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h-&gt;<ref refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8bff244aa8f5a398bd8177056a4504f3" kindref="member">right_apply_CCSD_IP</ref>(V);</highlight></codeline>
 <codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="251"><highlight class="normal"><sp/><sp/>}<sp/>ipH;</highlight></codeline>
 <codeline lineno="252"><highlight class="normal"><sp/><sp/>ipH.h<sp/>=<sp/>&amp;H;</highlight></codeline>

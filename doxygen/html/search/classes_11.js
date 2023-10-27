@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tensorantisymmetrizer_0',['TensorAntisymmetrizer',['../structsisi4s_1_1TensorAntisymmetrizer.html',1,'sisi4s']]],
+  ['tensorantisymmetrizer_0',['TensorAntisymmetrizer',['../classsisi4s_1_1TensorAntisymmetrizer.html',1,'sisi4s']]],
   ['tensorcontraction_1',['TensorContraction',['../classsisi4s_1_1TensorContraction.html',1,'sisi4s']]],
   ['tensordata_2',['TensorData',['../classsisi4s_1_1TensorData.html',1,'sisi4s']]],
   ['tensorgetmax_3',['TensorGetMax',['../classsisi4s_1_1TensorGetMax.html',1,'sisi4s']]],

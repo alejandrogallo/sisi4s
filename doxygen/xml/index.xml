@@ -593,15 +593,15 @@
   </compound>
   <compound refid="classsisi4s_1_1CcsdPreconditioner" kind="class"><name>sisi4s::CcsdPreconditioner</name>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a5aafdff11999909d426ebe9449d1f6b3" kind="typedef"><name>V</name></member>
-    <member refid="classsisi4s_1_1CcsdPreconditioner_1aadf065fe242b09a94cbf58a370e82b70" kind="variable"><name>diagonalH</name></member>
-    <member refid="classsisi4s_1_1CcsdPreconditioner_1a17a79f7dc533eb45e62b86587441f97e" kind="variable"><name>Fij</name></member>
-    <member refid="classsisi4s_1_1CcsdPreconditioner_1a053d5d2e418c26e27603e2f565db7777" kind="variable"><name>Fab</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a817f1f184a877adf5459af3b0adc1f39" kind="variable"><name>Tai</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1afef5288ed545b2b837f3ce50b1fc1a68" kind="variable"><name>Tabij</name></member>
+    <member refid="classsisi4s_1_1CcsdPreconditioner_1a17a79f7dc533eb45e62b86587441f97e" kind="variable"><name>Fij</name></member>
+    <member refid="classsisi4s_1_1CcsdPreconditioner_1a053d5d2e418c26e27603e2f565db7777" kind="variable"><name>Fab</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a2c6fa40b06f41ddd7ca6a2cb48d07aa3" kind="variable"><name>Vabcd</name></member>
-    <member refid="classsisi4s_1_1CcsdPreconditioner_1ad39b0fe531d4c93a898ecef969399a77" kind="variable"><name>Viajb</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1ac6b3168b3362b24e587eca3778276c72" kind="variable"><name>Vijab</name></member>
+    <member refid="classsisi4s_1_1CcsdPreconditioner_1ad39b0fe531d4c93a898ecef969399a77" kind="variable"><name>Viajb</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a3442db6ac364f985d335628ab0ace7d9" kind="variable"><name>Vijkl</name></member>
+    <member refid="classsisi4s_1_1CcsdPreconditioner_1aadf065fe242b09a94cbf58a370e82b70" kind="variable"><name>diagonalH</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a26f71aa757429da8990135f568c26ad1" kind="variable"><name>preconditionerRandom</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a414699e815f8b3591f2fbf2cbe671645" kind="variable"><name>spinFlip</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a38baeb657fd2bc45a75fd77311e2b348" kind="variable"><name>preconditionerRandomSigma</name></member>
@@ -612,8 +612,8 @@
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a18480383700abdf73142db6951c5e301" kind="function"><name>setFij</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a0bb053e4a43c1505c1d268697a2e4c73" kind="function"><name>setFab</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a76b6e55f5ecf94314fef4cb1e437cae7" kind="function"><name>setVabcd</name></member>
-    <member refid="classsisi4s_1_1CcsdPreconditioner_1aac0746cc605858681110b8cbb4e92c77" kind="function"><name>setViajb</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1af0fb4a42a25479395a1594afc1b0f493" kind="function"><name>setVijab</name></member>
+    <member refid="classsisi4s_1_1CcsdPreconditioner_1aac0746cc605858681110b8cbb4e92c77" kind="function"><name>setViajb</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a9d71e8372ca240fdffc827671b018b79" kind="function"><name>setVijkl</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1af37e2f53fd52ddd2240d7bc49948970b" kind="function"><name>setSpinFlip</name></member>
     <member refid="classsisi4s_1_1CcsdPreconditioner_1a19133e109b422e13ab030ad1fa4eae43" kind="function"><name>setRandom</name></member>
@@ -680,6 +680,13 @@
     <member refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix_1a6959fedc7e413ac76583ec6a59affaa8" kind="function"><name>CisOneBodyReducedDensityMatrix</name></member>
     <member refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix_1ae2a78de61ca2e3d071f963ad4f5653c4" kind="function"><name>getIJ</name></member>
     <member refid="classsisi4s_1_1CisOneBodyReducedDensityMatrix_1a989a7d72f5f18fb767e0c2ad0cd74ffb" kind="function"><name>getAB</name></member>
+  </compound>
+  <compound refid="classsisi4s_1_1CISPreconditioner" kind="class"><name>sisi4s::CISPreconditioner</name>
+    <member refid="classsisi4s_1_1CISPreconditioner_1aa3ffccc1cb9c68bec3b71db8c6262652" kind="typedef"><name>V</name></member>
+    <member refid="classsisi4s_1_1CISPreconditioner_1a0beeaca39da492a47bb7ece79b383c41" kind="variable"><name>diagonalH</name></member>
+    <member refid="classsisi4s_1_1CISPreconditioner_1a5a2d2616f42891fb34de0a91615f8c20" kind="function"><name>calculateDiagonal</name></member>
+    <member refid="classsisi4s_1_1CISPreconditioner_1a47f71faa393803daf26a53fb5bee9db7" kind="function"><name>getInitialBasis</name></member>
+    <member refid="classsisi4s_1_1CISPreconditioner_1afdccd5eb5b30718abd4ccb463702b840" kind="function"><name>getCorrection</name></member>
   </compound>
   <compound refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm" kind="class"><name>sisi4s::ClusterSinglesDoublesAlgorithm</name>
     <member refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1ac342808772869d43a6c6c4e0e29976f9" kind="variable"><name>DEFAULT_MAX_ITERATIONS</name></member>
@@ -1558,9 +1565,9 @@
   </compound>
   <compound refid="classsisi4s_1_1FockVector" kind="class"><name>sisi4s::FockVector</name>
     <member refid="classsisi4s_1_1FockVector_1a3d2a4f9298e54647df3638f1b878df58" kind="typedef"><name>FieldType</name></member>
-    <member refid="classsisi4s_1_1FockVector_1a76a336f18f4fc9a70c6b31406b8d6717" kind="variable"><name>componentTensors</name></member>
-    <member refid="classsisi4s_1_1FockVector_1a931498ce2090f83bcff10de589035874" kind="variable"><name>componentIndices</name></member>
-    <member refid="classsisi4s_1_1FockVector_1a0da9133616724e1410b9ecefffb9b278" kind="variable"><name>indexEnds</name></member>
+    <member refid="classsisi4s_1_1FockVector_1a2bc10ecd4c0779778cde0f0be85192e8" kind="variable"><name>component_tensors</name></member>
+    <member refid="classsisi4s_1_1FockVector_1a786a112f10c934f0546155a2706adb96" kind="variable"><name>component_indices</name></member>
+    <member refid="classsisi4s_1_1FockVector_1ac05b0668985396cd3609be4bf2e41a6d" kind="variable"><name>index_ends</name></member>
     <member refid="classsisi4s_1_1FockVector_1a1b7d8250d32116a2b21e049c2f596e02" kind="function"><name>FockVector</name></member>
     <member refid="classsisi4s_1_1FockVector_1a5afec06a2c65dd22d9b4dd668f63c3c2" kind="function"><name>FockVector</name></member>
     <member refid="classsisi4s_1_1FockVector_1a9ed7302e99ec91f3b0b46b1b0570e110" kind="function"><name>FockVector</name></member>
@@ -1568,8 +1575,8 @@
     <member refid="classsisi4s_1_1FockVector_1af6067ca369254f3198ee393898d39d0a" kind="function"><name>FockVector</name></member>
     <member refid="classsisi4s_1_1FockVector_1aebf4e090f20a7bb83c434396b274c89c" kind="function"><name>get</name></member>
     <member refid="classsisi4s_1_1FockVector_1ace2713562a3eaa29204141331fb21a4a" kind="function"><name>get</name></member>
-    <member refid="classsisi4s_1_1FockVector_1a12f7974afa01def06d0fff6b08c06756" kind="function"><name>getIndices</name></member>
-    <member refid="classsisi4s_1_1FockVector_1ac0a36975a30280c009ac475760e2f875" kind="function"><name>getIndices</name></member>
+    <member refid="classsisi4s_1_1FockVector_1ac7de529e3d3003f6b402f3b73c493c96" kind="function"><name>get_indices</name></member>
+    <member refid="classsisi4s_1_1FockVector_1aa3b389f315086a8faa312c6f6b94d618" kind="function"><name>get_indices</name></member>
     <member refid="classsisi4s_1_1FockVector_1a7eb0e882727cda101967033d301ebcea" kind="function"><name>operator=</name></member>
     <member refid="classsisi4s_1_1FockVector_1ad8c190dca07ca3fc6bc7ef51afdb3688" kind="function"><name>operator=</name></member>
     <member refid="classsisi4s_1_1FockVector_1a5b7eff02db7ec358be2535e4a6a1b46c" kind="function"><name>operator+=</name></member>
@@ -1578,14 +1585,14 @@
     <member refid="classsisi4s_1_1FockVector_1a50027197de830ea574d8f33ed0211b5d" kind="function"><name>conjugateTranspose</name></member>
     <member refid="classsisi4s_1_1FockVector_1a0366d95ec508547de45b887737a4ca0e" kind="function"><name>braket</name></member>
     <member refid="classsisi4s_1_1FockVector_1a7f7a9ea49d5eb503a988858d1b9e76cb" kind="function"><name>dot</name></member>
-    <member refid="classsisi4s_1_1FockVector_1ad754c5d7c0cb7ab1a487f1f640d7d877" kind="function"><name>getComponentsCount</name></member>
-    <member refid="classsisi4s_1_1FockVector_1a086d271ae798bd8d5e79086315fd68f5" kind="function"><name>getDimension</name></member>
-    <member refid="classsisi4s_1_1FockVector_1ace6a474d78cab3a6b65d608a48f314e5" kind="function"><name>getIndex</name></member>
+    <member refid="classsisi4s_1_1FockVector_1aec9ea6b57bd63fefdfa59fa5de8572c3" kind="function"><name>get_components_count</name></member>
+    <member refid="classsisi4s_1_1FockVector_1a9297cad1224738f20e6bf98dd1bb021e" kind="function"><name>get_dimension</name></member>
+    <member refid="classsisi4s_1_1FockVector_1a9a4eaabc6c7199cffcce21efbedf9eca" kind="function"><name>get_index</name></member>
     <member refid="classsisi4s_1_1FockVector_1aa2f9329282dfb459c34110e83a7902e3" kind="function"><name>fromIndex</name></member>
     <member refid="classsisi4s_1_1FockVector_1a1dcb1353e66f2aab7acec40bce58c3f2" kind="function"><name>readLocal</name></member>
     <member refid="classsisi4s_1_1FockVector_1af3f1a3e793e9dc55958b795c7672f9de" kind="function"><name>write</name></member>
-    <member refid="classsisi4s_1_1FockVector_1aa7487ad7e11cba45c0d23d8d68a39da4" kind="function"><name>buildIndexTranslation</name></member>
-    <member refid="classsisi4s_1_1FockVector_1af4fa578ddb1b52da613990111913e1bf" kind="function"><name>copyComponents</name></member>
+    <member refid="classsisi4s_1_1FockVector_1a5d9cadb1b9e7035318011a41379d0c6d" kind="function"><name>build_index_translation</name></member>
+    <member refid="classsisi4s_1_1FockVector_1ae25aa32f590626efb8eab6d8f8ceaf56" kind="function"><name>copy_components</name></member>
     <member refid="classsisi4s_1_1FockVector_1a57a4a2f43f2a86b5005cd2cf5080ebef" kind="function"><name>checkDualCompatibility</name></member>
     <member refid="classsisi4s_1_1FockVector_1a71043d7cf50670bf71b593fd0f8289ad" kind="function"><name>checkCompatibilityTo</name></member>
   </compound>
@@ -3138,16 +3145,41 @@
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69a6e763e54359eed1c3ebe2f2e4161c716" kind="enumvalue"><name>RPA</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7a138cea9f2e876422b2fe82cad76e69a329caab1ff338f0c7f8a466bd002559d" kind="enumvalue"><name>GENERAL</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae9f54296b37b44dda58829a54204b807" kind="typedef"><name>STH</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a56e839e829161aded259edaa6e17225a" kind="variable"><name>Tai</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac3700a9bf0139be3b11c39732154ad07" kind="variable"><name>Tabij</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa54f97dc7646a29786e8ffea75072a00" kind="variable"><name>Tabcijk</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2340aea20b459bb833287814b98df074" kind="variable"><name>Tabcdijkl</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a281342752f9592499c267ec8368a199b" kind="variable"><name>Fij</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a41f3ebf3b7bacb8e65a72b1b53857ee4" kind="variable"><name>Fab</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae426aa32aa9f484f7c3b0d4327f2273e" kind="variable"><name>Fia</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a80ffdeb8c1a7797ca5b7621935506347" kind="variable"><name>Vabcd</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac9e50ccf6f183f3592578d51935d95c0" kind="variable"><name>Viajb</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0ca18efe10f918729c6e76b825fd745d" kind="variable"><name>Vijab</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1af8d79dcd38f803368a591e9dbfc58fd3" kind="variable"><name>Vijkl</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa926b9d93584121b9c0fd321ae39f837" kind="variable"><name>Vijka</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0a5a9073f25fd1bfcc3e856d13144488" kind="variable"><name>Viabc</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aafa48abb45d1eef91fbe1c81922f3cb9" kind="variable"><name>Viajk</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8eb1ed7bceb6c9976cc8bb2c08050058" kind="variable"><name>Vabic</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1e544ad21ca724e0df61a9c7931802d6" kind="variable"><name>Vaibc</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1afd1ac7c574106d7d20e93f33ce770c9e" kind="variable"><name>Vaibj</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab4ef068249c2f0ad9d08abfec18b0951" kind="variable"><name>Viabj</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ad6a0efe448d7b28c44886bdbbee26a62" kind="variable"><name>Vijak</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a604bfe2c21b5357ac28c7f66174e2b0d" kind="variable"><name>Vaijb</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae5a6ddd3ea374d85fcce8cae97da5c68" kind="variable"><name>Vabci</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a387713a19f49a065702145cec641b7c7" kind="variable"><name>Vabij</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8913898c9eb78e24abc89737b3985f4c" kind="variable"><name>VVaijb</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6bdde7f08ead006eced6c85a16e2ddd4" kind="variable"><name>VViabc</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0b7f603ce325969e34c9a51855c9822a" kind="variable"><name>VVijka</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac04ab15ddf1b3e189ed031bb53429838" kind="variable"><name>VVijab</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a021cea6ec29130022ff132d09d5131c2" kind="variable"><name>GammaGqr</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a30cea53cf1c206f7aecb9acd97c7767d" kind="variable"><name>_with_right_apply_intermediates</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9ae8f36ce46348c90edd7bd7c76809a5" kind="variable"><name>_withStantonIntermediatesUCCSD</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0dd260770916385606a192438efd7d80" kind="variable"><name>_withRingCCSDT</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac2c6d3d00ce68e37923dd5fe49084a31" kind="variable"><name>_useStantonIntermediatesUCCSD</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a330741eb53c97848f93612a7623bd884" kind="variable"><name>_withCISD</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4f12dac8d50a8a84975990de3650fa83" kind="variable"><name>_withCIS</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5f2f50bab8400d014367d7c3e0d04bf9" kind="variable"><name>stantonIntermediatesUccsd</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1acfd3b6b122fce13ede6843fd471c80c9" kind="variable"><name>No</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a64589c8dc04be3171d06998aef86797f" kind="variable"><name>Nv</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae2adcff4261695f8ff7c0557d933f6e4" kind="variable"><name>useRightApplyIntermediates</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8c4c8b1aa39d1126c1907e99612fefc7" kind="variable"><name>dressing</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a61830114b86266eb7d74d6e88b751d0a" kind="variable"><name>Wij</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a39f4d54b3a24337f3369c7d1f25186b3" kind="variable"><name>Wab</name></member>
@@ -3164,46 +3196,24 @@
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a18cb67f687b6b50173291c14f85c877d" kind="variable"><name>Wijkl</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a87ed1720c5aa3449167e1c2896a8f5f4" kind="variable"><name>Wabcijk</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7d4cd7a68802c09c4999e565685822a6" kind="variable"><name>Tau_abij</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a56e839e829161aded259edaa6e17225a" kind="variable"><name>Tai</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a67984669d1fc834f52904070eda691eb" kind="variable"><name>Tabij</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac8a27ea2b7b70e50fef17f2e9f7915cd" kind="variable"><name>Tabcijk</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3bdfc444ce22063aae42528f819ec219" kind="variable"><name>Tabcdijkl</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7b84233c3086849f23a16e5fbebdeae3" kind="variable"><name>Fij</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a88521a41db6595a0a0ceec532ef86a96" kind="variable"><name>Fab</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8c9756decece8ea4c4e09bc05d7cce08" kind="variable"><name>Fia</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a68fc54572d4cd32699683777ea47a24b" kind="variable"><name>Vabcd</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab2eff43860b0af613e4d456a4c0e3e5c" kind="variable"><name>Viajb</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aeadbcd1b739790cba330f2c0cfaa525c" kind="variable"><name>Vijab</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1add87c6d6afc870a4dbe892d12c19b2a2" kind="variable"><name>Vijkl</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae6309a36dc2ca302ce71cb4469eaa5ee" kind="variable"><name>Vijka</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8101b7727146254361640b88837518f6" kind="variable"><name>Viabc</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a82e3cef6d5b92f76cb0c3aa852d69d7a" kind="variable"><name>Viajk</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab444f98930f08e5a48269da57eb1d963" kind="variable"><name>Vabic</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a919cc4dde3c25c5069896b12defad534" kind="variable"><name>Vaibc</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1afbe6504d0cf472ba8726a4bd0e501358" kind="variable"><name>Vaibj</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a26be9e77b057a74a5c86ecc5f363fa8a" kind="variable"><name>Viabj</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a48c61c8818eade5706595e966ab42967" kind="variable"><name>Vijak</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5fc21a2ca93b562d7fc99f2b87ee52bc" kind="variable"><name>Vaijb</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a330b5c5a667132315683045f3a9baa92" kind="variable"><name>Vabci</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aeb86878a47758e3333195ab22cc59abd" kind="variable"><name>Vabij</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a021cea6ec29130022ff132d09d5131c2" kind="variable"><name>GammaGqr</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab79ca8722eb8d13a36dbe6b1ac1822a7" kind="function"><name>SimilarityTransformedHamiltonian</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ad1d29a333206e01a34ba0a09d566aa17" kind="function"><name>~SimilarityTransformedHamiltonian</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aaaac9e3af31040b1431874afadd614be" kind="function"><name>rightApplyHirata_RPA</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1ec58dc95f23feeea01e44b74d1c9337" kind="function"><name>rightApplyIntermediates</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa2a9c3fa1f229c6063ef44984682fa4b" kind="function"><name>rightApplyHirata</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a426990914551a8bb96e80565602cd6f6" kind="function"><name>rightApply</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a89a7bd8e042fd5bd61e8ae29ced9b050" kind="function"><name>leftApplyHirata</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aefbf7789961f52ce66bc70e113858fd2" kind="function"><name>right_apply_hirata_RPA</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a7df184c08641853af49217dd59bde2f6" kind="function"><name>right_apply_CISD</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a85ce9737517547b338f390be41011a5e" kind="function"><name>right_apply_Intermediates</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a22d83ef87a78ab4dd9440995f43895e2" kind="function"><name>right_apply_hirata</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa3eb2c54bce79e4ce76eea876dab7a5e" kind="function"><name>right_apply</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa7229c7cb56e874256800892b788b000" kind="function"><name>leftApply_hirata</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a97c1a2efb9749a4681cd0ee90cf9f46b" kind="function"><name>leftApplyIntermediates</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab89ba872da1f38fdf3f5dbd2ed7cabba" kind="function"><name>leftApply</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa28c602a049f8bb994958fc9986bc8fe" kind="function"><name>rightApplyHirata</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1b80fa4bc541fe6615912a9acb84f8ec" kind="function"><name>rightApply</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2c0860086c2acd3c6a7e5d80cc846b2b" kind="function"><name>rightApply_CCSD_IP</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a183b97771c52286f5828cb4181ccfba0" kind="function"><name>rightApplyHirata_CCSD_IP</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1add53c6e3185b107737ddcac71f7bf5dc" kind="function"><name>rightApplyIntermediates_CCSD_IP</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1abddef4c3b1842ca082ef1a6b377de129" kind="function"><name>rightApply_CCSD_EA</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a418082e5d7a3353ed4b88f0f469b886e" kind="function"><name>rightApplyHirata_CCSD_EA</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4a603349fcc7009b809df17c2f0faada" kind="function"><name>rightApplyIntermediates_CCSD_EA</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a200655734b7da4a2f12b7bcc83c18074" kind="function"><name>right_apply_hirata</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa2a3d4d2e8991c1e76bd1ca5ad20daf5" kind="function"><name>right_apply</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8bff244aa8f5a398bd8177056a4504f3" kind="function"><name>right_apply_CCSD_IP</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a84fef5875b59e7fa841e6230b43bf95d" kind="function"><name>right_apply_hirata_CCSD_IP</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2dee4e2d0e8469ea4c68b1a907dab135" kind="function"><name>right_apply_Intermediates_CCSD_IP</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a85f1b6cb6b3d4b6a97ee8878c459b7f5" kind="function"><name>right_apply_CCSD_EA</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6070c88368a1fce129bd78b8803919fe" kind="function"><name>right_apply_hirata_CCSD_EA</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9ad1ea1c150b2bf825d31a8900d48a7a" kind="function"><name>right_apply_Intermediates_CCSD_EA</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1abce6e7053876b8d689a0c2753c17f289" kind="function"><name>structureFactor</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a42c65d6203f1dcb77be3cdb6f693b585" kind="function"><name>getIJ</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab204008f845597f12b8060dc49dabf1b" kind="function"><name>getAB</name></member>
@@ -3221,41 +3231,46 @@
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a59a0594b2894ab34f28606647f5da4b3" kind="function"><name>getIJKA</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a19daf4db68cbc4bbc403d194a106f98a" kind="function"><name>getIJKL</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a31324ff4a8976e64c49e91366fe0918b" kind="function"><name>getABCIJK</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a543d1aef007807873936502ac7d5a55a" kind="function"><name>setTai</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a116cd889bdab43038177a374832b91fb" kind="function"><name>setTabij</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9846e04910ae1c47600c2f78d01537a0" kind="function"><name>setTabcijk</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae539faf497e0df199fa5a94925c7f345" kind="function"><name>setTabcdijkl</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1abe540bebaa5cb9a8a72b7f37f780b872" kind="function"><name>setFij</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a54f2412322908c592eaf25e4dbfd9032" kind="function"><name>setFab</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aae3a9d7dc803fd58f564554509001d3f" kind="function"><name>setFia</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4be4a29b7b79fc084f0e7ebaea504822" kind="function"><name>setVabcd</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9e44ea474c3e43649921e8d065deefa6" kind="function"><name>setViajb</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a411859f9067f84d41358347b3ad8ca3a" kind="function"><name>setVijab</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a602dbced04318d71ca4bd329d7b33349" kind="function"><name>setVijkl</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aeb15fe7be120e6738ee8b0d95435bcae" kind="function"><name>setVijka</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2753deb0d2713ab496e67f5a86ea001c" kind="function"><name>setViabc</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1fd0b75584fa3e74dd0f2b4d0952f10d" kind="function"><name>setViajk</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ab982985585d5b15e1764ad2a0da9de4c" kind="function"><name>setVabic</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0931419c64aa91521eca62169486eb5f" kind="function"><name>setVaibc</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a727049c8842166648c860594e97ea194" kind="function"><name>setVaibj</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a64a92ab9cf2c8b6fcc50bbbde34cdd5a" kind="function"><name>setViabj</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8edf6d46c7e98a6a7a2b54b2fdd50e12" kind="function"><name>setVijak</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1afcc5bc8c6091432a00c2882d1c54daa7" kind="function"><name>setVaijb</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a37dd764ee14a4704f4d4cec404283e81" kind="function"><name>setVabci</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac90b770fd9068f550f4d64a9a9458f04" kind="function"><name>setVabij</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a98806a4747b4dbbc54ea5547a54b5207" kind="function"><name>setVVaijb</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aed308e5748789836b0d5065615373cbe" kind="function"><name>setVViabc</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa18e44848f85f20af28807fa1e5b6450" kind="function"><name>setVVijka</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1447169ff4684b1dc83a7061613c0423" kind="function"><name>setVVijab</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4c0c99f7dbc84f829d3bd6328a5ff102" kind="function"><name>setGammaGqr</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ac4532d0cb8c1b426880052d93a7c630a" kind="function"><name>setRightApplyIntermediates</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1da305055a26db266ff4301656aa5bb4" kind="function"><name>setTai</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5e777f4d3425cd44a6a6877549b7d808" kind="function"><name>setTabij</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a01820f844f81ddbeb59fcc137900a961" kind="function"><name>setTabcijk</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a486bd7cac6874ab1e048d42a08da47c2" kind="function"><name>setTabcdijkl</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1abb3aaa840f6120121b98d5432e7ba84c" kind="function"><name>setFij</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8cef4de56dcd22d9bb0ce9a0865883b9" kind="function"><name>setFab</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ad7f554634b09daf770204390bb483db7" kind="function"><name>setFia</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aedf27c4bddedf327738546cee57b5fc9" kind="function"><name>setVabcd</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1727d6184be1ded0f0df6e50eeab2578" kind="function"><name>setViajb</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a8b0de97b9f1521f545f3511f2c6293f2" kind="function"><name>setVijab</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a231dffecf34a9e053caf609a55f08330" kind="function"><name>setVijkl</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a814dc09d060dd37cb49f06fdadda41fe" kind="function"><name>setVijka</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a00b38ce969bcbb5c6df358827937b3d5" kind="function"><name>setViabc</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a92557797a4410771fddab687ab189f9b" kind="function"><name>setViajk</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa97d297ac4c296322750042590d7fade" kind="function"><name>setVabic</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5c1fb27bfa54babe334ec4f63bca4902" kind="function"><name>setVaibc</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3e3f261e8bd413347b50214d7890fc31" kind="function"><name>setVaibj</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a1fb1f47c5fe21f909d9d96491340c89c" kind="function"><name>setViabj</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5393474d5744491da62262416f420c44" kind="function"><name>setVijak</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aac45838ea8f386181b6722ea2769a4bb" kind="function"><name>setVaijb</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae4858e94d1ebbed0576d917eeb8d7ddf" kind="function"><name>setVabci</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a0557610600dfb1bb9a23d686eb5c9980" kind="function"><name>setVabij</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa53a2b56ed3a884e590ed0f0d7593f4c" kind="function"><name>setVVaijb</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a019a06673bc3ecf51729faa7391f7c4e" kind="function"><name>setVViabc</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a70cdaad2de7b431adcbec2ed86161131" kind="function"><name>setVVijka</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a78602cc1eafb27e785963678dc40c929" kind="function"><name>setVVijab</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a17f5dad13746c9cd3c09374260ab38f4" kind="function"><name>setGammaGqr</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a3f29787aa62d758f3ca0c0b9dd1413ae" kind="function"><name>setDressing</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a590b07134bb38c7eb3a6c34c77ca37bc" kind="function"><name>getTauABIJ</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae8ee68fd7f9e4e9d7a15af3beb3a77ca" kind="function"><name>useStantonIntermediatesUCCSD</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a74fe2b80e50cfe49ce6156297b410765" kind="function"><name>useStantonIntermediatesUCCSD</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1acaa9d3c2cf4eab7591f254cc78ac7997" kind="function"><name>getAbbreviation</name></member>
-    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a431641c87ecd6e3a1cd1bb461e1eb72c" kind="function"><name>withRingCCSDT</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a5d567b1502917076f4ba069d8c73c673" kind="function"><name>with_right_apply_intermediates</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ae3cb94db5e7bfb2c5d2fec47631adcf6" kind="function"><name>with_right_apply_intermediates</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1ad10f0d062f0019cd1adb040d926bb3ae" kind="function"><name>withStantonIntermediatesUCCSD</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a2b493697cd1b622aa10ccd9f085995ce" kind="function"><name>withStantonIntermediatesUCCSD</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aa3a5643ce7d7656ace62761d5d13b2f1" kind="function"><name>withRingCCSDT</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a6f1b5a252369a53eb9dce4643587fe09" kind="function"><name>withRingCCSDT</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a4b85211c096ce0c72f426542c941b692" kind="function"><name>withCISD</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a9438f8861d8fdad427f95b44f3be70f6" kind="function"><name>withCISD</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a856662511a4aa8a4cdf9fa855f0750a7" kind="function"><name>withCIS</name></member>
+    <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1aeb326f0e94cf59a0cc5608035c95bd6e" kind="function"><name>withCIS</name></member>
     <member refid="classsisi4s_1_1SimilarityTransformedHamiltonian_1a21dd1dfcf8647c0e242bfbddee370287" kind="function"><name>getStantonIntermediatesUCCSD</name></member>
   </compound>
   <compound refid="classsisi4s_1_1simpson" kind="class"><name>sisi4s::simpson</name>
@@ -3418,12 +3433,12 @@
     <member refid="structSzOperator_1a9ddaa3275633f1aa5e61f19c4a0291fc" kind="function"><name>getIJ</name></member>
     <member refid="structSzOperator_1af7797c06df0ac657c384c8a33defab03" kind="function"><name>getAB</name></member>
   </compound>
-  <compound refid="structsisi4s_1_1TensorAntisymmetrizer" kind="struct"><name>sisi4s::TensorAntisymmetrizer</name>
-    <member refid="structsisi4s_1_1TensorAntisymmetrizer_1a51354438a7d96c9d2fcda8a76c35b017" kind="variable"><name>registrar_</name></member>
-    <member refid="structsisi4s_1_1TensorAntisymmetrizer_1a9f2aab34e3bbf7c667c4f37647d7c020" kind="function"><name>getName</name></member>
-    <member refid="structsisi4s_1_1TensorAntisymmetrizer_1aa043f522e05bc1a33bfcd8703281e789" kind="function"><name>TensorAntisymmetrizer</name></member>
-    <member refid="structsisi4s_1_1TensorAntisymmetrizer_1ac29aa5b1bedcd62629057d4a4d503b64" kind="function"><name>~TensorAntisymmetrizer</name></member>
-    <member refid="structsisi4s_1_1TensorAntisymmetrizer_1a08e30cc781b351e0b505def08c1fad1b" kind="function"><name>run</name></member>
+  <compound refid="classsisi4s_1_1TensorAntisymmetrizer" kind="class"><name>sisi4s::TensorAntisymmetrizer</name>
+    <member refid="classsisi4s_1_1TensorAntisymmetrizer_1a51354438a7d96c9d2fcda8a76c35b017" kind="variable"><name>registrar_</name></member>
+    <member refid="classsisi4s_1_1TensorAntisymmetrizer_1a9f2aab34e3bbf7c667c4f37647d7c020" kind="function"><name>getName</name></member>
+    <member refid="classsisi4s_1_1TensorAntisymmetrizer_1aa043f522e05bc1a33bfcd8703281e789" kind="function"><name>TensorAntisymmetrizer</name></member>
+    <member refid="classsisi4s_1_1TensorAntisymmetrizer_1ac29aa5b1bedcd62629057d4a4d503b64" kind="function"><name>~TensorAntisymmetrizer</name></member>
+    <member refid="classsisi4s_1_1TensorAntisymmetrizer_1a08e30cc781b351e0b505def08c1fad1b" kind="function"><name>run</name></member>
   </compound>
   <compound refid="classsisi4s_1_1TensorContraction" kind="class"><name>sisi4s::TensorContraction</name>
     <member refid="classsisi4s_1_1TensorContraction_1a64935160b5d0006a8166a7f01706c996" kind="variable"><name>registrar_</name></member>
@@ -3490,10 +3505,9 @@
   <compound refid="classsisi4s_1_1TensorSum" kind="class"><name>sisi4s::TensorSum</name>
     <member refid="classsisi4s_1_1TensorSum_1a74d22b6f57d02f0cc967799b9bf90344" kind="variable"><name>registrar_</name></member>
     <member refid="classsisi4s_1_1TensorSum_1a3d72c36dabd7f49f6f8a0b5462790a15" kind="function"><name>getName</name></member>
-    <member refid="classsisi4s_1_1TensorSum_1a2a4bdf5e5ba9d417dca6fde1b6b5b6e3" kind="function"><name>TensorSum</name></member>
-    <member refid="classsisi4s_1_1TensorSum_1a5fd729d821ae581510787b270c493079" kind="function"><name>~TensorSum</name></member>
+    <member refid="classsisi4s_1_1TensorSum_1aa146c16e0173f1e0fe1272b21b9e8c1d" kind="function"><name>TensorSum</name></member>
+    <member refid="classsisi4s_1_1TensorSum_1a893cc146939b50dbb09624722f9ddd88" kind="function"><name>~TensorSum</name></member>
     <member refid="classsisi4s_1_1TensorSum_1a30575df936d214a3cfe71ff9fae9ffc3" kind="function"><name>run</name></member>
-    <member refid="classsisi4s_1_1TensorSum_1aaec4f4e62937cf6dfc74c7871b75e49c" kind="function"><name>create</name></member>
   </compound>
   <compound refid="classTensorTypeTraits" kind="class"><name>TensorTypeTraits</name>
   </compound>
@@ -3742,6 +3756,13 @@
     <member refid="classsisi4s_1_1UegVertexGenerator_1a5da8085b3e5ceac9529b80e0e9c8d5f4" kind="function"><name>run</name></member>
     <member refid="classsisi4s_1_1UegVertexGenerator_1afa4445fb2a105da1c171a0c77df8292a" kind="function"><name>evalMadelung</name></member>
     <member refid="classsisi4s_1_1UegVertexGenerator_1a21b36dddb2c4907fe10f70c4397f5643" kind="function"><name>Vijji</name></member>
+  </compound>
+  <compound refid="classsisi4s_1_1UnrestrictedCIS" kind="class"><name>sisi4s::UnrestrictedCIS</name>
+    <member refid="classsisi4s_1_1UnrestrictedCIS_1a2084b531cc9a32a9f6e9352233d3f606" kind="variable"><name>registrar_</name></member>
+    <member refid="classsisi4s_1_1UnrestrictedCIS_1aecefcddce159a8bb0e31501804976cf1" kind="function"><name>getName</name></member>
+    <member refid="classsisi4s_1_1UnrestrictedCIS_1ae6aa349bdba876490ccc0c475906be9a" kind="function"><name>UnrestrictedCIS</name></member>
+    <member refid="classsisi4s_1_1UnrestrictedCIS_1a7421261fe0ad983ce9508a2ad1fff819" kind="function"><name>~UnrestrictedCIS</name></member>
+    <member refid="classsisi4s_1_1UnrestrictedCIS_1a469a206b430856d4f415fabd1fabec4f" kind="function"><name>run</name></member>
   </compound>
   <compound refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa" kind="class"><name>sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa</name>
     <member refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1a433717f3b0405bcfb31d4713ecc1a5aa" kind="variable"><name>registrar_</name></member>
@@ -4291,6 +4312,9 @@
     <member refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kind="typedef"><name>complex</name></member>
     <member refid="namespacesisi4s_1af412ed8fd1cb707c417329fdbcd0f407" kind="typedef"><name>Float32</name></member>
     <member refid="namespacesisi4s_1a6c92e60898749aa71eb27986ad9ccfde" kind="typedef"><name>Float64</name></member>
+    <member refid="namespacesisi4s_1a44d7edf5ab67401c55a6c73e3101e4b4" kind="typedef"><name>CISFockVector</name></member>
+    <member refid="namespacesisi4s_1a4dfd59ff5b1e1d23e2060c948e41c311" kind="typedef"><name>CISDFockVector</name></member>
+    <member refid="namespacesisi4s_1a51e6db147abab09d4971151ee3215427" kind="typedef"><name>CISDTFockVector</name></member>
     <member refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kind="typedef"><name>Tensor</name></member>
     <member refid="namespacesisi4s_1a237b1575eec1140052c502a61b89374f" kind="typedef"><name>TensorIndex</name></member>
     <member refid="namespacesisi4s_1a8bc5ec282e4873c8ebc9e265d2a08990" kind="typedef"><name>Matrix</name></member>
@@ -4450,6 +4474,7 @@
     <member refid="CcsdPreconditioner_8cxx_1a279086f8f72e73ab4de59fe05b1fd760" kind="function"><name>filterOutSpinFlipEntries</name></member>
   </compound>
   <compound refid="CcsdPreconditioner_8hpp" kind="file"><name>CcsdPreconditioner.hpp</name>
+    <member refid="CcsdPreconditioner_8hpp_1a98d02381054bb787c13c3b266a82666c" kind="define"><name>_DEFINE_SETTER</name></member>
   </compound>
   <compound refid="CcsdtEnergyFromCoulombIntegrals_8cxx" kind="file"><name>CcsdtEnergyFromCoulombIntegrals.cxx</name>
   </compound>
@@ -4705,6 +4730,7 @@
   </compound>
   <compound refid="SimilarityTransformedHamiltonian_8hpp" kind="file"><name>SimilarityTransformedHamiltonian.hpp</name>
     <member refid="SimilarityTransformedHamiltonian_8hpp_1a98d02381054bb787c13c3b266a82666c" kind="define"><name>_DEFINE_SETTER</name></member>
+    <member refid="SimilarityTransformedHamiltonian_8hpp_1a9441b4b02e5f2833fa90a2f2d74a5a02" kind="define"><name>_MAKE_WITH_FUNCTION</name></member>
   </compound>
   <compound refid="SingleParticleOccupancies_8cxx" kind="file"><name>SingleParticleOccupancies.cxx</name>
   </compound>
@@ -4725,7 +4751,7 @@
     <member refid="wabij_8cxx_1a0f41965a4999bf2971314b18041ac59d" kind="define"><name>ST_DEBUG</name></member>
   </compound>
   <compound refid="TensorAntisymmetrizer_8cxx" kind="file"><name>TensorAntisymmetrizer.cxx</name>
-    <member refid="TensorAntisymmetrizer_8cxx_1a87f06a530b5bbfd1b7f2ff260d45ec7e" kind="function"><name>isSelfAntisymmetrizable</name></member>
+    <member refid="TensorAntisymmetrizer_8cxx_1a0cb7d7ae71e7626284a0bd23c8a3c96a" kind="function"><name>isSelfAntisymmetrizable</name></member>
   </compound>
   <compound refid="TensorAntisymmetrizer_8hpp" kind="file"><name>TensorAntisymmetrizer.hpp</name>
   </compound>
@@ -4794,6 +4820,14 @@
     <member refid="UegVertexGenerator_8cxx_1abbdc1bf63531b1da540f045c8a2531b6" kind="function"><name>sL</name></member>
   </compound>
   <compound refid="UegVertexGenerator_8hpp" kind="file"><name>UegVertexGenerator.hpp</name>
+  </compound>
+  <compound refid="UnrestrictedCIS_8cxx" kind="file"><name>UnrestrictedCIS.cxx</name>
+    <member refid="UnrestrictedCIS_8cxx_1a46c8a310cf4c094f8c80e1cb8dc1f911" kind="enum"><name>Mode</name></member>
+    <member refid="UnrestrictedCIS_8cxx_1a46c8a310cf4c094f8c80e1cb8dc1f911a4ed0e78f10aec1f399fa6796c9d73ed0" kind="enumvalue"><name>CISD</name></member>
+    <member refid="UnrestrictedCIS_8cxx_1a46c8a310cf4c094f8c80e1cb8dc1f911ab04853496602be189cadfc330041471b" kind="enumvalue"><name>CIS</name></member>
+    <member refid="UnrestrictedCIS_8cxx_1a2429e71720d35d2260430608b6598abc" kind="function"><name>runGeneral</name></member>
+  </compound>
+  <compound refid="UnrestrictedCIS_8hpp" kind="file"><name>UnrestrictedCIS.hpp</name>
   </compound>
   <compound refid="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" kind="file"><name>UnrestrictedEquationOfMotionSinglesFromRpa.cxx</name>
   </compound>

@@ -145,12 +145,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace2713562a3eaa29204141331fb21a4a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ace2713562a3eaa29204141331fb21a4a">get</a> (const size_t i)</td></tr>
 <tr class="memdesc:ace2713562a3eaa29204141331fb21a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the i-th component tensor.  <br /></td></tr>
 <tr class="separator:ace2713562a3eaa29204141331fb21a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12f7974afa01def06d0fff6b08c06756"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a12f7974afa01def06d0fff6b08c06756">getIndices</a> (const size_t i) const</td></tr>
-<tr class="memdesc:a12f7974afa01def06d0fff6b08c06756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the i-th component indices.  <br /></td></tr>
-<tr class="separator:a12f7974afa01def06d0fff6b08c06756"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0a36975a30280c009ac475760e2f875"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ac0a36975a30280c009ac475760e2f875">getIndices</a> (const size_t i)</td></tr>
-<tr class="memdesc:ac0a36975a30280c009ac475760e2f875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the i-th component indices as modifiable string.  <br /></td></tr>
-<tr class="separator:ac0a36975a30280c009ac475760e2f875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7de529e3d3003f6b402f3b73c493c96"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ac7de529e3d3003f6b402f3b73c493c96">get_indices</a> (const size_t i) const</td></tr>
+<tr class="memdesc:ac7de529e3d3003f6b402f3b73c493c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the i-th component indices.  <br /></td></tr>
+<tr class="separator:ac7de529e3d3003f6b402f3b73c493c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3b389f315086a8faa312c6f6b94d618"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#aa3b389f315086a8faa312c6f6b94d618">get_indices</a> (const size_t i)</td></tr>
+<tr class="memdesc:aa3b389f315086a8faa312c6f6b94d618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the i-th component indices as modifiable string.  <br /></td></tr>
+<tr class="separator:aa3b389f315086a8faa312c6f6b94d618"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7eb0e882727cda101967033d301ebcea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a7eb0e882727cda101967033d301ebcea">operator=</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;&amp;a)</td></tr>
 <tr class="memdesc:a7eb0e882727cda101967033d301ebcea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator taking possession of the tensors owned by a.  <br /></td></tr>
 <tr class="separator:a7eb0e882727cda101967033d301ebcea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,37 +175,37 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7f7a9ea49d5eb503a988858d1b9e76cb"><td class="memItemLeft" align="right" valign="top">F&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a7f7a9ea49d5eb503a988858d1b9e76cb">dot</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a) const</td></tr>
 <tr class="memdesc:a7f7a9ea49d5eb503a988858d1b9e76cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the inner product of this ket-FockVector with the given ket-FockVector a. The elements of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> are conjugated in the inner product, i.e. this-&gt;dot(a) yields the same results as this-&gt;<a class="el" href="classsisi4s_1_1FockVector.html#a50027197de830ea574d8f33ed0211b5d" title="Creates and returns the conjugate transpose of this FockVector. The first and the second half of the ...">conjugateTranspose()</a>.braket(a).  <br /></td></tr>
 <tr class="separator:a7f7a9ea49d5eb503a988858d1b9e76cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad754c5d7c0cb7ab1a487f1f640d7d877"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ad754c5d7c0cb7ab1a487f1f640d7d877">getComponentsCount</a> () const</td></tr>
-<tr class="memdesc:ad754c5d7c0cb7ab1a487f1f640d7d877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of component tensors of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>.  <br /></td></tr>
-<tr class="separator:ad754c5d7c0cb7ab1a487f1f640d7d877"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a086d271ae798bd8d5e79086315fd68f5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5">getDimension</a> () const</td></tr>
-<tr class="memdesc:a086d271ae798bd8d5e79086315fd68f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total number of degrees of freedom represented by this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>, i.e. the total number of field values contained in all component tensors. The indices used by read and write are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1.  <br /></td></tr>
-<tr class="separator:a086d271ae798bd8d5e79086315fd68f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace6a474d78cab3a6b65d608a48f314e5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ace6a474d78cab3a6b65d608a48f314e5">getIndex</a> (const size_t component, const size_t componentIndex) const</td></tr>
-<tr class="separator:ace6a474d78cab3a6b65d608a48f314e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec9ea6b57bd63fefdfa59fa5de8572c3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#aec9ea6b57bd63fefdfa59fa5de8572c3">get_components_count</a> () const</td></tr>
+<tr class="memdesc:aec9ea6b57bd63fefdfa59fa5de8572c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of component tensors of this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>.  <br /></td></tr>
+<tr class="separator:aec9ea6b57bd63fefdfa59fa5de8572c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9297cad1224738f20e6bf98dd1bb021e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a9297cad1224738f20e6bf98dd1bb021e">get_dimension</a> () const</td></tr>
+<tr class="memdesc:a9297cad1224738f20e6bf98dd1bb021e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total number of degrees of freedom represented by this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>, i.e. the total number of field values contained in all component tensors. The indices used by read and write are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a9297cad1224738f20e6bf98dd1bb021e" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">get_dimension()</a>-1.  <br /></td></tr>
+<tr class="separator:a9297cad1224738f20e6bf98dd1bb021e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a4eaabc6c7199cffcce21efbedf9eca"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a9a4eaabc6c7199cffcce21efbedf9eca">get_index</a> (const size_t component, const size_t componentIndex) const</td></tr>
+<tr class="separator:a9a4eaabc6c7199cffcce21efbedf9eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2f9329282dfb459c34110e83a7902e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#aa2f9329282dfb459c34110e83a7902e3">fromIndex</a> (const size_t index, size_t &amp;component, size_t &amp;componentIndex) const</td></tr>
 <tr class="separator:aa2f9329282dfb459c34110e83a7902e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dcb1353e66f2aab7acec40bce58c3f2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; size_t, F &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a1dcb1353e66f2aab7acec40bce58c3f2">readLocal</a> () const</td></tr>
-<tr class="memdesc:a1dcb1353e66f2aab7acec40bce58c3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads out all locally stored values together with their respective indices. The indices are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1.  <br /></td></tr>
+<tr class="memdesc:a1dcb1353e66f2aab7acec40bce58c3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads out all locally stored values together with their respective indices. The indices are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a9297cad1224738f20e6bf98dd1bb021e" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">get_dimension()</a>-1.  <br /></td></tr>
 <tr class="separator:a1dcb1353e66f2aab7acec40bce58c3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3f1a3e793e9dc55958b795c7672f9de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#af3f1a3e793e9dc55958b795c7672f9de">write</a> (const std::vector&lt; std::pair&lt; size_t, F &gt; &gt; &amp;elements)</td></tr>
-<tr class="memdesc:af3f1a3e793e9dc55958b795c7672f9de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the given values together with their respective indices. The indices are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1.  <br /></td></tr>
+<tr class="memdesc:af3f1a3e793e9dc55958b795c7672f9de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the given values together with their respective indices. The indices are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a9297cad1224738f20e6bf98dd1bb021e" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">get_dimension()</a>-1.  <br /></td></tr>
 <tr class="separator:af3f1a3e793e9dc55958b795c7672f9de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a76a336f18f4fc9a70c6b31406b8d6717"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a76a336f18f4fc9a70c6b31406b8d6717">componentTensors</a></td></tr>
-<tr class="separator:a76a336f18f4fc9a70c6b31406b8d6717"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a931498ce2090f83bcff10de589035874"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a931498ce2090f83bcff10de589035874">componentIndices</a></td></tr>
-<tr class="separator:a931498ce2090f83bcff10de589035874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bc10ecd4c0779778cde0f0be85192e8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a2bc10ecd4c0779778cde0f0be85192e8">component_tensors</a></td></tr>
+<tr class="separator:a2bc10ecd4c0779778cde0f0be85192e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a786a112f10c934f0546155a2706adb96"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a786a112f10c934f0546155a2706adb96">component_indices</a></td></tr>
+<tr class="separator:a786a112f10c934f0546155a2706adb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aa7487ad7e11cba45c0d23d8d68a39da4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#aa7487ad7e11cba45c0d23d8d68a39da4">buildIndexTranslation</a> ()</td></tr>
-<tr class="separator:aa7487ad7e11cba45c0d23d8d68a39da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4fa578ddb1b52da613990111913e1bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#af4fa578ddb1b52da613990111913e1bf">copyComponents</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &gt; &amp;components)</td></tr>
-<tr class="memdesc:af4fa578ddb1b52da613990111913e1bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>'s component tensors by copying the given component tensors. Called by copy constructors and copy assignments.  <br /></td></tr>
-<tr class="separator:af4fa578ddb1b52da613990111913e1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d9cadb1b9e7035318011a41379d0c6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a5d9cadb1b9e7035318011a41379d0c6d">build_index_translation</a> ()</td></tr>
+<tr class="separator:a5d9cadb1b9e7035318011a41379d0c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae25aa32f590626efb8eab6d8f8ceaf56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ae25aa32f590626efb8eab6d8f8ceaf56">copy_components</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &gt; &amp;components)</td></tr>
+<tr class="memdesc:ae25aa32f590626efb8eab6d8f8ceaf56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>'s component tensors by copying the given component tensors. Called by copy constructors and copy assignments.  <br /></td></tr>
+<tr class="separator:ae25aa32f590626efb8eab6d8f8ceaf56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57a4a2f43f2a86b5005cd2cf5080ebef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a57a4a2f43f2a86b5005cd2cf5080ebef">checkDualCompatibility</a> (const <a class="el" href="classsisi4s_1_1FockVector.html">FockVector</a>&lt; F &gt; &amp;a) const</td></tr>
 <tr class="memdesc:a57a4a2f43f2a86b5005cd2cf5080ebef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two FockVectors are transpose of each other by swapping the first and the second half of the component indices.  <br /></td></tr>
 <tr class="separator:a57a4a2f43f2a86b5005cd2cf5080ebef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,9 +214,9 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a0da9133616724e1410b9ecefffb9b278"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#a0da9133616724e1410b9ecefffb9b278">indexEnds</a></td></tr>
-<tr class="memdesc:a0da9133616724e1410b9ecefffb9b278"><td class="mdescLeft">&#160;</td><td class="mdescRight">The end of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> index range for each component. This vector is used for translating component number and indices into <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> indicies.  <br /></td></tr>
-<tr class="separator:a0da9133616724e1410b9ecefffb9b278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac05b0668985396cd3609be4bf2e41a6d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1FockVector.html#ac05b0668985396cd3609be4bf2e41a6d">index_ends</a></td></tr>
+<tr class="memdesc:ac05b0668985396cd3609be4bf2e41a6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The end of the <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> index range for each component. This vector is used for translating component number and indices into <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a> indicies.  <br /></td></tr>
+<tr class="separator:ac05b0668985396cd3609be4bf2e41a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename F = double&gt;<br />
@@ -298,7 +298,7 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a5afec06a2c65dd22d9b4dd668f63c3c2_cgraph.svg" width="579" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a5afec06a2c65dd22d9b4dd668f63c3c2_cgraph.svg" width="592" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -333,7 +333,7 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a9ed7302e99ec91f3b0b46b1b0570e110_cgraph.svg" width="579" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a9ed7302e99ec91f3b0b46b1b0570e110_cgraph.svg" width="592" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -378,7 +378,7 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a373c8f81e2408ca8cf8200fdfb8f0788_cgraph.svg" width="579" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a373c8f81e2408ca8cf8200fdfb8f0788_cgraph.svg" width="592" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -437,7 +437,7 @@ template&lt;typename TensorsIterator , typename IndicesIterator &gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_af6067ca369254f3198ee393898d39d0a_cgraph.svg" width="579" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_af6067ca369254f3198ee393898d39d0a_cgraph.svg" width="592" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -478,8 +478,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="aa7487ad7e11cba45c0d23d8d68a39da4" name="aa7487ad7e11cba45c0d23d8d68a39da4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7487ad7e11cba45c0d23d8d68a39da4">&#9670;&#160;</a></span>buildIndexTranslation()</h2>
+<a id="a5d9cadb1b9e7035318011a41379d0c6d" name="a5d9cadb1b9e7035318011a41379d0c6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d9cadb1b9e7035318011a41379d0c6d">&#9670;&#160;</a></span>build_index_translation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -490,7 +490,7 @@ template&lt;typename F  = double&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::buildIndexTranslation </td>
+          <td class="memname">void <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::build_index_translation </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -502,16 +502,16 @@ template&lt;typename F  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>\Brief Builds the index ends vector needed for the index translation methods getIndex and fromIndex. </p>
+<p>\Brief Builds the index ends vector needed for the index translation methods get_index and fromIndex. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_aa7487ad7e11cba45c0d23d8d68a39da4_cgraph.svg" width="394" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a5d9cadb1b9e7035318011a41379d0c6d_cgraph.svg" width="407" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_aa7487ad7e11cba45c0d23d8d68a39da4_icgraph.svg" width="364" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a5d9cadb1b9e7035318011a41379d0c6d_icgraph.svg" width="378" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -544,7 +544,7 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a71043d7cf50670bf71b593fd0f8289ad_icgraph.svg" width="670" height="255"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a71043d7cf50670bf71b593fd0f8289ad_icgraph.svg" width="670" height="290"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -623,8 +623,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="af4fa578ddb1b52da613990111913e1bf" name="af4fa578ddb1b52da613990111913e1bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4fa578ddb1b52da613990111913e1bf">&#9670;&#160;</a></span>copyComponents()</h2>
+<a id="ae25aa32f590626efb8eab6d8f8ceaf56" name="ae25aa32f590626efb8eab6d8f8ceaf56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae25aa32f590626efb8eab6d8f8ceaf56">&#9670;&#160;</a></span>copy_components()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -635,7 +635,7 @@ template&lt;typename F  = double&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::copyComponents </td>
+          <td class="memname">void <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::copy_components </td>
           <td>(</td>
           <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt; F &gt; &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>components</em></td><td>)</td>
@@ -653,7 +653,7 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_af4fa578ddb1b52da613990111913e1bf_icgraph.svg" width="339" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_ae25aa32f590626efb8eab6d8f8ceaf56_icgraph.svg" width="344" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -693,7 +693,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a7f7a9ea49d5eb503a988858d1b9e76cb_icgraph.svg" width="434" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a7f7a9ea49d5eb503a988858d1b9e76cb_icgraph.svg" width="434" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -739,11 +739,11 @@ template&lt;typename F  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>\Brief Translates the given index between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1 into a component number and component index into the corresponding component tensor. </p>
+<p>\Brief Translates the given index between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a9297cad1224738f20e6bf98dd1bb021e" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">get_dimension()</a>-1 into a component number and component index into the corresponding component tensor. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_aa2f9329282dfb459c34110e83a7902e3_icgraph.svg" width="590" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_aa2f9329282dfb459c34110e83a7902e3_icgraph.svg" width="590" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -808,13 +808,13 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_aebf4e090f20a7bb83c434396b274c89c_icgraph.svg" width="798" height="3155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_aebf4e090f20a7bb83c434396b274c89c_icgraph.svg" width="798" height="3256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ad754c5d7c0cb7ab1a487f1f640d7d877" name="ad754c5d7c0cb7ab1a487f1f640d7d877"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad754c5d7c0cb7ab1a487f1f640d7d877">&#9670;&#160;</a></span>getComponentsCount()</h2>
+<a id="aec9ea6b57bd63fefdfa59fa5de8572c3" name="aec9ea6b57bd63fefdfa59fa5de8572c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec9ea6b57bd63fefdfa59fa5de8572c3">&#9670;&#160;</a></span>get_components_count()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -825,7 +825,7 @@ template&lt;typename F  = double&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::getComponentsCount </td>
+          <td class="memname">size_t <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::get_components_count </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -842,13 +842,13 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_ad754c5d7c0cb7ab1a487f1f640d7d877_icgraph.svg" width="438" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_aec9ea6b57bd63fefdfa59fa5de8572c3_icgraph.svg" width="448" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a086d271ae798bd8d5e79086315fd68f5" name="a086d271ae798bd8d5e79086315fd68f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a086d271ae798bd8d5e79086315fd68f5">&#9670;&#160;</a></span>getDimension()</h2>
+<a id="a9297cad1224738f20e6bf98dd1bb021e" name="a9297cad1224738f20e6bf98dd1bb021e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9297cad1224738f20e6bf98dd1bb021e">&#9670;&#160;</a></span>get_dimension()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -859,7 +859,7 @@ template&lt;typename F  = double&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::getDimension </td>
+          <td class="memname">size_t <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::get_dimension </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -872,12 +872,12 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the total number of degrees of freedom represented by this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>, i.e. the total number of field values contained in all component tensors. The indices used by read and write are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1. </p>
+<p>Get the total number of degrees of freedom represented by this <a class="el" href="classsisi4s_1_1FockVector.html" title="Represents the direct sum of Tensors and provides the vector space operations of addition,...">FockVector</a>, i.e. the total number of field values contained in all component tensors. The indices used by read and write are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a9297cad1224738f20e6bf98dd1bb021e" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">get_dimension()</a>-1. </p>
 
 </div>
 </div>
-<a id="ace6a474d78cab3a6b65d608a48f314e5" name="ace6a474d78cab3a6b65d608a48f314e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace6a474d78cab3a6b65d608a48f314e5">&#9670;&#160;</a></span>getIndex()</h2>
+<a id="a9a4eaabc6c7199cffcce21efbedf9eca" name="a9a4eaabc6c7199cffcce21efbedf9eca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a4eaabc6c7199cffcce21efbedf9eca">&#9670;&#160;</a></span>get_index()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -888,7 +888,7 @@ template&lt;typename F  = double&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::getIndex </td>
+          <td class="memname">size_t <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::get_index </td>
           <td>(</td>
           <td class="paramtype">const size_t&#160;</td>
           <td class="paramname"><em>component</em>, </td>
@@ -911,17 +911,17 @@ template&lt;typename F  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>\Brief Translates the given component and component index into its element into an index between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1. </p>
+<p>\Brief Translates the given component and component index into its element into an index between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a9297cad1224738f20e6bf98dd1bb021e" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">get_dimension()</a>-1. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_ace6a474d78cab3a6b65d608a48f314e5_icgraph.svg" width="334" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a9a4eaabc6c7199cffcce21efbedf9eca_icgraph.svg" width="334" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ac0a36975a30280c009ac475760e2f875" name="ac0a36975a30280c009ac475760e2f875"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0a36975a30280c009ac475760e2f875">&#9670;&#160;</a></span>getIndices() <span class="overload">[1/2]</span></h2>
+<a id="aa3b389f315086a8faa312c6f6b94d618" name="aa3b389f315086a8faa312c6f6b94d618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3b389f315086a8faa312c6f6b94d618">&#9670;&#160;</a></span>get_indices() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -932,7 +932,7 @@ template&lt;typename F  = double&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string &amp; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::getIndices </td>
+          <td class="memname">std::string &amp; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::get_indices </td>
           <td>(</td>
           <td class="paramtype">const size_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -950,8 +950,8 @@ template&lt;typename F  = double&gt; </div>
 
 </div>
 </div>
-<a id="a12f7974afa01def06d0fff6b08c06756" name="a12f7974afa01def06d0fff6b08c06756"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12f7974afa01def06d0fff6b08c06756">&#9670;&#160;</a></span>getIndices() <span class="overload">[2/2]</span></h2>
+<a id="ac7de529e3d3003f6b402f3b73c493c96" name="ac7de529e3d3003f6b402f3b73c493c96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7de529e3d3003f6b402f3b73c493c96">&#9670;&#160;</a></span>get_indices() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -962,7 +962,7 @@ template&lt;typename F  = double&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string &amp; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::getIndices </td>
+          <td class="memname">const std::string &amp; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::get_indices </td>
           <td>(</td>
           <td class="paramtype">const size_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -980,7 +980,7 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a12f7974afa01def06d0fff6b08c06756_icgraph.svg" width="734" height="531"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_ac7de529e3d3003f6b402f3b73c493c96_icgraph.svg" width="734" height="583"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1120,7 +1120,7 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a7eb0e882727cda101967033d301ebcea_cgraph.svg" width="579" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_a7eb0e882727cda101967033d301ebcea_cgraph.svg" width="592" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1155,7 +1155,7 @@ template&lt;typename F  = double&gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_ad8c190dca07ca3fc6bc7ef51afdb3688_cgraph.svg" width="579" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_ad8c190dca07ca3fc6bc7ef51afdb3688_cgraph.svg" width="592" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1185,7 +1185,7 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reads out all locally stored values together with their respective indices. The indices are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1. </p>
+<p>Reads out all locally stored values together with their respective indices. The indices are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a9297cad1224738f20e6bf98dd1bb021e" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">get_dimension()</a>-1. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1220,7 +1220,7 @@ template&lt;typename F  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Writes the given values together with their respective indices. The indices are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a086d271ae798bd8d5e79086315fd68f5" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">getDimension()</a>-1. </p>
+<p>Writes the given values together with their respective indices. The indices are between 0 and <a class="el" href="classsisi4s_1_1FockVector.html#a9297cad1224738f20e6bf98dd1bb021e" title="Get the total number of degrees of freedom represented by this FockVector, i.e. the total number of f...">get_dimension()</a>-1. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1229,14 +1229,14 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_af3f1a3e793e9dc55958b795c7672f9de_icgraph.svg" width="404" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classsisi4s_1_1FockVector_af3f1a3e793e9dc55958b795c7672f9de_icgraph.svg" width="404" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a931498ce2090f83bcff10de589035874" name="a931498ce2090f83bcff10de589035874"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a931498ce2090f83bcff10de589035874">&#9670;&#160;</a></span>componentIndices</h2>
+<a id="a786a112f10c934f0546155a2706adb96" name="a786a112f10c934f0546155a2706adb96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a786a112f10c934f0546155a2706adb96">&#9670;&#160;</a></span>component_indices</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1244,15 +1244,15 @@ Here is the caller graph for this function:</div>
 template&lt;typename F  = double&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::string&gt; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::componentIndices</td>
+          <td class="memname">std::vector&lt;std::string&gt; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::component_indices</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a76a336f18f4fc9a70c6b31406b8d6717" name="a76a336f18f4fc9a70c6b31406b8d6717"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76a336f18f4fc9a70c6b31406b8d6717">&#9670;&#160;</a></span>componentTensors</h2>
+<a id="a2bc10ecd4c0779778cde0f0be85192e8" name="a2bc10ecd4c0779778cde0f0be85192e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bc10ecd4c0779778cde0f0be85192e8">&#9670;&#160;</a></span>component_tensors</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1260,15 +1260,15 @@ template&lt;typename F  = double&gt; </div>
 template&lt;typename F  = double&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt;F&gt; &gt; &gt; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::componentTensors</td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt; <a class="el" href="namespacesisi4s.html#a1695e67f99e3219626943923a40886a1">Tensor</a>&lt;F&gt; &gt; &gt; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::component_tensors</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a0da9133616724e1410b9ecefffb9b278" name="a0da9133616724e1410b9ecefffb9b278"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0da9133616724e1410b9ecefffb9b278">&#9670;&#160;</a></span>indexEnds</h2>
+<a id="ac05b0668985396cd3609be4bf2e41a6d" name="ac05b0668985396cd3609be4bf2e41a6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac05b0668985396cd3609be4bf2e41a6d">&#9670;&#160;</a></span>index_ends</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1279,7 +1279,7 @@ template&lt;typename F  = double&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;size_t&gt; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::indexEnds</td>
+          <td class="memname">std::vector&lt;size_t&gt; <a class="el" href="classsisi4s_1_1FockVector.html">sisi4s::FockVector</a>&lt; F &gt;::index_ends</td>
         </tr>
       </table>
   </td>
