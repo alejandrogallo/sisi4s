@@ -239,14 +239,14 @@ void UCcsdIPEquationOfMotionDavidson::run() {
       .setTai(&Tai)
       .setTabij(&Tabij)
       // should we use intermediates of the Wabij etc?
-      .setRightApplyIntermediates(intermediates)
+      .with_right_apply_intermediates(intermediates)
       .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::CCSD);
 
   struct IPHamiltonian {
   public:
     SimilarityTransformedHamiltonian<F> *h;
-    SDFockVector<F> rightApply(SDFockVector<F> &V) {
-      return h->rightApply_CCSD_IP(V);
+    SDFockVector<F> right_apply(SDFockVector<F> &V) {
+      return h->right_apply_CCSD_IP(V);
     }
   } ipH;
   ipH.h = &H;

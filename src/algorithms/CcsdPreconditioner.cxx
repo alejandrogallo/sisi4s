@@ -235,7 +235,7 @@ CcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
     // FILTER: Spin Flip
     if (!spinFlip) {
       LOG(0, "CcsdPreconditioner") << "Filtering out spin flip" << std::endl;
-      for (auto &t : basisElement.componentTensors) {
+      for (auto &t : basisElement.component_tensors) {
         filterOutSpinFlipEntries(*t);
       }
     }
@@ -345,8 +345,8 @@ CcsdPreconditioner<F>::getCorrection(const sisi4s::complex lambda,
 
   SDFockVector<F> correction(*diagonalH);
   // compute ((lambda * id - Diag(diagonal))^-1) . residuum
-  for (unsigned int c(0); c < w.getComponentsCount(); ++c) {
-    const char *indices(correction.componentIndices[c].c_str());
+  for (unsigned int c(0); c < w.get_components_count(); ++c) {
+    const char *indices(correction.component_indices[c].c_str());
     (*correction.get(c))
         .contract(1.0,
                   *residuum.get(c),
@@ -522,8 +522,8 @@ EACcsdPreconditioner<F>::getCorrection(const sisi4s::complex lambda,
 
   SDFockVector<F> correction(*this->diagonalH);
   // compute ((lambda * id - Diag(diagonal))^-1) . residuum
-  for (unsigned int c(0); c < w.getComponentsCount(); ++c) {
-    const char *indices(correction.componentIndices[c].c_str());
+  for (unsigned int c(0); c < w.get_components_count(); ++c) {
+    const char *indices(correction.component_indices[c].c_str());
     (*correction.get(c))
         .contract(1.0,
                   *residuum.get(c),
@@ -695,8 +695,8 @@ IPCcsdPreconditioner<F>::getCorrection(const sisi4s::complex lambda,
 
   SDFockVector<F> correction(*this->diagonalH);
   // compute ((lambda * id - Diag(diagonal))^-1) . residuum
-  for (unsigned int c(0); c < w.getComponentsCount(); ++c) {
-    const char *indices(correction.componentIndices[c].c_str());
+  for (unsigned int c(0); c < w.get_components_count(); ++c) {
+    const char *indices(correction.component_indices[c].c_str());
     (*correction.get(c))
         .contract(1.0,
                   *residuum.get(c),
@@ -716,6 +716,171 @@ IPCcsdPreconditioner<F>::getCorrection(const sisi4s::complex lambda,
   return correction;
 }
 
+template <typename F>
+void CISPreconditioner<F>::calculateDiagonal() {
+  int No(this->Fij->lens[0]), Nv(this->Fab->lens[0]);
+  std::vector<int> vo{{Nv, No}}, ns{{NS, NS}};
+
+  auto &Fij = this->Fij;
+  auto &Fab = this->Fab;
+
+  this->diagonalH =
+      NEW(typename CISPreconditioner<F>::V,
+          std::vector<PTR(Tensor<F>)>(
+              {NEW(Tensor<F>, 2, vo.data(), ns.data(), *Sisi4s::world, "Dai")}),
+          std::vector<std::string>({"ai"}));
+
+  auto Dai(this->diagonalH->get(0));
+  // auto Dabij(this->diagonalH->get(1));
+
+  // calculate diagonal elements of H
+  (*Dai)["bi"] = (-1.0) * (*Fij)["ii"];
+  (*Dai)["bi"] += (+1.0) * (*Fab)["bb"];
+  //   (*Dabij)["cdij"] = (-1.0) * (*Fij)["ii"];
+  //   (*Dabij)["cdij"] += (-1.0) * (*Fij)["jj"];
+  //   (*Dabij)["cdij"] += (+1.0) * (*Fab)["cc"];
+  //   (*Dabij)["cdij"] += (+1.0) * (*Fab)["dd"];
+}
+
+template <typename F>
+typename CISPreconditioner<F>::V CISPreconditioner<F>::getCorrection(
+    const sisi4s::complex lambda,
+    typename CISPreconditioner<F>::V &residuum) {
+  typename CISPreconditioner<F>::V w(*this->diagonalH);
+
+  // Define a singleton helping class for the diagonal correction
+  class DiagonalCorrection {
+  public:
+    DiagonalCorrection(const double lambda_)
+        : lambda(lambda_) {}
+    F operator()(const F residuumElement, const F diagonalElement) {
+      return std::abs(lambda - diagonalElement) < 1E-4
+               ? 0.0
+               : residuumElement / (lambda - diagonalElement);
+    }
+
+  protected:
+    double lambda;
+  } diagonalCorrection(std::real(lambda));
+
+  typename CISPreconditioner<F>::V correction(*this->diagonalH);
+  // compute ((lambda * id - Diag(diagonal))^-1) . residuum
+  for (unsigned int c(0); c < w.get_components_count(); ++c) {
+    const char *indices(correction.component_indices[c].c_str());
+    (*correction.get(c))
+        .contract(1.0,
+                  *residuum.get(c),
+                  indices,
+                  *this->diagonalH->get(c),
+                  indices,
+                  0.0,
+                  indices,
+                  CTF::Bivar_Function<F>(diagonalCorrection));
+  }
+  return correction;
+}
+
+template <typename F>
+std::vector<typename CISPreconditioner<F>::V>
+CISPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
+  calculateDiagonal();
+  LOG(0, "CISPreconditioner") << "Getting initial basis " << std::endl;
+  // find K=eigenVectorsCount lowest diagonal elements at each processor
+  std::vector<std::pair<size_t, F>> localElements(this->diagonalH->readLocal());
+  std::sort(localElements.begin(),
+            localElements.end(),
+            EomDiagonalValueComparator<F>());
+  int localElementsSize(localElements.size());
+
+  // gather all K elements of all processors at root
+  //   convert into homogeneous arrays for MPI gather
+  const int trialEigenVectorsCount(10 * eigenVectorsCount);
+  std::vector<size_t> localLowestElementIndices(trialEigenVectorsCount);
+  std::vector<F> localLowestElementValues(trialEigenVectorsCount);
+  for (int i(0); i < std::min(localElementsSize, trialEigenVectorsCount); ++i) {
+    localLowestElementIndices[i] = localElements[i].first;
+    localLowestElementValues[i] = localElements[i].second;
+  }
+  MpiCommunicator communicator(*Sisi4s::world);
+  std::vector<size_t> lowestElementIndices;
+  std::vector<F> lowestElementValues;
+  communicator.gather(localLowestElementIndices, lowestElementIndices);
+  communicator.gather(localLowestElementValues, lowestElementValues);
+  //   convert back into (index,value) pairs for sorting
+  std::vector<std::pair<size_t, F>> lowestElements(lowestElementValues.size());
+  for (unsigned int i(0); i < lowestElementValues.size(); ++i) {
+    lowestElements[i].first = lowestElementIndices[i];
+    lowestElements[i].second = lowestElementValues[i];
+  }
+
+  // find globally lowest K diagonal elements among the gathered elements
+  std::sort(lowestElements.begin(),
+            lowestElements.end(),
+            EomDiagonalValueComparator<F>());
+  // at rank==0 (root) lowestElements contains K*Np entries
+  // rank > 0 has an empty list
+
+  // create basis vectors for each lowest element
+  std::vector<typename CISPreconditioner<F>::V> basis;
+
+  int currentEigenVectorCount(0);
+  unsigned int b(0);
+  int zeroVectorCount(0);
+  while (currentEigenVectorCount < eigenVectorsCount) {
+    typename CISPreconditioner<F>::V basisElement(*this->diagonalH);
+    basisElement *= 0.0;
+    std::vector<std::pair<size_t, F>> elements;
+    if (communicator.getRank() == 0) {
+      if (b >= lowestElements.size()) {
+        throw EXCEPTION("No more elements to create initial basis");
+      }
+      elements.push_back(std::make_pair(lowestElements[b].first, 1.0));
+    }
+    basisElement.write(elements);
+    // (101, -70), (32, -55), ...
+    // b1: 0... 1 (at global position 101) 0 ...
+    // b2: 0... 1 (at global position 32) 0 ...i
+
+    // Filter out unphysical components from the basisElement
+    // (*basisElement.get(1))["aii"] = 0.0;
+
+    // Antisymmetrize the new basis element
+    // (*basisElement.get(1))["aij"] -= (*basisElement.get(1))["aji"];
+
+    LOG(1, "CISPreconditioner") << "basis size " << basis.size() << std::endl;
+
+    // Grams-schmidt it with the other elements of the basis
+    for (unsigned int j(0); j < basis.size(); ++j) {
+      basisElement -= basis[j] * basis[j].dot(basisElement);
+    }
+
+    // Normalize basisElement
+    F basisElementNorm(std::sqrt(basisElement.dot(basisElement)));
+
+    // Check if basisElementNorm is zero
+    if (std::abs(basisElementNorm) < 1e-10) {
+      zeroVectorCount++;
+      b++;
+      continue;
+    }
+
+    basisElement =
+        1.0 / std::sqrt(basisElement.dot(basisElement)) * basisElement;
+    basisElementNorm = std::sqrt(basisElement.dot(basisElement));
+
+    b++;
+
+    if (std::abs(basisElementNorm - double(1)) > 1e-10 * double(1)) continue;
+
+    currentEigenVectorCount++;
+
+    // If it got here, basisElement is a valid vector
+    basis.push_back(basisElement);
+  }
+
+  return basis;
+}
+
 // instantiate
 template class sisi4s::CcsdPreconditioner<double>;
 template class sisi4s::CcsdPreconditioner<sisi4s::complex>;
@@ -725,3 +890,6 @@ template class sisi4s::IPCcsdPreconditioner<sisi4s::complex>;
 
 template class sisi4s::EACcsdPreconditioner<double>;
 template class sisi4s::EACcsdPreconditioner<sisi4s::complex>;
+
+template class sisi4s::CISPreconditioner<double>;
+template class sisi4s::CISPreconditioner<sisi4s::complex>;

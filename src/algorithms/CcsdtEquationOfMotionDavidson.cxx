@@ -292,7 +292,7 @@ void CcsdtEquationOfMotionDavidson::run() {
       .setVabci(Vabci)
       .setTai(&Tai)
       .setTabij(&Tabij)
-      .setRightApplyIntermediates(intermediates)
+      .with_right_apply_intermediates(intermediates)
       .setDressing(dressing);
 
   CcsdPreconditioner<F>

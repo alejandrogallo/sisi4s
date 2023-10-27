@@ -288,7 +288,7 @@ void CcsdEquationOfMotionDavidson::run() {
       .setTabij(&Tabij)
 
       // should we use intermediates of the Wabij etc?
-      .setRightApplyIntermediates(intermediates)
+      .with_right_apply_intermediates(intermediates)
 
       // Declare dressing of the hamiltonian so that we know that
       // Wai = Wabij = 0

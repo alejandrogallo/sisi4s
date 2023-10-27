@@ -143,14 +143,14 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
       .setFia(Fia)
       .setVijab(Vijab)
       .setTabij(&Tabij)
-      .setRightApplyIntermediates(intermediates)
+      .with_right_apply_intermediates(intermediates)
       .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::RPA);
 
   struct RpaH {
   public:
     SimilarityTransformedHamiltonian<F> *h;
-    SFockVector<F> rightApply(SFockVector<F> &V) {
-      return h->rightApplyHirata_RPA(V);
+    SFockVector<F> right_apply(SFockVector<F> &V) {
+      return h->right_apply_hirata_RPA(V);
     }
   } rpaH;
   rpaH.h = &H;

@@ -209,7 +209,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
       // set a general dressing, since we don't want any terms to get dropped
       .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::GENERAL)
       // use stanton intermediates?
-      .useStantonIntermediatesUCCSD(usingIntermediates);
+      .withStantonIntermediatesUCCSD(usingIntermediates);
 
   // T1 equations:
   //

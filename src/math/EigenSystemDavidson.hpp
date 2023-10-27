@@ -22,7 +22,7 @@ public:
    * \brief ...
    * \param[in] h object representing the matrix whose eigen system is sought
    * offering the following method:
-   * V rightApply(V &v);
+   * V right_apply(V &v);
    * Also, if the dual version of the Davidson algorithm is to be used
    * h should offer the leftApply method
    * V leftApply(V &v);
@@ -257,7 +257,7 @@ public:
       // LOG(1,"Davidson") << "Computing <basis|H|new>" << std::endl;
       for (unsigned int j(0); j < rightBasis.size(); ++j) {
         // LOG(1,"Davidson") << "Computing " << j << std::endl;
-        V HBj(this->h->rightApply(rightBasis[j]));
+        V HBj(this->h->right_apply(rightBasis[j]));
         for (unsigned int i(previousBasisSize); i < rightBasis.size(); ++i) {
           // LOG(1,"Davidson") << i << "," << j << std::endl;
           reducedH(i, j) = rightBasis[i].dot(HBj);
@@ -269,7 +269,7 @@ public:
       if (previousBasisSize > 0) {
         // LOG(1,"Davidson") << "Computing <new|H|basis>" << std::endl;
         for (unsigned int j(previousBasisSize); j < rightBasis.size(); ++j) {
-          V HBj(this->h->rightApply(rightBasis[j]));
+          V HBj(this->h->right_apply(rightBasis[j]));
           for (unsigned int i(0); i < rightBasis.size(); ++i) {
             // LOG(1,"Davidson") << "Creating " << i << "," << j << std::endl;
             reducedH(i, j) = rightBasis[i].dot(HBj);
@@ -371,7 +371,7 @@ public:
             std::sqrt(leftEigenVectors[k].dot(this->rightEigenVectors[k])));
 
         // compute residuum
-        V residuum(this->h->rightApply(this->rightEigenVectors[k]));
+        V residuum(this->h->right_apply(this->rightEigenVectors[k]));
         const double kNorm = std::real(
             this->rightEigenVectors[k].dot(this->rightEigenVectors[k]));
         residuum -= this->rightEigenVectors[k]

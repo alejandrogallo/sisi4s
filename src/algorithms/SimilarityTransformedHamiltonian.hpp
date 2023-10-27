@@ -1,6 +1,23 @@
 #ifndef SIM_TRANS_HAMILTONIAN_DEFINED
 #define SIM_TRANS_HAMILTONIAN_DEFINED
 
+// Utility Macros
+
+#define _DEFINE_SETTER(type, name, default)                                    \
+  SimilarityTransformedHamiltonian &set##name(type t) {                        \
+    name = t;                                                                  \
+    return *this;                                                              \
+  }                                                                            \
+  type name = default
+
+#define _MAKE_WITH_FUNCTION(type, name, default)                               \
+  SimilarityTransformedHamiltonian &with##name(type const &v) {                \
+    _with##name = v;                                                           \
+    return *this;                                                              \
+  }                                                                            \
+  type &with##name() { return _with##name; }                                   \
+  type _with##name = default
+
 #include <algorithms/Algorithm.hpp>
 #include <algorithms/StantonIntermediatesUCCSD.hpp>
 #include <math/FockVector.hpp>
@@ -34,28 +51,31 @@ public:
   ~SimilarityTransformedHamiltonian(){};
 
   // RPA, singles
-  SFockVector<F> rightApplyHirata_RPA(SFockVector<F> &v);
+  SFockVector<F> right_apply_hirata_RPA(SFockVector<F> &v);
+
+  // CISD
+  FockVector<F> right_apply_CISD(FockVector<F> &R);
 
   // ccsd fok vectors
-  SDFockVector<F> rightApplyIntermediates(SDFockVector<F> &v);
-  SDFockVector<F> rightApplyHirata(SDFockVector<F> &v);
-  SDFockVector<F> rightApply(SDFockVector<F> &v);
-  SDFockVector<F> leftApplyHirata(SDFockVector<F> &v);
+  SDFockVector<F> right_apply_Intermediates(SDFockVector<F> &v);
+  SDFockVector<F> right_apply_hirata(SDFockVector<F> &v);
+  SDFockVector<F> right_apply(SDFockVector<F> &v);
+  SDFockVector<F> leftApply_hirata(SDFockVector<F> &v);
   SDFockVector<F> leftApplyIntermediates(SDFockVector<F> &v);
   SDFockVector<F> leftApply(SDFockVector<F> &v);
 
   // ccsdt fok vectors
-  SDTFockVector<F> rightApplyHirata(SDTFockVector<F> &v);
-  SDTFockVector<F> rightApply(SDTFockVector<F> &v);
+  SDTFockVector<F> right_apply_hirata(SDTFockVector<F> &v);
+  SDTFockVector<F> right_apply(SDTFockVector<F> &v);
 
   // ip and ea ccsd
-  SDFockVector<F> rightApply_CCSD_IP(SDFockVector<F> &);
-  SDFockVector<F> rightApplyHirata_CCSD_IP(SDFockVector<F> &);
-  SDFockVector<F> rightApplyIntermediates_CCSD_IP(SDFockVector<F> &);
+  SDFockVector<F> right_apply_CCSD_IP(SDFockVector<F> &);
+  SDFockVector<F> right_apply_hirata_CCSD_IP(SDFockVector<F> &);
+  SDFockVector<F> right_apply_Intermediates_CCSD_IP(SDFockVector<F> &);
 
-  SDFockVector<F> rightApply_CCSD_EA(SDFockVector<F> &);
-  SDFockVector<F> rightApplyHirata_CCSD_EA(SDFockVector<F> &);
-  SDFockVector<F> rightApplyIntermediates_CCSD_EA(SDFockVector<F> &);
+  SDFockVector<F> right_apply_CCSD_EA(SDFockVector<F> &);
+  SDFockVector<F> right_apply_hirata_CCSD_EA(SDFockVector<F> &);
+  SDFockVector<F> right_apply_Intermediates_CCSD_EA(SDFockVector<F> &);
 
   // Structure factor
   struct StructureFactor {
@@ -75,6 +95,10 @@ public:
                                       .hartreeInOneBody = false,
                                       .fockInOneBody = false});
 
+  //
+  // External resources that should not be cleaned up after
+  // Hamiltonian class gets destroyed
+  //
   // One body
   PTR(Tensor<F>) getIJ();
   PTR(Tensor<F>) getAB();
@@ -97,120 +121,42 @@ public:
   // three body
   PTR(Tensor<F>) getABCIJK();
 
-  // dressing tensor setters
-  STH &setTai(Tensor<F> *t) {
-    Tai = t;
-    return *this;
-  }
-  STH &setTabij(Tensor<F> *t) {
-    Tabij = t;
-    return *this;
-  }
-  STH &setTabcijk(Tensor<F> *t) {
-    Tabcijk = t;
-    return *this;
-  }
-  STH &setTabcdijkl(Tensor<F> *t) {
-    Tabcdijkl = t;
-    return *this;
-  }
+  // t amplitudes
+  _DEFINE_SETTER(Tensor<F> *, Tai, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Tabij, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Tabcijk, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Tabcdijkl, nullptr);
 
-  // V amplitudes setters
-  STH &setFij(Tensor<F> *t) {
-    Fij = t;
-    return *this;
-  }
-  STH &setFab(Tensor<F> *t) {
-    Fab = t;
-    return *this;
-  }
-  STH &setFia(Tensor<F> *t) {
-    Fia = t;
-    return *this;
-  }
-  STH &setVabcd(Tensor<F> *t) {
-    Vabcd = t;
-    return *this;
-  }
-  STH &setViajb(Tensor<F> *t) {
-    Viajb = t;
-    return *this;
-  }
-  STH &setVijab(Tensor<F> *t) {
-    Vijab = t;
-    return *this;
-  }
-  STH &setVijkl(Tensor<F> *t) {
-    Vijkl = t;
-    return *this;
-  }
-  STH &setVijka(Tensor<F> *t) {
-    Vijka = t;
-    return *this;
-  }
-  STH &setViabc(Tensor<F> *t) {
-    Viabc = t;
-    return *this;
-  }
-  STH &setViajk(Tensor<F> *t) {
-    Viajk = t;
-    return *this;
-  }
-  STH &setVabic(Tensor<F> *t) {
-    Vabic = t;
-    return *this;
-  }
-  STH &setVaibc(Tensor<F> *t) {
-    Vaibc = t;
-    return *this;
-  }
-  STH &setVaibj(Tensor<F> *t) {
-    Vaibj = t;
-    return *this;
-  }
-  STH &setViabj(Tensor<F> *t) {
-    Viabj = t;
-    return *this;
-  }
-  STH &setVijak(Tensor<F> *t) {
-    Vijak = t;
-    return *this;
-  }
-  STH &setVaijb(Tensor<F> *t) {
-    Vaijb = t;
-    return *this;
-  }
-  STH &setVabci(Tensor<F> *t) {
-    Vabci = t;
-    return *this;
-  }
-  STH &setVabij(Tensor<F> *t) {
-    Vabij = t;
-    return *this;
-  }
+  // one body part
+  _DEFINE_SETTER(Tensor<F> *, Fij, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Fab, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Fia, nullptr);
 
-#define _DEFINE_SETTER(type, name, default)                                    \
-  STH &set##name(type t) {                                                     \
-    name = t;                                                                  \
-    return *this;                                                              \
-  }                                                                            \
-  type name = default
+  // Coulomb Integrals
+  _DEFINE_SETTER(Tensor<F> *, Vabcd, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Viajb, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Vijab, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Vijkl, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Vijka, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Viabc, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Viajk, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Vabic, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Vaibc, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Vaibj, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Viabj, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Vijak, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Vaijb, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Vabci, nullptr);
+  _DEFINE_SETTER(Tensor<F> *, Vabij, nullptr);
 
   _DEFINE_SETTER(Tensor<F> *, VVaijb, nullptr);
   _DEFINE_SETTER(Tensor<F> *, VViabc, nullptr);
   _DEFINE_SETTER(Tensor<F> *, VVijka, nullptr);
   _DEFINE_SETTER(Tensor<F> *, VVijab, nullptr);
 
-  // coulomb bertex setter
-  STH &setGammaGqr(Tensor<sisi4s::complex> *t) {
-    GammaGqr = t;
-    return *this;
-  }
+  // coulomb vertex setter
+  _DEFINE_SETTER(Tensor<sisi4s::complex> *, GammaGqr, nullptr);
 
-  STH &setRightApplyIntermediates(bool t) {
-    useRightApplyIntermediates = t;
-    return *this;
-  }
   STH &setDressing(Dressing d) {
     dressing = d;
     return *this;
@@ -218,28 +164,19 @@ public:
 
   PTR(Tensor<F>) getTauABIJ();
 
-  STH &useStantonIntermediatesUCCSD(bool s) {
-    _useStantonIntermediatesUCCSD = s;
-    return *this;
-  }
-  bool useStantonIntermediatesUCCSD() { return _useStantonIntermediatesUCCSD; }
-
   std::string getAbbreviation() const { return "STH"; }
 
-  bool _withRingCCSDT;
-  STH &withRingCCSDT(bool const &v) {
-    _withRingCCSDT = v;
-    return *this;
-  }
-  bool &withRingCCSDT() { return _withRingCCSDT; }
+  _MAKE_WITH_FUNCTION(bool, _right_apply_intermediates, false);
+  _MAKE_WITH_FUNCTION(bool, StantonIntermediatesUCCSD, false);
+  _MAKE_WITH_FUNCTION(bool, RingCCSDT, false);
+  _MAKE_WITH_FUNCTION(bool, CISD, false);
+  _MAKE_WITH_FUNCTION(bool, CIS, false);
 
 private:
-  bool _useStantonIntermediatesUCCSD = false;
   PTR(StantonIntermediatesUCCSD<F>) stantonIntermediatesUccsd;
   PTR(StantonIntermediatesUCCSD<F>) getStantonIntermediatesUCCSD();
 
   int No, Nv;
-  bool useRightApplyIntermediates;
   Dressing dressing;
 
   //
@@ -257,30 +194,11 @@ private:
 
       // intermediate quantities
       Tau_abij;
-
-  //
-  // External resources that should not be cleaned up after
-  // Hamiltonian class gets destroyed
-  //
-  Tensor<F>
-      // T amplitudes
-      *Tai = nullptr,
-      *Tabij = nullptr, *Tabcijk = nullptr, *Tabcdijkl = nullptr,
-
-      // Fock matrices
-      *Fij, *Fab, *Fia = nullptr,
-
-      // Coulomb integrals
-                      *Vabcd = nullptr, *Viajb, *Vijab, *Vijkl, *Vijka, *Viabc,
-      *Viajk, *Vabic, *Vaibc, *Vaibj, *Viabj, *Vijak, *Vaijb, *Vabci, *Vabij
-
-      ;
-
-
-  // coulomb vertex
-  Tensor<sisi4s::complex> *GammaGqr = nullptr;
 };
 
 } // namespace sisi4s
+
+#undef _DEFINE_SETTER
+#undef _MAKE_WITH_FUNCTION
 
 #endif

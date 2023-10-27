@@ -26,7 +26,7 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABIJ() {
     return Wabij;
   }
 
-  if (useStantonIntermediatesUCCSD()) {
+  if (withStantonIntermediatesUCCSD()) {
 
     auto intermediates = getStantonIntermediatesUCCSD();
     LOG(1, getAbbreviation()) << "getting stanton intermediates" << std::endl;

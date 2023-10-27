@@ -16,16 +16,14 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(TensorAntisymmetrizer);
-
-bool isSelfAntisymmetrizable(const IntegralInfo &i) {
+static bool isSelfAntisymmetrizable(const IntegralInfo &i) {
   for (const auto &j : i.getAntisymmetrizers()) {
     if (j.name == i.name) return true;
   }
   return false;
 }
 
-void TensorAntisymmetrizer::run() {
+IMPLEMENT_ALGORITHM(TensorAntisymmetrizer) {
   const std::vector<IntegralInfo> infos(
       {{"HHHHCoulombIntegrals", {NO, NO, NO, NO}, "ijkl"},
        {"HHHPCoulombIntegrals", {NO, NO, NO, NV}, "ijka"},

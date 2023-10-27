@@ -317,12 +317,12 @@ void ClusterSinglesDoublesAlgorithm::estimateAmplitudesFromResiduum(
   // apply level shifting on right hand side
   *residuum -= levelShift * *amplitudes;
 
-  for (unsigned int i(0); i < residuum->componentTensors.size(); ++i) {
+  for (unsigned int i(0); i < residuum->component_tensors.size(); ++i) {
     auto R(residuum->get(i));
-    const char *indices(residuum->getIndices(i).c_str());
+    const char *indices(residuum->get_indices(i).c_str());
     Tensor<F> D(false, *R);
     D.set_name("D");
-    calculateExcitationEnergies(D, residuum->getIndices(i));
+    calculateExcitationEnergies(D, residuum->get_indices(i));
 
     // divide by -Delta to get new estimate for T
     CTF::Transform<F, F>(std::function<void(F, F &)>(

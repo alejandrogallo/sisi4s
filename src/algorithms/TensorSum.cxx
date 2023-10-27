@@ -3,18 +3,7 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(TensorSum);
-
-TensorSum::TensorSum(std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-TensorSum::~TensorSum() {}
-
-/**
- * \brief Testing environement
- */
-void TensorSum::run() {
-
+IMPLEMENT_ALGORITHM(TensorSum) {
   Tensor<double> *A(getTensorArgument("A"));
   Tensor<double> *B(getTensorArgument("B"));
   Tensor<double> *C(getTensorArgument("Result"));
