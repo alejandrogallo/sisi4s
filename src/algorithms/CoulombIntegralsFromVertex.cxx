@@ -201,6 +201,9 @@ void CoulombIntegralsFromVertex::dryRun() {
 }
 
 void CoulombIntegralsFromVertex::calculateRealIntegrals() {
+
+  const bool calculate_vpqrs = isArgumentGiven("PQRSCoulombIntegrals");
+
   int antisymmetrize(getIntegerArgument("antisymmetrize", 0));
   if (antisymmetrize) {
     LOG(0, "CoulombIntegrals")
@@ -357,6 +360,33 @@ void CoulombIntegralsFromVertex::calculateRealIntegrals() {
                               *GammaGij->wrld,
                               "ImagGammaGij");
   fromComplexTensor(*GammaGij, realGammaGij, imagGammaGij);
+
+  if (calculate_vpqrs) {
+    Tensor<complex> *GammaGqr(getTensorArgument<complex>("CoulombVertex"));
+    int64_t No = (GammaGij->lens[1]), Nv = (GammaGab->lens[1]);
+    LOG(1, "CoulombIntegrals") << "Evaluating full Vpqrs" << std::endl;
+    const auto pppp = std::vector<int64_t>(4, GammaGqr->lens[1]);
+    Tensor<double> *t = new Tensor<double>(pppp.size(),
+                                           pppp.data(),
+                                           syms.data(),
+                                           *Sisi4s::world,
+                                           "Vpqrs");
+    Tensor<double> realGammaGqr(3,
+                                GammaGqr->lens,
+                                GammaGqr->sym,
+                                *GammaGqr->wrld,
+                                "RealGammaGqr");
+    Tensor<double> imagGammaGqr(3,
+                                GammaGqr->lens,
+                                GammaGqr->sym,
+                                *GammaGqr->wrld,
+                                "ImagGammaGqr");
+    fromComplexTensor(*GammaGqr, realGammaGqr, imagGammaGqr);
+    (*t)["pqrs"] = realGammaGqr["Gpr"] * realGammaGqr["Gqs"];
+    (*t)["pqrs"] += imagGammaGqr["Gpr"] * imagGammaGqr["Gqs"];
+    if (antisymmetrize) { (*t)["pqrs"] -= (*t)["pqsr"]; }
+    allocatedTensorArgument("PQRSCoulombIntegrals", t);
+  }
 
   // Compute the integrals Vabij Vaibj Vaijb Vijkl Vabcd
   if (Vaibj) {
