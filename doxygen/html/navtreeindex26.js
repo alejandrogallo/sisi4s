@@ -1,5 +1,6 @@
 var NAVTREEINDEX26 =
 {
+"namespaceghc_1_1filesystem.html#ae53bc3ef946a2f45fb2eeb5c0cdb46b1":[2,0,2,0,37],
 "namespaceghc_1_1filesystem.html#ae5e1a9b60d593360ca56be69d33bc0e9":[2,0,2,0,51],
 "namespaceghc_1_1filesystem.html#aea3ca17482acce4248ed36dde3b02815":[2,0,2,0,69],
 "namespaceghc_1_1filesystem.html#aeb9a8c615cbf82c83627b61059c1cad2":[2,0,2,0,85],
@@ -248,6 +249,5 @@ var NAVTREEINDEX26 =
 "structAtom.html":[3,0,8],
 "structAtom.html#a382da4a2a8d20faa2fd1eca986f44056":[3,0,8,2],
 "structAtom.html#a42fed25f1d6382cb37fce5f2fa463bb7":[3,0,8,0],
-"structAtom.html#a645a8cf3b812cef54393a68c206055cc":[3,0,8,1],
-"structAtom.html#aab210323240ea76e6f866113e590cd22":[3,0,8,3]
+"structAtom.html#a645a8cf3b812cef54393a68c206055cc":[3,0,8,1]
 };

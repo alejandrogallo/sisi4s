@@ -127,6 +127,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:aa8ba04a670d75dff46ec4be88bdd8ff3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#aa8ba04a670d75dff46ec4be88bdd8ff3">_FORMAT</a>(_fmt, ...)</td></tr>
+<tr class="separator:aa8ba04a670d75dff46ec4be88bdd8ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8839cdf651ee7aca0c558a57fbcca7a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#a8839cdf651ee7aca0c558a57fbcca7a1">OUT</a>()</td></tr>
 <tr class="memdesc:a8839cdf651ee7aca0c558a57fbcca7a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides an output stream for writing a log message of the log level specified by the argument. Note that this macro must be used as a statement and cannot be used as an rvalue.  <br /></td></tr>
 <tr class="separator:a8839cdf651ee7aca0c558a57fbcca7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,6 +144,40 @@ Macros</h2></td></tr>
 <tr class="separator:ac44a665179bef54595113d3ff847089a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aa8ba04a670d75dff46ec4be88bdd8ff3" name="aa8ba04a670d75dff46ec4be88bdd8ff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8ba04a670d75dff46ec4be88bdd8ff3">&#9670;&#160;</a></span>_FORMAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _FORMAT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_fmt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  ([&amp;](void) -&gt; std::string {                                                  \</div>
+<div class="line">    <span class="keywordtype">int</span> _sz = std::snprintf(<span class="keyword">nullptr</span>, 0, _fmt, __VA_ARGS__);                    \</div>
+<div class="line">    std::vector&lt;char&gt; _out(_sz + 1);                                           \</div>
+<div class="line">    std::snprintf(&amp;_out[0], _out.size(), _fmt, __VA_ARGS__);                   \</div>
+<div class="line">    <span class="keywordflow">return</span> std::string(_out.data());                                           \</div>
+<div class="line">  })()</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="ae553676326b69ce508ea4c6f9134093b" name="ae553676326b69ce508ea4c6f9134093b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae553676326b69ce508ea4c6f9134093b">&#9670;&#160;</a></span>FILE</h2>
 

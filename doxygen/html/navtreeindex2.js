@@ -20,12 +20,13 @@ var NAVTREEINDEX2 =
 "LinearMixer_8hpp_source.html":[4,0,0,3,3],
 "Log_8cxx.html":[4,0,0,6,22],
 "Log_8hpp.html":[4,0,0,6,23],
-"Log_8hpp.html#a3577749fb48d57a158b8ac1a0b3ab57e":[4,0,0,6,23,4],
-"Log_8hpp.html#a8806969f7e3eda27deabefc7154c11cb":[4,0,0,6,23,6],
-"Log_8hpp.html#a8839cdf651ee7aca0c558a57fbcca7a1":[4,0,0,6,23,7],
-"Log_8hpp.html#ac44a665179bef54595113d3ff847089a":[4,0,0,6,23,5],
-"Log_8hpp.html#ad1ccc51e239005df4978895dae15497b":[4,0,0,6,23,8],
-"Log_8hpp.html#ae553676326b69ce508ea4c6f9134093b":[4,0,0,6,23,3],
+"Log_8hpp.html#a3577749fb48d57a158b8ac1a0b3ab57e":[4,0,0,6,23,5],
+"Log_8hpp.html#a8806969f7e3eda27deabefc7154c11cb":[4,0,0,6,23,7],
+"Log_8hpp.html#a8839cdf651ee7aca0c558a57fbcca7a1":[4,0,0,6,23,8],
+"Log_8hpp.html#aa8ba04a670d75dff46ec4be88bdd8ff3":[4,0,0,6,23,3],
+"Log_8hpp.html#ac44a665179bef54595113d3ff847089a":[4,0,0,6,23,6],
+"Log_8hpp.html#ad1ccc51e239005df4978895dae15497b":[4,0,0,6,23,9],
+"Log_8hpp.html#ae553676326b69ce508ea4c6f9134093b":[4,0,0,6,23,4],
 "Log_8hpp_source.html":[4,0,0,6,23],
 "MathFunctions_8cxx.html":[4,0,0,2,12],
 "MathFunctions_8hpp.html":[4,0,0,2,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "ScaLapack_8hpp.html#af354fd99d736878fd23bdf09683aa6f1":[4,0,0,1,2,10],
 "ScaLapack_8hpp_source.html":[4,0,0,1,2],
 "Scanner_8hpp.html":[4,0,0,6,33],
-"Scanner_8hpp_source.html":[4,0,0,6,33],
-"SharedPointer_8hpp.html":[4,0,0,6,34]
+"Scanner_8hpp_source.html":[4,0,0,6,33]
 };
