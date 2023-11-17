@@ -8,6 +8,13 @@
   }                                                                            \
   type name = default
 
+#define __DEFINE_SETTER(type, name, default)                                   \
+  Preconditioner &set##name(type t) {                                          \
+    name = t;                                                                  \
+    return *this;                                                              \
+  }                                                                            \
+  type name = default
+
 #include <algorithms/Algorithm.hpp>
 #include <math/FockVector.hpp>
 #include <vector>
@@ -15,6 +22,28 @@
 #include <util/SharedPointer.hpp>
 
 namespace sisi4s {
+
+template <typename F, typename V>
+class Preconditioner {
+public:
+  virtual void calculateDiagonal() = 0;
+
+  virtual std::vector<V> getInitialBasis(int eigenVectorsCount) = 0;
+
+  virtual V getCorrection(const complex eigenValue, V &residuum) = 0;
+
+  /**
+   * \brief Setters for the main tensors
+   */
+  __DEFINE_SETTER(Tensor<F> *, Tai, nullptr);
+  __DEFINE_SETTER(Tensor<F> *, Tabij, nullptr);
+  __DEFINE_SETTER(Tensor<F> *, Fij, nullptr);
+  __DEFINE_SETTER(Tensor<F> *, Fab, nullptr);
+  __DEFINE_SETTER(Tensor<F> *, Vabcd, nullptr);
+  __DEFINE_SETTER(Tensor<F> *, Vijab, nullptr);
+  __DEFINE_SETTER(Tensor<F> *, Viajb, nullptr);
+  __DEFINE_SETTER(Tensor<F> *, Vijkl, nullptr);
+};
 
 /**
  * \brief Implements the diagonal preconditionar for the davidson method
@@ -94,25 +123,29 @@ private:
 };
 
 template <typename F>
-class IPCcsdPreconditioner : public CcsdPreconditioner<F> {
+class IPCcsdPreconditioner : public Preconditioner<F, SDFockVector<F>> {
 public:
+  using V = SDFockVector<F>;
+  PTR(V) diagonalH;
+
   void calculateDiagonal();
 
-  std::vector<SDFockVector<F>> getInitialBasis(int eigenVectorsCount);
+  std::vector<V> getInitialBasis(int eigenVectorsCount);
 
-  SDFockVector<F> getCorrection(const complex eigenValue,
-                                SDFockVector<F> &residuum);
+  V getCorrection(const complex eigenValue, V &residuum);
 };
 
 template <typename F>
-class EACcsdPreconditioner : public CcsdPreconditioner<F> {
+class EACcsdPreconditioner : public Preconditioner<F, SDFockVector<F>> {
 public:
+  using V = SDFockVector<F>;
+  PTR(V) diagonalH;
+
   void calculateDiagonal();
 
-  std::vector<SDFockVector<F>> getInitialBasis(int eigenVectorsCount);
+  std::vector<V> getInitialBasis(int eigenVectorsCount);
 
-  SDFockVector<F> getCorrection(const complex eigenValue,
-                                SDFockVector<F> &residuum);
+  V getCorrection(const complex eigenValue, V &residuum);
 };
 
 template <typename F>

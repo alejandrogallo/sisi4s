@@ -65,9 +65,8 @@ void UccsdAmplitudesFromCoulombIntegrals::run() {
                        "PHHPCoulombIntegrals",
                        "UccsdDoublesAmplitudes",
                        "UccsdSinglesAmplitudes",
-                       "UccsdEnergy"
+                       "UccsdEnergy",
                        //
-                       ,
                        "onlyPPL",
                        "initialDoublesAmplitudes",
                        "initialSinglesAmplitudes",

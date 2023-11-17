@@ -252,7 +252,8 @@ void UCcsdIPEquationOfMotionDavidson::run() {
   ipH.h = &H;
 
   // INITIALIZE SIMILARITY PRECONDITIONER
-  IPCcsdPreconditioner<F> P;
+  using _Preconditioner = IPCcsdPreconditioner<F>;
+  _Preconditioner P;
   P.setTai(&Tai)
       .setTabij(&Tabij)
       .setFij(Fij)
@@ -260,9 +261,7 @@ void UCcsdIPEquationOfMotionDavidson::run() {
       // Set coulomb integrals
       .setVijab(Vijab);
 
-  EigenSystemDavidsonMono<IPHamiltonian,
-                          IPCcsdPreconditioner<F>,
-                          SDFockVector<F>>
+  EigenSystemDavidsonMono<IPHamiltonian, _Preconditioner, SDFockVector<F>>
       eigenSystem(&ipH,
                   eigenStates,
                   &P,

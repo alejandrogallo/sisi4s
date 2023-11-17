@@ -392,7 +392,6 @@ void EACcsdPreconditioner<F>::calculateDiagonal() {
   (*Da)["a"] = (+1.0) * (*Fab)["aa"];
 
   (*Dabi)["cdi"] = (-1.0) * (*Fij)["ii"];
-  (*Dabi)["cdi"] += (-1.0) * (*Fij)["jj"];
   (*Dabi)["cdi"] += (+1.0) * (*Fab)["cc"];
   (*Dabi)["cdi"] += (+1.0) * (*Fab)["dd"];
 }
@@ -545,21 +544,23 @@ EACcsdPreconditioner<F>::getCorrection(const sisi4s::complex lambda,
 
 template <typename F>
 void IPCcsdPreconditioner<F>::calculateDiagonal() {
+  LOG(1, "IPCcsdPreconditioner") << "Getting No and Nv" << std::endl;
   int No(this->Fij->lens[0]), Nv(this->Fab->lens[0]);
   std::vector<int> o{{No}}, voo{{Nv, No, No}}, ns{{NS}}, nss{{NS, NS, NS}};
 
   auto &Fij = this->Fij;
   auto &Fab = this->Fab;
 
-  this->diagonalH = NEW(
+  LOG(1, "IPCcsdPreconditioner") << "Allocate diagonal" << std::endl;
+  diagonalH = NEW(
       SDFockVector<F>,
       std::vector<PTR(Tensor<F>)>(
           {NEW(Tensor<F>, 1, o.data(), ns.data(), *Sisi4s::world, "Di"),
            NEW(Tensor<F>, 3, voo.data(), nss.data(), *Sisi4s::world, "Daij")}),
       std::vector<std::string>({"i", "aij"}));
 
-  auto Di(this->diagonalH->get(0));
-  auto Daij(this->diagonalH->get(1));
+  auto Di(diagonalH->get(0));
+  auto Daij(diagonalH->get(1));
 
   // calculate diagonal elements of H
   (*Di)["i"] = (-1.0) * (*Fij)["ii"];
@@ -567,7 +568,6 @@ void IPCcsdPreconditioner<F>::calculateDiagonal() {
   (*Daij)["cij"] = (-1.0) * (*Fij)["ii"];
   (*Daij)["cij"] += (-1.0) * (*Fij)["jj"];
   (*Daij)["cij"] += (+1.0) * (*Fab)["cc"];
-  (*Daij)["cij"] += (+1.0) * (*Fab)["dd"];
 }
 
 template <typename F>
@@ -576,7 +576,7 @@ IPCcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   calculateDiagonal();
   LOG(0, "IPCcsdPreconditioner") << "Getting initial basis " << std::endl;
   // find K=eigenVectorsCount lowest diagonal elements at each processor
-  std::vector<std::pair<size_t, F>> localElements(this->diagonalH->readLocal());
+  std::vector<std::pair<size_t, F>> localElements(diagonalH->readLocal());
   std::sort(localElements.begin(),
             localElements.end(),
             EomDiagonalValueComparator<F>());
@@ -616,8 +616,9 @@ IPCcsdPreconditioner<F>::getInitialBasis(const int eigenVectorsCount) {
   int currentEigenVectorCount(0);
   unsigned int b(0);
   int zeroVectorCount(0);
+  LOG(1, "IPCcsdPreconditioner") << "Starting with loop" << std::endl;
   while (currentEigenVectorCount < eigenVectorsCount) {
-    SDFockVector<F> basisElement(*this->diagonalH);
+    SDFockVector<F> basisElement(*diagonalH);
     basisElement *= 0.0;
     std::vector<std::pair<size_t, F>> elements;
     if (communicator.getRank() == 0) {
@@ -676,7 +677,7 @@ template <typename F>
 SDFockVector<F>
 IPCcsdPreconditioner<F>::getCorrection(const sisi4s::complex lambda,
                                        SDFockVector<F> &residuum) {
-  SDFockVector<F> w(*this->diagonalH);
+  SDFockVector<F> w(*diagonalH);
 
   // Define a singleton helping class for the diagonal correction
   class DiagonalCorrection {
@@ -693,7 +694,7 @@ IPCcsdPreconditioner<F>::getCorrection(const sisi4s::complex lambda,
     double lambda;
   } diagonalCorrection(std::real(lambda));
 
-  SDFockVector<F> correction(*this->diagonalH);
+  SDFockVector<F> correction(*diagonalH);
   // compute ((lambda * id - Diag(diagonal))^-1) . residuum
   for (unsigned int c(0); c < w.get_components_count(); ++c) {
     const char *indices(correction.component_indices[c].c_str());
@@ -701,7 +702,7 @@ IPCcsdPreconditioner<F>::getCorrection(const sisi4s::complex lambda,
         .contract(1.0,
                   *residuum.get(c),
                   indices,
-                  *this->diagonalH->get(c),
+                  *diagonalH->get(c),
                   indices,
                   0.0,
                   indices,
