@@ -27,6 +27,7 @@ std::vector<Algorithm *> InputFileParser<InputFileFormat::YAML>::parse() {
     std::vector<Argument> arguments;
 
     if (node["disable"] && node["disable"].as<bool>()) continue;
+    if (node["enable"] && !node["enable"].as<bool>()) continue;
 
     for (auto const &_inout : {"in", "out"}) {
       YAML::Node const inout = node[_inout];
