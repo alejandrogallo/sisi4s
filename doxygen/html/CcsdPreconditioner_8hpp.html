@@ -117,6 +117,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1Preconditioner.html">sisi4s::Preconditioner&lt; F, V &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsisi4s_1_1CcsdPreconditioner.html">sisi4s::CcsdPreconditioner&lt; F &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the diagonal preconditionar for the davidson method.  <a href="classsisi4s_1_1CcsdPreconditioner.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,8 +138,49 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a98d02381054bb787c13c3b266a82666c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CcsdPreconditioner_8hpp.html#a98d02381054bb787c13c3b266a82666c">_DEFINE_SETTER</a>(type,  name,  default)</td></tr>
 <tr class="separator:a98d02381054bb787c13c3b266a82666c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa4a6d89d67dad49c77e8c01bff2c082"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CcsdPreconditioner_8hpp.html#aaa4a6d89d67dad49c77e8c01bff2c082">__DEFINE_SETTER</a>(type,  name,  default)</td></tr>
+<tr class="separator:aaa4a6d89d67dad49c77e8c01bff2c082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aaa4a6d89d67dad49c77e8c01bff2c082" name="aaa4a6d89d67dad49c77e8c01bff2c082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa4a6d89d67dad49c77e8c01bff2c082">&#9670;&#160;</a></span>__DEFINE_SETTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __DEFINE_SETTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">default&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  Preconditioner &amp;set##name(type t) {                                          \</div>
+<div class="line">    name = t;                                                                  \</div>
+<div class="line">    <span class="keywordflow">return</span> *<span class="keyword">this</span>;                                                              \</div>
+<div class="line">  }                                                                            \</div>
+<div class="line">  type name = <span class="keywordflow">default</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a98d02381054bb787c13c3b266a82666c" name="a98d02381054bb787c13c3b266a82666c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a98d02381054bb787c13c3b266a82666c">&#9670;&#160;</a></span>_DEFINE_SETTER</h2>
 

@@ -198,9 +198,7 @@ var hierarchy =
     ] ],
     [ "sisi4s::BlacsWorld", "classsisi4s_1_1BlacsWorld.html", null ],
     [ "sisi4s::CcsdPreconditioner< F >", "classsisi4s_1_1CcsdPreconditioner.html", [
-      [ "sisi4s::CISPreconditioner< F >", "classsisi4s_1_1CISPreconditioner.html", null ],
-      [ "sisi4s::EACcsdPreconditioner< F >", "classsisi4s_1_1EACcsdPreconditioner.html", null ],
-      [ "sisi4s::IPCcsdPreconditioner< F >", "classsisi4s_1_1IPCcsdPreconditioner.html", null ]
+      [ "sisi4s::CISPreconditioner< F >", "classsisi4s_1_1CISPreconditioner.html", null ]
     ] ],
     [ "sisi4s::CoulombVertexReader::Chunk", "classsisi4s_1_1CoulombVertexReader_1_1Chunk.html", null ],
     [ "sisi4s::ParticleHoleCoulombVertexReader::Chunk", "classsisi4s_1_1ParticleHoleCoulombVertexReader_1_1Chunk.html", null ],
@@ -406,6 +404,11 @@ var hierarchy =
     [ "ghc::filesystem::path_helper_base< char_type >", "classghc_1_1filesystem_1_1path__helper__base.html", null ],
     [ "ghc::filesystem::path_helper_base< std::string::value_type >", "classghc_1_1filesystem_1_1path__helper__base.html", [
       [ "ghc::filesystem::path", "classghc_1_1filesystem_1_1path.html", null ]
+    ] ],
+    [ "sisi4s::Preconditioner< F, V >", "classsisi4s_1_1Preconditioner.html", null ],
+    [ "sisi4s::Preconditioner< F, SDFockVector< F > >", "classsisi4s_1_1Preconditioner.html", [
+      [ "sisi4s::EACcsdPreconditioner< F >", "classsisi4s_1_1EACcsdPreconditioner.html", null ],
+      [ "sisi4s::IPCcsdPreconditioner< F >", "classsisi4s_1_1IPCcsdPreconditioner.html", null ]
     ] ],
     [ "sisi4s::CtfMachineTensor< F >::ProtectedToken", "classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken.html", null ],
     [ "sisi4s::CtfMachineTensorFactory< F >::ProtectedToken", "classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken.html", null ],

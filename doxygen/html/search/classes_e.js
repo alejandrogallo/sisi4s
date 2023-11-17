@@ -15,9 +15,11 @@ var searchData=
   ['permutation_3c_201_20_3e_12',['Permutation&lt; 1 &gt;',['../classsisi4s_1_1Permutation_3_011_01_4.html',1,'sisi4s']]],
   ['perturbativetriples_13',['PerturbativeTriples',['../classsisi4s_1_1PerturbativeTriples.html',1,'sisi4s']]],
   ['pqrscoulombintegralstovertex_14',['PQRSCoulombIntegralsToVertex',['../classsisi4s_1_1PQRSCoulombIntegralsToVertex.html',1,'sisi4s']]],
-  ['protectedtoken_15',['ProtectedToken',['../classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken.html',1,'sisi4s::CtfMachineTensor&lt; F &gt;::ProtectedToken'],['../classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken.html',1,'sisi4s::CtfMachineTensorFactory&lt; F &gt;::ProtectedToken']]],
-  ['proxy_16',['proxy',['../classghc_1_1filesystem_1_1directory__iterator_1_1proxy.html',1,'ghc::filesystem::directory_iterator']]],
-  ['pseudoinverse_17',['PseudoInverse',['../classsisi4s_1_1PseudoInverse.html',1,'sisi4s']]],
-  ['pseudoinversehermitiansvd_18',['PseudoInverseHermitianSvd',['../classsisi4s_1_1PseudoInverseHermitianSvd.html',1,'sisi4s']]],
-  ['pseudoinversesvd_19',['PseudoInverseSvd',['../classsisi4s_1_1PseudoInverseSvd.html',1,'sisi4s']]]
+  ['preconditioner_15',['Preconditioner',['../classsisi4s_1_1Preconditioner.html',1,'sisi4s']]],
+  ['preconditioner_3c_20f_2c_20sdfockvector_3c_20f_20_3e_20_3e_16',['Preconditioner&lt; F, SDFockVector&lt; F &gt; &gt;',['../classsisi4s_1_1Preconditioner.html',1,'sisi4s']]],
+  ['protectedtoken_17',['ProtectedToken',['../classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken.html',1,'sisi4s::CtfMachineTensor&lt; F &gt;::ProtectedToken'],['../classsisi4s_1_1CtfMachineTensorFactory_1_1ProtectedToken.html',1,'sisi4s::CtfMachineTensorFactory&lt; F &gt;::ProtectedToken']]],
+  ['proxy_18',['proxy',['../classghc_1_1filesystem_1_1directory__iterator_1_1proxy.html',1,'ghc::filesystem::directory_iterator']]],
+  ['pseudoinverse_19',['PseudoInverse',['../classsisi4s_1_1PseudoInverse.html',1,'sisi4s']]],
+  ['pseudoinversehermitiansvd_20',['PseudoInverseHermitianSvd',['../classsisi4s_1_1PseudoInverseHermitianSvd.html',1,'sisi4s']]],
+  ['pseudoinversesvd_21',['PseudoInverseSvd',['../classsisi4s_1_1PseudoInverseSvd.html',1,'sisi4s']]]
 ];

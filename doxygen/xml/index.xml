@@ -1325,9 +1325,11 @@
     <member refid="classsisi4s_1_1DryVector_1a4b5cfbc5e666b77654bdabe83590a57e" kind="function"><name>DryVector</name></member>
   </compound>
   <compound refid="classsisi4s_1_1EACcsdPreconditioner" kind="class"><name>sisi4s::EACcsdPreconditioner</name>
+    <member refid="classsisi4s_1_1EACcsdPreconditioner_1a48d57de8344f65fab627968385b975df" kind="typedef"><name>V</name></member>
+    <member refid="classsisi4s_1_1EACcsdPreconditioner_1afad9b3c7109e174bd88c9b6b20986672" kind="variable"><name>diagonalH</name></member>
     <member refid="classsisi4s_1_1EACcsdPreconditioner_1a89640a853e0078f550b55b948ffb944f" kind="function"><name>calculateDiagonal</name></member>
     <member refid="classsisi4s_1_1EACcsdPreconditioner_1a49913544736063c43e265facdc2cc393" kind="function"><name>getInitialBasis</name></member>
-    <member refid="classsisi4s_1_1EACcsdPreconditioner_1ab7ce4b1e3a15799962eac9943236debd" kind="function"><name>getCorrection</name></member>
+    <member refid="classsisi4s_1_1EACcsdPreconditioner_1ad61ee29a85755fee1c132f22135c2091" kind="function"><name>getCorrection</name></member>
   </compound>
   <compound refid="classsisi4s_1_1EigenSystemDavidson" kind="class"><name>sisi4s::EigenSystemDavidson</name>
     <member refid="classsisi4s_1_1EigenSystemDavidson_1a38d32c95a6601a9303c4187f432ea6d1" kind="typedef"><name>F</name></member>
@@ -1939,9 +1941,11 @@
     <member refid="classCLI_1_1InvalidError_1af1d28f4b288b5fd32c6ca27c358cde48" kind="function"><name>InvalidError</name></member>
   </compound>
   <compound refid="classsisi4s_1_1IPCcsdPreconditioner" kind="class"><name>sisi4s::IPCcsdPreconditioner</name>
+    <member refid="classsisi4s_1_1IPCcsdPreconditioner_1aa8457f317da8f3c572f7d902fdc7521a" kind="typedef"><name>V</name></member>
+    <member refid="classsisi4s_1_1IPCcsdPreconditioner_1af2f5ecbc580bc95909c3e8cfbc836684" kind="variable"><name>diagonalH</name></member>
     <member refid="classsisi4s_1_1IPCcsdPreconditioner_1a7abf0881240840d5a75fa9ada3aa0eb7" kind="function"><name>calculateDiagonal</name></member>
     <member refid="classsisi4s_1_1IPCcsdPreconditioner_1a2e97db095cdebec9c83d1b60295605ec" kind="function"><name>getInitialBasis</name></member>
-    <member refid="classsisi4s_1_1IPCcsdPreconditioner_1a7a64a258bc792326104e2eef5f69933e" kind="function"><name>getCorrection</name></member>
+    <member refid="classsisi4s_1_1IPCcsdPreconditioner_1a7cbe4d3466c5f79154335c633fce4064" kind="function"><name>getCorrection</name></member>
   </compound>
   <compound refid="classCLI_1_1detail_1_1IPV4Validator" kind="class"><name>CLI::detail::IPV4Validator</name>
     <member refid="classCLI_1_1detail_1_1IPV4Validator_1aef7e0d0bb6a0e68a0dcb5434c4dbf657" kind="function"><name>IPV4Validator</name></member>
@@ -2840,6 +2844,27 @@
     <member refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a2616d41143c212e1dafbd84aa386dd9e" kind="function"><name>PQRSCoulombIntegralsToVertex</name></member>
     <member refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a813067345d847527ec57940e03f20db4" kind="function"><name>~PQRSCoulombIntegralsToVertex</name></member>
     <member refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a46fac3f3f22f920dc41e0c0d37e58c22" kind="function"><name>run</name></member>
+  </compound>
+  <compound refid="classsisi4s_1_1Preconditioner" kind="class"><name>sisi4s::Preconditioner</name>
+    <member refid="classsisi4s_1_1Preconditioner_1a9c4e79e4de40f4f93f48c098a845159e" kind="variable"><name>Tai</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1aefbc547b6e76fb0b2c7acae5c15f8ded" kind="variable"><name>Tabij</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a70d5640b8a18f74fd83cca147c18a948" kind="variable"><name>Fij</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a183136fbebd8f78dc15edad5301c1364" kind="variable"><name>Fab</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a22e35b13af2acfcbb1755aa609f4c48e" kind="variable"><name>Vabcd</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1ae1c63174e385f7d2bf8c9aa65ba44f37" kind="variable"><name>Vijab</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1ad6d0552a9f4665be42e1932879215389" kind="variable"><name>Viajb</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1aace7f3c32aade291f03511402800bbbb" kind="variable"><name>Vijkl</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a1312d83a8b5e7bd9308b5f9ee1e38f1c" kind="function"><name>calculateDiagonal</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a097f5117bf0932aaf601b45c9cce0438" kind="function"><name>getInitialBasis</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a36dfa494dbbe6b6aab2731b66a38ce46" kind="function"><name>getCorrection</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a33cfaa62eb96496fe5de17f058efcbf9" kind="function"><name>setTai</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a1e0a8507dfa5b43f5529f2fb214cc309" kind="function"><name>setTabij</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1ac8149ba063e66f5d3eeb40ac7d51a024" kind="function"><name>setFij</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a7757b45eda1fc77f146f2dbd9b657d54" kind="function"><name>setFab</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a51e9b6114b2a215f3e49667fc4c93755" kind="function"><name>setVabcd</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a49ea97b26666fc19e42cfdf19722c90a" kind="function"><name>setVijab</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1af7c6c8636749e4453e4ba0b1e6e2f5dd" kind="function"><name>setViajb</name></member>
+    <member refid="classsisi4s_1_1Preconditioner_1a3831e1f8fd5965f7e0f5975a1a9edd90" kind="function"><name>setVijkl</name></member>
   </compound>
   <compound refid="classsisi4s_1_1CtfMachineTensor_1_1ProtectedToken" kind="class"><name>sisi4s::CtfMachineTensor::ProtectedToken</name>
   </compound>
@@ -4475,6 +4500,7 @@
   </compound>
   <compound refid="CcsdPreconditioner_8hpp" kind="file"><name>CcsdPreconditioner.hpp</name>
     <member refid="CcsdPreconditioner_8hpp_1a98d02381054bb787c13c3b266a82666c" kind="define"><name>_DEFINE_SETTER</name></member>
+    <member refid="CcsdPreconditioner_8hpp_1aaa4a6d89d67dad49c77e8c01bff2c082" kind="define"><name>__DEFINE_SETTER</name></member>
   </compound>
   <compound refid="CcsdtEnergyFromCoulombIntegrals_8cxx" kind="file"><name>CcsdtEnergyFromCoulombIntegrals.cxx</name>
   </compound>

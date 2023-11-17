@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"LapackMatrix_8hpp_source.html":[4,0,0,6,19],
 "Lapack_8hpp.html":[4,0,0,1,1],
 "Lapack_8hpp.html#a42c0fcb1633b24fa62233af66495e9aa":[4,0,0,1,1,3],
 "Lapack_8hpp.html#a44b3584500939d1adaabb3c0fc0487f1":[4,0,0,1,1,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "ScaLapack_8hpp.html#af130b46d871af27f5d62d0c0203a2063":[4,0,0,1,2,9],
 "ScaLapack_8hpp.html#af354fd99d736878fd23bdf09683aa6f1":[4,0,0,1,2,10],
 "ScaLapack_8hpp_source.html":[4,0,0,1,2],
-"Scanner_8hpp.html":[4,0,0,6,33],
-"Scanner_8hpp_source.html":[4,0,0,6,33]
+"Scanner_8hpp.html":[4,0,0,6,33]
 };

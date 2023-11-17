@@ -145,6 +145,7 @@ var namespacesisi4s =
     [ "Permutation< 1 >", "classsisi4s_1_1Permutation_3_011_01_4.html", "classsisi4s_1_1Permutation_3_011_01_4" ],
     [ "PerturbativeTriples", "classsisi4s_1_1PerturbativeTriples.html", "classsisi4s_1_1PerturbativeTriples" ],
     [ "PQRSCoulombIntegralsToVertex", "classsisi4s_1_1PQRSCoulombIntegralsToVertex.html", "classsisi4s_1_1PQRSCoulombIntegralsToVertex" ],
+    [ "Preconditioner", "classsisi4s_1_1Preconditioner.html", "classsisi4s_1_1Preconditioner" ],
     [ "PseudoInverse", "classsisi4s_1_1PseudoInverse.html", "classsisi4s_1_1PseudoInverse" ],
     [ "PseudoInverseHermitianSvd", "classsisi4s_1_1PseudoInverseHermitianSvd.html", "classsisi4s_1_1PseudoInverseHermitianSvd" ],
     [ "PseudoInverseSvd", "classsisi4s_1_1PseudoInverseSvd.html", "classsisi4s_1_1PseudoInverseSvd" ],
