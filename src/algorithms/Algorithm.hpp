@@ -91,7 +91,6 @@ public:
   void setRealArgument(std::string const &argumentName, real const value);
   void setIntegerArgument(std::string const &argumentName, int const value);
 
-protected:
   // type promotions:
   real getRealArgumentFromInteger(IntegerData *data);
   real getRealArgumentFromTensor(TensorData<real> *data);
