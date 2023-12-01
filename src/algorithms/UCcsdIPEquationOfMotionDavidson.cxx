@@ -29,13 +29,14 @@ UCcsdIPEquationOfMotionDavidson::UCcsdIPEquationOfMotionDavidson(
 UCcsdIPEquationOfMotionDavidson::~UCcsdIPEquationOfMotionDavidson() {}
 
 void UCcsdIPEquationOfMotionDavidson::run() {
-
-  if (getIntegerArgument("complexVersion", 1) == 1) {
-    LOG(0, "IPEomDavid") << "Using complex code" << std::endl;
-    UCcsdIPEquationOfMotionDavidson::run<complex>();
-  } else {
+  Data *Vabij(getArgumentData("HHPPCoulombIntegrals"));
+  TensorData<double> *realVabij(dynamic_cast<TensorData<double> *>(Vabij));
+  if (realVabij) {
     LOG(0, "IPEomDavid") << "Using real code" << std::endl;
     UCcsdIPEquationOfMotionDavidson::run<double>();
+  } else {
+    LOG(0, "IPEomDavid") << "Using complex code" << std::endl;
+    UCcsdIPEquationOfMotionDavidson::run<complex>();
   }
 }
 

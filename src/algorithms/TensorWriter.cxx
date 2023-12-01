@@ -8,11 +8,27 @@
 
 namespace sisi4s {
 
+static const std::type_info &check_type(Data *tensor_data) {
+  TensorData<double> *real_tensor_data(
+      dynamic_cast<TensorData<double> *>(tensor_data));
+  if (real_tensor_data) return typeid(double);
+  TensorData<sisi4s::complex> *imag_tensor_data(
+      dynamic_cast<TensorData<sisi4s::complex> *>(tensor_data));
+  if (imag_tensor_data) return typeid(sisi4s::complex);
+  throw "Could not detect type of integrals in TensorAntisymmetrizer";
+}
+
 IMPLEMENT_ALGORITHM(TensorWriter) {
   std::string dataName(getArgumentData("Data")->getName());
   // do some switch case if in the future you want to implement
   // precission
-  write<Float64>(dataName);
+  if (typeid(double) == check_type(getArgumentData("Data"))) {
+    LOG(1, "TensorWriter") << "Writing real tensor" << std::endl;
+    write<Float64>(dataName);
+  } else {
+    LOG(1, "TensorWriter") << "Writing complex tensor" << std::endl;
+    write<sisi4s::complex>(dataName);
+  }
 }
 
 template <typename F>
