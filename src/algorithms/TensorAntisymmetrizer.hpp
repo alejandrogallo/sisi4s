@@ -6,6 +6,7 @@
 namespace sisi4s {
 
 DEFINE_ALGORITHM_HEADER(TensorAntisymmetrizer, );
+DEFINE_ALGORITHM_HEADER(TensorAntisymmetrizer2, );
 
 } // namespace sisi4s
 

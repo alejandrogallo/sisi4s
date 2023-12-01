@@ -37,7 +37,7 @@ static std::vector<IntegralInfo> get_integral_infos() {
           {"PPPPCoulombIntegrals", {NV, NV, NV, NV}, "abcd"}};
 }
 
-static std::type_info check_type(Algorithm &alg) {
+static const std::type_info &check_type(Algorithm &alg) {
   const std::vector<IntegralInfo> infos = get_integral_infos();
   for (const auto &integral : infos)
     if (alg.isArgumentGiven(integral.name)) {
@@ -128,10 +128,46 @@ static void run(Algorithm &alg) {
 IMPLEMENT_ALGORITHM(TensorAntisymmetrizer) {
   if (typeid(double) == check_type(*this)) {
     LOG(1, "TensorAntisymmetrizer") << "real integrals detected " << std::endl;
-    run<double>(*this);
+    ::run<double>(*this);
   } else {
     LOG(1, "TensorAntisymmetrizer")
         << "complex integrals detected " << std::endl;
-    run<sisi4s::complex>(*this);
+    ::run<sisi4s::complex>(*this);
+  }
+}
+
+template <typename F>
+static void run2(Algorithm &alg) {
+  auto &left = *alg.getTensorArgument<F>("left"),
+       &right = *alg.getTensorArgument<F>("right");
+
+  const std::string mode = alg.getTextArgument("mode", "up");
+
+  if (left.order != 4)
+    throw "TensorAntisymmetrizer2 can only antisymmetrize 4 index tensors";
+
+  if (mode == "up") left["abij"] -= right["baij"];
+  else left["abij"] -= right["abji"];
+}
+
+static const std::type_info &check_type2(Algorithm &alg) {
+  Data *tensor_data(alg.getArgumentData("left"));
+  TensorData<double> *real_tensor_data(
+      dynamic_cast<TensorData<double> *>(tensor_data));
+  if (real_tensor_data) return typeid(double);
+  TensorData<sisi4s::complex> *imag_tensor_data(
+      dynamic_cast<TensorData<sisi4s::complex> *>(tensor_data));
+  if (imag_tensor_data) return typeid(sisi4s::complex);
+  throw "Could not detect type of integrals in TensorAntisymmetrizer";
+}
+
+IMPLEMENT_ALGORITHM(TensorAntisymmetrizer2) {
+  if (typeid(double) == check_type2(*this)) {
+    LOG(1, "TensorAntisymmetrizer2") << "real integrals detected " << std::endl;
+    ::run2<double>(*this);
+  } else {
+    LOG(1, "TensorAntisymmetrizer2")
+        << "complex integrals detected " << std::endl;
+    ::run2<sisi4s::complex>(*this);
   }
 }
