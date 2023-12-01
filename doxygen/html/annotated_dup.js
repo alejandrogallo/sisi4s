@@ -323,7 +323,7 @@ var annotated_dup =
       [ "TensorReduceijij", "structsisi4s_1_1TensorReduceijij.html", "structsisi4s_1_1TensorReduceijij" ],
       [ "TensorSlicer", "structsisi4s_1_1TensorSlicer.html", "structsisi4s_1_1TensorSlicer" ],
       [ "TensorSum", "classsisi4s_1_1TensorSum.html", "classsisi4s_1_1TensorSum" ],
-      [ "TensorUnrestricter", "structsisi4s_1_1TensorUnrestricter.html", "structsisi4s_1_1TensorUnrestricter" ],
+      [ "TensorUnrestricter", "classsisi4s_1_1TensorUnrestricter.html", "classsisi4s_1_1TensorUnrestricter" ],
       [ "TensorWriter", "classsisi4s_1_1TensorWriter.html", "classsisi4s_1_1TensorWriter" ],
       [ "TextData", "classsisi4s_1_1TextData.html", "classsisi4s_1_1TextData" ],
       [ "Time", "classsisi4s_1_1Time.html", "classsisi4s_1_1Time" ],

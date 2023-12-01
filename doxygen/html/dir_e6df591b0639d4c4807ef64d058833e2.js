@@ -149,7 +149,7 @@ var dir_e6df591b0639d4c4807ef64d058833e2 =
     [ "TensorSlicer.hpp", "TensorSlicer_8hpp.html", "TensorSlicer_8hpp" ],
     [ "TensorSum.cxx", "TensorSum_8cxx.html", null ],
     [ "TensorSum.hpp", "TensorSum_8hpp.html", "TensorSum_8hpp" ],
-    [ "TensorUnrestricter.cxx", "TensorUnrestricter_8cxx.html", "TensorUnrestricter_8cxx" ],
+    [ "TensorUnrestricter.cxx", "TensorUnrestricter_8cxx.html", null ],
     [ "TensorUnrestricter.hpp", "TensorUnrestricter_8hpp.html", "TensorUnrestricter_8hpp" ],
     [ "TensorWriter.cxx", "TensorWriter_8cxx.html", null ],
     [ "TensorWriter.hpp", "TensorWriter_8hpp.html", "TensorWriter_8hpp" ],

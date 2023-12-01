@@ -1,5 +1,10 @@
 var NAVTREEINDEX26 =
 {
+"namespaceghc_1_1filesystem.html#a74bf2a1161ee9e5e050bb19e8df9ffec":[2,0,2,0,57],
+"namespaceghc_1_1filesystem.html#a76a280cb3931983075b641fb5b0c4c5a":[2,0,2,0,67],
+"namespaceghc_1_1filesystem.html#a773b14c6f3e10353b05669f9537949ae":[2,0,2,0,63],
+"namespaceghc_1_1filesystem.html#a77d39983738deaaf54e19d998c33e60d":[2,0,2,0,72],
+"namespaceghc_1_1filesystem.html#a78811d1608d2accd04eb012714dce457":[2,0,2,0,77],
 "namespaceghc_1_1filesystem.html#a7b3c694c41ff9bc3881305d910fbdfe2":[2,0,2,0,33],
 "namespaceghc_1_1filesystem.html#a83d56af2b2b953afe4fb17de0bd64987":[2,0,2,0,32],
 "namespaceghc_1_1filesystem.html#a92049bec60723b390c6f3f819dbf66cc":[2,0,2,0,16],
@@ -111,8 +116,8 @@ var NAVTREEINDEX26 =
 "namespacemembers_enum.html":[2,1,4],
 "namespacemembers_eval.html":[2,1,5],
 "namespacemembers_f.html":[2,1,0,5],
-"namespacemembers_func.html":[2,1,1],
 "namespacemembers_func.html":[2,1,1,0],
+"namespacemembers_func.html":[2,1,1],
 "namespacemembers_func_b.html":[2,1,1,1],
 "namespacemembers_func_c.html":[2,1,1,2],
 "namespacemembers_func_d.html":[2,1,1,3],
@@ -244,10 +249,5 @@ var NAVTREEINDEX26 =
 "namespacesisi4s.html#a9fa5b3be804515448387f0d0a362aee4":[2,0,6,291],
 "namespacesisi4s.html#aa2084d9ca7be260b06a38f5ecb7944ed":[2,0,6,259],
 "namespacesisi4s.html#aa8b450b30cd5b37aaf1fe14ba54b6d86":[2,0,6,240],
-"namespacesisi4s.html#aae36a475bbea733a01982cbf5f741cc1":[2,0,6,255],
-"namespacesisi4s.html#ab14ed3164e19d771549f3af9f21a00d8":[2,0,6,244],
-"namespacesisi4s.html#ab2414ae2ca7d376f6379d91727cd66a1":[2,0,6,301],
-"namespacesisi4s.html#ab3f1696a0e7735d418f8996311daa8c4":[2,0,6,243],
-"namespacesisi4s.html#ab40f034e81921db1e3447d2f623c0506":[2,0,6,237],
-"namespacesisi4s.html#ab4577a58307bc686ea6f58bc3d0249d3":[2,0,6,235]
+"namespacesisi4s.html#aae36a475bbea733a01982cbf5f741cc1":[2,0,6,255]
 };

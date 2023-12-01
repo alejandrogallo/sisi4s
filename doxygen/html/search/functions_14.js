@@ -14,12 +14,11 @@ var searchData=
   ['unrestrictedcis_11',['UnrestrictedCIS',['../classsisi4s_1_1UnrestrictedCIS.html#ae6aa349bdba876490ccc0c475906be9a',1,'sisi4s::UnrestrictedCIS']]],
   ['unrestrictedequationofmotionsinglesfromrpa_12',['UnrestrictedEquationOfMotionSinglesFromRpa',['../classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa.html#ab6f22c1178ac7b276cffafca9bff34d4',1,'sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa']]],
   ['unrestricteigenenergies_13',['unrestrictEigenEnergies',['../classsisi4s_1_1CoulombVertexReader.html#afeba637ffd23f0adf95f74119ddf7429',1,'sisi4s::CoulombVertexReader']]],
-  ['unrestricttensor_14',['unrestrictTensor',['../TensorUnrestricter_8cxx.html#a40c5bc6cac09e5fae0df38ea17318562',1,'TensorUnrestricter.cxx']]],
-  ['unrestrictvertex_15',['unrestrictVertex',['../classsisi4s_1_1CoulombVertexReader.html#ad0d3f8452eb37567d355ae122eda5f7c',1,'sisi4s::CoulombVertexReader']]],
-  ['update_16',['update',['../classsisi4s_1_1NoRegularizationEstimator.html#aa40d2e51eb73cacfd2f2e63517016837',1,'sisi4s::NoRegularizationEstimator::update()'],['../classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator.html#a503f0a701b0bdef3377c47bb5dae6456',1,'sisi4s::AlternatingLeastSquaresRegularizationEstimator::update()']]],
-  ['uperturbativetriples_17',['UPerturbativeTriples',['../classsisi4s_1_1UPerturbativeTriples.html#a778082c54facf0e65d9b0d9df9f6cc54',1,'sisi4s::UPerturbativeTriples']]],
-  ['upper_18',['upper',['../namespacepars.html#a8e4122733980cf5623d19f2ba68ccf12',1,'pars']]],
-  ['uptr_19',['upTr',['../namespacesisi4s.html#ac001193dbf37e00b3e13c84c73cba7a5',1,'sisi4s']]],
-  ['urpaamplitudesfromcoulombintegrals_20',['UrpaAmplitudesFromCoulombIntegrals',['../classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals.html#a0243c5fad0bdd986669321ff104b4003',1,'sisi4s::UrpaAmplitudesFromCoulombIntegrals']]],
-  ['use_21',['use',['../classsisi4s_1_1DryTensor.html#a018bdb94ca9e6db40cb89eb2ad59ab02',1,'sisi4s::DryTensor']]]
+  ['unrestrictvertex_14',['unrestrictVertex',['../classsisi4s_1_1CoulombVertexReader.html#ad0d3f8452eb37567d355ae122eda5f7c',1,'sisi4s::CoulombVertexReader']]],
+  ['update_15',['update',['../classsisi4s_1_1AlternatingLeastSquaresRegularizationEstimator.html#a503f0a701b0bdef3377c47bb5dae6456',1,'sisi4s::AlternatingLeastSquaresRegularizationEstimator::update()'],['../classsisi4s_1_1NoRegularizationEstimator.html#aa40d2e51eb73cacfd2f2e63517016837',1,'sisi4s::NoRegularizationEstimator::update()']]],
+  ['uperturbativetriples_16',['UPerturbativeTriples',['../classsisi4s_1_1UPerturbativeTriples.html#a778082c54facf0e65d9b0d9df9f6cc54',1,'sisi4s::UPerturbativeTriples']]],
+  ['upper_17',['upper',['../namespacepars.html#a8e4122733980cf5623d19f2ba68ccf12',1,'pars']]],
+  ['uptr_18',['upTr',['../namespacesisi4s.html#ac001193dbf37e00b3e13c84c73cba7a5',1,'sisi4s']]],
+  ['urpaamplitudesfromcoulombintegrals_19',['UrpaAmplitudesFromCoulombIntegrals',['../classsisi4s_1_1UrpaAmplitudesFromCoulombIntegrals.html#a0243c5fad0bdd986669321ff104b4003',1,'sisi4s::UrpaAmplitudesFromCoulombIntegrals']]],
+  ['use_20',['use',['../classsisi4s_1_1DryTensor.html#a018bdb94ca9e6db40cb89eb2ad59ab02',1,'sisi4s::DryTensor']]]
 ];

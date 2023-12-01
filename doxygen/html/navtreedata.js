@@ -75,7 +75,7 @@ var NAVTREEINDEX =
 "Scanner_8hpp_source.html",
 "classCLI_1_1App.html#a4720d5ded12ab00d3aa76bd195ad92be",
 "classCLI_1_1App.html#ac7083bfa334d1ca3813e6f051089c746",
-"classCLI_1_1ConfigBase.html#ae6c15771ede3deb7c10abdf36b4ef858",
+"classCLI_1_1ConfigBase.html#ae850866c93a17184acb903fe928a3e6a",
 "classCLI_1_1Option.html#a56635c9d01c0fde66df3a5edf87b8a31",
 "classCLI_1_1Option__group.html#a1be93903743c2cdc64f1237ca956ff0b",
 "classghc_1_1filesystem_1_1basic__ifstream.html#a844f61a372842c2da1ab124120688476",
@@ -92,13 +92,13 @@ var NAVTREEINDEX =
 "classsisi4s_1_1SDTFockVector.html#ae304e116e1fae312b3a9a68fbe244ee3",
 "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a2dee4e2d0e8469ea4c68b1a907dab135",
 "classsisi4s_1_1SourceLocation.html#a857cc1a23fec7f4c23ac1fc6746565e9",
-"classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals.html#a246b38783dcc184c9af31ac67e59c86e",
-"filesystem_8hpp.html#a44f592ebf8a3222d51340a98e243a534",
-"namespaceCLI.html#a1d8108a219533f0b0361640a017f037ea06344c468073b2b66824779ffa5105cc",
-"namespaceghc_1_1filesystem.html#a7b3c694c41ff9bc3881305d910fbdfe2",
-"namespacesisi4s.html#ab52936dd14e46acf16cadc4a7dbd0e61",
-"structSlowVectorIntegralProvider.html#af6dc3bad3c8a815bb4f703540f47d492",
-"structsisi4s_1_1TensorReduceijij.html#a69d1fd839efc89d2ce9ffd5da3825f90"
+"classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals.html",
+"filesystem_8hpp.html#a393a763db487f5c16e61dc1910adcbdd",
+"namespaceCLI.html",
+"namespaceghc_1_1filesystem.html#a74bf2a1161ee9e5e050bb19e8df9ffec",
+"namespacesisi4s.html#ab14ed3164e19d771549f3af9f21a00d8",
+"structSinfo.html#a117354078ba76050d60578589e01aa5e",
+"structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings.html#ac59fcaf133d3156e69ad3cd6c6e3c0ea"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

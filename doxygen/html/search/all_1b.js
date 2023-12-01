@@ -112,7 +112,7 @@ var searchData=
   ['_7etensorreduceijij_109',['~TensorReduceijij',['../structsisi4s_1_1TensorReduceijij.html#ae4e4b17fd6f39b095865b539446048f3',1,'sisi4s::TensorReduceijij']]],
   ['_7etensorslicer_110',['~TensorSlicer',['../structsisi4s_1_1TensorSlicer.html#ae2ed72bbd696bd2955a3729531be0cbc',1,'sisi4s::TensorSlicer']]],
   ['_7etensorsum_111',['~TensorSum',['../classsisi4s_1_1TensorSum.html#a893cc146939b50dbb09624722f9ddd88',1,'sisi4s::TensorSum']]],
-  ['_7etensorunrestricter_112',['~TensorUnrestricter',['../structsisi4s_1_1TensorUnrestricter.html#acf3ed6039ddf63c70279c97c692f771e',1,'sisi4s::TensorUnrestricter']]],
+  ['_7etensorunrestricter_112',['~TensorUnrestricter',['../classsisi4s_1_1TensorUnrestricter.html#acf3ed6039ddf63c70279c97c692f771e',1,'sisi4s::TensorUnrestricter']]],
   ['_7etensorwriter_113',['~TensorWriter',['../classsisi4s_1_1TensorWriter.html#a0519842fbeaf3bc2fd6cbcd90704a6ce',1,'sisi4s::TensorWriter']]],
   ['_7etimer_114',['~Timer',['../classsisi4s_1_1Timer.html#a14fa469c4c295c5fa6e66a4ad1092146',1,'sisi4s::Timer']]],
   ['_7eu8arguments_115',['~u8arguments',['../classghc_1_1filesystem_1_1u8arguments.html#a1f6424b412d85b1b6517b696dfc1e6aa',1,'ghc::filesystem::u8arguments']]],

@@ -77,7 +77,7 @@ var hierarchy =
       [ "sisi4s::TensorReduceijij", "structsisi4s_1_1TensorReduceijij.html", null ],
       [ "sisi4s::TensorSlicer", "structsisi4s_1_1TensorSlicer.html", null ],
       [ "sisi4s::TensorSum", "classsisi4s_1_1TensorSum.html", null ],
-      [ "sisi4s::TensorUnrestricter", "structsisi4s_1_1TensorUnrestricter.html", null ],
+      [ "sisi4s::TensorUnrestricter", "classsisi4s_1_1TensorUnrestricter.html", null ],
       [ "sisi4s::TensorWriter", "classsisi4s_1_1TensorWriter.html", null ],
       [ "sisi4s::UCcsdEAEquationOfMotionDavidson", "classsisi4s_1_1UCcsdEAEquationOfMotionDavidson.html", null ],
       [ "sisi4s::UCcsdIPEquationOfMotionDavidson", "classsisi4s_1_1UCcsdIPEquationOfMotionDavidson.html", null ],

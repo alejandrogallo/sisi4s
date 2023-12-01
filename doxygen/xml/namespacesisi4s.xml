@@ -188,7 +188,7 @@
     <innerclass refid="structsisi4s_1_1TensorReduceijij" prot="public">sisi4s::TensorReduceijij</innerclass>
     <innerclass refid="structsisi4s_1_1TensorSlicer" prot="public">sisi4s::TensorSlicer</innerclass>
     <innerclass refid="classsisi4s_1_1TensorSum" prot="public">sisi4s::TensorSum</innerclass>
-    <innerclass refid="structsisi4s_1_1TensorUnrestricter" prot="public">sisi4s::TensorUnrestricter</innerclass>
+    <innerclass refid="classsisi4s_1_1TensorUnrestricter" prot="public">sisi4s::TensorUnrestricter</innerclass>
     <innerclass refid="classsisi4s_1_1TensorWriter" prot="public">sisi4s::TensorWriter</innerclass>
     <innerclass refid="classsisi4s_1_1TextData" prot="public">sisi4s::TextData</innerclass>
     <innerclass refid="classsisi4s_1_1Time" prot="public">sisi4s::Time</innerclass>
@@ -546,7 +546,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="142" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="142" bodyend="144"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" line="141" column="11" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Algorithm.hpp" bodystart="141" bodyend="143"/>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1a3e0e5db8049adce93ba9fc38d7aaeb7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -619,7 +619,38 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Read.cxx" line="14" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Read.cxx" bodystart="14" bodyend="22"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/Read.cxx" line="15" column="15" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/Read.cxx" bodystart="15" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacesisi4s_1a0f3da138513b969016cdfeac25b4ead1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor</ref>&lt; F &gt; *</type>
+        <definition>static Tensor&lt; F &gt; * sisi4s::read</definition>
+        <argsstring>(Algorithm &amp;alg, const std::string mode, const std::string &amp;name)</argsstring>
+        <name>read</name>
+        <qualifiedname>sisi4s::read</qualifiedname>
+        <param>
+          <type><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref> &amp;</type>
+          <declname>alg</declname>
+        </param>
+        <param>
+          <type>const std::string</type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorReader.cxx" line="16" column="1" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorReader.cxx" bodystart="16" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="namespacesisi4s_1a5f1a1c319b7f345b0fbac3d446635845" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1134,7 +1165,7 @@
         <referencedby refid="classsisi4s_1_1CoulombVertexReader_1ab7a866749df48712c5b9b02d892be4d9" compoundref="CoulombVertexReader_8cxx" startline="26" endline="111">sisi4s::CoulombVertexReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexReader_1a58665fc9e95f299e4daec496b5d64764" compoundref="ParticleHoleCoulombVertexReader_8cxx" startline="92" endline="194">sisi4s::ParticleHoleCoulombVertexReader::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1ab3fa58fddbd938517fed45a270cbd77e" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="43" endline="351">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
-        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="43" endline="302">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
+        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="303">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1ade4d95a7d53a8b596e67d584e98d7f02" compoundref="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" startline="45" endline="208">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa::run</referencedby>
         <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1aa15c5a3edcb4102f112028ff53f27179" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="568" endline="745">sisi4s::ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors</referencedby>
         <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a4cc0b4527b8b77bdde36752e3aca89cc" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="388" endline="490">sisi4s::ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals</referencedby>

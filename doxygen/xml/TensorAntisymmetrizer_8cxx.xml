@@ -2,73 +2,74 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
   <compounddef id="TensorAntisymmetrizer_8cxx" kind="file" language="C++">
     <compoundname>TensorAntisymmetrizer.cxx</compoundname>
-    <includes refid="TensorAntisymmetrizer_8hpp" local="no">algorithms/TensorAntisymmetrizer.hpp</includes>
-    <includes local="no">string</includes>
-    <includes local="no">vector</includes>
-    <includes refid="MathFunctions_8hpp" local="no">math/MathFunctions.hpp</includes>
-    <includes local="no">algorithm</includes>
-    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
     <includes refid="Sisi4s_8hpp" local="no">Sisi4s.hpp</includes>
+    <includes refid="TensorAntisymmetrizer_8hpp" local="no">algorithms/TensorAntisymmetrizer.hpp</includes>
+    <includes refid="MathFunctions_8hpp" local="no">math/MathFunctions.hpp</includes>
+    <includes refid="Integrals_8hpp" local="no">util/Integrals.hpp</includes>
     <includes refid="Log_8hpp" local="no">util/Log.hpp</includes>
     <includes refid="SharedPointer_8hpp" local="no">util/SharedPointer.hpp</includes>
-    <includes refid="Integrals_8hpp" local="no">util/Integrals.hpp</includes>
+    <includes refid="Tensor_8hpp" local="no">util/Tensor.hpp</includes>
+    <includes local="no">algorithm</includes>
     <includes local="no">iostream</includes>
-    <includes local="no">numeric</includes>
     <includes local="no">map</includes>
+    <includes local="no">numeric</includes>
     <includes local="no">set</includes>
+    <includes local="no">string</includes>
+    <includes local="no">typeinfo</includes>
+    <includes local="no">vector</includes>
     <incdepgraph>
-      <node id="4">
+      <node id="37">
         <label>Data.hpp</label>
         <link refid="Data_8hpp"/>
-        <childnode refid="5" relation="include">
+        <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="40" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="41" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-      </node>
-      <node id="30">
-        <label>Options.hpp</label>
-        <link refid="Options_8hpp"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-      </node>
-      <node id="28">
-        <label>Sisi4s.hpp</label>
-        <link refid="Sisi4s_8hpp"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
         <childnode refid="30" relation="include">
         </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
       </node>
-      <node id="3">
-        <label>algorithms/Algorithm.hpp</label>
-        <link refid="Algorithm_8hpp"/>
-        <childnode refid="4" relation="include">
+      <node id="13">
+        <label>Options.hpp</label>
+        <link refid="Options_8hpp"/>
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+      </node>
+      <node id="2">
+        <label>Sisi4s.hpp</label>
+        <link refid="Sisi4s_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>algorithms/Algorithm.hpp</label>
+        <link refid="Algorithm_8hpp"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -76,281 +77,316 @@
         <link refid="TensorAntisymmetrizer_8cxx"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="35" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="45" relation="include">
         </childnode>
         <childnode refid="46" relation="include">
         </childnode>
-        <childnode refid="47" relation="include">
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="34" relation="include">
+        <childnode refid="49" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>algorithms/TensorAntisymmetrizer.hpp</label>
+        <link refid="TensorAntisymmetrizer_8hpp"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>math/Complex.hpp</label>
+        <link refid="Complex_8hpp"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>math/Float.hpp</label>
+        <link refid="Float_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>math/MathFunctions.hpp</label>
+        <link refid="MathFunctions_8hpp"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
         </childnode>
       </node>
-      <node id="2">
-        <label>algorithms/TensorAntisymmetrizer.hpp</label>
-        <link refid="TensorAntisymmetrizer_8hpp"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>math/Complex.hpp</label>
-        <link refid="Complex_8hpp"/>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-      </node>
-      <node id="17">
-        <label>math/Float.hpp</label>
-        <link refid="Float_8hpp"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="26">
-        <label>math/MathFunctions.hpp</label>
-        <link refid="MathFunctions_8hpp"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="23">
+      <node id="11">
         <label>util/CTF.hpp</label>
         <link refid="CTF_8hpp"/>
-        <childnode refid="24" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="10">
         <label>util/Documentation.hpp</label>
         <link refid="Documentation_8hpp"/>
       </node>
-      <node id="25">
+      <node id="44">
         <label>util/Exception.hpp</label>
         <link refid="Exception_8hpp"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-      </node>
-      <node id="47">
-        <label>util/Integrals.hpp</label>
-        <link refid="Integrals_8hpp"/>
-        <childnode refid="21" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>util/Log.hpp</label>
-        <link refid="Log_8hpp"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
       <node id="46">
+        <label>util/Integrals.hpp</label>
+        <link refid="Integrals_8hpp"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>util/Log.hpp</label>
+        <link refid="Log_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
         <label>util/SharedPointer.hpp</label>
         <link refid="SharedPointer_8hpp"/>
-        <childnode refid="32" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="43">
         <label>util/Tensor.hpp</label>
         <link refid="Tensor_8hpp"/>
-        <childnode refid="23" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="6">
+      <node id="3">
         <label>util/Time.hpp</label>
         <link refid="Time_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
       </node>
-      <node id="31">
+      <node id="15">
         <label>vendor/CLI11.hpp</label>
         <link refid="CLI11_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
         <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="33" relation="include">
         </childnode>
         <childnode refid="34" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-      </node>
-      <node id="27">
-        <label>algorithm</label>
-      </node>
-      <node id="48">
-        <label>array</label>
-      </node>
-      <node id="12">
-        <label>cmath</label>
-      </node>
-      <node id="19">
-        <label>complex</label>
-      </node>
-      <node id="8">
-        <label>cstdint</label>
       </node>
       <node id="24">
-        <label>ctf.hpp</label>
+        <label>algorithm</label>
       </node>
-      <node id="7">
-        <label>ctime</label>
-      </node>
-      <node id="43">
-        <label>exception</label>
-      </node>
-      <node id="16">
-        <label>fstream</label>
-      </node>
-      <node id="33">
-        <label>functional</label>
-      </node>
-      <node id="10">
-        <label>iomanip</label>
-      </node>
-      <node id="14">
-        <label>iostream</label>
-      </node>
-      <node id="40">
-        <label>iterator</label>
-      </node>
-      <node id="42">
-        <label>limits</label>
-      </node>
-      <node id="37">
-        <label>locale</label>
-      </node>
-      <node id="20">
-        <label>map</label>
-      </node>
-      <node id="32">
-        <label>memory</label>
-      </node>
-      <node id="34">
-        <label>numeric</label>
+      <node id="47">
+        <label>array</label>
       </node>
       <node id="9">
+        <label>cmath</label>
+      </node>
+      <node id="42">
+        <label>complex</label>
+      </node>
+      <node id="5">
+        <label>cstdint</label>
+      </node>
+      <node id="12">
+        <label>ctf.hpp</label>
+      </node>
+      <node id="4">
+        <label>ctime</label>
+      </node>
+      <node id="32">
+        <label>exception</label>
+      </node>
+      <node id="20">
+        <label>fstream</label>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="7">
+        <label>iomanip</label>
+      </node>
+      <node id="25">
+        <label>iostream</label>
+      </node>
+      <node id="28">
+        <label>iterator</label>
+      </node>
+      <node id="31">
+        <label>limits</label>
+      </node>
+      <node id="23">
+        <label>locale</label>
+      </node>
+      <node id="19">
+        <label>map</label>
+      </node>
+      <node id="16">
+        <label>memory</label>
+      </node>
+      <node id="18">
+        <label>numeric</label>
+      </node>
+      <node id="6">
         <label>ostream</label>
       </node>
-      <node id="38">
+      <node id="26">
         <label>set</label>
       </node>
-      <node id="11">
+      <node id="8">
         <label>sstream</label>
       </node>
-      <node id="41">
+      <node id="29">
         <label>stdexcept</label>
       </node>
-      <node id="15">
+      <node id="39">
         <label>streambuf</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>string</label>
       </node>
-      <node id="44">
+      <node id="33">
         <label>sys/stat.h</label>
       </node>
-      <node id="45">
+      <node id="34">
         <label>sys/types.h</label>
       </node>
-      <node id="35">
+      <node id="21">
         <label>tuple</label>
       </node>
-      <node id="39">
+      <node id="27">
         <label>type_traits</label>
       </node>
-      <node id="36">
+      <node id="49">
+        <label>typeinfo</label>
+      </node>
+      <node id="22">
         <label>utility</label>
       </node>
-      <node id="21">
+      <node id="30">
         <label>vector</label>
       </node>
     </incdepgraph>
       <sectiondef kind="func">
+      <memberdef kind="function" id="TensorAntisymmetrizer_8cxx_1a463f240231e3a5bf274a4557542d13fb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structsisi4s_1_1IntegralInfo" kindref="compound">IntegralInfo</ref> &gt;</type>
+        <definition>static std::vector&lt; IntegralInfo &gt; get_integral_infos</definition>
+        <argsstring>()</argsstring>
+        <name>get_integral_infos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx" line="21" column="20" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx" bodystart="21" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="TensorAntisymmetrizer_8cxx_1ab73e0655967769963974b29dd3870e42" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::type_info</type>
+        <definition>static std::type_info check_type</definition>
+        <argsstring>(Algorithm &amp;alg)</argsstring>
+        <name>check_type</name>
+        <param>
+          <type><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref> &amp;</type>
+          <declname>alg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx" line="40" column="23" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx" bodystart="40" bodyend="53"/>
+      </memberdef>
       <memberdef kind="function" id="TensorAntisymmetrizer_8cxx_1a0cb7d7ae71e7626284a0bd23c8a3c96a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>static bool isSelfAntisymmetrizable</definition>
@@ -366,7 +402,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx" line="19" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx" bodystart="19" bodyend="24"/>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx" line="55" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx" bodystart="55" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="TensorAntisymmetrizer_8cxx_1a3c20c4aef5f0fd0299a9fdcc3f60728e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void run</definition>
+        <argsstring>(Algorithm &amp;alg)</argsstring>
+        <name>run</name>
+        <param>
+          <type><ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref> &amp;</type>
+          <declname>alg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx" line="63" column="13" bodyfile="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx" bodystart="63" bodyend="126"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -374,110 +432,143 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="TensorAntisymmetrizer_8hpp" kindref="compound">algorithms/TensorAntisymmetrizer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MathFunctions_8hpp" kindref="compound">math/MathFunctions.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Integrals_8hpp" kindref="compound">util/Integrals.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Sisi4s_8hpp" kindref="compound">Sisi4s.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="TensorAntisymmetrizer_8hpp" kindref="compound">algorithms/TensorAntisymmetrizer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="MathFunctions_8hpp" kindref="compound">math/MathFunctions.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Integrals_8hpp" kindref="compound">util/Integrals.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Log_8hpp" kindref="compound">util/Log.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SharedPointer_8hpp" kindref="compound">util/SharedPointer.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="Tensor_8hpp" kindref="compound">util/Tensor.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;numeric&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;typeinfo&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isSelfAntisymmetrizable(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1IntegralInfo" kindref="compound">IntegralInfo</ref><sp/>&amp;i)<sp/>{</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;j<sp/>:<sp/>i.getAntisymmetrizers())<sp/>{</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(j.name<sp/>==<sp/>i.<ref refid="structsisi4s_1_1IntegralInfo_1a8cbf947f3c9a5e178643063204ecf52b" kindref="member">name</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26" refid="classsisi4s_1_1TensorAntisymmetrizer_1a08e30cc781b351e0b505def08c1fad1b" refkind="member"><highlight class="normal"><ref refid="Algorithm_8hpp_1aed7ff7232962c1cf6cb9051a47a38d44" kindref="member">IMPLEMENT_ALGORITHM</ref>(<ref refid="classsisi4s_1_1TensorAntisymmetrizer" kindref="compound">TensorAntisymmetrizer</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;IntegralInfo&gt;<sp/>infos(</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{{</highlight><highlight class="stringliteral">&quot;HHHHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;ijkl&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HHHPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;ijka&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HHPHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;ijak&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HHPPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;ijab&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HPHHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;iajk&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HPHPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;iajb&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HPPHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;iabj&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HPPPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;iabc&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PHHHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;aijk&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PHHPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;aijb&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PHPHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;aibj&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PHPPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;aibc&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PPHHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PPHPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;abic&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PPPHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;abci&quot;</highlight><highlight class="normal">},</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PPPPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;abcd&quot;</highlight><highlight class="normal">}});</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Only<sp/>copy<sp/>integrals<sp/>that<sp/>are<sp/>not<sp/>self-antisymmetrizable</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref>)&gt;<sp/>integralCopies;</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;integral<sp/>:<sp/>infos)<sp/>{</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isArgumentGiven(integral.name)<sp/>&amp;&amp;<sp/>!isSelfAntisymmetrizable(integral))<sp/>{</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Copying<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>integral.name<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>integralCopies[integral.name]<sp/>=</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref>,<sp/>*getTensorArgument&lt;double&gt;(integral.name));</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;integral<sp/>:<sp/>infos)<sp/>{</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>antisymmetrized(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isArgumentGiven(integral.name))<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>antigrals(integral.getAntisymmetrizers());</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sort<sp/>antigrals<sp/>so<sp/>that<sp/>integral<sp/>be<sp/>the<sp/>first</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>it<sp/>is<sp/>in<sp/>antigrals</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>sort(antigrals.begin(),</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>antigrals.end(),</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[&amp;](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1IntegralInfo" kindref="compound">IntegralInfo</ref><sp/>&amp;a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1IntegralInfo" kindref="compound">IntegralInfo</ref><sp/>&amp;b)<sp/>{</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.name<sp/>==<sp/>integral.name;</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;antigral<sp/>:<sp/>antigrals)<sp/>{</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isArgumentGiven(antigral.name))<sp/>{</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>integral.name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>from<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>antigral.name<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>integral.name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>integral.ids</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]<sp/>-=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>antigral.name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>antigral.ids<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>inteCtf(getTensorArgument&lt;double&gt;(integral.name));</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;double&gt;</ref><sp/>*antiCtf;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(antigral.name<sp/>==<sp/>integral.name)<sp/>{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>antiCtf<sp/>=<sp/>inteCtf;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>antiCtf<sp/>=<sp/>integralCopies[antigral.name].get();</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*inteCtf)[integral.ids.data()]<sp/>-=<sp/>(*antiCtf)[antigral.ids.data()];</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>antisymmetrized<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>go<sp/>to<sp/>the<sp/>next<sp/>integral</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacesisi4s" kindref="compound">sisi4s</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;IntegralInfo&gt;<sp/>get_integral_infos()<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{{</highlight><highlight class="stringliteral">&quot;HHHHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;ijkl&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HHHPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;ijka&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HHPHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;ijak&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HHPPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;ijab&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HPHHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;iajk&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HPHPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;iajb&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HPPHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;iabj&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;HPPPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;iabc&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PHHHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;aijk&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PHHPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;aijb&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PHPHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;aibj&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PHPPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;aibc&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PPHHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;abij&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PPHPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;abic&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PPPHCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8daa906462c48a265bc4b7fe47477719586" kindref="member">NO</ref>},<sp/></highlight><highlight class="stringliteral">&quot;abci&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;PPPPCoulombIntegrals&quot;</highlight><highlight class="normal">,<sp/>{<ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>,<sp/><ref refid="namespacesisi4s_1af6fb2fb68d4debbf0349a11be6963b8da0852843fe89ed23115167b8255b92644" kindref="member">NV</ref>},<sp/></highlight><highlight class="stringliteral">&quot;abcd&quot;</highlight><highlight class="normal">}};</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::type_info<sp/>check_type(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>&amp;alg)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;IntegralInfo&gt;<sp/>infos<sp/>=<sp/>get_integral_infos();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;integral<sp/>:<sp/>infos)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceCLI_1_1detail_1a917380ad4b65ab0637c74807bda4a353" kindref="member">if</ref><sp/>(alg.isArgumentGiven(integral.name))<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1Data" kindref="compound">Data</ref><sp/>*tensor_data(alg.<ref refid="classsisi4s_1_1Algorithm_1a1e53277220d32a33e20846267c253652" kindref="member">getArgumentData</ref>(integral.name));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;double&gt;</ref><sp/>*real_tensor_data(</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;double&gt;</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(tensor_data));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(real_tensor_data)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typeid</highlight><highlight class="normal">(double);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;sisi4s::complex&gt;</ref><sp/>*imag_tensor_data(</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="classsisi4s_1_1TensorData" kindref="compound">TensorData&lt;sisi4s::complex&gt;</ref><sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(tensor_data));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(imag_tensor_data)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typeid</highlight><highlight class="normal">(<ref refid="namespacesisi4s_1ad0bccf74d238a6fc69868a9439dd9e7f" kindref="member">sisi4s::complex</ref>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Could<sp/>not<sp/>detect<sp/>type<sp/>of<sp/>integrals<sp/>in<sp/>TensorAntisymmetrizer&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isSelfAntisymmetrizable(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1IntegralInfo" kindref="compound">IntegralInfo</ref><sp/>&amp;i)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;j<sp/>:<sp/>i.getAntisymmetrizers())<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(j.name<sp/>==<sp/>i.<ref refid="structsisi4s_1_1IntegralInfo_1a8cbf947f3c9a5e178643063204ecf52b" kindref="member">name</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>run(<ref refid="classsisi4s_1_1Algorithm" kindref="compound">Algorithm</ref><sp/>&amp;alg)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;IntegralInfo&gt;<sp/>infos<sp/>=<sp/>get_integral_infos();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Only<sp/>copy<sp/>integrals<sp/>that<sp/>are<sp/>not<sp/>self-antisymmetrizable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/><ref refid="SharedPointer_8hpp_1a741e091aff51aed5f16b309962085404" kindref="member">PTR</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>)&gt;<sp/>integralCopies;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;integral<sp/>:<sp/>infos)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(alg.<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(integral.name)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/>!isSelfAntisymmetrizable(integral))<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Copying<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>integral.name<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>integralCopies[integral.name]<sp/>=</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SharedPointer_8hpp_1a106f61c342cfd013eb570c37328070ae" kindref="member">NEW</ref>(<ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref>,<sp/>*alg.<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;F&gt;(integral.name));</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;integral<sp/>:<sp/>infos)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>antisymmetrized(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!alg.<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(integral.name))<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>antigrals(integral.getAntisymmetrizers());</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sort<sp/>antigrals<sp/>so<sp/>that<sp/>integral<sp/>be<sp/>the<sp/>first</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>it<sp/>is<sp/>in<sp/>antigrals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>sort(antigrals.begin(),</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>antigrals.end(),</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[&amp;](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1IntegralInfo" kindref="compound">IntegralInfo</ref><sp/>&amp;a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structsisi4s_1_1IntegralInfo" kindref="compound">IntegralInfo</ref><sp/>&amp;b)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.name<sp/>==<sp/>integral.name;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>integral.name<sp/>is<sp/>not<sp/>antisymmetrized,<sp/>then<sp/>something<sp/>went</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wrong,<sp/>we<sp/>don&apos;t<sp/>have<sp/>enough<sp/>integrals<sp/>to<sp/>do<sp/>this,<sp/>panic!</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!antisymmetrized)<sp/>{</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;error:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>integral.name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>could<sp/>not<sp/>be<sp/>antisymmetrized&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;error:<sp/>possibilities:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;antigral<sp/>:<sp/>integral.getAntisymmetrizers())<sp/>{</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;&gt;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>antigral.name<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Antisymmetrization<sp/>error&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;antigral<sp/>:<sp/>antigrals)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(alg.<ref refid="classsisi4s_1_1Algorithm_1aec9041b31cb64a42ee1fd79d32774266" kindref="member">isArgumentGiven</ref>(antigral.name))<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>integral.name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>from<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>antigral.name<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>integral.name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>integral.ids</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]<sp/>-=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>antigral.name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>antigral.ids<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>inteCtf(alg.<ref refid="classsisi4s_1_1Algorithm_1a338a44c8fd4d6be3b32a6d5e71dfe180" kindref="member">getTensorArgument</ref>&lt;F&gt;(integral.name));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacesisi4s_1a1695e67f99e3219626943923a40886a1" kindref="member">Tensor&lt;F&gt;</ref><sp/>*antiCtf;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(antigral.name<sp/>==<sp/>integral.name)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>antiCtf<sp/>=<sp/>inteCtf;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>antiCtf<sp/>=<sp/>integralCopies[antigral.name].get();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*inteCtf)[integral.ids.data()]<sp/>-=<sp/>(*antiCtf)[antigral.ids.data()];</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>antisymmetrized<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>go<sp/>to<sp/>the<sp/>next<sp/>integral</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>integral.name<sp/>is<sp/>not<sp/>antisymmetrized,<sp/>then<sp/>something<sp/>went</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wrong,<sp/>we<sp/>don&apos;t<sp/>have<sp/>enough<sp/>integrals<sp/>to<sp/>do<sp/>this,<sp/>panic!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!antisymmetrized)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;error:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>integral.name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>could<sp/>not<sp/>be<sp/>antisymmetrized&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;error:<sp/>possibilities:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;antigral<sp/>:<sp/>integral.getAntisymmetrizers())<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;&gt;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>antigral.name<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="Exception_8hpp_1aa49c727f91093a79c46ee6ecd83548bb" kindref="member">EXCEPTION</ref>(</highlight><highlight class="stringliteral">&quot;Antisymmetrization<sp/>error&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="classsisi4s_1_1TensorAntisymmetrizer_1a08e30cc781b351e0b505def08c1fad1b" refkind="member"><highlight class="normal"><ref refid="Algorithm_8hpp_1aed7ff7232962c1cf6cb9051a47a38d44" kindref="member">IMPLEMENT_ALGORITHM</ref>(<ref refid="classsisi4s_1_1TensorAntisymmetrizer" kindref="compound">TensorAntisymmetrizer</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typeid</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)<sp/>==<sp/>check_type(*</highlight><highlight class="keyword">this</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;real<sp/>integrals<sp/>detected<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>run&lt;double&gt;(*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Log_8hpp_1a3577749fb48d57a158b8ac1a0b3ab57e" kindref="member">LOG</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;TensorAntisymmetrizer&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;complex<sp/>integrals<sp/>detected<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>run&lt;sisi4s::complex&gt;(*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/sisi4s/sisi4s/src/algorithms/TensorAntisymmetrizer.cxx"/>
   </compounddef>

@@ -70,14 +70,13 @@ var searchData=
   ['logger_5fit_67',['LOGGER_IT',['../HartreeFockFromCoulombIntegrals_8cxx.html#a6bc7892e4343167dd22e146c9bec5d64',1,'HartreeFockFromCoulombIntegrals.cxx']]],
   ['loglevel_68',['logLevel',['../structsisi4s_1_1Options.html#a5ef5e5592971b29d31795e3fe12a070b',1,'sisi4s::Options::logLevel'],['../classsisi4s_1_1LogStream.html#a9fd4fe815901d9f86217bf98d23a6766',1,'sisi4s::LogStream::logLevel'],['../classsisi4s_1_1Log.html#a6a7a99c905bb0c3cb1fc433f22a52ae1',1,'sisi4s::Log::logLevel']]],
   ['logoverlap_69',['logOverlap',['../NaturalTransitionOrbitalsFromRhoAI_8cxx.html#a17a4374cc872225dc976a9c910f9e694',1,'NaturalTransitionOrbitalsFromRhoAI.cxx']]],
-  ['logstream_70',['LogStream',['../classsisi4s_1_1LogStream.html#a2517c9c25a5c4d75c62f00c14e786fa0',1,'sisi4s::LogStream']]],
-  ['logstream_71',['logStream',['../classsisi4s_1_1Log.html#a1480b3a9d98c3a054a8035a31b629bdf',1,'sisi4s::Log']]],
-  ['logstream_72',['LogStream',['../classsisi4s_1_1LogStream.html',1,'sisi4s']]],
-  ['logvectornorms_73',['logVectorNorms',['../NaturalTransitionOrbitalsFromRhoAI_8cxx.html#a66116addded68ea64321206849fd47f4',1,'NaturalTransitionOrbitalsFromRhoAI.cxx']]],
-  ['long_74',['LONG',['../namespaceCLI_1_1detail.html#aba10771e3ff645fe1305be4cae517573ac1fabfea54ec6011e694f211f3ffebf3',1,'CLI::detail']]],
-  ['lower_75',['lower',['../classsisi4s_1_1DoublesAmplitudesDecomposition.html#ac0186e7b93af8d6825561d50b8ac74ca',1,'sisi4s::DoublesAmplitudesDecomposition::lower'],['../structIntegralProvider_1_1Limit.html#a2ee01db91b995cadafa425e6b1108ef1',1,'IntegralProvider::Limit::lower'],['../namespacepars.html#a020cf386310223423b06c230ee658c13',1,'pars::lower()']]],
-  ['ltrim_76',['ltrim',['../namespaceCLI_1_1detail.html#aa06bf54cb3fb347d68d23d31384af42f',1,'CLI::detail::ltrim(std::string &amp;str)'],['../namespaceCLI_1_1detail.html#a64abd8fa0d1461f840198fb92e64ca44',1,'CLI::detail::ltrim(std::string &amp;str, const std::string &amp;filter)']]],
-  ['lwg_5f2682_5fbehaviour_77',['LWG_2682_BEHAVIOUR',['../filesystem_8hpp.html#aee57d1254f36c2d03761d661d6510e09',1,'filesystem.hpp']]],
-  ['lwg_5f2936_5fbehaviour_78',['LWG_2936_BEHAVIOUR',['../filesystem_8hpp.html#a99e59b30ee1255ba9643483e4a695f54',1,'filesystem.hpp']]],
-  ['lwg_5f2937_5fbehaviour_79',['LWG_2937_BEHAVIOUR',['../filesystem_8hpp.html#ae5f9e15c7ef2758eb345aab62274b178',1,'filesystem.hpp']]]
+  ['logstream_70',['logStream',['../classsisi4s_1_1Log.html#a1480b3a9d98c3a054a8035a31b629bdf',1,'sisi4s::Log']]],
+  ['logstream_71',['LogStream',['../classsisi4s_1_1LogStream.html#a2517c9c25a5c4d75c62f00c14e786fa0',1,'sisi4s::LogStream::LogStream()'],['../classsisi4s_1_1LogStream.html',1,'sisi4s::LogStream']]],
+  ['logvectornorms_72',['logVectorNorms',['../NaturalTransitionOrbitalsFromRhoAI_8cxx.html#a66116addded68ea64321206849fd47f4',1,'NaturalTransitionOrbitalsFromRhoAI.cxx']]],
+  ['long_73',['LONG',['../namespaceCLI_1_1detail.html#aba10771e3ff645fe1305be4cae517573ac1fabfea54ec6011e694f211f3ffebf3',1,'CLI::detail']]],
+  ['lower_74',['lower',['../classsisi4s_1_1DoublesAmplitudesDecomposition.html#ac0186e7b93af8d6825561d50b8ac74ca',1,'sisi4s::DoublesAmplitudesDecomposition::lower'],['../structIntegralProvider_1_1Limit.html#a2ee01db91b995cadafa425e6b1108ef1',1,'IntegralProvider::Limit::lower'],['../namespacepars.html#a020cf386310223423b06c230ee658c13',1,'pars::lower()']]],
+  ['ltrim_75',['ltrim',['../namespaceCLI_1_1detail.html#aa06bf54cb3fb347d68d23d31384af42f',1,'CLI::detail::ltrim(std::string &amp;str)'],['../namespaceCLI_1_1detail.html#a64abd8fa0d1461f840198fb92e64ca44',1,'CLI::detail::ltrim(std::string &amp;str, const std::string &amp;filter)']]],
+  ['lwg_5f2682_5fbehaviour_76',['LWG_2682_BEHAVIOUR',['../filesystem_8hpp.html#aee57d1254f36c2d03761d661d6510e09',1,'filesystem.hpp']]],
+  ['lwg_5f2936_5fbehaviour_77',['LWG_2936_BEHAVIOUR',['../filesystem_8hpp.html#a99e59b30ee1255ba9643483e4a695f54',1,'filesystem.hpp']]],
+  ['lwg_5f2937_5fbehaviour_78',['LWG_2937_BEHAVIOUR',['../filesystem_8hpp.html#ae5f9e15c7ef2758eb345aab62274b178',1,'filesystem.hpp']]]
 ];

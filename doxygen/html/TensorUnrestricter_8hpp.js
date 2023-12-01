@@ -1,4 +1,4 @@
 var TensorUnrestricter_8hpp =
 [
-    [ "sisi4s::TensorUnrestricter", "structsisi4s_1_1TensorUnrestricter.html", "structsisi4s_1_1TensorUnrestricter" ]
+    [ "sisi4s::TensorUnrestricter", "classsisi4s_1_1TensorUnrestricter.html", "classsisi4s_1_1TensorUnrestricter" ]
 ];

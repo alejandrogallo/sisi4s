@@ -20,7 +20,7 @@ var searchData=
   ['tensortypetraits_3c_20f_2c_20drytensor_3c_20f_20_3e_20_3e_17',['TensorTypeTraits&lt; F, DryTensor&lt; F &gt; &gt;',['../classTensorTypeTraits_3_01F_00_01DryTensor_3_01F_01_4_01_4.html',1,'']]],
   ['tensortypetraits_3c_20f_2c_20dryvector_3c_20f_20_3e_20_3e_18',['TensorTypeTraits&lt; F, DryVector&lt; F &gt; &gt;',['../classTensorTypeTraits_3_01F_00_01DryVector_3_01F_01_4_01_4.html',1,'']]],
   ['tensortypetraits_3c_20f_2c_20tensor_3c_20f_20_3e_20_3e_19',['TensorTypeTraits&lt; F, Tensor&lt; F &gt; &gt;',['../classTensorTypeTraits_3_01F_00_01Tensor_3_01F_01_4_01_4.html',1,'']]],
-  ['tensorunrestricter_20',['TensorUnrestricter',['../structsisi4s_1_1TensorUnrestricter.html',1,'sisi4s']]],
+  ['tensorunrestricter_20',['TensorUnrestricter',['../classsisi4s_1_1TensorUnrestricter.html',1,'sisi4s']]],
   ['tensorwriter_21',['TensorWriter',['../classsisi4s_1_1TensorWriter.html',1,'sisi4s']]],
   ['textdata_22',['TextData',['../classsisi4s_1_1TextData.html',1,'sisi4s']]],
   ['time_23',['Time',['../classsisi4s_1_1Time.html',1,'sisi4s']]],
