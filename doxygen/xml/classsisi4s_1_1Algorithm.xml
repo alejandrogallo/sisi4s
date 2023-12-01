@@ -58,6 +58,7 @@
     <derivedcompoundref refid="classsisi4s_1_1SingleParticleOccupancies" prot="public" virt="non-virtual">sisi4s::SingleParticleOccupancies</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1SliceCoulombVertex" prot="public" virt="non-virtual">sisi4s::SliceCoulombVertex</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1TensorAntisymmetrizer" prot="public" virt="non-virtual">sisi4s::TensorAntisymmetrizer</derivedcompoundref>
+    <derivedcompoundref refid="classsisi4s_1_1TensorAntisymmetrizer2" prot="public" virt="non-virtual">sisi4s::TensorAntisymmetrizer2</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1TensorContraction" prot="public" virt="non-virtual">sisi4s::TensorContraction</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1TensorGetMax" prot="public" virt="non-virtual">sisi4s::TensorGetMax</derivedcompoundref>
     <derivedcompoundref refid="classsisi4s_1_1TensorNorm" prot="public" virt="non-virtual">sisi4s::TensorNorm</derivedcompoundref>
@@ -226,6 +227,7 @@
         <reimplementedby refid="classsisi4s_1_1SingleParticleOccupancies_1aebe26f59b8fffeba60c5bb867fb46e2b">getName</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1SliceCoulombVertex_1a2ab04c6b534719ec906eee4b9ea37424">getName</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1TensorAntisymmetrizer_1a9f2aab34e3bbf7c667c4f37647d7c020">getName</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1TensorAntisymmetrizer2_1a447d1aa8b0a14f89fc63fb2a44dad750">getName</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1TensorContraction_1a0d05001ad5b0b6b9f04ff7b23dfd70f7">getName</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1TensorGetMax_1afc6bb679d2b30ef24db07e6d2bc0e2a1">getName</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1TensorNorm_1ad79aca72ab04a417473419949232d92d">getName</reimplementedby>
@@ -325,6 +327,7 @@
         <reimplementedby refid="classsisi4s_1_1SingleParticleOccupancies_1af94163cbdf9089bd48d2c4fd4ad27f79">run</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1SliceCoulombVertex_1afce2615ea5b57c1d59b74c62dbb26918">run</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1TensorAntisymmetrizer_1a08e30cc781b351e0b505def08c1fad1b">run</reimplementedby>
+        <reimplementedby refid="classsisi4s_1_1TensorAntisymmetrizer2_1a8385441a1f83189c1b2a2a7b939b70ec">run</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1TensorContraction_1a974c0a3953bd12323eb3a7af1454f315">run</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1TensorGetMax_1ae4776bec7788af0420d5d447de949a32">run</reimplementedby>
         <reimplementedby refid="classsisi4s_1_1TensorNorm_1af5498afcb9dbcadb2ed71069cdc3f106">run</reimplementedby>
@@ -459,7 +462,7 @@
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexDecomposition_1a14cd82062611a0e443aff732ae0db121" compoundref="ParticleHoleCoulombVertexDecomposition_8cxx" startline="24" endline="115">sisi4s::ParticleHoleCoulombVertexDecomposition::run</referencedby>
         <referencedby refid="classsisi4s_1_1PQRSCoulombIntegralsToVertex_1a46fac3f3f22f920dc41e0c0d37e58c22" compoundref="PQRSCoulombIntegralsToVertex_8cxx" startline="26" endline="196">sisi4s::PQRSCoulombIntegralsToVertex::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1ab3fa58fddbd938517fed45a270cbd77e" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="43" endline="351">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
-        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="303">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
+        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="208">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1ade4d95a7d53a8b596e67d584e98d7f02" compoundref="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" startline="45" endline="208">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa::run</referencedby>
         <referencedby refid="classsisi4s_1_1ClusterSinglesDoublesAlgorithm_1a8c410f8d8c866f724b0df1be1654eafc" compoundref="ClusterSinglesDoublesAlgorithm_8cxx" startline="288" endline="299">sisi4s::ClusterSinglesDoublesAlgorithm::storeAmplitudes</referencedby>
       </memberdef>
@@ -519,7 +522,7 @@
         <referencedby refid="classsisi4s_1_1TensorContraction_1a974c0a3953bd12323eb3a7af1454f315" compoundref="TensorContraction_8cxx" startline="16" endline="27">sisi4s::TensorContraction::run</referencedby>
         <referencedby refid="structsisi4s_1_1TensorSlicer_1a2a5a3ba1ccb504d6bc5e7b0799ee85a7" compoundref="TensorSlicer_8cxx" startline="19" endline="44">sisi4s::TensorSlicer::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1ab3fa58fddbd938517fed45a270cbd77e" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="43" endline="351">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
-        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="303">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
+        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="208">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1ade4d95a7d53a8b596e67d584e98d7f02" compoundref="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" startline="45" endline="208">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa::run</referencedby>
       </memberdef>
       <memberdef kind="function" id="classsisi4s_1_1Algorithm_1a41084805d894e303eb41068a42aa9f74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -669,7 +672,7 @@
         <referencedby refid="classsisi4s_1_1ParticleHoleCoulombVertexSingularVectors_1a09b13599f6597caa907c8d7d2f785ac2" compoundref="ParticleHoleCoulombVertexSingularVectors_8cxx" startline="27" endline="72">sisi4s::ParticleHoleCoulombVertexSingularVectors::run</referencedby>
         <referencedby refid="classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals_1a1668977da91bbd8d13f2ac92e6149b11" compoundref="UccsdAmplitudesFromCoulombIntegrals_8cxx" startline="23" endline="86">sisi4s::UccsdAmplitudesFromCoulombIntegrals::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1a919a1546064a9644c7b863bf37e713ba" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="31" endline="40">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
-        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="303">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
+        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="208">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1UegVertexGenerator_1a7f2b63e4e37a5f74313403b5a41d5cbf" compoundref="UegVertexGenerator_8cxx" startline="49" endline="229">sisi4s::UegVertexGenerator::run</referencedby>
         <referencedby refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1a4e72a72260fbabc04e94e3352ec0c12e" compoundref="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" startline="33" endline="42">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa::run</referencedby>
         <referencedby refid="classsisi4s_1_1DoublesAmplitudesDecomposition_1aaffeb4b10fc0077f103ac5861dd495e2" compoundref="DoublesAmplitudesDecomposition_8cxx" startline="96" endline="176">sisi4s::DoublesAmplitudesDecomposition::sliceLargestEigenValues</referencedby>
@@ -755,7 +758,7 @@
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a4050ec17cf598360e6075f120763cd39" compoundref="PerturbativeTriples_8cxx" startline="172" endline="240">sisi4s::PerturbativeTriples::run</referencedby>
         <referencedby refid="classsisi4s_1_1TensorContraction_1a974c0a3953bd12323eb3a7af1454f315" compoundref="TensorContraction_8cxx" startline="16" endline="27">sisi4s::TensorContraction::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1ab3fa58fddbd938517fed45a270cbd77e" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="43" endline="351">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
-        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="303">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
+        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="208">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1UegVertexGenerator_1a7f2b63e4e37a5f74313403b5a41d5cbf" compoundref="UegVertexGenerator_8cxx" startline="49" endline="229">sisi4s::UegVertexGenerator::run</referencedby>
         <referencedby refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1ade4d95a7d53a8b596e67d584e98d7f02" compoundref="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" startline="45" endline="208">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa::run</referencedby>
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a569a55b703a8ff8d746c473b58a0e26f" compoundref="PerturbativeTriples_8cxx" startline="19" endline="97">sisi4s::PerturbativeTriples::runInMemory</referencedby>
@@ -855,7 +858,7 @@
         <referencedby refid="classsisi4s_1_1OneBodyRotation_1a15a0e3de73688c094a8018f94fa672d5" compoundref="OneBodyRotation_8cxx" startline="13" endline="48">sisi4s::OneBodyRotation::run</referencedby>
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a4050ec17cf598360e6075f120763cd39" compoundref="PerturbativeTriples_8cxx" startline="172" endline="240">sisi4s::PerturbativeTriples::run</referencedby>
         <referencedby refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson_1ab3fa58fddbd938517fed45a270cbd77e" compoundref="UCcsdEAEquationOfMotionDavidson_8cxx" startline="43" endline="351">sisi4s::UCcsdEAEquationOfMotionDavidson::run</referencedby>
-        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="303">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
+        <referencedby refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson_1a6a73d3c0c1a3ea5ad52001e8213bfbaf" compoundref="UCcsdIPEquationOfMotionDavidson_8cxx" startline="44" endline="208">sisi4s::UCcsdIPEquationOfMotionDavidson::run</referencedby>
         <referencedby refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa_1ade4d95a7d53a8b596e67d584e98d7f02" compoundref="UnrestrictedEquationOfMotionSinglesFromRpa_8cxx" startline="45" endline="208">sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa::run</referencedby>
         <referencedby refid="classsisi4s_1_1UPerturbativeTriples_1a44528381f51fc8eae60adce17b8c9109" compoundref="UPerturbativeTriples_8cxx" startline="19" endline="313">sisi4s::UPerturbativeTriples::run</referencedby>
         <referencedby refid="classsisi4s_1_1PerturbativeTriples_1a569a55b703a8ff8d746c473b58a0e26f" compoundref="PerturbativeTriples_8cxx" startline="19" endline="97">sisi4s::PerturbativeTriples::runInMemory</referencedby>
@@ -1609,72 +1612,78 @@
         </childnode>
       </node>
       <node id="68">
+        <label>sisi4s::TensorAntisymmetrizer2</label>
+        <link refid="classsisi4s_1_1TensorAntisymmetrizer2"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="69">
         <label>sisi4s::TensorContraction</label>
         <link refid="classsisi4s_1_1TensorContraction"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="69">
+      <node id="70">
         <label>sisi4s::TensorGetMax</label>
         <link refid="classsisi4s_1_1TensorGetMax"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="70">
+      <node id="71">
         <label>sisi4s::TensorNorm</label>
         <link refid="classsisi4s_1_1TensorNorm"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="71">
+      <node id="72">
         <label>sisi4s::TensorReader</label>
         <link refid="classsisi4s_1_1TensorReader"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="72">
+      <node id="73">
         <label>sisi4s::TensorReduceijij</label>
         <link refid="structsisi4s_1_1TensorReduceijij"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="73">
+      <node id="74">
         <label>sisi4s::TensorSlicer</label>
         <link refid="structsisi4s_1_1TensorSlicer"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="74">
+      <node id="75">
         <label>sisi4s::TensorSum</label>
         <link refid="classsisi4s_1_1TensorSum"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="75">
+      <node id="76">
         <label>sisi4s::TensorUnrestricter</label>
         <link refid="classsisi4s_1_1TensorUnrestricter"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="76">
+      <node id="77">
         <label>sisi4s::TensorWriter</label>
         <link refid="classsisi4s_1_1TensorWriter"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="77">
+      <node id="78">
         <label>sisi4s::UCcsdEAEquationOfMotionDavidson</label>
         <link refid="classsisi4s_1_1UCcsdEAEquationOfMotionDavidson"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="78">
+      <node id="79">
         <label>sisi4s::UCcsdIPEquationOfMotionDavidson</label>
         <link refid="classsisi4s_1_1UCcsdIPEquationOfMotionDavidson"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="79">
+      <node id="80">
         <label>sisi4s::UPerturbativeTriples</label>
         <link refid="classsisi4s_1_1UPerturbativeTriples"/>
         <childnode refid="1" relation="public-inheritance">
@@ -1698,19 +1707,19 @@
         <childnode refid="16" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="80">
+      <node id="81">
         <label>sisi4s::UegVertexGenerator</label>
         <link refid="classsisi4s_1_1UegVertexGenerator"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="81">
+      <node id="82">
         <label>sisi4s::UnrestrictedCIS</label>
         <link refid="classsisi4s_1_1UnrestrictedCIS"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="82">
+      <node id="83">
         <label>sisi4s::UnrestrictedEquationOfMotionSinglesFromRpa</label>
         <link refid="classsisi4s_1_1UnrestrictedEquationOfMotionSinglesFromRpa"/>
         <childnode refid="1" relation="public-inheritance">
@@ -1722,7 +1731,7 @@
         <childnode refid="10" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="83">
+      <node id="84">
         <label>sisi4s::Write</label>
         <link refid="classsisi4s_1_1Write"/>
         <childnode refid="1" relation="public-inheritance">

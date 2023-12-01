@@ -178,6 +178,7 @@ var namespacesisi4s =
     [ "StantonIntermediatesUCCSD", "classsisi4s_1_1StantonIntermediatesUCCSD.html", "classsisi4s_1_1StantonIntermediatesUCCSD" ],
     [ "StaticAssert", "classsisi4s_1_1StaticAssert.html", null ],
     [ "TensorAntisymmetrizer", "classsisi4s_1_1TensorAntisymmetrizer.html", "classsisi4s_1_1TensorAntisymmetrizer" ],
+    [ "TensorAntisymmetrizer2", "classsisi4s_1_1TensorAntisymmetrizer2.html", "classsisi4s_1_1TensorAntisymmetrizer2" ],
     [ "TensorContraction", "classsisi4s_1_1TensorContraction.html", "classsisi4s_1_1TensorContraction" ],
     [ "TensorData", "classsisi4s_1_1TensorData.html", "classsisi4s_1_1TensorData" ],
     [ "TensorGetMax", "classsisi4s_1_1TensorGetMax.html", "classsisi4s_1_1TensorGetMax" ],

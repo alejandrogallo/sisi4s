@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['c_0',['c',['../classsisi4s_1_1RandomGenerator.html#a1bd24ae26b497e657e509e5dea614b16',1,'sisi4s::RandomGenerator']]],
-  ['c_1',['C',['../structVectorIntegralProvider.html#a1baa10790ff866727cf21858b6408630',1,'VectorIntegralProvider']]],
+  ['c_0',['C',['../structVectorIntegralProvider.html#a1baa10790ff866727cf21858b6408630',1,'VectorIntegralProvider']]],
+  ['c_1',['c',['../classsisi4s_1_1RandomGenerator.html#a1bd24ae26b497e657e509e5dea614b16',1,'sisi4s::RandomGenerator']]],
   ['c_5fstr_2',['c_str',['../classghc_1_1filesystem_1_1path.html#a43eccd3bf97a5b8d83ce16d4426fd00e',1,'ghc::filesystem::path']]],
   ['calculatecomplexintegrals_3',['calculateComplexIntegrals',['../classsisi4s_1_1CoulombIntegralsFromVertex.html#abd4fd34cb27d006ece2f61750245e1eb',1,'sisi4s::CoulombIntegralsFromVertex']]],
   ['calculatecomplexstructurefactor_4',['calculateComplexStructureFactor',['../classsisi4s_1_1FiniteSizeCorrection.html#a011bf1004b284365e04ac9bafe86618d',1,'sisi4s::FiniteSizeCorrection']]],
@@ -125,8 +125,8 @@ var searchData=
   ['commentchar_122',['commentChar',['../classCLI_1_1ConfigBase.html#afd989253b3c1ec6731f0ce21e0343137',1,'CLI::ConfigBase']]],
   ['compare_123',['compare',['../classghc_1_1filesystem_1_1path.html#ae41dd22908dac8cdf2da4bab1da76ced',1,'ghc::filesystem::path::compare(const path &amp;p) const noexcept'],['../classghc_1_1filesystem_1_1path.html#af90815e37e035cdee0f4e80fd09ef674',1,'ghc::filesystem::path::compare(const string_type &amp;s) const'],['../classghc_1_1filesystem_1_1path.html#ac566951471675626ea765b043e1efa4f',1,'ghc::filesystem::path::compare(const value_type *s) const']]],
   ['compare_5fsimple_5finsensitive_124',['compare_simple_insensitive',['../namespaceghc_1_1filesystem_1_1detail.html#a85aeab543ffe608642b92a49b73dfb00',1,'ghc::filesystem::detail']]],
-  ['complex_125',['Complex',['../namespacesisi4s.html#a9cb34238d074521ecc87514a824265dd',1,'sisi4s']]],
-  ['complex_126',['complex',['../namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f',1,'sisi4s']]],
+  ['complex_125',['complex',['../namespacesisi4s.html#ad0bccf74d238a6fc69868a9439dd9e7f',1,'sisi4s']]],
+  ['complex_126',['Complex',['../namespacesisi4s.html#a9cb34238d074521ecc87514a824265dd',1,'sisi4s']]],
   ['complex_2ehpp_127',['Complex.hpp',['../Complex_8hpp.html',1,'']]],
   ['complex32_128',['Complex32',['../namespacesisi4s.html#a8166856c85b7cae4c4a7161ccac18e3a',1,'sisi4s']]],
   ['complex64_129',['Complex64',['../namespacesisi4s_1_1cc4s.html#ab6b6730bdce9a048b7bbde666053661aa7f460db745fe45e1227f6ffcc6bc44bf',1,'sisi4s::cc4s::Complex64'],['../namespacesisi4s.html#a4f2a35668e9f5c158a04d77cf39ac02b',1,'sisi4s::Complex64']]],

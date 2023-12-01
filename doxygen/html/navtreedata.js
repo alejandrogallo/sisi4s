@@ -92,13 +92,13 @@ var NAVTREEINDEX =
 "classsisi4s_1_1SDTFockVector.html#ae304e116e1fae312b3a9a68fbe244ee3",
 "classsisi4s_1_1SimilarityTransformedHamiltonian.html#a2dee4e2d0e8469ea4c68b1a907dab135",
 "classsisi4s_1_1SourceLocation.html#a857cc1a23fec7f4c23ac1fc6746565e9",
-"classsisi4s_1_1UccsdAmplitudesFromCoulombIntegrals.html",
-"filesystem_8hpp.html#a393a763db487f5c16e61dc1910adcbdd",
-"namespaceCLI.html",
-"namespaceghc_1_1filesystem.html#a74bf2a1161ee9e5e050bb19e8df9ffec",
-"namespacesisi4s.html#ab14ed3164e19d771549f3af9f21a00d8",
-"structSinfo.html#a117354078ba76050d60578589e01aa5e",
-"structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactorSettings.html#ac59fcaf133d3156e69ad3cd6c6e3c0ea"
+"classsisi4s_1_1UPerturbativeTriples.html#a4405bfe79f036702dbd809c37ddc3c84",
+"filesystem_8hpp.html#a2dd23f153d201e7557a43c7644ccf44aacf5f2e0341d3d21a4bc073c8eb8a25fa",
+"globals_eval.html",
+"namespaceghc_1_1filesystem.html#a65913abc33260dca24894b4ca709eb70",
+"namespacesisi4s.html#a900cd067a0e92de9ff85372102f9c596",
+"structShellInfo.html#acb3fec20b74932495b25e1561e67ac37",
+"structsisi4s_1_1SimilarityTransformedHamiltonian_1_1StructureFactor.html#ab8a0fe72b812ea25ad8700f5f7e4ab48"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
