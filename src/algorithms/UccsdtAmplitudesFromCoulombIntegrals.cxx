@@ -163,7 +163,7 @@ PTR(FockVector<F>) UccsdtAmplitudesFromCoulombIntegrals::getResiduumSth(
       .setTabij(Tabij.get())
       .setTabcijk(Tabcijk.get())
       .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::GENERAL)
-      .useStantonIntermediatesUCCSD(usingIntermediates)
+      .withStantonIntermediatesUCCSD(usingIntermediates)
       .withRingCCSDT(withRingCCSDT)
       // end
       ;

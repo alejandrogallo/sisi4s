@@ -12,9 +12,8 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(TensorUnrestricter);
-
-Tensor<double> *unrestrictTensor(Tensor<double> &tensor) {
+template <typename F>
+static Tensor<F> *unrestrictTensor(Tensor<F> &tensor) {
 
   // check order of tensor
   const std::set<int> _supportedLens({1, 2, 4});
@@ -28,11 +27,11 @@ Tensor<double> *unrestrictTensor(Tensor<double> &tensor) {
   std::vector<int> syms(tensor.sym, tensor.sym + tensor.order);
   std::for_each(lens.begin(), lens.end(), [](int &i) { i *= 2; });
 
-  auto result(new Tensor<double>(tensor.order,
-                                 lens.data(),
-                                 syms.data(),
-                                 *Sisi4s::world,
-                                 ("u" + std::string(tensor.name)).c_str()));
+  auto result(new Tensor<F>(tensor.order,
+                            lens.data(),
+                            syms.data(),
+                            *Sisi4s::world,
+                            ("u" + std::string(tensor.name)).c_str()));
 
   // vector of vectors of int
   // { MapEquivalenceForLens0, MapEquivalenceForLens1, ... }
@@ -87,8 +86,18 @@ Tensor<double> *unrestrictTensor(Tensor<double> &tensor) {
   return result;
 }
 
-void TensorUnrestricter::run() {
-  allocatedTensorArgument<double>(
-      "Out",
-      unrestrictTensor(*getTensorArgument<double>("Data")));
+IMPLEMENT_ALGORITHM(TensorUnrestricter) {
+  Data *tensor_data(getArgumentData("Data"));
+  TensorData<double> *real_tensor_data(
+      dynamic_cast<TensorData<double> *>(tensor_data));
+  if (real_tensor_data) {
+    allocatedTensorArgument<double>(
+        "Out",
+        unrestrictTensor<double>(*getTensorArgument<double>("Data")));
+  } else {
+    allocatedTensorArgument<sisi4s::complex>(
+        "Out",
+        unrestrictTensor<sisi4s::complex>(
+            *getTensorArgument<sisi4s::complex>("Data")));
+  }
 }

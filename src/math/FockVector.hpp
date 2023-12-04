@@ -27,8 +27,8 @@ class FockVector {
 public:
   typedef F FieldType;
 
-  std::vector<PTR(Tensor<F>)> componentTensors;
-  std::vector<std::string> componentIndices;
+  std::vector<PTR(Tensor<F>)> component_tensors;
+  std::vector<std::string> component_indices;
 
   /**
    * \brief Default constructor for an empty Fock vector without elements.
@@ -39,21 +39,21 @@ public:
    * \brief Move constructor taking possession of the tensors owned by a.
    **/
   FockVector(FockVector<F> &&a)
-      : componentTensors(a.componentTensors)
-      , componentIndices(a.componentIndices)
-      , indexEnds(a.componentTensors.size()) {
-    buildIndexTranslation();
+      : component_tensors(a.component_tensors)
+      , component_indices(a.component_indices)
+      , index_ends(a.component_tensors.size()) {
+    build_index_translation();
   }
 
   /**
    * \brief Copy constructor copying the tensors owned by a.
    **/
   FockVector(const FockVector<F> &a)
-      : componentTensors(a.componentTensors.size())
-      , componentIndices(a.componentIndices)
-      , indexEnds(a.componentTensors.size()) {
-    copyComponents(a.componentTensors);
-    buildIndexTranslation();
+      : component_tensors(a.component_tensors.size())
+      , component_indices(a.component_indices)
+      , index_ends(a.component_tensors.size()) {
+    copy_components(a.component_tensors);
+    build_index_translation();
   }
 
   /**
@@ -61,10 +61,10 @@ public:
    **/
   FockVector(const std::vector<PTR(Tensor<F>)> &tensors,
              const std::vector<std::string> &indices)
-      : componentTensors(tensors)
-      , componentIndices(indices)
-      , indexEnds(componentTensors.size()) {
-    buildIndexTranslation();
+      : component_tensors(tensors)
+      , component_indices(indices)
+      , index_ends(component_tensors.size()) {
+    build_index_translation();
   }
 
   /**
@@ -76,10 +76,10 @@ public:
              TensorsIterator tensorsEnd,
              IndicesIterator indicesBegin,
              IndicesIterator indicesEnd)
-      : componentTensors(tensorsBegin, tensorsEnd)
-      , componentIndices(indicesBegin, indicesEnd)
-      , indexEnds(componentTensors.size()) {
-    buildIndexTranslation();
+      : component_tensors(tensorsBegin, tensorsEnd)
+      , component_indices(indicesBegin, indicesEnd)
+      , index_ends(component_tensors.size()) {
+    build_index_translation();
   }
 
   /**
@@ -88,34 +88,34 @@ public:
    * required also in non-modifying tensor operations.
    **/
   const PTR(Tensor<F>) &get(const size_t i) const {
-    return componentTensors[i];
+    return component_tensors[i];
   }
 
   /**
    * \brief Retrieves the i-th component tensor.
    **/
-  PTR(Tensor<F>) &get(const size_t i) { return componentTensors[i]; }
+  PTR(Tensor<F>) &get(const size_t i) { return component_tensors[i]; }
 
   /**
    * \brief Retrieves the i-th component indices.
    **/
-  const std::string &getIndices(const size_t i) const {
-    return componentIndices[i];
+  const std::string &get_indices(const size_t i) const {
+    return component_indices[i];
   }
 
   /**
    * \brief Retrieves the i-th component indices as modifiable string.
    **/
-  std::string &getIndices(const size_t i) { return componentIndices[i]; }
+  std::string &get_indices(const size_t i) { return component_indices[i]; }
 
   /**
    * \brief Move assignment operator taking possession of the tensors
    * owned by a.
    **/
   FockVector<F> &operator=(const FockVector<F> &&a) {
-    componentTensors = a.componentTensors;
-    componentIndices = a.componentIndices;
-    buildIndexTranslation();
+    component_tensors = a.component_tensors;
+    component_indices = a.component_indices;
+    build_index_translation();
     return *this;
   }
 
@@ -123,9 +123,9 @@ public:
    * \brief Copy assignment operator copying the tensors owned by a.
    **/
   FockVector<F> &operator=(const FockVector<F> &a) {
-    componentIndices = a.componentIndices;
-    copyComponents(a.componentTensors);
-    buildIndexTranslation();
+    component_indices = a.component_indices;
+    copy_components(a.component_tensors);
+    build_index_translation();
     return *this;
   }
 
@@ -135,8 +135,8 @@ public:
    **/
   FockVector<F> &operator+=(const FockVector<F> &a) {
     checkCompatibilityTo(a);
-    for (size_t i(0); i < componentTensors.size(); ++i) {
-      const char *indices(componentIndices[i].c_str());
+    for (size_t i(0); i < component_tensors.size(); ++i) {
+      const char *indices(component_indices[i].c_str());
       get(i)->sum(+1.0, *a.get(i), indices, 1.0, indices);
     }
     return *this;
@@ -148,8 +148,8 @@ public:
    **/
   FockVector<F> &operator-=(const FockVector<F> &a) {
     checkCompatibilityTo(a);
-    for (size_t i(0); i < componentTensors.size(); ++i) {
-      const char *indices(getIndices(i).c_str());
+    for (size_t i(0); i < component_tensors.size(); ++i) {
+      const char *indices(get_indices(i).c_str());
       get(i)->sum(-1.0, *a.get(i), indices, 1.0, indices);
     }
     return *this;
@@ -160,8 +160,8 @@ public:
    * each component of this FockVector by the given scalar.
    **/
   FockVector<F> &operator*=(const F s) {
-    for (size_t i(0); i < componentTensors.size(); ++i) {
-      const char *indices(getIndices(i).c_str());
+    for (size_t i(0); i < component_tensors.size(); ++i) {
+      const char *indices(get_indices(i).c_str());
       get(i)->sum(s, *get(i), indices, 0.0, indices);
     }
     return *this;
@@ -175,27 +175,27 @@ public:
    **/
   FockVector<F> conjugateTranspose() const {
     FockVector<F> result;
-    for (size_t i(0); i < componentTensors.size(); ++i) {
-      size_t order(getIndices(i).length() / 2);
+    for (size_t i(0); i < component_tensors.size(); ++i) {
+      size_t order(get_indices(i).length() / 2);
       std::vector<int> transposedLens(get(i)->lens, get(i)->lens + 2 * order);
       std::rotate(transposedLens.begin(),
                   transposedLens.begin() + order,
                   transposedLens.begin() + 2 * order);
-      result.componentTensors.push_back(
+      result.component_tensors.push_back(
           NEW(Tensor<F>,
               transposedLens.size(),
               transposedLens.data(),
               get(i)->sym,
               *get(i)->wrld,
               (std::string(get(i)->get_name()) + "*").c_str()));
-      result.componentIndices.push_back(getIndices(i).substr(order, 2 * order)
-                                        + getIndices(i).substr(0, order));
+      result.component_indices.push_back(get_indices(i).substr(order, 2 * order)
+                                         + get_indices(i).substr(0, order));
       CTF::Univar_Function<F> fConj(sisi4s::conj<F>);
       result.get(i)->sum(1.0,
                          *get(i),
-                         getIndices(i).c_str(),
+                         get_indices(i).c_str(),
                          0.0,
-                         result.getIndices(i).c_str(),
+                         result.get_indices(i).c_str(),
                          fConj);
     }
     return result;
@@ -208,9 +208,9 @@ public:
   F braket(const FockVector<F> &ket) const {
     // checkDualCompatibility(ket);
     CTF::Scalar<F> result;
-    for (size_t i(0); i < componentTensors.size(); ++i) {
-      const char *indices(getIndices(i).c_str());
-      const char *ketIndices(ket.getIndices(i).c_str());
+    for (size_t i(0); i < component_tensors.size(); ++i) {
+      const char *indices(get_indices(i).c_str());
+      const char *ketIndices(ket.get_indices(i).c_str());
       // add to result
       result[""] += (*get(i))[indices] * (*ket.get(i))[ketIndices];
     }
@@ -226,8 +226,8 @@ public:
   F dot(const FockVector<F> &a) const {
     checkCompatibilityTo(a);
     CTF::Scalar<F> result;
-    for (size_t i(0); i < componentTensors.size(); ++i) {
-      const char *indices(getIndices(i).c_str());
+    for (size_t i(0); i < component_tensors.size(); ++i) {
+      const char *indices(get_indices(i).c_str());
       CTF::Bivar_Function<F> fDot(&sisi4s::dot<F>);
       // add to result
       result.contract(1.0, *get(i), indices, *a.get(i), indices, 1.0, "", fDot);
@@ -238,27 +238,27 @@ public:
   /**
    * \brief Get the number of component tensors of this FockVector.
    */
-  size_t getComponentsCount() const { return componentTensors.size(); }
+  size_t get_components_count() const { return component_tensors.size(); }
 
   /**
    * \brief Get the total number of degrees of freedom represented by this
    * FockVector, i.e. the total number of field values contained in all
    * component tensors. The indices used by read and write are between
-   * 0 and getDimension()-1.
+   * 0 and get_dimension()-1.
    */
-  size_t getDimension() const { return indexEnds.back(); }
+  size_t get_dimension() const { return index_ends.back(); }
 
   /**
    * \Brief Translates the given component and component index into
-   * its element into an index between 0 and getDimension()-1.
+   * its element into an index between 0 and get_dimension()-1.
    **/
-  size_t getIndex(const size_t component, const size_t componentIndex) const {
-    size_t base(component > 0 ? indexEnds[component - 1] : 0);
+  size_t get_index(const size_t component, const size_t componentIndex) const {
+    size_t base(component > 0 ? index_ends[component - 1] : 0);
     return base + componentIndex;
   }
 
   /**
-   * \Brief Translates the given index between 0 and getDimension()-1
+   * \Brief Translates the given index between 0 and get_dimension()-1
    * into a component number and component index into the corresponding
    * component tensor.
    **/
@@ -267,11 +267,11 @@ public:
                  size_t &componentIndex) const {
     component = 0;
     size_t base(0);
-    while (component < indexEnds.size()) {
-      if (index < indexEnds[component]) break;
-      base = indexEnds[component++];
+    while (component < index_ends.size()) {
+      if (index < index_ends[component]) break;
+      base = index_ends[component++];
     }
-    if (component >= indexEnds.size()) {
+    if (component >= index_ends.size()) {
       throw new EXCEPTION("Index out bounds");
     }
     componentIndex = index - base;
@@ -279,27 +279,27 @@ public:
 
   /**
    * \brief Reads out all locally stored values together with their
-   * respective indices. The indices are between 0 and getDimension()-1.
+   * respective indices. The indices are between 0 and get_dimension()-1.
    **/
   std::vector<std::pair<size_t, F>> readLocal() const {
     size_t elementsCount(0);
     std::vector<std::pair<size_t, F>> elements;
-    for (size_t i(0); i < componentTensors.size(); ++i) {
+    for (size_t i(0); i < component_tensors.size(); ++i) {
       size_t componentValuesCount;
-      size_t *componentIndices;
+      size_t *component_indices;
       F *componentValues;
       get(i)->read_local(reinterpret_cast<int64_t *>(&componentValuesCount),
-                         reinterpret_cast<int64_t **>(&componentIndices),
+                         reinterpret_cast<int64_t **>(&component_indices),
                          &componentValues);
 
       elements.resize(elementsCount + componentValuesCount);
       for (size_t k(0); k < componentValuesCount; ++k) {
         // translate index within component tensor to FockVector index
-        elements[elementsCount + k].first = getIndex(i, componentIndices[k]);
+        elements[elementsCount + k].first = get_index(i, component_indices[k]);
         elements[elementsCount + k].second = componentValues[k];
       }
       elementsCount += componentValuesCount;
-      free(componentIndices);
+      free(component_indices);
       free(componentValues);
     }
     return elements;
@@ -307,12 +307,12 @@ public:
 
   /**
    * \brief Writes the given values together with their
-   * respective indices. The indices are between 0 and getDimension()-1.
+   * respective indices. The indices are between 0 and get_dimension()-1.
    **/
   void write(const std::vector<std::pair<size_t, F>> &elements) {
     // vectors to contain indices and values for each component tensor
-    std::vector<std::vector<size_t>> tensorIndices(componentTensors.size());
-    std::vector<std::vector<F>> tensorValues(componentTensors.size());
+    std::vector<std::vector<size_t>> tensorIndices(component_tensors.size());
+    std::vector<std::vector<F>> tensorValues(component_tensors.size());
 
     for (size_t k(0); k < elements.size(); ++k) {
       size_t component;
@@ -324,7 +324,7 @@ public:
     }
 
     // write data of each tensor
-    for (size_t i(0); i < componentTensors.size(); ++i) {
+    for (size_t i(0); i < component_tensors.size(); ++i) {
       tensorIndices[i].reserve(tensorIndices[i].size() + 1);
       tensorValues[i].reserve(tensorIndices[i].size() + 1);
       get(i)->write(tensorIndices[i].size(),
@@ -339,21 +339,21 @@ protected:
    * This vector is used for translating component number and indices
    * into FockVector indicies.
    **/
-  std::vector<size_t> indexEnds;
+  std::vector<size_t> index_ends;
 
   /**
    * \Brief Builds the index ends vector needed for the
-   * index translation methods getIndex and fromIndex.
+   * index translation methods get_index and fromIndex.
    **/
-  void buildIndexTranslation() {
-    indexEnds.resize(componentTensors.size());
+  void build_index_translation() {
+    index_ends.resize(component_tensors.size());
     size_t indexBase(0);
-    for (size_t i(0); i < componentTensors.size(); ++i) {
+    for (size_t i(0); i < component_tensors.size(); ++i) {
       size_t tensorIndexSize(1);
       for (int d(0); d < get(i)->order; ++d) {
         tensorIndexSize *= get(i)->lens[d];
       }
-      indexEnds[i] = indexBase += tensorIndexSize;
+      index_ends[i] = indexBase += tensorIndexSize;
     }
   }
 
@@ -361,10 +361,10 @@ protected:
    * \brief Sets this FockVector's component tensors by copying the given
    * component tensors. Called by copy constructors and copy assignments.
    **/
-  void copyComponents(const std::vector<PTR(Tensor<F>)> &components) {
-    componentTensors.resize(components.size());
+  void copy_components(const std::vector<PTR(Tensor<F>)> &components) {
+    component_tensors.resize(components.size());
     for (size_t i(0); i < components.size(); ++i) {
-      componentTensors[i] = NEW(Tensor<F>, *components[i]);
+      component_tensors[i] = NEW(Tensor<F>, *components[i]);
     }
   }
 
@@ -375,7 +375,7 @@ protected:
   // TODO: Improve speed?
   void checkDualCompatibility(const FockVector<F> &a) const {
     checkCompatibilityTo(a);
-    for (size_t i(0); i < componentTensors.size(); i++) {
+    for (size_t i(0); i < component_tensors.size(); i++) {
       size_t indexLens(a.get(i)->order());
       for (size_t j(0); j < indexLens; j++) {
         size_t indexPos(get(i).find(a.getIndicies(i)[j]));
@@ -390,8 +390,8 @@ protected:
   }
 
   void checkCompatibilityTo(const FockVector<F> &a) const {
-    if (componentTensors.size() != a.componentTensors.size()
-        || componentIndices.size() != a.componentIndices.size()) {
+    if (component_tensors.size() != a.component_tensors.size()
+        || component_indices.size() != a.component_indices.size()) {
       throw EXCEPTION("Number of component tensors does no match");
     }
     // TODO: check shapes.
@@ -507,9 +507,9 @@ inline FockVector<F> &&operator*(const F s, FockVector<F> &&a) {
 template <typename F>
 inline std::ostream &operator<<(std::ostream &stream, const FockVector<F> &a) {
   stream << "( ";
-  stream << a.get(0) << "[" << a.getIndices(0) << "]";
-  for (size_t i(1); i < a.componentTensors.size(); ++i) {
-    stream << ", " << a.get(i) << "[" << a.getIndices(i) << "]";
+  stream << a.get(0) << "[" << a.get_indices(0) << "]";
+  for (size_t i(1); i < a.component_tensors.size(); ++i) {
+    stream << ", " << a.get(i) << "[" << a.get_indices(i) << "]";
   }
   return stream << " )";
 }
@@ -526,8 +526,8 @@ public:
     if (N > 6) {
       throw new EXCEPTION("FockVectorNdCanonical implemented only up to 6");
     }
-    const std::string pindices("abcdefg");
-    const std::string hindices("ijklomn");
+    const std::string pindices("abcdefgABCDEFG");
+    const std::string hindices("ijklomnIJKLOMN");
     for (unsigned int i(StartDimension); i <= N / 2; i++) {
 
       // vec<int> and not unsigned int, otherwise you'll be miserable for at
@@ -538,12 +538,12 @@ public:
       std::vector<int> dims(dimsv);
       dims.insert(dims.end(), dimso.begin(), dimso.end());
 
-      this->componentIndices.push_back(pindices.substr(0, i)
-                                       + hindices.substr(0, i));
-      this->componentTensors.push_back(
+      this->component_indices.push_back(pindices.substr(0, i)
+                                        + hindices.substr(0, i));
+      this->component_tensors.push_back(
           NEW(Tensor<F>, 2 * i, dims.data(), syms.data(), *Sisi4s::world));
     }
-    this->buildIndexTranslation();
+    this->build_index_translation();
   }
 
   /**
@@ -555,25 +555,32 @@ public:
    * \brief Move constructor taking possession of the tensors owned by a.
    **/
   FockVectorNdCanonical(FockVector<F> &&a) {
-    this->componentTensors = a.componentTensors;
-    this->componentIndices = a.componentIndices;
-    this->indexEnds.resize(a.componentTensors.size());
+    this->component_tensors = a.component_tensors;
+    this->component_indices = a.component_indices;
+    this->index_ends.resize(a.component_tensors.size());
 
-    this->buildIndexTranslation();
+    this->build_index_translation();
   }
 
   /**
    * \brief Copy constructor copying the tensors owned by a.
    **/
   FockVectorNdCanonical(const FockVector<F> &a) {
-    this->componentTensors.resize(a.componentTensors.size());
-    this->componentIndices = a.componentIndices;
-    this->indexEnds.resize(a.componentTensors.size());
-    this->copyComponents(a.componentTensors);
+    this->component_tensors.resize(a.component_tensors.size());
+    this->component_indices = a.component_indices;
+    this->index_ends.resize(a.component_tensors.size());
+    this->copy_components(a.component_tensors);
 
-    this->buildIndexTranslation();
+    this->build_index_translation();
   }
 };
+
+template <typename F>
+using CISFockVector = FockVectorNdCanonical<F, 1, 0>;
+template <typename F>
+using CISDFockVector = FockVectorNdCanonical<F, 2, 0>;
+template <typename F>
+using CISDTFockVector = FockVectorNdCanonical<F, 3, 0>;
 
 template <typename F>
 class SDFockVector;
@@ -587,33 +594,33 @@ public:
       : FockVectorNdCanonical<F, 1, 1>(0, 0) {}
 
   SFockVector(const SFockVector<F> &a) {
-    this->componentIndices = a.componentIndices;
-    this->indexEnds.resize(1);
-    this->componentTensors.resize(1);
-    this->copyComponents(a.componentTensors);
-    this->buildIndexTranslation();
+    this->component_indices = a.component_indices;
+    this->index_ends.resize(1);
+    this->component_tensors.resize(1);
+    this->copy_components(a.component_tensors);
+    this->build_index_translation();
   }
 
   SFockVector(SFockVector<F> &&a) {
-    this->componentIndices = a.componentIndices;
-    this->componentTensors = a.componentTensors;
-    this->indexEnds.resize(1);
-    this->buildIndexTranslation();
+    this->component_indices = a.component_indices;
+    this->component_tensors = a.component_tensors;
+    this->index_ends.resize(1);
+    this->build_index_translation();
   }
 
   SFockVector<F> &operator=(const SFockVector<F> &a) {
-    this->componentIndices = a.componentIndices;
-    this->copyComponents(a.componentTensors);
-    this->buildIndexTranslation();
+    this->component_indices = a.component_indices;
+    this->copy_components(a.component_tensors);
+    this->build_index_translation();
     return *this;
   }
 
   SFockVector(const SDFockVector<F> &a) {
-    this->componentIndices = a.componentIndices;
-    this->indexEnds.resize(1);
-    this->componentTensors.resize(1);
-    this->copyComponents(a.componentTensors);
-    this->buildIndexTranslation();
+    this->component_indices = a.component_indices;
+    this->index_ends.resize(1);
+    this->component_tensors.resize(1);
+    this->copy_components(a.component_tensors);
+    this->build_index_translation();
   }
 };
 
@@ -629,41 +636,41 @@ public:
       : FockVectorNdCanonical<F, 2, 1>(0, 0) {}
 
   SDFockVector(const SDFockVector<F> &a) {
-    this->componentIndices = a.componentIndices;
-    this->indexEnds.resize(2);
-    this->componentTensors.resize(2);
-    this->copyComponents(a.componentTensors);
-    this->buildIndexTranslation();
+    this->component_indices = a.component_indices;
+    this->index_ends.resize(2);
+    this->component_tensors.resize(2);
+    this->copy_components(a.component_tensors);
+    this->build_index_translation();
   }
 
   SDFockVector(SDFockVector<F> &&a) {
-    this->componentIndices = a.componentIndices;
-    this->componentTensors = a.componentTensors;
-    this->indexEnds.resize(2);
-    this->buildIndexTranslation();
+    this->component_indices = a.component_indices;
+    this->component_tensors = a.component_tensors;
+    this->index_ends.resize(2);
+    this->build_index_translation();
   }
 
   SDFockVector<F> &operator=(const SDFockVector<F> &a) {
-    this->componentIndices = a.componentIndices;
-    this->copyComponents(a.componentTensors);
-    this->buildIndexTranslation();
+    this->component_indices = a.component_indices;
+    this->copy_components(a.component_tensors);
+    this->build_index_translation();
     return *this;
   }
 
   SDFockVector(const SFockVector<F> &a) {
-    this->componentIndices = a.componentIndices;
-    this->indexEnds.resize(2);
-    this->componentTensors.resize(2);
-    this->copyComponents(a.componentTensors);
-    this->buildIndexTranslation();
+    this->component_indices = a.component_indices;
+    this->index_ends.resize(2);
+    this->component_tensors.resize(2);
+    this->copy_components(a.component_tensors);
+    this->build_index_translation();
   }
 
   SDFockVector(const SDTFockVector<F> &a) {
-    this->componentIndices = a.componentIndices;
-    this->indexEnds.resize(2);
-    this->componentTensors.resize(2);
-    this->copyComponents(a.componentTensors);
-    this->buildIndexTranslation();
+    this->component_indices = a.component_indices;
+    this->index_ends.resize(2);
+    this->component_tensors.resize(2);
+    this->copy_components(a.component_tensors);
+    this->build_index_translation();
   }
 };
 
@@ -676,87 +683,91 @@ public:
       : FockVectorNdCanonical<F, 3, 1>(0, 0) {}
 
   SDTFockVector(const SDFockVector<F> &a) {
-    this->copyComponents(a.componentTensors);
-    this->componentTensors.resize(3);
-    this->componentIndices.resize(3);
-    this->componentIndices[0] = a.componentIndices[0];
-    this->componentIndices[1] = a.componentIndices[1];
-    this->componentIndices[2] = "abcijk";
-    this->indexEnds.resize(3);
+    this->copy_components(a.component_tensors);
+    this->component_tensors.resize(3);
+    this->component_indices.resize(3);
+    this->component_indices[0] = a.component_indices[0];
+    this->component_indices[1] = a.component_indices[1];
+    this->component_indices[2] = "abcijk";
+    this->index_ends.resize(3);
     // This copies the components of a
 
-    int No(this->componentTensors[0]->lens[1]);
-    int Nv(this->componentTensors[0]->lens[0]);
+    int No(this->component_tensors[0]->lens[1]);
+    int Nv(this->component_tensors[0]->lens[0]);
     int vvvooo[6] = {Nv, Nv, Nv, No, No, No};
     int syms[6] = {NS, NS, NS, NS, NS, NS};
-    this->componentTensors[2] = NEW(Tensor<F>, 6, vvvooo, syms, *Sisi4s::world);
+    this->component_tensors[2] =
+        NEW(Tensor<F>, 6, vvvooo, syms, *Sisi4s::world);
     (*this->get(2))["abcijk"] = 0.0;
 
-    this->buildIndexTranslation();
+    this->build_index_translation();
   }
 
   SDTFockVector(const SDFockVector<F> &&a) {
-    this->componentTensors.resize(3);
-    this->componentIndices.resize(3);
-    this->componentIndices[0] = a.componentIndices[0];
-    this->componentIndices[1] = a.componentIndices[1];
-    this->componentIndices[2] = "abcijk";
-    this->indexEnds.resize(3);
+    this->component_tensors.resize(3);
+    this->component_indices.resize(3);
+    this->component_indices[0] = a.component_indices[0];
+    this->component_indices[1] = a.component_indices[1];
+    this->component_indices[2] = "abcijk";
+    this->index_ends.resize(3);
     // This copies the components of a
-    this->componentTensors[0] = a.componentTensors[0];
-    this->componentTensors[1] = a.componentTensors[1];
+    this->component_tensors[0] = a.component_tensors[0];
+    this->component_tensors[1] = a.component_tensors[1];
 
-    int No(this->componentTensors[0]->lens[1]);
-    int Nv(this->componentTensors[0]->lens[0]);
+    int No(this->component_tensors[0]->lens[1]);
+    int Nv(this->component_tensors[0]->lens[0]);
     int vvvooo[6] = {Nv, Nv, Nv, No, No, No};
     int syms[6] = {NS, NS, NS, NS, NS, NS};
-    this->componentTensors[2] = NEW(Tensor<F>, 6, vvvooo, syms, *Sisi4s::world);
+    this->component_tensors[2] =
+        NEW(Tensor<F>, 6, vvvooo, syms, *Sisi4s::world);
     (*this->get(2))["abcijk"] = 0.0;
 
-    this->buildIndexTranslation();
+    this->build_index_translation();
   }
 
   SDTFockVector<F> &operator=(SDFockVector<F> &&a) {
-    this->componentTensors.resize(3);
-    this->componentIndices.resize(3);
-    this->componentIndices[0] = a.componentIndices[0];
-    this->componentIndices[1] = a.componentIndices[1];
-    this->componentIndices[2] = "abcijk";
-    this->indexEnds.resize(3);
+    this->component_tensors.resize(3);
+    this->component_indices.resize(3);
+    this->component_indices[0] = a.component_indices[0];
+    this->component_indices[1] = a.component_indices[1];
+    this->component_indices[2] = "abcijk";
+    this->index_ends.resize(3);
     // This copies the components of a
-    this->componentTensors[0] = a.componentTensors[0];
-    this->componentTensors[1] = a.componentTensors[1];
+    this->component_tensors[0] = a.component_tensors[0];
+    this->component_tensors[1] = a.component_tensors[1];
 
-    int No(this->componentTensors[0]->lens[1]);
-    int Nv(this->componentTensors[0]->lens[0]);
+    int No(this->component_tensors[0]->lens[1]);
+    int Nv(this->component_tensors[0]->lens[0]);
     int vvvooo[6] = {Nv, Nv, Nv, No, No, No};
     int syms[6] = {NS, NS, NS, NS, NS, NS};
-    this->componentTensors[2] = NEW(Tensor<F>, 6, vvvooo, syms, *Sisi4s::world);
+    this->component_tensors[2] =
+        NEW(Tensor<F>, 6, vvvooo, syms, *Sisi4s::world);
     (*this->get(2))["abcijk"] = 0.0;
 
-    this->buildIndexTranslation();
+    this->build_index_translation();
 
     return *this;
   }
 
   SDTFockVector<F> &operator=(const SDFockVector<F> &a) {
-    this->copyComponents(a.componentTensors);
-    this->componentTensors.resize(3);
-    this->componentIndices.resize(3);
-    this->componentIndices[0] = a.componentIndices[0];
-    this->componentIndices[1] = a.componentIndices[1];
-    this->componentIndices[2] = "abcijk";
-    this->indexEnds.resize(3);
+    this->copy_components(a.component_tensors);
+    this->component_tensors.resize(3);
+    this->component_indices.resize(3);
+    this->component_indices[0] = a.component_indices[0];
+    this->component_indices[1] = a.component_indices[1];
+    this->component_indices[2] = "abcijk";
+    this->index_ends.resize(3);
     // This copies the components of a
 
-    int No(this->componentTensors[0]->lens[1]);
-    int Nv(this->componentTensors[0]->lens[0]);
+    int No(this->component_tensors[0]->lens[1]);
+    int Nv(this->component_tensors[0]->lens[0]);
     int vvvooo[6] = {Nv, Nv, Nv, No, No, No};
     int syms[6] = {NS, NS, NS, NS, NS, NS};
-    this->componentTensors[2] = NEW(Tensor<F>, 6, vvvooo, syms, *Sisi4s::world);
+    this->component_tensors[2] =
+        NEW(Tensor<F>, 6, vvvooo, syms, *Sisi4s::world);
     (*this->get(2))["abcijk"] = 0.0;
 
-    this->buildIndexTranslation();
+    this->build_index_translation();
 
     return *this;
   }

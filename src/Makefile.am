@@ -76,6 +76,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/TensorNorm.cxx                                      \
 ./algorithms/TensorSum.cxx                                       \
 ./algorithms/UnrestrictedEquationOfMotionSinglesFromRpa.cxx      \
+./algorithms/UnrestrictedCIS.cxx                                 \
 ./algorithms/UrpaAmplitudesFromCoulombIntegrals.cxx              \
 ./algorithms/OneBodyRotation.cxx                                 \
 ./algorithms/HartreeFockFromCoulombIntegrals.cxx                 \

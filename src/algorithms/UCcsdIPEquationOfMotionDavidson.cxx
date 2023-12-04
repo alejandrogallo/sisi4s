@@ -29,13 +29,14 @@ UCcsdIPEquationOfMotionDavidson::UCcsdIPEquationOfMotionDavidson(
 UCcsdIPEquationOfMotionDavidson::~UCcsdIPEquationOfMotionDavidson() {}
 
 void UCcsdIPEquationOfMotionDavidson::run() {
-
-  if (getIntegerArgument("complexVersion", 1) == 1) {
-    LOG(0, "IPEomDavid") << "Using complex code" << std::endl;
-    UCcsdIPEquationOfMotionDavidson::run<complex>();
-  } else {
+  Data *Vabij(getArgumentData("HHPPCoulombIntegrals"));
+  TensorData<double> *realVabij(dynamic_cast<TensorData<double> *>(Vabij));
+  if (realVabij) {
     LOG(0, "IPEomDavid") << "Using real code" << std::endl;
     UCcsdIPEquationOfMotionDavidson::run<double>();
+  } else {
+    LOG(0, "IPEomDavid") << "Using complex code" << std::endl;
+    UCcsdIPEquationOfMotionDavidson::run<complex>();
   }
 }
 
@@ -86,108 +87,22 @@ void UCcsdIPEquationOfMotionDavidson::run() {
   // Get copy of couloumb integrals
 
   // Viabc
-  Tensor<double> *pViabc(
-      getTensorArgument<double, Tensor<double>>("HPPPCoulombIntegrals"));
-  Tensor<F> cViabc(pViabc->order,
-                   pViabc->lens,
-                   pViabc->sym,
-                   *Sisi4s::world,
-                   pViabc->get_name());
-  Tensor<F> *Viabc(&cViabc);
-  toComplexTensor(*pViabc, *Viabc);
-
-  // Viajb
-  Tensor<double> *pViajb(
-      getTensorArgument<double, Tensor<double>>("HPHPCoulombIntegrals"));
-  Tensor<F> cViajb(pViajb->order,
-                   pViajb->lens,
-                   pViajb->sym,
-                   *Sisi4s::world,
-                   pViajb->get_name());
-  Tensor<F> *Viajb(&cViajb);
-  toComplexTensor(*pViajb, *Viajb);
-
-  // Vaibc
-  Tensor<double> *pVaibc(
-      getTensorArgument<double, Tensor<double>>("PHPPCoulombIntegrals"));
-  Tensor<F> cVaibc(pVaibc->order,
-                   pVaibc->lens,
-                   pVaibc->sym,
-                   *Sisi4s::world,
-                   pVaibc->get_name());
-  Tensor<F> *Vaibc(&cVaibc);
-  toComplexTensor(*pVaibc, *Vaibc);
-
-  // Viajk
-  Tensor<double> *pViajk(
-      getTensorArgument<double, Tensor<double>>("HPHHCoulombIntegrals"));
-  Tensor<F> cViajk(pViajk->order,
-                   pViajk->lens,
-                   pViajk->sym,
-                   *Sisi4s::world,
-                   pViajk->get_name());
-  Tensor<F> *Viajk(&cViajk);
-  toComplexTensor(*pViajk, *Viajk);
-
-  // Vijab
-  Tensor<double> *pVijab(
-      getTensorArgument<double, Tensor<double>>("HHPPCoulombIntegrals"));
-  Tensor<F> cVijab(pVijab->order,
-                   pVijab->lens,
-                   pVijab->sym,
-                   *Sisi4s::world,
-                   pVijab->get_name());
-  Tensor<F> *Vijab(&cVijab);
-  toComplexTensor(*pVijab, *Vijab);
-
-  // Vijka
-  Tensor<double> *pVijka(
-      getTensorArgument<double, Tensor<double>>("HHHPCoulombIntegrals"));
-  Tensor<F> cVijka(pVijka->order,
-                   pVijka->lens,
-                   pVijka->sym,
-                   *Sisi4s::world,
-                   pVijka->get_name());
-  Tensor<F> *Vijka(&cVijka);
-  toComplexTensor(*pVijka, *Vijka);
-
-  // Vijkl
-  Tensor<double> *pVijkl(
-      getTensorArgument<double, Tensor<double>>("HHHHCoulombIntegrals"));
-  Tensor<F> cVijkl(pVijkl->order,
-                   pVijkl->lens,
-                   pVijkl->sym,
-                   *Sisi4s::world,
-                   pVijkl->get_name());
-  Tensor<F> *Vijkl(&cVijkl);
-  toComplexTensor(*pVijkl, *Vijkl);
-
-  // Viabj
-  Tensor<double> *pViabj(
-      getTensorArgument<double, Tensor<double>>("HPPHCoulombIntegrals"));
-  Tensor<F> cViabj(pViabj->order,
-                   pViabj->lens,
-                   pViabj->sym,
-                   *Sisi4s::world,
-                   pViabj->get_name());
-  Tensor<F> *Viabj(&cViabj);
-  toComplexTensor(*pViabj, *Viabj);
-
-  // Vaijb
-  Tensor<double> *pVaijb(
-      getTensorArgument<double, Tensor<double>>("PHHPCoulombIntegrals"));
-  Tensor<F> cVaijb(pVaijb->order,
-                   pVaijb->lens,
-                   pVaijb->sym,
-                   *Sisi4s::world,
-                   pVaijb->get_name());
-  Tensor<F> *Vaijb(&cVaijb);
-  toComplexTensor(*pVaijb, *Vaijb);
-
-  // HF terms
-  Tensor<F> *Fab(new Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab"));
-  Tensor<F> *Fij(new Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij"));
-  Tensor<F> *Fia(new Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia"));
+  Tensor<F> *Viabc = getTensorArgument<F, Tensor<F>>("HPPPCoulombIntegrals"),
+            *Viajb = getTensorArgument<F, Tensor<F>>("HPHPCoulombIntegrals"),
+            *Vaibc = getTensorArgument<F, Tensor<F>>("PHPPCoulombIntegrals"),
+            *Viajk = getTensorArgument<F, Tensor<F>>("HPHHCoulombIntegrals"),
+            *Vijab = getTensorArgument<F, Tensor<F>>("HHPPCoulombIntegrals"),
+            *Vijka = getTensorArgument<F, Tensor<F>>("HHHPCoulombIntegrals"),
+            *Vijkl = getTensorArgument<F, Tensor<F>>("HHHHCoulombIntegrals"),
+            *Viabj = getTensorArgument<F, Tensor<F>>("HPPHCoulombIntegrals"),
+            *Vaijb = getTensorArgument<F, Tensor<F>>("PHHPCoulombIntegrals"),
+            // t
+                *Tai = getTensorArgument<F, Tensor<F>>("SinglesAmplitudes"),
+            *Tabij = getTensorArgument<F, Tensor<F>>("DoublesAmplitudes"),
+            // HF terms
+                *Fab = (new Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab")),
+            *Fij = (new Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij")),
+            *Fia = (new Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia"));
 
   if (isArgumentGiven("HPFockMatrix") && isArgumentGiven("HHFockMatrix")
       && isArgumentGiven("PPFockMatrix")) {
@@ -211,15 +126,6 @@ void UCcsdIPEquationOfMotionDavidson::run() {
         [](double eps, F &f) { f = eps; }))((*epsa)["a"], (*Fab)["aa"]);
   }
 
-  Tensor<F> Tai(2, vo, syms2, *Sisi4s::world, "Tai");
-  Tensor<F> Tabij(4, vvoo, syms4, *Sisi4s::world, "Tabij");
-  toComplexTensor(
-      (*getTensorArgument<double, Tensor<double>>("SinglesAmplitudes")),
-      Tai);
-  toComplexTensor(
-      (*getTensorArgument<double, Tensor<double>>("DoublesAmplitudes")),
-      Tabij);
-
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
 
   H.setFij(Fij)
@@ -236,33 +142,32 @@ void UCcsdIPEquationOfMotionDavidson::run() {
       .setVaibc(Vaibc)
       .setVaijb(Vaijb)
       //
-      .setTai(&Tai)
-      .setTabij(&Tabij)
+      .setTai(Tai)
+      .setTabij(Tabij)
       // should we use intermediates of the Wabij etc?
-      .setRightApplyIntermediates(intermediates)
+      .with_right_apply_intermediates(intermediates)
       .setDressing(SimilarityTransformedHamiltonian<F>::Dressing::CCSD);
 
   struct IPHamiltonian {
   public:
     SimilarityTransformedHamiltonian<F> *h;
-    SDFockVector<F> rightApply(SDFockVector<F> &V) {
-      return h->rightApply_CCSD_IP(V);
+    SDFockVector<F> right_apply(SDFockVector<F> &V) {
+      return h->right_apply_CCSD_IP(V);
     }
   } ipH;
   ipH.h = &H;
 
   // INITIALIZE SIMILARITY PRECONDITIONER
-  IPCcsdPreconditioner<F> P;
-  P.setTai(&Tai)
-      .setTabij(&Tabij)
+  using _Preconditioner = IPCcsdPreconditioner<F>;
+  _Preconditioner P;
+  P.setTai(Tai)
+      .setTabij(Tabij)
       .setFij(Fij)
       .setFab(Fab)
       // Set coulomb integrals
       .setVijab(Vijab);
 
-  EigenSystemDavidsonMono<IPHamiltonian,
-                          IPCcsdPreconditioner<F>,
-                          SDFockVector<F>>
+  EigenSystemDavidsonMono<IPHamiltonian, _Preconditioner, SDFockVector<F>>
       eigenSystem(&ipH,
                   eigenStates,
                   &P,

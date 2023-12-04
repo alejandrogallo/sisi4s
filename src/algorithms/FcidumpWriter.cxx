@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <numeric>
 #include <ostream>
+#include <cstdio>
 
 using namespace sisi4s;
 
@@ -40,16 +41,17 @@ void FcidumpWriter::run() {
   FcidumpReader::FcidumpHeader header;
 
   const std::vector<TensorInfo> allIntegrals({
-      {"hhhh", {NO, NO, NO, NO}}, {"hhhp", {NO, NO, NO, NV}},
-      {"hhph", {NO, NO, NV, NO}}, {"hhpp", {NO, NO, NV, NV}},
-      {"hphh", {NO, NV, NO, NO}}, {"hphp", {NO, NV, NO, NV}},
-      {"hpph", {NO, NV, NV, NO}}, {"hppp", {NO, NV, NV, NV}},
-      {"phhh", {NV, NO, NO, NO}}, {"phhp", {NV, NO, NO, NV}},
-      {"phph", {NV, NO, NV, NO}}, {"phpp", {NV, NO, NV, NV}},
-      {"pphh", {NV, NV, NO, NO}}, {"pphp", {NV, NV, NO, NV}},
-      {"ppph", {NV, NV, NV, NO}}, {"pppp", {NV, NV, NV, NV}},
-      {"hh", {NO, NO}},           {"pp", {NV, NV}},
-      {"hp", {NO, NV}},           {"ph", {NV, NO}},
+      {"PPPP", {NP, NP, NP, NP}}, {"hhhh", {NO, NO, NO, NO}},
+      {"hhhp", {NO, NO, NO, NV}}, {"hhph", {NO, NO, NV, NO}},
+      {"hhpp", {NO, NO, NV, NV}}, {"hphh", {NO, NV, NO, NO}},
+      {"hphp", {NO, NV, NO, NV}}, {"hpph", {NO, NV, NV, NO}},
+      {"hppp", {NO, NV, NV, NV}}, {"phhh", {NV, NO, NO, NO}},
+      {"phhp", {NV, NO, NO, NV}}, {"phph", {NV, NO, NV, NO}},
+      {"phpp", {NV, NO, NV, NV}}, {"pphh", {NV, NV, NO, NO}},
+      {"pphp", {NV, NV, NO, NV}}, {"ppph", {NV, NV, NV, NO}},
+      {"pppp", {NV, NV, NV, NV}}, {"hh", {NO, NO}},
+      {"pp", {NV, NV}},           {"hp", {NO, NV}},
+      {"ph", {NV, NO}},
   });
 
   // find out No and Nv
@@ -57,14 +59,20 @@ void FcidumpWriter::run() {
     auto &is(integral.indices);
     if (isArgumentGiven(integral.name)) {
       auto it(std::find(is.begin(), is.end(), NO));
-      if (No != NxUndefined && it != is.end()) {
+      if (No == NxUndefined && it != is.end()) {
         auto tensor(getTensorArgument<double>(integral.name));
         No = tensor->lens[it - is.begin()];
+        LOG(0, "FcidumpWriter") << _FORMAT("Detected No: %d from integral %s\n",
+                                           No,
+                                           integral.name.c_str());
       }
       it = std::find(is.begin(), is.end(), NV);
-      if (Nv != NxUndefined && it != is.end()) {
+      if (Nv == NxUndefined && it != is.end()) {
         auto tensor(getTensorArgument<double>(integral.name));
         Nv = tensor->lens[it - is.begin()];
+        LOG(0, "FcidumpWriter") << _FORMAT("Detected Nv: %d from integral %s\n",
+                                           Nv,
+                                           integral.name.c_str());
       }
     }
   }
@@ -88,10 +96,15 @@ void FcidumpWriter::run() {
   LOG(0, "FcidumpWriter") << "No        = " << No << std::endl;
   LOG(0, "FcidumpWriter") << "Nv        = " << Nv << std::endl;
 
+  // TODO: do this really well, now it's kind of a hack
+  // TODO: also write the header into the file
   for (const auto &integral : allIntegrals) {
     if (!isArgumentGiven(integral.name)) continue;
     auto tensor(getTensorArgument<double>(integral.name));
-    // TODO
+    FILE *fd;
+    fd = std::fopen(_FORMAT("%s.fcidump", integral.name.c_str()).c_str(), "w+");
+    tensor->print(fd);
+    std::fclose(fd);
   }
 
   std::ifstream file(filePath);

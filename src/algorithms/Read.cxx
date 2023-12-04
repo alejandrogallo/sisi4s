@@ -3,6 +3,7 @@
 #include <util/Yaml.hpp>
 #include <Sisi4s.hpp>
 #include <algorithms/Read.hpp>
+#include <algorithms/TensorWriter.hpp>
 #include <util/Tensor.hpp>
 #include <vendor/filesystem.hpp>
 
@@ -94,13 +95,6 @@ IMPLEMENT_ALGORITHM(Read) {
     break;
   }
   }
-}
-
-IMPLEMENT_ALGORITHM(Write) {
-
-  throw "Not yet implemented!";
-  const std::string fileName = getTextArgument("fileName"),
-                    destination = getTextArgument("destination");
 }
 
 } // namespace sisi4s
@@ -292,3 +286,59 @@ struct convert<ReadHeader> {
 };
 
 } // namespace YAML
+
+namespace sisi4s {
+
+IMPLEMENT_ALGORITHM(Write) {
+  using namespace sisi4s::cc4s;
+  const bool binary_p = getBooleanArgument("binary", true);
+
+  ReadHeader header;
+  header.version = ReadHeader::Version::ONE;
+  header.type = ReadableType::Tensor;
+  header.elementsType =
+      binary_p ? ElementFileType::IeeeBinaryFile : ElementFileType::TextFile;
+  header.unit = 1.0;
+
+  std::string
+
+      source_name = "source",
+      dataName = getArgumentData(source_name)->getName(),
+      fileNameInput = getTextArgument("fileName", dataName);
+
+  const auto dataPath = fs::path(fileNameInput)
+                            .replace_extension(fs::path("elements")),
+             yamlPath =
+                 fs::path(fileNameInput).replace_extension(fs::path("yaml"));
+
+  if (typeid(double) == TensorWriter::check_type(getArgumentData("source"))) {
+    LOG(1, "TensorWriter") << "Writing real tensor" << std::endl;
+    auto t = getTensorArgument<Float64>(source_name);
+    for (size_t i = 0; i < t->order; i++)
+      header.dimensions.push_back({t->lens[i], AxisType::State});
+    TensorWriter::write<Float64>(dataName, dataPath, t, binary_p, "", "", "");
+    header.scalarType = ScalarType::Real64;
+  } else {
+    LOG(1, "TensorWriter") << "Writing complex tensor" << std::endl;
+    auto t = getTensorArgument<sisi4s::Complex64>(source_name);
+    for (size_t i = 0; i < t->order; i++)
+      header.dimensions.push_back({t->lens[i], AxisType::State});
+    TensorWriter::write<sisi4s::complex>(dataName,
+                                         dataPath,
+                                         t,
+                                         binary_p,
+                                         "",
+                                         "",
+                                         "");
+    header.scalarType = ScalarType::Complex64;
+  }
+
+  YAML::Emitter yout;
+  yout << YAML::convert<ReadHeader>::encode(header);
+  // YAML::Node node = header.scalarType;
+  // yout << YAML::convert<ReadHeader>(header);
+  // yout << header;
+  std::ofstream fout(yamlPath);
+  fout << yout.c_str();
+}
+} // namespace sisi4s

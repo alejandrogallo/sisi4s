@@ -11,38 +11,19 @@
 
 namespace sisi4s {
 
-ALGORITHM_REGISTRAR_DEFINITION(TensorReader);
-
-TensorReader::TensorReader(std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-TensorReader::~TensorReader() {}
-
-void TensorReader::run() {
-  std::string name(getArgumentData("Data")->getName());
-
-  // make sure all processes start reading the file at the same time in case
-  // it has been modified before
-  MPI_Barrier(Sisi4s::world->comm);
-
-  int64_t precision(getIntegerArgument("precision", 64));
-  switch (precision) {
-  case 64: allocatedTensorArgument<Float64>("Data", read<Float64>(name)); break;
-  }
-}
-
 template <typename F>
-Tensor<F> *TensorReader::read(const std::string &name) {
+static Tensor<F> *
+read(Algorithm &alg, const std::string mode, const std::string &name) {
   Tensor<F> *A;
-  std::string mode(getTextArgument("mode", "text"));
   if (mode == "binary") {
-    std::string fileName(getTextArgument("file", name + ".bin"));
+    std::string fileName(alg.getTextArgument("file", name + ".bin"));
     EMIT() << YAML::Key << "file" << YAML::Value << fileName;
     A = TensorIo::readBinary<F>(fileName);
   } else {
-    std::string fileName(getTextArgument("file", name + ".dat").c_str());
-    std::string delimiter(getTextArgument("delimiter", " "));
-    int64_t bufferSize(getIntegerArgument("bufferSize", 128l * 1024 * 1024));
+    std::string fileName(alg.getTextArgument("file", name + ".dat").c_str());
+    std::string delimiter(alg.getTextArgument("delimiter", " "));
+    int64_t bufferSize(
+        alg.getIntegerArgument("bufferSize", 128l * 1024 * 1024));
     A = TensorIo::readText<F>(fileName, delimiter, bufferSize);
     EMIT() << YAML::Key << "file" << YAML::Value << fileName;
   }
@@ -54,6 +35,34 @@ Tensor<F> *TensorReader::read(const std::string &name) {
   EMIT() << YAML::Key << "elements" << YAML::Value << indexCount;
 
   return A;
+}
+
+IMPLEMENT_ALGORITHM(TensorReader) {
+  std::string name(getArgumentData("Data")->getName());
+
+  // make sure all processes start reading the file at the same time in case
+  // it has been modified before
+  MPI_Barrier(Sisi4s::world->comm);
+
+  const int64_t precision(getIntegerArgument("precision", 64));
+  const std::string mode = getTextArgument("mode", "text");
+  if (getIntegerArgument("complexVersion", 0) == 1) {
+    LOG(0, "TensorReader") << "Reading complex tensor" << std::endl;
+    switch (precision) {
+    case 64:
+      allocatedTensorArgument<sisi4s::complex>(
+          "Data",
+          read<sisi4s::complex>(*this, mode, name));
+      break;
+    }
+  } else {
+    switch (precision) {
+    case 64:
+      allocatedTensorArgument<Float64>("Data",
+                                       read<Float64>(*this, mode, name));
+      break;
+    }
+  }
 }
 
 } // namespace sisi4s

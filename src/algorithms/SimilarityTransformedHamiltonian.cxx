@@ -11,18 +11,20 @@ he equations in this file are taken from the following sources
     Journal of Chemical Physics 7029--7039  1993
     TABLE 1
 */
-#include <algorithms/SimilarityTransformedHamiltonian.hpp>
-#include <algorithms/StantonIntermediatesUCCSD.hpp>
-#include <math/MathFunctions.hpp>
-#include <math/ComplexTensor.hpp>
-#include <mixers/Mixer.hpp>
+
 #include <DryTensor.hpp>
-#include <util/SharedPointer.hpp>
-#include <util/Log.hpp>
-#include <util/Exception.hpp>
-#include <util/Tensor.hpp>
 #include <Options.hpp>
 #include <Sisi4s.hpp>
+#include <algorithms/SimilarityTransformedHamiltonian.hpp>
+#include <algorithms/StantonIntermediatesUCCSD.hpp>
+#include <math/ComplexTensor.hpp>
+#include <math/MathFunctions.hpp>
+#include <mixers/Mixer.hpp>
+#include <util/Exception.hpp>
+#include <util/Log.hpp>
+#include <util/SharedPointer.hpp>
+#include <util/Tensor.hpp>
+
 #include <array>
 #include <initializer_list>
 
@@ -53,21 +55,21 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
 
 template <typename F>
 SDFockVector<F>
-SimilarityTransformedHamiltonian<F>::rightApply(SDFockVector<F> &R) {
-  return useRightApplyIntermediates ? rightApplyIntermediates(R)
-                                    : rightApplyHirata(R);
+SimilarityTransformedHamiltonian<F>::right_apply(SDFockVector<F> &R) {
+  return with_right_apply_intermediates() ? right_apply_Intermediates(R)
+                                          : right_apply_hirata(R);
 }
 
 template <typename F>
 SDFockVector<F>
-SimilarityTransformedHamiltonian<F>::rightApply_CCSD_IP(SDFockVector<F> &R) {
-  return useRightApplyIntermediates ? rightApplyIntermediates_CCSD_IP(R)
-                                    : rightApplyHirata_CCSD_IP(R);
+SimilarityTransformedHamiltonian<F>::right_apply_CCSD_IP(SDFockVector<F> &R) {
+  return with_right_apply_intermediates() ? right_apply_Intermediates_CCSD_IP(R)
+                                          : right_apply_hirata_CCSD_IP(R);
 }
 
 template <typename F>
 SDFockVector<F>
-SimilarityTransformedHamiltonian<F>::rightApplyIntermediates_CCSD_IP(
+SimilarityTransformedHamiltonian<F>::right_apply_Intermediates_CCSD_IP(
     SDFockVector<F> &R) {
   SDFockVector<F> HR(R);
   PTR(Tensor<F>) Ri(R.get(0));
@@ -119,7 +121,7 @@ SimilarityTransformedHamiltonian<F>::rightApplyIntermediates_CCSD_IP(
 }
 
 template <typename F>
-SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_IP(
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_hirata_CCSD_IP(
     SDFockVector<F> &R) {
 
   SDFockVector<F> HR(R);
@@ -286,14 +288,14 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_IP(
 
 template <typename F>
 SDFockVector<F>
-SimilarityTransformedHamiltonian<F>::rightApply_CCSD_EA(SDFockVector<F> &R) {
-  return useRightApplyIntermediates ? rightApplyIntermediates_CCSD_EA(R)
-                                    : rightApplyHirata_CCSD_EA(R);
+SimilarityTransformedHamiltonian<F>::right_apply_CCSD_EA(SDFockVector<F> &R) {
+  return with_right_apply_intermediates() ? right_apply_Intermediates_CCSD_EA(R)
+                                          : right_apply_hirata_CCSD_EA(R);
 }
 
 template <typename F>
 SDFockVector<F>
-SimilarityTransformedHamiltonian<F>::rightApplyIntermediates_CCSD_EA(
+SimilarityTransformedHamiltonian<F>::right_apply_Intermediates_CCSD_EA(
     SDFockVector<F> &R) {
   SDFockVector<F> HR(R);
   PTR(Tensor<F>) Ra(R.get(0));
@@ -338,7 +340,7 @@ SimilarityTransformedHamiltonian<F>::rightApplyIntermediates_CCSD_EA(
 }
 
 template <typename F>
-SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_EA(
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_hirata_CCSD_EA(
     SDFockVector<F> &R) {
 
   SDFockVector<F> HR(R);
@@ -513,7 +515,7 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyHirata_CCSD_EA(
 
 template <typename F>
 SFockVector<F>
-SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(SFockVector<F> &R) {
+SimilarityTransformedHamiltonian<F>::right_apply_hirata_RPA(SFockVector<F> &R) {
 
   // This is only using Viajb and Vijab
   SFockVector<F> HR(R);
@@ -547,7 +549,7 @@ SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(SFockVector<F> &R) {
     (*Wij)["ij"] += (0.5) * (*Vijab)["imef"] * (*Tabij)["efjm"];
   }
 
-  ST_DEBUG("rightApplyHirata_RPA")
+  ST_DEBUG("right_apply_hirata_RPA")
 
   // Contruct HR (one body part)
   // TODO: why "bi" not "ai"?
@@ -590,8 +592,84 @@ SimilarityTransformedHamiltonian<F>::rightApplyHirata_RPA(SFockVector<F> &R) {
 }
 
 template <typename F>
+FockVector<F>
+SimilarityTransformedHamiltonian<F>::right_apply_CISD(FockVector<F> &R) {
+  SDFockVector<F> HR(R);
+  // get pointers to the component tensors
+  PTR(Tensor<F>) Rai(R.get(0));
+  PTR(Tensor<F>) HRai(HR.get(0));
+
+  PTR(Tensor<F>) Rabij;
+  PTR(Tensor<F>) HRabij;
+  CTF::Scalar<F> E;
+
+  if (withCISD()) {
+    Rabij = (R.get(1));
+    HRabij = (HR.get(1));
+  }
+
+  // energy
+  //////////////////////////////////////////////////////////////////////////
+  E[""] *= 0.0;
+  if (Fia) E[""] += (+1.0) * (*Fia)["ia"] * (*Rai)["ai"];
+  if (withCISD()) E[""] += (+0.25) * (*Rabij)["abij"] * (*Vijab)["ijab"];
+
+  // Singles
+  //////////////////////////////////////////////////////////////////////////
+  (*HRai)["ai"] = (-1.0) * (*Fij)["ki"] * (*Rai)["ak"];
+
+  (*HRai)["ai"] += (+1.0) * (*Fab)["ab"] * (*Rai)["bi"];
+  (*HRai)["ai"] += (-1.0) * (*Rai)["bl"] * (*Viajb)["laib"];
+
+  if (Fia) { (*HRai)["ai"] += (+1.0) * (*Fia)["ai"]; }
+  if (Fia || withCISD()) (*HRai)["ai"] += (-1.0) * E[""] * (*Rai)["ai"];
+
+  if (withCIS()) return HR;
+
+  (*HRai)["ai"] += (+1.0) * (*Fia)["kc"] * (*Rabij)["caki"];
+  (*HRai)["ai"] += (+0.5) * (*Rabij)["balm"] * (*Vijka)["lmib"];
+  (*HRai)["ai"] += (+0.5) * (*Rabij)["bcmi"] * (*Viabc)["mabc"];
+
+  // Doubles
+  //////////////////////////////////////////////////////////////////////////
+
+  (*HRabij)["ai"] = (+1.0) * (*Vabij)["abij"];
+
+  if (Fia) {
+    (*HRabij)["ai"] += (-1.0) * (*Fia)["bi"] * (*Rai)["aj"];
+    (*HRabij)["ai"] += (+1.0) * (*Fia)["ai"] * (*Rai)["bj"];
+    (*HRabij)["ai"] += (+1.0) * (*Fia)["bj"] * (*Rai)["ai"];
+    (*HRabij)["ai"] += (-1.0) * (*Fia)["aj"] * (*Rai)["bi"];
+  }
+
+  (*HRabij)["ai"] += (-1.0) * (*Rai)["am"] * (*Viajk)["mbij"];
+  (*HRabij)["ai"] += (+1.0) * (*Rai)["bm"] * (*Viajk)["maij"];
+
+  (*HRabij)["ai"] += (+1.0) * (*Rai)["cj"] * (*Vabic)["abic"];
+  (*HRabij)["ai"] += (-1.0) * (*Rai)["ci"] * (*Vabic)["abjc"];
+
+  (*HRabij)["ai"] += (-1.0) * (*Fij)["mi"] * (*Rabij)["abmj"];
+  (*HRabij)["ai"] += (+1.0) * (*Fij)["mj"] * (*Rabij)["abmi"];
+
+  (*HRabij)["ai"] += (-1.0) * (*Fab)["bc"] * (*Rabij)["caij"];
+  (*HRabij)["ai"] += (+1.0) * (*Fab)["ac"] * (*Rabij)["cbij"];
+
+  (*HRabij)["ai"] += (+0.5) * (*Rabij)["abmn"] * (*Vijkl)["mnij"];
+
+  (*HRabij)["ai"] += (+1.0) * (*Rabij)["canj"] * (*Viajb)["nbic"];
+  (*HRabij)["ai"] += (-1.0) * (*Rabij)["cbnj"] * (*Viajb)["naic"];
+  (*HRabij)["ai"] += (-1.0) * (*Rabij)["cani"] * (*Viajb)["nbjc"];
+  (*HRabij)["ai"] += (+1.0) * (*Rabij)["cbni"] * (*Viajb)["najc"];
+
+  (*HRabij)["ai"] += (+0.5) * (*Rabij)["cdij"] * (*Vabcd)["abcd"];
+  (*HRabij)["ai"] += (-1.0) * E[""] * (*Rabij)["abij"];
+
+  return HR;
+}
+
+template <typename F>
 SDFockVector<F>
-SimilarityTransformedHamiltonian<F>::rightApplyHirata(SDFockVector<F> &R) {
+SimilarityTransformedHamiltonian<F>::right_apply_hirata(SDFockVector<F> &R) {
   SDFockVector<F> HR(R);
   // get pointers to the component tensors
   PTR(Tensor<F>) Rai(R.get(0));
@@ -599,7 +677,7 @@ SimilarityTransformedHamiltonian<F>::rightApplyHirata(SDFockVector<F> &R) {
   PTR(Tensor<F>) HRai(HR.get(0));
   PTR(Tensor<F>) HRabij(HR.get(1));
 
-  ST_DEBUG("rightApplyHirata Ccsd")
+  ST_DEBUG("right_apply_hirata Ccsd")
 
   // Contruct HR (one body part)
   // TODO: why "bi" not "ai"?
@@ -934,7 +1012,7 @@ SimilarityTransformedHamiltonian<F>::rightApplyHirata(SDFockVector<F> &R) {
 }
 
 template <typename F>
-SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
+SDFockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_Intermediates(
     SDFockVector<F> &R) {
   SDFockVector<F> HR(R);
   // get pointers to the component tensors
@@ -943,7 +1021,7 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::rightApplyIntermediates(
   PTR(Tensor<F>) HRai(HR.get(0));
   PTR(Tensor<F>) HRabij(HR.get(1));
 
-  // ST_DEBUG("rightApplyIntermediates Ccsd")
+  // ST_DEBUG("right_apply_Intermediates Ccsd")
 
   Wia = getIA();
   Wij = getIJ();
@@ -1109,7 +1187,7 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getAI() {
     return Wai;
   }
 
-  if (useStantonIntermediatesUCCSD()) {
+  if (withStantonIntermediatesUCCSD()) {
 
     auto intermediates = getStantonIntermediatesUCCSD();
     (*Wai)["bi"] = (*intermediates->getRai())["bi"];
@@ -1521,7 +1599,7 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::leftApplyIntermediates(
 
 template <typename F>
 SDFockVector<F>
-SimilarityTransformedHamiltonian<F>::leftApplyHirata(SDFockVector<F> &L) {
+SimilarityTransformedHamiltonian<F>::leftApply_hirata(SDFockVector<F> &L) {
   SDFockVector<F> LH(L);
   // get pointers to the component tensors
   PTR(Tensor<F>) Lia(L.get(0));
@@ -1606,13 +1684,13 @@ SimilarityTransformedHamiltonian<F>::leftApplyHirata(SDFockVector<F> &L) {
 
 template <typename F>
 SDTFockVector<F>
-SimilarityTransformedHamiltonian<F>::rightApply(SDTFockVector<F> &R) {
-  return rightApplyHirata(R);
+SimilarityTransformedHamiltonian<F>::right_apply(SDTFockVector<F> &R) {
+  return right_apply_hirata(R);
 }
 
 template <typename F>
 SDTFockVector<F>
-SimilarityTransformedHamiltonian<F>::rightApplyHirata(SDTFockVector<F> &R) {
+SimilarityTransformedHamiltonian<F>::right_apply_hirata(SDTFockVector<F> &R) {
 
   SDTFockVector<F> HR(R);
   // get pointers to the component tensors
@@ -1627,13 +1705,13 @@ SimilarityTransformedHamiltonian<F>::rightApplyHirata(SDTFockVector<F> &R) {
     SDFockVector<F> CcsdR(std::vector<PTR(Tensor<F>)>({Rai, Rabij}),
                           std::vector<std::string>({"ai", "abij"}));
 
-    SDFockVector<F> HCssdR(rightApply(CcsdR));
+    SDFockVector<F> HCssdR(right_apply(CcsdR));
 
     (*HRai)["ai"] = (*HCssdR.get(0))["ai"];
     (*HRabij)["abij"] = (*HCssdR.get(1))["abij"];
   }
 
-  ST_DEBUG("rightApplyHirata Ccsdt")
+  ST_DEBUG("right_apply_hirata Ccsdt")
 
   //: BEGIN SINGLES
   (*HRai)["bi"] += (+0.25) * (*Vijab)["klef"] * (*Rabcijk)["feblki"];
