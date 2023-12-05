@@ -8,11 +8,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(GenerateRandomMatrix);
 
-GenerateRandomMatrix::GenerateRandomMatrix(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-GenerateRandomMatrix::~GenerateRandomMatrix() {}
+IMPLEMENT_EMPTY_DRYRUN(GenerateRandomMatrix) {}
 
 /**
  * \brief Testing environement

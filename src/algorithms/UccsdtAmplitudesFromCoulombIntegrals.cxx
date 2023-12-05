@@ -21,12 +21,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UccsdtAmplitudesFromCoulombIntegrals);
 
-UccsdtAmplitudesFromCoulombIntegrals::UccsdtAmplitudesFromCoulombIntegrals(
-    std::vector<Argument> const &argumentList)
-    : ClusterSinglesDoublesTriplesAlgorithm(argumentList) {}
-
-UccsdtAmplitudesFromCoulombIntegrals::~UccsdtAmplitudesFromCoulombIntegrals() {}
-
 void UccsdtAmplitudesFromCoulombIntegrals::run() {
   setIntegerArgument("antisymmetrize", 1);
   setIntegerArgument("unrestricted", 1);

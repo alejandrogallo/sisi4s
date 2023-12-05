@@ -6,11 +6,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorSum);
 
-ComplexTensorSum::ComplexTensorSum(std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ComplexTensorSum::~ComplexTensorSum() {}
-
 /**
  * \brief Testing environement
  */

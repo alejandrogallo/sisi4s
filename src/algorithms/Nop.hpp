@@ -7,6 +7,8 @@ namespace sisi4s {
 
 DEFINE_ALGORITHM_HEADER(Nop, );
 
-}
+IMPLEMENT_EMPTY_DRYRUN(Nop) {}
+
+} // namespace sisi4s
 
 #endif

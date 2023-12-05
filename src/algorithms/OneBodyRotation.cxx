@@ -8,6 +8,9 @@
 
 using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(OneBodyRotation);
+
+IMPLEMENT_EMPTY_DRYRUN(OneBodyRotation) {}
+
 #define LOGGER(_l) LOG(_l, "OneBodyRotation")
 
 void OneBodyRotation::run() {

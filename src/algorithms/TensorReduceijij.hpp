@@ -4,13 +4,11 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-struct TensorReduceijij : public Algorithm {
-  ALGORITHM_REGISTRAR_DECLARATION(TensorReduceijij);
-  TensorReduceijij(std::vector<Argument> const &argumentList)
-      : Algorithm(argumentList) {}
-  ~TensorReduceijij(){};
-  virtual void run();
-};
+DEFINE_ALGORITHM_HEADER(
+
+    TensorReduceijij,
+
+);
 } // namespace sisi4s
 
 #endif

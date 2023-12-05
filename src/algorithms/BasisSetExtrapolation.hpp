@@ -7,23 +7,18 @@
 #include <util/Tensor.hpp>
 
 namespace sisi4s {
-class BasisSetExtrapolation : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(BasisSetExtrapolation);
-  BasisSetExtrapolation(std::vector<Argument> const &argumentList);
-  virtual ~BasisSetExtrapolation();
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-protected:
-  void evaluateQGG(int orbitalPairStart, int orbtialPairEnd, int slice);
-  void fitF12(int type, real minG, real maxG);
-  void calculateNewSF(int type,
-                      real gamma,
-                      Tensor<double> *coulombKernel,
-                      Tensor<double> *newSF,
-                      Tensor<double> *resNewSF);
-  void invertQGG();
-};
+    BasisSetExtrapolation,
+
+    void evaluateQGG(int orbitalPairStart, int orbtialPairEnd, int slice);
+    void fitF12(int type, real minG, real maxG);
+    void calculateNewSF(int type,
+                        real gamma,
+                        Tensor<double> *coulombKernel,
+                        Tensor<double> *newSF,
+                        Tensor<double> *resNewSF);
+    void invertQGG(););
 } // namespace sisi4s
 
 #endif

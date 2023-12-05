@@ -14,12 +14,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UccsdAmplitudesFromCoulombIntegrals);
 
-UccsdAmplitudesFromCoulombIntegrals::UccsdAmplitudesFromCoulombIntegrals(
-    std::vector<Argument> const &argumentList)
-    : ClusterSinglesDoublesAlgorithm(argumentList) {}
-
-UccsdAmplitudesFromCoulombIntegrals::~UccsdAmplitudesFromCoulombIntegrals() {}
-
 void UccsdAmplitudesFromCoulombIntegrals::run() {
 
   // Set this for cluster singles doubles algorithm

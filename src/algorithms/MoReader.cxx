@@ -27,6 +27,8 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(MoReader);
 
+IMPLEMENT_EMPTY_DRYRUN(MoReader) {}
+
 int frozenElement(std::string e) {
   if (e == "H" || e == "He") return 0;
   else if (e == "Li" || e == "Be" || e == "B" || e == "C" || e == "N"
@@ -401,14 +403,13 @@ void MoReader::run() {
   }
 }
 
-SISI_DOC(
-* Documentation
+SISI_DOC(*Documentation
 
-This module contains convenience routines in order to read
-molecular orbitals from the following codes:
+             This module contains convenience routines in order to read
+                 molecular orbitals from the following codes
+         :
 
-- NWCHEM
-- PSI4
-- TURBOMOLE
+         -NWCHEM - PSI4
+             - TURBOMOLE
 
-* END)
+                   * END)

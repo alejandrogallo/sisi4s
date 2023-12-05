@@ -23,10 +23,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UCcsdIPEquationOfMotionDavidson);
 
-UCcsdIPEquationOfMotionDavidson::UCcsdIPEquationOfMotionDavidson(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-UCcsdIPEquationOfMotionDavidson::~UCcsdIPEquationOfMotionDavidson() {}
+IMPLEMENT_EMPTY_DRYRUN(UCcsdIPEquationOfMotionDavidson) {}
 
 void UCcsdIPEquationOfMotionDavidson::run() {
   Data *Vabij(getArgumentData("HHPPCoulombIntegrals"));

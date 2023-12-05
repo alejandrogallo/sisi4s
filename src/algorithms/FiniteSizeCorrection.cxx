@@ -26,12 +26,6 @@ using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(FiniteSizeCorrection);
 
-FiniteSizeCorrection::FiniteSizeCorrection(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-FiniteSizeCorrection::~FiniteSizeCorrection() {}
-
 void FiniteSizeCorrection::run() {
   int fReadFromFile(getIntegerArgument("fReadFromFile", 0));
   if (fReadFromFile == 1) {

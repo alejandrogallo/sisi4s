@@ -4,16 +4,11 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-class ComplexTensorWriter : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(ComplexTensorWriter);
-  ComplexTensorWriter(std::vector<Argument> const &argumentList);
-  virtual ~ComplexTensorWriter();
-  /**
-   * \brief Writes the real tensor data given as Data argument to a file.
-   */
-  virtual void run();
-};
+DEFINE_ALGORITHM_HEADER(
+
+    ComplexTensorWriter,
+
+);
 } // namespace sisi4s
 
 #endif

@@ -6,6 +6,8 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorGetMax);
 
+IMPLEMENT_EMPTY_DRYRUN(TensorGetMax) {}
+
 void TensorGetMax::run() {
   auto tensor(getTensorArgument<double>("Data"));
   double max{tensor->norm_infty()};

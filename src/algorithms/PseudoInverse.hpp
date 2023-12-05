@@ -4,13 +4,11 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-class PseudoInverse : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(PseudoInverse);
-  PseudoInverse(std::vector<Argument> const &argumentList);
-  virtual ~PseudoInverse();
-  virtual void run();
-};
+DEFINE_ALGORITHM_HEADER(
+
+    PseudoInverse,
+
+);
 } // namespace sisi4s
 
 #endif

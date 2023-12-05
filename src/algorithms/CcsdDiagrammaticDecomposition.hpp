@@ -7,21 +7,18 @@
 #include <string>
 
 namespace sisi4s {
-class CcsdDiagrammaticDecomposition : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(CcsdDiagrammaticDecomposition);
-  CcsdDiagrammaticDecomposition(std::vector<Argument> const &argumentList);
-  virtual ~CcsdDiagrammaticDecomposition();
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-protected:
-  void evaluateEnergy(std::string diagramType,
-                      Tensor<double> &deltaabij,
-                      Tensor<double> &deltaai,
-                      Tensor<double> &Rabij,
-                      Tensor<double> &Rai);
-  void
-  sliceIntoResiduum(Tensor<double> &Rxyij, int a, int b, Tensor<double> &Rabij);
-};
+    CcsdDiagrammaticDecomposition,
+
+    void evaluateEnergy(std::string diagramType,
+                        Tensor<double> &deltaabij,
+                        Tensor<double> &deltaai,
+                        Tensor<double> &Rabij,
+                        Tensor<double> &Rai);
+    void sliceIntoResiduum(Tensor<double> &Rxyij,
+                           int a,
+                           int b,
+                           Tensor<double> &Rabij););
 } // namespace sisi4s
 #endif

@@ -14,12 +14,6 @@ using std::make_shared;
 
 ALGORITHM_REGISTRAR_DEFINITION(DoublesAmplitudesDecomposition);
 
-DoublesAmplitudesDecomposition::DoublesAmplitudesDecomposition(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-DoublesAmplitudesDecomposition::~DoublesAmplitudesDecomposition() {}
-
 void DoublesAmplitudesDecomposition::run() {
   diagonlizeAmplitudes();
   sliceLargestEigenValues();

@@ -7,14 +7,11 @@
 
 namespace sisi4s {
 
-class CoulombIntegralsFromGaussian : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(CoulombIntegralsFromGaussian);
-  CoulombIntegralsFromGaussian(std::vector<Argument> const &argumentList)
-      : Algorithm(argumentList) {}
-  ~CoulombIntegralsFromGaussian() {}
-  virtual void run();
-};
+DEFINE_ALGORITHM_HEADER(
+
+    CoulombIntegralsFromGaussian,
+
+);
 } // namespace sisi4s
 
 #endif

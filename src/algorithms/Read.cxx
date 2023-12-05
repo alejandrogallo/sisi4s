@@ -22,6 +22,8 @@ static Tensor<F> *new_tensor_from_dimensions(cc4s::Dimensions const &dims) {
   return new Tensor<F>(dims.size(), syms.data(), lens.data(), *Sisi4s::world);
 }
 
+IMPLEMENT_EMPTY_DRYRUN(Read) {}
+
 IMPLEMENT_ALGORITHM(Read) {
 
   const std::string fileName = getTextArgument("fileName");
@@ -289,7 +291,10 @@ struct convert<ReadHeader> {
 
 namespace sisi4s {
 
+IMPLEMENT_EMPTY_DRYRUN(Write) {}
+
 IMPLEMENT_ALGORITHM(Write) {
+
   using namespace sisi4s::cc4s;
   const bool binary_p = getBooleanArgument("binary", true);
 

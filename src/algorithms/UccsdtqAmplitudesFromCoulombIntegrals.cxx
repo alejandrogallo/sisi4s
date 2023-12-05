@@ -20,13 +20,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UccsdtqAmplitudesFromCoulombIntegrals);
 
-UccsdtqAmplitudesFromCoulombIntegrals::UccsdtqAmplitudesFromCoulombIntegrals(
-    std::vector<Argument> const &argumentList)
-    : ClusterSinglesDoublesTriplesQuadruplesAlgorithm(argumentList) {}
-
-UccsdtqAmplitudesFromCoulombIntegrals::
-    ~UccsdtqAmplitudesFromCoulombIntegrals() {}
-
 void UccsdtqAmplitudesFromCoulombIntegrals::run() {
   ClusterSinglesDoublesTriplesQuadruplesAlgorithm::run();
 }

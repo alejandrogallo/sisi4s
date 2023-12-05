@@ -7,18 +7,11 @@ namespace sisi4s {
 /**
  * \brief Caclulates MP2 natural orbitals
  */
-class Mp2NaturalOrbitals : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(Mp2NaturalOrbitals);
-  Mp2NaturalOrbitals(std::vector<Argument> const &argumentList);
-  virtual ~Mp2NaturalOrbitals();
-  /**
-   * \brief Calculates MP2 energy from Coulomb integrals Vabij
-   */
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-protected:
-};
+    Mp2NaturalOrbitals,
+
+);
 } // namespace sisi4s
 
 #endif

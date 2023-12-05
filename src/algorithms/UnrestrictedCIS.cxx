@@ -202,6 +202,8 @@ static void runGeneral(Algorithm *alg) {
   }
 }
 
+IMPLEMENT_EMPTY_DRYRUN(UnrestrictedCIS) {}
+
 IMPLEMENT_ALGORITHM(UnrestrictedCIS) {
   if (getIntegerArgument("complexVersion", 1) == 1) {
     LOG(0, "uCIS") << "Using complex code" << std::endl;

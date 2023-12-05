@@ -22,6 +22,8 @@ using RowMajor =
 
 ALGORITHM_REGISTRAR_DEFINITION(OneBodyFromGaussian);
 
+IMPLEMENT_EMPTY_DRYRUN(OneBodyFromGaussian) {}
+
 struct Sinfo {
   const size_t size, begin;
   inline Sinfo(const libint2::BasisSet &shells, const size_t i)

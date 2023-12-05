@@ -11,19 +11,12 @@ namespace sisi4s {
  * from the given given particle factors orbitals \f$\Pi^R_a\f$,
  * hole factor orbitals \f$\Pi^R_i\f$ and Coulomb factors \f$\Lambda^R_F\f$.
  */
-class ParticleHoleCoulombVertexFromFactors : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(ParticleHoleCoulombVertexFromFactors);
-  ParticleHoleCoulombVertexFromFactors(
-      std::vector<Argument> const &argumentList);
-  virtual ~ParticleHoleCoulombVertexFromFactors();
+DEFINE_ALGORITHM_HEADER(
 
-  virtual void run();
-  virtual void dryRun();
+    ParticleHoleCoulombVertexFromFactors,
 
-  template <typename T, typename MT>
-  void run(const bool dryRun);
-};
+    template <typename T, typename MT>
+    void run(const bool dryRun););
 } // namespace sisi4s
 
 #endif

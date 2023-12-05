@@ -3,6 +3,8 @@
 
 using namespace sisi4s;
 
+IMPLEMENT_EMPTY_DRYRUN(TensorSum) {}
+
 IMPLEMENT_ALGORITHM(TensorSum) {
   Tensor<double> *A(getTensorArgument("A"));
   Tensor<double> *B(getTensorArgument("B"));

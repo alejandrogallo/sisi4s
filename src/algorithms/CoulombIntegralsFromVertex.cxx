@@ -14,12 +14,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromVertex);
 
-CoulombIntegralsFromVertex::CoulombIntegralsFromVertex(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-CoulombIntegralsFromVertex::~CoulombIntegralsFromVertex() {}
-
 void CoulombIntegralsFromVertex::run() {
   // Read the Coulomb vertex GammaGqr
   Tensor<complex> *GammaGqr(getTensorArgument<complex>("CoulombVertex"));

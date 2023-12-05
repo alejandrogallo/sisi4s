@@ -10,12 +10,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(DoublesAmplitudesFromVertex);
 
-DoublesAmplitudesFromVertex::DoublesAmplitudesFromVertex(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-DoublesAmplitudesFromVertex::~DoublesAmplitudesFromVertex() {}
-
 void DoublesAmplitudesFromVertex::run() {
   // read the amplitudes vertex YLai
   Tensor<complex> *YLai(getTensorArgument<complex>("DoublesAmplitudesVertex"));

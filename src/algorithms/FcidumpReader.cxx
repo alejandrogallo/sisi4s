@@ -13,6 +13,8 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(FcidumpReader);
 
+IMPLEMENT_EMPTY_DRYRUN(FcidumpReader) {}
+
 FcidumpReader::FcidumpHeader
 FcidumpReader::parseHeader(const std::string &filePath) {
   FcidumpReader::FcidumpHeader header{.norb = 0,

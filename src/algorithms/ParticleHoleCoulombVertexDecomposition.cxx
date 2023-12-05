@@ -14,13 +14,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexDecomposition);
 
-ParticleHoleCoulombVertexDecomposition::ParticleHoleCoulombVertexDecomposition(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ParticleHoleCoulombVertexDecomposition::
-    ~ParticleHoleCoulombVertexDecomposition() {}
-
 void ParticleHoleCoulombVertexDecomposition::run() {
   GammaGai = getTensorArgument<complex>("ParticleHoleCoulombVertex");
   int NG(GammaGai->lens[0]);

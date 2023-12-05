@@ -5,11 +5,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(Delete);
 
-Delete::Delete(std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-Delete::~Delete() {}
-
 void Delete::run() {
   Data *data(getArgumentData("Data"));
   if (data) {

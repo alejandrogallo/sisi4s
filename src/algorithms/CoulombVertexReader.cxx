@@ -17,12 +17,6 @@ char const *CoulombVertexReader::Chunk::EPSILONS_MAGIC = "FTODepsi";
 
 ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexReader);
 
-CoulombVertexReader::CoulombVertexReader(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-CoulombVertexReader::~CoulombVertexReader() {}
-
 void CoulombVertexReader::run() {
   std::string fileName(getTextArgument("file"));
   LOG(0, "Reader") << "Reading Coulomb vertex from file " << fileName

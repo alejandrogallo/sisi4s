@@ -18,7 +18,10 @@ const std::type_info &TensorWriter::check_type(Data *tensor_data) {
   throw "Could not detect type of integrals in TensorAntisymmetrizer";
 }
 
+IMPLEMENT_EMPTY_DRYRUN(TensorWriter) {}
+
 IMPLEMENT_ALGORITHM(TensorWriter) {
+
   const bool binary_p = getTextArgument("mode", "text") == "text";
 
   const std::string /**/

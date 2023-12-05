@@ -18,8 +18,8 @@ namespace sisi4s {
 class CcsdEnergyFromCoulombIntegrals : public ClusterSinglesDoublesAlgorithm {
 public:
   ALGORITHM_REGISTRAR_DECLARATION(CcsdEnergyFromCoulombIntegrals);
-  CcsdEnergyFromCoulombIntegrals(std::vector<Argument> const &argumentList);
-  virtual ~CcsdEnergyFromCoulombIntegrals();
+  using ClusterSinglesDoublesAlgorithm::ClusterSinglesDoublesAlgorithm;
+  virtual ~CcsdEnergyFromCoulombIntegrals() {}
 
   /**
    * \brief Returns the abbreviation of the routine (CCSD).

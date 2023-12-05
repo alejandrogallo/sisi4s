@@ -9,12 +9,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ApproximateParticleHoleCoulombVertex);
 
-ApproximateParticleHoleCoulombVertex::ApproximateParticleHoleCoulombVertex(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ApproximateParticleHoleCoulombVertex::~ApproximateParticleHoleCoulombVertex() {}
-
 void ApproximateParticleHoleCoulombVertex::run() {
   Tensor<complex> *GammaGai(
       getTensorArgument<complex>("FullParticleHoleCoulombVertex"));

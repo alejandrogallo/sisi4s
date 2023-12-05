@@ -23,10 +23,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UCcsdEAEquationOfMotionDavidson);
 
-UCcsdEAEquationOfMotionDavidson::UCcsdEAEquationOfMotionDavidson(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-UCcsdEAEquationOfMotionDavidson::~UCcsdEAEquationOfMotionDavidson() {}
+IMPLEMENT_EMPTY_DRYRUN(UCcsdEAEquationOfMotionDavidson) {}
 
 void UCcsdEAEquationOfMotionDavidson::run() {
 

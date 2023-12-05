@@ -5,6 +5,8 @@
 
 namespace sisi4s {
 
+IMPLEMENT_EMPTY_DRYRUN(DefineHolesAndParticles) {}
+
 IMPLEMENT_ALGORITHM(DefineHolesAndParticles) {
 
   const std::string fileName = getTextArgument("fileName");

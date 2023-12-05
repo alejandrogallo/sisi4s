@@ -17,12 +17,6 @@ using std::make_shared;
 
 ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexFromFactors);
 
-CoulombVertexFromFactors::CoulombVertexFromFactors(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-CoulombVertexFromFactors::~CoulombVertexFromFactors() {}
-
 void CoulombVertexFromFactors::run() {
   run<Tensor<complex>, CtfMachineTensor<complex>>(false);
 }

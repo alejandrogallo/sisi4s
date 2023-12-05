@@ -9,28 +9,14 @@ namespace sisi4s {
  * Coulomb Vertex \f$\Gamma_{iG}^a\f$ and stores them in a CTF Tensor Vabij
  * The argument of the integrals is PPHHCoulombIntegrals.
  */
-class ParticleHoleCoulombIntegrals : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(ParticleHoleCoulombIntegrals);
-  ParticleHoleCoulombIntegrals(std::vector<Argument> const &argumentList);
-  virtual ~ParticleHoleCoulombIntegrals();
-  /**
-   * \brief Calculates Coulomb integrals from ParticleHole Coulomb Vertex
-   * GammaGai.
-   */
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-  /** \brief The Coulomb Vertex GammaGai  */
-  Tensor<complex> *GammaGai;
-  /** \brief The Coulomb integrals Vabij  */
-  Tensor<double> *Vabij;
+    ParticleHoleCoulombIntegrals,
 
-  /**
-   * \brief Dry run for calculating Coulomb integrals from ParticleHole Coulomb
-   * Vertex GammaGai.
-   */
-  virtual void dryRun();
-};
+    /** \brief The Coulomb Vertex GammaGai  */
+    Tensor<complex> *GammaGai;
+    /** \brief The Coulomb integrals Vabij  */
+    Tensor<double> * Vabij;);
 } // namespace sisi4s
 
 #endif

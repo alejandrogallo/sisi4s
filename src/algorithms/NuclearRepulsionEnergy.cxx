@@ -9,6 +9,8 @@
 
 using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(NuclearRepulsionEnergy);
+
+IMPLEMENT_EMPTY_DRYRUN(NuclearRepulsionEnergy) {}
 #define LOGGER(_l) LOG(_l, "NuclearRepulsionEnergy")
 
 double getEnergy(const std::vector<libint2::Atom> &structure) {

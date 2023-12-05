@@ -12,9 +12,9 @@ class UccsdtAmplitudesFromCoulombIntegrals
     : public ClusterSinglesDoublesTriplesAlgorithm {
 public:
   ALGORITHM_REGISTRAR_DECLARATION(UccsdtAmplitudesFromCoulombIntegrals);
-  UccsdtAmplitudesFromCoulombIntegrals(
-      std::vector<Argument> const &argumentList);
-  virtual ~UccsdtAmplitudesFromCoulombIntegrals();
+  using ClusterSinglesDoublesTriplesAlgorithm::
+      ClusterSinglesDoublesTriplesAlgorithm;
+  virtual ~UccsdtAmplitudesFromCoulombIntegrals() {}
 
   virtual void run();
   virtual std::string getAbbreviation() { return "Uccsdt"; }

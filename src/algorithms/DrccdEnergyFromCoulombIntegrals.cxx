@@ -10,12 +10,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(DrccdEnergyFromCoulombIntegrals);
 
-DrccdEnergyFromCoulombIntegrals::DrccdEnergyFromCoulombIntegrals(
-    std::vector<Argument> const &argumentList)
-    : ClusterSinglesDoublesAlgorithm(argumentList) {}
-
-DrccdEnergyFromCoulombIntegrals::~DrccdEnergyFromCoulombIntegrals() {}
-
 PTR(FockVector<double>) DrccdEnergyFromCoulombIntegrals::getResiduum(
     const int iteration,
     const PTR(const FockVector<double>) &amplitudes) {

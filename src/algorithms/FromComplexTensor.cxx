@@ -6,11 +6,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(FromComplexTensor);
 
-FromComplexTensor::FromComplexTensor(std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-FromComplexTensor::~FromComplexTensor() {}
-
 /**
  * \brief Testing environement
  */

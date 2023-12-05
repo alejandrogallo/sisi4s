@@ -7,6 +7,8 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorReduceijij);
 
+IMPLEMENT_EMPTY_DRYRUN(TensorReduceijij) {}
+
 void TensorReduceijij::run() {
 
   checkArgumentsOrDie({"Data", "Out"});

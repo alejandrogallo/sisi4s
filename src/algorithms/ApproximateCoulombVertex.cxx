@@ -10,12 +10,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ApproximateCoulombVertex);
 
-ApproximateCoulombVertex::ApproximateCoulombVertex(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ApproximateCoulombVertex::~ApproximateCoulombVertex() {}
-
 void ApproximateCoulombVertex::run() {
   Tensor<complex> *GammaGqr(getTensorArgument<complex>("FullCoulombVertex"));
   GammaGqr->set_name("GammaGqr");

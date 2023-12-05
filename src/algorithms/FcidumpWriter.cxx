@@ -16,6 +16,8 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(FcidumpWriter);
 
+IMPLEMENT_EMPTY_DRYRUN(FcidumpWriter) {}
+
 constexpr int NxUndefined = -1;
 struct TensorInfo {
   const std::string name;

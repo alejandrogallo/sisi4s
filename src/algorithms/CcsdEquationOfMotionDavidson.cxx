@@ -23,12 +23,9 @@
 using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdEquationOfMotionDavidson);
-#define LOGGER(_l) LOG(_l, "CcsdEomDavid")
 
-CcsdEquationOfMotionDavidson::CcsdEquationOfMotionDavidson(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-CcsdEquationOfMotionDavidson::~CcsdEquationOfMotionDavidson() {}
+IMPLEMENT_EMPTY_DRYRUN(CcsdEquationOfMotionDavidson) {}
+#define LOGGER(_l) LOG(_l, "CcsdEomDavid")
 
 template <typename F>
 struct SpinOperator {

@@ -23,12 +23,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UnrestrictedEquationOfMotionSinglesFromRpa);
 
-UnrestrictedEquationOfMotionSinglesFromRpa::
-    UnrestrictedEquationOfMotionSinglesFromRpa(
-        std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-UnrestrictedEquationOfMotionSinglesFromRpa::
-    ~UnrestrictedEquationOfMotionSinglesFromRpa() {}
+IMPLEMENT_EMPTY_DRYRUN(UnrestrictedEquationOfMotionSinglesFromRpa) {}
 
 void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
 

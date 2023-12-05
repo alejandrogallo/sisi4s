@@ -3,15 +3,11 @@
 #  include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-struct MeanCorrelationHoleDepth : public Algorithm {
-  ALGORITHM_REGISTRAR_DECLARATION(MeanCorrelationHoleDepth);
+DEFINE_ALGORITHM_HEADER(
 
-  MeanCorrelationHoleDepth(std::vector<Argument> const &argumentList)
-      : Algorithm(argumentList) {}
-  ~MeanCorrelationHoleDepth(){};
+    MeanCorrelationHoleDepth,
 
-  virtual void run();
-};
+);
 } // namespace sisi4s
 
 #endif

@@ -182,6 +182,8 @@ public:
   ALGORITHM_REGISTRAR_DEFINITION(NAME);                                        \
   void NAME::run()
 
+#define IMPLEMENT_EMPTY_DRYRUN(NAME) void NAME::dryRun()
+
 #define DEFINE_ALGORITHM_HEADER(NAME, ...)                                     \
   class NAME : public Algorithm {                                              \
   public:                                                                      \
@@ -190,6 +192,7 @@ public:
         : Algorithm(argumentList) {}                                           \
     ~NAME() {}                                                                 \
     virtual void run();                                                        \
+    virtual void dryRun();                                                     \
     __VA_ARGS__                                                                \
   }
 

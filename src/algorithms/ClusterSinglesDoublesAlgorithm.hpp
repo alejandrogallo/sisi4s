@@ -21,8 +21,9 @@ namespace sisi4s {
  **/
 class ClusterSinglesDoublesAlgorithm : public Algorithm {
 public:
-  ClusterSinglesDoublesAlgorithm(std::vector<Argument> const &argumentList);
-  virtual ~ClusterSinglesDoublesAlgorithm();
+  ClusterSinglesDoublesAlgorithm(std::vector<Argument> const &argumentList)
+      : Algorithm(argumentList) {}
+  ~ClusterSinglesDoublesAlgorithm() {}
   /**
    * \brief Calculates the energy of a ClusterSinglesDoubles algorithm
    */

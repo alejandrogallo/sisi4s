@@ -4,17 +4,13 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-class ComplexTensorContraction : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(ComplexTensorContraction);
-  ComplexTensorContraction(std::vector<Argument> const &argumentList);
-  virtual ~ComplexTensorContraction();
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-  static Algorithm *create(std::vector<Argument> const &argumentList) {
-    return new ComplexTensorContraction(argumentList);
-  }
-};
+    ComplexTensorContraction,
+
+    static Algorithm *create(std::vector<Argument> const &argumentList) {
+      return new ComplexTensorContraction(argumentList);
+    });
 } // namespace sisi4s
 
 #endif

@@ -86,7 +86,10 @@ static Tensor<F> *unrestrictTensor(Tensor<F> &tensor) {
   return result;
 }
 
+IMPLEMENT_EMPTY_DRYRUN(TensorUnrestricter) {}
+
 IMPLEMENT_ALGORITHM(TensorUnrestricter) {
+
   Data *tensor_data(getArgumentData("Data"));
   TensorData<double> *real_tensor_data(
       dynamic_cast<TensorData<double> *>(tensor_data));

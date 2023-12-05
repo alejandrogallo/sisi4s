@@ -7,12 +7,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(SingleParticleOccupancies);
 
-SingleParticleOccupancies::SingleParticleOccupancies(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-SingleParticleOccupancies::~SingleParticleOccupancies() {}
-
 void SingleParticleOccupancies::run() {
   // Read the DRCCD amplitudes Tabij
   Tensor<double> *Tabij(getTensorArgument<>("DoublesAmplitudes"));

@@ -4,17 +4,13 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-class ComplexTensorSum : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(ComplexTensorSum);
-  ComplexTensorSum(std::vector<Argument> const &argumentList);
-  virtual ~ComplexTensorSum();
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-  static Algorithm *create(std::vector<Argument> const &argumentList) {
-    return new ComplexTensorSum(argumentList);
-  }
-};
+    ComplexTensorSum,
+
+    static Algorithm *create(std::vector<Argument> const &argumentList) {
+      return new ComplexTensorSum(argumentList);
+    });
 } // namespace sisi4s
 
 #endif

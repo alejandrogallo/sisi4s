@@ -8,14 +8,8 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorNorm);
 
-ComplexTensorNorm::ComplexTensorNorm(std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
+IMPLEMENT_EMPTY_DRYRUN(ComplexTensorNorm) {}
 
-ComplexTensorNorm::~ComplexTensorNorm() {}
-
-/**
- * \brief Testing environement
- */
 void ComplexTensorNorm::run() {
   Tensor<complex> *A(getTensorArgument<complex>("A"));
   double norm(frobeniusNorm(*A));

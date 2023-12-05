@@ -18,9 +18,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(Mp2NaturalOrbitals);
 
-Mp2NaturalOrbitals::Mp2NaturalOrbitals(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
+IMPLEMENT_EMPTY_DRYRUN(Mp2NaturalOrbitals) {}
 
 // We follow Taube & Bartlett:
 // doi:10.1135/cccc20050837
@@ -29,8 +27,6 @@ Mp2NaturalOrbitals::Mp2NaturalOrbitals(
 // Rotate Fock matrix (4)
 // diagonalze truncated Fock matrix (5)
 // obtain new coefficients
-
-Mp2NaturalOrbitals::~Mp2NaturalOrbitals() {}
 
 void Mp2NaturalOrbitals::run() {
   Tensor<double> *orbs(getTensorArgument("OrbitalCoefficients"));

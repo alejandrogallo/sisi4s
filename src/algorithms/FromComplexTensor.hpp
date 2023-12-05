@@ -4,13 +4,11 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-class FromComplexTensor : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(FromComplexTensor);
-  FromComplexTensor(std::vector<Argument> const &argumentList);
-  virtual ~FromComplexTensor();
-  virtual void run();
-};
+DEFINE_ALGORITHM_HEADER(
+
+    FromComplexTensor,
+
+);
 } // namespace sisi4s
 
 #endif

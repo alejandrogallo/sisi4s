@@ -10,12 +10,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(UPerturbativeTriples);
 
-UPerturbativeTriples::UPerturbativeTriples(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-UPerturbativeTriples::~UPerturbativeTriples() {}
-
 void UPerturbativeTriples::run() {
   Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
   Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));

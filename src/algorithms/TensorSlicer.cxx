@@ -9,6 +9,8 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorSlicer);
 
+IMPLEMENT_EMPTY_DRYRUN(TensorSlicer) {}
+
 template <typename F>
 std::string _showVector(const std::vector<F> &v) {
   std::stringstream s;

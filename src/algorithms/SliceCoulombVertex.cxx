@@ -11,12 +11,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(SliceCoulombVertex);
 
-SliceCoulombVertex::SliceCoulombVertex(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-SliceCoulombVertex::~SliceCoulombVertex() {}
-
 void SliceCoulombVertex::run() {
   // Read the Coulomb vertex GammaGqr
   Tensor<complex> *GammaGqr(getTensorArgument<complex>("CoulombVertex"));

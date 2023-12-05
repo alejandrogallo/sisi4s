@@ -7,11 +7,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(GenerateRandomComplexMatrix);
 
-GenerateRandomComplexMatrix::GenerateRandomComplexMatrix(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-GenerateRandomComplexMatrix::~GenerateRandomComplexMatrix() {}
+IMPLEMENT_EMPTY_DRYRUN(GenerateRandomComplexMatrix) {}
 
 /**
  * \brief Testing environement

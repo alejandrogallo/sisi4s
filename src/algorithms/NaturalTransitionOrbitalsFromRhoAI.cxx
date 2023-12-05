@@ -15,6 +15,8 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(NaturalTransitionOrbitalsFromRhoAI);
 
+IMPLEMENT_EMPTY_DRYRUN(NaturalTransitionOrbitalsFromRhoAI) {}
+
 void NaturalTransitionOrbitalsFromRhoAI::run() {
   if (getIntegerArgument("complex", 1) == 1) {
     run<sisi4s::complex>();

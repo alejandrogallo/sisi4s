@@ -4,17 +4,13 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-class GenerateRandomTensor : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(GenerateRandomTensor);
-  GenerateRandomTensor(std::vector<Argument> const &argumentList);
-  virtual ~GenerateRandomTensor();
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-  static Algorithm *create(std::vector<Argument> const &argumentList) {
-    return new GenerateRandomTensor(argumentList);
-  }
-};
+    GenerateRandomTensor,
+
+    static Algorithm *create(std::vector<Argument> const &argumentList) {
+      return new GenerateRandomTensor(argumentList);
+    });
 } // namespace sisi4s
 
 #endif

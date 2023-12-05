@@ -11,11 +11,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorReader);
 
-ComplexTensorReader::ComplexTensorReader(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ComplexTensorReader::~ComplexTensorReader() {}
+IMPLEMENT_EMPTY_DRYRUN(ComplexTensorReader) {}
 
 void ComplexTensorReader::run() {
   std::string dataName(getArgumentData("Data")->getName());

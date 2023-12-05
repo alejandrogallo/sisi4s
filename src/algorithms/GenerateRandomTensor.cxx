@@ -7,11 +7,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(GenerateRandomTensor);
 
-GenerateRandomTensor::GenerateRandomTensor(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-GenerateRandomTensor::~GenerateRandomTensor() {}
+IMPLEMENT_EMPTY_DRYRUN(GenerateRandomTensor) {}
 
 /**
  * \brief Testing environement

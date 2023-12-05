@@ -7,22 +7,11 @@ namespace sisi4s {
 /**
  * \brief Caclulates perturbative triples correction
  */
-class UPerturbativeTriples : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(UPerturbativeTriples);
-  UPerturbativeTriples(std::vector<Argument> const &argumentList);
-  virtual ~UPerturbativeTriples();
-  /**
-   * \brief Calculates perturbative triples correction. Routine based on
-   * Helgaker book.
-   */
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-  /**
-   * \brief Dry run for perturbative triples correction based on Helgaker book.
-   */
-  virtual void dryRun();
-};
+    UPerturbativeTriples,
+
+);
 } // namespace sisi4s
 
 #endif

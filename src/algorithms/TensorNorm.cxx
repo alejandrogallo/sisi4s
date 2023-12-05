@@ -5,6 +5,8 @@
 
 using namespace sisi4s;
 
+IMPLEMENT_EMPTY_DRYRUN(TensorNorm) {}
+
 IMPLEMENT_ALGORITHM(TensorNorm) {
   Tensor<double> *A(getTensorArgument("Data"));
   double norm(frobeniusNorm(*A));

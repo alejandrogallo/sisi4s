@@ -16,6 +16,8 @@
 
 using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromRotatedCoulombIntegrals);
+
+IMPLEMENT_EMPTY_DRYRUN(CoulombIntegralsFromRotatedCoulombIntegrals) {}
 #define LOGGER(_l) LOG(_l, "CoulombIntegralsFromRotatedCoulombIntegrals")
 
 template <typename V>

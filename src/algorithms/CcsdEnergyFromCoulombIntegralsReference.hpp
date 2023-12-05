@@ -19,9 +19,8 @@ class CcsdEnergyFromCoulombIntegralsReference
     : public ClusterSinglesDoublesAlgorithm {
 public:
   ALGORITHM_REGISTRAR_DECLARATION(CcsdEnergyFromCoulombIntegralsReference);
-  CcsdEnergyFromCoulombIntegralsReference(
-      std::vector<Argument> const &argumentList);
-  virtual ~CcsdEnergyFromCoulombIntegralsReference();
+  using ClusterSinglesDoublesAlgorithm::ClusterSinglesDoublesAlgorithm;
+  virtual ~CcsdEnergyFromCoulombIntegralsReference() {}
 
   /**
    * \brief Returns the abbreviation of the routine (CCSD).

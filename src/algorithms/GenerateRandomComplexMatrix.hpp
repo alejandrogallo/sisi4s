@@ -4,17 +4,13 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-class GenerateRandomComplexMatrix : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(GenerateRandomComplexMatrix);
-  GenerateRandomComplexMatrix(std::vector<Argument> const &argumentList);
-  virtual ~GenerateRandomComplexMatrix();
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-  static Algorithm *create(std::vector<Argument> const &argumentList) {
-    return new GenerateRandomComplexMatrix(argumentList);
-  }
-};
+    GenerateRandomComplexMatrix,
+
+    static Algorithm *create(std::vector<Argument> const &argumentList) {
+      return new GenerateRandomComplexMatrix(argumentList);
+    });
 } // namespace sisi4s
 
 #endif

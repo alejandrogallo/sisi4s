@@ -18,6 +18,8 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(MeanCorrelationHoleDepth);
 
+IMPLEMENT_EMPTY_DRYRUN(MeanCorrelationHoleDepth) {}
+
 void MeanCorrelationHoleDepth::run() {
 
   checkArgumentsOrDie(

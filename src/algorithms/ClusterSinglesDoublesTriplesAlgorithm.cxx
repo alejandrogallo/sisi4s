@@ -15,13 +15,6 @@
 
 using namespace sisi4s;
 
-ClusterSinglesDoublesTriplesAlgorithm::
-    ~ClusterSinglesDoublesTriplesAlgorithm() {}
-
-ClusterSinglesDoublesTriplesAlgorithm::ClusterSinglesDoublesTriplesAlgorithm(
-    std::vector<Argument> const &argumentList)
-    : ClusterSinglesDoublesAlgorithm(argumentList) {}
-
 void ClusterSinglesDoublesTriplesAlgorithm::run() {
   Data *Vabij(getArgumentData("PPHHCoulombIntegrals"));
   TensorData<double> *realVabij(dynamic_cast<TensorData<double> *>(Vabij));

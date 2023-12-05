@@ -17,11 +17,7 @@ using namespace CTF;
 
 ALGORITHM_REGISTRAR_DEFINITION(PQRSCoulombIntegralsToVertex);
 
-PQRSCoulombIntegralsToVertex::PQRSCoulombIntegralsToVertex(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-PQRSCoulombIntegralsToVertex::~PQRSCoulombIntegralsToVertex() {}
+IMPLEMENT_EMPTY_DRYRUN(PQRSCoulombIntegralsToVertex) {}
 
 void PQRSCoulombIntegralsToVertex::run() {
 

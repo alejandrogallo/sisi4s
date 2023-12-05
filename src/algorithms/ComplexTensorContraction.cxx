@@ -6,12 +6,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorContraction);
 
-ComplexTensorContraction::ComplexTensorContraction(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ComplexTensorContraction::~ComplexTensorContraction() {}
-
 /**
  * \brief Testing environement
  */

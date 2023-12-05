@@ -5,14 +5,11 @@
 
 namespace sisi4s {
 
-class OneBodyRotation : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(OneBodyRotation);
-  OneBodyRotation(std::vector<Argument> const &argumentList)
-      : Algorithm(argumentList) {}
-  ~OneBodyRotation() {}
-  virtual void run();
-};
+DEFINE_ALGORITHM_HEADER(
+
+    OneBodyRotation,
+
+);
 } // namespace sisi4s
 
 #endif

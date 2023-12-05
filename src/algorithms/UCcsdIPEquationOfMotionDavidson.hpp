@@ -8,20 +8,14 @@
 
 namespace sisi4s {
 
-class UCcsdIPEquationOfMotionDavidson : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(UCcsdIPEquationOfMotionDavidson);
-  UCcsdIPEquationOfMotionDavidson(std::vector<Argument> const &argumentList);
-  virtual ~UCcsdIPEquationOfMotionDavidson();
+DEFINE_ALGORITHM_HEADER(
 
-  virtual void run();
+    UCcsdIPEquationOfMotionDavidson,
 
-  template <typename F>
-  void run();
+    template <typename F>
+    void run();
 
-protected:
-  static constexpr int DEFAULT_MAX_ITERATIONS = 16;
-};
+    static constexpr int DEFAULT_MAX_ITERATIONS = 16;);
 
 } // namespace sisi4s
 

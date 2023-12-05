@@ -16,6 +16,8 @@
 using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromCoulombIntegrals);
 
+IMPLEMENT_EMPTY_DRYRUN(HartreeFockFromCoulombIntegrals) {}
+
 MatrixColumnMajor sisi4s::toEigenMatrix(Tensor<double> &ctf) {
   MatrixColumnMajor result(ctf.lens[0], ctf.lens[1]);
 

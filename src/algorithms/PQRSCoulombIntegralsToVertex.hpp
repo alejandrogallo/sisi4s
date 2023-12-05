@@ -6,15 +6,11 @@
 #include <vector>
 
 namespace sisi4s {
-class PQRSCoulombIntegralsToVertex : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(PQRSCoulombIntegralsToVertex);
-  PQRSCoulombIntegralsToVertex(std::vector<Argument> const &argumentList);
-  virtual ~PQRSCoulombIntegralsToVertex();
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-protected:
-};
+    PQRSCoulombIntegralsToVertex,
+
+);
 } // namespace sisi4s
 
 #endif

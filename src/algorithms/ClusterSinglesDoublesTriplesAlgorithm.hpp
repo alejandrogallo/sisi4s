@@ -26,9 +26,8 @@ class ClusterSinglesDoublesTriplesAlgorithm
     : public ClusterSinglesDoublesAlgorithm {
 
 public:
-  ClusterSinglesDoublesTriplesAlgorithm(
-      std::vector<Argument> const &argumentList);
-  virtual ~ClusterSinglesDoublesTriplesAlgorithm();
+  using ClusterSinglesDoublesAlgorithm::ClusterSinglesDoublesAlgorithm;
+  virtual ~ClusterSinglesDoublesTriplesAlgorithm() {}
   /**
    * \brief Calculates the energy of a ClusterSinglesDoubles algorithm
    */

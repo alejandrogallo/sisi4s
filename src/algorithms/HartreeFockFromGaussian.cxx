@@ -49,10 +49,8 @@
 
 using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromGaussian);
-HartreeFockFromGaussian::HartreeFockFromGaussian(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-HartreeFockFromGaussian::~HartreeFockFromGaussian() {}
+
+IMPLEMENT_EMPTY_DRYRUN(HartreeFockFromGaussian) {}
 
 Tensor<double> eigenToCtfMatrix(const Eigen::MatrixXd &m) {
   const int rank_m = int(Sisi4s::world->rank == 0); // rank mask

@@ -17,12 +17,6 @@ using std::make_shared;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexFromFactors);
 
-ParticleHoleCoulombVertexFromFactors::ParticleHoleCoulombVertexFromFactors(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ParticleHoleCoulombVertexFromFactors::~ParticleHoleCoulombVertexFromFactors() {}
-
 void ParticleHoleCoulombVertexFromFactors::run() {
   run<Tensor<complex>, CtfMachineTensor<complex>>(false);
 }

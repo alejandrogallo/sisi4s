@@ -16,14 +16,6 @@ using std::shared_ptr;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexSingularVectors);
 
-ParticleHoleCoulombVertexSingularVectors::
-    ParticleHoleCoulombVertexSingularVectors(
-        std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ParticleHoleCoulombVertexSingularVectors::
-    ~ParticleHoleCoulombVertexSingularVectors() {}
-
 void ParticleHoleCoulombVertexSingularVectors::run() {
   // read the particle-hole Coulomb vertex GammaGai
   // Its singular value decomposition is U.Sigma.W*

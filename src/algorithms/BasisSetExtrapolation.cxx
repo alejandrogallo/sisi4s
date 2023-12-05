@@ -14,11 +14,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(BasisSetExtrapolation);
 
-BasisSetExtrapolation::BasisSetExtrapolation(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-BasisSetExtrapolation::~BasisSetExtrapolation() {}
+IMPLEMENT_EMPTY_DRYRUN(BasisSetExtrapolation) {}
 
 void BasisSetExtrapolation::run() {
 

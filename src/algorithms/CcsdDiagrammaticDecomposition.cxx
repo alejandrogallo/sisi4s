@@ -15,11 +15,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdDiagrammaticDecomposition);
 
-CcsdDiagrammaticDecomposition::CcsdDiagrammaticDecomposition(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-CcsdDiagrammaticDecomposition::~CcsdDiagrammaticDecomposition() {}
+IMPLEMENT_EMPTY_DRYRUN(CcsdDiagrammaticDecomposition) {}
 
 //////////////////////////////////////////////////////////////////////
 // Hirata iteration routine for the CCSD amplitudes Tabij and Tai from

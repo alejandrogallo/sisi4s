@@ -40,11 +40,7 @@ double UegVertexGenerator::Vijji(const dvec a, const dvec b, const double v) {
 
 ALGORITHM_REGISTRAR_DEFINITION(UegVertexGenerator);
 
-UegVertexGenerator::UegVertexGenerator(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-UegVertexGenerator::~UegVertexGenerator() {}
+IMPLEMENT_EMPTY_DRYRUN(UegVertexGenerator) {}
 
 void UegVertexGenerator::run() {
   // We use the HF reference by default.

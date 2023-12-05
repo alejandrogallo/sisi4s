@@ -16,12 +16,6 @@ using std::shared_ptr;
 
 ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexSingularVectors);
 
-CoulombVertexSingularVectors::CoulombVertexSingularVectors(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-CoulombVertexSingularVectors::~CoulombVertexSingularVectors() {}
-
 void CoulombVertexSingularVectors::run() {
   // read the Coulomb vertex GammaGqr
   // Its singular value decomposition is U.Sigma.W*

@@ -1,5 +1,5 @@
-
 #include <limits>
+
 #include <algorithms/CoulombVertexDecomposition.hpp>
 #include <math/CanonicalPolyadicDecomposition.hpp>
 #include <math/IterativePseudoInverse.hpp>
@@ -13,21 +13,6 @@
 using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexDecomposition);
-
-CoulombVertexDecomposition::CoulombVertexDecomposition(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList)
-    , composedGammaGqr(nullptr)
-    , PiqR(nullptr)
-    , regularizationEstimator(nullptr) {}
-
-CoulombVertexDecomposition::~CoulombVertexDecomposition() {
-  if (!isArgumentGiven("OutgoingFactorOrbitals") && PiqR) { delete PiqR; }
-  if (!isArgumentGiven("ComposedCoulombVertex") && composedGammaGqr) {
-    delete composedGammaGqr;
-  }
-  if (regularizationEstimator) delete regularizationEstimator;
-}
 
 void CoulombVertexDecomposition::run() {
   GammaGqr = getTensorArgument<complex>("CoulombVertex");
@@ -152,6 +137,13 @@ void CoulombVertexDecomposition::run() {
     fit(iterationsCount);
     ++iterationsCount;
   }
+
+  // free up memroy
+  if (!isArgumentGiven("OutgoingFactorOrbitals") && PiqR) { delete PiqR; }
+  if (!isArgumentGiven("ComposedCoulombVertex") && composedGammaGqr) {
+    delete composedGammaGqr;
+  }
+  if (regularizationEstimator) delete regularizationEstimator;
 }
 
 void CoulombVertexDecomposition::dryRun() {

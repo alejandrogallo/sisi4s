@@ -12,8 +12,8 @@ namespace sisi4s {
 class CcsdPerturbativeTriplesComplex : public Algorithm {
 public:
   ALGORITHM_REGISTRAR_DECLARATION(CcsdPerturbativeTriplesComplex);
-  CcsdPerturbativeTriplesComplex(std::vector<Argument> const &argumentList);
-  virtual ~CcsdPerturbativeTriplesComplex();
+  CcsdPerturbativeTriplesComplex(std::vector<Argument> const &argumentList) {}
+  virtual ~CcsdPerturbativeTriplesComplex() {}
   /**
    * \brief Calculates perturbative triples correction. Routine based on
    * Helgaker book.

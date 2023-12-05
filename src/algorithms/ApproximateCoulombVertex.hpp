@@ -17,22 +17,7 @@ namespace sisi4s {
  * \param[out] ApproximatedCoulombVertex tensor
  *   The approximated Coulomb vertex $\Gamma$.
  */
-class ApproximateCoulombVertex : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(ApproximateCoulombVertex);
-  ApproximateCoulombVertex(std::vector<Argument> const &argumentList);
-  virtual ~ApproximateCoulombVertex();
-  /**
-   * \brief Approximates the Coulomb vertex using the left
-   * singular vectors:
-   * \f$\Gamma^q_{rF} = {U^\ast}^G_F \tile\Gamma^q_{rG}\f$.
-   */
-  virtual void run();
-  /**
-   * \brief Dry run of approximating the Coulomb vertex.
-   */
-  virtual void dryRun();
-};
+DEFINE_ALGORITHM_HEADER(ApproximateCoulombVertex, );
 } // namespace sisi4s
 
 #endif

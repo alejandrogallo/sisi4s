@@ -15,22 +15,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParenthesisTriples);
 
-ParenthesisTriples::ParenthesisTriples(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-// Destructor
-ParenthesisTriples::~ParenthesisTriples() {
-  delete[] Tabc;
-  delete[] Zabc;
-  delete[] scratch;
-  if (realGab) delete[] realGab;
-  if (imagGab) delete[] imagGab;
-  if (realGai) delete[] realGai;
-  if (imagGai) delete[] imagGai;
-  if (Vpppijk) delete[] Vpppijk;
-}
-
 template <typename F>
 IrmlerTensor<F> readBinaryTensorSerial(std::string filename,
                                        int64_t offset = 0,
@@ -920,6 +904,16 @@ void ParenthesisTriples::run() {
   ctfEnergy[""] = energy;
   // ctfEnergy.set_val(energy);  // ctfBug
   setRealArgument("Energy", ctfEnergy);
+
+  // free up memory
+  delete[] Tabc;
+  delete[] Zabc;
+  delete[] scratch;
+  if (realGab) delete[] realGab;
+  if (imagGab) delete[] imagGab;
+  if (realGai) delete[] realGai;
+  if (imagGai) delete[] imagGai;
+  if (Vpppijk) delete[] Vpppijk;
 }
 
 void ParenthesisTriples::dryRun() {}

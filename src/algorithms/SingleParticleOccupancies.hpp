@@ -9,14 +9,11 @@ namespace sisi4s {
  * \f$\langle\Psi|\hat N_p|\Psi\rangle/\langle\Psi|\Psi\rangle\f$
  * given the DoublesAmplitudes from a linearized coupled cluster theory.
  */
-class SingleParticleOccupancies : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(SingleParticleOccupancies);
-  SingleParticleOccupancies(std::vector<Argument> const &argumentList);
-  virtual ~SingleParticleOccupancies();
-  virtual void run();
-  virtual void dryRun();
-};
+DEFINE_ALGORITHM_HEADER(
+
+    SingleParticleOccupancies,
+
+);
 } // namespace sisi4s
 
 #endif

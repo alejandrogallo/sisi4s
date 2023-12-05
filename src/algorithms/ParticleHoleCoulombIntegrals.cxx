@@ -11,12 +11,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombIntegrals);
 
-ParticleHoleCoulombIntegrals::ParticleHoleCoulombIntegrals(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ParticleHoleCoulombIntegrals::~ParticleHoleCoulombIntegrals() {}
-
 void ParticleHoleCoulombIntegrals::run() {
   // read coulomb vertex GammaGai
   Tensor<complex> *GammaGai(

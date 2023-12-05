@@ -9,33 +9,20 @@ namespace sisi4s {
 /**
  * \brief Caclulates perturbative triples correction
  */
-class CcsdPerturbativeTriples : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(CcsdPerturbativeTriples);
-  CcsdPerturbativeTriples(std::vector<Argument> const &argumentList);
-  virtual ~CcsdPerturbativeTriples();
-  /**
-   * \brief Calculates perturbative triples correction. Routine based on
-   * Helgaker book.
-   */
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-  /**
-   * \brief Dry run for perturbative triples correction based on Helgaker book.
-   */
-  virtual void dryRun();
+    CcsdPerturbativeTriples,
 
-protected:
-  int No, Nv;
-  Tensor<double> *SVabc, *DVabc;
-  Tensor<double> *realGammaFab, *imagGammaFab;
-  SlicedCtfTensor<> *Tai, *Tabij, *Tabil;
-  SlicedCtfTensor<> *Vabij, *Vijla, *realGammaFai, *imagGammaFai;
-  void sliceTensors();
-  Tensor<double> &getSinglesContribution(const Map<3> &);
-  Tensor<double> &getDoublesContribution(const Map<3> &);
-  Tensor<double> &getEnergyDenominator(const Map<3> &);
-};
+    int No,
+    Nv;
+    Tensor<double> * SVabc, *DVabc;
+    Tensor<double> * realGammaFab, *imagGammaFab;
+    SlicedCtfTensor<> * Tai, *Tabij, *Tabil;
+    SlicedCtfTensor<> * Vabij, *Vijla, *realGammaFai, *imagGammaFai;
+    void sliceTensors();
+    Tensor<double> & getSinglesContribution(const Map<3> &);
+    Tensor<double> & getDoublesContribution(const Map<3> &);
+    Tensor<double> & getEnergyDenominator(const Map<3> &););
 } // namespace sisi4s
 
 #endif

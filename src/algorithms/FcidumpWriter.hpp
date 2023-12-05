@@ -5,14 +5,11 @@
 
 namespace sisi4s {
 
-class FcidumpWriter : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(FcidumpWriter);
-  FcidumpWriter(std::vector<Argument> const &argumentList)
-      : Algorithm(argumentList){};
-  ~FcidumpWriter(){};
-  virtual void run();
-};
+DEFINE_ALGORITHM_HEADER(
+
+    FcidumpWriter,
+
+);
 } // namespace sisi4s
 
 #endif

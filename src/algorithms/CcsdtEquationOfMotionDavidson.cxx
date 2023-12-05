@@ -23,11 +23,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdtEquationOfMotionDavidson);
 
-CcsdtEquationOfMotionDavidson::CcsdtEquationOfMotionDavidson(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-CcsdtEquationOfMotionDavidson::~CcsdtEquationOfMotionDavidson() {}
-
 void CcsdtEquationOfMotionDavidson::run() {
 
   if (getIntegerArgument("complexVersion", 1) == 1) {

@@ -39,51 +39,43 @@ struct VectorTensor {
       , refs({NO_REF, NO_REF, NO_REF}) {}
 };
 
-class ParenthesisTriples : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(ParenthesisTriples);
-  ParenthesisTriples(std::vector<Argument> const &argumentList);
-  virtual ~ParenthesisTriples();
-  /**
-   * \brief Calculates perturbative triples correction, third attemp
-   */
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-  /**
-   * \brief Dry run for perturbative triples correction, third attemp
-   */
-  virtual void dryRun();
+    ParenthesisTriples,
 
-protected:
-  int64_t No, Nv, NG;
-  int64_t NvCube;
-  double *Tabc;
-  double *Zabc;
-  double *scratch;
-  double *Tabij, *Tai;
-  double *epsi, *epsa;
-  double *Vabij, *Vhphh, *Vppph = nullptr;
-  double *Vpppijk = nullptr;
-  double *realGab = nullptr, *imagGab = nullptr, *realGai = nullptr,
-         *imagGai = nullptr;
-  bool particleDiagram = true, holeDiagram = true;
-  double
-  getEnergy(const double epsijk, const double *Tabc_, const double *Zabc_);
-  void doublesContribution(const std::array<int64_t, 3> &ijk,
-                           IJKPointer integralContainer,
-                           double *scratchV,
-                           double *scratchO,
-                           double *output);
-  void singlesContribution(const std::array<int64_t, 3> &ijk,
-                           double *scratchO,
-                           double *output);
-  void getVpppijkFromVertex(const std::array<int64_t, 3> &ijk,
-                            double *scratchO,
-                            double *output);
+    int64_t No;
+    int64_t Nv;
+    int64_t NG;
+    int64_t NvCube;
+    double *Tabc;
+    double *Zabc;
+    double *scratch;
+    double *Tabij, *Tai;
+    double *epsi, *epsa;
+    double *Vabij, *Vhphh, *Vppph = nullptr;
+    double *Vpppijk = nullptr;
+    double *realGab = nullptr;
+    double *imagGab = nullptr;
+    double *realGai = nullptr;
+    double *imagGai = nullptr;
+    bool particleDiagram = true, holeDiagram = true;
+    double getEnergy(const double epsijk,
+                     const double *Tabc_,
+                     const double *Zabc_);
+    void doublesContribution(const std::array<int64_t, 3> &ijk,
+                             IJKPointer integralContainer,
+                             double *scratchV,
+                             double *scratchO,
+                             double *output);
+    void singlesContribution(const std::array<int64_t, 3> &ijk,
+                             double *scratchO,
+                             double *output);
+    void getVpppijkFromVertex(const std::array<int64_t, 3> &ijk,
+                              double *scratchO,
+                              double *output);
 
-  IJKPointer getVpppijkOnTheFly(const std::array<int64_t, 3> &ijk,
-                                VectorTensor<double> &vtensor);
-};
+    IJKPointer getVpppijkOnTheFly(const std::array<int64_t, 3> &ijk,
+                                  VectorTensor<double> &vtensor););
 } // namespace sisi4s
 
 #endif

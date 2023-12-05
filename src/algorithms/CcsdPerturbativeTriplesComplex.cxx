@@ -13,12 +13,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdPerturbativeTriplesComplex);
 
-CcsdPerturbativeTriplesComplex::CcsdPerturbativeTriplesComplex(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-CcsdPerturbativeTriplesComplex::~CcsdPerturbativeTriplesComplex() {}
-
 namespace sisi4s {
 template <int N>
 inline std::string operator*(const std::string &s,

@@ -4,17 +4,14 @@
 #include <algorithms/Algorithm.hpp>
 
 namespace sisi4s {
-class ComplexTensorNorm : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(ComplexTensorNorm);
-  ComplexTensorNorm(std::vector<Argument> const &argumentList);
-  virtual ~ComplexTensorNorm();
-  virtual void run();
+DEFINE_ALGORITHM_HEADER(
 
-  static Algorithm *create(std::vector<Argument> const &argumentList) {
-    return new ComplexTensorNorm(argumentList);
-  }
-};
+    ComplexTensorNorm,
+
+    static Algorithm *create(std::vector<Argument> const &argumentList) {
+      return new ComplexTensorNorm(argumentList);
+    });
+
 } // namespace sisi4s
 
 #endif

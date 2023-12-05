@@ -20,6 +20,8 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(FockMatrixFromCoulombIntegrals);
 
+IMPLEMENT_EMPTY_DRYRUN(FockMatrixFromCoulombIntegrals) {}
+
 void FockMatrixFromCoulombIntegrals::run() {
 
   const auto phph(getTensorArgument<double>("PHPHCoulombIntegrals"));

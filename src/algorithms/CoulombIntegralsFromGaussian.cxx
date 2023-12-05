@@ -23,6 +23,8 @@ typedef libint2::Operator Operator;
 using namespace sisi4s;
 ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromGaussian);
 
+IMPLEMENT_EMPTY_DRYRUN(CoulombIntegralsFromGaussian) {}
+
 // struct for storing information about the shell ends in the for loops
 // calculating the integrals
 struct ShellInfo {

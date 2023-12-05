@@ -5,11 +5,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(TensorContraction);
 
-TensorContraction::TensorContraction(std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-TensorContraction::~TensorContraction() {}
-
 /**
  * \brief Testing environement
  */

@@ -37,7 +37,10 @@ read(Algorithm &alg, const std::string mode, const std::string &name) {
   return A;
 }
 
+IMPLEMENT_EMPTY_DRYRUN(TensorReader) {}
+
 IMPLEMENT_ALGORITHM(TensorReader) {
+
   std::string name(getArgumentData("Data")->getName());
 
   // make sure all processes start reading the file at the same time in case

@@ -7,17 +7,11 @@
 
 namespace sisi4s {
 
-class HartreeFockFromGaussian : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(HartreeFockFromGaussian);
-  HartreeFockFromGaussian(std::vector<Argument> const &argumentList);
-  virtual ~HartreeFockFromGaussian();
+DEFINE_ALGORITHM_HEADER(
 
-  virtual void run();
+    HartreeFockFromGaussian,
 
-protected:
-  static constexpr int DEFAULT_MAX_ITERATIONS = 16;
-};
+    static constexpr int DEFAULT_MAX_ITERATIONS = 16;);
 } // namespace sisi4s
 
 #endif

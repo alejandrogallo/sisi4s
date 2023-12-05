@@ -13,13 +13,6 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(CcsdEnergyFromCoulombIntegrals);
 
-CcsdEnergyFromCoulombIntegrals::CcsdEnergyFromCoulombIntegrals(
-    std::vector<Argument> const &argumentList)
-    : ClusterSinglesDoublesAlgorithm(argumentList) {}
-
-CcsdEnergyFromCoulombIntegrals::~CcsdEnergyFromCoulombIntegrals() {}
-
-//////////////////////////////////////////////////////////////////////
 // Hirata iteration routine for the CCSD amplitudes Tabij and Tai from
 // So Hirata, et. al. Chem. Phys. Letters, 345, 475 (2001)
 //////////////////////////////////////////////////////////////////////

@@ -10,14 +10,11 @@
 
 namespace sisi4s {
 
-class OneBodyFromGaussian : public Algorithm {
-public:
-  ALGORITHM_REGISTRAR_DECLARATION(OneBodyFromGaussian);
-  OneBodyFromGaussian(std::vector<Argument> const &argumentList)
-      : Algorithm(argumentList) {}
-  ~OneBodyFromGaussian() {}
-  virtual void run();
-};
+DEFINE_ALGORITHM_HEADER(
+
+    OneBodyFromGaussian,
+
+);
 
 } // namespace sisi4s
 

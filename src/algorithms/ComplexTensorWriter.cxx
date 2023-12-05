@@ -10,11 +10,7 @@ using namespace sisi4s;
 
 ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorWriter);
 
-ComplexTensorWriter::ComplexTensorWriter(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ComplexTensorWriter::~ComplexTensorWriter() {}
+IMPLEMENT_EMPTY_DRYRUN(ComplexTensorWriter) {}
 
 void ComplexTensorWriter::run() {
   Tensor<complex> *A(getTensorArgument<complex>("Data"));

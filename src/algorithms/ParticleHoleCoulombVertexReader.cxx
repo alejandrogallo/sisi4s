@@ -18,12 +18,6 @@ char const *ParticleHoleCoulombVertexReader::Chunk::EPSILONS_MAGIC = "FTODepsi";
 
 ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexReader);
 
-ParticleHoleCoulombVertexReader::ParticleHoleCoulombVertexReader(
-    std::vector<Argument> const &argumentList)
-    : Algorithm(argumentList) {}
-
-ParticleHoleCoulombVertexReader::~ParticleHoleCoulombVertexReader() {}
-
 struct Unrestricter {
 
   Tensor<sisi4s::complex> *doVertex(Tensor<sisi4s::complex> *GammaGqr) const {
