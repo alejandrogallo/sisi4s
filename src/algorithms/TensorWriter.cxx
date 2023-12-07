@@ -19,12 +19,12 @@ const std::type_info &TensorWriter::check_type(Data *tensor_data) {
 }
 
 IMPLEMENT_ALGORITHM(TensorWriter) {
-  const bool binary_p = getTextArgument("mode", "text") == "text";
+  const bool binary_p = getTextArgument("mode", "text") == "binary";
 
   const std::string /**/
 
       dataName = getArgumentData("Data")->getName(),
-      fileName = dataName + (binary_p ? ".bin" : ".dat"),
+      fileName = getTextArgument("file", dataName + (binary_p ? ".bin" : ".dat")),
 
       rowIndexOrder(getTextArgument("rowIndexOrder", "")),
       columnIndexOrder(getTextArgument("columnIndexOrder", "")),
