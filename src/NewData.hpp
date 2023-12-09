@@ -7,6 +7,7 @@
 #include <map>
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
 namespace sisi4s {
 namespace data {
@@ -59,6 +60,43 @@ void declare_type(std::string const &db_index) {
   if (!ptr) return;
   ptr->idx = std::type_index(typeid(F));
 }
+
+template <typename F>
+class Namer {
+public:
+  static std::string name() { return std::type_index(typeid(F)).name(); }
+};
+
+template <typename F>
+class Namer<std::vector<F>> {
+public:
+  static std::string name() { return "Vector of " + Namer<F>::name(); }
+};
+
+template <typename F>
+std::string type_name() {
+  // return std::type_index(typeid(F)).name();
+  return Namer<F>::name();
+}
+
+#define INSTANTIATE(type)                                                      \
+  template <>                                                                  \
+  class Namer<type> {                                                          \
+  public:                                                                      \
+    static std::string name();                                                 \
+  };                                                                           \
+  template <>                                                                  \
+  class Namer<std::vector<type>> {                                             \
+  public:                                                                      \
+    static std::string name();                                                 \
+  };
+INSTANTIATE(int)
+INSTANTIATE(int64_t)
+INSTANTIATE(std::string)
+INSTANTIATE(bool)
+INSTANTIATE(double)
+INSTANTIATE(float)
+#undef INSTANTIATE
 
 template <typename F>
 bool istype(std::string const &db_index) {

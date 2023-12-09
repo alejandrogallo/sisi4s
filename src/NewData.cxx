@@ -49,25 +49,20 @@ void setraw(std::string const &db_index, Data *ptr) {
   DATA_STORE[db_index] = ptr;
 }
 
+#define INSTANTIATE(type, user_name)                                           \
+  std::string Namer<type>::name() { return user_name; }                        \
+  std::string Namer<std::vector<type>>::name() {                               \
+    return "Vector of " + std::string(user_name);                              \
+  }
+INSTANTIATE(int, "Integer")
+INSTANTIATE(int64_t, "64 bit integer")
+INSTANTIATE(std::string, "String")
+INSTANTIATE(bool, "Boolean value")
+INSTANTIATE(double, "Double precission number")
+INSTANTIATE(float, "Single precission number")
+#undef INSTANTIATE
+
 bool exists(std::string const &db_index) { return DATA_STORE[db_index]; }
-
-#define INSTANTIATE(type) template StorePair put<type>(type const &)
-INSTANTIATE(size_t);
-INSTANTIATE(int);
-INSTANTIATE(int64_t);
-INSTANTIATE(std::vector<int64_t>);
-INSTANTIATE(double);
-INSTANTIATE(std::string);
-#undef INSTANTIATE
-
-#define INSTANTIATE(type) template type *get<type>(std::string const &)
-INSTANTIATE(size_t);
-INSTANTIATE(int);
-INSTANTIATE(int64_t);
-INSTANTIATE(std::vector<int64_t>);
-INSTANTIATE(double);
-INSTANTIATE(std::string);
-#undef INSTANTIATE
 
 } // namespace data
 } // namespace sisi4s
