@@ -6,12 +6,15 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(ComplexTensorNorm);
-
 IMPLEMENT_EMPTY_DRYRUN(ComplexTensorNorm) {}
 
-void ComplexTensorNorm::run() {
-  Tensor<complex> *A(getTensorArgument<complex>("A"));
+
+DEFSPEC(ComplexTensorNorm,
+        SPEC_IN({"A", SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+        SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(ComplexTensorNorm) {
+  Tensor<complex> *A(in.get<Tensor<complex> *>("A"));
   double norm(frobeniusNorm(*A));
   LOG(0) << "|A| = " << norm << std::endl;
   setRealArgument("Norm", norm);

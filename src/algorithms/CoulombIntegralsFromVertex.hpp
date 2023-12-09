@@ -2,6 +2,7 @@
 #define COULOMB_INTEGRALS_FROM_VERTEX_DEFINED
 
 #include <algorithms/Algorithm.hpp>
+#include <math/Complex.hpp>
 #include <array>
 
 namespace sisi4s {
@@ -22,10 +23,10 @@ DEFINE_ALGORITHM_HEADER(
     void dryCalculateRealIntegrals();
     void dryCalculateComplexIntegrals();
 
-    Tensor<complex> * GammaGai;
-    Tensor<complex> * GammaGia;
-    Tensor<complex> * GammaGab;
-    Tensor<complex> * GammaGij;
+    Tensor<sisi4s::complex> * GammaGai;
+    Tensor<sisi4s::complex> * GammaGia;
+    Tensor<sisi4s::complex> * GammaGab;
+    Tensor<sisi4s::complex> * GammaGij;
     std::array<int, 4> syms,
     vvvv,
     vovo,

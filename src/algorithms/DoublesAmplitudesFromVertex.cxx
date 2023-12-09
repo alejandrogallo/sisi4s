@@ -8,11 +8,16 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(DoublesAmplitudesFromVertex);
 
-void DoublesAmplitudesFromVertex::run() {
+DEFSPEC(DoublesAmplitudesFromVertex,
+        SPEC_IN({"DoublesAmplitudesVertex",
+                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+        SPEC_OUT({"DoublesAmplitudes",
+                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(DoublesAmplitudesFromVertex) {
   // read the amplitudes vertex YLai
-  Tensor<complex> *YLai(getTensorArgument<complex>("DoublesAmplitudesVertex"));
+  Tensor<complex> *YLai(in.get<Tensor<complex> *>("DoublesAmplitudesVertex"));
 
   // get Nv,No
   int Nv(YLai->lens[1]);
@@ -31,13 +36,13 @@ void DoublesAmplitudesFromVertex::run() {
   (*Tabij)["abij"] = realYLai["Lai"] * realYLai["Lbj"];
   (*Tabij)["abij"] -= imagYLai["Lai"] * imagYLai["Lbj"];
 
-  allocatedTensorArgument("DoublesAmplitudes", Tabij);
+  out.set<Tensor<double> *>("DoublesAmplitudes", Tabij);
 }
 
 void DoublesAmplitudesFromVertex::dryRun() {
   // read the Coulomb vertex GammaGqr
-  DryTensor<complex> *YLai(getTensorArgument<complex, DryTensor<complex>>(
-      "DoublesAmplitudesVertex"));
+  DryTensor<complex> *YLai(
+      in.get<DryTensor<complex> *>("DoublesAmplitudesVertex"));
 
   // get Nv,No
   int Nv(YLai->lens[1]);

@@ -16,10 +16,8 @@
 using namespace sisi4s;
 
 void ClusterSinglesDoublesTriplesAlgorithm::run() {
-  Data *Vabij(getArgumentData("PPHHCoulombIntegrals"));
-  TensorData<double> *realVabij(dynamic_cast<TensorData<double> *>(Vabij));
   double e(0.0);
-  if (realVabij) {
+  if (in.is_of_type<Tensor<double> *>("PPHHCoulombIntegrals")) {
     e = run<double>();
   } else {
     e = std::real(run<complex>());
@@ -29,8 +27,8 @@ void ClusterSinglesDoublesTriplesAlgorithm::run() {
 
 template <typename F>
 F ClusterSinglesDoublesTriplesAlgorithm::run() {
-  int Nv(getTensorArgument<>("ParticleEigenEnergies")->lens[0]);
-  int No(getTensorArgument<>("HoleEigenEnergies")->lens[0]);
+  int Nv(in.get<Tensor<double> *>("ParticleEigenEnergies")->lens[0]);
+  int No(in.get<Tensor<double> *>("HoleEigenEnergies")->lens[0]);
 
   PTR(const FockVector<F>) amplitudes(createAmplitudes<F>(
       {"Singles", "Doubles", "Triples"},
@@ -38,7 +36,7 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
       {"ai", "abij", "abcijk"}));
 
   // create a mixer, by default use the linear one
-  std::string mixerName(getTextArgument("mixer", "LinearMixer"));
+  std::string mixerName(in.get<std::string>("mixer", "LinearMixer"));
   PTR(Mixer<F>) mixer(MixerFactory<F>::create(mixerName, this));
   if (!mixer) {
     std::stringstream stringStream;
@@ -48,12 +46,12 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
 
   // number of iterations for determining the amplitudes
   int maxIterationsCount(
-      getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS));
+      in.get<int64_t>("maxIterations", DEFAULT_MAX_ITERATIONS));
 
   F amplitudesConvergence(
-      getRealArgument("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE));
+      in.get<double>("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE));
   F energyConvergence(
-      getRealArgument("energyConvergence", DEFAULT_ENERGY_CONVERGENCE));
+      in.get<double>("energyConvergence", DEFAULT_ENERGY_CONVERGENCE));
 
   EMIT() << YAML::Key << "maxIterations" << YAML::Value << maxIterationsCount
          << YAML::Key << "amplitudesConvergence" << YAML::Value

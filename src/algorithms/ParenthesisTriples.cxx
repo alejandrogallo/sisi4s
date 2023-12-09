@@ -13,8 +13,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(ParenthesisTriples);
-
 template <typename F>
 IrmlerTensor<F> readBinaryTensorSerial(std::string filename,
                                        int64_t offset = 0,
@@ -665,8 +663,8 @@ ParenthesisTriples::getVpppijkOnTheFly(const std::array<int64_t, 3> &ijk,
       const int64_t offset = i * NvCube;
       vtensor.tensors[c] =
           new IrmlerTensor<double>(readBinaryTensorSerial<double>(
-              getTextArgument("PPPHCoulombIntegralsFile",
-                              "PPPHCoulombIntegrals.bin"),
+              in.get<std::string>("PPPHCoulombIntegralsFile",
+                                  "PPPHCoulombIntegrals.bin"),
               offset,
               NvCube,
               false));
@@ -682,15 +680,23 @@ ParenthesisTriples::getVpppijkOnTheFly(const std::array<int64_t, 3> &ijk,
           vtensor.tensors[2]->data.data()};
 }
 
-void ParenthesisTriples::run() {
+
+DEFSPEC(
+    ParenthesisTriples,
+    SPEC_IN({"HoleEigenEnergiesFile",
+             SPEC_VALUE_DEF("TODO: DOC", std::string, "HoleEigenEnergies.bin")},
+            {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+    SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(ParenthesisTriples) {
 
   auto epsiT(readBinaryTensorSerial<double>(
-      getTextArgument("HoleEigenEnergiesFile", "HoleEigenEnergies.bin")));
+      in.get<std::string>("HoleEigenEnergiesFile", "HoleEigenEnergies.bin")));
   epsi = epsiT.data.data();
 
   auto epsaT(readBinaryTensorSerial<double>(
-      getTextArgument("ParticleEigenEnergiesFile",
-                      "ParticleEigenEnergies.bin")));
+      in.get<std::string>("ParticleEigenEnergiesFile",
+                          "ParticleEigenEnergies.bin")));
   epsa = epsaT.data.data();
 
   No = epsiT.lens[0];
@@ -699,21 +705,23 @@ void ParenthesisTriples::run() {
   NvCube = (int64_t)Nv * Nv * Nv;
 
   auto TaiT(readBinaryTensorSerial<double>(
-      getTextArgument("CcsdSinglesAmplitudesFile",
-                      "CcsdSinglesAmplitudes.bin")));
+      in.get<std::string>("CcsdSinglesAmplitudesFile",
+                          "CcsdSinglesAmplitudes.bin")));
   Tai = TaiT.data.data();
 
   auto TabijT(readBinaryTensorSerial<double>(
-      getTextArgument("CcsdDoublesAmplitudesFile",
-                      "CcsdDoublesAmplitudes.bin")));
+      in.get<std::string>("CcsdDoublesAmplitudesFile",
+                          "CcsdDoublesAmplitudes.bin")));
   Tabij = TabijT.data.data();
 
   auto VabijT(readBinaryTensorSerial<double>(
-      getTextArgument("PPHHCoulombIntegralsFile", "PPHHCoulombIntegrals.bin")));
+      in.get<std::string>("PPHHCoulombIntegralsFile",
+                          "PPHHCoulombIntegrals.bin")));
   Vabij = VabijT.data.data();
 
   auto VijkaT(readBinaryTensorSerial<double>(
-      getTextArgument("HPHHCoulombIntegralsFile", "HPHHCoulombIntegrals.bin")));
+      in.get<std::string>("HPHHCoulombIntegralsFile",
+                          "HPHHCoulombIntegrals.bin")));
   Vhphh = VijkaT.data.data();
 
   PTR(IrmlerTensor<double>) VppphT;
@@ -726,15 +734,15 @@ void ParenthesisTriples::run() {
     LOG(0, "Read and store PPPH CoulombIntegrals") << std::endl;
     VppphT = NEW(IrmlerTensor<double>,
                  readBinaryTensorSerial<double>(
-                     getTextArgument("PPPHCoulombIntegralsFile",
-                                     "PPPHCoulombIntegrals.bin")));
+                     in.get<std::string>("PPPHCoulombIntegralsFile",
+                                         "PPPHCoulombIntegrals.bin")));
     Vppph = VppphT->data.data();
     fullPPPH = true;
   } else if (isArgumentGiven("PPPHOnTheFly")) {
     PPPHOnTheFly = true;
   } else {
     LOG(0, "Read and slice CoulombVertex") << std::endl;
-    Tensor<complex> *GammaGqr(getTensorArgument<complex>("CoulombVertex"));
+    Tensor<complex> *GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
     NG = GammaGqr->lens[0];
     int Np(GammaGqr->lens[1]);
     int iStart(0), iEnd(No);

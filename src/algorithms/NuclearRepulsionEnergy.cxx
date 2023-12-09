@@ -8,12 +8,18 @@
 #include <util/Emitter.hpp>
 
 using namespace sisi4s;
-ALGORITHM_REGISTRAR_DEFINITION(NuclearRepulsionEnergy);
+
+DEFSPEC(NuclearRepulsionEnergy,
+        SPEC_IN({"atoms",
+                 SPEC_VARIN(
+                     "Vector of libint atoms specifying a molecular structure",
+                     std::vector<libint2::Atom> *)}),
+        SPEC_OUT());
 
 IMPLEMENT_EMPTY_DRYRUN(NuclearRepulsionEnergy) {}
 #define LOGGER(_l) LOG(_l, "NuclearRepulsionEnergy")
 
-double getEnergy(const std::vector<libint2::Atom> &structure) {
+static double getEnergy(const std::vector<libint2::Atom> &structure) {
   unsigned int i, j;
   double enuc(0.0), r2(0.0);
   LOGGER(1) << "Calculating nuclear repulsion energy" << std::endl;
@@ -30,19 +36,15 @@ double getEnergy(const std::vector<libint2::Atom> &structure) {
   return enuc;
 }
 
-void NuclearRepulsionEnergy::run() {
+IMPLEMENT_ALGORITHM(NuclearRepulsionEnergy) {
 
-  checkArgumentsOrDie({"xyzStructureFile"});
-  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", ""));
+  auto const &atoms = *in.get<std::vector<libint2::Atom> *>("atoms");
 
-  LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
-  std::ifstream f(xyzStructureFile.c_str());
-  std::vector<libint2::Atom> atoms(libint2::read_dotxyz(f));
-  f.close();
+  LOGGER(1) << "#atoms: " << atoms.size() << std::endl;
 
   double enuc = getEnergy(atoms);
 
-  LOGGER(1) << std::setprecision(15) << std::setw(10) << "energy =" << enuc
+  LOGGER(1) << std::setprecision(15) << std::setw(10) << "energy = " << enuc
             << std::endl;
 
   EMIT() << YAML::Key << "energy" << YAML::Value << enuc;

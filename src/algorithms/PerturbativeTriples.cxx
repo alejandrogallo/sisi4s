@@ -8,16 +8,14 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(PerturbativeTriples);
-
 void PerturbativeTriples::runInMemory() {
-  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
-  Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  Tensor<double> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
-  Tensor<double> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
-  Tensor<double> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
-  Tensor<double> *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
+  Tensor<double> *Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
+  Tensor<double> *Vijka(in.get<Tensor<double> *>("HHHPCoulombIntegrals"));
+  Tensor<double> *Vabci(in.get<Tensor<double> *>("PPPHCoulombIntegrals"));
+  Tensor<double> *Tabij(in.get<Tensor<double> *>("CcsdDoublesAmplitudes"));
+  Tensor<double> *Tai(in.get<Tensor<double> *>("CcsdSinglesAmplitudes"));
 
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
@@ -75,7 +73,7 @@ void PerturbativeTriples::runInMemory() {
 
   Scalar<> energy(*Sisi4s::world);
   double e, triplese;
-  double ccsde(getRealArgument("CcsdEnergy"));
+  double ccsde(in.get<double>("CcsdEnergy"));
 
   energy[""] = (+2.0) * Zai["ai"] * (*Tai)["ai"];
   energy[""] += (+4.0) * Zabij["abij"] * (*Tabij)["abij"];
@@ -91,13 +89,13 @@ void PerturbativeTriples::runInMemory() {
 }
 
 void PerturbativeTriples::runPiecuch() {
-  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
-  Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  Tensor<double> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
-  Tensor<double> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
-  Tensor<double> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
-  Tensor<double> *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
+  Tensor<double> *Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
+  Tensor<double> *Vijka(in.get<Tensor<double> *>("HHHPCoulombIntegrals"));
+  Tensor<double> *Vabci(in.get<Tensor<double> *>("PPPHCoulombIntegrals"));
+  Tensor<double> *Tabij(in.get<Tensor<double> *>("CcsdDoublesAmplitudes"));
+  Tensor<double> *Tai(in.get<Tensor<double> *>("CcsdSinglesAmplitudes"));
 
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
@@ -150,7 +148,7 @@ void PerturbativeTriples::runPiecuch() {
 
   Scalar<> energy(*Sisi4s::world);
   double e, triplese;
-  double ccsde(getRealArgument("CcsdEnergy"));
+  double ccsde(in.get<double>("CcsdEnergy"));
 
   energy[""] = Xabcijk["abcijk"] * Tabcijk["abcijk"];
   triplese = energy.get_val();
@@ -163,14 +161,28 @@ void PerturbativeTriples::runPiecuch() {
   setRealArgument("PerturbativeTriplesEnergy", e);
 }
 
-void PerturbativeTriples::run() {
-  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
-  Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  Tensor<double> *Vijka(getTensorArgument("HHHPCoulombIntegrals"));
-  Tensor<double> *Vabci(getTensorArgument("PPPHCoulombIntegrals"));
-  Tensor<double> *Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
-  Tensor<double> *Tai(getTensorArgument("CcsdSinglesAmplitudes"));
+
+DEFSPEC(
+    PerturbativeTriples,
+    SPEC_IN(
+        {"CcsdEnergy", SPEC_VALUE("TODO: DOC", double)},
+        {"CcsdDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"CcsdSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(PerturbativeTriples) {
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
+  Tensor<double> *Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
+  Tensor<double> *Vijka(in.get<Tensor<double> *>("HHHPCoulombIntegrals"));
+  Tensor<double> *Vabci(in.get<Tensor<double> *>("PPPHCoulombIntegrals"));
+  Tensor<double> *Tabij(in.get<Tensor<double> *>("CcsdDoublesAmplitudes"));
+  Tensor<double> *Tai(in.get<Tensor<double> *>("CcsdSinglesAmplitudes"));
 
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
@@ -224,7 +236,7 @@ void PerturbativeTriples::run() {
   energy[""] += DVabcijk["bcajki"] * Tabcijk["abcijk"];
 
   double eTriples(energy.get_val());
-  double eCcsd(getRealArgument("CcsdEnergy"));
+  double eCcsd(in.get<double>("CcsdEnergy"));
   double e(eCcsd + eTriples);
   LOG(0, "PerturbativeTriples") << "e=" << e << std::endl;
   LOG(1, "PerturbativeTriples") << "ccsd=" << eCcsd << std::endl;
@@ -234,20 +246,16 @@ void PerturbativeTriples::run() {
 }
 
 void PerturbativeTriples::dryRun() {
-  getTensorArgument<double, DryTensor<double>>("PPHHCoulombIntegrals");
-  getTensorArgument<double, DryTensor<double>>("HHHPCoulombIntegrals");
-  getTensorArgument<double, DryTensor<double>>("PPPHCoulombIntegrals");
+  in.get<DryTensor<double> *>("PPHHCoulombIntegrals");
+  in.get<DryTensor<double> *>("HHHPCoulombIntegrals");
+  in.get<DryTensor<double> *>("PPPHCoulombIntegrals");
 
-  DryTensor<> *Tai(
-      getTensorArgument<double, DryTensor<double>>("CcsdSinglesAmplitudes"));
-  DryTensor<> *Tabij(
-      getTensorArgument<double, DryTensor<double>>("CcsdDoublesAmplitudes"));
+  DryTensor<> *Tai(in.get<DryTensor<double> *>("CcsdSinglesAmplitudes"));
+  DryTensor<> *Tabij(in.get<DryTensor<double> *>("CcsdDoublesAmplitudes"));
 
   // Read the Particle/Hole Eigenenergies epsi epsa required for the energy
-  DryTensor<> *epsi(
-      getTensorArgument<double, DryTensor<double>>("HoleEigenEnergies"));
-  DryTensor<> *epsa(
-      getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies"));
+  DryTensor<> *epsi(in.get<DryTensor<double> *>("HoleEigenEnergies"));
+  DryTensor<> *epsa(in.get<DryTensor<double> *>("ParticleEigenEnergies"));
 
   // Compute the No,Nv
   int No(epsi->lens[0]);
@@ -267,18 +275,16 @@ void PerturbativeTriples::dryRun() {
 }
 
 void PerturbativeTriples::dryRunPiecuch() {
-  getTensorArgument<double, DryTensor<double>>("PPHHCoulombIntegrals");
-  getTensorArgument<double, DryTensor<double>>("HHHPCoulombIntegrals");
-  getTensorArgument<double, DryTensor<double>>("PPPHCoulombIntegrals");
+  in.get<DryTensor<double> *>("PPHHCoulombIntegrals");
+  in.get<DryTensor<double> *>("HHHPCoulombIntegrals");
+  in.get<DryTensor<double> *>("PPPHCoulombIntegrals");
 
-  getTensorArgument<double, DryTensor<double>>("CcsdSinglesAmplitudes");
-  getTensorArgument<double, DryTensor<double>>("CcsdDoublesAmplitudes");
+  in.get<DryTensor<double> *>("CcsdSinglesAmplitudes");
+  in.get<DryTensor<double> *>("CcsdDoublesAmplitudes");
 
   // Read the Particle/Hole Eigenenergies epsi epsa required for the energy
-  DryTensor<> *epsi(
-      getTensorArgument<double, DryTensor<double>>("HoleEigenEnergies"));
-  DryTensor<> *epsa(
-      getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies"));
+  DryTensor<> *epsi(in.get<DryTensor<double> *>("HoleEigenEnergies"));
+  DryTensor<> *epsa(in.get<DryTensor<double> *>("ParticleEigenEnergies"));
 
   // Compute the No,Nv
   int No(epsi->lens[0]);

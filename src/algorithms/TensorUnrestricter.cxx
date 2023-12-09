@@ -88,19 +88,22 @@ static Tensor<F> *unrestrictTensor(Tensor<F> &tensor) {
 
 IMPLEMENT_EMPTY_DRYRUN(TensorUnrestricter) {}
 
+
+DEFSPEC(TensorUnrestricter,
+        SPEC_IN({"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"Data", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)}),
+        SPEC_OUT());
+
 IMPLEMENT_ALGORITHM(TensorUnrestricter) {
 
-  Data *tensor_data(getArgumentData("Data"));
-  TensorData<double> *real_tensor_data(
-      dynamic_cast<TensorData<double> *>(tensor_data));
-  if (real_tensor_data) {
-    allocatedTensorArgument<double>(
+  if (in.is_of_type<Tensor<double> *>("Data")) {
+    out.set<Tensor<double> *>(
         "Out",
-        unrestrictTensor<double>(*getTensorArgument<double>("Data")));
+        unrestrictTensor<double>(*in.get<Tensor<double> *>("Data")));
   } else {
-    allocatedTensorArgument<sisi4s::complex>(
+    out.set<Tensor<sisi4s::complex> *>(
         "Out",
         unrestrictTensor<sisi4s::complex>(
-            *getTensorArgument<sisi4s::complex>("Data")));
+            *in.get<Tensor<sisi4s::complex> *>("Data")));
   }
 }

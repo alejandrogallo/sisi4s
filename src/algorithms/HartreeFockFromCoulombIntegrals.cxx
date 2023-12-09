@@ -9,12 +9,11 @@
 #include <util/Tensor.hpp>
 #include <numeric>
 #define IF_GIVEN(_l, ...)                                                      \
-  if (isArgumentGiven(_l)) { __VA_ARGS__ }
+  if (out.present(_l)) { __VA_ARGS__ }
 #define LOGGER(_l) LOG(_l, "HartreeFockFromCoulombIntegrals")
 #define LOGGER_IT(_l) LOG(_l, "HartreeFockFromCoulombIntegralsIt")
 
 using namespace sisi4s;
-ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromCoulombIntegrals);
 
 IMPLEMENT_EMPTY_DRYRUN(HartreeFockFromCoulombIntegrals) {}
 
@@ -62,30 +61,37 @@ MatrixColumnMajor getFockMatrix(const Eigen::MatrixXd &d, Tensor<double> &V) {
   return sisi4s::toEigenMatrix(F);
 }
 
-void HartreeFockFromCoulombIntegrals::run() {
-  checkArgumentsOrDie({"h",
-                       "CoulombIntegrals",
-                       "No",
-                       "Nv",
-                       "maxIterations",
-                       "initialOrbitalCoefficients",
-                       "energyDifference",
-                       "OverlapMatrix",
-                       "OrbitalCoefficients",
-                       "HartreeFockEnergy",
-                       "HoleEigenEnergies",
-                       "ParticleEigenEnergies",
-                       "linearMixer"});
+DEFSPEC(HartreeFockFromCoulombIntegrals,
+        SPEC_IN({"energyDifference", SPEC_VALUE_DEF("TODO: DOC", double, 1e-4)},
+                {"linearMixer", SPEC_VALUE_DEF("TODO: DOC", double, 1.0)},
+                {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 16)},
+                {"No", SPEC_VALUE("TODO: DOC", int64_t)},
+                {"Nv", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+                {"CoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"h", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"initialOrbitalCoefficients",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"OverlapMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT(
+            {"FockMatrix", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+            {"HartreeFockEnergy", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+            {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+            {"OrbitalCoefficients", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+            {"ParticleEigenEnergies",
+             SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-  const auto ctfH(getTensorArgument<double>("h"));
+IMPLEMENT_ALGORITHM(HartreeFockFromCoulombIntegrals) {
+
+  const auto ctfH(in.get<Tensor<double> *>("h"));
   const auto H(sisi4s::toEigenMatrix(*ctfH));
-  const auto V(getTensorArgument<double>("CoulombIntegrals"));
-  const unsigned int No(getIntegerArgument("No"));
-  const size_t Nv(getIntegerArgument("Nv", V->lens[0] - No));
+  const auto V(in.get<Tensor<double> *>("CoulombIntegrals"));
+  const unsigned int No(in.get<int64_t>("No"));
+  const int64_t in_nv = in.get<int64_t>("Nv"),
+                Nv = in_nv < 0 ? (V->lens[0] - No) : in_nv;
   const size_t Np(No + Nv);
-  const unsigned int maxIterations(getIntegerArgument("maxIterations", 16));
-  const double electronicConvergence(getRealArgument("energyDifference", 1e-4)),
-      linearMixer(getRealArgument("linearMixer", 1.0));
+  const unsigned int maxIterations(in.get<int64_t>("maxIterations"));
+  const double electronicConvergence(in.get<double>("energyDifference")),
+      linearMixer(in.get<double>("linearMixer"));
 
   LOGGER(1) << "maxIterations: " << maxIterations << std::endl;
   LOGGER(1) << "ediff: " << electronicConvergence << std::endl;
@@ -94,9 +100,9 @@ void HartreeFockFromCoulombIntegrals::run() {
   LOGGER(1) << "Calculating overlaps" << std::endl;
 
   MatrixColumnMajor S(MatrixColumnMajor::Identity(Np, Np));
-  if (isArgumentGiven("OverlapMatrix")) {
+  if (in.present("OverlapMatrix")) {
     LOGGER(1) << "Setting provided OverlapMatrix" << std::endl;
-    S = sisi4s::toEigenMatrix(*getTensorArgument<double>("OverlapMatrix"));
+    S = sisi4s::toEigenMatrix(*in.get<Tensor<double> *>("OverlapMatrix"));
   }
 
   LOGGER(1) << "mem:Fock " << sizeof(double) * Np * Np / std::pow(2, 30.0)
@@ -106,14 +112,13 @@ void HartreeFockFromCoulombIntegrals::run() {
 
   LOGGER(1) << "Setting initial density matrix" << std::endl;
 
-  IF_GIVEN("initialOrbitalCoefficients",
-           LOGGER(1) << "with initialOrbitalCoefficients" << std::endl;
-           const auto ic_ctf(
-               getTensorArgument<double>("initialOrbitalCoefficients"));
-           const auto ic(sisi4s::toEigenMatrix(*ic_ctf));
-           const auto C_occ(ic.leftCols(No));
-           D = C_occ * C_occ.transpose();)
-  else {
+  if (in.present("initialOrbitalCoefficients")) {
+    LOGGER(1) << "with initialOrbitalCoefficients" << std::endl;
+    const auto ic_ctf(in.get<Tensor<double> *>("initialOrbitalCoefficients"));
+    const auto ic(sisi4s::toEigenMatrix(*ic_ctf));
+    const auto C_occ(ic.leftCols(No));
+    D = C_occ * C_occ.transpose();
+  } else {
     LOGGER(1) << "diagonalizing overlap matrix" << std::endl;
     Eigen::SelfAdjointEigenSolver<MatrixColumnMajor> solver(S);
     auto C(solver.eigenvectors());
@@ -212,14 +217,14 @@ void HartreeFockFromCoulombIntegrals::run() {
            indices.resize(rank_m * Np * Np);
            std::iota(indices.begin(), indices.end(), 0);
            f->write(indices.size(), indices.data(), &fockMatrix(0));
-           allocatedTensorArgument<double>("FockMatrix", f);)
+           out.set<Tensor<double> *>("FockMatrix", f);)
 
   IF_GIVEN("OrbitalCoefficients", int pp[] = {(int)Np, (int)Np};
            auto ctfcs(new Tensor<double>(2, pp, syms, *Sisi4s::world, "C"));
            indices.resize(rank_m * Np * Np);
            std::iota(indices.begin(), indices.end(), 0);
            ctfcs->write(indices.size(), indices.data(), &C(0));
-           allocatedTensorArgument<double>("OrbitalCoefficients", ctfcs);)
+           out.set<Tensor<double> *>("OrbitalCoefficients", ctfcs);)
 
   IF_GIVEN("HoleEigenEnergies",
            // epsilon for holes
@@ -227,7 +232,7 @@ void HartreeFockFromCoulombIntegrals::run() {
            std::iota(indices.begin(), indices.end(), 0);
            auto epsi(new Tensor<double>(1, o, syms, *Sisi4s::world, "epsi"));
            epsi->write(indices.size(), indices.data(), &eps(0));
-           allocatedTensorArgument<double>("HoleEigenEnergies", epsi);)
+           out.set<Tensor<double> *>("HoleEigenEnergies", epsi);)
 
   IF_GIVEN("ParticleEigenEnergies",
            // epsilon for particles
@@ -235,9 +240,13 @@ void HartreeFockFromCoulombIntegrals::run() {
            std::iota(indices.begin(), indices.end(), 0);
            auto epsa(new Tensor<double>(1, v, syms, *Sisi4s::world, "epsa"));
            epsa->write(indices.size(), indices.data(), &eps(0) + No);
-           allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);)
+           out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);)
 
-  IF_GIVEN("HartreeFockEnergy", auto hfEnergy = new CTF::Scalar<double>();
-           (*hfEnergy)[""] = (ehf);
-           allocatedTensorArgument<double>("HartreeFockEnergy", hfEnergy);)
+  EMIT() <<
+      //--
+      YAML::Key << "energy-convergence" << YAML::Value << electronicConvergence
+         <<
+      //--
+      YAML::Key << "energy" << YAML::Value << YAML::BeginMap << YAML::Key
+         << "value" << YAML::Value << ehf << YAML::EndMap;
 }

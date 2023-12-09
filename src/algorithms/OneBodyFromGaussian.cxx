@@ -20,8 +20,6 @@ using namespace sisi4s;
 using RowMajor =
     Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>;
 
-ALGORITHM_REGISTRAR_DEFINITION(OneBodyFromGaussian);
-
 IMPLEMENT_EMPTY_DRYRUN(OneBodyFromGaussian) {}
 
 struct Sinfo {
@@ -31,9 +29,9 @@ struct Sinfo {
       , begin(shells.shell2bf()[i]) {}
 };
 
-RowMajor getOneBodyIntegrals(const libint2::BasisSet &shells,
-                             const libint2::Operator op,
-                             const std::vector<libint2::Atom> &atoms) {
+static RowMajor getOneBodyIntegrals(const libint2::BasisSet &shells,
+                                    const libint2::Operator op,
+                                    const std::vector<libint2::Atom> &atoms) {
 
   // Get number of basis set functions
   const size_t Np = shells.nbf();
@@ -73,20 +71,29 @@ RowMajor getOneBodyIntegrals(const libint2::BasisSet &shells,
   return result;
 }
 
-void OneBodyFromGaussian::run() {
+DEFSPEC(OneBodyFromGaussian,
+        SPEC_IN({"basisSet",
+                 SPEC_VALUE("The name of the basis set", std::string)},
+                {"kernel",
+                 SPEC_ONE_OF("The type of 1-body integral to evaluate",
+                             std::string,
+                             "nuclear",
+                             "overlap",
+                             "kinetic")},
+                {"atoms",
+                 SPEC_VARIN(
+                     "Vector of libint atoms specifying a molecular structure",
+                     std::vector<libint2::Atom> *)}),
+        SPEC_OUT({"Out", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(OneBodyFromGaussian) {
 
   libint2::initialize();
 
-  checkArgumentsOrDie({"xyzStructureFile", "basisSet", "kernel", "Out"});
+  const std::string basisSet(in.get<std::string>("basisSet")),
+      kernel(in.get<std::string>("kernel"));
 
-  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", "")),
-      basisSet(getTextArgument("basisSet")),
-      kernel(getTextArgument("kernel", "nuclear"));
-
-  std::ifstream structureFileStream(xyzStructureFile.c_str());
-  const std::vector<libint2::Atom> atoms(
-      libint2::read_dotxyz(structureFileStream));
-  structureFileStream.close();
+  auto const &atoms = *in.get<std::vector<libint2::Atom> *>("atoms");
   const libint2::BasisSet shells(basisSet, atoms);
   const int Np(shells.nbf());
   const libint2::Operator op([&](void) {
@@ -97,10 +104,8 @@ void OneBodyFromGaussian::run() {
   }());
 
   LOGGER(1) << "kernel: " << kernel << std::endl;
-  LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
 
-  EMIT() << YAML::Key << "Np" << YAML::Value << Np << YAML::Key << "xyz"
-         << YAML::Value << xyzStructureFile << YAML::Key << "basis-set"
+  EMIT() << YAML::Key << "Np" << YAML::Value << Np << YAML::Key << "basis-set"
          << YAML::Value << basisSet << YAML::Key << "kernel" << YAML::Value
          << kernel;
 
@@ -121,5 +126,5 @@ void OneBodyFromGaussian::run() {
     Opq->write(indices.size(), indices.data(), data);
   }
 
-  allocatedTensorArgument<double>("Out", Opq);
+  out.set<Tensor<double> *>("Out", Opq);
 }

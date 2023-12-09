@@ -21,11 +21,49 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(CcsdtEquationOfMotionDavidson);
 
-void CcsdtEquationOfMotionDavidson::run() {
+DEFSPEC(
+    CcsdtEquationOfMotionDavidson,
+    SPEC_IN(
+        {"amplitudesConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
+        {"energyConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
+        {"preconditionerRandomSigma", SPEC_VALUE_DEF("TODO: DOC", double, 0.1)},
+        {"complexVersion", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"eigenStates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"intermediates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 32)},
+        {"minIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"preconditionerRandom", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"refreshOnMaxBasisSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"oneBodyRdmRange", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"refreshIterations", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"SinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT());
 
-  if (getIntegerArgument("complexVersion", 1) == 1) {
+IMPLEMENT_ALGORITHM(CcsdtEquationOfMotionDavidson) {
+
+  if (in.get<int64_t>("complexVersion", 1) == 1) {
     LOG(0, "CcsdtEomDavid") << "Using complex code" << std::endl;
     CcsdtEquationOfMotionDavidson::run<complex>();
   } else {
@@ -38,29 +76,26 @@ template <typename F>
 void CcsdtEquationOfMotionDavidson::run() {
 
   // Arguments
-  bool preconditionerRandom(getIntegerArgument("preconditionerRandom", 0) == 1);
+  bool preconditionerRandom(in.get<int64_t>("preconditionerRandom", 0) == 1);
   double preconditionerRandomSigma(
-      getRealArgument("preconditionerRandomSigma", 0.1));
-  bool refreshOnMaxBasisSize(getIntegerArgument("refreshOnMaxBasisSize", 0)
-                             == 1);
+      in.get<double>("preconditionerRandomSigma", 0.1));
+  bool refreshOnMaxBasisSize(in.get<int64_t>("refreshOnMaxBasisSize", 0) == 1);
   std::vector<int> oneBodyRdmIndices(
-      RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange());
-  int eigenStates(getIntegerArgument("eigenStates", 1));
-  const double energyConvergence(getRealArgument("energyConvergence", 1e-6)),
-      amplitudesConvergence(getRealArgument("amplitudesConvergence", 1e-6));
-  bool intermediates(getIntegerArgument("intermediates", 1));
-  unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
-  unsigned int minIterations(getIntegerArgument("minIterations", 1));
-  Tensor<double> *epsi(
-      getTensorArgument<double, Tensor<double>>("HoleEigenEnergies"));
-  Tensor<double> *epsa(
-      getTensorArgument<double, Tensor<double>>("ParticleEigenEnergies"));
+      RangeParser(in.get<std::string>("oneBodyRdmRange", "")).getRange());
+  int eigenStates(in.get<int64_t>("eigenStates", 1));
+  const double energyConvergence(in.get<double>("energyConvergence", 1e-6)),
+      amplitudesConvergence(in.get<double>("amplitudesConvergence", 1e-6));
+  bool intermediates(in.get<int64_t>("intermediates", 1));
+  unsigned int maxIterations(in.get<int64_t>("maxIterations", 32));
+  unsigned int minIterations(in.get<int64_t>("minIterations", 1));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
   std::vector<int> refreshIterations(
-      RangeParser(getTextArgument("refreshIterations", "")).getRange());
+      RangeParser(in.get<std::string>("refreshIterations", "")).getRange());
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int maxBasisSize(
-      getIntegerArgument("maxBasisSize",
-                         No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2)));
+      in.get<int64_t>("maxBasisSize",
+                      No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2)));
 
   int syms2[] = {NS, NS};
   int syms4[] = {NS, NS, NS, NS};
@@ -80,8 +115,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   LOG(0, "CcsdtEomDavid") << "maxBasisSize: " << maxBasisSize << std::endl;
 
   // Get copy of couloumb integrals
-  Tensor<double> *pVijkl(
-      getTensorArgument<double, Tensor<double>>("HHHHCoulombIntegrals"));
+  Tensor<double> *pVijkl(in.get<Tensor<double> *>("HHHHCoulombIntegrals"));
   Tensor<F> cVijkl(pVijkl->order,
                    pVijkl->lens,
                    pVijkl->sym,
@@ -90,8 +124,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Vijkl(&cVijkl);
   toComplexTensor(*pVijkl, *Vijkl);
 
-  Tensor<double> *pVabcd(
-      getTensorArgument<double, Tensor<double>>("PPPPCoulombIntegrals"));
+  Tensor<double> *pVabcd(in.get<Tensor<double> *>("PPPPCoulombIntegrals"));
   Tensor<F> cVabcd(pVabcd->order,
                    pVabcd->lens,
                    pVabcd->sym,
@@ -100,8 +133,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Vabcd(&cVabcd);
   toComplexTensor(*pVabcd, *Vabcd);
 
-  Tensor<double> *pVijka(
-      getTensorArgument<double, Tensor<double>>("HHHPCoulombIntegrals"));
+  Tensor<double> *pVijka(in.get<Tensor<double> *>("HHHPCoulombIntegrals"));
   Tensor<F> cVijka(pVijka->order,
                    pVijka->lens,
                    pVijka->sym,
@@ -110,8 +142,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Vijka(&cVijka);
   toComplexTensor(*pVijka, *Vijka);
 
-  Tensor<double> *pVijab(
-      getTensorArgument<double, Tensor<double>>("HHPPCoulombIntegrals"));
+  Tensor<double> *pVijab(in.get<Tensor<double> *>("HHPPCoulombIntegrals"));
   Tensor<F> cVijab(pVijab->order,
                    pVijab->lens,
                    pVijab->sym,
@@ -120,8 +151,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Vijab(&cVijab);
   toComplexTensor(*pVijab, *Vijab);
 
-  Tensor<double> *pViajk(
-      getTensorArgument<double, Tensor<double>>("HPHHCoulombIntegrals"));
+  Tensor<double> *pViajk(in.get<Tensor<double> *>("HPHHCoulombIntegrals"));
   Tensor<F> cViajk(pViajk->order,
                    pViajk->lens,
                    pViajk->sym,
@@ -130,8 +160,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Viajk(&cViajk);
   toComplexTensor(*pViajk, *Viajk);
 
-  Tensor<double> *pViajb(
-      getTensorArgument<double, Tensor<double>>("HPHPCoulombIntegrals"));
+  Tensor<double> *pViajb(in.get<Tensor<double> *>("HPHPCoulombIntegrals"));
   Tensor<F> cViajb(pViajb->order,
                    pViajb->lens,
                    pViajb->sym,
@@ -140,8 +169,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Viajb(&cViajb);
   toComplexTensor(*pViajb, *Viajb);
 
-  Tensor<double> *pViabc(
-      getTensorArgument<double, Tensor<double>>("HPPPCoulombIntegrals"));
+  Tensor<double> *pViabc(in.get<Tensor<double> *>("HPPPCoulombIntegrals"));
   Tensor<F> cViabc(pViabc->order,
                    pViabc->lens,
                    pViabc->sym,
@@ -150,8 +178,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Viabc(&cViabc);
   toComplexTensor(*pViabc, *Viabc);
 
-  Tensor<double> *pVabic(
-      getTensorArgument<double, Tensor<double>>("PPHPCoulombIntegrals"));
+  Tensor<double> *pVabic(in.get<Tensor<double> *>("PPHPCoulombIntegrals"));
   Tensor<F> cVabic(pVabic->order,
                    pVabic->lens,
                    pVabic->sym,
@@ -160,8 +187,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Vabic(&cVabic);
   toComplexTensor(*pVabic, *Vabic);
 
-  Tensor<double> *pVabci(
-      getTensorArgument<double, Tensor<double>>("PPPHCoulombIntegrals"));
+  Tensor<double> *pVabci(in.get<Tensor<double> *>("PPPHCoulombIntegrals"));
   Tensor<F> cVabci(pVabci->order,
                    pVabci->lens,
                    pVabci->sym,
@@ -170,8 +196,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Vabci(&cVabci);
   toComplexTensor(*pVabci, *Vabci);
 
-  Tensor<double> *pVaibc(
-      getTensorArgument<double, Tensor<double>>("PHPPCoulombIntegrals"));
+  Tensor<double> *pVaibc(in.get<Tensor<double> *>("PHPPCoulombIntegrals"));
   Tensor<F> cVaibc(pVaibc->order,
                    pVaibc->lens,
                    pVaibc->sym,
@@ -180,8 +205,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Vaibc(&cVaibc);
   toComplexTensor(*pVaibc, *Vaibc);
 
-  Tensor<double> *pVaibj(
-      getTensorArgument<double, Tensor<double>>("PHPHCoulombIntegrals"));
+  Tensor<double> *pVaibj(in.get<Tensor<double> *>("PHPHCoulombIntegrals"));
   Tensor<F> cVaibj(pVaibj->order,
                    pVaibj->lens,
                    pVaibj->sym,
@@ -190,8 +214,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Vaibj(&cVaibj);
   toComplexTensor(*pVaibj, *Vaibj);
 
-  Tensor<double> *pViabj(
-      getTensorArgument<double, Tensor<double>>("HPPHCoulombIntegrals"));
+  Tensor<double> *pViabj(in.get<Tensor<double> *>("HPPHCoulombIntegrals"));
   Tensor<F> cViabj(pViabj->order,
                    pViabj->lens,
                    pViabj->sym,
@@ -200,8 +223,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Viabj(&cViabj);
   toComplexTensor(*pViabj, *Viabj);
 
-  Tensor<double> *pVijak(
-      getTensorArgument<double, Tensor<double>>("HHPHCoulombIntegrals"));
+  Tensor<double> *pVijak(in.get<Tensor<double> *>("HHPHCoulombIntegrals"));
   Tensor<F> cVijak(pVijak->order,
                    pVijak->lens,
                    pVijak->sym,
@@ -210,8 +232,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   Tensor<F> *Vijak(&cVijak);
   toComplexTensor(*pVijak, *Vijak);
 
-  Tensor<double> *pVaijb(
-      getTensorArgument<double, Tensor<double>>("PHHPCoulombIntegrals"));
+  Tensor<double> *pVaijb(in.get<Tensor<double> *>("PHHPCoulombIntegrals"));
   Tensor<F> cVaijb(pVaijb->order,
                    pVaijb->lens,
                    pVaijb->sym,
@@ -221,7 +242,7 @@ void CcsdtEquationOfMotionDavidson::run() {
   toComplexTensor(*pVaijb, *Vaijb);
 
   // Tensor<double> *Vabij(
-  // getTensorArgument<double, Tensor<double>>("PPHHCoulombIntegrals"));
+  // in.get<Tensor<double>*>("PPHHCoulombIntegrals"));
 
   // HF terms
   Tensor<F> *Fab(new Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab"));
@@ -232,12 +253,9 @@ void CcsdtEquationOfMotionDavidson::run() {
       && isArgumentGiven("PPFockMatrix")) {
     LOG(0, "CcsdtEomDavid") << "Using non-canonical orbitals" << std::endl;
 
-    Tensor<double> *realFia(
-        getTensorArgument<double, Tensor<double>>("HPFockMatrix"));
-    Tensor<double> *realFab(
-        getTensorArgument<double, Tensor<double>>("PPFockMatrix"));
-    Tensor<double> *realFij(
-        getTensorArgument<double, Tensor<double>>("HHFockMatrix"));
+    Tensor<double> *realFia(in.get<Tensor<double> *>("HPFockMatrix"));
+    Tensor<double> *realFab(in.get<Tensor<double> *>("PPFockMatrix"));
+    Tensor<double> *realFij(in.get<Tensor<double> *>("HHFockMatrix"));
     toComplexTensor(*realFij, *Fij);
     toComplexTensor(*realFab, *Fab);
     toComplexTensor(*realFia, *Fia);
@@ -252,12 +270,8 @@ void CcsdtEquationOfMotionDavidson::run() {
 
   Tensor<F> Tai(2, vo, syms2, *Sisi4s::world, "Tai");
   Tensor<F> Tabij(4, vvoo, syms4, *Sisi4s::world, "Tabij");
-  toComplexTensor(
-      (*getTensorArgument<double, Tensor<double>>("SinglesAmplitudes")),
-      Tai);
-  toComplexTensor(
-      (*getTensorArgument<double, Tensor<double>>("DoublesAmplitudes")),
-      Tabij);
+  toComplexTensor((*in.get<Tensor<double> *>("SinglesAmplitudes")), Tai);
+  toComplexTensor((*in.get<Tensor<double> *>("DoublesAmplitudes")), Tabij);
 
   enum SimilarityTransformedHamiltonian<F>::Dressing dressing;
   if (!isArgumentGiven("TriplesAmplitudes")) {

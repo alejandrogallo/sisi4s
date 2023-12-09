@@ -11,8 +11,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(CcsdPerturbativeTriplesComplex);
-
 namespace sisi4s {
 template <int N>
 inline std::string operator*(const std::string &s,
@@ -23,13 +21,31 @@ inline std::string operator*(const std::string &s,
 }
 } // namespace sisi4s
 
-void CcsdPerturbativeTriplesComplex::run() {
-  auto epsi(getTensorArgument<double>("HoleEigenEnergies"));
-  auto epsa(getTensorArgument<double>("ParticleEigenEnergies"));
+
+DEFSPEC(
+    CcsdPerturbativeTriplesComplex,
+    SPEC_IN(
+        {"CcsdEnergy", SPEC_VALUE("TODO: DOC", double)},
+        {"CcsdDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CcsdSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"PHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CcsdDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"CcsdSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(CcsdPerturbativeTriplesComplex) {
+  auto epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  auto epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
   // slice GammaFab,GammaFai from GammaFqr
-  auto GammaFqr(getTensorArgument<complex>("CoulombVertex"));
+  auto GammaFqr(in.get<Tensor<complex> *>("CoulombVertex"));
   int NF(GammaFqr->lens[0]);
   int Np(GammaFqr->lens[1]);
   int iStart(0), iEnd(No);
@@ -42,14 +58,12 @@ void CcsdPerturbativeTriplesComplex::run() {
   auto GammaFai(new Tensor<complex>(GammaFqr->slice(FaiStart, FaiEnd)));
 
   double eTriples(0.0);
-  Data *Vabij(getArgumentData("PPHHCoulombIntegrals"));
-  TensorData<double> *realVabij(dynamic_cast<TensorData<double> *>(Vabij));
-  if (realVabij) {
+  if (in.is_of_type<Tensor<double> *>("PPHHCoulombIntegrals")) {
     eTriples =
-        Calculator<double>(getTensorArgument<double>("CcsdSinglesAmplitudes"),
-                           getTensorArgument<double>("CcsdDoublesAmplitudes"),
-                           getTensorArgument<double>("PPHHCoulombIntegrals"),
-                           getTensorArgument<double>("PHHHCoulombIntegrals"),
+        Calculator<double>(in.get<Tensor<double> *>("CcsdSinglesAmplitudes"),
+                           in.get<Tensor<double> *>("CcsdDoublesAmplitudes"),
+                           in.get<Tensor<double> *>("PPHHCoulombIntegrals"),
+                           in.get<Tensor<double> *>("PHHHCoulombIntegrals"),
                            GammaFab,
                            GammaFai,
                            epsi,
@@ -59,10 +73,10 @@ void CcsdPerturbativeTriplesComplex::run() {
         << "triples=" << eTriples << std::endl;
   } else {
     complex complexETriples(
-        Calculator<complex>(getTensorArgument<complex>("CcsdSinglesAmplitudes"),
-                            getTensorArgument<complex>("CcsdDoublesAmplitudes"),
-                            getTensorArgument<complex>("PPHHCoulombIntegrals"),
-                            getTensorArgument<complex>("PHHHCoulombIntegrals"),
+        Calculator<complex>(in.get<Tensor<complex> *>("CcsdSinglesAmplitudes"),
+                            in.get<Tensor<complex> *>("CcsdDoublesAmplitudes"),
+                            in.get<Tensor<complex> *>("PPHHCoulombIntegrals"),
+                            in.get<Tensor<complex> *>("PHHHCoulombIntegrals"),
                             GammaFab,
                             GammaFai,
                             epsi,
@@ -72,7 +86,7 @@ void CcsdPerturbativeTriplesComplex::run() {
     LOG(1, "CcsdPerturbativeTriplesComplex")
         << "triples=" << complexETriples << std::endl;
   }
-  double eCcsd(getRealArgument("CcsdEnergy"));
+  double eCcsd(in.get<double>("CcsdEnergy"));
   LOG(1, "CcsdPerturbativeTriplesComplex") << "ccsd=" << eCcsd << std::endl;
   double e(eCcsd + eTriples);
   LOG(0, "CcsdPerturbativeTriplesComplex") << "e=" << e << std::endl;
@@ -343,17 +357,14 @@ void CcsdPerturbativeTriplesComplex::CoulombVertex<sisi4s::complex, Dummy>::
 
 // FIXME: dryrun for complex
 void CcsdPerturbativeTriplesComplex::dryRun() {
-  getTensorArgument<double, DryTensor<double>>("PPHHCoulombIntegrals");
-  getTensorArgument<double, DryTensor<double>>("PHHHCoulombIntegrals");
+  in.get<DryTensor<double> *>("PPHHCoulombIntegrals");
+  in.get<DryTensor<double> *>("PHHHCoulombIntegrals");
 
-  DryTensor<> *Tai(
-      getTensorArgument<double, DryTensor<double>>("CcsdSinglesAmplitudes"));
-  DryTensor<> *Tabij(
-      getTensorArgument<double, DryTensor<double>>("CcsdDoublesAmplitudes"));
+  DryTensor<> *Tai(in.get<DryTensor<double> *>("CcsdSinglesAmplitudes"));
+  DryTensor<> *Tabij(in.get<DryTensor<double> *>("CcsdDoublesAmplitudes"));
 
   // Read the Particle/Hole Eigenenergies epsi epsa required for the energy
-  DryTensor<> *epsa(
-      getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies"));
+  DryTensor<> *epsa(in.get<DryTensor<double> *>("ParticleEigenEnergies"));
 
   // Compute the No,Nv
   int Nv(epsa->lens[0]);

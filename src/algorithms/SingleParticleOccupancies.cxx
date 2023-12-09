@@ -5,11 +5,17 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(SingleParticleOccupancies);
 
-void SingleParticleOccupancies::run() {
+DEFSPEC(
+    SingleParticleOccupancies,
+    SPEC_IN({"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT({"HoleOccupancies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"ParticleOccupancies",
+              SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(SingleParticleOccupancies) {
   // Read the DRCCD amplitudes Tabij
-  Tensor<double> *Tabij(getTensorArgument<>("DoublesAmplitudes"));
+  Tensor<double> *Tabij(in.get<Tensor<double> *>("DoublesAmplitudes"));
 
   int no(Tabij->lens[2]), nv(Tabij->lens[0]);
   // create particle and hole occupancies
@@ -37,14 +43,13 @@ void SingleParticleOccupancies::run() {
   Ni->contract(1.0, *Ni, "i", Di, "i", 0.0, "i", fDivide);
   (*Ni)["i"] += 1.0;
 
-  allocatedTensorArgument<>("ParticleOccupancies", Na);
-  allocatedTensorArgument<>("HoleOccupancies", Ni);
+  out.set<Tensor<double> *>("ParticleOccupancies", Na);
+  out.set<Tensor<double> *>("HoleOccupancies", Ni);
 }
 
 void SingleParticleOccupancies::dryRun() {
   // Read the DRCCD amplitudes Tabij
-  DryTensor<> *Tabij(
-      getTensorArgument<double, DryTensor<>>("DoublesAmplitudes"));
+  DryTensor<> *Tabij(in.get<DryTensor<double> *>("DoublesAmplitudes"));
 
   int no(Tabij->lens[2]), nv(Tabij->lens[0]);
   // create particle and hole occupancies
@@ -58,6 +63,6 @@ void SingleParticleOccupancies::dryRun() {
   DryTensor<> Da(*Na);
   DryTensor<> Di(*Ni);
 
-  allocatedTensorArgument<double, DryTensor<>>("ParticleOccupancies", Na);
-  allocatedTensorArgument<double, DryTensor<>>("HoleOccupancies", Ni);
+  out.set<DryTensor<double> *>("ParticleOccupancies", Na);
+  out.set<DryTensor<double> *>("HoleOccupancies", Ni);
 }

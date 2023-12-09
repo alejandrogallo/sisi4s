@@ -21,7 +21,6 @@
 typedef libint2::Operator Operator;
 
 using namespace sisi4s;
-ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromGaussian);
 
 IMPLEMENT_EMPTY_DRYRUN(CoulombIntegralsFromGaussian) {}
 
@@ -348,7 +347,7 @@ struct CoulombIntegralsProvider {
       r[j].size = r[j].end - r[j].begin + 1;
     }
 
-    return std::move(r);
+    return r;
   }
 
   void write(Tensor<double> *t) {
@@ -446,29 +445,33 @@ private:
   const size_t writesPerShell;
 };
 
-void CoulombIntegralsFromGaussian::run() {
+DEFSPEC(
+    CoulombIntegralsFromGaussian,
+    SPEC_IN(
+        {"chemistNotation", SPEC_VALUE_DEF("TODO: DOC", bool, true)},
+        {"maxElementsWrite", SPEC_VALUE_DEF("TODO: DOC", int64_t, 67108864)},
+        {"basisSet", SPEC_VALUE("TODO: DOC", std::string)},
+        {"kernel", SPEC_ONE_OF("TODO: DOC", std::string, "coulomb", "delta")},
+        {"shellDistribution",
+         SPEC_ONE_OF("TODO: DOC", std::string, "simple", "roundRobin")},
+        {"atoms",
+         SPEC_VARIN("Vector of libint atoms specifying a molecular structure",
+                    std::vector<libint2::Atom> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"OrbitalCoefficients", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"Spins", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT(
+        {"CoulombIntegrals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"HHHHCoulombIntegrals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"PPHHCoulombIntegrals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-  checkArgumentsOrDie({"xyzStructureFile",
-                       "xyzStructureString",
-                       "basisSet",
-                       "kernel",
-                       "chemistNotation",
-                       "maxElementsWrite",
-                       "shellDistribution",
-                       "CoulombIntegrals",
-                       "HHHHCoulombIntegrals",
-                       "PPHHCoulombIntegrals",
-                       "OrbitalCoefficients",
-                       "HoleEigenEnergies",
-                       "Spins"});
+IMPLEMENT_ALGORITHM(CoulombIntegralsFromGaussian) {
 
-  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", "")),
-      basisSet(getTextArgument("basisSet")),
-      xyz_structure_string(getTextArgument("xyzStructureString", "")),
-      kernel(getTextArgument("kernel", "coulomb"));
-  const bool chemistNotation(getIntegerArgument("chemistNotation", 1) == 1);
+  const std::string basisSet(in.get<std::string>("basisSet")),
+      kernel(in.get<std::string>("kernel"));
+  const bool chemistNotation = in.get<bool>("chemistNotation");
   const CoulombIntegralsProvider::Distribution mpiDistribution = [&] {
-    auto mode(this->getTextArgument("shellDistribution", "simple"));
+    auto mode(this->in.get<std::string>("shellDistribution"));
     CoulombIntegralsProvider::Distribution r;
     if (mode == "simple") r = CoulombIntegralsProvider::SIMPLE;
     else if (mode == "roundRobin") r = CoulombIntegralsProvider::ROUND_ROBIN;
@@ -477,20 +480,7 @@ void CoulombIntegralsFromGaussian::run() {
     return r;
   }();
 
-  // TODO: refactor this from HartreeFockFromGaussian
-  std::vector<libint2::Atom> atoms;
-  if (xyzStructureFile.size()) {
-    LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
-    std::ifstream structureFileStream(xyzStructureFile.c_str());
-    atoms = libint2::read_dotxyz(structureFileStream);
-    structureFileStream.close();
-  } else if (xyz_structure_string.size()) {
-    std::istringstream s;
-    s.str(xyz_structure_string);
-    atoms = libint2::read_dotxyz(s);
-  } else {
-    throw "xyzStructureFile or xyzStructureString has to be provided";
-  }
+  auto const &atoms = *in.get<std::vector<libint2::Atom> *>("atoms");
   const libint2::BasisSet shells(basisSet, atoms, true);
   const int Np(shells.nbf());
   const Operator op = [kernel] {
@@ -506,23 +496,20 @@ void CoulombIntegralsFromGaussian::run() {
             << std::endl;
   LOGGER(1) << "Np: " << Np << std::endl;
   LOGGER(1) << "kernel: " << kernel << std::endl;
-  LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
   LOGGER(1) << "basisSet: " << basisSet << std::endl;
   LOGGER(1) << "#shells: " << shells.size() << std::endl;
 
-  EMIT() << YAML::Key << "Np" << YAML::Value << Np << YAML::Key << "xyz"
-         << YAML::Value << xyzStructureFile << YAML::Key << "basis-set"
+  EMIT() << YAML::Key << "Np" << YAML::Value << Np << YAML::Key << "basis-set"
          << YAML::Value << basisSet << YAML::Key << "kernel" << YAML::Value
          << kernel << YAML::Key << "chemist-notation" << YAML::Value
          << chemistNotation;
 
-  CoulombIntegralsProvider engine(
-      shells,
-      op,
-      mpiDistribution,
-      getIntegerArgument("maxElementsWrite", 67108864));
+  CoulombIntegralsProvider engine(shells,
+                                  op,
+                                  mpiDistribution,
+                                  in.get<int64_t>("maxElementsWrite"));
 
-  if (isArgumentGiven("CoulombIntegrals")) {
+  if (out.present("CoulombIntegrals")) {
 
     const std::vector<int> lens(4, Np), syms(4, NS);
     auto Vklmn(
@@ -539,7 +526,7 @@ void CoulombIntegralsFromGaussian::run() {
       LOGGER(1) << "WARNING: this integral is in chemist notation,"
                    " Vklmn = (kl|mn) = <km|ln>"
                 << std::endl;
-      allocatedTensorArgument<double>("CoulombIntegrals", Vklmn);
+      out.set<Tensor<double> *>("CoulombIntegrals", Vklmn);
 
     } else {
 
@@ -550,17 +537,17 @@ void CoulombIntegralsFromGaussian::run() {
 
       (*newV)["pqrs"] = (*Vklmn)["prqs"];
       LOGGER(1) << "NOTE: this integral is in physicist notation" << std::endl;
-      allocatedTensorArgument<double>("CoulombIntegrals", newV);
+      out.set<Tensor<double> *>("CoulombIntegrals", newV);
       delete Vklmn;
     }
-  } else if (isArgumentGiven("OrbitalCoefficients")
-             && isArgumentGiven("PPHHCoulombIntegrals")
-             && isArgumentGiven("HoleEigenEnergies")) {
+  } else if (in.present("OrbitalCoefficients")
+             && out.present("PPHHCoulombIntegrals")
+             && in.present("HoleEigenEnergies")) {
 
-    auto epsi(getTensorArgument("HoleEigenEnergies"));
+    auto epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
     const size_t No(epsi->lens[0]);
 
-    auto C(getTensorArgument("OrbitalCoefficients"));
+    auto C(in.get<Tensor<double> *>("OrbitalCoefficients"));
     const size_t Nv(C->lens[1] - No);
     std::vector<int> lens(4, Np), syms(4, NS);
     lens[0] = No;
@@ -585,9 +572,9 @@ void CoulombIntegralsFromGaussian::run() {
     int sliceEnd[] = {Np, (int)No};
     auto Cocc(C->slice(sliceStart, sliceEnd));
     (*Vhhhh)["klij"] = (*Vijkm)["klpq"] * Cocc["qi"] * Cocc["pj"];
-    if (isArgumentGiven("Spins")) {
+    if (in.present("Spins")) {
       LOGGER(1) << "unrestricted case: Vhhhh\n";
-      auto S(getTensorArgument("Spins"));
+      auto S(in.get<Tensor<double> *>("Spins"));
       int sS[] = {0};
       int sE[] = {(int)No};
       auto Socc(S->slice(sS, sE));
@@ -630,9 +617,9 @@ void CoulombIntegralsFromGaussian::run() {
                                   *Sisi4s::world,
                                   "Vpphh"));
     (*Vpphh)["abij"] = Cvirt["qa"] * (*Vijkm)["ijpq"] * Cvirt["pb"];
-    if (isArgumentGiven("Spins")) {
+    if (in.present("Spins")) {
       LOGGER(1) << "unrestricted case: Vpphh\n";
-      auto S(getTensorArgument("Spins"));
+      auto S(in.get<Tensor<double> *>("Spins"));
       int sS[] = {0};
       int sE[] = {(int)No};
       auto Socc(S->slice(sS, sE));
@@ -667,10 +654,10 @@ void CoulombIntegralsFromGaussian::run() {
       delete Sm;
     }
 
-    if (isArgumentGiven("HHHHCoulombIntegrals")) {
-      allocatedTensorArgument<double>("HHHHCoulombIntegrals", Vhhhh);
+    if (out.present("HHHHCoulombIntegrals")) {
+      out.set<Tensor<double> *>("HHHHCoulombIntegrals", Vhhhh);
     }
-    allocatedTensorArgument<double>("PPHHCoulombIntegrals", Vpphh);
+    out.set<Tensor<double> *>("PPHHCoulombIntegrals", Vpphh);
 
   } else {
     throw "Output either CoulombIntegrals or \

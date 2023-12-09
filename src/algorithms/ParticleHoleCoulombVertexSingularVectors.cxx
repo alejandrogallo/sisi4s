@@ -14,14 +14,22 @@ using namespace sisi4s;
 using std::make_shared;
 using std::shared_ptr;
 
-ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexSingularVectors);
 
-void ParticleHoleCoulombVertexSingularVectors::run() {
+DEFSPEC(ParticleHoleCoulombVertexSingularVectors,
+        SPEC_IN({"reduction",
+                 SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_REDUCTION)},
+                {"fieldVariables",
+                 SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_FIELD_VARIABLES)},
+                {"FullParticleHoleCoulombVertex",
+                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+        SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexSingularVectors) {
   // read the particle-hole Coulomb vertex GammaGai
   // Its singular value decomposition is U.Sigma.W*
   // where W* is a matrix with the compound orbital index (a,i)
   Tensor<complex> *GammaGai(
-      getTensorArgument<complex>("FullParticleHoleCoulombVertex"));
+      in.get<Tensor<complex> *>("FullParticleHoleCoulombVertex"));
 
   // construct the conjugate of the Coulomb vertex GammaGai
   Tensor<complex> conjGammaGai(*GammaGai);
@@ -44,10 +52,10 @@ void ParticleHoleCoulombVertexSingularVectors::run() {
   eigenSystem.solve(SS);
 
   // get number of field variables
-  int NF(getIntegerArgument("fieldVariables", DEFAULT_FIELD_VARIABLES));
+  int NF(in.get<int64_t>("fieldVariables", DEFAULT_FIELD_VARIABLES));
   // if fieldVariables not given use reduction
   if (NF == DEFAULT_FIELD_VARIABLES) {
-    double reduction(getRealArgument("reduction", DEFAULT_REDUCTION));
+    double reduction(in.get<double>("reduction", DEFAULT_REDUCTION));
     NF = static_cast<int>(NG * reduction + 0.5);
   }
 
@@ -56,8 +64,8 @@ void ParticleHoleCoulombVertexSingularVectors::run() {
   scaU->write(U);
   // slice singular vectors U corresponding to NF largest singular values S
   int start[] = {0, NG - NF}, end[] = {NG, NG};
-  allocatedTensorArgument<complex>("ParticleHoleCoulombVertexSingularVectors",
-                                   new Tensor<complex>(U.slice(start, end)));
+  out.set<Tensor<complex> *>("ParticleHoleCoulombVertexSingularVectors",
+                             new Tensor<complex>(U.slice(start, end)));
 
   // TODO: also write out the singular values
   delete[] SS;
@@ -65,21 +73,21 @@ void ParticleHoleCoulombVertexSingularVectors::run() {
 
 void ParticleHoleCoulombVertexSingularVectors::dryRun() {
   // Read the Coulomb vertex GammaGai
-  DryTensor<complex> *GammaGai(getTensorArgument<complex, DryTensor<complex>>(
-      "FullParticleHoleCoulombVertex"));
+  DryTensor<complex> *GammaGai(
+      in.get<DryTensor<complex> *>("FullParticleHoleCoulombVertex"));
 
   DryTensor<complex> conjGammaGai(*GammaGai, SOURCE_LOCATION);
 
   int NG(GammaGai->lens[0]);
   // get number of field variables
-  int NF(getIntegerArgument("fieldVariables", DEFAULT_FIELD_VARIABLES));
+  int NF(in.get<int64_t>("fieldVariables", DEFAULT_FIELD_VARIABLES));
   // if fieldVariables not given use reduction
   if (NF == DEFAULT_FIELD_VARIABLES) {
-    double reduction(getRealArgument("reduction", DEFAULT_REDUCTION));
+    double reduction(in.get<double>("reduction", DEFAULT_REDUCTION));
     NF = static_cast<int>(NG * reduction + 0.5);
   }
 
-  allocatedTensorArgument<complex, DryTensor<complex>>(
+  out.set<DryTensor<complex> *>(
       "ParticleHoleCoulombVertexSingularVectors",
       new DryMatrix<complex>(NG, NF, NS, SOURCE_LOCATION));
 }

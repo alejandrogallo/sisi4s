@@ -12,27 +12,57 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexDecomposition);
 
-void CoulombVertexDecomposition::run() {
-  GammaGqr = getTensorArgument<complex>("CoulombVertex");
+DEFSPEC(
+    CoulombVertexDecomposition,
+    SPEC_IN(
+        {"delta", SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_DELTA)},
+        {"rankFactor",
+         SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_RANK_FACTOR)},
+        {"swampingThreshold",
+         SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_SWAMPING_THRESHOLD)},
+        {"fitCoulombFactors", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"fitFactorOrbitals", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"maxIterations",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_MAX_ITERATIONS)},
+        {"maxSubIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 8)},
+        {"minSubIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 2)},
+        {"rankSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_RANK_SIZE)},
+        {"realFactorOrbitals",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_REAL_FACTOR_ORBITALS)},
+        {"writeSubIterations",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_WRITE_SUB_ITERATIONS)},
+        {"ansatz", SPEC_VALUE_DEF("TODO: DOC", std::string, HERMITIAN)},
+        {"mixer", SPEC_VALUE_DEF("TODO: DOC", std::string, "LinearMixer")},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"StartingCoulombFactors", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"StartingFactorOrbitals", SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+    SPEC_OUT({"ComposedCoulombVertex",
+              SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
+             {"CoulombFactors", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
+             {"FactorOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
+             {"OutgoingFactorOrbitals",
+              SPEC_VAROUT("TODO: DOC", Tensor<complex> *)}));
+
+IMPLEMENT_ALGORITHM(CoulombVertexDecomposition) {
+  GammaGqr = in.get<Tensor<complex> *>("CoulombVertex");
   int NG(GammaGqr->lens[0]);
   int Np(GammaGqr->lens[1]);
 
   // calculate decomposition rank
-  rank = getIntegerArgument("rankSize", DEFAULT_RANK_SIZE);
+  rank = in.get<int64_t>("rankSize", DEFAULT_RANK_SIZE);
   // if rank is not given use rank factors (if they are not given use
   // rankFactors=3.0)
   if (rank == -1) {
-    double rankFactor(getRealArgument("rankFactor", DEFAULT_RANK_FACTOR));
+    double rankFactor(in.get<double>("rankFactor", DEFAULT_RANK_FACTOR));
     rank = NG * rankFactor;
   }
 
   realFactorOrbitals =
-      getIntegerArgument("realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS);
+      in.get<int64_t>("realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS);
   normalizedFactorOrbitals =
-      getIntegerArgument("normalizedFactorOrbitals",
-                         DEFAULT_NORMALIZED_FACTOR_ORBITALS);
+      in.get<int64_t>("normalizedFactorOrbitals",
+                      DEFAULT_NORMALIZED_FACTOR_ORBITALS);
   LOG(0, "RALS") << "Tensor rank decomposition with rank NR=" << rank
                  << ", realFactorOrbitals=" << realFactorOrbitals
                  << ", normalizedFactorOrbitals=" << normalizedFactorOrbitals
@@ -41,7 +71,7 @@ void CoulombVertexDecomposition::run() {
                  << " with NG=" << NG << ", Np=" << Np << std::endl;
 
   writeSubIterations =
-      getIntegerArgument("writeSubIterations", DEFAULT_WRITE_SUB_ITERATIONS);
+      in.get<int64_t>("writeSubIterations", DEFAULT_WRITE_SUB_ITERATIONS);
 
   DefaultRandomEngine random;
   std::normal_distribution<double> normalDistribution(0.0, 1.0);
@@ -49,7 +79,7 @@ void CoulombVertexDecomposition::run() {
   // allocate factor tensors
   if (isArgumentGiven("StartingFactorOrbitals")) {
     Tensor<complex> *PirRTensor(
-        getTensorArgument<complex>("StartingFactorOrbitals"));
+        in.get<Tensor<complex> *>("StartingFactorOrbitals"));
     PirRTensor->set_name("StartingPirR");
     if (PirRTensor->order != 2)
       throw new EXCEPTION("Matrix expected as argument StartingPirR");
@@ -70,7 +100,7 @@ void CoulombVertexDecomposition::run() {
 
   if (isArgumentGiven("StartingCoulombFactors")) {
     Tensor<complex> *LambdaGRTensor(
-        getTensorArgument<complex>("StartingCoulombFactors"));
+        in.get<Tensor<complex> *>("StartingCoulombFactors"));
     LambdaGRTensor->set_name("StartingLambdaGR");
     if (LambdaGRTensor->order != 2)
       throw new EXCEPTION("Matrix expected as argument StartingLambdaGR");
@@ -94,7 +124,7 @@ void CoulombVertexDecomposition::run() {
                              *GammaGqr->wrld,
                              "PiqR",
                              GammaGqr->profile);
-  std::string ansatz(getTextArgument("ansatz", HERMITIAN));
+  std::string ansatz(in.get<std::string>("ansatz", HERMITIAN));
   if (ansatz != HERMITIAN && ansatz != SYMMETRIC && ansatz != PSEUDO_INVERSE) {
     std::stringstream stringStream;
     stringStream << "Unknown decomposition ansatz \"" << ansatz << "\"";
@@ -104,10 +134,10 @@ void CoulombVertexDecomposition::run() {
                  << std::endl;
   computeOutgoingPi();
 
-  allocatedTensorArgument<complex>("FactorOrbitals", PirR);
-  allocatedTensorArgument<complex>("CoulombFactors", LambdaGR);
+  out.set<Tensor<complex> *>("FactorOrbitals", PirR);
+  out.set<Tensor<complex> *>("CoulombFactors", LambdaGR);
   if (isArgumentGiven("OutgoingFactorOrbitals")) {
-    allocatedTensorArgument<complex>("OutgoingFactorOrbitals", PiqR);
+    out.set<Tensor<complex> *>("OutgoingFactorOrbitals", PiqR);
   }
   composedGammaGqr = new Tensor<complex>(3,
                                          GammaGqr->lens,
@@ -116,22 +146,22 @@ void CoulombVertexDecomposition::run() {
                                          "composedGammaGqr",
                                          GammaGqr->profile);
   if (isArgumentGiven("ComposedCoulombVertex")) {
-    allocatedTensorArgument<complex>("ComposedCoulombVertex", composedGammaGqr);
+    out.set<Tensor<complex> *>("ComposedCoulombVertex", composedGammaGqr);
   }
 
   double swampingThreshold(
-      getRealArgument("swampingThreshold", DEFAULT_SWAMPING_THRESHOLD));
+      in.get<double>("swampingThreshold", DEFAULT_SWAMPING_THRESHOLD));
   double regularizationFriction(
-      getRealArgument("regularizationFriction",
-                      DEFAULT_REGULARIZATION_FRICTION));
+      in.get<double>("regularizationFriction",
+                     DEFAULT_REGULARIZATION_FRICTION));
   regularizationEstimator =
       new AlternatingLeastSquaresRegularizationEstimator(swampingThreshold,
                                                          regularizationFriction,
                                                          1);
   int64_t iterationsCount(0);
   int64_t maxIterationsCount(
-      getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS));
-  double delta(getRealArgument("delta", DEFAULT_DELTA));
+      in.get<int64_t>("maxIterations", DEFAULT_MAX_ITERATIONS));
+  double delta(in.get<double>("delta", DEFAULT_DELTA));
   Delta = std::numeric_limits<double>::infinity();
   while (iterationsCount < maxIterationsCount && Delta > delta) {
     fit(iterationsCount);
@@ -148,25 +178,24 @@ void CoulombVertexDecomposition::run() {
 
 void CoulombVertexDecomposition::dryRun() {
   // NOTE that in the dry run GammaGai,... are local variables
-  DryTensor<complex> *GammaGqr(
-      getTensorArgument<complex, DryTensor<complex>>("CoulombVertex"));
+  DryTensor<complex> *GammaGqr(in.get<DryTensor<complex> *>("CoulombVertex"));
   int NG(GammaGqr->lens[0]);
   int Np(GammaGqr->lens[1]);
 
   // calculate decomposition rank
-  rank = getIntegerArgument("rankSize", DEFAULT_RANK_SIZE);
+  rank = in.get<int64_t>("rankSize", DEFAULT_RANK_SIZE);
   // if rank is not given use rank factors (if they are not given use
   // rankFactors=2.0)
   if (rank == -1) {
-    double rankFactor(getRealArgument("rankFactor", DEFAULT_RANK_FACTOR));
+    double rankFactor(in.get<double>("rankFactor", DEFAULT_RANK_FACTOR));
     rank = NG * rankFactor;
   }
 
   realFactorOrbitals =
-      getIntegerArgument("realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS);
+      in.get<int64_t>("realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS);
   normalizedFactorOrbitals =
-      getIntegerArgument("normalizedFactorOrbitals",
-                         DEFAULT_NORMALIZED_FACTOR_ORBITALS);
+      in.get<int64_t>("normalizedFactorOrbitals",
+                      DEFAULT_NORMALIZED_FACTOR_ORBITALS);
   LOG(0, "RALS") << "Tensor rank decomposition with rank NR=" << rank
                  << ", realFactorOrbitals=" << realFactorOrbitals
                  << ", normalizedFactorOrbitals=" << normalizedFactorOrbitals
@@ -190,11 +219,10 @@ void CoulombVertexDecomposition::dryRun() {
   DryTensor<complex> *PiqR = new DryMatrix<complex>(Np, int(rank), NS);
   DryTensor<complex> *PirR = new DryMatrix<complex>(Np, int(rank), NS);
   DryTensor<complex> *LambdaGR = new DryMatrix<complex>(NG, int(rank), NS);
-  allocatedTensorArgument<complex, DryTensor<complex>>("FactorOrbitals", PirR);
-  allocatedTensorArgument<complex, DryTensor<complex>>("CoulombFactors",
-                                                       LambdaGR);
+  out.set<DryTensor<complex> *>("FactorOrbitals", PirR);
+  out.set<DryTensor<complex> *>("CoulombFactors", LambdaGR);
 
-  std::string ansatz(getTextArgument("ansatz", HERMITIAN));
+  std::string ansatz(in.get<std::string>("ansatz", HERMITIAN));
   if (ansatz == HERMITIAN) {
     LOG(1, "RALS") << "Using " << HERMITIAN << " ansatz for decomposition"
                    << std::endl;
@@ -210,27 +238,23 @@ void CoulombVertexDecomposition::dryRun() {
     throw new EXCEPTION(stringStream.str());
   }
   if (isArgumentGiven("OutgoingFactorOrbitals")) {
-    allocatedTensorArgument<complex, DryTensor<complex>>(
-        "OutgoingFactorOrbitals",
-        PiqR);
+    out.set<DryTensor<complex> *>("OutgoingFactorOrbitals", PiqR);
   }
 
   DryTensor<complex> *composedGammaGqr(new DryTensor<complex>(*GammaGqr));
   if (isArgumentGiven("ComposedCoulombVertex")) {
-    allocatedTensorArgument<complex, DryTensor<complex>>(
-        "ComposedCoulombVertex",
-        composedGammaGqr);
+    out.set<DryTensor<complex> *>("ComposedCoulombVertex", composedGammaGqr);
   }
   dryFit(GammaGqr, PiqR, PirR, LambdaGR, composedGammaGqr);
 }
 
 void CoulombVertexDecomposition::fit(int64_t const iterationsCount) {
 
-  int fitFactorOrbitals(getIntegerArgument("fitFactorOrbitals", 1));
+  int fitFactorOrbitals(in.get<int64_t>("fitFactorOrbitals", 1));
 
   if (fitFactorOrbitals) { iterateQuadraticFactor(iterationsCount); }
 
-  int fitCoulombFactors(getIntegerArgument("fitCoulombFactors", 1));
+  int fitCoulombFactors(in.get<int64_t>("fitCoulombFactors", 1));
 
   if (fitCoulombFactors) {
     fitRegularizedAlternatingLeastSquaresFactor(*GammaGqr,
@@ -309,7 +333,7 @@ void CoulombVertexDecomposition::realizePi(Tensor<complex> &Pi) {
 
 void CoulombVertexDecomposition::iterateQuadraticFactor(int i) {
   // create a mixer
-  std::string mixerName(getTextArgument("mixer", "LinearMixer"));
+  std::string mixerName(in.get<std::string>("mixer", "LinearMixer"));
   PTR(Mixer<complex>) mixer(MixerFactory<complex>::create(mixerName, this));
   if (!mixer) {
     std::stringstream stringStream;
@@ -325,8 +349,8 @@ void CoulombVertexDecomposition::iterateQuadraticFactor(int i) {
   double initialDelta(getDelta());
 
   // Babylonian algorithm to solve quadratic form
-  int maxSubIterationsCount(getIntegerArgument("maxSubIterations", 8));
-  int minSubIterationsCount(getIntegerArgument("minSubIterations", 2));
+  int maxSubIterationsCount(in.get<int64_t>("maxSubIterations", 8));
+  int minSubIterationsCount(in.get<int64_t>("minSubIterations", 2));
   int j(0);
   double Delta(2 * initialDelta);
   while (j < minSubIterationsCount
@@ -369,7 +393,7 @@ void CoulombVertexDecomposition::iterateQuadraticFactor(int i) {
 }
 
 void CoulombVertexDecomposition::computeOutgoingPi() {
-  std::string ansatz(getTextArgument("ansatz", HERMITIAN));
+  std::string ansatz(in.get<std::string>("ansatz", HERMITIAN));
 
   if (ansatz == HERMITIAN) {
     Univar_Function<complex> fConj(&sisi4s::conj<complex>);

@@ -11,8 +11,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(CcsdPerturbativeTriples);
-
 namespace sisi4s {
 template <int N>
 inline std::string operator*(const std::string &s,
@@ -25,21 +23,27 @@ inline std::string operator*(const std::string &s,
 
 void CcsdPerturbativeTriples::sliceTensors() {
   // slice Tai in dimension 1, i.e. in i
-  Tai = new SlicedCtfTensor<>(*getTensorArgument("CcsdSinglesAmplitudes"), {1});
+  Tai =
+      new SlicedCtfTensor<>(*in.get<Tensor<double> *>("CcsdSinglesAmplitudes"),
+                            {1});
   // slice Tabij in dimension 2&3, i.e. in i,j
-  Tabij = new SlicedCtfTensor<>(*getTensorArgument("CcsdDoublesAmplitudes"),
-                                {2, 3});
+  Tabij =
+      new SlicedCtfTensor<>(*in.get<Tensor<double> *>("CcsdDoublesAmplitudes"),
+                            {2, 3});
   // slice Tabil in dimension 2
   Tabil =
-      new SlicedCtfTensor<>(*getTensorArgument("CcsdDoublesAmplitudes"), {2});
+      new SlicedCtfTensor<>(*in.get<Tensor<double> *>("CcsdDoublesAmplitudes"),
+                            {2});
   // slice Vabij in dimension 2&3, i.e. in i,j
   Vabij =
-      new SlicedCtfTensor<>(*getTensorArgument("PPHHCoulombIntegrals"), {2, 3});
+      new SlicedCtfTensor<>(*in.get<Tensor<double> *>("PPHHCoulombIntegrals"),
+                            {2, 3});
   // slice Vijla in dimension 0&1, i.e. in i,j
   Vijla =
-      new SlicedCtfTensor<>(*getTensorArgument("HHHPCoulombIntegrals"), {0, 1});
+      new SlicedCtfTensor<>(*in.get<Tensor<double> *>("HHHPCoulombIntegrals"),
+                            {0, 1});
 
-  Tensor<complex> *GammaFqr(getTensorArgument<complex>("CoulombVertex"));
+  Tensor<complex> *GammaFqr(in.get<Tensor<complex> *>("CoulombVertex"));
   // Allocate and compute GammaFab,GammaFai from GammaFqr
   int NF(GammaFqr->lens[0]);
   int Np(GammaFqr->lens[1]);
@@ -91,8 +95,8 @@ CcsdPerturbativeTriples::getDoublesContribution(const Map<3> &i) {
 
 Tensor<double> &CcsdPerturbativeTriples::getEnergyDenominator(const Map<3> &i) {
   // reuse SVabc to hold the energy denominator
-  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
   // NOTE: due to a bug we first to feed the sliced vector into a scalar
   CTF::Scalar<double> eps(*epsi->wrld);
   int epsiStart[] = {i(0)}, epsiEnd[] = {i(0) + 1};
@@ -110,9 +114,23 @@ Tensor<double> &CcsdPerturbativeTriples::getEnergyDenominator(const Map<3> &i) {
   return *SVabc;
 }
 
-void CcsdPerturbativeTriples::run() {
-  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
+
+DEFSPEC(
+    CcsdPerturbativeTriples,
+    SPEC_IN(
+        {"CcsdEnergy", SPEC_VALUE("TODO: DOC", double)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CcsdDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"CcsdSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(CcsdPerturbativeTriples) {
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
   No = epsi->lens[0];
   Nv = epsa->lens[0];
   int vvv[] = {Nv, Nv, Nv};
@@ -232,7 +250,7 @@ void CcsdPerturbativeTriples::run() {
   delete imagGammaFai;
 
   double eTriples(energy.get_val());
-  double eCcsd(getRealArgument("CcsdEnergy"));
+  double eCcsd(in.get<double>("CcsdEnergy"));
   double e(eCcsd + eTriples);
   LOG(0, "CcsdPerturbativeTriples") << "e=" << e << std::endl;
   LOG(1, "CcsdPerturbativeTriples") << "ccsd=" << eCcsd << std::endl;
@@ -242,17 +260,14 @@ void CcsdPerturbativeTriples::run() {
 }
 
 void CcsdPerturbativeTriples::dryRun() {
-  getTensorArgument<double, DryTensor<double>>("PPHHCoulombIntegrals");
-  getTensorArgument<double, DryTensor<double>>("HHHPCoulombIntegrals");
+  in.get<DryTensor<double> *>("PPHHCoulombIntegrals");
+  in.get<DryTensor<double> *>("HHHPCoulombIntegrals");
 
-  DryTensor<> *Tai(
-      getTensorArgument<double, DryTensor<double>>("CcsdSinglesAmplitudes"));
-  DryTensor<> *Tabij(
-      getTensorArgument<double, DryTensor<double>>("CcsdDoublesAmplitudes"));
+  DryTensor<> *Tai(in.get<DryTensor<double> *>("CcsdSinglesAmplitudes"));
+  DryTensor<> *Tabij(in.get<DryTensor<double> *>("CcsdDoublesAmplitudes"));
 
   // Read the Particle/Hole Eigenenergies epsi epsa required for the energy
-  DryTensor<> *epsa(
-      getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies"));
+  DryTensor<> *epsa(in.get<DryTensor<double> *>("ParticleEigenEnergies"));
 
   // Compute the No,Nv
   int Nv(epsa->lens[0]);

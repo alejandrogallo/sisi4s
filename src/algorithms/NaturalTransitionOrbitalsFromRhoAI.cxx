@@ -13,12 +13,20 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(NaturalTransitionOrbitalsFromRhoAI);
-
 IMPLEMENT_EMPTY_DRYRUN(NaturalTransitionOrbitalsFromRhoAI) {}
 
-void NaturalTransitionOrbitalsFromRhoAI::run() {
-  if (getIntegerArgument("complex", 1) == 1) {
+
+DEFSPEC(NaturalTransitionOrbitalsFromRhoAI,
+        SPEC_IN({"complex", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+                {"RhoAI", SPEC_VARIN("TODO: DOC", Tensor<F> *)}),
+        SPEC_OUT({name + "EigenValues", SPEC_VAROUT("TODO: DOC", Tensor<F> *)},
+                 {name + "OverlapMatrix",
+                  SPEC_VAROUT("TODO: DOC", Tensor<F> *)},
+                 {name + "TransformationMatrix",
+                  SPEC_VAROUT("TODO: DOC", Tensor<F> *)}));
+
+IMPLEMENT_ALGORITHM(NaturalTransitionOrbitalsFromRhoAI) {
+  if (in.get<int64_t>("complex", 1) == 1) {
     run<sisi4s::complex>();
   } else {
     throw new EXCEPTION("No real version of the algo available");
@@ -86,7 +94,7 @@ void NaturalTransitionOrbitalsFromRhoAI::buildTransformations(
   rEigenVecs->write(indices.size(),
                     indices.data(),
                     rightEigenVectors.getValues());
-  allocatedTensorArgument<F>(name + "TransformationMatrix", rEigenVecs);
+  out.set<Tensor<F> *>(name + "TransformationMatrix", rEigenVecs);
 
   // log vector norms and overlaps
   logVectorNorms<F>(rightEigenVectors, name);
@@ -96,7 +104,7 @@ void NaturalTransitionOrbitalsFromRhoAI::buildTransformations(
   conjugate(*eigenConj);
 
   (*overlapMatrix)["ab"] = (*rEigenVecs)["be"] * (*eigenConj)["ea"];
-  allocatedTensorArgument<F>(name + "OverlapMatrix", overlapMatrix);
+  out.set<Tensor<F> *>(name + "OverlapMatrix", overlapMatrix);
 
   std::vector<complex> lambdas(solver.getEigenValues());
   Tensor<F> *lambdasTensor =
@@ -104,12 +112,12 @@ void NaturalTransitionOrbitalsFromRhoAI::buildTransformations(
   indices.resize(n);
   std::iota(indices.begin(), indices.end(), 0);
   lambdasTensor->write(indices.size(), indices.data(), lambdas.data());
-  allocatedTensorArgument<F>(name + "EigenValues", lambdasTensor);
+  out.set<Tensor<F> *>(name + "EigenValues", lambdasTensor);
 }
 
 template <typename F>
 void NaturalTransitionOrbitalsFromRhoAI::run() {
-  auto RhoAI(getTensorArgument<F>("RhoAI"));
+  auto RhoAI(in.get<Tensor<F> *>("RhoAI"));
   int No(RhoAI->lens[1]), Nv(RhoAI->lens[0]);
   int oo[] = {No, No}, vv[] = {Nv, Nv}, syms[] = {NS, NS};
 

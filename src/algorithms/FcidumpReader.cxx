@@ -11,8 +11,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(FcidumpReader);
-
 IMPLEMENT_EMPTY_DRYRUN(FcidumpReader) {}
 
 FcidumpReader::FcidumpHeader
@@ -187,10 +185,16 @@ struct IntegralParser {
   }
 };
 
-void FcidumpReader::run() {
-  const auto filePath(getTextArgument("file", "FCIDUMP"));
+
+DEFSPEC(FcidumpReader,
+        SPEC_IN({"nelec", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+                {"file", SPEC_VALUE_DEF("TODO: DOC", std::string, "FCIDUMP")}),
+        SPEC_OUT({name, SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(FcidumpReader) {
+  const auto filePath(in.get<std::string>("file", "FCIDUMP"));
   // override the header of the fcidump
-  const int nelec(getIntegerArgument("nelec", -1));
+  const int nelec(in.get<int64_t>("nelec", -1));
   FcidumpReader::FcidumpHeader header(parseHeader(filePath));
   if (nelec != -1) header.nelec = nelec;
   const int No((header.uhf == 1 ? 1 : 0.5) * header.nelec);
@@ -263,7 +267,7 @@ void FcidumpReader::run() {
     const auto &name(parser.name);
     if (isArgumentGiven(name)) {
       LOG(0, "FcidumpReader") << "Exporting: " << parser.name << std::endl;
-      allocatedTensorArgument<double>(name, parser.allocateTensor());
+      out.set<Tensor<double> *>(name, parser.allocateTensor());
     }
   }
 }

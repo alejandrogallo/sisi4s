@@ -7,21 +7,24 @@
 #include <util/Emitter.hpp>
 
 using namespace sisi4s;
-ALGORITHM_REGISTRAR_DEFINITION(OneBodyRotation);
 
 IMPLEMENT_EMPTY_DRYRUN(OneBodyRotation) {}
 
 #define LOGGER(_l) LOG(_l, "OneBodyRotation")
 
-void OneBodyRotation::run() {
+DEFSPEC(OneBodyRotation,
+        SPEC_IN({"No", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+                {"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"OrbitalCoefficients",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT({i.name, SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-  checkArgumentsOrDie(
-      {"OrbitalCoefficients", "Data", "No", "Out", "hh", "pp", "hp", "ph"});
+IMPLEMENT_ALGORITHM(OneBodyRotation) {
 
-  auto C(getTensorArgument("OrbitalCoefficients"));
-  auto I(getTensorArgument("Data"));
+  auto C(in.get<Tensor<double> *>("OrbitalCoefficients"));
+  auto I(in.get<Tensor<double> *>("Data"));
   auto O(new Tensor<double>(*I));
-  const int No(getIntegerArgument("No", 0)), Np(C->lens[0]);
+  const int No(in.get<int64_t>("No", 0)), Np(C->lens[0]);
 
   LOGGER(0) << "No: " << No << std::endl;
   LOGGER(0) << "Np: " << Np << std::endl;
@@ -46,6 +49,6 @@ void OneBodyRotation::run() {
               << "{" << i.begin[0] << "," << i.begin[1] << "}"
               << " --> "
               << "{" << i.end[0] << "," << i.end[1] << "}" << std::endl;
-    allocatedTensorArgument<double>(i.name, tensor);
+    out.set<Tensor<double> *>(i.name, tensor);
   }
 }

@@ -11,33 +11,30 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(CcsdtEnergyFromCoulombIntegrals);
-
 template <typename F>
 PTR(FockVector<F>) CcsdtEnergyFromCoulombIntegrals::getResiduumTemplate(
     const int iterationStep,
     const PTR(const FockVector<F>) &amplitudes) {
 
-  auto *epsi = getTensorArgument<double, Tensor<double>>("HoleEigenEnergies"),
-       *epsa =
-           getTensorArgument<double, Tensor<double>>("ParticleEigenEnergies");
+  auto *epsi = in.get<Tensor<double> *>("HoleEigenEnergies"),
+       *epsa = in.get<Tensor<double> *>("ParticleEigenEnergies");
 
-  auto Vhhhh(getTensorArgument<F, Tensor<F>>("HHHHCoulombIntegrals")),
-      Vpppp(getTensorArgument<F, Tensor<F>>("PPPPCoulombIntegrals")),
-      Vhhhp(getTensorArgument<F, Tensor<F>>("HHHPCoulombIntegrals")),
-      Vhhpp(getTensorArgument<F, Tensor<F>>("HHPPCoulombIntegrals")),
-      Vhphh(getTensorArgument<F, Tensor<F>>("HPHHCoulombIntegrals")),
-      Vhphp(getTensorArgument<F, Tensor<F>>("HPHPCoulombIntegrals")),
-      Vhppp(getTensorArgument<F, Tensor<F>>("HPPPCoulombIntegrals")),
-      Vpphh(getTensorArgument<F, Tensor<F>>("PPHHCoulombIntegrals")),
-      Vpphp(getTensorArgument<F, Tensor<F>>("PPHPCoulombIntegrals")),
-      Vhpph(getTensorArgument<F, Tensor<F>>("HPPHCoulombIntegrals")),
-      Vphpp(getTensorArgument<F, Tensor<F>>("PHPPCoulombIntegrals")),
-      Vhhph(getTensorArgument<F, Tensor<F>>("HHPHCoulombIntegrals")),
-      Vppph(getTensorArgument<F, Tensor<F>>("PPPHCoulombIntegrals")),
-      Vphph(getTensorArgument<F, Tensor<F>>("PHPHCoulombIntegrals")),
-      Vphhp(getTensorArgument<F, Tensor<F>>("PHHPCoulombIntegrals")),
-      Vphhh(getTensorArgument<F, Tensor<F>>("PHHHCoulombIntegrals"));
+  auto Vhhhh(in.get<Tensor<F> *>("HHHHCoulombIntegrals")),
+      Vpppp(in.get<Tensor<F> *>("PPPPCoulombIntegrals")),
+      Vhhhp(in.get<Tensor<F> *>("HHHPCoulombIntegrals")),
+      Vhhpp(in.get<Tensor<F> *>("HHPPCoulombIntegrals")),
+      Vhphh(in.get<Tensor<F> *>("HPHHCoulombIntegrals")),
+      Vhphp(in.get<Tensor<F> *>("HPHPCoulombIntegrals")),
+      Vhppp(in.get<Tensor<F> *>("HPPPCoulombIntegrals")),
+      Vpphh(in.get<Tensor<F> *>("PPHHCoulombIntegrals")),
+      Vpphp(in.get<Tensor<F> *>("PPHPCoulombIntegrals")),
+      Vhpph(in.get<Tensor<F> *>("HPPHCoulombIntegrals")),
+      Vphpp(in.get<Tensor<F> *>("PHPPCoulombIntegrals")),
+      Vhhph(in.get<Tensor<F> *>("HHPHCoulombIntegrals")),
+      Vppph(in.get<Tensor<F> *>("PPPHCoulombIntegrals")),
+      Vphph(in.get<Tensor<F> *>("PHPHCoulombIntegrals")),
+      Vphhp(in.get<Tensor<F> *>("PHHPCoulombIntegrals")),
+      Vphhh(in.get<Tensor<F> *>("PHHHCoulombIntegrals"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   /*

@@ -13,8 +13,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(CcsdDiagrammaticDecomposition);
-
 IMPLEMENT_EMPTY_DRYRUN(CcsdDiagrammaticDecomposition) {}
 
 //////////////////////////////////////////////////////////////////////
@@ -22,14 +20,32 @@ IMPLEMENT_EMPTY_DRYRUN(CcsdDiagrammaticDecomposition) {}
 // So Hirata, et. al. Chem. Phys. Letters, 345, 475 (2001)
 //////////////////////////////////////////////////////////////////////
 
-void CcsdDiagrammaticDecomposition::run() {
+
+DEFSPEC(
+    CcsdDiagrammaticDecomposition,
+    SPEC_IN(
+        {"integralsSliceSize", SPEC_VALUE("TODO: DOC", int64_t)},
+        {"ZeroSinglesIn", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CcsdDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"CcsdSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(CcsdDiagrammaticDecomposition) {
   // get singles and doubles part of the amplitudes
-  auto Tai(getTensorArgument("CcsdSinglesAmplitudes"));
+  auto Tai(in.get<Tensor<double> *>("CcsdSinglesAmplitudes"));
   Tai->set_name("Tai");
-  auto Tabij(getTensorArgument("CcsdDoublesAmplitudes"));
+  auto Tabij(in.get<Tensor<double> *>("CcsdDoublesAmplitudes"));
   Tabij->set_name("Tabij");
 
-  int singlesIn(getIntegerArgument("ZeroSinglesIn", -1));
+  int singlesIn(in.get<int64_t>("ZeroSinglesIn", -1));
   if (singlesIn > 0) { (*Tai)["ai"] = 0.; }
 
   auto Rai(new Tensor<double>(*Tai));
@@ -40,8 +56,8 @@ void CcsdDiagrammaticDecomposition::run() {
   (*Rabij)["abij"] = 0.;
 
   // construct energy denominator
-  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
   auto deltaabij(new Tensor<double>(*Rabij));
   deltaabij->set_name("deltaabij");
   (*deltaabij)["abij"] = (*epsi)["i"];
@@ -53,13 +69,13 @@ void CcsdDiagrammaticDecomposition::run() {
   (*deltaai)["ai"] = (*epsi)["i"];
   (*deltaai)["ai"] -= (*epsa)["a"];
 
-  auto Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  auto Vaibj(getTensorArgument("PHPHCoulombIntegrals"));
-  auto Vijkl(getTensorArgument("HHHHCoulombIntegrals"));
-  auto Vijka(getTensorArgument("HHHPCoulombIntegrals"));
+  auto Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
+  auto Vaibj(in.get<Tensor<double> *>("PHPHCoulombIntegrals"));
+  auto Vijkl(in.get<Tensor<double> *>("HHHHCoulombIntegrals"));
+  auto Vijka(in.get<Tensor<double> *>("HHHPCoulombIntegrals"));
 
   // Read the Coulomb vertex GammaGqr
-  auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
+  auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
 
   // Compute the No,Nv,NG,Np
   int No(Vabij->lens[2]);
@@ -355,7 +371,7 @@ void CcsdDiagrammaticDecomposition::run() {
   //*********************************************************************************
 
   // Read the integralsSliceSize. If not provided use No
-  int integralsSliceSize(getIntegerArgument("integralsSliceSize"));
+  int integralsSliceSize(in.get<int64_t>("integralsSliceSize"));
 
   int numberSlices(int(ceil(double(Nv) / integralsSliceSize)));
 
@@ -443,7 +459,7 @@ void CcsdDiagrammaticDecomposition::evaluateEnergy(std::string diagramType,
                                                                Rai["ai"]);
 
   // get the Coulomb integrals to compute the energy
-  auto Vijab(getTensorArgument<>("HHPPCoulombIntegrals"));
+  auto Vijab(in.get<Tensor<double> *>("HHPPCoulombIntegrals"));
 
   CTF::Scalar<double> energy(*Vijab->wrld);
   // direct term

@@ -15,9 +15,13 @@ using namespace sisi4s;
 using namespace tcc;
 using std::make_shared;
 
-ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexFromFactors);
 
-void CoulombVertexFromFactors::run() {
+DEFSPEC(CoulombVertexFromFactors,
+        SPEC_IN({"CoulombFactors", SPEC_VALUE("TODO: DOC", T *)},
+                {"FactorOrbitals", SPEC_VALUE("TODO: DOC", T *)}),
+        SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(CoulombVertexFromFactors) {
   run<Tensor<complex>, CtfMachineTensor<complex>>(false);
 }
 
@@ -32,8 +36,8 @@ void CoulombVertexFromFactors::run(const bool dryRun) {
   auto tcc(Tcc<complex>::create(machineTensorFactory));
 
   // Read the Coulomb vertex GammaGqr
-  T *ctfPirR(getTensorArgument<complex, T>("FactorOrbitals"));
-  T *ctfLambdaFR(getTensorArgument<complex, T>("CoulombFactors"));
+  T *ctfPirR(in.get<T *>("FactorOrbitals"));
+  T *ctfLambdaFR(in.get<T *>("CoulombFactors"));
 
   // for now: create tcc::Tensors from them
   // later there will only be tcc::Tensors objects stored in sisi4s
@@ -54,7 +58,6 @@ void CoulombVertexFromFactors::run(const bool dryRun) {
 
   // for now: duplicate result
   // later Gamma will already be the object stored in sisi4s
-  allocatedTensorArgument<complex, T>(
-      "CoulombVertex",
-      new T(GammaFqr->template getMachineTensor<MT>()->tensor));
+  out.set<T *>("CoulombVertex",
+               new T(GammaFqr->template getMachineTensor<MT>()->tensor));
 }

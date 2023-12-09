@@ -15,7 +15,6 @@
 #include <math/MathFunctions.hpp>
 
 using namespace sisi4s;
-ALGORITHM_REGISTRAR_DEFINITION(CoulombIntegralsFromRotatedCoulombIntegrals);
 
 IMPLEMENT_EMPTY_DRYRUN(CoulombIntegralsFromRotatedCoulombIntegrals) {}
 #define LOGGER(_l) LOG(_l, "CoulombIntegralsFromRotatedCoulombIntegrals")
@@ -401,8 +400,7 @@ void computeAndExport(Algorithm &a,
     for (unsigned int j(0); j < 4; j++) {
       lens[j] = (int)engine.indexToInt(i[j]);
     }
-    a.allocatedTensorArgument<double>(integral.name,
-                                      stdVectorToTensor(result, lens));
+    a.out.set<Tensor<double> *>(integral.name, stdVectorToTensor(result, lens));
   }
 }
 
@@ -417,14 +415,17 @@ void computeAndExport(Algorithm &a,
 
     LOGGER(1) << "Computing " << integral.name << std::endl;
 
-    a.allocatedTensorArgument<double>(
+    a.out.set<Tensor<double> *>(
         integral.name,
         new Tensor<double>(engine.compute(i[0], i[1], i[2], i[3])));
   }
 }
 
-void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
+DEFSPEC(CoulombIntegralsFromRotatedCoulombIntegrals,
+        SPEC_IN({"chemistNotation", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)}, {"unrestricted", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)}, {"engine", SPEC_VALUE_DEF("TODO: DOC", std::string, "ctf")}, {"CoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)}, {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)}, {"OrbitalCoefficients", SPEC_VARIN("TODO: DOC", Tensor<double> *)}, {"Spins", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT(out.set<Tensor<double> *>(integral.name, stdVectorToTensor(result, lens)));
 
+IMPLEMENT_ALGORITHM(CoulombIntegralsFromRotatedCoulombIntegrals) {
   std::vector<std::string> args({"OrbitalCoefficients",
                                  "CoulombIntegrals",
                                  "HoleEigenEnergies",
@@ -433,14 +434,14 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
                                  "unrestricted",
                                  "Spins"});
   Tensor<double> *S;
-  auto C(getTensorArgument("OrbitalCoefficients"));
-  auto V(getTensorArgument("CoulombIntegrals"));
-  auto epsi(getTensorArgument("HoleEigenEnergies"));
+  auto C(in.get<Tensor<double> *>("OrbitalCoefficients"));
+  auto V(in.get<Tensor<double> *>("CoulombIntegrals"));
+  auto epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
   const int No(epsi->lens[0]);
   const int Nv(C->lens[1] - No);
-  const bool chemistNotation(getIntegerArgument("chemistNotation", 1) == 1);
-  const bool unrestricted(getIntegerArgument("unrestricted", 0) == 1);
-  if (unrestricted) { S = getTensorArgument("Spins"); }
+  const bool chemistNotation(in.get<int64_t>("chemistNotation", 1) == 1);
+  const bool unrestricted(in.get<int64_t>("unrestricted", 0) == 1);
+  if (unrestricted) { S = in.get<Tensor<double> *>("Spins"); }
 
   std::vector<IntegralInfo> integralInfos = {
       {"HHHHCoulombIntegrals", {NO, NO, NO, NO}, "ijkl"},
@@ -461,9 +462,6 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
       {"PPPPCoulombIntegrals", {NV, NV, NV, NV}, "abcd"},
       {"PQRSCoulombIntegrals", {NP, NP, NP, NP}, "pqrs"}};
 
-  for (const auto &i : integralInfos) args.push_back(i.name);
-  checkArgumentsOrDie(args);
-
   LOGGER(1) << "Note: CoulombIntegrals have to be in chemist notation!"
             << std::endl;
   LOGGER(1) << "Note: Phyiscs notation only implemented for ctf provider"
@@ -482,7 +480,7 @@ void CoulombIntegralsFromRotatedCoulombIntegrals::run() {
   };
 
   const EngineInfo::Name engineType(
-      EngineInfo::fromString(getTextArgument("engine", "ctf")));
+      EngineInfo::fromString(in.get<std::string>("engine", "ctf")));
 
   LOGGER(1) << "Using engine: " << engineType << std::endl;
   LOGGER(1) << "Using chemistNotation?: " << chemistNotation << std::endl;

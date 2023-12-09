@@ -21,13 +21,39 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(UnrestrictedEquationOfMotionSinglesFromRpa);
-
 IMPLEMENT_EMPTY_DRYRUN(UnrestrictedEquationOfMotionSinglesFromRpa) {}
 
-void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
 
-  if (getIntegerArgument("complexVersion", 1) == 1) {
+DEFSPEC(
+    UnrestrictedEquationOfMotionSinglesFromRpa,
+    SPEC_IN(
+        {"amplitudesConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
+        {"energyConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
+        {"preconditionerRandomSigma", SPEC_VALUE_DEF("TODO: DOC", double, 0.1)},
+        {"complexVersion", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"eigenstates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"intermediates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 32)},
+        {"minIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"preconditionerRandom", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"refreshOnMaxBasisSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"oneBodyRdmRange", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"printEigenvectorsRange",
+         SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"refreshIterations", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"SinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(UnrestrictedEquationOfMotionSinglesFromRpa) {
+
+  if (in.get<int64_t>("complexVersion", 1) == 1) {
     LOG(0, "RPAEomDavid") << "Using complex code" << std::endl;
     UnrestrictedEquationOfMotionSinglesFromRpa::run<complex>();
   } else {
@@ -40,31 +66,29 @@ template <typename F>
 void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
 
   // Arguments
-  bool preconditionerRandom(getIntegerArgument("preconditionerRandom", 0) == 1);
+  bool preconditionerRandom(in.get<int64_t>("preconditionerRandom", 0) == 1);
   double preconditionerRandomSigma(
-      getRealArgument("preconditionerRandomSigma", 0.1));
-  bool refreshOnMaxBasisSize(getIntegerArgument("refreshOnMaxBasisSize", 0)
-                             == 1);
+      in.get<double>("preconditionerRandomSigma", 0.1));
+  bool refreshOnMaxBasisSize(in.get<int64_t>("refreshOnMaxBasisSize", 0) == 1);
   std::vector<int> oneBodyRdmIndices(
-      RangeParser(getTextArgument("oneBodyRdmRange", "")).getRange());
-  int eigenStates(getIntegerArgument("eigenstates", 1));
-  const double energyConvergence(getRealArgument("energyConvergence", 1e-6)),
-      amplitudesConvergence(getRealArgument("amplitudesConvergence", 1e-6));
-  bool intermediates(getIntegerArgument("intermediates", 1));
-  unsigned int maxIterations(getIntegerArgument("maxIterations", 32));
-  unsigned int minIterations(getIntegerArgument("minIterations", 1));
+      RangeParser(in.get<std::string>("oneBodyRdmRange", "")).getRange());
+  int eigenStates(in.get<int64_t>("eigenstates", 1));
+  const double energyConvergence(in.get<double>("energyConvergence", 1e-6)),
+      amplitudesConvergence(in.get<double>("amplitudesConvergence", 1e-6));
+  bool intermediates(in.get<int64_t>("intermediates", 1));
+  unsigned int maxIterations(in.get<int64_t>("maxIterations", 32));
+  unsigned int minIterations(in.get<int64_t>("minIterations", 1));
   std::vector<int> eigenvectorsIndices(
-      RangeParser(getTextArgument("printEigenvectorsRange", "")).getRange());
-  Tensor<double> *epsi(
-      getTensorArgument<double, Tensor<double>>("HoleEigenEnergies"));
-  Tensor<double> *epsa(
-      getTensorArgument<double, Tensor<double>>("ParticleEigenEnergies"));
+      RangeParser(in.get<std::string>("printEigenvectorsRange", ""))
+          .getRange());
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
   std::vector<int> refreshIterations(
-      RangeParser(getTextArgument("refreshIterations", "")).getRange());
+      RangeParser(in.get<std::string>("refreshIterations", "")).getRange());
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int maxBasisSize(
-      getIntegerArgument("maxBasisSize",
-                         No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2)));
+      in.get<int64_t>("maxBasisSize",
+                      No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2)));
 
   int syms2[] = {NS, NS};
   int syms4[] = {NS, NS, NS, NS};
@@ -85,8 +109,7 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
 
   // Get copy of couloumb integrals
 
-  Tensor<double> *pVijab(
-      getTensorArgument<double, Tensor<double>>("HHPPCoulombIntegrals"));
+  Tensor<double> *pVijab(in.get<Tensor<double> *>("HHPPCoulombIntegrals"));
   Tensor<F> cVijab(pVijab->order,
                    pVijab->lens,
                    pVijab->sym,
@@ -104,12 +127,9 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
       && isArgumentGiven("PPFockMatrix")) {
     LOG(0, "RPAEomDavid") << "Using non-canonical orbitals" << std::endl;
 
-    Tensor<double> *realFia(
-        getTensorArgument<double, Tensor<double>>("HPFockMatrix"));
-    Tensor<double> *realFab(
-        getTensorArgument<double, Tensor<double>>("PPFockMatrix"));
-    Tensor<double> *realFij(
-        getTensorArgument<double, Tensor<double>>("HHFockMatrix"));
+    Tensor<double> *realFia(in.get<Tensor<double> *>("HPFockMatrix"));
+    Tensor<double> *realFab(in.get<Tensor<double> *>("PPFockMatrix"));
+    Tensor<double> *realFij(in.get<Tensor<double> *>("HHFockMatrix"));
     toComplexTensor(*realFij, *Fij);
     toComplexTensor(*realFab, *Fab);
     toComplexTensor(*realFia, *Fia);
@@ -124,12 +144,8 @@ void UnrestrictedEquationOfMotionSinglesFromRpa::run() {
 
   Tensor<F> Tai(2, vo, syms2, *Sisi4s::world, "Tai");
   Tensor<F> Tabij(4, vvoo, syms4, *Sisi4s::world, "Tabij");
-  toComplexTensor(
-      (*getTensorArgument<double, Tensor<double>>("SinglesAmplitudes")),
-      Tai);
-  toComplexTensor(
-      (*getTensorArgument<double, Tensor<double>>("DoublesAmplitudes")),
-      Tabij);
+  toComplexTensor((*in.get<Tensor<double> *>("SinglesAmplitudes")), Tai);
+  toComplexTensor((*in.get<Tensor<double> *>("DoublesAmplitudes")), Tabij);
 
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
 

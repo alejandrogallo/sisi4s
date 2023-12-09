@@ -18,9 +18,31 @@ using namespace sisi4s;
 #  define LDEBUG(msg)
 #endif
 
-ALGORITHM_REGISTRAR_DEFINITION(UccsdtqAmplitudesFromCoulombIntegrals);
 
-void UccsdtqAmplitudesFromCoulombIntegrals::run() {
+DEFSPEC(UccsdtqAmplitudesFromCoulombIntegrals,
+        SPEC_IN({"HoleEigenEnergies",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"ParticleEigenEnergies",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"HHFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"HHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"HHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"HHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"HHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"HPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"HPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"HPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"HPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"PHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"PPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"PPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"PPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"PPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)}),
+        SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(UccsdtqAmplitudesFromCoulombIntegrals) {
   ClusterSinglesDoublesTriplesQuadruplesAlgorithm::run();
 }
 
@@ -49,26 +71,24 @@ PTR(FockVector<F>) UccsdtqAmplitudesFromCoulombIntegrals::getResiduumTemplate(
   // Equations from: hirata group
   // https://github.com/alejandrogallo/hirata
 
-  Tensor<double> *epsi(
-      getTensorArgument<double, Tensor<double>>("HoleEigenEnergies"));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
 
-  Tensor<double> *epsa(
-      getTensorArgument<double, Tensor<double>>("ParticleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
 
   // Get couloumb integrals
-  auto Vijkl(getTensorArgument<F, Tensor<F>>("HHHHCoulombIntegrals"));
-  auto Vabcd(getTensorArgument<F, Tensor<F>>("PPPPCoulombIntegrals"));
-  auto Vijka(getTensorArgument<F, Tensor<F>>("HHHPCoulombIntegrals"));
-  auto Vijab(getTensorArgument<F, Tensor<F>>("HHPPCoulombIntegrals"));
-  auto Viajk(getTensorArgument<F, Tensor<F>>("HPHHCoulombIntegrals"));
-  auto Viajb(getTensorArgument<F, Tensor<F>>("HPHPCoulombIntegrals"));
-  auto Viabc(getTensorArgument<F, Tensor<F>>("HPPPCoulombIntegrals"));
-  auto Vabij(getTensorArgument<F, Tensor<F>>("PPHHCoulombIntegrals"));
-  auto Vabic(getTensorArgument<F, Tensor<F>>("PPHPCoulombIntegrals"));
-  // auto Viabj(getTensorArgument<F, Tensor<F> >("HPPHCoulombIntegrals"));
-  // auto Vaibc(getTensorArgument<F, Tensor<F> >("PHPPCoulombIntegrals"));
-  // auto Vijak(getTensorArgument<F, Tensor<F> >("HHPHCoulombIntegrals"));
-  // auto Vabci(getTensorArgument<F, Tensor<F> >("PPPHCoulombIntegrals"));
+  auto Vijkl(in.get<Tensor<F> *>("HHHHCoulombIntegrals"));
+  auto Vabcd(in.get<Tensor<F> *>("PPPPCoulombIntegrals"));
+  auto Vijka(in.get<Tensor<F> *>("HHHPCoulombIntegrals"));
+  auto Vijab(in.get<Tensor<F> *>("HHPPCoulombIntegrals"));
+  auto Viajk(in.get<Tensor<F> *>("HPHHCoulombIntegrals"));
+  auto Viajb(in.get<Tensor<F> *>("HPHPCoulombIntegrals"));
+  auto Viabc(in.get<Tensor<F> *>("HPPPCoulombIntegrals"));
+  auto Vabij(in.get<Tensor<F> *>("PPHHCoulombIntegrals"));
+  auto Vabic(in.get<Tensor<F> *>("PPHPCoulombIntegrals"));
+  // auto Viabj(in.get<Tensor<F>*>("HPPHCoulombIntegrals"));
+  // auto Vaibc(in.get<Tensor<F>*>("PHPPCoulombIntegrals"));
+  // auto Vijak(in.get<Tensor<F>*>("HHPHCoulombIntegrals"));
+  // auto Vabci(in.get<Tensor<F>*>("PPPHCoulombIntegrals"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int vv[] = {Nv, Nv};
@@ -83,9 +103,9 @@ PTR(FockVector<F>) UccsdtqAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     if (iterationStep == 0) {
       LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
     }
-    Fia = getTensorArgument<F, Tensor<F>>("HPFockMatrix");
-    Fab = getTensorArgument<F, Tensor<F>>("PPFockMatrix");
-    Fij = getTensorArgument<F, Tensor<F>>("HHFockMatrix");
+    Fia = in.get<Tensor<F> *>("HPFockMatrix");
+    Fab = in.get<Tensor<F> *>("PPFockMatrix");
+    Fij = in.get<Tensor<F> *>("HHFockMatrix");
   } else {
     if (iterationStep == 0) {
       LOG(0, getAbbreviation()) << "Using hartree fock orbitals" << std::endl;

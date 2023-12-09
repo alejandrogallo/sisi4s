@@ -17,10 +17,8 @@
 using namespace sisi4s;
 
 void ClusterSinglesDoublesAlgorithm::run() {
-  Data *Vabij(getArgumentData("PPHHCoulombIntegrals"));
-  TensorData<double> *realVabij(dynamic_cast<TensorData<double> *>(Vabij));
   double e(0.0);
-  if (realVabij) {
+  if (in.is_of_type<Tensor<double> *>("PPHHCoulombIntegrals")) {
     e = run<double>();
   } else {
     e = std::real(run<complex>());
@@ -30,8 +28,8 @@ void ClusterSinglesDoublesAlgorithm::run() {
 
 template <typename F>
 F ClusterSinglesDoublesAlgorithm::run() {
-  int Nv(getTensorArgument<>("ParticleEigenEnergies")->lens[0]);
-  int No(getTensorArgument<>("HoleEigenEnergies")->lens[0]);
+  int Nv(in.get<Tensor<double> *>("ParticleEigenEnergies")->lens[0]);
+  int No(in.get<Tensor<double> *>("HoleEigenEnergies")->lens[0]);
 
   PTR(const FockVector<F>) amplitudes(
       createAmplitudes<F>({"Singles", "Doubles"},
@@ -39,7 +37,7 @@ F ClusterSinglesDoublesAlgorithm::run() {
                           {"ai", "abij"}));
 
   // create a mixer, by default use the linear one
-  std::string mixerName(getTextArgument("mixer", "LinearMixer"));
+  std::string mixerName(in.get<std::string>("mixer", "LinearMixer"));
   PTR(Mixer<F>) mixer(MixerFactory<F>::create(mixerName, this));
   if (!mixer) {
     std::stringstream stringStream;
@@ -49,12 +47,12 @@ F ClusterSinglesDoublesAlgorithm::run() {
 
   // number of iterations for determining the amplitudes
   int maxIterationsCount(
-      getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS));
+      in.get<int64_t>("maxIterations", DEFAULT_MAX_ITERATIONS));
 
   F amplitudesConvergence(
-      getRealArgument("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE));
+      in.get<double>("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE));
   F energyConvergence(
-      getRealArgument("energyConvergence", DEFAULT_ENERGY_CONVERGENCE));
+      in.get<double>("energyConvergence", DEFAULT_ENERGY_CONVERGENCE));
   EMIT() << YAML::Key << "maxIterations" << YAML::Value << maxIterationsCount
          << YAML::Key << "amplitudesConvergence" << YAML::Value
          << std::abs(amplitudesConvergence) << YAML::Key << "energyConvergence"
@@ -62,18 +60,18 @@ F ClusterSinglesDoublesAlgorithm::run() {
 
   if (isArgumentGiven("distinguishable")) {
     EMIT() << YAML::Key << "distinguishable" << YAML::Value
-           << getIntegerArgument("distinguishable");
+           << in.get<int64_t>("distinguishable");
   }
   if (isArgumentGiven("PPL")) {
-    EMIT() << YAML::Key << "PPL" << YAML::Value << getIntegerArgument("PPL");
+    EMIT() << YAML::Key << "PPL" << YAML::Value << in.get<int64_t>("PPL");
   }
   if (isArgumentGiven("OnlyPPL")) {
     EMIT() << YAML::Key << "OnlyPPL" << YAML::Value
-           << getIntegerArgument("OnlyPPL");
+           << in.get<int64_t>("OnlyPPL");
   }
   if (isArgumentGiven("integralsSliceSize")) {
     EMIT() << YAML::Key << "integralsSliceSize" << YAML::Value
-           << getIntegerArgument("integralsSliceSize");
+           << in.get<int64_t>("integralsSliceSize");
   }
 
   EMIT() << YAML::Key << "iterations" << YAML::Value;
@@ -124,15 +122,15 @@ F ClusterSinglesDoublesAlgorithm::run() {
 template <typename F>
 F ClusterSinglesDoublesAlgorithm::getEnergy(
     const PTR(const FockVector<F>) &amplitudes) {
-  double spins(getIntegerArgument("unrestricted", 0) ? 1.0 : 2.0);
-  int antisymmetrized(getIntegerArgument("antisymmetrize", 0));
+  double spins(in.get<int64_t>("unrestricted", 0) ? 1.0 : 2.0);
+  int antisymmetrized(in.get<int64_t>("antisymmetrize", 0));
 
   // get the Coulomb integrals to compute the energy
   PTR(Tensor<F>) Vijab;
   if (isArgumentGiven("HHPPCoulombIntegrals")) {
-    Vijab = NEW(Tensor<F>, getTensorArgument<F>("HHPPCoulombIntegrals"));
+    Vijab = NEW(Tensor<F>, in.get<Tensor<F> *>("HHPPCoulombIntegrals"));
   } else {
-    auto Vabij(getTensorArgument<F>("PPHHCoulombIntegrals"));
+    auto Vabij(in.get<Tensor<F> *>("PPHHCoulombIntegrals"));
     int No(Vabij->lens[2]);
     int Nv(Vabij->lens[0]);
     auto oovv(std::array<int, 4>{{No, No, Nv, Nv}});
@@ -192,7 +190,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
 
   if (isArgumentGiven("HPFockMatrix")) {
     Tensor<F> *fia;
-    fia = getTensorArgument<F, Tensor<F>>("HPFockMatrix");
+    fia = in.get<Tensor<F> *>("HPFockMatrix");
     energy[""] = spins * (*Tai)["ai"] * (*fia)["ia"];
     F noncanonical(energy.get_val());
     LOG(0, getCapitalizedAbbreviation())
@@ -225,7 +223,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
       (*pairEnergy)["ij"] +=
           (-1.0) * (*Tai)["ai"] * (*Tai)["bj"] * (*Vijab)["ijba"];
     }
-    allocatedTensorArgument<F>("PairEnergy", pairEnergy);
+    out.set<Tensor<F> *>("PairEnergy", pairEnergy);
   }
   return e;
 }
@@ -243,7 +241,7 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
     if (isArgumentGiven(initialDataName.str())) {
       // use given amplitudes as initial amplitudes
       amplitudeTensors.push_back(
-          NEW(Tensor<F>, *getTensorArgument<F>(initialDataName.str())));
+          NEW(Tensor<F>, *in.get<Tensor<F> *>(initialDataName.str())));
       EMIT() << YAML::Key << "initialAmplitudes" << YAML::Value
              << initialDataName.str();
     } else {
@@ -285,8 +283,8 @@ void ClusterSinglesDoublesAlgorithm::storeAmplitudes(
   int component(0);
   for (auto name : names) {
     if (isArgumentGiven(getDataName(name, "Amplitudes"))) {
-      allocatedTensorArgument<F>(getDataName(name, "Amplitudes"),
-                                 new Tensor<F>(*amplitudes->get(component)));
+      out.set<Tensor<F> *>(getDataName(name, "Amplitudes"),
+                           new Tensor<F>(*amplitudes->get(component)));
     }
     ++component;
   }
@@ -296,7 +294,7 @@ template <typename F>
 void ClusterSinglesDoublesAlgorithm::estimateAmplitudesFromResiduum(
     const PTR(FockVector<F>) &residuum,
     const PTR(const FockVector<F>) &amplitudes) {
-  F levelShift(getRealArgument("levelShift", DEFAULT_LEVEL_SHIFT));
+  F levelShift(in.get<double>("levelShift", DEFAULT_LEVEL_SHIFT));
   // level shifted division for left hand side
   class LevelShiftedDivision {
   public:
@@ -337,8 +335,8 @@ template <typename F>
 void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
     Tensor<F> &D,
     const std::string &indices) {
-  auto epsi(getTensorArgument<>("HoleEigenEnergies"));
-  auto epsa(getTensorArgument<>("ParticleEigenEnergies"));
+  auto epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  auto epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
 
   // convert to type F (either complex or double)
   Tensor<F> Fepsi(1, &epsi->lens[0], epsi->sym, *epsi->wrld, "Fepsi");
@@ -389,7 +387,7 @@ Tensor<double> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
   Tai->set_name("Tai");
 
   // Read the Coulomb vertex GammaGqr
-  auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
+  auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
   GammaGqr->set_name("GammaGqr");
 
   // Compute No,Nv,NG,Np
@@ -494,7 +492,7 @@ ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
   Tai->set_name("Tai");
 
   // Read the Coulomb vertex GammaGqr
-  auto GammaGqr(getTensorArgument<sisi4s::complex>("CoulombVertex"));
+  auto GammaGqr(in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
   GammaGqr->set_name("GammaGqr");
 
   // Compute No,Nv,NG,Np
@@ -564,13 +562,13 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
     int a,
     int b,
     int factorsSliceSize) {
-  auto PirR(getTensorArgument<complex>("FactorOrbitals"));
+  auto PirR(in.get<Tensor<complex> *>("FactorOrbitals"));
   PirR->set_name("PirR");
-  auto LambdaGR(getTensorArgument<complex>("CoulombFactors"));
+  auto LambdaGR(in.get<Tensor<complex> *>("CoulombFactors"));
   LambdaGR->set_name("LambdaGR");
 
-  auto epsi(getTensorArgument("HoleEigenEnergies"));
-  auto epsa(getTensorArgument("ParticleEigenEnergies"));
+  auto epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  auto epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
 
   // Read the doubles amplitudes Tabij
   auto Tai(amplitudes->get(0));
@@ -744,15 +742,15 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
     int a,
     int b,
     int factorsSliceSize) {
-  auto PirR(getTensorArgument<complex>("FactorOrbitals"));
+  auto PirR(in.get<Tensor<complex> *>("FactorOrbitals"));
   PirR->set_name("PirR");
-  auto PiqR(getTensorArgument<complex>("OutgoingFactorOrbitals"));
+  auto PiqR(in.get<Tensor<complex> *>("OutgoingFactorOrbitals"));
   PiqR->set_name("PiqR");
-  auto LambdaGR(getTensorArgument<complex>("CoulombFactors"));
+  auto LambdaGR(in.get<Tensor<complex> *>("CoulombFactors"));
   LambdaGR->set_name("LambdaGR");
 
-  auto epsi(getTensorArgument("HoleEigenEnergies"));
-  auto epsa(getTensorArgument("ParticleEigenEnergies"));
+  auto epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  auto epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
 
   // Read the doubles amplitudes Tabij
   auto Tai(amplitudes->get(0));

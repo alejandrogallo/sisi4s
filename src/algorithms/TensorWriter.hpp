@@ -5,19 +5,16 @@
 
 namespace sisi4s {
 
-DEFINE_ALGORITHM_HEADER(
-    TensorWriter,
+DEFINE_ALGORITHM_HEADER(TensorWriter,
 
-    template <typename F>
-    static void write(const std::string &name,
-                      const std::string fileName,
-                      Tensor<F> *A,
-                      const bool binary_p,
-                      const std::string rowIndexOrder,
-                      const std::string columnIndexOrder,
-                      const std::string delimiter);
-
-    static const std::type_info &check_type(Data *tensor_data);
+                        template <typename F>
+                        static void write(const std::string &name,
+                                          const std::string fileName,
+                                          Tensor<F> *A,
+                                          const bool binary_p,
+                                          const std::string rowIndexOrder,
+                                          const std::string columnIndexOrder,
+                                          const std::string delimiter);
 
 );
 

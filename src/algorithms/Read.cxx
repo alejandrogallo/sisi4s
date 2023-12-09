@@ -24,9 +24,19 @@ static Tensor<F> *new_tensor_from_dimensions(cc4s::Dimensions const &dims) {
 
 IMPLEMENT_EMPTY_DRYRUN(Read) {}
 
+
+DEFSPEC(Read,
+        SPEC_IN({"fileName", SPEC_VALUE("TODO: DOC", std::string)},
+                {"fileName",
+                 SPEC_VALUE_DEF("TODO: DOC", std::string, dataName)},
+                {source_name, SPEC_VARIN("TODO: DOC", Tensor<Float64> *)},
+                {source_name,
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::Complex64> *)}),
+        SPEC_OUT({"destination", SPEC_VAROUT("TODO: DOC", Tensor<F> *)}));
+
 IMPLEMENT_ALGORITHM(Read) {
 
-  const std::string fileName = getTextArgument("fileName");
+  const std::string fileName = in.get<std::string>("fileName");
 
   const auto dataPath =
       fs::path(fileName).replace_extension(fs::path("elements"));
@@ -83,7 +93,7 @@ IMPLEMENT_ALGORITHM(Read) {
       break;
     }
 
-    allocatedTensorArgument<F>("destination", t);
+    out.set<Tensor<F> *>("destination", t);
     break;
   }
   case cc4s::ScalarType::Complex64: {
@@ -93,7 +103,7 @@ IMPLEMENT_ALGORITHM(Read) {
         typename cc4s::ScalarTypeTraits<cc4s::ScalarType::Complex64>::type;
     auto t = new_tensor_from_dimensions<F>(header.dimensions);
     t->read_dense_from_file(dataPath.c_str());
-    allocatedTensorArgument<F>("destination", t);
+    out.set<Tensor<F> *>("destination", t);
     break;
   }
   }
@@ -293,6 +303,16 @@ namespace sisi4s {
 
 IMPLEMENT_EMPTY_DRYRUN(Write) {}
 
+
+DEFSPEC(Read,
+        SPEC_IN({"fileName", SPEC_VALUE("TODO: DOC", std::string)},
+                {"fileName",
+                 SPEC_VALUE_DEF("TODO: DOC", std::string, dataName)},
+                {source_name, SPEC_VARIN("TODO: DOC", Tensor<Float64> *)},
+                {source_name,
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::Complex64> *)}),
+        SPEC_OUT({"destination", SPEC_VAROUT("TODO: DOC", Tensor<F> *)}));
+
 IMPLEMENT_ALGORITHM(Write) {
 
   using namespace sisi4s::cc4s;
@@ -308,24 +328,24 @@ IMPLEMENT_ALGORITHM(Write) {
   std::string
 
       source_name = "source",
-      dataName = getArgumentData(source_name)->getName(),
-      fileNameInput = getTextArgument("fileName", dataName);
+      dataName = in.get_var(source_name)->getName(),
+      fileNameInput = in.get<std::string>("fileName", dataName);
 
   const auto dataPath = fs::path(fileNameInput)
                             .replace_extension(fs::path("elements")),
              yamlPath =
                  fs::path(fileNameInput).replace_extension(fs::path("yaml"));
 
-  if (typeid(double) == TensorWriter::check_type(getArgumentData("source"))) {
+  if (in.is_of_type<Tensor<double> *>("source")) {
     LOG(1, "TensorWriter") << "Writing real tensor" << std::endl;
-    auto t = getTensorArgument<Float64>(source_name);
+    auto t = in.get<Tensor<Float64> *>(source_name);
     for (size_t i = 0; i < t->order; i++)
       header.dimensions.push_back({t->lens[i], AxisType::State});
     TensorWriter::write<Float64>(dataName, dataPath, t, binary_p, "", "", "");
     header.scalarType = ScalarType::Real64;
   } else {
     LOG(1, "TensorWriter") << "Writing complex tensor" << std::endl;
-    auto t = getTensorArgument<sisi4s::Complex64>(source_name);
+    auto t = in.get<Tensor<sisi4s::Complex64> *>(source_name);
     for (size_t i = 0; i < t->order; i++)
       header.dimensions.push_back({t->lens[i], AxisType::State});
     TensorWriter::write<sisi4s::complex>(dataName,

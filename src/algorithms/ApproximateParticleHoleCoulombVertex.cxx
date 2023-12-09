@@ -7,31 +7,36 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(ApproximateParticleHoleCoulombVertex);
 
-void ApproximateParticleHoleCoulombVertex::run() {
+DEFSPEC(ApproximateParticleHoleCoulombVertex,
+        SPEC_IN({"FullParticleHoleCoulombVertex",
+                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+                {"ParticleHoleCoulombVertexSingularVectors",
+                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+        SPEC_OUT({"ParticleHoleCoulombVertex",
+                  SPEC_VAROUT("TODO: DOC", Tensor<complex> *)}));
+
+IMPLEMENT_ALGORITHM(ApproximateParticleHoleCoulombVertex) {
   Tensor<complex> *GammaGai(
-      getTensorArgument<complex>("FullParticleHoleCoulombVertex"));
+      in.get<Tensor<complex> *>("FullParticleHoleCoulombVertex"));
   Tensor<complex> *UGF(
-      getTensorArgument<complex>("ParticleHoleCoulombVertexSingularVectors"));
+      in.get<Tensor<complex> *>("ParticleHoleCoulombVertexSingularVectors"));
   int lens[] = {UGF->lens[1], GammaGai->lens[1], GammaGai->lens[2]};
   int syms[] = {NS, NS, NS};
   Tensor<complex> *GammaFai =
       new Tensor<complex>(3, lens, syms, *GammaGai->wrld, "GammaFai");
-  allocatedTensorArgument<complex>("ParticleHoleCoulombVertex", GammaFai);
+  out.set<Tensor<complex> *>("ParticleHoleCoulombVertex", GammaFai);
   (*GammaFai)["Fai"] = (*GammaGai)["Gai"] * (*UGF)["GF"];
 }
 
 void ApproximateParticleHoleCoulombVertex::dryRun() {
-  DryTensor<complex> *GammaGai(getTensorArgument<complex, DryTensor<complex>>(
-      "FullParticleHoleCoulombVertex"));
-  DryTensor<complex> *UGF(getTensorArgument<complex, DryTensor<complex>>(
-      "ParticleHoleCoulombVertexSingularVectors"));
+  DryTensor<complex> *GammaGai(
+      in.get<DryTensor<complex> *>("FullParticleHoleCoulombVertex"));
+  DryTensor<complex> *UGF(
+      in.get<DryTensor<complex> *>("ParticleHoleCoulombVertexSingularVectors"));
   int lens[] = {UGF->lens[1], GammaGai->lens[1], GammaGai->lens[2]};
   int syms[] = {NS, NS, NS};
   DryTensor<complex> *GammaFai =
       new DryTensor<complex>(3, lens, syms, SOURCE_LOCATION);
-  allocatedTensorArgument<complex, DryTensor<complex>>(
-      "ParticleHoleCoulombVertex",
-      GammaFai);
+  out.set<DryTensor<complex> *>("ParticleHoleCoulombVertex", GammaFai);
 }

@@ -12,8 +12,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(UrpaAmplitudesFromCoulombIntegrals);
-
 PTR(FockVector<sisi4s::complex>)
 UrpaAmplitudesFromCoulombIntegrals::getResiduum(
     const int iterationStep,
@@ -37,14 +35,12 @@ template <typename F>
 PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     const int iterationStep,
     const PTR(const FockVector<F>) &amplitudes) {
-  Tensor<double> *epsi(
-      getTensorArgument<double, Tensor<double>>("HoleEigenEnergies"));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
 
-  Tensor<double> *epsa(
-      getTensorArgument<double, Tensor<double>>("ParticleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
 
   // Get couloumb integrals
-  auto Vijab(getTensorArgument<F, Tensor<F>>("HHPPCoulombIntegrals"));
+  auto Vijab(in.get<Tensor<F> *>("HHPPCoulombIntegrals"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
   int vv[] = {Nv, Nv};
@@ -59,9 +55,9 @@ PTR(FockVector<F>) UrpaAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     if (iterationStep == 0) {
       LOG(0, getAbbreviation()) << "Using non-canonical orbitals" << std::endl;
     }
-    Fia = getTensorArgument<F, Tensor<F>>("HPFockMatrix");
-    Fab = getTensorArgument<F, Tensor<F>>("PPFockMatrix");
-    Fij = getTensorArgument<F, Tensor<F>>("HHFockMatrix");
+    Fia = in.get<Tensor<F> *>("HPFockMatrix");
+    Fab = in.get<Tensor<F> *>("PPFockMatrix");
+    Fij = in.get<Tensor<F> *>("HHFockMatrix");
   } else {
     Fia = NULL;
     CTF::Transform<double, F>(std::function<void(double, F &)>(

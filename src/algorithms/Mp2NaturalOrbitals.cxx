@@ -16,8 +16,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(Mp2NaturalOrbitals);
-
 IMPLEMENT_EMPTY_DRYRUN(Mp2NaturalOrbitals) {}
 
 // We follow Taube & Bartlett:
@@ -28,12 +26,34 @@ IMPLEMENT_EMPTY_DRYRUN(Mp2NaturalOrbitals) {}
 // diagonalze truncated Fock matrix (5)
 // obtain new coefficients
 
-void Mp2NaturalOrbitals::run() {
-  Tensor<double> *orbs(getTensorArgument("OrbitalCoefficients"));
-  Tensor<double> *Vabij(getTensorArgument("PPHHCoulombIntegrals"));
-  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
-  const bool unrestricted(getIntegerArgument("unrestricted", 0) == 1);
+
+DEFSPEC(
+    Mp2NaturalOrbitals,
+    SPEC_IN({"occupationThreshold", SPEC_VALUE_DEF("TODO: DOC", double, 1e-16)},
+            {"FnoAlpha", SPEC_VALUE("TODO: DOC", int64_t)},
+            {"FnoBeta", SPEC_VALUE("TODO: DOC", int64_t)},
+            {"FnoNumber", SPEC_VALUE("TODO: DOC", int64_t)},
+            {"unrestricted", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+            {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"OrbitalCoefficients", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"ParticleEigenEnergies",
+             SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"Spins", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT({"occupationNumber", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"ParticleEigenEnergiesRediag",
+              SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"ParticleEigenEnergiesRediag",
+              SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"RotatedOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"RotatedOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(Mp2NaturalOrbitals) {
+  Tensor<double> *orbs(in.get<Tensor<double> *>("OrbitalCoefficients"));
+  Tensor<double> *Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
+  const bool unrestricted(in.get<int64_t>("unrestricted", 0) == 1);
   auto rotatedOrbitals(new Tensor<double>(false, *orbs));
   auto epsaRediag(new Tensor<double>(false, *epsa));
   auto occNumber(new Tensor<double>(false, *epsa));
@@ -109,9 +129,9 @@ void Mp2NaturalOrbitals::run() {
     if (info != 0) throw "problem diagonalization (1), naturalOrbitals\n";
 
     // TRUNCATE (2)
-    double occupationThreshold(getRealArgument("occupationThreshold", 1e-16));
+    double occupationThreshold(in.get<double>("occupationThreshold", 1e-16));
     if (isArgumentGiven("FnoNumber")) {
-      int64_t fnoNumber(getIntegerArgument("FnoNumber"));
+      int64_t fnoNumber(in.get<int64_t>("FnoNumber"));
       nFno = std::min(fnoNumber, Nv);
       // because of the 'wrong' ordering of the eigenvalues
       // we have to zero the first Nv-NFno columns
@@ -139,7 +159,7 @@ void Mp2NaturalOrbitals::run() {
     std::iota(index.begin(), index.end(), 0);
     if (isArgumentGiven("occupationNumber")) {
       occNumber->write(index.size(), index.data(), w.data());
-      allocatedTensorArgument("occupationNumber", occNumber);
+      out.set<Tensor<double> *>("occupationNumber", occNumber);
       LOG(0, "writing:") << "occupationNumber\n";
     }
 
@@ -242,11 +262,11 @@ void Mp2NaturalOrbitals::run() {
     newRotatedOrbitals
         ->slice(dstStart, dstEnd, 1.0, rotatedOrbitals, srcStart, srcEnd, 1.0);
 
-    allocatedTensorArgument<>("RotatedOrbitals", newRotatedOrbitals);
-    allocatedTensorArgument("ParticleEigenEnergiesRediag", newEpsa);
+    out.set<Tensor<double> *>("RotatedOrbitals", newRotatedOrbitals);
+    out.set<Tensor<double> *>("ParticleEigenEnergiesRediag", newEpsa);
   } else { // UNRESTRICTED
 
-    auto Spins(getTensorArgument("Spins"));
+    auto Spins(in.get<Tensor<double> *>("Spins"));
     auto Dab(
         new Tensor<double>(2, vv.data(), syms.data(), *Vabij->wrld, "Dab"));
 
@@ -328,9 +348,9 @@ void Mp2NaturalOrbitals::run() {
     if (info != 0) throw "problem diagonalization (1) unatrualOrbitals\n";
 
     // TRUNCATE (2)
-    double occupationThreshold(getRealArgument("occupationThreshold", 1e-16));
+    double occupationThreshold(in.get<double>("occupationThreshold", 1e-16));
     if (isArgumentGiven("FnoAlpha")) {
-      int fnoNumber(getIntegerArgument("FnoAlpha"));
+      int fnoNumber(in.get<int64_t>("FnoAlpha"));
       // because of the 'wrong' ordering of the eigenvalues
       // we have to zero the first Nv-NFno columns
       for (int64_t a(0); a < Nalpha - fnoNumber; a++)
@@ -383,7 +403,7 @@ void Mp2NaturalOrbitals::run() {
 
     // TRUNCATE (2)
     if (isArgumentGiven("FnoBeta")) {
-      int fnoNumber(getIntegerArgument("FnoBeta"));
+      int fnoNumber(in.get<int64_t>("FnoBeta"));
       // because of the 'wrong' ordering of the eigenvalues
       // we have to zero the first Nv-NFno columns
       for (int64_t a(0); a < Nbeta - fnoNumber; a++)
@@ -559,7 +579,7 @@ void Mp2NaturalOrbitals::run() {
                    << "x" << rotationMatrix->lens[1] << std::endl;
     (*rotatedOrbitals)["mi"] = (*orbs)["mj"] * (*rotationMatrix)["ji"];
 
-    allocatedTensorArgument<>("RotatedOrbitals", rotatedOrbitals);
-    allocatedTensorArgument("ParticleEigenEnergiesRediag", epsaRediag);
+    out.set<Tensor<double> *>("RotatedOrbitals", rotatedOrbitals);
+    out.set<Tensor<double> *>("ParticleEigenEnergiesRediag", epsaRediag);
   }
 }

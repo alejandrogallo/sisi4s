@@ -4,10 +4,11 @@
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
 #include <util/Tensor.hpp>
+#include <math/Complex.hpp>
 
 using namespace sisi4s;
 
-double UegVertexGenerator::evalMadelung(const double v) {
+static double evalMadelung(const double v) {
   double kappa = pow(v, -1.0 / 3.0);
   double term2 = M_PI / (kappa * kappa * v);
   double term4 = 2 * kappa / sqrt(M_PI);
@@ -30,30 +31,55 @@ double UegVertexGenerator::evalMadelung(const double v) {
 }
 
 // define two functions which give the squared length of the grid-points
-size_t sL(const ivec a) { return a[0] * a[0] + a[1] * a[1] + a[2] * a[2]; }
-double sL(const dvec a) { return a[0] * a[0] + a[1] * a[1] + a[2] * a[2]; }
-double UegVertexGenerator::Vijji(const dvec a, const dvec b, const double v) {
+static size_t sL(const ivec a) {
+  return a[0] * a[0] + a[1] * a[1] + a[2] * a[2];
+}
+static double sL(const dvec a) {
+  return a[0] * a[0] + a[1] * a[1] + a[2] * a[2];
+}
+static double
+Vijji(const double madelung, const dvec a, const dvec b, const double v) {
   dvec q({a[0] - b[0], a[1] - b[1], a[2] - b[2]});
   if (sL(q) < 1e-8) return madelung;
   return 4.0 * M_PI / v / sL(q);
 }
 
-ALGORITHM_REGISTRAR_DEFINITION(UegVertexGenerator);
-
 IMPLEMENT_EMPTY_DRYRUN(UegVertexGenerator) {}
 
-void UegVertexGenerator::run() {
+DEFSPEC(
+    UegVertexGenerator,
+    SPEC_IN(
+        {"madelung",
+         SPEC_VALUE_DEF("The approximation for V(G=0)", double, -1.0)},
+        {"rs", SPEC_POSITIVE("Electron density to be used", double)},
+        {"halfGrid", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
+        {"hartreeFock",
+         SPEC_VALUE_DEF("Wether or not to calculate Hartree-Fock approximation",
+                        bool,
+                        true)},
+        {"NF", SPEC_VALUE_DEF("TODO: DOC", size_t, 0)},
+        {"No", SPEC_POSITIVE("The number of occupied orbitals", size_t)},
+        {"Nv", SPEC_VALUE("The number of unoccupied orbitals", size_t)}),
+    SPEC_OUT({"HoleEigenEnergies",
+              SPEC_VAROUT("The obtained one-body hole energies",
+                          Tensor<double> *)},
+             {"ParticleEigenEnergies",
+              SPEC_VAROUT("The obtained one-body particle energies",
+                          Tensor<double> *)},
+             {"CoulombVertex",
+              SPEC_VAROUT("The Coulomb vergex Γ[Gpq] calculated",
+                          Tensor<sisi4s::complex> *)}));
+
+IMPLEMENT_ALGORITHM(UegVertexGenerator) {
   // We use the HF reference by default.
-  bool lhfref(getIntegerArgument("hartreeFock", 1) == 1);
+  bool lhfref(in.get<bool>("hartreeFock"));
   bool lclosed(true);
-  No = getIntegerArgument("No");
-  Nv = getIntegerArgument("Nv");
-  rs = getRealArgument("rs");
-  NF = getIntegerArgument("NF", 0);
-  halfGrid = getIntegerArgument("halfGrid", 0) == 0;
-  madelung = getRealArgument("madelung", -1.0);
+  const size_t No = in.get<size_t>("No"), Nv = in.get<size_t>("Nv");
+  size_t NF = in.get<size_t>("NF");
+  double rs = in.get<double>("rs");
+  halfGrid = in.get<bool>("halfGrid");
+  double madelung = in.get<double>("madelung");
   size_t Np(No + Nv);
-  if (!No) throw("No larger zero please");
   if (rs <= 0.0) throw("Invalid rs");
 
   // setup the integer Grid.
@@ -69,15 +95,17 @@ void UegVertexGenerator::run() {
   sort(iGrid.begin(), iGrid.end(), [](ivec a, ivec b) {
     return sL(a) < sL(b);
   });
-  if (iGrid.size() < Np) throw("BUG related to Np & maxG\n");
+  if (iGrid.size() < Np) { throw("BUG related to Np & maxG\n"); }
   if (sL(iGrid[No]) == sL(iGrid[No - 1])) {
     OUT() << "WARNING: occupied orbitals form not a closed shell\n";
     if (!lhfref)
       throw("Zero gap system! Either change No or use Hartree-Fock!");
     lclosed = false;
   }
-  if (sL(iGrid[Np]) == sL(iGrid[Np - 1]))
+
+  if (sL(iGrid[Np]) == sL(iGrid[Np - 1])) {
     OUT() << "WARNING: virtual orbitals form not a closed shell\n";
+  }
   iGrid.resize(Np);
 
   // define volume, lattice Constant, and reciprocal lattice constant
@@ -95,7 +123,7 @@ void UegVertexGenerator::run() {
   for (auto &d : dGrid) {
     d[3] = 0.5 * sL(d); // add the kinetic energy
     double exchE(0.0);
-    for (size_t o(0); o < No; o++) exchE += Vijji(d, dGrid[o], v);
+    for (size_t o(0); o < No; o++) exchE += Vijji(madelung, d, dGrid[o], v);
     if (lhfref) d[3] -= exchE;
   }
   double refE(0.0);
@@ -108,7 +136,7 @@ void UegVertexGenerator::run() {
 
   for (size_t d(0); d < dGrid.size(); d++) energies[d] = dGrid[d][3];
 
-  double fermiEnergy((energies[No] + energies[No - 1]) / 2.0);
+  // double fermiEnergy((energies[No] + energies[No - 1]) / 2.0);
 
   // construct the momentum transition grid
   // 1.) get the largest momentum vector between two states p - q
@@ -138,8 +166,9 @@ void UegVertexGenerator::run() {
       }
   if (NF == 0) NF = momMap.size();
 
-  if (NF != momMap.size() || halfGrid || !lclosed)
+  if (NF != momMap.size() || halfGrid || !lclosed) {
     OUT() << "WARNING: the Vertex will not be correct! Just for profiling!\n";
+  }
 
   double fac(4.0 * M_PI / v);
 
@@ -165,9 +194,9 @@ void UegVertexGenerator::run() {
   auto epsi = new Tensor<double>(1, o, syms, *Sisi4s::world, "epsi"),
        epsa = new Tensor<double>(1, _v, syms, *Sisi4s::world, "epsa");
 
-  allocatedTensorArgument<sisi4s::complex>("CoulombVertex", coulombVertex);
-  allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
-  allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
+  out.set<Tensor<sisi4s::complex> *>("CoulombVertex", coulombVertex);
+  out.set<Tensor<double> *>("HoleEigenEnergies", epsi);
+  out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);
 
   // if we are in a dryRun there is nothing more to do
   // if (Sisi4s::dryRun) return result;

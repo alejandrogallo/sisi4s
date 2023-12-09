@@ -16,8 +16,6 @@ char const *ParticleHoleCoulombVertexReader::Chunk::REALSIA_MAGIC = "FTIAreal";
 char const *ParticleHoleCoulombVertexReader::Chunk::IMAGSIA_MAGIC = "FTIAimag";
 char const *ParticleHoleCoulombVertexReader::Chunk::EPSILONS_MAGIC = "FTODepsi";
 
-ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexReader);
-
 struct Unrestricter {
 
   Tensor<sisi4s::complex> *doVertex(Tensor<sisi4s::complex> *GammaGqr) const {
@@ -83,8 +81,21 @@ struct Unrestricter {
   }
 };
 
-void ParticleHoleCoulombVertexReader::run() {
-  std::string fileName(getTextArgument("file"));
+
+DEFSPEC(
+    ParticleHoleCoulombVertexReader,
+    SPEC_IN({"unrestricted", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+            {"file", SPEC_VALUE("TODO: DOC", std::string)}),
+    SPEC_OUT(
+        {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"ParticleHoleCoulombVertex",
+         SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)}));
+
+IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexReader) {
+  std::string fileName(in.get<std::string>("file"));
   LOG(0, "Reader") << "Reading Coulomb vertex from file " << fileName
                    << std::endl;
   MPI_File file;
@@ -123,10 +134,9 @@ void ParticleHoleCoulombVertexReader::run() {
                                                                 "GammaGai"));
 
   // Enter the allocated data (and by that type the output data to tensors)
-  allocatedTensorArgument("HoleEigenEnergies", epsi);
-  allocatedTensorArgument("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<sisi4s::complex>("ParticleHoleCoulombVertex",
-                                           GammaGai);
+  out.set<Tensor<double> *>("HoleEigenEnergies", epsi);
+  out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);
+  out.set<Tensor<sisi4s::complex> *>("ParticleHoleCoulombVertex", GammaGai);
 
   // Real and imaginary parts are read in seperately
   Tensor<double> realGammaGai(3,
@@ -173,22 +183,22 @@ void ParticleHoleCoulombVertexReader::run() {
   toComplexTensor(realGammaGai, imagGammaGai, *GammaGai);
 
   // handle unrestricted
-  int unrestricted(getIntegerArgument("unrestricted", 0));
+  int unrestricted(in.get<int64_t>("unrestricted", 0));
   Unrestricter u;
   if (unrestricted) {
     // Enter the allocated data (and by that type the output data to tensors)
     LOG(1, "Reader") << "Unrestricting " << epsi->get_name() << std::endl;
-    allocatedTensorArgument("HoleEigenEnergies", u.doEigenEnergies(epsi));
+    out.set<Tensor<double> *>("HoleEigenEnergies", u.doEigenEnergies(epsi));
     LOG(1, "Reader") << "Unrestricting " << epsa->get_name() << std::endl;
-    allocatedTensorArgument("ParticleEigenEnergies", u.doEigenEnergies(epsa));
+    out.set<Tensor<double> *>("ParticleEigenEnergies", u.doEigenEnergies(epsa));
     LOG(1, "Reader") << "Unrestricting " << GammaGai->get_name() << std::endl;
-    allocatedTensorArgument<complex>("ParticleHoleCoulombVertex",
-                                     u.doVertex(GammaGai));
+    out.set<Tensor<complex> *>("ParticleHoleCoulombVertex",
+                               u.doVertex(GammaGai));
   }
 }
 
 void ParticleHoleCoulombVertexReader::dryRun() {
-  std::string fileName(getTextArgument("file"));
+  std::string fileName(in.get<std::string>("file"));
   LOG(0, "Reader") << "Reading particle hole Coulomb vertex from file "
                    << fileName << std::endl;
   std::ifstream file(fileName.c_str(), std::ios::binary | std::ios::in);
@@ -219,11 +229,9 @@ void ParticleHoleCoulombVertexReader::dryRun() {
   DryTensor<complex> *GammaGai(
       new DryTensor<complex>(3, vertexLens, vertexSyms, SOURCE_LOCATION));
   // Enter the allocated data (and by that type the output data to tensors)
-  allocatedTensorArgument("HoleEigenEnergies", epsi);
-  allocatedTensorArgument("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<complex, DryTensor<complex>>(
-      "ParticleHoleCoulombVertex",
-      GammaGai);
+  out.set<Tensor<double> *>("HoleEigenEnergies", epsi);
+  out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);
+  out.set<DryTensor<complex> *>("ParticleHoleCoulombVertex", GammaGai);
 
   // Real and imaginary parts are read in seperately
   DryTensor<> realGammaGai(3, vertexLens, vertexSyms, SOURCE_LOCATION);

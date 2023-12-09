@@ -5,21 +5,34 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(GenerateRandomTensor);
+DEFSPEC(GenerateRandomTensor,
+        SPEC_IN({"dimensions",
+                 SPEC_VALUE_DEF("Dimensions of a tensor",
+                                std::vector<int>,
+                                {5, 5, 5, 5})},
+                {"complex",
+                 SPEC_VALUE_DEF("Create a complex tensor", bool, false)}, ),
+        SPEC_OUT({"Result",
+                  SPEC_VAROUT("The CTF tensor name", Tensor<double> *)}));
 
 IMPLEMENT_EMPTY_DRYRUN(GenerateRandomTensor) {}
 
-/**
- * \brief Testing environement
- */
-void GenerateRandomTensor::run() {
-
-  int nv(getIntegerArgument("Nv")), no(getIntegerArgument("No"));
-  int lens[] = {nv, nv, no, no};
-  int syms[] = {NS, NS, NS, NS};
-  Tensor<double> *C(new Tensor<double>(4, lens, syms, *Sisi4s::world, "C"));
+template <typename F>
+static void generate(std::vector<int> const &lens,
+                     std::vector<int> const &syms,
+                     Arguments &out) {
+  Tensor<F> *C =
+      new Tensor<F>(lens.size(), lens.data(), syms.data(), *Sisi4s::world);
   DefaultRandomEngine random;
   std::normal_distribution<double> normalDistribution(0.0, 1.0);
   setRandomTensor(*C, normalDistribution, random);
-  allocatedTensorArgument("Result", C);
+  out.set_force<Tensor<F> *>("Result", C);
+}
+
+IMPLEMENT_ALGORITHM(GenerateRandomTensor) {
+
+  std::vector<int> lens = in.get<std::vector<int>>("dimensions"),
+                   syms(lens.size(), NS);
+  in.get<bool>("complex") ? generate<sisi4s::complex>(lens, syms, out)
+                          : generate<double>(lens, syms, out);
 }

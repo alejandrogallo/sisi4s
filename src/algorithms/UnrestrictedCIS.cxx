@@ -27,33 +27,31 @@ template <Mode m, typename F>
 static void runGeneral(Algorithm *alg) {
 
   // Arguments
-  bool preconditionerRandom(alg->getIntegerArgument("preconditionerRandom", 0)
+  bool preconditionerRandom(alg->in.get<int64_t>("preconditionerRandom", 0)
                             == 1);
   double preconditionerRandomSigma(
-      alg->getRealArgument("preconditionerRandomSigma", 0.1));
-  bool refreshOnMaxBasisSize(alg->getIntegerArgument("refreshOnMaxBasisSize", 0)
+      alg->in.get<double>("preconditionerRandomSigma", 0.1));
+  bool refreshOnMaxBasisSize(alg->in.get<int64_t>("refreshOnMaxBasisSize", 0)
                              == 1);
   std::vector<int> oneBodyRdmIndices(
-      RangeParser(alg->getTextArgument("oneBodyRdmRange", "")).getRange());
-  int eigenStates(alg->getIntegerArgument("eigenStates", 1));
+      RangeParser(alg->in.get<std::string>("oneBodyRdmRange", "")).getRange());
+  int eigenStates(alg->in.get<int64_t>("eigenStates", 1));
   const double energyConvergence(
-      alg->getRealArgument("energyConvergence", 1e-6)),
-      amplitudesConvergence(
-          alg->getRealArgument("amplitudesConvergence", 1e-6));
-  bool intermediates(alg->getIntegerArgument("intermediates", 1));
-  unsigned int maxIterations(alg->getIntegerArgument("maxIterations", 32));
-  unsigned int minIterations(alg->getIntegerArgument("minIterations", 1));
+      alg->in.get<double>("energyConvergence", 1e-6)),
+      amplitudesConvergence(alg->in.get<double>("amplitudesConvergence", 1e-6));
+  bool intermediates(alg->in.get<int64_t>("intermediates", 1));
+  unsigned int maxIterations(alg->in.get<int64_t>("maxIterations", 32));
+  unsigned int minIterations(alg->in.get<int64_t>("minIterations", 1));
   std::vector<int> eigenvectorsIndices(
-      RangeParser(alg->getTextArgument("printEigenvectorsRange", ""))
+      RangeParser(alg->in.get<std::string>("printEigenvectorsRange", ""))
           .getRange());
-  Tensor<double> *epsi(
-      alg->getTensorArgument<double, Tensor<double>>("HoleEigenEnergies"));
-  Tensor<double> *epsa(
-      alg->getTensorArgument<double, Tensor<double>>("ParticleEigenEnergies"));
+  Tensor<double> *epsi(alg->in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(alg->in.get<Tensor<double> *>("ParticleEigenEnergies"));
   std::vector<int> refreshIterations(
-      RangeParser(alg->getTextArgument("refreshIterations", "")).getRange());
+      RangeParser(alg->in.get<std::string>("refreshIterations", ""))
+          .getRange());
   int Nv(epsa->lens[0]), No(epsi->lens[0]);
-  int maxBasisSize(alg->getIntegerArgument(
+  int maxBasisSize(alg->in.get<int64_t>(
       "maxBasisSize",
       No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2)));
 
@@ -75,8 +73,7 @@ static void runGeneral(Algorithm *alg) {
 
   // Get copy of couloumb integrals
 
-  Tensor<double> *pVijab(
-      alg->getTensorArgument<double, Tensor<double>>("HHPPCoulombIntegrals"));
+  Tensor<double> *pVijab(alg->in.get<Tensor<double> *>("HHPPCoulombIntegrals"));
   Tensor<F> cVijab(pVijab->order,
                    pVijab->lens,
                    pVijab->sym,
@@ -85,8 +82,7 @@ static void runGeneral(Algorithm *alg) {
   Tensor<F> *Vijab(&cVijab);
   toComplexTensor(*pVijab, *Vijab);
 
-  Tensor<double> *pViajb(
-      alg->getTensorArgument<double, Tensor<double>>("HPHPCoulombIntegrals"));
+  Tensor<double> *pViajb(alg->in.get<Tensor<double> *>("HPHPCoulombIntegrals"));
   Tensor<F> cViajb(pViajb->order,
                    pViajb->lens,
                    pViajb->sym,
@@ -105,12 +101,9 @@ static void runGeneral(Algorithm *alg) {
       && alg->isArgumentGiven("PPFockMatrix")) {
     LOG(0, "uCIS") << "Using non-canonical orbitals" << std::endl;
 
-    Tensor<double> *realFia(
-        alg->getTensorArgument<double, Tensor<double>>("HPFockMatrix"));
-    Tensor<double> *realFab(
-        alg->getTensorArgument<double, Tensor<double>>("PPFockMatrix"));
-    Tensor<double> *realFij(
-        alg->getTensorArgument<double, Tensor<double>>("HHFockMatrix"));
+    Tensor<double> *realFia(alg->in.get<Tensor<double> *>("HPFockMatrix"));
+    Tensor<double> *realFab(alg->in.get<Tensor<double> *>("PPFockMatrix"));
+    Tensor<double> *realFij(alg->in.get<Tensor<double> *>("HHFockMatrix"));
     toComplexTensor(*realFij, *Fij);
     toComplexTensor(*realFab, *Fab);
     toComplexTensor(*realFia, *Fia);
@@ -204,8 +197,35 @@ static void runGeneral(Algorithm *alg) {
 
 IMPLEMENT_EMPTY_DRYRUN(UnrestrictedCIS) {}
 
+
+DEFSPEC(
+    UnrestrictedCIS,
+    SPEC_IN(
+        {"amplitudesConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
+        {"energyConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
+        {"preconditionerRandomSigma", SPEC_VALUE_DEF("TODO: DOC", double, 0.1)},
+        {"complexVersion", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"eigenStates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"intermediates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 32)},
+        {"minIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"preconditionerRandom", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"refreshOnMaxBasisSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"oneBodyRdmRange", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"printEigenvectorsRange",
+         SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"refreshIterations", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"HHFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT());
+
 IMPLEMENT_ALGORITHM(UnrestrictedCIS) {
-  if (getIntegerArgument("complexVersion", 1) == 1) {
+  if (in.get<int64_t>("complexVersion", 1) == 1) {
     LOG(0, "uCIS") << "Using complex code" << std::endl;
     runGeneral<CIS, complex>(this);
   } else {

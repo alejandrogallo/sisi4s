@@ -3,20 +3,30 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(TensorContraction);
-
 /**
  * \brief Testing environement
  */
-void TensorContraction::run() {
-  Tensor<double> *A(getTensorArgument<>("A"));
-  Tensor<double> *B(getTensorArgument<>("B"));
-  Tensor<double> *C(getTensorArgument<>("Result"));
-  C->contract(getRealArgument("alpha", 1.0),
+
+DEFSPEC(TensorContraction,
+        SPEC_IN({"alpha", SPEC_VALUE_DEF("TODO: DOC", double, 1.0)},
+                {"beta", SPEC_VALUE_DEF("TODO: DOC", double, 0.0)},
+                {"AIndex", SPEC_VALUE("TODO: DOC", std::string)},
+                {"BIndex", SPEC_VALUE("TODO: DOC", std::string)},
+                {"ResultIndex", SPEC_VALUE("TODO: DOC", std::string)},
+                {"A", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"B", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"Result", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(TensorContraction) {
+  Tensor<double> *A(in.get<Tensor<double> *>("A"));
+  Tensor<double> *B(in.get<Tensor<double> *>("B"));
+  Tensor<double> *C(in.get<Tensor<double> *>("Result"));
+  C->contract(in.get<double>("alpha", 1.0),
               *A,
-              getTextArgument("AIndex").c_str(),
+              in.get<std::string>("AIndex").c_str(),
               *B,
-              getTextArgument("BIndex").c_str(),
-              getRealArgument("beta", 0.0),
-              getTextArgument("ResultIndex").c_str());
+              in.get<std::string>("BIndex").c_str(),
+              in.get<double>("beta", 0.0),
+              in.get<std::string>("ResultIndex").c_str());
 }

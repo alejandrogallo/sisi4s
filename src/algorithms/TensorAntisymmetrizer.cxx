@@ -40,13 +40,11 @@ static std::vector<IntegralInfo> get_integral_infos() {
 static const std::type_info &check_type(Algorithm &alg) {
   const std::vector<IntegralInfo> infos = get_integral_infos();
   for (const auto &integral : infos)
-    if (alg.isArgumentGiven(integral.name)) {
-      Data *tensor_data(alg.getArgumentData(integral.name));
-      TensorData<double> *real_tensor_data(
-          dynamic_cast<TensorData<double> *>(tensor_data));
+    if (alg.in.present(integral.name)) {
+      bool real_tensor_data = in.is_of_type<Tensor<double> *>(integral.name);
       if (real_tensor_data) return typeid(double);
-      TensorData<sisi4s::complex> *imag_tensor_data(
-          dynamic_cast<TensorData<sisi4s::complex> *>(tensor_data));
+      bool imag_tensor_data =
+          in.is_of_type<Tensor<sisi4s::complex>>(integral.name);
       if (imag_tensor_data) return typeid(sisi4s::complex);
     }
   throw "Could not detect type of integrals in TensorAntisymmetrizer";
@@ -71,7 +69,7 @@ static void run(Algorithm &alg) {
       LOG(1, "TensorAntisymmetrizer")
           << "Copying " << integral.name << std::endl;
       integralCopies[integral.name] =
-          NEW(Tensor<F>, *alg.getTensorArgument<F>(integral.name));
+          NEW(Tensor<F>, *alg.in.get<Tensor<F> *>(integral.name));
     }
   }
 
@@ -96,7 +94,7 @@ static void run(Algorithm &alg) {
             << "  " << integral.name << "[" << integral.ids
             << "] -= " << antigral.name << "[" << antigral.ids << "]"
             << std::endl;
-        auto inteCtf(alg.getTensorArgument<F>(integral.name));
+        auto inteCtf(alg.in.get<Tensor<F> *>(integral.name));
         Tensor<F> *antiCtf;
         if (antigral.name == integral.name) {
           antiCtf = inteCtf;
@@ -125,6 +123,14 @@ static void run(Algorithm &alg) {
   }
 }
 
+
+DEFSPEC(TensorAntisymmetrizer,
+        SPEC_IN({"mode", SPEC_VALUE_DEF("TODO: DOC", std::string, "up")},
+                {integral.name, SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"left", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"right", SPEC_VARIN("TODO: DOC", Tensor<F> *)}),
+        SPEC_OUT());
+
 IMPLEMENT_ALGORITHM(TensorAntisymmetrizer) {
   if (typeid(double) == check_type(*this)) {
     LOG(1, "TensorAntisymmetrizer") << "real integrals detected " << std::endl;
@@ -138,10 +144,10 @@ IMPLEMENT_ALGORITHM(TensorAntisymmetrizer) {
 
 template <typename F>
 static void run2(Algorithm &alg) {
-  auto &left = *alg.getTensorArgument<F>("left"),
-       &right = *alg.getTensorArgument<F>("right");
+  auto &left = *alg.in.get<Tensor<F> *>("left"),
+       &right = *alg.in.get<Tensor<F> *>("right");
 
-  const std::string mode = alg.getTextArgument("mode", "up");
+  const std::string mode = alg.in.get<std::string>("mode", "up");
 
   if (left.order != 4)
     throw "TensorAntisymmetrizer2 can only antisymmetrize 4 index tensors";
@@ -150,19 +156,16 @@ static void run2(Algorithm &alg) {
   else left["abij"] -= right["abji"];
 }
 
-static const std::type_info &check_type2(Algorithm &alg) {
-  Data *tensor_data(alg.getArgumentData("left"));
-  TensorData<double> *real_tensor_data(
-      dynamic_cast<TensorData<double> *>(tensor_data));
-  if (real_tensor_data) return typeid(double);
-  TensorData<sisi4s::complex> *imag_tensor_data(
-      dynamic_cast<TensorData<sisi4s::complex> *>(tensor_data));
-  if (imag_tensor_data) return typeid(sisi4s::complex);
-  throw "Could not detect type of integrals in TensorAntisymmetrizer";
-}
+
+DEFSPEC(TensorAntisymmetrizer,
+        SPEC_IN({"mode", SPEC_VALUE_DEF("TODO: DOC", std::string, "up")},
+                {integral.name, SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"left", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
+                {"right", SPEC_VARIN("TODO: DOC", Tensor<F> *)}),
+        SPEC_OUT());
 
 IMPLEMENT_ALGORITHM(TensorAntisymmetrizer2) {
-  if (typeid(double) == check_type2(*this)) {
+  if (in.is_of_type<Tensor<double> *>("Data")) {
     LOG(1, "TensorAntisymmetrizer2") << "real integrals detected " << std::endl;
     ::run2<double>(*this);
   } else {

@@ -22,8 +22,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(CcsdEquationOfMotionDavidson);
-
 IMPLEMENT_EMPTY_DRYRUN(CcsdEquationOfMotionDavidson) {}
 #define LOGGER(_l) LOG(_l, "CcsdEomDavid")
 
@@ -60,9 +58,45 @@ struct SzOperator : public SpinOperator<F> {
   }
 };
 
-void CcsdEquationOfMotionDavidson::run() {
+DEFSPEC(
+    CcsdEquationOfMotionDavidson,
+    SPEC_IN(
+        {"amplitudesConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
+        {"energyConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
+        {"preconditionerRandomSigma",
+         SPEC_VALUE_DEF("TODO: DOC", double, 0.01)},
+        {"complexVersion", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"eigenstates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"intermediates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 32)},
+        {"minIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"preconditionerRandom", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"preconditionerSpinFlip", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"printEigenvectorsDoubles", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"refreshOnMaxBasisSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"structureFactorFockInOneBody",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"structureFactorHartreeInOneBody",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"structureFactorOnlyDoubles", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"structureFactorOnlySingles", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {a, SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CoulombKernel", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"GNorm", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {integral.name, SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"PPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"SinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT());
 
-  if (getIntegerArgument("complexVersion", 1) == 1) {
+IMPLEMENT_ALGORITHM(CcsdEquationOfMotionDavidson) {
+
+  if (in.get<int64_t>("complexVersion", 1) == 1) {
     LOGGER(0) << "Using complex code" << std::endl;
     CcsdEquationOfMotionDavidson::run<complex>();
   } else {
@@ -138,36 +172,31 @@ void CcsdEquationOfMotionDavidson::run() {
                                            "structureFactorOnlyDoubles",
                                            "structureFactorHartreeInOneBody",
                                            "structureFactorFockInOneBody"};
-  // possible integrals
-  for (auto &i : requiredIntegrals) { allArguments.push_back(i.name); }
-  checkArgumentsOrDie(allArguments);
 
   const struct {
     double sigma;
     bool random;
     bool spinFlip;
-  } precSettings = {getRealArgument("preconditionerRandomSigma", 0.01),
-                    getIntegerArgument("preconditionerRandom", 0) == 1,
-                    getIntegerArgument("preconditionerSpinFlip", 1) == 1};
+  } precSettings = {in.get<double>("preconditionerRandomSigma", 0.01),
+                    in.get<int64_t>("preconditionerRandom", 0) == 1,
+                    in.get<int64_t>("preconditionerSpinFlip", 1) == 1};
 
-  const double energyConvergence(getRealArgument("energyConvergence", 1e-6)),
-      amplitudesConvergence(getRealArgument("amplitudesConvergence", 1e-6));
+  const double energyConvergence(in.get<double>("energyConvergence", 1e-6)),
+      amplitudesConvergence(in.get<double>("amplitudesConvergence", 1e-6));
 
   const typename SimilarityTransformedHamiltonian<F>::StructureFactorSettings
-      sfSettings = {getIntegerArgument("structureFactorOnlySingles", 0) == 1,
-                    getIntegerArgument("structureFactorOnlyDoubles", 0) == 1,
-                    getIntegerArgument("structureFactorHartreeInOneBody", 0)
-                        == 1,
-                    getIntegerArgument("structureFactorFockInOneBody", 0) == 1};
+      sfSettings = {in.get<int64_t>("structureFactorOnlySingles", 0) == 1,
+                    in.get<int64_t>("structureFactorOnlyDoubles", 0) == 1,
+                    in.get<int64_t>("structureFactorHartreeInOneBody", 0) == 1,
+                    in.get<int64_t>("structureFactorFockInOneBody", 0) == 1};
 
-  const bool intermediates(getIntegerArgument("intermediates", 1)),
-      refreshOnMaxBasisSize(getIntegerArgument("refreshOnMaxBasisSize", 0)
-                            == 1),
+  const bool intermediates(in.get<int64_t>("intermediates", 1)),
+      refreshOnMaxBasisSize(in.get<int64_t>("refreshOnMaxBasisSize", 0) == 1),
       printEigenvectorsDoubles =
-          getIntegerArgument("printEigenvectorsDoubles", 1) == 1;
+          in.get<int64_t>("printEigenvectorsDoubles", 1) == 1;
 
   const auto argToRange = [this](const std::string &a) -> std::vector<int> {
-    return RangeParser(this->getTextArgument(a, "")).getRange();
+    return RangeParser(this->in.get<std::string>(a, "")).getRange();
   };
 
   const std::vector<int> refreshIterations(argToRange("refreshIterations")),
@@ -175,20 +204,20 @@ void CcsdEquationOfMotionDavidson::run() {
       eigenvectorsIndices(argToRange("printEigenvectorsRange")),
       structureFactorIndices(argToRange("structureFactorRange"));
 
-  const unsigned int eigenStates(getIntegerArgument("eigenstates", 1)),
-      maxIterations(getIntegerArgument("maxIterations", 32)),
-      minIterations(getIntegerArgument("minIterations", 1));
+  const unsigned int eigenStates(in.get<int64_t>("eigenstates", 1)),
+      maxIterations(in.get<int64_t>("maxIterations", 32)),
+      minIterations(in.get<int64_t>("minIterations", 1));
 
-  auto *epsi(getTensorArgument<double>("HoleEigenEnergies")),
-      *epsa(getTensorArgument<double>("ParticleEigenEnergies"));
+  auto *epsi(in.get<Tensor<double> *>("HoleEigenEnergies")),
+      *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
 
   int Nv(epsa->lens[0]), No(epsi->lens[0]),
       syms[] = {NS, NS, NS, NS}, vvoo[] = {Nv, Nv, No, No}, vv[] = {Nv, Nv},
       ov[] = {No, Nv}, vo[] = {Nv, No}, oo[] = {No, No};
 
   const int maxBasisSize =
-      getIntegerArgument("maxBasisSize",
-                         No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2));
+      in.get<int64_t>("maxBasisSize",
+                      No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2));
 
   // Hilfsfunktion zum Rauschreiben von Tensoren
   const auto _writeText = TensorIo::writeText<F>;
@@ -213,7 +242,7 @@ void CcsdEquationOfMotionDavidson::run() {
 
   for (auto &integral : requiredIntegrals) {
     LOGGER(0) << "Converting " << integral.name << std::endl;
-    auto in(getTensorArgument<double>(integral.name));
+    auto in(in.get<Tensor<double> *>(integral.name));
     integral.data =
         NEW(Tensor<F>, in->order, in->lens, in->sym, *in->wrld, in->get_name());
     toComplexTensor(*in, *integral.data);
@@ -228,12 +257,9 @@ void CcsdEquationOfMotionDavidson::run() {
       && isArgumentGiven("PPFockMatrix")) {
     LOGGER(0) << "Using non-canonical orbitals" << std::endl;
 
-    Tensor<double> *realFia(
-        getTensorArgument<double, Tensor<double>>("HPFockMatrix"));
-    Tensor<double> *realFab(
-        getTensorArgument<double, Tensor<double>>("PPFockMatrix"));
-    Tensor<double> *realFij(
-        getTensorArgument<double, Tensor<double>>("HHFockMatrix"));
+    Tensor<double> *realFia(in.get<Tensor<double> *>("HPFockMatrix"));
+    Tensor<double> *realFab(in.get<Tensor<double> *>("PPFockMatrix"));
+    Tensor<double> *realFij(in.get<Tensor<double> *>("HHFockMatrix"));
     toComplexTensor(*realFij, *Fij);
     toComplexTensor(*realFab, *Fab);
     toComplexTensor(*realFia, *Fia);
@@ -248,12 +274,8 @@ void CcsdEquationOfMotionDavidson::run() {
 
   Tensor<F> Tai(2, vo, syms, *Sisi4s::world, "Tai");
   Tensor<F> Tabij(4, vvoo, syms, *Sisi4s::world, "Tabij");
-  toComplexTensor(
-      (*getTensorArgument<double, Tensor<double>>("SinglesAmplitudes")),
-      Tai);
-  toComplexTensor(
-      (*getTensorArgument<double, Tensor<double>>("DoublesAmplitudes")),
-      Tabij);
+  toComplexTensor((*in.get<Tensor<double> *>("SinglesAmplitudes")), Tai);
+  toComplexTensor((*in.get<Tensor<double> *>("DoublesAmplitudes")), Tabij);
 
   // INITIALIZE SIMILARITY TRANSFORMED HAMILTONIAN ===========================
   SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
@@ -402,9 +424,9 @@ void CcsdEquationOfMotionDavidson::run() {
 
   // STRUCTURE FACTOR  =======================================================
   if (structureFactorIndices.size()) {
-    auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
-    auto V(getTensorArgument<double>("CoulombKernel")),
-        Vp(getTensorArgument<double>("CoulombKernel"));
+    auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+    auto V(in.get<Tensor<double> *>("CoulombKernel")),
+        Vp(in.get<Tensor<double> *>("CoulombKernel"));
     CTF::Transform<double, double>(
         [](double x, double &y) { y = 1 / x; })((*V)["G"], (*Vp)["G"]);
     complex madelungC;
@@ -414,7 +436,7 @@ void CcsdEquationOfMotionDavidson::run() {
     LOGGER(1) << "Madelung : complex : " << madelungC << std::endl;
     LOGGER(1) << "Madelung : real    : " << madelung << std::endl;
 
-    // const auto G(getTensorArgument<double>("GNorm"));
+    // const auto G(in.get<Tensor<double>*>("GNorm"));
     //  this is sqrt{ 1/kernel } without constants
     // const double vMadelung = 1 / madelung / madelung;
     // Tensor<double> V(G);

@@ -13,12 +13,9 @@ DEFINE_ALGORITHM_HEADER(
 
     UegVertexGenerator,
 
-    double evalMadelung(double volume);
-    double Vijji(const dvec a, const dvec b, const double v);
-
     bool halfGrid;
-    size_t No, Nv, NF;
-    double rs, madelung;);
+
+);
 } // namespace sisi4s
 
 #endif

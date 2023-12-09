@@ -15,11 +15,19 @@
 using namespace sisi4s;
 using namespace CTF;
 
-ALGORITHM_REGISTRAR_DEFINITION(PQRSCoulombIntegralsToVertex);
-
 IMPLEMENT_EMPTY_DRYRUN(PQRSCoulombIntegralsToVertex) {}
 
-void PQRSCoulombIntegralsToVertex::run() {
+
+DEFSPEC(PQRSCoulombIntegralsToVertex,
+        SPEC_IN({"HoleEigenEnergies",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"ParticleEigenEnergies",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                {"PQRSCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(PQRSCoulombIntegralsToVertex) {
 
   if (!isArgumentGiven("PQRSCoulombIntegrals")) {
     throw new EXCEPTION("Need pqrs coulomb integrals");
@@ -31,9 +39,9 @@ void PQRSCoulombIntegralsToVertex::run() {
     throw new EXCEPTION("Need particle energies");
   }
 
-  auto pqrs(getTensorArgument<>("PQRSCoulombIntegrals"));
-  auto epsi(getTensorArgument<>("HoleEigenEnergies"));
-  auto epsa(getTensorArgument<>("ParticleEigenEnergies"));
+  auto pqrs(in.get<Tensor<double> *>("PQRSCoulombIntegrals"));
+  auto epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  auto epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
   auto No = epsi->lens[0];
   auto Nv = epsa->lens[0];
   auto Np = No + Nv;

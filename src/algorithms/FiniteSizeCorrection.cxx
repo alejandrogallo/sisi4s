@@ -24,17 +24,50 @@
 using namespace sisi4s;
 using namespace CTF;
 
-ALGORITHM_REGISTRAR_DEFINITION(FiniteSizeCorrection);
 
-void FiniteSizeCorrection::run() {
-  int fReadFromFile(getIntegerArgument("fReadFromFile", 0));
+DEFSPEC(
+    FiniteSizeCorrection,
+    SPEC_IN(
+        {"constantFactor", SPEC_VALUE("TODO: DOC", double)},
+        {"cutOffRadius", SPEC_VALUE_DEF("TODO: DOC", double, 100)},
+        {"shortestGvector", SPEC_VALUE("TODO: DOC", double)},
+        {"volume", SPEC_VALUE("TODO: DOC", double)},
+        {"FiniteSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"fReadFromFile", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"fTricubic", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"gridPointsFibonacci",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_NUM_FIBONACCI)},
+        {"gridPointsInterpolation", SPEC_VALUE_DEF("TODO: DOC", int64_t, 61)},
+        {"kpoints", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"orbitalPairEnd", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+        {"orbitalPairStart", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CoulombVertexSingularVectors",
+         SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"ParticleHoleCoulombVertex",
+         SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"SinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CoulombKernel", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"Momenta", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"SinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"StructureFactor", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT({"RealLattice", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"ReciprocalLattice", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"StructureFactor", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"StructureFactors", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"StructureFactort", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(FiniteSizeCorrection) {
+  int fReadFromFile(in.get<int64_t>("fReadFromFile", 0));
   if (fReadFromFile == 1) {
     LOG(0, "FiniteSize") << "Reading structure factor from file" << std::endl;
     readFromFile();
   } else {
-    Data *Tabij(getArgumentData("DoublesAmplitudes"));
-    TensorData<double> *realTabij(dynamic_cast<TensorData<double> *>(Tabij));
-    if (realTabij) {
+    if (in.is_of_type<Tensor<double> *>("DoublesAmplitudes")) {
       LOG(0, "FiniteSize") << "Calculating real structure factor" << std::endl;
       calculateRealStructureFactor();
     } else {
@@ -44,7 +77,7 @@ void FiniteSizeCorrection::run() {
     }
   }
 
-  int fFiniteSizeCorrection(getIntegerArgument("FiniteSize", 0));
+  int fFiniteSizeCorrection(in.get<int64_t>("FiniteSize", 0));
   if (fFiniteSizeCorrection == 0) {
     LOG(0, "FiniteSize") << "Interpolating and integrating" << std::endl;
     interpolation3D();
@@ -54,7 +87,7 @@ void FiniteSizeCorrection::run() {
 }
 
 void FiniteSizeCorrection::dryRun() {
-  int fReadFromFile(getIntegerArgument("fReadFromFile", 0));
+  int fReadFromFile(in.get<int64_t>("fReadFromFile", 0));
   if (fReadFromFile == 1) {
     LOG(0, "FiniteSize") << "Reading structure factor from file" << std::endl;
   } else {
@@ -102,8 +135,8 @@ public:
 
 void FiniteSizeCorrection::readFromFile() {
   LOG(0, "readFromFile") << "reading " << std::endl;
-  Tensor<double> *realVG(getTensorArgument<>("CoulombKernel"));
-  Tensor<double> *realSG(getTensorArgument<>("StructureFactor"));
+  Tensor<double> *realVG(in.get<Tensor<double> *>("CoulombKernel"));
+  Tensor<double> *realSG(in.get<Tensor<double> *>("StructureFactor"));
   LOG(1, "readFromFile") << "success\n Loading into Vectors " << std::endl;
   NG = realVG->lens[0];
   VofG.resize(NG);
@@ -116,14 +149,14 @@ void FiniteSizeCorrection::readFromFile() {
 
 void FiniteSizeCorrection::calculateRealStructureFactor() {
   // Read the Particle/Hole Eigenenergies
-  Tensor<double> *epsi(getTensorArgument<>("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument<>("ParticleEigenEnergies"));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
   int Np(No + Nv);
 
-  int orbitalPairStart(getIntegerArgument("orbitalPairStart", -1));
-  int orbitalPairEnd(getIntegerArgument("orbitalPairEnd", -1));
+  int orbitalPairStart(in.get<int64_t>("orbitalPairStart", -1));
+  int orbitalPairEnd(in.get<int64_t>("orbitalPairEnd", -1));
 
   if (orbitalPairStart < 0 || orbitalPairStart >= orbitalPairEnd) {
     orbitalPairStart = 0;
@@ -150,7 +183,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
 
   // Read the Coulomb vertex GammaGqr
   if (isArgumentGiven("CoulombVertex")) {
-    Tensor<complex> *GammaFqr(getTensorArgument<complex>("CoulombVertex"));
+    Tensor<complex> *GammaFqr(in.get<Tensor<complex> *>("CoulombVertex"));
     // Get the Particle Hole Coulomb Vertex
     int NF(GammaFqr->lens[0]);
 
@@ -161,7 +194,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
 
     if (isArgumentGiven("CoulombVertexSingularVectors")) {
       Tensor<complex> *UGF(
-          getTensorArgument<complex>("CoulombVertexSingularVectors"));
+          in.get<Tensor<complex> *>("CoulombVertexSingularVectors"));
       int lens[] = {(int)UGF->lens[0], (int)Nv, (int)No};
       GammaGai = NEW(Tensor<complex>,
                      3,
@@ -188,7 +221,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
   } else if (isArgumentGiven("ParticleHoleCoulombVertex")) {
     if (orbitalPairs) {
       Tensor<complex> *GGai(
-          getTensorArgument<complex>("ParticleHoleCoulombVertex"));
+          in.get<Tensor<complex> *>("ParticleHoleCoulombVertex"));
       int NF(GGai->lens[0]);
       int GGaiStart[] = {0, aStart, iStart};
       int GGaiEnd[] = {NF, aEnd, iEnd};
@@ -201,13 +234,13 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
           ->slice(sGGaiStart, sGGaiEnd, 0.0, *GGai, GGaiStart, GGaiEnd, 1.0);
     } else {
       GammaGai = NEW(Tensor<complex>,
-                     getTensorArgument<complex>("ParticleHoleCoulombVertex"));
+                     in.get<Tensor<complex> *>("ParticleHoleCoulombVertex"));
     }
   } else {
     throw new EXCEPTION("Need Appropriate Coulomb Vertex");
   }
 
-  Tensor<double> *realInfVG(getTensorArgument<>("CoulombKernel"));
+  Tensor<double> *realInfVG(in.get<Tensor<double> *>("CoulombKernel"));
   Tensor<double> *realVG(new Tensor<double>(false, *realInfVG));
   // Define take out inf funciton
   class TakeOutInf {
@@ -277,10 +310,10 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
 
   Tensor<double> *realTabij;
   if (orbitalPairs) {
-    Tensor<double> *Tabij(getTensorArgument("DoublesAmplitudes"));
+    Tensor<double> *Tabij(in.get<Tensor<double> *>("DoublesAmplitudes"));
     if (isArgumentGiven("SinglesAmplitudes")) {
       // Get Tai
-      Tensor<double> *realTai(getTensorArgument("SinglesAmplitudes"));
+      Tensor<double> *realTai(in.get<Tensor<double> *>("SinglesAmplitudes"));
       (*Tabij)["abij"] += (*realTai)["ai"] * (*realTai)["bj"];
     }
     int aiSliceStart[] = {0, 0, orbitalPairStart, orbitalPairStart};
@@ -291,11 +324,11 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
     (*realTabij) = Tabij->slice(aiSliceStart, aiSliceEnd);
   } else {
     // Get Tabij
-    realTabij = getTensorArgument("DoublesAmplitudes");
+    realTabij = in.get<Tensor<double> *>("DoublesAmplitudes");
 
     if (isArgumentGiven("SinglesAmplitudes")) {
       // Get Tai
-      Tensor<double> *realTai(getTensorArgument("SinglesAmplitudes"));
+      Tensor<double> *realTai(in.get<Tensor<double> *>("SinglesAmplitudes"));
       (*realTabij)["abij"] += (*realTai)["ai"] * (*realTai)["bj"];
     }
   }
@@ -316,11 +349,11 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
       (-1.0) * imagConjCGai["Gaj"] * imagCGai["Gbi"] * (*realTabij)["abij"];
 
   (*realSG)["G"] = (2.0) * (*realSGd)["G"] + (-1.0) * (*realSGx)["G"];
-  allocatedTensorArgument<>("StructureFactor", realSG);
+  out.set<Tensor<double> *>("StructureFactor", realSG);
   if (isArgumentGiven("StructureFactors")) {
     CTF::Vector<> *realSGs(new CTF::Vector<>(NG, *GammaGai->wrld, "realSGs"));
     (*realSGs)["G"] = (0.5) * (*realSGd)["G"] + (0.5) * (*realSGx)["G"];
-    allocatedTensorArgument<>("StructureFactors", realSGs);
+    out.set<Tensor<double> *>("StructureFactors", realSGs);
     Scalar<> senergy(*Sisi4s::world);
     senergy[""] = (*realVG)["G"] * (*realSGs)["G"];
     double _senergy(senergy.get_val());
@@ -330,7 +363,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
   if (isArgumentGiven("StructureFactort")) {
     CTF::Vector<> *realSGt(new CTF::Vector<>(NG, *GammaGai->wrld, "realSGt"));
     (*realSGt)["G"] = (1.5) * (*realSGd)["G"] + (-1.5) * (*realSGx)["G"];
-    allocatedTensorArgument<>("StructureFactort", realSGt);
+    out.set<Tensor<double> *>("StructureFactort", realSGt);
     Scalar<> tenergy(*Sisi4s::world);
     tenergy[""] = (*realVG)["G"] * (*realSGt)["G"];
     double _tenergy(tenergy.get_val());
@@ -344,7 +377,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
 }
 
 void FiniteSizeCorrection::calculateComplexStructureFactor() {
-  Tensor<double> *realInfVG(getTensorArgument<>("CoulombKernel"));
+  Tensor<double> *realInfVG(in.get<Tensor<double> *>("CoulombKernel"));
   Tensor<double> *realVG(new Tensor<double>(false, *realInfVG));
   // Define take out inf funciton
   class TakeOutInf {
@@ -379,16 +412,16 @@ void FiniteSizeCorrection::calculateComplexStructureFactor() {
   toComplexTensor(realInvSqrtVG, invSqrtVG);
 
   // Read the Coulomb vertex GammaGqr
-  Tensor<complex> *GammaFqr(getTensorArgument<complex>("CoulombVertex"));
+  Tensor<complex> *GammaFqr(in.get<Tensor<complex> *>("CoulombVertex"));
   Tensor<complex> *GammaGqr;
 
   // Read the Particle/Hole Eigenenergies
-  Tensor<double> *epsi(getTensorArgument<>("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument<>("ParticleEigenEnergies"));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
 
   if (isArgumentGiven("CoulombVertexSingularVectors")) {
     Tensor<complex> *UGF(
-        getTensorArgument<complex>("CoulombVertexSingularVectors"));
+        in.get<Tensor<complex> *>("CoulombVertexSingularVectors"));
     int lens[] = {(int)UGF->lens[0],
                   (int)GammaFqr->lens[1],
                   (int)GammaFqr->lens[2]};
@@ -449,11 +482,11 @@ void FiniteSizeCorrection::calculateComplexStructureFactor() {
   */
 
   // Get Tabij
-  Tensor<complex> *Tabij(getTensorArgument<complex>("DoublesAmplitudes"));
+  Tensor<complex> *Tabij(in.get<Tensor<complex> *>("DoublesAmplitudes"));
 
   if (isArgumentGiven("SinglesAmplitudes")) {
     // Get Tai
-    Tensor<complex> *Tai(getTensorArgument<complex>("SinglesAmplitudes"));
+    Tensor<complex> *Tai(in.get<Tensor<complex> *>("SinglesAmplitudes"));
     (*Tabij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
   }
 
@@ -466,7 +499,7 @@ void FiniteSizeCorrection::calculateComplexStructureFactor() {
   (*SG)["G"] +=
       (-1.0) * conjTransposeCGia["Gja"] * CGia["Gib"] * (*Tabij)["abij"];
   fromComplexTensor(*SG, *realSG);
-  allocatedTensorArgument<>("StructureFactor", realSG);
+  out.set<Tensor<double> *>("StructureFactor", realSG);
 
   VofG.resize(NG);
   realVG->read_all(VofG.data());
@@ -478,13 +511,12 @@ void FiniteSizeCorrection::dryCalculateStructureFactor() {
   DryTensor<complex> *GammaGai(nullptr);
   // Definition of the variables
   if (isArgumentGiven("CoulombVertex")) {
-    DryTensor<complex> *GammaFai(
-        getTensorArgument<complex, DryTensor<complex>>("CoulombVertex"));
+    DryTensor<complex> *GammaFai(in.get<DryTensor<complex> *>("CoulombVertex"));
     // don't slice in dry run
     GammaGai = GammaFai;
   } else if (isArgumentGiven("ParticleHoleCoulombVertex")) {
-    DryTensor<complex> *GammaFai(getTensorArgument<complex, DryTensor<complex>>(
-        "ParticleHoleCoulombVertex"));
+    DryTensor<complex> *GammaFai(
+        in.get<DryTensor<complex> *>("ParticleHoleCoulombVertex"));
     GammaGai = GammaFai;
   }
 
@@ -506,10 +538,8 @@ void FiniteSizeCorrection::dryCalculateStructureFactor() {
   DryTensor<complex> conjCGai(CGai);
 
   // Read the Particle/Hole Eigenenergies epsi epsa required for the energy
-  DryTensor<> *epsi(
-      getTensorArgument<double, DryTensor<double>>("HoleEigenEnergies"));
-  DryTensor<> *epsa(
-      getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies"));
+  DryTensor<> *epsi(in.get<DryTensor<double> *>("HoleEigenEnergies"));
+  DryTensor<> *epsa(in.get<DryTensor<double> *>("ParticleEigenEnergies"));
 
   // Compute the No,Nv
   int No(epsi->lens[0]);
@@ -523,8 +553,8 @@ void FiniteSizeCorrection::dryCalculateStructureFactor() {
   DryTensor<> rTabij(Tabij);
   DryTensor<> iTabij(Tabij);
   int syms[] = {NS, NS};
-  allocatedTensorArgument("StructureFactor",
-                          new DryTensor<>(2, len, syms, SOURCE_LOCATION));
+  out.set<Tensor<double> *>("StructureFactor",
+                            new DryTensor<>(2, len, syms, SOURCE_LOCATION));
 }
 
 void FiniteSizeCorrection::constructFibonacciGrid(double R, int N) {
@@ -547,7 +577,7 @@ void FiniteSizeCorrection::constructFibonacciGrid(double R, int N) {
 }
 
 void FiniteSizeCorrection::interpolation3D() {
-  Tensor<double> *momenta(getTensorArgument<>("Momenta"));
+  Tensor<double> *momenta(in.get<Tensor<double> *>("Momenta"));
   //  int NG(momenta->lens[1]);
   sisi4s::Vector<> *cartesianMomenta(new sisi4s::Vector<>[NG]);
   momenta->read_all(&cartesianMomenta[0][0]);
@@ -601,7 +631,7 @@ void FiniteSizeCorrection::interpolation3D() {
 
   // GC is the shortest vector.
   if (isArgumentGiven("shortestGvector")) {
-    GC = getRealArgument("shortestGvector");
+    GC = in.get<double>("shortestGvector");
   } else {
     GC = a.length();
   }
@@ -650,11 +680,11 @@ void FiniteSizeCorrection::interpolation3D() {
   ctfRealLattice->write(indices.size(), indices.data(), T.data()->coordinate);
 
   if (isArgumentGiven("ReciprocalLattice")) {
-    allocatedTensorArgument<>("ReciprocalLattice", ctfReciprocalLattice);
+    out.set<Tensor<double> *>("ReciprocalLattice", ctfReciprocalLattice);
   }
 
   if (isArgumentGiven("RealLattice")) {
-    allocatedTensorArgument<>("RealLattice", ctfRealLattice);
+    out.set<Tensor<double> *>("RealLattice", ctfRealLattice);
   }
 
   // determine bounding box in direct (reciprocal) coordinates
@@ -731,7 +761,7 @@ void FiniteSizeCorrection::interpolation3D() {
 
   // create trilinear or tricubic interpolator
   // TODO: use factory to select different interpolators, similar to mixers
-  // int fTricubic(getIntegerArgument("fTricubic", 1));
+  // int fTricubic(in.get<int64_t>("fTricubic", 1));
   gte::IntpTricubic3<double> interpolatedSG(boxDimensions[0],
                                             boxDimensions[1],
                                             boxDimensions[2],
@@ -751,7 +781,7 @@ void FiniteSizeCorrection::interpolation3D() {
     );
   **/
   // spherically sample
-  int64_t N(getIntegerArgument("gridPointsFibonacci", DEFAULT_NUM_FIBONACCI));
+  int64_t N(in.get<int64_t>("gridPointsFibonacci", DEFAULT_NUM_FIBONACCI));
   double lastLength(-1);
   averageSGs.clear();
   GLengths.clear();
@@ -818,12 +848,12 @@ void FiniteSizeCorrection::interpolation3D() {
   }
 
   // integration in 3D
-  double constantFactor(getRealArgument("constantFactor"));
+  double constantFactor(in.get<double>("constantFactor"));
   const int gridPointsInterpolation(
-      getIntegerArgument("gridPointsInterpolation", 61));
+      in.get<int64_t>("gridPointsInterpolation", 61));
   // cutOffRadius is set to a big default value 100 to ensure
   // the integration is over the whole G grid.
-  double cutOffRadius(getRealArgument("cutOffRadius", 100));
+  double cutOffRadius(in.get<double>("cutOffRadius", 100));
   LOG(0, "interpolation3D")
       << "constantFactor: " << constantFactor << std::endl;
   LOG(0, "interpolation3D")
@@ -981,9 +1011,9 @@ void FiniteSizeCorrection::calculateFiniteSizeCorrection() {
         << GLengths[i] << " " << averageSGs[i] << std::endl;
   }
 
-  int kpoints(getIntegerArgument("kpoints", 1));
-  double volume(getRealArgument("volume"));
-  double constantFactor(getRealArgument("constantFactor"));
+  int kpoints(in.get<int64_t>("kpoints", 1));
+  double volume(in.get<double>("volume"));
+  double constantFactor(in.get<double>("constantFactor"));
 
   double r1 = integrate(Int1d, 0.0, GC, 1000) * constantFactor * volume
             * kpoints * 4 * M_PI;
@@ -1028,9 +1058,9 @@ void FiniteSizeCorrection::calculateFiniteSizeCorrection() {
 }
 
 void FiniteSizeCorrection::dryCalculateFiniteSizeCorrection() {
-  getIntegerArgument("kpoints", 1);
-  getRealArgument("volume");
-  getRealArgument("constantFactor");
+  in.get<int64_t>("kpoints", 1);
+  in.get<double>("volume");
+  in.get<double>("constantFactor");
 
   setRealArgument("CorrectedEnergy", 0.0);
 }

@@ -15,9 +15,14 @@ using namespace sisi4s;
 using namespace tcc;
 using std::make_shared;
 
-ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexFromFactors);
 
-void ParticleHoleCoulombVertexFromFactors::run() {
+DEFSPEC(ParticleHoleCoulombVertexFromFactors,
+        SPEC_IN({"CoulombFactors", SPEC_VALUE("TODO: DOC", T *)},
+                {"HoleFactorOrbitals", SPEC_VALUE("TODO: DOC", T *)},
+                {"ParticleFactorOrbitals", SPEC_VALUE("TODO: DOC", T *)}),
+        SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexFromFactors) {
   run<Tensor<complex>, CtfMachineTensor<complex>>(false);
 }
 
@@ -32,9 +37,9 @@ void ParticleHoleCoulombVertexFromFactors::run(const bool dryRun) {
   auto tcc(Tcc<complex>::create(machineTensorFactory));
 
   // Read the Coulomb vertex GammaGqr
-  T *ctfPiiR(getTensorArgument<complex, T>("HoleFactorOrbitals"));
-  T *ctfPiaR(getTensorArgument<complex, T>("ParticleFactorOrbitals"));
-  T *ctfLambdaFR(getTensorArgument<complex, T>("CoulombFactors"));
+  T *ctfPiiR(in.get<T *>("HoleFactorOrbitals"));
+  T *ctfPiaR(in.get<T *>("ParticleFactorOrbitals"));
+  T *ctfLambdaFR(in.get<T *>("CoulombFactors"));
 
   // for now: create tcc::Tensors from them
   // later there will only be tcc::Tensors objects stored in sisi4s
@@ -57,7 +62,6 @@ void ParticleHoleCoulombVertexFromFactors::run(const bool dryRun) {
 
   // for now: duplicate result
   // later Gamma will already be the object stored in sisi4s
-  allocatedTensorArgument<complex, T>(
-      "ParticleHoleCoulombVertex",
-      new T(GammaFai->template getMachineTensor<MT>()->tensor));
+  out.set<T *>("ParticleHoleCoulombVertex",
+               new T(GammaFai->template getMachineTensor<MT>()->tensor));
 }

@@ -3,9 +3,10 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(Delete);
 
-void Delete::run() {
+DEFSPEC(Delete, SPEC_IN(), SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(Delete) {
   Data *data(getArgumentData("Data"));
   if (data) {
     std::string dataName(data->getName());

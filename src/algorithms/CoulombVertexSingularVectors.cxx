@@ -14,13 +14,27 @@ using namespace sisi4s;
 using std::make_shared;
 using std::shared_ptr;
 
-ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexSingularVectors);
 
-void CoulombVertexSingularVectors::run() {
+DEFSPEC(
+    CoulombVertexSingularVectors,
+    SPEC_IN(
+        {"fieldVariablesRank",
+         SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_FIELD_VARIABLES_RANK)},
+        {"reduction",
+         SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_FIELD_VARIABLES_RANK)},
+        {"fieldVariables",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_FIELD_VARIABLES_SIZE)},
+        {"fieldVariablesSize",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_FIELD_VARIABLES_SIZE)},
+        {"FullCoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+    SPEC_OUT({"CoulombVertexSingularValues",
+              SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(CoulombVertexSingularVectors) {
   // read the Coulomb vertex GammaGqr
   // Its singular value decomposition is U.Sigma.W*
   // where W* is a matrix with the compound orbital index (q,r)
-  Tensor<complex> *GammaGqr(getTensorArgument<complex>("FullCoulombVertex"));
+  Tensor<complex> *GammaGqr(in.get<Tensor<complex> *>("FullCoulombVertex"));
 
   // construct the conjugate of the Coulomb vertex GammaGqr
   Tensor<complex> conjGammaGqr(*GammaGqr);
@@ -43,12 +57,11 @@ void CoulombVertexSingularVectors::run() {
   eigenSystem.solve(SS);
 
   // get number of field variables
-  int NF(
-      getIntegerArgument("fieldVariablesSize", DEFAULT_FIELD_VARIABLES_SIZE));
+  int NF(in.get<int64_t>("fieldVariablesSize", DEFAULT_FIELD_VARIABLES_SIZE));
   // if fieldVariables not given use reduction
   if (NF == DEFAULT_FIELD_VARIABLES_SIZE) {
     double reduction(
-        getRealArgument("fieldVariablesRank", DEFAULT_FIELD_VARIABLES_RANK));
+        in.get<double>("fieldVariablesRank", DEFAULT_FIELD_VARIABLES_RANK));
     NF = static_cast<int>(NG * reduction + 0.5);
   }
 
@@ -61,8 +74,8 @@ void CoulombVertexSingularVectors::run() {
       << "Using NF=" << NF << " field variables to approximate NG=" << NG
       << " grid points" << std::endl;
   int start[] = {0, NG - NF}, end[] = {NG, NG};
-  allocatedTensorArgument<complex>("CoulombVertexSingularVectors",
-                                   new Tensor<complex>(U.slice(start, end)));
+  out.set<Tensor<complex> *>("CoulombVertexSingularVectors",
+                             new Tensor<complex>(U.slice(start, end)));
 
   // write singular values back to CTF
   int64_t SIndicesCount(GammaGqr->wrld->rank == 0 ? NG : 0);
@@ -74,7 +87,7 @@ void CoulombVertexSingularVectors::run() {
   Tensor<double> *singularValues(
       new Tensor<>(1, &NG, sym, *GammaGqr->wrld, "singularValues"));
   singularValues->write(SIndicesCount, SIndices, SS);
-  allocatedTensorArgument("CoulombVertexSingularValues", singularValues);
+  out.set<Tensor<double> *>("CoulombVertexSingularValues", singularValues);
   delete[] SIndices;
   delete[] SS;
 }
@@ -82,21 +95,20 @@ void CoulombVertexSingularVectors::run() {
 void CoulombVertexSingularVectors::dryRun() {
   // Read the Coulomb vertex GammaGqr
   DryTensor<complex> *GammaGqr(
-      getTensorArgument<complex, DryTensor<complex>>("FullCoulombVertex"));
+      in.get<DryTensor<complex> *>("FullCoulombVertex"));
 
   DryTensor<complex> conjGammaGqr(*GammaGqr, SOURCE_LOCATION);
 
   int NG(GammaGqr->lens[0]);
   // get number of field variables
-  int NF(getIntegerArgument("fieldVariables", DEFAULT_FIELD_VARIABLES_SIZE));
+  int NF(in.get<int64_t>("fieldVariables", DEFAULT_FIELD_VARIABLES_SIZE));
   // if fieldVariables not given use reduction
   if (NF == DEFAULT_FIELD_VARIABLES_SIZE) {
-    double reduction(
-        getRealArgument("reduction", DEFAULT_FIELD_VARIABLES_RANK));
+    double reduction(in.get<double>("reduction", DEFAULT_FIELD_VARIABLES_RANK));
     NF = static_cast<int>(NG * reduction + 0.5);
   }
 
-  allocatedTensorArgument<complex, DryTensor<complex>>(
+  out.set<DryTensor<complex> *>(
       "CoulombVertexSingularVectors",
       new DryMatrix<complex>(NG, NF, NS, SOURCE_LOCATION));
 }

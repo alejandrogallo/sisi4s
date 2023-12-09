@@ -8,8 +8,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(DrccdEnergyFromCoulombIntegrals);
-
 PTR(FockVector<double>) DrccdEnergyFromCoulombIntegrals::getResiduum(
     const int iteration,
     const PTR(const FockVector<double>) &amplitudes) {
@@ -27,12 +25,12 @@ PTR(FockVector<F>) DrccdEnergyFromCoulombIntegrals::getResiduum(
     const int iteration,
     const PTR(const FockVector<F>) &amplitudes) {
   // read all required integrals
-  auto Vabij(getTensorArgument<F>("PPHHCoulombIntegrals"));
-  auto Vaijb(getTensorArgument<F>("PHHPCoulombIntegrals"));
-  auto Vijab(getTensorArgument<F>("HHPPCoulombIntegrals"));
+  auto Vabij(in.get<Tensor<F> *>("PPHHCoulombIntegrals"));
+  auto Vaijb(in.get<Tensor<F> *>("PHHPCoulombIntegrals"));
+  auto Vijab(in.get<Tensor<F> *>("HHPPCoulombIntegrals"));
 
   // Check for spin polarization
-  double spins(getIntegerArgument("unrestricted", 0) ? 1.0 : 2.0);
+  double spins(in.get<int64_t>("unrestricted", 0) ? 1.0 : 2.0);
   // get amplitude parts
   auto Tabij(amplitudes->get(1));
 
@@ -41,7 +39,7 @@ PTR(FockVector<F>) DrccdEnergyFromCoulombIntegrals::getResiduum(
   *residuum *= F(0);
   auto Rabij(residuum->get(1));
 
-  int linearized(getIntegerArgument("linearized", 0));
+  int linearized(in.get<int64_t>("linearized", 0));
   if (linearized) {
     LOG(1, getCapitalizedAbbreviation())
         << "Solving linearized T2 Amplitude Equations" << std::endl;
@@ -58,7 +56,7 @@ PTR(FockVector<F>) DrccdEnergyFromCoulombIntegrals::getResiduum(
     if (!linearized) {
       Tensor<F> Wijab(false, *Vijab);
       Wijab["ijab"] = spins * (*Vijab)["ijab"];
-      if (getIntegerArgument("adjacentPairsExchange", 0)) {
+      if (in.get<int64_t>("adjacentPairsExchange", 0)) {
         Wijab["ijab"] -= (*Vijab)["jiab"];
       }
       // Construct intermediates

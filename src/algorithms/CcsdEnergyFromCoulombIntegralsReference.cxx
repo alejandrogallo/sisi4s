@@ -11,8 +11,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(CcsdEnergyFromCoulombIntegralsReference);
-
 // Hirata iteration routine for the CCSD amplitudes Tabij and Tai from
 // So Hirata, et. al. Chem. Phys. Letters, 345, 475 (2001)
 //////////////////////////////////////////////////////////////////////
@@ -25,8 +23,8 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
   Tai->set_name("Tai");
   auto Tabij(amplitudes->get(1));
   Tabij->set_name("Tabij");
-  const bool onlyPPL(getIntegerArgument("onlyPPL", 0) == 1);
-  const int slicedPPL(getIntegerArgument("slicedPPL", 0));
+  const bool onlyPPL(in.get<int64_t>("onlyPPL", 0) == 1);
+  const int slicedPPL(in.get<int64_t>("slicedPPL", 0));
   // create residuum and get their singles and doubles part
   auto residuum(NEW(FockVector<double>, *amplitudes));
   *residuum *= 0.0;
@@ -36,7 +34,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
   Rabij->set_name("Rabij");
 
   // get part of Coulomb integrals used whether the amplitudes are zero or not
-  auto Vabij(getTensorArgument("PPHHCoulombIntegrals"));
+  auto Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
 
   if (i == 0 && !isArgumentGiven("initialDoublesAmplitudes") && !onlyPPL) {
     // For first iteration compute only the MP2 amplitudes
@@ -48,9 +46,9 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
     LOG(1, getCapitalizedAbbreviation())
         << "Considering only PPL diagrams" << std::endl;
 
-    auto Vabcd(getTensorArgument("PPPPCoulombIntegrals"));
+    auto Vabcd(in.get<Tensor<double> *>("PPPPCoulombIntegrals"));
     // IMPORTANT: we do not dress the coulomb integrals anymore
-    //    auto Vabci(getTensorArgument("PPPHCoulombIntegrals"));
+    //    auto Vabci(in.get<Tensor<double>*>("PPPHCoulombIntegrals"));
 
     //    Tensor<double> Xabcd(false, *Vabcd);
     // Build Xabcd intermediate
@@ -64,7 +62,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
       (*Rabij)["abij"] = (*Vabcd)["abcd"] * Xabij["cdij"];
     }
     //    else{
-    //      const int sliceCase(getIntegerArgument("sliceCase",0));
+    //      const int sliceCase(in.get<int64_t>("sliceCase",0));
     //      int Nv(Tai->lens[0]);
     //      int No(Tai->lens[1]);
     //      int Ns(slicedPPL);
@@ -123,11 +121,11 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
     // For the rest iterations compute the CCSD amplitudes
 
     // Read all required integrals
-    auto Vabcd(getTensorArgument("PPPPCoulombIntegrals"));
-    auto Vaibj(getTensorArgument("PHPHCoulombIntegrals"));
-    auto Vijkl(getTensorArgument("HHHHCoulombIntegrals"));
-    auto Vijka(getTensorArgument("HHHPCoulombIntegrals"));
-    auto Vabci(getTensorArgument("PPPHCoulombIntegrals"));
+    auto Vabcd(in.get<Tensor<double> *>("PPPPCoulombIntegrals"));
+    auto Vaibj(in.get<Tensor<double> *>("PHPHCoulombIntegrals"));
+    auto Vijkl(in.get<Tensor<double> *>("HHHHCoulombIntegrals"));
+    auto Vijka(in.get<Tensor<double> *>("HHHPCoulombIntegrals"));
+    auto Vabci(in.get<Tensor<double> *>("PPPHCoulombIntegrals"));
 
     // Compute the No,Nv,NG,Np
     int No(Vabij->lens[2]);

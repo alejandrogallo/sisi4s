@@ -14,8 +14,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(FcidumpWriter);
-
 IMPLEMENT_EMPTY_DRYRUN(FcidumpWriter) {}
 
 constexpr int NxUndefined = -1;
@@ -33,11 +31,20 @@ inline std::ostream &operator<<(std::ostream &s,
            << "/" << std::endl;
 }
 
-void FcidumpWriter::run() {
-  const auto filePath(getTextArgument("file", "FCIDUMP"));
-  size_t uhf(getIntegerArgument("uhf", 0));
-  size_t ms2(getIntegerArgument("ms2", 0));
-  const double threshold(getRealArgument("threshold", 1e-6));
+
+DEFSPEC(FcidumpWriter,
+        SPEC_IN({"threshold", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
+                {"ms2", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+                {"uhf", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+                {"file", SPEC_VALUE_DEF("TODO: DOC", std::string, "FCIDUMP")},
+                {integral.name, SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT());
+
+IMPLEMENT_ALGORITHM(FcidumpWriter) {
+  const auto filePath(in.get<std::string>("file", "FCIDUMP"));
+  size_t uhf(in.get<int64_t>("uhf", 0));
+  size_t ms2(in.get<int64_t>("ms2", 0));
+  const double threshold(in.get<double>("threshold", 1e-6));
   int No(NxUndefined);
   int Nv(NxUndefined);
   FcidumpReader::FcidumpHeader header;
@@ -62,7 +69,7 @@ void FcidumpWriter::run() {
     if (isArgumentGiven(integral.name)) {
       auto it(std::find(is.begin(), is.end(), NO));
       if (No == NxUndefined && it != is.end()) {
-        auto tensor(getTensorArgument<double>(integral.name));
+        auto tensor(in.get<Tensor<double> *>(integral.name));
         No = tensor->lens[it - is.begin()];
         LOG(0, "FcidumpWriter") << _FORMAT("Detected No: %d from integral %s\n",
                                            No,
@@ -70,7 +77,7 @@ void FcidumpWriter::run() {
       }
       it = std::find(is.begin(), is.end(), NV);
       if (Nv == NxUndefined && it != is.end()) {
-        auto tensor(getTensorArgument<double>(integral.name));
+        auto tensor(in.get<Tensor<double> *>(integral.name));
         Nv = tensor->lens[it - is.begin()];
         LOG(0, "FcidumpWriter") << _FORMAT("Detected Nv: %d from integral %s\n",
                                            Nv,
@@ -102,7 +109,7 @@ void FcidumpWriter::run() {
   // TODO: also write the header into the file
   for (const auto &integral : allIntegrals) {
     if (!isArgumentGiven(integral.name)) continue;
-    auto tensor(getTensorArgument<double>(integral.name));
+    auto tensor(in.get<Tensor<double> *>(integral.name));
     FILE *fd;
     fd = std::fopen(_FORMAT("%s.fcidump", integral.name.c_str()).c_str(), "w+");
     tensor->print(fd);

@@ -11,8 +11,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(CcsdEnergyFromCoulombIntegrals);
-
 // Hirata iteration routine for the CCSD amplitudes Tabij and Tai from
 // So Hirata, et. al. Chem. Phys. Letters, 345, 475 (2001)
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +33,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
   Rabij->set_name("Rabij");
 
   // get part of Coulomb integrals used whether the amplitudes are zero or not
-  auto Vabij(getTensorArgument("PPHHCoulombIntegrals"));
+  auto Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
 
   if (i == 0 && !isArgumentGiven("initialDoublesAmplitudes")) {
     // For first iteration compute only the MP2 amplitudes
@@ -46,12 +44,12 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     // For the rest iterations compute the CCSD amplitudes
 
     // Read all required integrals
-    auto Vaibj(getTensorArgument("PHPHCoulombIntegrals"));
-    auto Vijkl(getTensorArgument("HHHHCoulombIntegrals"));
-    auto Vijka(getTensorArgument("HHHPCoulombIntegrals"));
+    auto Vaibj(in.get<Tensor<double> *>("PHPHCoulombIntegrals"));
+    auto Vijkl(in.get<Tensor<double> *>("HHHHCoulombIntegrals"));
+    auto Vijka(in.get<Tensor<double> *>("HHHPCoulombIntegrals"));
 
     // Read the Coulomb vertex GammaGqr
-    auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
+    auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
 
     // Compute the No,Nv,NG,Np
     int No(Vabij->lens[2]);
@@ -114,7 +112,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     std::array<int, 2> oo({{No, No}});
 
     int distinguishable(
-        getIntegerArgument("distinguishable", DEFAULT_DISTINGUISHABLE));
+        in.get<int64_t>("distinguishable", DEFAULT_DISTINGUISHABLE));
 
     //*************************************************************************
     //****************  T2 amplitude equations  *******************************
@@ -314,7 +312,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
       // Add last term contracted only with the doubles if ppl is true
       // The singles term is computed in the slicing
-      bool ppl = getIntegerArgument("ppl", 1);
+      bool ppl = in.get<int64_t>("ppl", 1);
 
       LOG(1, getCapitalizedAbbreviation())
           << "Using " << (ppl ? "PPL" : "no PPL") << std::endl;
@@ -326,22 +324,22 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
       }
     }
 
-    bool ppl = getIntegerArgument("ppl", 1);
+    bool ppl = in.get<int64_t>("ppl", 1);
 
     if (ppl) {
       LOG(1, getCapitalizedAbbreviation()) << "Starting PPL" << std::endl;
       if (isArgumentGiven("CoulombFactors")) {
         // Read the factorsSliceSize.
-        auto LambdaGR(getTensorArgument<complex>("CoulombFactors"));
+        auto LambdaGR(in.get<Tensor<complex> *>("CoulombFactors"));
         LambdaGR->set_name("LambdaGR");
 
         int NR(LambdaGR->lens[1]);
 
         int factorsSliceSize(
-            getIntegerArgument("factorsSliceSize", DEFAULT_SLICE_SIZE));
+            in.get<int64_t>("factorsSliceSize", DEFAULT_SLICE_SIZE));
         if (factorsSliceSize == -1) {
           if (isArgumentGiven("factorsSliceFactor")) {
-            double factorsSliceFactor(getRealArgument("factorsSliceFactor"));
+            double factorsSliceFactor(in.get<double>("factorsSliceFactor"));
             factorsSliceSize = NR * factorsSliceFactor;
           } else {
             factorsSliceSize = Nv;
@@ -366,11 +364,10 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
       } else {
         // Read the integralsSliceSize. If not provided use No
         int integralsSliceSize(
-            getIntegerArgument("integralsSliceSize", DEFAULT_SLICE_SIZE));
+            in.get<int64_t>("integralsSliceSize", DEFAULT_SLICE_SIZE));
         if (integralsSliceSize == -1) {
           if (isArgumentGiven("integralsSliceFactor")) {
-            double integralsSliceFactor(
-                getRealArgument("integralsSliceFactor"));
+            double integralsSliceFactor(in.get<double>("integralsSliceFactor"));
             integralsSliceSize = Nv * integralsSliceFactor;
           } else {
             integralsSliceSize = No;
@@ -490,7 +487,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     const int i,
     const PTR(const FockVector<sisi4s::complex>) &amplitudes) {
   // Read Vabij integrals
-  auto Vabij(getTensorArgument<complex>("PPHHCoulombIntegrals"));
+  auto Vabij(in.get<Tensor<complex> *>("PPHHCoulombIntegrals"));
 
   // get singles and doubles part of the amplitudes
   auto Tai(amplitudes->get(0));
@@ -515,15 +512,15 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     // For the rest iterations compute the CCSD amplitudes
 
     // Read all required integrals
-    auto Vaijb(getTensorArgument<complex>("PHHPCoulombIntegrals"));
-    auto Vijab(getTensorArgument<complex>("HHPPCoulombIntegrals"));
-    auto Vaibj(getTensorArgument<complex>("PHPHCoulombIntegrals"));
-    auto Vijkl(getTensorArgument<complex>("HHHHCoulombIntegrals"));
-    auto Vijka(getTensorArgument<complex>("HHHPCoulombIntegrals"));
-    auto Vaijk(getTensorArgument<complex>("PHHHCoulombIntegrals"));
+    auto Vaijb(in.get<Tensor<complex> *>("PHHPCoulombIntegrals"));
+    auto Vijab(in.get<Tensor<complex> *>("HHPPCoulombIntegrals"));
+    auto Vaibj(in.get<Tensor<complex> *>("PHPHCoulombIntegrals"));
+    auto Vijkl(in.get<Tensor<complex> *>("HHHHCoulombIntegrals"));
+    auto Vijka(in.get<Tensor<complex> *>("HHHPCoulombIntegrals"));
+    auto Vaijk(in.get<Tensor<complex> *>("PHHHCoulombIntegrals"));
 
     // Read the Coulomb vertex GammaGqr
-    auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
+    auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
 
     // Compute the No,Nv,NG,Np
     int No(Vabij->lens[2]);
@@ -565,7 +562,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     std::array<int, 2> oo({{No, No}});
 
     int distinguishable(
-        getIntegerArgument("distinguishable", DEFAULT_DISTINGUISHABLE));
+        in.get<int64_t>("distinguishable", DEFAULT_DISTINGUISHABLE));
 
     //********************************************************************************
     //***********************  T2 amplitude equations
@@ -748,7 +745,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
       // Add last term contracted only with the doubles if ppl is true
       // The singles term is computed in the slicing
-      bool ppl = getIntegerArgument("ppl", 1);
+      bool ppl = in.get<int64_t>("ppl", 1);
 
       LOG(1, getCapitalizedAbbreviation())
           << "Using " << (ppl ? "PPL" : "no PPL") << std::endl;
@@ -760,23 +757,23 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
       }
     }
 
-    bool ppl = getIntegerArgument("ppl", 1);
+    bool ppl = in.get<int64_t>("ppl", 1);
 
     if (ppl) {
       LOG(1, getCapitalizedAbbreviation()) << "Starting PPL" << std::endl;
       if (isArgumentGiven("CoulombFactors")) {
 
         // Read the factorsSliceSize.
-        auto LambdaGR(getTensorArgument<complex>("CoulombFactors"));
+        auto LambdaGR(in.get<Tensor<complex> *>("CoulombFactors"));
         LambdaGR->set_name("LambdaGR");
 
         int NR(LambdaGR->lens[1]);
 
         int factorsSliceSize(
-            getIntegerArgument("factorsSliceSize", DEFAULT_SLICE_SIZE));
+            in.get<int64_t>("factorsSliceSize", DEFAULT_SLICE_SIZE));
         if (factorsSliceSize == -1) {
           if (isArgumentGiven("factorsSliceFactor")) {
-            double factorsSliceFactor(getRealArgument("factorsSliceFactor"));
+            double factorsSliceFactor(in.get<double>("factorsSliceFactor"));
             factorsSliceSize = NR * factorsSliceFactor;
           } else {
             factorsSliceSize = Nv;
@@ -801,11 +798,10 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
       } else {
         // Read the integralsSliceSize. If not provided use No
         int integralsSliceSize(
-            getIntegerArgument("integralsSliceSize", DEFAULT_SLICE_SIZE));
+            in.get<int64_t>("integralsSliceSize", DEFAULT_SLICE_SIZE));
         if (integralsSliceSize == -1) {
           if (isArgumentGiven("integralsSliceFactor")) {
-            double integralsSliceFactor(
-                getRealArgument("integralsSliceFactor"));
+            double integralsSliceFactor(in.get<double>("integralsSliceFactor"));
             integralsSliceSize = Nv * integralsSliceFactor;
           } else {
             integralsSliceSize = No;

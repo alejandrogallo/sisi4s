@@ -9,7 +9,7 @@ IMPLEMENT_EMPTY_DRYRUN(DefineHolesAndParticles) {}
 
 IMPLEMENT_ALGORITHM(DefineHolesAndParticles) {
 
-  const std::string fileName = getTextArgument("fileName");
+  const std::string fileName = in.get<std::string>("fileName");
 
   cc4s::HPHeader h = YAML::LoadFile(fileName).as<cc4s::HPHeader>();
 
@@ -38,7 +38,7 @@ IMPLEMENT_ALGORITHM(DefineHolesAndParticles) {
     std::vector<TensorIndex> indices(count);
     std::iota(indices.begin(), indices.end(), 0);
     t->write(count, indices.data(), h.energies.data());
-    allocatedTensorArgument<double>("HoleEigenEnergies", t);
+    out.set<Tensor<double> *>("HoleEigenEnergies", t);
   }
 
   {
@@ -48,7 +48,7 @@ IMPLEMENT_ALGORITHM(DefineHolesAndParticles) {
     std::vector<TensorIndex> indices(count);
     std::iota(indices.begin(), indices.end(), 0);
     t->write(count, indices.data(), h.energies.data() + No);
-    allocatedTensorArgument<double>("ParticleEigenEnergies", t);
+    out.set<Tensor<double> *>("ParticleEigenEnergies", t);
   }
 }
 

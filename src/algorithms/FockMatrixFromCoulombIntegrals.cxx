@@ -18,13 +18,29 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(FockMatrixFromCoulombIntegrals);
-
 IMPLEMENT_EMPTY_DRYRUN(FockMatrixFromCoulombIntegrals) {}
 
-void FockMatrixFromCoulombIntegrals::run() {
 
-  const auto phph(getTensorArgument<double>("PHPHCoulombIntegrals"));
+DEFSPEC(
+    FockMatrixFromCoulombIntegrals,
+    SPEC_IN({"HHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"HHMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"PHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"PHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"PHMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"PHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"PPMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT({"HHFockMatrix", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"HPFockMatrix", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"ParticleEigenEnergies",
+              SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"PHFockMatrix", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"PPFockMatrix", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(FockMatrixFromCoulombIntegrals) {
+
+  const auto phph(in.get<Tensor<double> *>("PHPHCoulombIntegrals"));
   int No(phph->lens[1]), Nv(phph->lens[0]);
   std::vector<int> vv({Nv, Nv}), oo({No, No}), ov({No, Nv}), vo({Nv, No});
   std::vector<int> syms({NS, NS});
@@ -34,43 +50,43 @@ void FockMatrixFromCoulombIntegrals::run() {
 
   // ij: HH HHHH
   auto fij(new Tensor<double>(2, oo.data(), syms.data(), *Sisi4s::world));
-  const auto hh(getTensorArgument<double>("HHMatrix"));
-  const auto hhhh(getTensorArgument<double>("HHHHCoulombIntegrals"));
+  const auto hh(in.get<Tensor<double> *>("HHMatrix"));
+  const auto hhhh(in.get<Tensor<double> *>("HHHHCoulombIntegrals"));
   (*fij)["ij"] = (*hh)["ij"];
   (*fij)["ij"] += (+2.0) * (*hhhh)["ikjk"];
   (*fij)["ij"] += (-1.0) * (*hhhh)["ikkj"];
-  allocatedTensorArgument<double>("HHFockMatrix", fij);
+  out.set<Tensor<double> *>("HHFockMatrix", fij);
 
   // ab: PP PHPH PHHP
   auto fab(new Tensor<double>(2, vv.data(), syms.data(), *Sisi4s::world));
-  const auto pp(getTensorArgument<double>("PPMatrix"));
-  const auto phhp(getTensorArgument<double>("PHHPCoulombIntegrals"));
+  const auto pp(in.get<Tensor<double> *>("PPMatrix"));
+  const auto phhp(in.get<Tensor<double> *>("PHHPCoulombIntegrals"));
   (*fab)["ab"] = (*pp)["ab"];
   (*fab)["ab"] += (+2.0) * (*phph)["akbk"];
   (*fab)["ab"] += (-1.0) * (*phhp)["akkb"];
-  allocatedTensorArgument<double>("PPFockMatrix", fab);
+  out.set<Tensor<double> *>("PPFockMatrix", fab);
 
   // ai: PH PHHH
   auto fai(new Tensor<double>(2, vo.data(), syms.data(), *Sisi4s::world));
-  const auto ph(getTensorArgument<double>("PHMatrix"));
-  const auto phhh(getTensorArgument<double>("PHHHCoulombIntegrals"));
+  const auto ph(in.get<Tensor<double> *>("PHMatrix"));
+  const auto phhh(in.get<Tensor<double> *>("PHHHCoulombIntegrals"));
   (*fai)["ai"] = (*ph)["ai"];
   (*fai)["ai"] += (+2.0) * (*phhh)["akik"];
   (*fai)["ai"] += (-1.0) * (*phhh)["akki"];
-  allocatedTensorArgument<double>("PHFockMatrix", fai);
+  out.set<Tensor<double> *>("PHFockMatrix", fai);
 
   // ia: HP HHPH HHHP
   auto fia(new Tensor<double>(2, ov.data(), syms.data(), *Sisi4s::world));
   (*fia)["ia"] = (*fai)["ai"];
-  allocatedTensorArgument<double>("HPFockMatrix", fia);
+  out.set<Tensor<double> *>("HPFockMatrix", fia);
 
   auto epsi(new Tensor<double>(1, oo.data(), syms.data(), *Sisi4s::world));
   (*epsi)["i"] = (*fij)["ii"];
-  allocatedTensorArgument<double>("HoleEigenEnergies", epsi);
+  out.set<Tensor<double> *>("HoleEigenEnergies", epsi);
 
   auto epsa(new Tensor<double>(1, vv.data(), syms.data(), *Sisi4s::world));
   (*epsa)["a"] = (*fab)["aa"];
-  allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);
+  out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);
 
   CTF::Scalar<double> energy;
   energy[""] = (+2.0) * (*hh)["ii"];

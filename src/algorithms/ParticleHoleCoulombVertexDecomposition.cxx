@@ -12,19 +12,43 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombVertexDecomposition);
 
-void ParticleHoleCoulombVertexDecomposition::run() {
-  GammaGai = getTensorArgument<complex>("ParticleHoleCoulombVertex");
+DEFSPEC(
+    ParticleHoleCoulombVertexDecomposition,
+    SPEC_IN(
+        {"delta", SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_DELTA)},
+        {"swampingThreshold",
+         SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_SWAMPING_THRESHOLD)},
+        {"epsilonStep",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_EPSILON_STEP)},
+        {"maxIterations",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_MAX_ITERATIONS)},
+        {"rank", SPEC_VALUE_DEF("TODO: DOC", int64_t, NG)},
+        {"realFactorOrbitals",
+         SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_REAL_FACTOR_ORBITALS)},
+        {"ParticleHoleCoulombVertex",
+         SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT(
+        {"ComposedParticleHoleCoulombVertex",
+         SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
+        {"HoleFactorOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
+        {"ParticleFactorOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
+        {"ParticleHoleCoulombFactors",
+         SPEC_VAROUT("TODO: DOC", Tensor<complex> *)}));
+
+IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexDecomposition) {
+  GammaGai = in.get<Tensor<complex> *>("ParticleHoleCoulombVertex");
   int NG(GammaGai->lens[0]);
   int Nv(GammaGai->lens[1]);
   int No(GammaGai->lens[2]);
-  rank = getIntegerArgument("rank", NG);
+  rank = in.get<int64_t>("rank", NG);
   realFactorOrbitals =
-      getIntegerArgument("realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS);
+      in.get<int64_t>("realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS);
   normalizedFactorOrbitals =
-      getIntegerArgument("normalizedFactorOrbitals",
-                         DEFAULT_NORMALIZED_FACTOR_ORBITALS);
+      in.get<int64_t>("normalizedFactorOrbitals",
+                      DEFAULT_NORMALIZED_FACTOR_ORBITALS);
   LOG(0, "RALS") << "Tensor rank decomposition with rank=" << rank
                  << ", realFactorOrbitals=" << realFactorOrbitals
                  << ", normalizedFactorOrbitals=" << normalizedFactorOrbitals
@@ -60,9 +84,9 @@ void ParticleHoleCoulombVertexDecomposition::run() {
   realizePi(*PiiR);
   normalizePi(*PiaR);
   setRandomTensor(*LambdaGR, normalDistribution, random);
-  allocatedTensorArgument<complex>("HoleFactorOrbitals", PiiR);
-  allocatedTensorArgument<complex>("ParticleFactorOrbitals", PiaR);
-  allocatedTensorArgument<complex>("ParticleHoleCoulombFactors", LambdaGR);
+  out.set<Tensor<complex> *>("HoleFactorOrbitals", PiiR);
+  out.set<Tensor<complex> *>("ParticleFactorOrbitals", PiaR);
+  out.set<Tensor<complex> *>("ParticleHoleCoulombFactors", LambdaGR);
 
   Gamma0Gai = new Tensor<complex>(3,
                                   GammaGai->lens,
@@ -71,15 +95,14 @@ void ParticleHoleCoulombVertexDecomposition::run() {
                                   "Gamma0Gai",
                                   GammaGai->profile);
   if (isArgumentGiven("ComposedParticleHoleCoulombVertex")) {
-    allocatedTensorArgument<complex>("ComposedParticleHoleCoulombVertex",
-                                     Gamma0Gai);
+    out.set<Tensor<complex> *>("ComposedParticleHoleCoulombVertex", Gamma0Gai);
   }
 
   double swampingThreshold(
-      getRealArgument("swampingThreshold", DEFAULT_SWAMPING_THRESHOLD));
+      in.get<double>("swampingThreshold", DEFAULT_SWAMPING_THRESHOLD));
   double regularizationFriction(
-      getRealArgument("regularizationFriction",
-                      DEFAULT_REGULARIZATION_FRICTION));
+      in.get<double>("regularizationFriction",
+                     DEFAULT_REGULARIZATION_FRICTION));
   regularizationEstimatorPiiR =
       new AlternatingLeastSquaresRegularizationEstimator(swampingThreshold,
                                                          regularizationFriction,
@@ -94,10 +117,10 @@ void ParticleHoleCoulombVertexDecomposition::run() {
                                                          1);
   int64_t iterationsCount(0);
   int64_t maxIterationsCount(
-      getIntegerArgument("maxIterations", DEFAULT_MAX_ITERATIONS));
-  double delta(getRealArgument("delta", DEFAULT_DELTA));
+      in.get<int64_t>("maxIterations", DEFAULT_MAX_ITERATIONS));
+  double delta(in.get<double>("delta", DEFAULT_DELTA));
   Delta = std::numeric_limits<double>::infinity();
-  epsilonStep = getIntegerArgument("epsilonStep", DEFAULT_EPSILON_STEP);
+  epsilonStep = in.get<int64_t>("epsilonStep", DEFAULT_EPSILON_STEP);
   if (epsilonStep > 0) mp2Energy = evaluateMp2(*GammaGai);
   while (iterationsCount < maxIterationsCount && Delta > delta) {
     fit(iterationsCount);
@@ -109,17 +132,17 @@ void ParticleHoleCoulombVertexDecomposition::run() {
 
 void ParticleHoleCoulombVertexDecomposition::dryRun() {
   // NOTE that in the dry run GammaGai,... are local variables
-  DryTensor<complex> *GammaGai(getTensorArgument<complex, DryTensor<complex>>(
-      "ParticleHoleCoulombVertex"));
+  DryTensor<complex> *GammaGai(
+      in.get<DryTensor<complex> *>("ParticleHoleCoulombVertex"));
   int NG(GammaGai->lens[0]);
   int Nv(GammaGai->lens[1]);
   int No(GammaGai->lens[2]);
-  rank = getIntegerArgument("rank", NG);
+  rank = in.get<int64_t>("rank", NG);
   realFactorOrbitals =
-      getIntegerArgument("realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS);
+      in.get<int64_t>("realFactorOrbitals", DEFAULT_REAL_FACTOR_ORBITALS);
   normalizedFactorOrbitals =
-      getIntegerArgument("normalizedFactorOrbitals",
-                         DEFAULT_NORMALIZED_FACTOR_ORBITALS);
+      in.get<int64_t>("normalizedFactorOrbitals",
+                      DEFAULT_NORMALIZED_FACTOR_ORBITALS);
   LOG(0, "RALS") << "Tensor rank decomposition with rank=" << rank
                  << ", realFactorOrbitals=" << realFactorOrbitals
                  << ", normalizedFactorOrbitals=" << normalizedFactorOrbitals
@@ -131,24 +154,19 @@ void ParticleHoleCoulombVertexDecomposition::dryRun() {
   DryTensor<complex> *PiiR(new DryMatrix<complex>(No, int(rank), NS));
   DryTensor<complex> *PiaR(new DryMatrix<complex>(Nv, int(rank), NS));
   DryTensor<complex> *LambdaGR(new DryMatrix<complex>(NG, int(rank), NS));
-  allocatedTensorArgument<complex, DryTensor<complex>>("HoleFactorOrbitals",
-                                                       PiiR);
-  allocatedTensorArgument<complex, DryTensor<complex>>("ParticleFactorOrbitals",
-                                                       PiaR);
-  allocatedTensorArgument<complex, DryTensor<complex>>(
-      "ParticleHoleCoulombFactors",
-      LambdaGR);
+  out.set<DryTensor<complex> *>("HoleFactorOrbitals", PiiR);
+  out.set<DryTensor<complex> *>("ParticleFactorOrbitals", PiaR);
+  out.set<DryTensor<complex> *>("ParticleHoleCoulombFactors", LambdaGR);
 
   DryTensor<complex> *Gamma0Gai(GammaGai);
   if (isArgumentGiven("ComposedParticleHoleCoulombVertex")) {
-    allocatedTensorArgument<complex, DryTensor<complex>>(
-        "ComposedParticleHoleCoulombVertex",
-        Gamma0Gai);
+    out.set<DryTensor<complex> *>("ComposedParticleHoleCoulombVertex",
+                                  Gamma0Gai);
   }
 
   dryFit(GammaGai, PiaR, PiiR, LambdaGR, Gamma0Gai);
 
-  epsilonStep = getIntegerArgument("epsilonStep", DEFAULT_EPSILON_STEP);
+  epsilonStep = in.get<int64_t>("epsilonStep", DEFAULT_EPSILON_STEP);
   if (epsilonStep > 0) dryEvaluateMp2(*GammaGai);
 }
 
@@ -293,8 +311,8 @@ ParticleHoleCoulombVertexDecomposition::evaluateMp2(Tensor<complex> &Gamma) {
   Vabij["abij"] = realGammaGai["gai"] * realGammaGai["gbj"];
   Vabij["abij"] += imagGammaGai["gai"] * imagGammaGai["gbj"];
 
-  Tensor<double> *epsi(getTensorArgument("HoleEigenEnergies"));
-  Tensor<double> *epsa(getTensorArgument("ParticleEigenEnergies"));
+  Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
+  Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
 
   Tensor<double> Tabij(false, Vabij);
   Tabij["abij"] = (*epsi)["i"];
@@ -328,10 +346,8 @@ void ParticleHoleCoulombVertexDecomposition::dryEvaluateMp2(
   int syms[] = {NS, NS, NS, NS};
   DryTensor<> Vabij(4, lens, syms);
 
-  DryTensor<> *epsi(
-      getTensorArgument<double, DryTensor<double>>("HoleEigenEnergies"));
-  DryTensor<> *epsa(
-      getTensorArgument<double, DryTensor<double>>("ParticleEigenEnergies"));
+  DryTensor<> *epsi(in.get<DryTensor<double> *>("HoleEigenEnergies"));
+  DryTensor<> *epsa(in.get<DryTensor<double> *>("ParticleEigenEnergies"));
   epsi->use();
   epsa->use();
   DryTensor<> Tabij(Vabij);

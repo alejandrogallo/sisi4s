@@ -8,50 +8,62 @@
 
 namespace sisi4s {
 
-const std::type_info &TensorWriter::check_type(Data *tensor_data) {
-  TensorData<double> *real_tensor_data(
-      dynamic_cast<TensorData<double> *>(tensor_data));
-  if (real_tensor_data) return typeid(double);
-  TensorData<sisi4s::complex> *imag_tensor_data(
-      dynamic_cast<TensorData<sisi4s::complex> *>(tensor_data));
-  if (imag_tensor_data) return typeid(sisi4s::complex);
-  throw "Could not detect type of integrals in TensorAntisymmetrizer";
-}
+DEFSPEC(
+    TensorWriter,
+    SPEC_IN(
+        {"Data", SPEC_VARIN("Input tensor", CTF::Tensor<double> *)},
+        {"file", SPEC_VALUE_DEF("File to write it to", std::string, "")},
+        {"rowIndexOrder", SPEC_VALUE_DEF("Row index order", std::string, " ")},
+        {"columnIndexOrder",
+         SPEC_VALUE_DEF("Column index order", std::string, " ")},
+        {"delimiter", SPEC_VALUE_DEF("Delimiter", std::string, " ")},
+        {"precision", SPEC_VALUE_DEF("precision", int64_t, 64)},
+        {"mode",
+         SPEC_ONE_OF("The mode for a reader", std::string, "binary", "text")}),
+    SPEC_OUT({"Data", SPEC_VAROUT("Data out", CTF::Tensor<double> *)}));
 
 IMPLEMENT_EMPTY_DRYRUN(TensorWriter) {}
 
 IMPLEMENT_ALGORITHM(TensorWriter) {
 
-  const bool binary_p = getTextArgument("mode", "text") == "text";
+  const bool binary_p = in.get<std::string>("mode") == "binary";
 
   const std::string /**/
 
-      dataName = getArgumentData("Data")->getName(),
-      fileName = dataName + (binary_p ? ".bin" : ".dat"),
+      dataName = in.get_var("Data"),
+      def_file = in.get<std::string>("file"),
+      fileName =
+          def_file.size() ? def_file : dataName + (binary_p ? ".bin" : ".dat"),
 
-      rowIndexOrder(getTextArgument("rowIndexOrder", "")),
-      columnIndexOrder(getTextArgument("columnIndexOrder", "")),
-      delimiter(getTextArgument("delimiter", " "));
+      rowIndexOrder(in.get<std::string>("rowIndexOrder")),
+      columnIndexOrder(in.get<std::string>("columnIndexOrder")),
+      delimiter(in.get<std::string>("delimiter"));
 
-  if (typeid(double) == TensorWriter::check_type(getArgumentData("Data"))) {
-    LOG(1, "TensorWriter") << "Writing real tensor" << std::endl;
-    TensorWriter::write<Float64>(dataName,
-                                 fileName,
-                                 getTensorArgument<Float64>("Data"),
-                                 binary_p,
-                                 rowIndexOrder,
-                                 columnIndexOrder,
-                                 delimiter);
-  } else {
-    LOG(1, "TensorWriter") << "Writing complex tensor" << std::endl;
+  if (in.is_of_type<Tensor<double> *>("Data")) {
+    LOG(1, "TensorWriter") << "Writing real tensor to " << fileName
+                           << std::endl;
+    TensorWriter::write<double>(dataName,
+                                fileName,
+                                in.get<Tensor<double> *>("Data"),
+                                binary_p,
+                                rowIndexOrder,
+                                columnIndexOrder,
+                                delimiter);
+  } else if (in.is_of_type<Tensor<sisi4s::complex> *>("Data")) {
+    LOG(1, "TensorWriter") << "Writing complex tensor to " << fileName
+                           << std::endl;
     TensorWriter::write<sisi4s::complex>(
         dataName,
         fileName,
-        getTensorArgument<sisi4s::complex>("Data"),
+        in.get<Tensor<sisi4s::complex> *>("Data"),
         binary_p,
         rowIndexOrder,
         columnIndexOrder,
         delimiter);
+  } else {
+    LOG(1, "TensorWriter")
+        << "ERROR: I do not know how to write out the tensor " << dataName
+        << std::endl;
   }
 }
 

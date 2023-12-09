@@ -5,15 +5,15 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(TensorReduceijij);
-
 IMPLEMENT_EMPTY_DRYRUN(TensorReduceijij) {}
 
-void TensorReduceijij::run() {
+DEFSPEC(TensorReduceijij,
+        SPEC_IN({"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT({"Out", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-  checkArgumentsOrDie({"Data", "Out"});
+IMPLEMENT_ALGORITHM(TensorReduceijij) {
 
-  auto T(getTensorArgument<double>("Data"));
+  auto T(in.get<Tensor<double> *>("Data"));
   const int Ni(T->lens[0]), Nj(T->lens[1]);
   const std::vector<int> syms({NS, NS}), lens({Ni, Nj});
 
@@ -21,7 +21,7 @@ void TensorReduceijij::run() {
 
   (*t)["ij"] = (*T)["ijij"];
 
-  allocatedTensorArgument<double>("Out", t);
+  out.set<Tensor<double> *>("Out", t);
 
   LOG(1, "TensorReduceijij") << "Ni: " << Ni << std::endl;
   LOG(1, "TensorReduceijij") << "Nj: " << Nj << std::endl;

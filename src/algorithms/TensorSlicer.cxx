@@ -7,8 +7,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(TensorSlicer);
-
 IMPLEMENT_EMPTY_DRYRUN(TensorSlicer) {}
 
 template <typename F>
@@ -18,17 +16,21 @@ std::string _showVector(const std::vector<F> &v) {
   return "{" + s.str() + "}";
 }
 
-void TensorSlicer::run() {
+DEFSPEC(TensorSlicer,
+        SPEC_IN({"Begin", SPEC_VALUE("TODO: DOC", std::string)},
+                {"End", SPEC_VALUE("TODO: DOC", std::string)},
+                {"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT({"Out", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-  checkArgumentsOrDie({"Data", "Out", "Begin", "End"});
+IMPLEMENT_ALGORITHM(TensorSlicer) {
 
-  std::vector<int> begin(pars::parseVector<int>(getTextArgument("Begin"))),
-      end(pars::parseVector<int>(getTextArgument("End")));
+  std::vector<int> begin(pars::parseVector<int>(in.get<std::string>("Begin"))),
+      end(pars::parseVector<int>(in.get<std::string>("End")));
 
   LOG(0, "TensorSlicer") << "begin: " << _showVector(begin) << std::endl;
   LOG(0, "TensorSlicer") << "end: " << _showVector(end) << std::endl;
 
-  auto T(getTensorArgument<double>("Data"));
+  auto T(in.get<Tensor<double> *>("Data"));
 
   LOG(0, "TensorSlicer") << "slicing..." << std::endl;
   auto t(new Tensor<double>(T->slice(begin.data(), end.data())));
@@ -42,5 +44,5 @@ void TensorSlicer::run() {
                                 std::vector<int>(t->sym, t->sym + t->order))
                          << std::endl;
 
-  allocatedTensorArgument<double>("Out", t);
+  out.set<Tensor<double> *>("Out", t);
 }

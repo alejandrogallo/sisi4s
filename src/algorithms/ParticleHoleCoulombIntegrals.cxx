@@ -9,12 +9,20 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(ParticleHoleCoulombIntegrals);
 
-void ParticleHoleCoulombIntegrals::run() {
+DEFSPEC(ParticleHoleCoulombIntegrals,
+        SPEC_IN({"antisymmetrize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+                {"ParticleHoleCoulombVertex",
+                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+        SPEC_OUT({"HHPPCoulombIntegrals",
+                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+                 {"PPHHCoulombIntegrals",
+                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(ParticleHoleCoulombIntegrals) {
   // read coulomb vertex GammaGai
   Tensor<complex> *GammaGai(
-      getTensorArgument<complex>("ParticleHoleCoulombVertex"));
+      in.get<Tensor<complex> *>("ParticleHoleCoulombVertex"));
 
   // allocate real and imag part of GammaGai
   Tensor<double> realGammaGai(3,
@@ -46,17 +54,17 @@ void ParticleHoleCoulombIntegrals::run() {
           ? new Tensor<double>(4, oovv, syms, *Sisi4s::world, "Vijab")
           : nullptr);
   if (Vabij) {
-    allocatedTensorArgument("PPHHCoulombIntegrals", Vabij);
+    out.set<Tensor<double> *>("PPHHCoulombIntegrals", Vabij);
     (*Vabij)["abij"] = realGammaGai["gai"] * realGammaGai["gbj"];
     (*Vabij)["abij"] += imagGammaGai["gai"] * imagGammaGai["gbj"];
   }
   if (Vijab) {
     // FIXME: allow Complex integrals
-    allocatedTensorArgument("HHPPCoulombIntegrals", Vijab);
+    out.set<Tensor<double> *>("HHPPCoulombIntegrals", Vijab);
     (*Vijab)["ijab"] = (*Vabij)["abij"];
   }
 
-  int antisymmetrize(getIntegerArgument("antisymmetrize", 0));
+  int antisymmetrize(in.get<int64_t>("antisymmetrize", 0));
   if (antisymmetrize) {
     LOG(0, "CoulombIntegrals")
         << "Calculating antisymmetrized integrals" << std::endl;
@@ -66,8 +74,8 @@ void ParticleHoleCoulombIntegrals::run() {
 }
 
 void ParticleHoleCoulombIntegrals::dryRun() {
-  DryTensor<complex> *GammaGai(getTensorArgument<complex, DryTensor<complex>>(
-      "ParticleHoleCoulombVertex"));
+  DryTensor<complex> *GammaGai(
+      in.get<DryTensor<complex> *>("ParticleHoleCoulombVertex"));
 
   // Compute the No,Nv,NG,Np
   int NG(GammaGai->lens[0]);
@@ -80,7 +88,7 @@ void ParticleHoleCoulombIntegrals::dryRun() {
 
   DryTensor<> *Vabij(new DryTensor<>(4, vvoo, syms));
 
-  allocatedTensorArgument("PPHHCoulombIntegrals", Vabij);
+  out.set<Tensor<double> *>("PPHHCoulombIntegrals", Vabij);
 
   // Allocate and realGammaGai and imagGammaGai
   int GaiLens[] = {NG, Nv, No};

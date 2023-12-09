@@ -25,8 +25,6 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(MoReader);
-
 IMPLEMENT_EMPTY_DRYRUN(MoReader) {}
 
 int frozenElement(std::string e) {
@@ -135,14 +133,30 @@ std::map<std::string, std::map<std::string, std::string>>
 
 std::vector<std::string> MoReader::BACKENDS = {"nwchem", "psi4", "turbomole"};
 
-void MoReader::run() {
+
+DEFSPEC(
+    MoReader,
+    SPEC_IN({"frozenCore", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+            {"backend", SPEC_VALUE("TODO: DOC", std::string)},
+            {"basisFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+            {"file", SPEC_VALUE("TODO: DOC", std::string)},
+            {"shellsFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+            {"xyzStructureFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")}),
+    SPEC_OUT(
+        {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"OccupationNumbers", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"OrbitalCoefficients", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"Spins", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(MoReader) {
   std::vector<std::string> args;
-  const std::string fileName(getTextArgument("file")),
-      xyz(getTextArgument("xyzStructureFile", "")),
-      basisFile(getTextArgument("basisFile", "")),
-      shellsFile(getTextArgument("shellsFile", "")),
-      backend(getTextArgument("backend"));
-  bool frozenCore(getIntegerArgument("frozenCore", 0) == 1);
+  const std::string fileName(in.get<std::string>("file")),
+      xyz(in.get<std::string>("xyzStructureFile", "")),
+      basisFile(in.get<std::string>("basisFile", "")),
+      shellsFile(in.get<std::string>("shellsFile", "")),
+      backend(in.get<std::string>("backend"));
+  bool frozenCore(in.get<int64_t>("frozenCore", 0) == 1);
 
   if (std::find(BACKENDS.begin(), BACKENDS.end(), backend) == BACKENDS.end()) {
     throw "Incorrect backend value: " + backend;
@@ -152,7 +166,7 @@ void MoReader::run() {
   const auto _s = [&](std::string s) {
     return std::make_pair<am::AngularMomentum, std::vector<double>>(
         am::fromString(s),
-        pars::parseVector<double>(this->getTextArgument(
+        pars::parseVector<double>(this->in.get<std::string>(
             s + "Scaling",
             this->DEFAULT_SCALINGS[backend][s + "Scaling"])));
   };
@@ -160,7 +174,7 @@ void MoReader::run() {
   const auto _r = [&](std::string s) {
     return std::make_pair<am::AngularMomentum, std::vector<int>>(
         am::fromString(s),
-        pars::parseVector<int>(this->getTextArgument(
+        pars::parseVector<int>(this->in.get<std::string>(
             s + "Reorder",
             this->DEFAULT_REORDER[backend][s + "Reorder"])));
   };
@@ -371,27 +385,27 @@ void MoReader::run() {
       std::iota(ids.begin(), ids.end(), 0);
       auto epsi(new Tensor<double>(1, o.data(), syms.data(), *Sisi4s::world));
       epsi->write(ids.size(), ids.data(), outEigenvalues.data());
-      allocatedTensorArgument<double>("HoleEigenEnergies", epsi);)
+      out.set<Tensor<double> *>("HoleEigenEnergies", epsi);)
 
   IF_GIVEN(
       "ParticleEigenEnergies", ids.resize(rank_m * v[0]);
       std::iota(ids.begin(), ids.end(), 0);
       auto epsa(new Tensor<double>(1, v.data(), syms.data(), *Sisi4s::world));
       epsa->write(ids.size(), ids.data(), outEigenvalues.data() + o[0]);
-      allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);)
+      out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);)
 
   IF_GIVEN(
       "OccupationNumbers", ids.resize(rank_m * p[0]);
       std::iota(ids.begin(), ids.end(), 0);
       auto os(new Tensor<double>(1, p.data(), syms.data(), *Sisi4s::world));
       os->write(ids.size(), ids.data(), outOccupations.data());
-      allocatedTensorArgument<double>("OccupationNumbers", os);)
+      out.set<Tensor<double> *>("OccupationNumbers", os);)
   if (unrestricted) {
     ids.resize(rank_m * p[0]);
     std::iota(ids.begin(), ids.end(), 0);
     auto spin(new Tensor<double>(1, p.data(), syms.data(), *Sisi4s::world));
     spin->write(ids.size(), ids.data(), outSpins.data());
-    allocatedTensorArgument<double>("Spins", spin);
+    out.set<Tensor<double> *>("Spins", spin);
   }
 
   if (isArgumentGiven("OrbitalCoefficients")) {
@@ -399,7 +413,7 @@ void MoReader::run() {
     std::iota(ids.begin(), ids.end(), 0);
     auto coef(new Tensor<double>(2, pp.data(), syms.data(), *Sisi4s::world));
     coef->write(ids.size(), ids.data(), outMos.data());
-    allocatedTensorArgument<double>("OrbitalCoefficients", coef);
+    out.set<Tensor<double> *>("OrbitalCoefficients", coef);
   }
 }
 

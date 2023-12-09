@@ -12,30 +12,40 @@
 using namespace sisi4s;
 using std::make_shared;
 
-ALGORITHM_REGISTRAR_DEFINITION(DoublesAmplitudesDecomposition);
 
-void DoublesAmplitudesDecomposition::run() {
+DEFSPEC(DoublesAmplitudesDecomposition,
+        SPEC_IN({"reduction",
+                 SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_REDUCTION)},
+                {"fieldVariables",
+                 SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_FIELD_VARIABLES)},
+                {"DoublesAmplitudes",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT({"DoublesAmplitudesVertex",
+                  SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
+                 {"DoublesAmplitudesEigenValues",
+                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(DoublesAmplitudesDecomposition) {
   diagonlizeAmplitudes();
   sliceLargestEigenValues();
 }
 
 void DoublesAmplitudesDecomposition::dryRun() {
   // Read the Coulomb vertex GammaGai
-  DryTensor<> *Tabij(
-      getTensorArgument<double, DryTensor<>>("DoublesAmplitudes"));
+  DryTensor<> *Tabij(in.get<DryTensor<double> *>("DoublesAmplitudes"));
 
   Nv = Tabij->lens[0] * Tabij->lens[1];
   // get number of field variables
-  int NL(getIntegerArgument("fieldVariables", DEFAULT_FIELD_VARIABLES));
+  int NL(in.get<int64_t>("fieldVariables", DEFAULT_FIELD_VARIABLES));
   // if fieldVariables not given use reduction
   if (NL == DEFAULT_FIELD_VARIABLES) {
-    double reduction(getRealArgument("reduction", DEFAULT_REDUCTION));
+    double reduction(in.get<double>("reduction", DEFAULT_REDUCTION));
     NL = static_cast<int>(Nv * reduction + 0.5);
   }
 }
 
 void DoublesAmplitudesDecomposition::diagonlizeAmplitudes() {
-  Tensor<double> *Tabij(getTensorArgument<>("DoublesAmplitudes"));
+  Tensor<double> *Tabij(in.get<Tensor<double> *>("DoublesAmplitudes"));
 
   // reorder to Taibj
   Nv = Tabij->lens[0];
@@ -84,15 +94,15 @@ void DoublesAmplitudesDecomposition::diagonlizeAmplitudes() {
   delete[] lambdaIndices;
   delete[] sqrtLambdas;
 
-  allocatedTensorArgument<>("DoublesAmplitudesEigenValues", LambdaF);
+  out.set<Tensor<double> *>("DoublesAmplitudesEigenValues", LambdaF);
 }
 
 void DoublesAmplitudesDecomposition::sliceLargestEigenValues() {
   // get number of field variables
-  NF = getIntegerArgument("fieldVariables", DEFAULT_FIELD_VARIABLES);
+  NF = in.get<int64_t>("fieldVariables", DEFAULT_FIELD_VARIABLES);
   // if fieldVariables not given use reduction
   if (NF == DEFAULT_FIELD_VARIABLES) {
-    double reduction(getRealArgument("reduction", DEFAULT_REDUCTION));
+    double reduction(in.get<double>("reduction", DEFAULT_REDUCTION));
     NF = static_cast<int>(Nv * reduction + 0.5);
   }
   NF = std::min(std::max(0, NF), NvNo);
@@ -156,10 +166,10 @@ void DoublesAmplitudesDecomposition::sliceLargestEigenValues() {
   cLaiF.reset();
   LF.reset();
 
-  allocatedTensorArgument<complex>("DoublesAmplitudesVertex", LFai);
+  out.set<Tensor<complex> *>("DoublesAmplitudesVertex", LFai);
 
   // recompose for testing
-  Tensor<double> *Tabij(getTensorArgument<>("DoublesAmplitudes"));
+  Tensor<double> *Tabij(in.get<Tensor<double> *>("DoublesAmplitudes"));
   double tNorm(frobeniusNorm(*Tabij));
   Tensor<complex> cTabij(4, Tabij->lens, Tabij->sym, *Tabij->wrld, "cTabij");
   toComplexTensor(*Tabij, cTabij);

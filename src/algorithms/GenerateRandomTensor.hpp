@@ -8,9 +8,8 @@ DEFINE_ALGORITHM_HEADER(
 
     GenerateRandomTensor,
 
-    static Algorithm *create(std::vector<Argument> const &argumentList) {
-      return new GenerateRandomTensor(argumentList);
-    });
+);
+
 } // namespace sisi4s
 
 #endif

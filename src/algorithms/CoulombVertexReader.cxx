@@ -15,10 +15,24 @@ char const *CoulombVertexReader::Chunk::REALS_MAGIC = "FTODreal";
 char const *CoulombVertexReader::Chunk::IMAGS_MAGIC = "FTODimag";
 char const *CoulombVertexReader::Chunk::EPSILONS_MAGIC = "FTODepsi";
 
-ALGORITHM_REGISTRAR_DEFINITION(CoulombVertexReader);
 
-void CoulombVertexReader::run() {
-  std::string fileName(getTextArgument("file"));
+DEFSPEC(CoulombVertexReader,
+        SPEC_IN({"unrestricted", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+                {"file", SPEC_VALUE("TODO: DOC", std::string)},
+                {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+                {name + "EigenEnergies",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT({"CoulombVertex", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
+                 {"CoulombVertex", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
+                 {"HoleEigenEnergies",
+                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+                 {name + "EigenEnergies",
+                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+                 {"ParticleEigenEnergies",
+                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+
+IMPLEMENT_ALGORITHM(CoulombVertexReader) {
+  std::string fileName(in.get<std::string>("file"));
   LOG(0, "Reader") << "Reading Coulomb vertex from file " << fileName
                    << std::endl;
   MPI_File file;
@@ -57,9 +71,9 @@ void CoulombVertexReader::run() {
                                                 "GammaGqr"));
 
   // Enter the allocated data (and by that type the output data to tensors)
-  allocatedTensorArgument("HoleEigenEnergies", epsi);
-  allocatedTensorArgument("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<complex>("CoulombVertex", GammaGqr);
+  out.set<Tensor<double> *>("HoleEigenEnergies", epsi);
+  out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);
+  out.set<Tensor<complex> *>("CoulombVertex", GammaGqr);
 
   // Real and imaginary parts are read in seperately
   Tensor<double> realGammaGqr(3,
@@ -105,7 +119,7 @@ void CoulombVertexReader::run() {
 }
 
 void CoulombVertexReader::dryRun() {
-  std::string fileName(getTextArgument("file"));
+  std::string fileName(in.get<std::string>("file"));
   LOG(0, "Reader") << "Reading Coulomb vertex from file " << fileName
                    << std::endl;
   std::ifstream file(fileName.c_str(), std::ios::binary | std::ios::in);
@@ -136,10 +150,9 @@ void CoulombVertexReader::dryRun() {
   DryTensor<complex> *GammaGqr(
       new DryTensor<complex>(3, vertexLens, vertexSyms, SOURCE_LOCATION));
   // Enter the allocated data (and by that type the output data to tensors)
-  allocatedTensorArgument("HoleEigenEnergies", epsi);
-  allocatedTensorArgument("ParticleEigenEnergies", epsa);
-  allocatedTensorArgument<complex, DryTensor<complex>>("CoulombVertex",
-                                                       GammaGqr);
+  out.set<Tensor<double> *>("HoleEigenEnergies", epsi);
+  out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);
+  out.set<DryTensor<complex> *>("CoulombVertex", GammaGqr);
 
   // Real and imaginary parts are read in seperately
   DryTensor<> realGammaGqr(3, vertexLens, vertexSyms, SOURCE_LOCATION);
@@ -148,7 +161,7 @@ void CoulombVertexReader::dryRun() {
 }
 
 void CoulombVertexReader::handleUnrestricted() {
-  int unrestricted(getIntegerArgument("unrestricted", 0));
+  int unrestricted(in.get<int64_t>("unrestricted", 0));
   // FIXME: This should be integer
   //  setRealArgument("unrestricted", unrestricted);
   if (unrestricted) {
@@ -159,7 +172,7 @@ void CoulombVertexReader::handleUnrestricted() {
 }
 
 void CoulombVertexReader::unrestrictVertex() {
-  auto GammaGqr(getTensorArgument<complex>("CoulombVertex"));
+  auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
   // The field variable NG remains the same
   int vertexLens[] = {static_cast<int>(GammaGqr->lens[0]),
                       static_cast<int>(2 * GammaGqr->lens[1]),
@@ -192,11 +205,11 @@ void CoulombVertexReader::unrestrictVertex() {
 
   // overwrite restricted vertex
   // FIXME: vertex should be given after handleUnrestricted
-  allocatedTensorArgument<complex>("CoulombVertex", uGammaGqr);
+  out.set<Tensor<complex> *>("CoulombVertex", uGammaGqr);
 }
 
 void CoulombVertexReader::unrestrictEigenEnergies(const std::string &name) {
-  auto eps(getTensorArgument(name + "EigenEnergies"));
+  auto eps(in.get<Tensor<double> *>(name + "EigenEnergies"));
   int lens[] = {static_cast<int>(2 * eps->lens[0])};
   auto uEps(new Tensor<double>(1,
                                lens,
@@ -220,5 +233,5 @@ void CoulombVertexReader::unrestrictEigenEnergies(const std::string &name) {
 
   // overwrite restricted eigen energies
   // FIXME: eigen energies should be given after handleUnrestricted
-  allocatedTensorArgument<>(name + "EigenEnergies", uEps);
+  out.set<Tensor<double> *>(name + "EigenEnergies", uEps);
 }

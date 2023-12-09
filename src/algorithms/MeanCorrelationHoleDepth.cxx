@@ -16,17 +16,19 @@
 
 using namespace sisi4s;
 
-ALGORITHM_REGISTRAR_DEFINITION(MeanCorrelationHoleDepth);
-
 IMPLEMENT_EMPTY_DRYRUN(MeanCorrelationHoleDepth) {}
 
-void MeanCorrelationHoleDepth::run() {
+DEFSPEC(
+    MeanCorrelationHoleDepth,
+    SPEC_IN({"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"PPHHDelta", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"SinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT({"G", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-  checkArgumentsOrDie(
-      {"PPHHDelta", "SinglesAmplitudes", "DoublesAmplitudes", "G"});
+IMPLEMENT_ALGORITHM(MeanCorrelationHoleDepth) {
 
-  const auto d(getTensorArgument<double>("PPHHDelta"));
-  const auto T(getTensorArgument<double>("DoublesAmplitudes"));
+  const auto d(in.get<Tensor<double> *>("PPHHDelta"));
+  const auto T(in.get<Tensor<double> *>("DoublesAmplitudes"));
   int No(d->lens[2]), Nv(d->lens[0]);
   std::vector<int> oo({No, No});
   std::vector<int> syms({NS, NS});
@@ -42,10 +44,10 @@ void MeanCorrelationHoleDepth::run() {
   (*gij)["ij"] = (*d)["abij"] * (*T)["abij"];
 
   if (isArgumentGiven("SinglesAmplitudes")) {
-    const auto t(getTensorArgument<double>("SinglesAmplitudes"));
+    const auto t(in.get<Tensor<double> *>("SinglesAmplitudes"));
     LOGGER(0) << "Using singles amplitudes" << std::endl;
     (*gij)["ij"] += (*t)["ai"] * (*t)["bi"] * (*d)["abij"];
   }
 
-  allocatedTensorArgument<double>("G", gij);
+  out.set<Tensor<double> *>("G", gij);
 }

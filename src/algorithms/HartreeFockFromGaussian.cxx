@@ -33,6 +33,7 @@
 #include <iostream>
 #include <vector>
 #include <numeric> // std::iota
+
 #include <util/Libint.hpp>
 #include <algorithms/HartreeFockFromGaussian.hpp>
 #include <algorithms/OneBodyFromGaussian.hpp>
@@ -43,16 +44,16 @@
 #include <util/Tensor.hpp>
 #include <util/Emitter.hpp>
 #include <algorithms/HartreeFockFromCoulombIntegrals.hpp>
+
 #define LOGGER(_l) LOG(_l, "HartreeFockFromGaussian")
 #define IF_GIVEN(_l, ...)                                                      \
-  if (isArgumentGiven(_l)) { __VA_ARGS__ }
+  if (out.present(_l)) { __VA_ARGS__ }
 
 using namespace sisi4s;
-ALGORITHM_REGISTRAR_DEFINITION(HartreeFockFromGaussian);
 
 IMPLEMENT_EMPTY_DRYRUN(HartreeFockFromGaussian) {}
 
-Tensor<double> eigenToCtfMatrix(const Eigen::MatrixXd &m) {
+static Tensor<double> eigenToCtfMatrix(const Eigen::MatrixXd &m) {
   const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
   int syms[] = {NS, NS}, lens[] = {(int)m.rows(), (int)m.cols()};
   std::vector<int64_t> indices(rank_m * m.rows() * m.cols());
@@ -62,7 +63,8 @@ Tensor<double> eigenToCtfMatrix(const Eigen::MatrixXd &m) {
   return t;
 }
 
-double getNuclearRepulsionEnergy(std::vector<libint2::Atom> &structure) {
+static double
+getNuclearRepulsionEnergy(std::vector<libint2::Atom> const &structure) {
   unsigned int i, j;
   double enuc(0.0), r2(0.0);
   LOGGER(1) << "Calculating nuclear repulsion energy" << std::endl;
@@ -90,9 +92,10 @@ struct ShellInfo {
   inline size_t operator[](const size_t g) const { return g % size; }
 };
 
-Eigen::MatrixXd getOneBodyIntegrals_(const libint2::BasisSet &shells,
-                                     const libint2::Operator obtype,
-                                     const std::vector<libint2::Atom> &atoms) {
+static Eigen::MatrixXd
+getOneBodyIntegrals_(const libint2::BasisSet &shells,
+                     const libint2::Operator obtype,
+                     const std::vector<libint2::Atom> &atoms) {
 
   // Get number of basis set functions
   const size_t Np = shells.nbf();
@@ -139,8 +142,8 @@ Eigen::MatrixXd getOneBodyIntegrals_(const libint2::BasisSet &shells,
   return result;
 }
 
-Eigen::MatrixXd getTwoBodyFock(const libint2::BasisSet &shells,
-                               const Eigen::MatrixXd &D) {
+static Eigen::MatrixXd getTwoBodyFock(const libint2::BasisSet &shells,
+                                      const Eigen::MatrixXd &D) {
 
   const size_t Np = shells.nbf();
   Eigen::MatrixXd G = Eigen::MatrixXd::Zero(Np, Np);
@@ -206,29 +209,31 @@ Eigen::MatrixXd getTwoBodyFock(const libint2::BasisSet &shells,
   return G;
 }
 
-void HartreeFockFromGaussian::run() {
+DEFSPEC(
+    HartreeFockFromGaussian,
+    SPEC_IN(
+        {"energyDifference", SPEC_VALUE_DEF("TODO: DOC", double, 1e-4)},
+        {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 16)},
+        {"numberOfElectrons", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+        {"basisSet", SPEC_VALUE_DEF("TODO: DOC", std::string, "sto-3g")},
+        {"atoms",
+         SPEC_VARIN("Vector of libint atoms specifying a molecular structure",
+                    std::vector<libint2::Atom> *)},
+        {"initialOrbitalCoefficients",
+         SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT(
+        {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"CoreHamiltonian", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"OrbitalCoefficients", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"OverlapMatrix", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-  std::vector<std::string> allArguments = {"xyzStructureFile",
-                                           "xyzStructureString",
-                                           "basisSet",
-                                           "CoreHamiltonian",
-                                           "energyDifference",
-                                           "maxIterations",
-                                           "numberOfElectrons",
-                                           "OrbitalCoefficients",
-                                           "OverlapMatrix",
-                                           "initialOrbitalCoefficients",
-                                           "HartreeFockEnergy",
-                                           "HoleEigenEnergies",
-                                           "ParticleEigenEnergies"};
-  checkArgumentsOrDie(allArguments);
+IMPLEMENT_ALGORITHM(HartreeFockFromGaussian) {
 
-  const std::string xyzStructureFile(getTextArgument("xyzStructureFile", "")),
-      xyz_structure_string(getTextArgument("xyzStructureString", "")),
-      basisSet(getTextArgument("basisSet", "sto-3g"));
-  double electronicConvergence(getRealArgument("energyDifference", 1e-4));
-  int numberOfElectrons(getIntegerArgument("numberOfElectrons", -1));
-  unsigned int maxIterations(getIntegerArgument("maxIterations", 16)), i,
+  const std::string basisSet(in.get<std::string>("basisSet"));
+  const double electronicConvergence(in.get<double>("energyDifference"));
+  int numberOfElectrons(in.get<int64_t>("numberOfElectrons"));
+  unsigned int maxIterations(in.get<int64_t>("maxIterations")), i,
       nBasisFunctions, No, Nv, Np;
 
   LOGGER(1) << "maxIterations: " << maxIterations << std::endl;
@@ -239,19 +244,7 @@ void HartreeFockFromGaussian::run() {
   LOGGER(1) << "MAX_AM: " << LIBINT_MAX_AM << std::endl;
   libint2::initialize();
 
-  std::vector<libint2::Atom> atoms;
-  if (xyzStructureFile.size()) {
-    LOGGER(1) << "structure: " << xyzStructureFile << std::endl;
-    std::ifstream structureFileStream(xyzStructureFile.c_str());
-    atoms = libint2::read_dotxyz(structureFileStream);
-    structureFileStream.close();
-  } else if (xyz_structure_string.size()) {
-    std::istringstream s;
-    s.str(xyz_structure_string);
-    atoms = libint2::read_dotxyz(s);
-  } else {
-    throw "xyzStructureFile or xyzStructureString has to be provided";
-  }
+  auto const &atoms = *in.get<std::vector<libint2::Atom> *>("atoms");
 
   if (numberOfElectrons == -1) {
     numberOfElectrons = 0;
@@ -323,13 +316,13 @@ void HartreeFockFromGaussian::run() {
 
   LOGGER(1) << "Setting initial density matrix" << std::endl;
 
-  IF_GIVEN("initialOrbitalCoefficients",
-           LOGGER(1) << "with initialOrbitalCoefficients" << std::endl;
-           const auto ic_ctf(
-               getTensorArgument<double>("initialOrbitalCoefficients"));
-           const auto ic(toEigenMatrix(*ic_ctf));
-           const auto C_occ(ic.leftCols(No));
-           D = C_occ * C_occ.transpose();)
+  IF_GIVEN(
+      "initialOrbitalCoefficients",
+      LOGGER(1) << "with initialOrbitalCoefficients" << std::endl;
+      const auto ic_ctf(in.get<Tensor<double> *>("initialOrbitalCoefficients"));
+      const auto ic(toEigenMatrix(*ic_ctf));
+      const auto C_occ(ic.leftCols(No));
+      D = C_occ * C_occ.transpose();)
   else {
     LOGGER(1) << "with whatever" << std::endl;
     D *= 0.0;
@@ -417,16 +410,15 @@ void HartreeFockFromGaussian::run() {
   std::vector<int64_t> indices;
   const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
 
-  IF_GIVEN(
-      "CoreHamiltonian", LOGGER(1) << "Exporting CoreHamiltonian" << std::endl;
-      allocatedTensorArgument<double>("CoreHamiltonian",
-                                      new Tensor<double>(eigenToCtfMatrix(H)));)
+  IF_GIVEN("CoreHamiltonian",
+           LOGGER(1) << "Exporting CoreHamiltonian" << std::endl;
+           out.set<Tensor<double> *>("CoreHamiltonian",
+                                     new Tensor<double>(eigenToCtfMatrix(H)));)
 
-  IF_GIVEN(
-      "OrbitalCoefficients",
-      LOGGER(1) << "Exporting OrbitalCoefficients" << std::endl;
-      allocatedTensorArgument<double>("OrbitalCoefficients",
-                                      new Tensor<double>(eigenToCtfMatrix(C)));)
+  IF_GIVEN("OrbitalCoefficients",
+           LOGGER(1) << "Exporting OrbitalCoefficients" << std::endl;
+           out.set<Tensor<double> *>("OrbitalCoefficients",
+                                     new Tensor<double>(eigenToCtfMatrix(C)));)
 
   IF_GIVEN("HoleEigenEnergies",
            // epsilon for holes
@@ -434,7 +426,7 @@ void HartreeFockFromGaussian::run() {
            std::iota(indices.begin(), indices.end(), 0);
            auto epsi(new Tensor<double>(1, o, syms, *Sisi4s::world, "epsi"));
            epsi->write(indices.size(), indices.data(), &eps(0));
-           allocatedTensorArgument<double>("HoleEigenEnergies", epsi);)
+           out.set<Tensor<double> *>("HoleEigenEnergies", epsi);)
 
   IF_GIVEN("ParticleEigenEnergies",
            // epsilon for particles
@@ -442,18 +434,13 @@ void HartreeFockFromGaussian::run() {
            std::iota(indices.begin(), indices.end(), 0);
            auto epsa(new Tensor<double>(1, v, syms, *Sisi4s::world, "epsa"));
            epsa->write(indices.size(), indices.data(), &eps(0) + No);
-           allocatedTensorArgument<double>("ParticleEigenEnergies", epsa);)
+           out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);)
 
-  IF_GIVEN("HartreeFockEnergy", CTF::Scalar<double> hfEnergy;
-           hfEnergy[""] = (ehf + enuc);
-           allocatedTensorArgument<double>("HartreeFockEnergy",
-                                           new CTF::Scalar<double>(hfEnergy));)
-
-  IF_GIVEN(
-      "OverlapMatrix",
-      LOGGER(1) << "Exporting OverlapMatrix in the atomic basis" << std::endl;
-      allocatedTensorArgument<double>("OverlapMatrix",
-                                      new Tensor<double>(eigenToCtfMatrix(S)));)
+  IF_GIVEN("OverlapMatrix",
+           LOGGER(1) << "Exporting OverlapMatrix in the atomic basis"
+                     << std::endl;
+           out.set<Tensor<double> *>("OverlapMatrix",
+                                     new Tensor<double>(eigenToCtfMatrix(S)));)
 
   libint2::finalize();
 

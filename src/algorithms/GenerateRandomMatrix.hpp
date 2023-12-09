@@ -8,9 +8,7 @@ DEFINE_ALGORITHM_HEADER(
 
     GenerateRandomMatrix,
 
-    static Algorithm *create(std::vector<Argument> const &argumentList) {
-      return new GenerateRandomMatrix(argumentList);
-    });
+);
 } // namespace sisi4s
 
 #endif
