@@ -7,7 +7,7 @@ namespace sisi4s {
 
 DEFINE_ALGORITHM_HEADER(
 
-    XYZReader,
+    XyzReader,
 
 );
 } // namespace sisi4s
