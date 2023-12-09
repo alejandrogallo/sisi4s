@@ -1,7 +1,6 @@
 #ifndef INTERPRETER_DEFINED
 #define INTERPRETER_DEFINED
 
-#include <Data.hpp>
 #include <algorithms/Algorithm.hpp>
 #include <util/LineNumberStream.hpp>
 #include <string>
