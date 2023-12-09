@@ -376,17 +376,14 @@ IMPLEMENT_ALGORITHM(HartreeFockFromGaussian) {
 
     if (iter == 1) {
       LOG(1, "HartreeFockIt")
-          << std::setprecision(15) << std::setw(10) << "Iter"
-          << "\t"
-          << "E"
-          << "\t"
-          << "DeltaE"
-          << "\t"
-          << "RMS(D)" << std::endl;
+          << _FORMAT("%4s %15s %15s %15s\n", "#", "E", "DeltaE", "RMS(D)");
     }
 
-    LOG(1, "HartreeFockIt") << iter << "\t" << ehf << "\t" << energyDifference
-                            << "\t" << rmsd << "\t" << std::endl;
+    LOG(1, "HartreeFockIt") << _FORMAT("%4d %15.12f %15.12f %15.12f\n",
+                                       iter,
+                                       ehf,
+                                       energyDifference,
+                                       rmsd);
 
     EMIT() << YAML::BeginMap << YAML::Key << "iteration" << YAML::Value << iter
            << YAML::Key << "energy" << YAML::Value << YAML::BeginMap

@@ -46,22 +46,20 @@ template <typename F>
 class YAMLSpec : public Spec {
 public:
   F value;
+  bool parse_error = false;
   virtual std::string commit() override { return data::put<F>(value).first; }
   virtual void parse(std::string const &v) override {
     YAML::Node n;
     n["v"] = v;
     try {
       value = n["v"].as<F>();
-    } catch (YAML::TypedBadConversion<F> const &c) {
-      std::cout << "We could not parse the value '" << v << "'" << std::endl;
-      std::cout << c.what() << std::endl;
-      throw "";
-    }
+    } catch (YAML::TypedBadConversion<F> const &c) { parse_error = true; }
   }
-  virtual bool validate() override { return true; }
+  virtual bool validate() override { return !parse_error; }
   virtual std::vector<std::string> warnings(std::string const &v) {
     IGNORABLE(v);
-    return {"A value of type F"};
+    return {"The value '" + v + "' could not be parsed as the intended type '"
+            + data::type_name<F>() + "'"};
   }
 };
 
@@ -150,13 +148,6 @@ public:
   virtual void parse(std::string const &v) override {
     if (v.size()) { YAMLSpec<F>::parse(v); }
   }
-  virtual bool validate() override { return true; }
-  virtual std::vector<std::string> warnings(std::string const &v) override {
-    IGNORABLE(v);
-    std::stringstream s;
-    s << "Shoulde be a value";
-    return {s.str()};
-  }
 };
 #define SPEC_VALUE_DEF(doc, type, ...)                                         \
   (new sisi4s::spec::Value<type>(__VA_ARGS__))                                 \
@@ -203,7 +194,9 @@ public:
   Range(F low_, F high_)
       : low(low_)
       , high(high_) {}
-  virtual bool validate() override { return value < high && low < value; }
+  virtual bool validate() override {
+    return this->validate() && value < high && low < value;
+  }
   virtual std::vector<std::string> warnings(std::string const &v) override {
     std::stringstream s;
     s << "Should be in the interval between " << low << " and " << high;
