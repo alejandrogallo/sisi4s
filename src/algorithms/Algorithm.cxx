@@ -2,10 +2,10 @@
 #include <sstream>
 #include <vector>
 #include <list>
+#include <regex>
 
 #include <algorithms/Algorithm.hpp>
 #include <NewData.hpp>
-#include <Data.hpp>
 #include <math/Complex.hpp>
 #include <DryTensor.hpp>
 #include <util/Exception.hpp>
@@ -29,3 +29,20 @@ void Algorithm::dryRun() {
 }
 
 AlgorithmFactory::AlgorithmMap *AlgorithmFactory::algorithmMap;
+
+std::string AlgorithmFactory::normalize_name(std::string const &name) {
+  std::vector<std::string> words;
+  const std::regex words_regex("[^\\s-_]+");
+  const auto words_begin =
+                 std::sregex_iterator(name.begin(), name.end(), words_regex),
+             words_end = std::sregex_iterator();
+
+  for (std::sregex_iterator i = words_begin; i != words_end; ++i) {
+    std::string word = i->str();
+    word[0] = std::toupper(word[0]);
+    words.push_back(word);
+  }
+  std::string new_name;
+  for (auto const &word : words) new_name += word;
+  return new_name;
+}
