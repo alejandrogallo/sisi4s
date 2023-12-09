@@ -200,7 +200,7 @@ IMPLEMENT_ALGORITHM(HartreeFockFromCoulombIntegrals) {
             || (fabs(rmsd) > electronicConvergence))
            && (iter < maxIterations));
 
-  for (unsigned int e; e < eps.size(); e++) {
+  for (unsigned int e = 0; e < eps.size(); e++) {
     LOGGER(1) << "band " << e + 1 << " = " << eps(e, 0) << std::endl;
   }
 

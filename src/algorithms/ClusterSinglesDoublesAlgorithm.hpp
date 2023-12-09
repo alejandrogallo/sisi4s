@@ -12,6 +12,44 @@
 #include <vector>
 
 namespace sisi4s {
+
+#define CLUSTER_SINGLES_DOUBLES_INSPEC                                         \
+  {"amplitudesConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-5)},        \
+      {"energyConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},        \
+      {"levelShift", SPEC_VALUE_DEF("TODO: DOC", double, 0.0)},                \
+      {"antisymmetrize", SPEC_VALUE_DEF("TODO: DOC", bool, false)},            \
+      {"integralsSliceSize", SPEC_VALUE_DEF("TODO: DOC", int64_t)},            \
+      {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 16)},             \
+      {"unrestricted", SPEC_VALUE_DEF("TODO: DOC", bool, false)},              \
+      {"mixer", SPEC_VALUE_DEF("TODO: DOC", std::string, "LinearMixer")},      \
+      {"maxResidua", SPEC_VALUE_DEF("TODO: DOC", int64_t, 4)},                 \
+      {"mixingRatio", SPEC_VALUE_DEF("TODO: DOC", double, 1.0)},               \
+      {"distinguishable", SPEC_VALUE_DEF("TODO: DOC", bool, false)},           \
+      {"OnlyPPL", SPEC_VALUE_DEF("TODO: DOC", bool, false)},                   \
+      {"PPL", SPEC_VALUE_DEF("TODO: DOC", bool, true)},                        \
+      {"CoulombFactors", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},          \
+      {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},           \
+      {"FactorOrbitals", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},          \
+      {"OutgoingFactorOrbitals", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},  \
+      {"HoleEigenEnergies",                                                    \
+       SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},                  \
+      {"ParticleEigenEnergies",                                                \
+       SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},                  \
+      {"HHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},          \
+      {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<F> *)},                  \
+      {"initialSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<F> *)},      \
+      {"initialDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<F> *)},      \
+      {"PPHHCoulombIntegrals",                                                 \
+       SPEC_VARIN("TODO: DOC", Tensor<F> *)->require()},                       \
+  {                                                                            \
+    "CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)        \
+  }
+
+#define CLUSTER_SINGLES_DOUBLES_OUTSPEC                                        \
+  {"SinglesAmplitudes", SPEC_VAROUT("TODO: DOC", Tensor<F> *)}, {              \
+    "DoublesAmplitudes", SPEC_VAROUT("TODO: DOC", Tensor<F> *)                 \
+  }
+
 /**
  * \brief Contains all the necessary tools for an algorithm with
  * singles and doubles amplitudes. It calculates the energy from the amplitudes
@@ -21,16 +59,11 @@ namespace sisi4s {
  **/
 class ClusterSinglesDoublesAlgorithm : public Algorithm {
 public:
-  ClusterSinglesDoublesAlgorithm(std::vector<Argument> const &argumentList)
-      : Algorithm(argumentList) {}
-  ~ClusterSinglesDoublesAlgorithm() {}
-  /**
-   * \brief Calculates the energy of a ClusterSinglesDoubles algorithm
-   */
+  using Algorithm::Algorithm;
+
   virtual void run();
 
   // TODO: dryRun
-
   /**
    * \brief Returns the abbreviation of the concrete algorithm, e.g. "Ccd",
    * "Dcd".

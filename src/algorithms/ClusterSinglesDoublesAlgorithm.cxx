@@ -1,3 +1,5 @@
+#include <array>
+
 #include <algorithms/ClusterSinglesDoublesAlgorithm.hpp>
 #include <math/MathFunctions.hpp>
 #include <math/ComplexTensor.hpp>
@@ -10,20 +12,17 @@
 #include <util/Tensor.hpp>
 #include <Options.hpp>
 #include <Sisi4s.hpp>
-#include <array>
 
 #include <initializer_list>
 
 using namespace sisi4s;
 
 void ClusterSinglesDoublesAlgorithm::run() {
-  double e(0.0);
   if (in.is_of_type<Tensor<double> *>("PPHHCoulombIntegrals")) {
-    e = run<double>();
+    run<double>();
   } else {
-    e = std::real(run<complex>());
+    std::real(run<complex>());
   }
-  setRealArgument(getDataName("", "Energy"), e);
 }
 
 template <typename F>
@@ -37,7 +36,7 @@ F ClusterSinglesDoublesAlgorithm::run() {
                           {"ai", "abij"}));
 
   // create a mixer, by default use the linear one
-  std::string mixerName(in.get<std::string>("mixer", "LinearMixer"));
+  std::string mixerName(in.get<std::string>("mixer"));
   PTR(Mixer<F>) mixer(MixerFactory<F>::create(mixerName, this));
   if (!mixer) {
     std::stringstream stringStream;
@@ -46,30 +45,20 @@ F ClusterSinglesDoublesAlgorithm::run() {
   }
 
   // number of iterations for determining the amplitudes
-  int maxIterationsCount(
-      in.get<int64_t>("maxIterations", DEFAULT_MAX_ITERATIONS));
+  int maxIterationsCount(in.get<int64_t>("maxIterations"));
 
-  F amplitudesConvergence(
-      in.get<double>("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE));
-  F energyConvergence(
-      in.get<double>("energyConvergence", DEFAULT_ENERGY_CONVERGENCE));
+  F amplitudesConvergence(in.get<double>("amplitudesConvergence"));
+  F energyConvergence(in.get<double>("energyConvergence"));
   EMIT() << YAML::Key << "maxIterations" << YAML::Value << maxIterationsCount
          << YAML::Key << "amplitudesConvergence" << YAML::Value
          << std::abs(amplitudesConvergence) << YAML::Key << "energyConvergence"
          << YAML::Value << std::abs(energyConvergence);
 
-  if (isArgumentGiven("distinguishable")) {
-    EMIT() << YAML::Key << "distinguishable" << YAML::Value
-           << in.get<int64_t>("distinguishable");
-  }
-  if (isArgumentGiven("PPL")) {
-    EMIT() << YAML::Key << "PPL" << YAML::Value << in.get<int64_t>("PPL");
-  }
-  if (isArgumentGiven("OnlyPPL")) {
-    EMIT() << YAML::Key << "OnlyPPL" << YAML::Value
-           << in.get<int64_t>("OnlyPPL");
-  }
-  if (isArgumentGiven("integralsSliceSize")) {
+  EMIT() << YAML::Key << "distinguishable" << YAML::Value
+         << in.get<bool>("distinguishable");
+  EMIT() << YAML::Key << "PPL" << YAML::Value << in.get<bool>("PPL");
+  EMIT() << YAML::Key << "OnlyPPL" << YAML::Value << in.get<bool>("OnlyPPL");
+  if (in.present("integralsSliceSize")) {
     EMIT() << YAML::Key << "integralsSliceSize" << YAML::Value
            << in.get<int64_t>("integralsSliceSize");
   }
@@ -122,12 +111,12 @@ F ClusterSinglesDoublesAlgorithm::run() {
 template <typename F>
 F ClusterSinglesDoublesAlgorithm::getEnergy(
     const PTR(const FockVector<F>) &amplitudes) {
-  double spins(in.get<int64_t>("unrestricted", 0) ? 1.0 : 2.0);
-  int antisymmetrized(in.get<int64_t>("antisymmetrize", 0));
+  double spins(in.get<bool>("unrestricted") ? 1.0 : 2.0);
+  int antisymmetrized(in.get<bool>("antisymmetrize"));
 
   // get the Coulomb integrals to compute the energy
   PTR(Tensor<F>) Vijab;
-  if (isArgumentGiven("HHPPCoulombIntegrals")) {
+  if (in.present("HHPPCoulombIntegrals")) {
     Vijab = NEW(Tensor<F>, in.get<Tensor<F> *>("HHPPCoulombIntegrals"));
   } else {
     auto Vabij(in.get<Tensor<F> *>("PPHHCoulombIntegrals"));
@@ -135,7 +124,8 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     int Nv(Vabij->lens[0]);
     auto oovv(std::array<int, 4>{{No, No, Nv, Nv}});
     Vijab = NEW(Tensor<F>, 4, oovv.data());
-    (*Vijab)["ijab"] = (*Vabij)["abij"];
+    (*Vijab)["ijab"] *= 0.0;
+    (*Vijab)["ijab"] += (*Vabij)["abij"];
     // IRAN: The integral is already antisymmetrized...dont do it again.
     //    if (antisymmetrized) {
     // oovv = h * vvoo
@@ -188,7 +178,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
            << YAML::EndMap;
   }
 
-  if (isArgumentGiven("HPFockMatrix")) {
+  if (in.present("HPFockMatrix")) {
     Tensor<F> *fia;
     fia = in.get<Tensor<F> *>("HPFockMatrix");
     energy[""] = spins * (*Tai)["ai"] * (*fia)["ia"];
@@ -207,7 +197,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   LOG(0, getCapitalizedAbbreviation())
       << std::setprecision(10) << "energy= " << e << std::setprecision(ss)
       << std::endl;
-  if (isArgumentGiven("PairEnergy")) {
+  if (out.present("PairEnergy")) {
     int oo[] = {(int)Tabij->lens[2], (int)Tabij->lens[2]};
     int syms[] = {NS, NS};
     auto pairEnergy(new Tensor<F>(2, oo, syms, *Sisi4s::world, "pairEnergies"));
@@ -238,7 +228,7 @@ PTR(FockVector<F>) ClusterSinglesDoublesAlgorithm::createAmplitudes(
   for (auto name : amplitudeNames) {
     std::stringstream initialDataName;
     initialDataName << "initial" << name << "Amplitudes";
-    if (isArgumentGiven(initialDataName.str())) {
+    if (in.present(initialDataName.str())) {
       // use given amplitudes as initial amplitudes
       amplitudeTensors.push_back(
           NEW(Tensor<F>, *in.get<Tensor<F> *>(initialDataName.str())));
@@ -281,8 +271,9 @@ void ClusterSinglesDoublesAlgorithm::storeAmplitudes(
     const PTR(const FockVector<F>) &amplitudes,
     std::vector<std::string> names) {
   int component(0);
+  // TODO: change this to SinglesAmplitudes and DoublesAmplitudes
   for (auto name : names) {
-    if (isArgumentGiven(getDataName(name, "Amplitudes"))) {
+    if (out.present(getDataName(name, "Amplitudes"))) {
       out.set<Tensor<F> *>(getDataName(name, "Amplitudes"),
                            new Tensor<F>(*amplitudes->get(component)));
     }
@@ -294,7 +285,7 @@ template <typename F>
 void ClusterSinglesDoublesAlgorithm::estimateAmplitudesFromResiduum(
     const PTR(FockVector<F>) &residuum,
     const PTR(const FockVector<F>) &amplitudes) {
-  F levelShift(in.get<double>("levelShift", DEFAULT_LEVEL_SHIFT));
+  F levelShift(in.get<double>("levelShift"));
   // level shifted division for left hand side
   class LevelShiftedDivision {
   public:
@@ -900,7 +891,8 @@ void ClusterSinglesDoublesAlgorithm::sliceIntoResiduum(Tensor<F> &Rxyij,
     srcEnd[1] = Nx;
     // Swap xy and ij simultaneously
     Tensor<F> Ryxji(4, srcEnd, Rxyij.sym, *Rxyij.wrld, "Ryxji");
-    Ryxji["yxji"] = Rxyij["xyij"];
+    Ryxji["yxji"] *= 0.0;
+    Ryxji["yxji"] += Rxyij["xyij"];
     // Add Ryxij to Rabij
     Rabij.slice(dstStart, dstEnd, 1.0, Ryxji, srcStart, srcEnd, 1.0);
   }

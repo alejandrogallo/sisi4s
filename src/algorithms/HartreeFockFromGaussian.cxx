@@ -209,24 +209,25 @@ static Eigen::MatrixXd getTwoBodyFock(const libint2::BasisSet &shells,
   return G;
 }
 
-DEFSPEC(
-    HartreeFockFromGaussian,
-    SPEC_IN(
-        {"energyDifference", SPEC_VALUE_DEF("TODO: DOC", double, 1e-4)},
-        {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 16)},
-        {"numberOfElectrons", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
-        {"basisSet", SPEC_VALUE_DEF("TODO: DOC", std::string, "sto-3g")},
-        {"atoms",
-         SPEC_VARIN("Vector of libint atoms specifying a molecular structure",
-                    std::vector<libint2::Atom> *)},
-        {"initialOrbitalCoefficients",
-         SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
-    SPEC_OUT(
-        {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-        {"CoreHamiltonian", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-        {"OrbitalCoefficients", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-        {"OverlapMatrix", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-        {"ParticleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+DEFSPEC(HartreeFockFromGaussian,
+        SPEC_IN({"energyDifference", SPEC_VALUE_DEF("TODO: DOC", double, 1e-4)},
+                {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 16)},
+                {"numberOfElectrons", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+                {"basisSet", SPEC_VALUE("TODO: DOC", std::string)->require()},
+                {"atoms",
+                 SPEC_VARIN(
+                     "Vector of libint atoms specifying a molecular structure",
+                     std::vector<libint2::Atom> *)
+                     ->require()},
+                {"initialOrbitalCoefficients",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT(
+            {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+            {"CoreHamiltonian", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+            {"OrbitalCoefficients", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+            {"OverlapMatrix", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+            {"ParticleEigenEnergies",
+             SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
 IMPLEMENT_ALGORITHM(HartreeFockFromGaussian) {
 
@@ -395,7 +396,7 @@ IMPLEMENT_ALGORITHM(HartreeFockFromGaussian) {
            && (iter < maxIterations));
 
   EMIT() << YAML::EndSeq;
-  for (unsigned int e; e < eps.size(); e++) {
+  for (unsigned int e = 0; e < eps.size(); e++) {
     LOGGER(1) << "band " << e + 1 << " = " << eps(e, 0) << std::endl;
   }
 
