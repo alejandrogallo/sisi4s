@@ -450,15 +450,18 @@ DEFSPEC(
     SPEC_IN(
         {"chemistNotation", SPEC_VALUE_DEF("TODO: DOC", bool, true)},
         {"maxElementsWrite", SPEC_VALUE_DEF("TODO: DOC", int64_t, 67108864)},
-        {"basisSet", SPEC_VALUE("TODO: DOC", std::string)},
+        {"basisSet", SPEC_VALUE("TODO: DOC", std::string)->require()},
         {"kernel", SPEC_ONE_OF("TODO: DOC", std::string, "coulomb", "delta")},
         {"shellDistribution",
          SPEC_ONE_OF("TODO: DOC", std::string, "simple", "roundRobin")},
         {"atoms",
          SPEC_VARIN("Vector of libint atoms specifying a molecular structure",
-                    std::vector<libint2::Atom> *)},
-        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"OrbitalCoefficients", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                    std::vector<libint2::Atom> *)
+             ->require()},
+        {"HoleEigenEnergies",
+         SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+        {"OrbitalCoefficients",
+         SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
         {"Spins", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
     SPEC_OUT(
         {"CoulombIntegrals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},

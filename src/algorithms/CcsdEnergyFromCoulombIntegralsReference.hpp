@@ -21,6 +21,7 @@ public:
   ALGORITHM_REGISTRAR_DECLARATION(CcsdEnergyFromCoulombIntegralsReference);
   using ClusterSinglesDoublesAlgorithm::ClusterSinglesDoublesAlgorithm;
   virtual ~CcsdEnergyFromCoulombIntegralsReference() {}
+  static AlgorithmInputSpec spec;
 
   /**
    * \brief Returns the abbreviation of the routine (CCSD).

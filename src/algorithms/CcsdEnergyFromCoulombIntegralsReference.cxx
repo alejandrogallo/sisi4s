@@ -15,7 +15,28 @@ using namespace sisi4s;
 // So Hirata, et. al. Chem. Phys. Letters, 345, 475 (2001)
 //////////////////////////////////////////////////////////////////////
 
-PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
+ALGORITHM_REGISTRAR_DEFINITION(CcsdEnergyFromCoulombIntegralsReference);
+
+using F = double;
+DEFSPEC(CcsdEnergyFromCoulombIntegralsReference,
+        SPEC_IN(CLUSTER_SINGLES_DOUBLES_INSPEC,
+                {"slicedPPL", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
+                {"HHHHCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+                {"HHHPCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+                {"PHPHCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+                {"PPHHCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+                {"PPPHCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+                {"PPPPCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()}),
+        SPEC_OUT(CLUSTER_SINGLES_DOUBLES_OUTSPEC));
+
+PTR(FockVector<double>)
+CcsdEnergyFromCoulombIntegralsReference::getResiduum(
     const int i,
     const PTR(const FockVector<double>) &amplitudes) {
   // get singles and doubles part of the amplitudes
@@ -23,8 +44,8 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
   Tai->set_name("Tai");
   auto Tabij(amplitudes->get(1));
   Tabij->set_name("Tabij");
-  const bool onlyPPL(in.get<int64_t>("onlyPPL", 0) == 1);
-  const int slicedPPL(in.get<int64_t>("slicedPPL", 0));
+  const bool onlyPPL = in.get<bool>("onlyPPL");
+  const bool slicedPPL(in.get<bool>("slicedPPL"));
   // create residuum and get their singles and doubles part
   auto residuum(NEW(FockVector<double>, *amplitudes));
   *residuum *= 0.0;
@@ -36,7 +57,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
   // get part of Coulomb integrals used whether the amplitudes are zero or not
   auto Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
 
-  if (i == 0 && !isArgumentGiven("initialDoublesAmplitudes") && !onlyPPL) {
+  if (i == 0 && !in.present("initialDoublesAmplitudes") && !onlyPPL) {
     // For first iteration compute only the MP2 amplitudes
     // Since Tabij = 0, Vabij is the only non-zero term
     LOG(1, getCapitalizedAbbreviation()) << "MP2 T2 Amplitudes" << std::endl;
@@ -57,7 +78,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegralsReference::getResiduum(
     //    Xabcd["abcd"] += (-1.0) * (*Vabci)["dcbk"] * (*Tai)["ak"];
     Tensor<double> Xabij(*Tabij);
     Xabij["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
-    if (slicedPPL == 0) {
+    if (slicedPPL) {
       //    (*Rabij)["abij"]  = Xabcd["abcd"] * Xabij["cdij"];
       (*Rabij)["abij"] = (*Vabcd)["abcd"] * Xabij["cdij"];
     }
