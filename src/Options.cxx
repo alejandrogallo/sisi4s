@@ -14,7 +14,6 @@ Options::Options(int argc_, char **argv_)
     , name("")
     , argc(argc_)
     , argv(argv_)
-    , cc4s(false)
     , listAlgorithms(false)
     , dryRun(false) {
 
@@ -35,9 +34,6 @@ Options::Options(int argc_, char **argv_)
   app.add_flag("--dry", dryRun, "Do a dry run pass")->default_val(dryRun);
 
   app.add_option("--log-level", logLevel, "Log level")->default_val(logLevel);
-
-  app.add_flag("--cc4s", cc4s, "Interpret the input file in the old cc4s DSL")
-      ->default_val(cc4s);
 
 #if defined(HAVE_LISP)
   app.add_option("--load", lisp_file, "Lisp Input file path")

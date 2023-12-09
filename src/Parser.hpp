@@ -42,34 +42,6 @@ protected:
   std::string fileName;
 };
 
-template <>
-class InputFileParser<InputFileFormat::CC4S> {
-public:
-  InputFileParser(std::string const &fileName);
-  ~InputFileParser();
-
-  std::vector<Algorithm *> parse();
-
-protected:
-  Algorithm *parseAlgorithm();
-  std::vector<Argument> parseArguments();
-  Argument parseArgument();
-  Argument parseImplicitlyNamedArgument();
-  Argument parseExplicitlyNamedArgument();
-  std::string parseData();
-  std::string parseSymbolName();
-  Data *parseSymbol();
-  TextData *parseText();
-  NumericData *parseNumber();
-  RealData *parseReal(int64_t const sign, int64_t const integerPart);
-
-  void skipIrrelevantCharacters();
-  void skipComment();
-  void skipWhiteSpaceCharacters();
-  void expectCharacter(char const character);
-
-  LineNumberStream stream;
-};
 } // namespace sisi4s
 
 #endif

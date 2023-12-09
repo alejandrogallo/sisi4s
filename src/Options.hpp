@@ -13,7 +13,7 @@ struct Options {
   std::string inFile, logFile, yamlOutFile, lisp_file, name;
   int argc;
   char **argv;
-  bool cc4s, listAlgorithms, dryRun;
+  bool listAlgorithms, dryRun;
 
   static const int DEFAULT_LOG_LEVEL = 1;
 
