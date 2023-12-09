@@ -1,111 +1,135 @@
 #ifndef ALGORITHM_DEFINED
 #define ALGORITHM_DEFINED
 
-#include <Data.hpp>
 #include <string>
 #include <vector>
 #include <sstream>
+#include <regex>
+#include <algorithm>
+
+#include <NewData.hpp>
 #include <util/Tensor.hpp>
+#include <util/Emitter.hpp>
+#include <util/Exception.hpp>
+#include <util/Format.hpp>
+#include <AlgorithmInputSpec.hpp>
 
 namespace sisi4s {
-class Argument {
-public:
-  Argument(std::string const &name_)
-      : name(name_)
-      , data(name_) {}
-  Argument(std::string const &name_, std::string const &data_)
-      : name(name_)
-      , data(data_) {}
-  std::string const &getName() const { return name; }
-  std::string const &getData() const { return data; }
 
-protected:
-  std::string name, data;
+class Arguments {
+public:
+  using ArgumentName = std::string;
+  using Index = std::string;
+  std::map<ArgumentName, Index> arguments;
+
+  static std::string normalize_name(std::string const &name) {
+    const std::regex symbols("[-_ ]");
+    std::string new_name = std::regex_replace(name, symbols, "");
+    std::transform(new_name.begin(),
+                   new_name.end(),
+                   new_name.begin(),
+                   [](unsigned char const &c) { return std::tolower(c); });
+    return new_name;
+  }
+
+  void push(std::string const &name, std::string const &db_index) {
+    arguments[normalize_name(name)] = db_index;
+  }
+
+  bool present(std::string const &name) {
+    return arguments.find(normalize_name(name)) != arguments.end();
+  }
+
+  data::StorePair get_data(std::string const &name) {
+    const std::string nname = normalize_name(name);
+    auto dataIterator(arguments.find(nname));
+    if (dataIterator == arguments.end()) {
+      std::stringstream sStream;
+      sStream << "Missing argument: " << name;
+      //    throw new EXCEPTION(std::stringstream() << "Missing argument: " <<
+      //    name);
+      throw new EXCEPTION(sStream.str());
+    }
+    std::string db_index = dataIterator->second;
+    // Data *data = Data::get(db_index);
+    data::Data *data = data::getraw(db_index);
+    if (!data) {
+      throw new EXCEPTION(_FORMAT("Missing data in db '%s' for key '%s' ",
+                                  db_index.c_str(),
+                                  name.c_str()));
+    }
+    return {db_index, data};
+  }
+
+  std::string get_var(std::string const &name) {
+    return get_data(normalize_name(name)).second->name;
+  }
+
+  template <typename F>
+  bool is_of_type(std::string const &name) {
+    return data::istype<F>(get_data(normalize_name(name)).first);
+  }
+
+  template <typename F>
+  F get(std::string const &name) {
+    const std::string nname = normalize_name(name);
+    F value = *getptr<F>(nname);
+    EMIT() << YAML::Key << nname << YAML::Value << value;
+    return value;
+  }
+
+  template <typename F>
+  F *getptr(std::string const &name) {
+    const std::string nname = normalize_name(name);
+    auto const pair = get_data(nname);
+    const std::string db_index = pair.first;
+    return data::get<F>(db_index);
+  }
+
+  // template <typename F>
+  // F get(std::string const &name, F const &def) {
+  //   if (!present(name)) {
+  //     EMIT() << YAML::Key << name << YAML::Value << def;
+  //     return def;
+  //   } else {
+  //     return get<F>(name);
+  //   }
+  // }
+
+  template <typename F>
+  void set(std::string const &name, F const &value) {
+    F *ptr = getptr<F>(normalize_name(name));
+    *ptr = value;
+  }
+
+  template <typename F>
+  void set_force(std::string const &name, F const &value) {
+    const std::string nname = normalize_name(name);
+    auto const pair = get_data(nname);
+    const std::string db_index = pair.first;
+    set<F>(nname, value);
+    data::declare_type<F>(db_index);
+  }
 };
 
 class Algorithm {
 public:
-  Algorithm(std::vector<Argument> const &argumentList);
+  using ArgumentMap = std::map<std::string, std::string>;
+  Algorithm(Arguments const &in, Arguments const &out);
   virtual ~Algorithm();
   virtual std::string getName() = 0;
   virtual void run() = 0;
   virtual void dryRun();
-
   std::string note;
   bool fallible = false;
-
-  bool isArgumentGiven(std::string const &argumentName);
-  // retrieving input arguments
-  std::string getTextArgument(std::string const &argumentName);
-  std::string getTextArgument(std::string const &argumentName,
-                              std::string const &defaultValue);
-  bool getBooleanArgument(std::string const &name);
-  bool getBooleanArgument(std::string const &name, bool const &defaultValue);
-  int64_t getIntegerArgument(std::string const &argumentName);
-  int64_t getIntegerArgument(std::string const &argumentName,
-                             int64_t const defaultValue);
-  real getRealArgument(std::string const &argumentName);
-  real getRealArgument(std::string const &argumentName,
-                       real const defaultValue);
-  template <typename F = real, typename T = Tensor<F>>
-  T *getTensorArgument(std::string const &argumentName);
-  template <typename F = real, typename C = std::vector<F>>
-  C *getContainerArgument(std::string const &argumentName);
-  template <typename F = real, typename C = std::vector<F>>
-  void allocateContainerArgument(std::string const &argumentName, C *container);
-
-  // Get all arguments given by the user in the input file
-  std::vector<std::string> getGivenArgumentNames() const {
-    std::vector<std::string> names;
-    for (const auto &p : arguments) { names.push_back(p.first); }
-    return names;
-  }
-
-  // Check that all the arguments given by the user
-  // conform to the args that you're expecting in the algorithm
-  void checkArgumentsOrDie(const std::vector<std::string> args) const {
-    const std::vector<std::string> actualArguments(getGivenArgumentNames());
-    std::stringstream s;
-    for (const auto &p : actualArguments) {
-      if (std::count(args.begin(), args.end(), p) != 1) {
-        s << "Error: parameter (" << p << ") unknown";
-        throw new EXCEPTION(s.str());
-      }
-    }
-  }
-
-  // typing, allocating and setting output arguments
-  /**
-   * \brief Specifies the location of an output tensor data.
-   * \param[in] argumentName The argument name as specified in the sisi4s file
-   * \param[in] tensor The reference of the tensor data allocated by the
-   * caller and later freed by the system if not needed any further.
-   * \note
-   * often explicit instantiation may be necessary, e.g.
-   * \code{.cxx}
-   * allocatedTensorArgument<complex>(complexTensor);
-   * \endcode
-   */
-  template <typename F = real, typename T = Tensor<F>>
-  void allocatedTensorArgument(std::string const &argumentName, T *tensor);
-  void setRealArgument(std::string const &argumentName, real const value);
-  void setIntegerArgument(std::string const &argumentName, int const value);
-
-  // type promotions:
-  real getRealArgumentFromInteger(IntegerData *data);
-  real getRealArgumentFromTensor(TensorData<real> *data);
-  template <typename F = real, typename T = Tensor<F>>
-  T *getTensorArgumentFromReal(RealData *realData);
-
-  Data *getArgumentData(std::string const &argumentName);
-  std::map<std::string, std::string> arguments;
+  Arguments in, out;
 };
 
 class AlgorithmFactory {
 public:
-  using AlgorithmMap =
-      std::map<std::string,
-               std::function<Algorithm *(std::vector<Argument> const &)>>;
+  using AlgorithmMap = std::map<
+      std::string,
+      std::function<Algorithm *(Arguments const &, Arguments const &)>>;
 
   /**
    * \brief Creates an algorithm object of the algorithm type specified
@@ -114,10 +138,10 @@ public:
    * The instantiated algorithm must be registered using the
    * AlgorithmRegistrar class.
    */
-  static Algorithm *create(std::string const &name,
-                           std::vector<Argument> const &arguments) {
+  static Algorithm *
+  create(std::string const &name, Arguments const &in, Arguments const &out) {
     auto iterator(getAlgorithmMap()->find(name));
-    return iterator != getAlgorithmMap()->end() ? iterator->second(arguments)
+    return iterator != getAlgorithmMap()->end() ? iterator->second(in, out)
                                                 : nullptr;
   }
 
@@ -138,8 +162,8 @@ protected:
  * \brief template function creating an instance of the given class.
  */
 template <typename AlgorithmType>
-Algorithm *createAlgorithm(std::vector<Argument> const &arguments) {
-  return new AlgorithmType(arguments);
+Algorithm *createAlgorithm(Arguments const &in, Arguments const &out) {
+  return new AlgorithmType(in, out);
 }
 
 /**
@@ -188,9 +212,8 @@ public:
   class NAME : public Algorithm {                                              \
   public:                                                                      \
     ALGORITHM_REGISTRAR_DECLARATION(NAME);                                     \
-    NAME(std::vector<Argument> const &argumentList)                            \
-        : Algorithm(argumentList) {}                                           \
-    ~NAME() {}                                                                 \
+    using Algorithm::Algorithm;                                                \
+    static AlgorithmInputSpec spec;                                            \
     virtual void run();                                                        \
     virtual void dryRun();                                                     \
     __VA_ARGS__                                                                \
