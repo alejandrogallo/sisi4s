@@ -9,12 +9,14 @@ using namespace sisi4s;
 
 MIXER_REGISTRAR_DEFINITION(LinearMixer);
 
+// TODO: create a Spec
+
 template <typename F>
 LinearMixer<F>::LinearMixer(Algorithm *algorithm)
     : Mixer<F>(algorithm)
     , last(nullptr)
     , lastResiduum(nullptr) {
-  ratio = (algorithm->getRealArgument("mixingRatio", 1.0));
+  ratio = (algorithm->in.get<double>("mixingRatio"));
   LOG(1, "LinearMixer") << "ratio=" << ratio << std::endl;
   EMIT() << YAML::Key << "mixer" << YAML::Value;
   EMIT() << YAML::BeginMap;

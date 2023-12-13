@@ -9,6 +9,8 @@
 #include <math/IterativePseudoInverse.hpp>
 #include <util/Tensor.hpp>
 
+// TODO: create a Spec
+
 using namespace sisi4s;
 
 MIXER_REGISTRAR_DEFINITION(DiisMixer);
@@ -52,7 +54,7 @@ DiisMixer<F>::DiisMixer(Algorithm *algorithm)
     : Mixer<F>(algorithm)
     , next(nullptr)
     , nextResiduum(nullptr) {
-  int N(algorithm->getRealArgument("maxResidua", 4));
+  int N(algorithm->in.get<int64_t>("maxResidua"));
   LOG(1, "DiisMixer") << "maxResidua=" << N << std::endl;
   EMIT() << YAML::Key << "mixer" << YAML::Value;
   EMIT() << YAML::BeginMap;

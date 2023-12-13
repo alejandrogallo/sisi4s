@@ -133,7 +133,7 @@ void Sisi4s::dryRun() {
   printBanner();
   LOG(0, "root") << "DRY RUN - nothing will be calculated" << std::endl;
   OUT() << std::endl;
-  InputFileParser<InputFileFormat::YAML> parser(options->inFile);
+  InputFileParser<InputFileFormat::YAML> parser(options->in_file);
   std::vector<Algorithm *> algorithms(parser.parse());
   LOG(0, "root") << "execution plan read, steps=" << algorithms.size()
                  << std::endl;
@@ -287,13 +287,13 @@ int main(int argumentCount, char **arguments) {
 
   // setup loggers and emitters of output
   Log::setRank(Sisi4s::world->rank);
-  Log::setFileName(Sisi4s::options->logFile);
-  Log::setLogLevel(Sisi4s::options->logLevel);
-  Emitter::setFileName(Sisi4s::options->yamlOutFile);
+  Log::setFileName(Sisi4s::options->log_file);
+  Log::setLogLevel(Sisi4s::options->log_level);
+  Emitter::setFileName(Sisi4s::options->yaml_out_file);
   Emitter::setRank(Sisi4s::world->rank);
 
-  if (Sisi4s::options->listAlgorithms) {
-    const auto names = AlgorithmFactory::getAlgorithmNames();
+  if (Sisi4s::options->list_algorithms_p) {
+    const auto names = AlgorithmFactory::get_algorithm_names();
     for (auto const &name : names) LOG(0) << name << "\n";
     return 0;
   }
