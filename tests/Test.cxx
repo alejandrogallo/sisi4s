@@ -17,15 +17,15 @@ void printBanner() {
         << "    / ___/ ___/ // /_/ ___/" << std::endl
         << "   / /__/ /__/__  __(__  ) " << std::endl
         << "   \\___/\\___/  /_/ /____/  " << std::endl
-        << "  Coupled Cluster for Solids" << std::endl << std::endl;
-  LOG(0, "root") << "version=" << CC4S_VERSION <<
-    ", date=" << CC4S_DATE << std::endl;
+        << "  Coupled Cluster for Solids" << std::endl
+        << std::endl;
+  LOG(0, "root") << "version=" << CC4S_VERSION << ", date=" << CC4S_DATE
+                 << std::endl;
   LOG(0, "root") << "build date=" << __DATE__ << " " << __TIME__ << std::endl;
   LOG(0, "root") << "compiler=" << COMPILER_VERSION << std::endl;
   LOG(0, "root") << "number of processes=" << Cc4s::world->np << std::endl;
   OUT() << std::endl;
 }
-
 
 int main(int argumentCount, char **arguments) {
   MPI_Init(&argumentCount, &arguments);
@@ -33,9 +33,7 @@ int main(int argumentCount, char **arguments) {
   Cc4s::world = new World(argumentCount, arguments);
   Cc4s::options = new Options(argumentCount, arguments);
   Log::setRank(Cc4s::world->rank);
-  LogStream logStream(
-    Cc4s::options->logFile, Cc4s::options->logLevel
-  );
+  LogStream logStream(Cc4s::options->logFile, Cc4s::options->log_level);
 
   printBanner();
 

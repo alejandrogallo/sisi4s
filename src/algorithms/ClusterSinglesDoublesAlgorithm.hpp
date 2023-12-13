@@ -18,7 +18,7 @@ namespace sisi4s {
       {"energyConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},        \
       {"levelShift", SPEC_VALUE_DEF("TODO: DOC", double, 0.0)},                \
       {"antisymmetrize", SPEC_VALUE_DEF("TODO: DOC", bool, false)},            \
-      {"integralsSliceSize", SPEC_VALUE_DEF("TODO: DOC", int64_t)},            \
+      {"integralsSliceSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},        \
       {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 16)},             \
       {"unrestricted", SPEC_VALUE_DEF("TODO: DOC", bool, false)},              \
       {"mixer", SPEC_VALUE_DEF("TODO: DOC", std::string, "LinearMixer")},      \

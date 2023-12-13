@@ -7,12 +7,12 @@
 using namespace sisi4s;
 
 LogStream::LogStream(std::string const &logFileName,
-                     int const logLevel_,
+                     int const log_level_,
                      std::string const &indent_)
     : std::ostream(&logBuffer)
     , logFile(logFileName.c_str(), std::ofstream::out | std::ofstream::trunc)
     , logBuffer(logFile.rdbuf(), std::cout.rdbuf())
-    , logLevel(logLevel_)
+    , log_level(log_level_)
     , indent(indent_)
     , startTime(Time::getCurrentRealTime()) {}
 
@@ -24,7 +24,7 @@ std::ostream &LogStream::prepare(int const rank,
   time -= startTime;
   logFile << time << " ";
   std::ostream *log(&logFile);
-  if (logLevel >= level) {
+  if (log_level >= level) {
     for (int i(0); i < level; ++i) { std::cout << indent.c_str(); }
     std::stringstream fraction;
     fraction << std::fixed << double(time.getFractions()) / Time::FRACTIONS;
@@ -39,7 +39,7 @@ std::ostream &LogStream::prepare(int const rank,
 
 int Log::rank(-1);
 std::string Log::fileName("sisi4s.log");
-int Log::logLevel(0);
+int Log::log_level(0);
 LogStream *Log::logStream(nullptr);
 
 void Log::setRank(int const rank_) { rank = rank_; }
@@ -50,11 +50,11 @@ void Log::setFileName(const std::string &fileName_) { fileName = fileName_; }
 
 std::string Log::getFileName() { return fileName; }
 
-void Log::setLogLevel(int const logLevel_) { logLevel = logLevel_; }
+void Log::setLogLevel(int const log_level_) { log_level = log_level_; }
 
-int Log::getLogLevel() { return logLevel; }
+int Log::getLogLevel() { return log_level; }
 
 LogStream &Log::getLogStream() {
-  if (!logStream) { logStream = new LogStream(fileName, logLevel); }
+  if (!logStream) { logStream = new LogStream(fileName, log_level); }
   return *logStream;
 }

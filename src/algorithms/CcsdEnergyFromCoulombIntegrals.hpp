@@ -19,6 +19,7 @@ class CcsdEnergyFromCoulombIntegrals : public ClusterSinglesDoublesAlgorithm {
 public:
   ALGORITHM_REGISTRAR_DECLARATION(CcsdEnergyFromCoulombIntegrals);
   using ClusterSinglesDoublesAlgorithm::ClusterSinglesDoublesAlgorithm;
+  static AlgorithmInputSpec spec;
   virtual ~CcsdEnergyFromCoulombIntegrals() {}
 
   /**
@@ -26,9 +27,6 @@ public:
    * \return abbreviation of the routine
    */
   virtual std::string getAbbreviation() { return "Ccsd"; }
-
-  static int64_t constexpr DEFAULT_SLICE_SIZE = -1;
-  static int64_t constexpr DEFAULT_DISTINGUISHABLE = 0;
 
 protected:
   /**

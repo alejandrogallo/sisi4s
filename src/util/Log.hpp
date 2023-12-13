@@ -37,7 +37,7 @@ protected:
 class LogStream : public std::ostream {
 public:
   LogStream(std::string const &logFileName,
-            int const logLevel = 0,
+            int const log_level = 0,
             std::string const &indent = "\t");
 
   std::ostream &prepare(int const rank,
@@ -54,7 +54,7 @@ protected:
    * A log message will only be
    * written if its log level is equal or below the current log level.
    */
-  int logLevel;
+  int log_level;
   /**
    * \brief Indentation string used for each log level.
    * By default a tab character will be used.
@@ -74,7 +74,7 @@ public:
   static int getRank();
   static void setFileName(const std::string &fileName);
   static std::string getFileName();
-  static void setLogLevel(const int logLevel);
+  static void setLogLevel(const int log_level);
   static int getLogLevel();
 
   static LogStream &getLogStream();
@@ -82,7 +82,7 @@ public:
 protected:
   static int rank;
   static std::string fileName;
-  static int logLevel;
+  static int log_level;
   static LogStream *logStream;
 };
 } // namespace sisi4s

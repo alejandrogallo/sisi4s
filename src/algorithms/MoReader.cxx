@@ -133,15 +133,16 @@ std::map<std::string, std::map<std::string, std::string>>
 
 std::vector<std::string> MoReader::BACKENDS = {"nwchem", "psi4", "turbomole"};
 
-
 DEFSPEC(
     MoReader,
-    SPEC_IN({"frozenCore", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-            {"backend", SPEC_VALUE("TODO: DOC", std::string)},
-            {"basisFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
-            {"file", SPEC_VALUE("TODO: DOC", std::string)},
-            {"shellsFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
-            {"xyzStructureFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")}),
+    SPEC_IN(
+        {"frozenCore", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"backend",
+         SPEC_ONE_OF("TODO: DOC", std::string, "nwchem", "psi4", "turbomole")},
+        {"basisFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"file", SPEC_VALUE("TODO: DOC", std::string)},
+        {"shellsFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"xyzStructureFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")}),
     SPEC_OUT(
         {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
         {"OccupationNumbers", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
@@ -416,14 +417,3 @@ IMPLEMENT_ALGORITHM(MoReader) {
     out.set<Tensor<double> *>("OrbitalCoefficients", coef);
   }
 }
-
-SISI_DOC(*Documentation
-
-             This module contains convenience routines in order to read
-                 molecular orbitals from the following codes
-         :
-
-         -NWCHEM - PSI4
-             - TURBOMOLE
-
-                   * END)

@@ -15,6 +15,26 @@ using namespace sisi4s;
 // So Hirata, et. al. Chem. Phys. Letters, 345, 475 (2001)
 //////////////////////////////////////////////////////////////////////
 
+using F = double;
+DEFSPEC(CcsdEnergyFromCoulombIntegrals,
+        SPEC_IN(CLUSTER_SINGLES_DOUBLES_INSPEC,
+                {"factorsSliceSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+                {"factorsSliceFactor", SPEC_VALUE("TODO: DOC", double)},
+                {"integralsSliceFactor", SPEC_VALUE("TODO: DOC", double)},
+                {"PHHPCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+                {"PHHHCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+                {"HHPPCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+                {"HHHHCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<F> *)->require()},
+                {"HHHPCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+                {"PHPHCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<F> *)->require()}),
+        SPEC_OUT(CLUSTER_SINGLES_DOUBLES_OUTSPEC));
+
 PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     const int i,
     const PTR(const FockVector<double>) &amplitudes) {
@@ -35,7 +55,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
   // get part of Coulomb integrals used whether the amplitudes are zero or not
   auto Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
 
-  if (i == 0 && !isArgumentGiven("initialDoublesAmplitudes")) {
+  if (i == 0 && !in.present("initialDoublesAmplitudes")) {
     // For first iteration compute only the MP2 amplitudes
     // Since Tabij = 0, Vabij is the only non-zero term
     LOG(1, getCapitalizedAbbreviation()) << "MP2 T2 Amplitudes" << std::endl;
@@ -111,8 +131,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     std::array<int, 2> vo({{Nv, No}});
     std::array<int, 2> oo({{No, No}});
 
-    int distinguishable(
-        in.get<int64_t>("distinguishable", DEFAULT_DISTINGUISHABLE));
+    bool distinguishable(in.get<bool>("distinguishable"));
 
     //*************************************************************************
     //****************  T2 amplitude equations  *******************************
@@ -312,7 +331,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
       // Add last term contracted only with the doubles if ppl is true
       // The singles term is computed in the slicing
-      bool ppl = in.get<int64_t>("ppl", 1);
+      bool ppl = in.get<bool>("ppl");
 
       LOG(1, getCapitalizedAbbreviation())
           << "Using " << (ppl ? "PPL" : "no PPL") << std::endl;
@@ -324,21 +343,20 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
       }
     }
 
-    bool ppl = in.get<int64_t>("ppl", 1);
+    bool ppl = in.get<int64_t>("ppl");
 
     if (ppl) {
       LOG(1, getCapitalizedAbbreviation()) << "Starting PPL" << std::endl;
-      if (isArgumentGiven("CoulombFactors")) {
+      if (in.present("CoulombFactors")) {
         // Read the factorsSliceSize.
         auto LambdaGR(in.get<Tensor<complex> *>("CoulombFactors"));
         LambdaGR->set_name("LambdaGR");
 
         int NR(LambdaGR->lens[1]);
 
-        int factorsSliceSize(
-            in.get<int64_t>("factorsSliceSize", DEFAULT_SLICE_SIZE));
+        int factorsSliceSize(in.get<int64_t>("factorsSliceSize"));
         if (factorsSliceSize == -1) {
-          if (isArgumentGiven("factorsSliceFactor")) {
+          if (in.present("factorsSliceFactor")) {
             double factorsSliceFactor(in.get<double>("factorsSliceFactor"));
             factorsSliceSize = NR * factorsSliceFactor;
           } else {
@@ -363,10 +381,9 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         }
       } else {
         // Read the integralsSliceSize. If not provided use No
-        int integralsSliceSize(
-            in.get<int64_t>("integralsSliceSize", DEFAULT_SLICE_SIZE));
+        int integralsSliceSize(in.get<int64_t>("integralsSliceSize"));
         if (integralsSliceSize == -1) {
-          if (isArgumentGiven("integralsSliceFactor")) {
+          if (in.present("integralsSliceFactor")) {
             double integralsSliceFactor(in.get<double>("integralsSliceFactor"));
             integralsSliceSize = Nv * integralsSliceFactor;
           } else {
@@ -503,7 +520,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
   auto Rabij(residuum->get(1));
   Rabij->set_name("Rabij");
 
-  if (i == 0 && !isArgumentGiven("initialDoublesAmplitudes")) {
+  if (i == 0 && !in.present("initialDoublesAmplitudes")) {
     // For first iteration compute only the MP2 amplitudes
     // Since Tabij = 0, Vabij is the only non-zero term
     LOG(1, getCapitalizedAbbreviation()) << "MP2 T2 Amplitudes" << std::endl;
@@ -561,8 +578,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     std::array<int, 2> vo({{Nv, No}});
     std::array<int, 2> oo({{No, No}});
 
-    int distinguishable(
-        in.get<int64_t>("distinguishable", DEFAULT_DISTINGUISHABLE));
+    bool distinguishable(in.get<bool>("distinguishable"));
 
     //********************************************************************************
     //***********************  T2 amplitude equations
@@ -745,7 +761,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
       // Add last term contracted only with the doubles if ppl is true
       // The singles term is computed in the slicing
-      bool ppl = in.get<int64_t>("ppl", 1);
+      bool ppl = in.get<bool>("ppl");
 
       LOG(1, getCapitalizedAbbreviation())
           << "Using " << (ppl ? "PPL" : "no PPL") << std::endl;
@@ -757,11 +773,11 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
       }
     }
 
-    bool ppl = in.get<int64_t>("ppl", 1);
+    bool ppl = in.get<bool>("ppl");
 
     if (ppl) {
       LOG(1, getCapitalizedAbbreviation()) << "Starting PPL" << std::endl;
-      if (isArgumentGiven("CoulombFactors")) {
+      if (in.present("CoulombFactors")) {
 
         // Read the factorsSliceSize.
         auto LambdaGR(in.get<Tensor<complex> *>("CoulombFactors"));
@@ -769,10 +785,9 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
         int NR(LambdaGR->lens[1]);
 
-        int factorsSliceSize(
-            in.get<int64_t>("factorsSliceSize", DEFAULT_SLICE_SIZE));
+        int factorsSliceSize(in.get<int64_t>("factorsSliceSize"));
         if (factorsSliceSize == -1) {
-          if (isArgumentGiven("factorsSliceFactor")) {
+          if (in.present("factorsSliceFactor")) {
             double factorsSliceFactor(in.get<double>("factorsSliceFactor"));
             factorsSliceSize = NR * factorsSliceFactor;
           } else {
@@ -797,10 +812,9 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         }
       } else {
         // Read the integralsSliceSize. If not provided use No
-        int integralsSliceSize(
-            in.get<int64_t>("integralsSliceSize", DEFAULT_SLICE_SIZE));
+        int integralsSliceSize(in.get<int64_t>("integralsSliceSize"));
         if (integralsSliceSize == -1) {
-          if (isArgumentGiven("integralsSliceFactor")) {
+          if (in.present("integralsSliceFactor")) {
             double integralsSliceFactor(in.get<double>("integralsSliceFactor"));
             integralsSliceSize = Nv * integralsSliceFactor;
           } else {
