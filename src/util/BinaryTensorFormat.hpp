@@ -18,7 +18,7 @@ public:
   int32_t reserved;
 
   static constexpr char const *MAGIC = "TENS";
-  static constexpr int32_t VERSION = 0x09000;
+  static constexpr int32_t DEFAULT_VERSION = 0x09000;
   static constexpr char const *IEEE = "IEEE";
 
 protected:
@@ -26,7 +26,7 @@ protected:
   BinaryTensorHeaderBase(int32_t bytesPerNumber_,
                          int32_t numsPerElement_,
                          int32_t order_)
-      : version(VERSION)
+      : version(DEFAULT_VERSION)
       , bytesPerNumber(bytesPerNumber_)
       , numbersPerElement(numsPerElement_)
       , order(order_)

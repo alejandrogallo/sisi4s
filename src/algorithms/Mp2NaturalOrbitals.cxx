@@ -3,10 +3,7 @@
 #include <algorithm>
 #include <numeric>
 
-#include <algorithms/Mp2NaturalOrbitals.hpp>
-// #include <math/MathFunctions.hpp>
-// #include <math/ComplexTensor.hpp>
-// #include <DryTensor.hpp>
+#include <Step.hpp>
 #include <extern/Lapack.hpp>
 #include <util/Log.hpp>
 #include <util/Exception.hpp>
@@ -15,8 +12,6 @@
 // #include <Options.hpp>
 
 using namespace sisi4s;
-
-IMPLEMENT_EMPTY_DRYRUN(Mp2NaturalOrbitals) {}
 
 // We follow Taube & Bartlett:
 // doi:10.1135/cccc20050837
@@ -47,7 +42,7 @@ DEFSPEC(
              {"RotatedOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
              {"RotatedOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(Mp2NaturalOrbitals) {
+DEFSTEP(Mp2NaturalOrbitals) {
   Tensor<double> *orbs(in.get<Tensor<double> *>("OrbitalCoefficients"));
   Tensor<double> *Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
   Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));

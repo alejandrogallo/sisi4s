@@ -1,17 +1,15 @@
-#include <algorithms/TensorReduceijij.hpp>
+#include <Step.hpp>
 #include <util/Log.hpp>
 #include <iostream>
 #include <Sisi4s.hpp>
 
 using namespace sisi4s;
 
-IMPLEMENT_EMPTY_DRYRUN(TensorReduceijij) {}
-
 DEFSPEC(TensorReduceijij,
         SPEC_IN({"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
         SPEC_OUT({"Out", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(TensorReduceijij) {
+DEFSTEP(TensorReduceijij) {
 
   auto T(in.get<Tensor<double> *>("Data"));
   const int Ni(T->lens[0]), Nj(T->lens[1]);

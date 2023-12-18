@@ -60,11 +60,11 @@ DEFINE_ALGORITHM_HEADER(
     /**
      * \brief The full Coulomb vertex \f$\Gamma^q_{rG}\f$.
      */
-    Tensor<complex> *GammaGqr = nullptr;
+    Tensor<sisi4s::complex> *GammaGqr = nullptr;
     /**
      * \brief The fit \f${\Pi^\ast}^{qR}\Pi_{rR}\Lambda_{GR}\f$.
      */
-    Tensor<complex> *composedGammaGqr = nullptr;
+    Tensor<sisi4s::complex> *composedGammaGqr = nullptr;
     /**
      * \brief The conjugated factor orbitals
      * \f${\Pi^\ast}^{qR} = (\Pi_{qR})^\ast\f$.
@@ -109,20 +109,20 @@ DEFINE_ALGORITHM_HEADER(
      * \brief Performs a dry run of one iteration in fitting the factor
      * orbitals and the Coulomb factors according to the given algorithm.
      */
-    void dryFit(DryTensor<complex> *GammaGqr,
-                DryTensor<complex> *PiqR,
-                DryTensor<complex> *PirR,
-                DryTensor<complex> *LambdaGR,
-                DryTensor<complex> *composedGammaGqr);
+    void dryFit(DryTensor<sisi4s::complex> *GammaGqr,
+                DryTensor<sisi4s::complex> *PiqR,
+                DryTensor<sisi4s::complex> *PirR,
+                DryTensor<sisi4s::complex> *LambdaGR,
+                DryTensor<sisi4s::complex> *composedGammaGqr);
     /**
      * \brief Normalizes the given factor orbitals, such that
      * \f${\Pi^\ast}^{qR}\Pi_{qR} = \delta_{qq}\f$.
      */
-    void normalizePi(Tensor<complex> &Pi);
+    void normalizePi(Tensor<sisi4s::complex> &Pi);
     /**
      * \brief Discards the imaginary part of the given factor orbitals.
      */
-    void realizePi(Tensor<complex> &Pi);
+    void realizePi(Tensor<sisi4s::complex> &Pi);
 
     /**
      * \brief Solves the quadratically occurring factor Pi iteratively

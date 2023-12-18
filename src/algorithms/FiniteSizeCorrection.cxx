@@ -22,7 +22,6 @@
 #include <sstream>
 
 using namespace sisi4s;
-using namespace CTF;
 
 DEFSPEC(
     FiniteSizeCorrection,
@@ -38,12 +37,13 @@ DEFSPEC(
         {"kpoints", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
         {"orbitalPairEnd", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
         {"orbitalPairStart", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
-        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
         {"CoulombVertexSingularVectors",
-         SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-        {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"DoublesAmplitudes",
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
         {"ParticleHoleCoulombVertex",
-         SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
         {"CoulombKernel", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"Momenta", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
@@ -155,7 +155,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
         << orbitalPairEnd << std::endl;
   }
 
-  PTR(Tensor<complex>) GammaGai;
+  PTR(Tensor<sisi4s::complex>) GammaGai;
   int aStart(Np - Nv), aEnd(Np);
   int iStart(0), iEnd(No);
   if (orbitalPairs) {
@@ -165,20 +165,21 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
 
   // Read the Coulomb vertex GammaGqr
   if (in.present("CoulombVertex")) {
-    Tensor<complex> *GammaFqr(in.get<Tensor<complex> *>("CoulombVertex"));
+    Tensor<sisi4s::complex> *GammaFqr(
+        in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
     // Get the Particle Hole Coulomb Vertex
     int NF(GammaFqr->lens[0]);
 
     int FaiStart[] = {0, aStart, iStart};
     int FaiEnd[] = {NF, aEnd, iEnd};
 
-    Tensor<complex> GammaFai(GammaFqr->slice(FaiStart, FaiEnd));
+    Tensor<sisi4s::complex> GammaFai(GammaFqr->slice(FaiStart, FaiEnd));
 
     if (in.present("CoulombVertexSingularVectors")) {
-      Tensor<complex> *UGF(
-          in.get<Tensor<complex> *>("CoulombVertexSingularVectors"));
+      Tensor<sisi4s::complex> *UGF(
+          in.get<Tensor<sisi4s::complex> *>("CoulombVertexSingularVectors"));
       int lens[] = {(int)UGF->lens[0], (int)Nv, (int)No};
-      GammaGai = NEW(Tensor<complex>,
+      GammaGai = NEW(Tensor<sisi4s::complex>,
                      3,
                      lens,
                      GammaFqr->sym,
@@ -192,7 +193,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
         lens[1] = Nv;
         lens[2] = numberOrbitalPairs;
       }
-      GammaGai = NEW(Tensor<complex>,
+      GammaGai = NEW(Tensor<sisi4s::complex>,
                      3,
                      lens,
                      GammaFqr->sym,
@@ -202,21 +203,26 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
     }
   } else if (in.present("ParticleHoleCoulombVertex")) {
     if (orbitalPairs) {
-      Tensor<complex> *GGai(
-          in.get<Tensor<complex> *>("ParticleHoleCoulombVertex"));
+      Tensor<sisi4s::complex> *GGai(
+          in.get<Tensor<sisi4s::complex> *>("ParticleHoleCoulombVertex"));
       int NF(GGai->lens[0]);
       int GGaiStart[] = {0, aStart, iStart};
       int GGaiEnd[] = {NF, aEnd, iEnd};
       int sGGaiStart[] = {0, aStart, 0};
       int sGGaiEnd[] = {NF, aEnd, numberOrbitalPairs};
       int lens[] = {NF, Nv, numberOrbitalPairs};
-      GammaGai =
-          NEW(Tensor<complex>, 3, lens, GGai->sym, *GGai->wrld, "GammaGai");
+      GammaGai = NEW(Tensor<sisi4s::complex>,
+                     3,
+                     lens,
+                     GGai->sym,
+                     *GGai->wrld,
+                     "GammaGai");
       GammaGai
           ->slice(sGGaiStart, sGGaiEnd, 0.0, *GGai, GGaiStart, GGaiEnd, 1.0);
     } else {
-      GammaGai = NEW(Tensor<complex>,
-                     in.get<Tensor<complex> *>("ParticleHoleCoulombVertex"));
+      GammaGai =
+          NEW(Tensor<sisi4s::complex>,
+              in.get<Tensor<sisi4s::complex> *>("ParticleHoleCoulombVertex"));
     }
   } else {
     throw new EXCEPTION("Need Appropriate Coulomb Vertex");
@@ -231,17 +237,17 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
   };
   // Take out the inf from realVG.
   TakeOutInf takeOutInf;
-  Univar_Function<> fTakeOutInf(takeOutInf);
+  CTF::Univar_Function<> fTakeOutInf(takeOutInf);
   realVG->sum(1.0, *realInfVG, "G", 0.0, "G", fTakeOutInf);
   realVG->set_name("realVG");
-  Tensor<complex> VG(1, realVG->lens, realVG->sym, *realVG->wrld, "VG");
+  Tensor<sisi4s::complex> VG(1, realVG->lens, realVG->sym, *realVG->wrld, "VG");
   toComplexTensor(*realVG, VG);
   Tensor<double> realInvSqrtVG(false, *realVG);
-  Tensor<complex> invSqrtVG(1,
-                            realInvSqrtVG.lens,
-                            realInvSqrtVG.sym,
-                            *realInvSqrtVG.wrld,
-                            "invSqrtVG");
+  Tensor<sisi4s::complex> invSqrtVG(1,
+                                    realInvSqrtVG.lens,
+                                    realInvSqrtVG.sym,
+                                    *realInvSqrtVG.wrld,
+                                    "invSqrtVG");
 
   // Starting a new space whose memory will be erased after operation
   // Define operation inverse square root
@@ -252,17 +258,17 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
 
   // Get the inverted square root of VG
   InvSqrt invSqrt;
-  Univar_Function<> fInvSqrt(invSqrt);
+  CTF::Univar_Function<> fInvSqrt(invSqrt);
   realInvSqrtVG.sum(1.0, *realInfVG, "G", 0.0, "G", fInvSqrt);
   toComplexTensor(realInvSqrtVG, invSqrtVG);
 
   // Define CGai
-  Tensor<complex> CGai(*GammaGai);
+  Tensor<sisi4s::complex> CGai(*GammaGai);
   CGai["Gai"] *= invSqrtVG["G"];
 
   // Conjugate of CGai
-  Tensor<complex> conjCGai(false, CGai);
-  Univar_Function<complex> fConj(conj<complex>);
+  Tensor<sisi4s::complex> conjCGai(false, CGai);
+  CTF::Univar_Function<complex> fConj(conj<complex>);
   conjCGai.sum(1.0, CGai, "Gai", 0.0, "Gai", fConj);
 
   // Split CGai and conjCGai into real and imag parts
@@ -336,7 +342,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
     CTF::Vector<> *realSGs(new CTF::Vector<>(NG, *GammaGai->wrld, "realSGs"));
     (*realSGs)["G"] = (0.5) * (*realSGd)["G"] + (0.5) * (*realSGx)["G"];
     out.set<Tensor<double> *>("StructureFactors", realSGs);
-    Scalar<> senergy(*Sisi4s::world);
+    CTF::Scalar<> senergy(*Sisi4s::world);
     senergy[""] = (*realVG)["G"] * (*realSGs)["G"];
     double _senergy(senergy.get_val());
     LOG(0, "Singlet energy:") << _senergy << std::endl;
@@ -346,7 +352,7 @@ void FiniteSizeCorrection::calculateRealStructureFactor() {
     CTF::Vector<> *realSGt(new CTF::Vector<>(NG, *GammaGai->wrld, "realSGt"));
     (*realSGt)["G"] = (1.5) * (*realSGd)["G"] + (-1.5) * (*realSGx)["G"];
     out.set<Tensor<double> *>("StructureFactort", realSGt);
-    Scalar<> tenergy(*Sisi4s::world);
+    CTF::Scalar<> tenergy(*Sisi4s::world);
     tenergy[""] = (*realVG)["G"] * (*realSGt)["G"];
     double _tenergy(tenergy.get_val());
     LOG(0, "Triplet energy:") << _tenergy << std::endl;
@@ -368,17 +374,17 @@ void FiniteSizeCorrection::calculateComplexStructureFactor() {
   };
   // Take out the inf from realVG.
   TakeOutInf takeOutInf;
-  Univar_Function<> fTakeOutInf(takeOutInf);
+  CTF::Univar_Function<> fTakeOutInf(takeOutInf);
   realVG->sum(1.0, *realInfVG, "G", 0.0, "G", fTakeOutInf);
   realVG->set_name("realVG");
-  Tensor<complex> VG(1, realVG->lens, realVG->sym, *realVG->wrld, "VG");
+  Tensor<sisi4s::complex> VG(1, realVG->lens, realVG->sym, *realVG->wrld, "VG");
   toComplexTensor(*realVG, VG);
   Tensor<double> realInvSqrtVG(false, *realVG);
-  Tensor<complex> invSqrtVG(1,
-                            realInvSqrtVG.lens,
-                            realInvSqrtVG.sym,
-                            *realInvSqrtVG.wrld,
-                            "invSqrtVG");
+  Tensor<sisi4s::complex> invSqrtVG(1,
+                                    realInvSqrtVG.lens,
+                                    realInvSqrtVG.sym,
+                                    *realInvSqrtVG.wrld,
+                                    "invSqrtVG");
 
   // Starting a new space whose memory will be erased after operation
   // Define operation inverse square root
@@ -389,39 +395,40 @@ void FiniteSizeCorrection::calculateComplexStructureFactor() {
 
   // Get the inverted square root of VG
   InvSqrt invSqrt;
-  Univar_Function<> fInvSqrt(invSqrt);
+  CTF::Univar_Function<> fInvSqrt(invSqrt);
   realInvSqrtVG.sum(1.0, *realInfVG, "G", 0.0, "G", fInvSqrt);
   toComplexTensor(realInvSqrtVG, invSqrtVG);
 
   // Read the Coulomb vertex GammaGqr
-  Tensor<complex> *GammaFqr(in.get<Tensor<complex> *>("CoulombVertex"));
-  Tensor<complex> *GammaGqr;
+  Tensor<sisi4s::complex> *GammaFqr(
+      in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
+  Tensor<sisi4s::complex> *GammaGqr;
 
   // Read the Particle/Hole Eigenenergies
   Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
   Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
 
   if (in.present("CoulombVertexSingularVectors")) {
-    Tensor<complex> *UGF(
-        in.get<Tensor<complex> *>("CoulombVertexSingularVectors"));
+    Tensor<sisi4s::complex> *UGF(
+        in.get<Tensor<sisi4s::complex> *>("CoulombVertexSingularVectors"));
     int lens[] = {(int)UGF->lens[0],
                   (int)GammaFqr->lens[1],
                   (int)GammaFqr->lens[2]};
-    GammaGqr = new Tensor<complex>(3,
-                                   lens,
-                                   GammaFqr->sym,
-                                   *GammaFqr->wrld,
-                                   "GammaGqr");
+    GammaGqr = new Tensor<sisi4s::complex>(3,
+                                           lens,
+                                           GammaFqr->sym,
+                                           *GammaFqr->wrld,
+                                           "GammaGqr");
     (*GammaGqr)["Gqr"] = (*GammaFqr)["Fqr"] * (*UGF)["GF"];
   } else {
     int lens[] = {(int)GammaFqr->lens[0],
                   (int)GammaFqr->lens[1],
                   (int)GammaFqr->lens[2]};
-    GammaGqr = new Tensor<complex>(3,
-                                   lens,
-                                   GammaFqr->sym,
-                                   *GammaFqr->wrld,
-                                   "GammaGqr");
+    GammaGqr = new Tensor<sisi4s::complex>(3,
+                                           lens,
+                                           GammaFqr->sym,
+                                           *GammaFqr->wrld,
+                                           "GammaGqr");
     (*GammaGqr) = (*GammaFqr);
   }
 
@@ -437,38 +444,40 @@ void FiniteSizeCorrection::calculateComplexStructureFactor() {
   int GiaEnd[] = {NG, iEnd, aEnd};
   int GaiStart[] = {0, aStart, iStart};
   int GaiEnd[] = {NG, aEnd, iEnd};
-  //  GammaGia = new Tensor<complex>(GammaGqr->slice(GiaStart, GiaEnd));
-  //  GammaGai = new Tensor<complex>(GammaGqr->slice(GaiStart, GaiEnd));
-  Tensor<complex> GammaGia(GammaGqr->slice(GiaStart, GiaEnd));
-  Tensor<complex> GammaGai(GammaGqr->slice(GaiStart, GaiEnd));
+  //  GammaGia = new Tensor<sisi4s::complex>(GammaGqr->slice(GiaStart, GiaEnd));
+  //  GammaGai = new Tensor<sisi4s::complex>(GammaGqr->slice(GaiStart, GaiEnd));
+  Tensor<sisi4s::complex> GammaGia(GammaGqr->slice(GiaStart, GiaEnd));
+  Tensor<sisi4s::complex> GammaGai(GammaGqr->slice(GaiStart, GaiEnd));
 
   delete GammaGqr;
 
   // Define CGia
-  Tensor<complex> CGia(GammaGia);
+  Tensor<sisi4s::complex> CGia(GammaGia);
   CGia["Gia"] *= invSqrtVG["G"];
 
-  Tensor<complex> conjTransposeCGia(false, GammaGia);
-  Univar_Function<complex> fConj(conj<complex>);
+  Tensor<sisi4s::complex> conjTransposeCGia(false, GammaGia);
+  CTF::Univar_Function<complex> fConj(conj<complex>);
   conjTransposeCGia.sum(1.0, GammaGai, "Gai", 0.0, "Gia", fConj);
   conjTransposeCGia["Gia"] *= invSqrtVG["G"];
 
-  Tensor<complex> conjTransposeGammaGia(false, GammaGia);
+  Tensor<sisi4s::complex> conjTransposeGammaGia(false, GammaGia);
   conjTransposeGammaGia.sum(1.0, GammaGai, "Gai", 0.0, "Gia", fConj);
 
   /*
-  Tensor<complex> conjCGai(false, GammaGai);
-  Univar_Function<complex> fConj(conj<complex>);
+  Tensor<sisi4s::complex> conjCGai(false, GammaGai);
+  CTF::Univar_Function<complex> fConj(conj<complex>);
   conjCGai.sum(1.0,GammaGai,"Gai", 0.0,"Gai", fConj);
   conjCGai["Gai"] *= invSqrtVG["G"];
   */
 
   // Get Tabij
-  Tensor<complex> *Tabij(in.get<Tensor<complex> *>("DoublesAmplitudes"));
+  Tensor<sisi4s::complex> *Tabij(
+      in.get<Tensor<sisi4s::complex> *>("DoublesAmplitudes"));
 
   if (in.present("SinglesAmplitudes")) {
     // Get Tai
-    Tensor<complex> *Tai(in.get<Tensor<complex> *>("SinglesAmplitudes"));
+    Tensor<sisi4s::complex> *Tai(
+        in.get<Tensor<sisi4s::complex> *>("SinglesAmplitudes"));
     (*Tabij)["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
   }
 

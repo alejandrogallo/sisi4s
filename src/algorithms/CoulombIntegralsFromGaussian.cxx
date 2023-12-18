@@ -6,7 +6,7 @@
 #include <algorithm>
 
 #include <util/Libint.hpp>
-#include <algorithms/CoulombIntegralsFromGaussian.hpp>
+#include <Step.hpp>
 #include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
@@ -21,8 +21,6 @@
 typedef libint2::Operator Operator;
 
 using namespace sisi4s;
-
-IMPLEMENT_EMPTY_DRYRUN(CoulombIntegralsFromGaussian) {}
 
 // struct for storing information about the shell ends in the for loops
 // calculating the integrals
@@ -468,7 +466,7 @@ DEFSPEC(
         {"HHHHCoulombIntegrals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
         {"PPHHCoulombIntegrals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(CoulombIntegralsFromGaussian) {
+DEFSTEP(CoulombIntegralsFromGaussian) {
 
   const std::string basisSet(in.get<std::string>("basisSet")),
       kernel(in.get<std::string>("kernel"));

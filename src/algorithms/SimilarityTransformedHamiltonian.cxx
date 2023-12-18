@@ -3880,10 +3880,10 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
       GabStart[] = {0, aStart, aStart}, GabEnd[] = {NG, aEnd, aEnd};
 
   ST_DEBUG("slicing gammas")
-  auto Cij = NEW(Tensor<complex>, GammaGqr->slice(GijStart, GijEnd)),
-       Cia = NEW(Tensor<complex>, GammaGqr->slice(GiaStart, GiaEnd)),
-       Cai = NEW(Tensor<complex>, GammaGqr->slice(GaiStart, GaiEnd)),
-       Cab = NEW(Tensor<complex>, GammaGqr->slice(GabStart, GabEnd));
+  auto Cij = NEW(Tensor<sisi4s::complex>, GammaGqr->slice(GijStart, GijEnd)),
+       Cia = NEW(Tensor<sisi4s::complex>, GammaGqr->slice(GiaStart, GiaEnd)),
+       Cai = NEW(Tensor<sisi4s::complex>, GammaGqr->slice(GaiStart, GaiEnd)),
+       Cab = NEW(Tensor<sisi4s::complex>, GammaGqr->slice(GabStart, GabEnd));
 
   ST_DEBUG("casting gammas")
 #define DEFINE_AND_CAST(_c)                                                    \

@@ -10,7 +10,7 @@ namespace sisi4s {
  * two tensors containing the real and imaginary parts,
  * respectively.
  */
-void fromComplexTensor(Tensor<complex> &c,
+void fromComplexTensor(Tensor<sisi4s::complex> &c,
                        Tensor<double> &r,
                        Tensor<double> &i);
 
@@ -19,7 +19,7 @@ void fromComplexTensor(Tensor<double> &c, Tensor<double> &r, Tensor<double> &i);
 /**
  * \brief Discards the real part of a complex tensor.
  */
-void fromComplexTensor(Tensor<complex> &c, Tensor<double> &r);
+void fromComplexTensor(Tensor<sisi4s::complex> &c, Tensor<double> &r);
 
 /**
  * \brief Composes a tensor of complex elements
@@ -27,15 +27,17 @@ void fromComplexTensor(Tensor<complex> &c, Tensor<double> &r);
  * Note that in this overload the imaginary part may be redistributed
  * during reading.
  */
-void toComplexTensor(Tensor<double> &r, Tensor<double> &i, Tensor<complex> &c);
+void toComplexTensor(Tensor<double> &r,
+                     Tensor<double> &i,
+                     Tensor<sisi4s::complex> &c);
 
-void toComplexTensor(Tensor<double> &r, Tensor<complex> &c);
+void toComplexTensor(Tensor<double> &r, Tensor<sisi4s::complex> &c);
 
 void toComplexTensor(Tensor<double> &r, Tensor<double> &c);
 
 void conjugate(Tensor<double> &c);
 
-void conjugate(Tensor<complex> &c);
+void conjugate(Tensor<sisi4s::complex> &c);
 
 void conjugate(Tensor<double> &c);
 } // namespace sisi4s

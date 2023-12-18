@@ -680,12 +680,12 @@ ParenthesisTriples::getVpppijkOnTheFly(const std::array<int64_t, 3> &ijk,
           vtensor.tensors[2]->data.data()};
 }
 
-
 DEFSPEC(
     ParenthesisTriples,
     SPEC_IN({"HoleEigenEnergiesFile",
              SPEC_VALUE_DEF("TODO: DOC", std::string, "HoleEigenEnergies.bin")},
-            {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+            {"CoulombVertex",
+             SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)}),
     SPEC_OUT());
 
 IMPLEMENT_ALGORITHM(ParenthesisTriples) {
@@ -742,7 +742,8 @@ IMPLEMENT_ALGORITHM(ParenthesisTriples) {
     PPPHOnTheFly = true;
   } else {
     LOG(0, "Read and slice CoulombVertex") << std::endl;
-    Tensor<complex> *GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+    Tensor<sisi4s::complex> *GammaGqr(
+        in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
     NG = GammaGqr->lens[0];
     int Np(GammaGqr->lens[1]);
     int iStart(0), iEnd(No);
@@ -751,8 +752,8 @@ IMPLEMENT_ALGORITHM(ParenthesisTriples) {
     int GaiEnd[] = {NG, aEnd, iEnd};
     int GabStart[] = {0, aStart, aStart};
     int GabEnd[] = {NG, aEnd, aEnd};
-    Tensor<complex> GammaGai(GammaGqr->slice(GaiStart, GaiEnd));
-    Tensor<complex> GammaGab(GammaGqr->slice(GabStart, GabEnd));
+    Tensor<sisi4s::complex> GammaGai(GammaGqr->slice(GaiStart, GaiEnd));
+    Tensor<sisi4s::complex> GammaGab(GammaGqr->slice(GabStart, GabEnd));
 
     Tensor<double> realGammaGai(3,
                                 GammaGai.lens,

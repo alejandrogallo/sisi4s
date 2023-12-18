@@ -12,7 +12,6 @@
 
 using namespace sisi4s;
 
-
 DEFSPEC(
     CoulombVertexDecomposition,
     SPEC_IN(
@@ -34,18 +33,21 @@ DEFSPEC(
          SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_WRITE_SUB_ITERATIONS)},
         {"ansatz", SPEC_VALUE_DEF("TODO: DOC", std::string, HERMITIAN)},
         {"mixer", SPEC_VALUE_DEF("TODO: DOC", std::string, "LinearMixer")},
-        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-        {"StartingCoulombFactors", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-        {"StartingFactorOrbitals", SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
-    SPEC_OUT({"ComposedCoulombVertex",
-              SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
-             {"CoulombFactors", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
-             {"FactorOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
-             {"OutgoingFactorOrbitals",
-              SPEC_VAROUT("TODO: DOC", Tensor<complex> *)}));
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"StartingCoulombFactors",
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"StartingFactorOrbitals",
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)}),
+    SPEC_OUT(
+        {"ComposedCoulombVertex",
+         SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"CoulombFactors", SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"FactorOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"OutgoingFactorOrbitals",
+         SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)}));
 
 IMPLEMENT_ALGORITHM(CoulombVertexDecomposition) {
-  GammaGqr = in.get<Tensor<complex> *>("CoulombVertex");
+  GammaGqr = in.get<Tensor<sisi4s::complex> *>("CoulombVertex");
   int NG(GammaGqr->lens[0]);
   int Np(GammaGqr->lens[1]);
 
@@ -78,8 +80,8 @@ IMPLEMENT_ALGORITHM(CoulombVertexDecomposition) {
 
   // allocate factor tensors
   if (isArgumentGiven("StartingFactorOrbitals")) {
-    Tensor<complex> *PirRTensor(
-        in.get<Tensor<complex> *>("StartingFactorOrbitals"));
+    Tensor<sisi4s::complex> *PirRTensor(
+        in.get<Tensor<sisi4s::complex> *>("StartingFactorOrbitals"));
     PirRTensor->set_name("StartingPirR");
     if (PirRTensor->order != 2)
       throw new EXCEPTION("Matrix expected as argument StartingPirR");
@@ -99,8 +101,8 @@ IMPLEMENT_ALGORITHM(CoulombVertexDecomposition) {
   }
 
   if (isArgumentGiven("StartingCoulombFactors")) {
-    Tensor<complex> *LambdaGRTensor(
-        in.get<Tensor<complex> *>("StartingCoulombFactors"));
+    Tensor<sisi4s::complex> *LambdaGRTensor(
+        in.get<Tensor<sisi4s::complex> *>("StartingCoulombFactors"));
     LambdaGRTensor->set_name("StartingLambdaGR");
     if (LambdaGRTensor->order != 2)
       throw new EXCEPTION("Matrix expected as argument StartingLambdaGR");
@@ -134,19 +136,20 @@ IMPLEMENT_ALGORITHM(CoulombVertexDecomposition) {
                  << std::endl;
   computeOutgoingPi();
 
-  out.set<Tensor<complex> *>("FactorOrbitals", PirR);
-  out.set<Tensor<complex> *>("CoulombFactors", LambdaGR);
+  out.set<Tensor<sisi4s::complex> *>("FactorOrbitals", PirR);
+  out.set<Tensor<sisi4s::complex> *>("CoulombFactors", LambdaGR);
   if (isArgumentGiven("OutgoingFactorOrbitals")) {
-    out.set<Tensor<complex> *>("OutgoingFactorOrbitals", PiqR);
+    out.set<Tensor<sisi4s::complex> *>("OutgoingFactorOrbitals", PiqR);
   }
-  composedGammaGqr = new Tensor<complex>(3,
-                                         GammaGqr->lens,
-                                         GammaGqr->sym,
-                                         *GammaGqr->wrld,
-                                         "composedGammaGqr",
-                                         GammaGqr->profile);
+  composedGammaGqr = new Tensor<sisi4s::complex>(3,
+                                                 GammaGqr->lens,
+                                                 GammaGqr->sym,
+                                                 *GammaGqr->wrld,
+                                                 "composedGammaGqr",
+                                                 GammaGqr->profile);
   if (isArgumentGiven("ComposedCoulombVertex")) {
-    out.set<Tensor<complex> *>("ComposedCoulombVertex", composedGammaGqr);
+    out.set<Tensor<sisi4s::complex> *>("ComposedCoulombVertex",
+                                       composedGammaGqr);
   }
 
   double swampingThreshold(
@@ -178,7 +181,8 @@ IMPLEMENT_ALGORITHM(CoulombVertexDecomposition) {
 
 void CoulombVertexDecomposition::dryRun() {
   // NOTE that in the dry run GammaGai,... are local variables
-  DryTensor<complex> *GammaGqr(in.get<DryTensor<complex> *>("CoulombVertex"));
+  DryTensor<sisi4s::complex> *GammaGqr(
+      in.get<DryTensor<sisi4s::complex> *>("CoulombVertex"));
   int NG(GammaGqr->lens[0]);
   int Np(GammaGqr->lens[1]);
 
@@ -216,11 +220,12 @@ void CoulombVertexDecomposition::dryRun() {
   }
 
   // allocate factor tensors
-  DryTensor<complex> *PiqR = new DryMatrix<complex>(Np, int(rank), NS);
-  DryTensor<complex> *PirR = new DryMatrix<complex>(Np, int(rank), NS);
-  DryTensor<complex> *LambdaGR = new DryMatrix<complex>(NG, int(rank), NS);
-  out.set<DryTensor<complex> *>("FactorOrbitals", PirR);
-  out.set<DryTensor<complex> *>("CoulombFactors", LambdaGR);
+  DryTensor<sisi4s::complex> *PiqR = new DryMatrix<complex>(Np, int(rank), NS);
+  DryTensor<sisi4s::complex> *PirR = new DryMatrix<complex>(Np, int(rank), NS);
+  DryTensor<sisi4s::complex> *LambdaGR =
+      new DryMatrix<complex>(NG, int(rank), NS);
+  out.set<DryTensor<sisi4s::complex> *>("FactorOrbitals", PirR);
+  out.set<DryTensor<sisi4s::complex> *>("CoulombFactors", LambdaGR);
 
   std::string ansatz(in.get<std::string>("ansatz", HERMITIAN));
   if (ansatz == HERMITIAN) {
@@ -238,12 +243,14 @@ void CoulombVertexDecomposition::dryRun() {
     throw new EXCEPTION(stringStream.str());
   }
   if (isArgumentGiven("OutgoingFactorOrbitals")) {
-    out.set<DryTensor<complex> *>("OutgoingFactorOrbitals", PiqR);
+    out.set<DryTensor<sisi4s::complex> *>("OutgoingFactorOrbitals", PiqR);
   }
 
-  DryTensor<complex> *composedGammaGqr(new DryTensor<complex>(*GammaGqr));
+  DryTensor<sisi4s::complex> *composedGammaGqr(
+      new DryTensor<sisi4s::complex>(*GammaGqr));
   if (isArgumentGiven("ComposedCoulombVertex")) {
-    out.set<DryTensor<complex> *>("ComposedCoulombVertex", composedGammaGqr);
+    out.set<DryTensor<sisi4s::complex> *>("ComposedCoulombVertex",
+                                          composedGammaGqr);
   }
   dryFit(GammaGqr, PiqR, PirR, LambdaGR, composedGammaGqr);
 }
@@ -273,11 +280,12 @@ void CoulombVertexDecomposition::fit(int64_t const iterationsCount) {
                  << std::endl;
 }
 
-void CoulombVertexDecomposition::dryFit(DryTensor<complex> *GammaGqr,
-                                        DryTensor<complex> *PiqR,
-                                        DryTensor<complex> *PirR,
-                                        DryTensor<complex> *LambdaGR,
-                                        DryTensor<complex> *composedGammaGqr) {
+void CoulombVertexDecomposition::dryFit(
+    DryTensor<sisi4s::complex> *GammaGqr,
+    DryTensor<sisi4s::complex> *PiqR,
+    DryTensor<sisi4s::complex> *PirR,
+    DryTensor<sisi4s::complex> *LambdaGR,
+    DryTensor<sisi4s::complex> *composedGammaGqr) {
   dryFitRegularizedAlternatingLeastSquaresFactor(*GammaGqr,
                                                  "Gqr",
                                                  *PiqR,
@@ -308,12 +316,12 @@ void CoulombVertexDecomposition::dryFit(DryTensor<complex> *GammaGqr,
                                                   *composedGammaGqr);
 }
 
-void CoulombVertexDecomposition::normalizePi(Tensor<complex> &Pi) {
+void CoulombVertexDecomposition::normalizePi(Tensor<sisi4s::complex> &Pi) {
   Bivar_Function<complex> fDot(&sisi4s::dot<complex>);
   CTF::Vector<complex> norm(Pi.lens[0], *Pi.wrld);
   // norm["q"] = Pi["qR"] * conj(Pi["qR"])
   norm.contract(1.0, Pi, "qR", Pi, "qR", 0.0, "q", fDot);
-  Tensor<complex> quotient(Pi);
+  Tensor<sisi4s::complex> quotient(Pi);
   Univar_Function<complex> fSqrt(&sisi4s::sqrt<complex>);
   // quotient["qR"] = sqrt(norm["q"])
   quotient.sum(1.0, norm, "q", 0.0, "qR", fSqrt);
@@ -322,9 +330,9 @@ void CoulombVertexDecomposition::normalizePi(Tensor<complex> &Pi) {
   Pi.contract(1.0, Pi, "qR", quotient, "qR", 0.0, "qR", fDivide);
 }
 
-void CoulombVertexDecomposition::realizePi(Tensor<complex> &Pi) {
+void CoulombVertexDecomposition::realizePi(Tensor<sisi4s::complex> &Pi) {
   Univar_Function<complex> fConj(&sisi4s::conj<complex>);
-  Tensor<complex> conjX(Pi);
+  Tensor<sisi4s::complex> conjX(Pi);
   // conjX["qR"] = conj(Pi["qR"])
   conjX.sum(1.0, Pi, "qR", 0.0, "qR", fConj);
   Pi["qR"] += conjX["qR"];
@@ -342,10 +350,10 @@ void CoulombVertexDecomposition::iterateQuadraticFactor(int i) {
   }
 
   // initial guess is current Pi^q_R, composedGamma-Gamma is the residuum
-  PTR(FockVector<complex>) Pi(
-      NEW(FockVector<complex>,
-          std::vector<PTR(Tensor<complex>)>({NEW(Tensor<complex>, *PiqR)}),
-          std::vector<std::string>({"qR"})));
+  PTR(FockVector<complex>) Pi(NEW(FockVector<complex>,
+                                  std::vector<PTR(Tensor<sisi4s::complex>)>(
+                                      {NEW(Tensor<sisi4s::complex>, *PiqR)}),
+                                  std::vector<std::string>({"qR"})));
   double initialDelta(getDelta());
 
   // Babylonian algorithm to solve quadratic form
@@ -372,7 +380,8 @@ void CoulombVertexDecomposition::iterateQuadraticFactor(int i) {
     // compute difference to old Pi^q_R as residuum and append to mixer
     auto PiChange(Pi);
     Pi = NEW(FockVector<complex>,
-             std::vector<PTR(Tensor<complex>)>({NEW(Tensor<complex>, *PiqR)}),
+             std::vector<PTR(Tensor<sisi4s::complex>)>(
+                 {NEW(Tensor<sisi4s::complex>, *PiqR)}),
              std::vector<std::string>({"qR"}));
     *PiChange -= *Pi;
     mixer->append(Pi, PiChange);

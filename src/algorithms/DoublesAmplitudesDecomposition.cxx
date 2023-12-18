@@ -12,7 +12,6 @@
 using namespace sisi4s;
 using std::make_shared;
 
-
 DEFSPEC(DoublesAmplitudesDecomposition,
         SPEC_IN({"reduction",
                  SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_REDUCTION)},
@@ -21,7 +20,7 @@ DEFSPEC(DoublesAmplitudesDecomposition,
                 {"DoublesAmplitudes",
                  SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
         SPEC_OUT({"DoublesAmplitudesVertex",
-                  SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
+                  SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)},
                  {"DoublesAmplitudesEigenValues",
                   SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
@@ -85,7 +84,8 @@ void DoublesAmplitudesDecomposition::diagonlizeAmplitudes() {
     lambdaIndices[i] = i;
     sqrtLambdas[i] = sqrt(complex(lambdas[i]));
   }
-  sqrtLambdaF = make_shared<Tensor<complex>>(1, &NvNo, UaiF->sym, *UaiF->wrld);
+  sqrtLambdaF =
+      make_shared<Tensor<sisi4s::complex>>(1, &NvNo, UaiF->sym, *UaiF->wrld);
   sqrtLambdaF->set_name("sqrtLambda");
   sqrtLambdaF->write(lambdasCount, lambdaIndices, sqrtLambdas);
   LambdaF = new Tensor<double>(1, &NvNo, UaiF->sym, *UaiF->wrld);
@@ -125,7 +125,11 @@ void DoublesAmplitudesDecomposition::sliceLargestEigenValues() {
   int LaiFLens[] = {Nv, No, NF};
   auto LaiF(
       make_shared<Tensor<double>>(3, LaiFLens, UaiF->sym, *UaiF->wrld, "LaiF"));
-  auto LF(make_shared<Tensor<complex>>(1, &NF, UaiF->sym, *UaiF->wrld, "LF"));
+  auto LF(make_shared<Tensor<sisi4s::complex>>(1,
+                                               &NF,
+                                               UaiF->sym,
+                                               *UaiF->wrld,
+                                               "LF"));
   {
     int lowerStart[] = {0, 0, 0};
     int lowerEnd[] = {Nv, No, lower};
@@ -152,26 +156,34 @@ void DoublesAmplitudesDecomposition::sliceLargestEigenValues() {
   UaiF.reset();
   sqrtLambdaF.reset();
 
-  auto cLaiF(make_shared<Tensor<complex>>(3,
-                                          LaiFLens,
-                                          LaiF->sym,
-                                          *LaiF->wrld,
-                                          "cLaiF"));
+  auto cLaiF(make_shared<Tensor<sisi4s::complex>>(3,
+                                                  LaiFLens,
+                                                  LaiF->sym,
+                                                  *LaiF->wrld,
+                                                  "cLaiF"));
   toComplexTensor(*LaiF, *cLaiF);
   LaiF.reset();
 
   int LFaiLens[] = {NF, Nv, No};
-  auto LFai(new Tensor<complex>(3, LFaiLens, cLaiF->sym, *cLaiF->wrld, "LFai"));
+  auto LFai(new Tensor<sisi4s::complex>(3,
+                                        LFaiLens,
+                                        cLaiF->sym,
+                                        *cLaiF->wrld,
+                                        "LFai"));
   (*LFai)["Fai"] = (*cLaiF)["aiF"] * (*LF)["F"];
   cLaiF.reset();
   LF.reset();
 
-  out.set<Tensor<complex> *>("DoublesAmplitudesVertex", LFai);
+  out.set<Tensor<sisi4s::complex> *>("DoublesAmplitudesVertex", LFai);
 
   // recompose for testing
   Tensor<double> *Tabij(in.get<Tensor<double> *>("DoublesAmplitudes"));
   double tNorm(frobeniusNorm(*Tabij));
-  Tensor<complex> cTabij(4, Tabij->lens, Tabij->sym, *Tabij->wrld, "cTabij");
+  Tensor<sisi4s::complex> cTabij(4,
+                                 Tabij->lens,
+                                 Tabij->sym,
+                                 *Tabij->wrld,
+                                 "cTabij");
   toComplexTensor(*Tabij, cTabij);
   cTabij["abij"] += (-1.0) * (*LFai)["Fai"] * (*LFai)["Fbj"];
   double dNorm(frobeniusNorm(cTabij));

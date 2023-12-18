@@ -81,7 +81,6 @@ struct Unrestricter {
   }
 };
 
-
 DEFSPEC(
     ParticleHoleCoulombVertexReader,
     SPEC_IN({"unrestricted", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
@@ -192,8 +191,8 @@ IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexReader) {
     LOG(1, "Reader") << "Unrestricting " << epsa->get_name() << std::endl;
     out.set<Tensor<double> *>("ParticleEigenEnergies", u.doEigenEnergies(epsa));
     LOG(1, "Reader") << "Unrestricting " << GammaGai->get_name() << std::endl;
-    out.set<Tensor<complex> *>("ParticleHoleCoulombVertex",
-                               u.doVertex(GammaGai));
+    out.set<Tensor<sisi4s::complex> *>("ParticleHoleCoulombVertex",
+                                       u.doVertex(GammaGai));
   }
 }
 
@@ -226,12 +225,15 @@ void ParticleHoleCoulombVertexReader::dryRun() {
   int vertexSyms[] = {NS, NS, NS};
   DryTensor<> *epsi(new DryVector<>(No, SOURCE_LOCATION));
   DryTensor<> *epsa(new DryVector<>(Nv, SOURCE_LOCATION));
-  DryTensor<complex> *GammaGai(
-      new DryTensor<complex>(3, vertexLens, vertexSyms, SOURCE_LOCATION));
+  DryTensor<sisi4s::complex> *GammaGai(
+      new DryTensor<sisi4s::complex>(3,
+                                     vertexLens,
+                                     vertexSyms,
+                                     SOURCE_LOCATION));
   // Enter the allocated data (and by that type the output data to tensors)
   out.set<Tensor<double> *>("HoleEigenEnergies", epsi);
   out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);
-  out.set<DryTensor<complex> *>("ParticleHoleCoulombVertex", GammaGai);
+  out.set<DryTensor<sisi4s::complex> *>("ParticleHoleCoulombVertex", GammaGai);
 
   // Real and imaginary parts are read in seperately
   DryTensor<> realGammaGai(3, vertexLens, vertexSyms, SOURCE_LOCATION);

@@ -1,15 +1,6 @@
-#include <vector>
-#include <algorithms/OneBodyRotation.hpp>
-#include <Sisi4s.hpp>
-#include <util/Log.hpp>
-#include <iostream>
-#include <util/Tensor.hpp>
-#include <util/Emitter.hpp>
+#include <Step.hpp>
 
 using namespace sisi4s;
-
-IMPLEMENT_EMPTY_DRYRUN(OneBodyRotation) {}
-
 #define LOGGER(_l) LOG(_l, "OneBodyRotation")
 
 // TODO: Update spec for compelx and double
@@ -69,7 +60,7 @@ static void run(Arguments &in, Arguments &out) {
   }
 }
 
-IMPLEMENT_ALGORITHM(OneBodyRotation) {
+DEFSTEP(OneBodyRotation) {
   if (in.is_of_type<Tensor<double> *>("OrbitalCoefficients")) {
     ::run<double>(in, out);
   } else {

@@ -1,4 +1,4 @@
-#include <algorithms/GenerateRandomMatrix.hpp>
+#include <Step.hpp>
 #include <math/Complex.hpp>
 #include <math/RandomTensor.hpp>
 #include <Sisi4s.hpp>
@@ -32,7 +32,7 @@ static void generate(std::vector<int> const &lens,
   out.set_force<Tensor<F> *>("Result", C);
 }
 
-IMPLEMENT_ALGORITHM(GenerateRandomMatrix) {
+DEFSTEP(GenerateRandomMatrix) {
   int sym = NS;
   std::string symmetry(in.get<std::string>("symmetry"));
   if (symmetry == "hermitian") {
@@ -48,5 +48,3 @@ IMPLEMENT_ALGORITHM(GenerateRandomMatrix) {
   in.get<bool>("complex") ? generate<sisi4s::complex>(lens, syms, out)
                           : generate<double>(lens, syms, out);
 }
-
-IMPLEMENT_EMPTY_DRYRUN(GenerateRandomMatrix) {}

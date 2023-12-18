@@ -1,10 +1,7 @@
-#include <algorithms/TensorSum.hpp>
+#include <Step.hpp>
 #include <util/Tensor.hpp>
 
 using namespace sisi4s;
-
-IMPLEMENT_EMPTY_DRYRUN(TensorSum) {}
-
 
 DEFSPEC(TensorSum,
         SPEC_IN({"AFactor", SPEC_VALUE("TODO: DOC", double)},
@@ -17,7 +14,7 @@ DEFSPEC(TensorSum,
                 {"Result", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
         SPEC_OUT());
 
-IMPLEMENT_ALGORITHM(TensorSum) {
+DEFSTEP(TensorSum) {
   Tensor<double> *A(in.get<Tensor<double> *>("A"));
   Tensor<double> *B(in.get<Tensor<double> *>("B"));
   Tensor<double> *C(in.get<Tensor<double> *>("Result"));

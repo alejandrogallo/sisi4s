@@ -3,11 +3,9 @@
 #include <string>
 
 #include <util/TensorIo.hpp>
-#include <util/Log.hpp>
+#include <Step.hpp>
 #include <Sisi4s.hpp>
 #include <util/Tensor.hpp>
-#include <util/Emitter.hpp>
-#include <algorithms/TensorReader.hpp>
 
 namespace sisi4s {
 
@@ -53,9 +51,7 @@ read(Arguments &in, const std::string mode, const std::string &name) {
   return A;
 }
 
-IMPLEMENT_EMPTY_DRYRUN(TensorReader) {}
-
-IMPLEMENT_ALGORITHM(TensorReader) {
+DEFSTEP(TensorReader) {
 
   std::string name = out.get_var("Data");
 

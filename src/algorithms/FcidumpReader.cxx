@@ -1,24 +1,20 @@
-#include <algorithms/FcidumpReader.hpp>
-#include <util/Tensor.hpp>
-#include <util/Log.hpp>
-#include <Sisi4s.hpp>
-#include <util/Exception.hpp>
-#include <util/Integrals.hpp>
 #include <fstream>
 #include <regex>
 #include <algorithm>
 #include <numeric>
 
+#include <Step.hpp>
+#include <util/Fcidump.hpp>
+#include <util/Tensor.hpp>
+#include <util/Log.hpp>
+#include <Sisi4s.hpp>
+#include <util/Exception.hpp>
+#include <util/Integrals.hpp>
+
 using namespace sisi4s;
 
-IMPLEMENT_EMPTY_DRYRUN(FcidumpReader) {}
-
-FcidumpReader::FcidumpHeader
-FcidumpReader::parseHeader(const std::string &filePath) {
-  FcidumpReader::FcidumpHeader header{.norb = 0,
-                                      .nelec = 0,
-                                      .uhf = 0,
-                                      .ms2 = 0};
+static FcidumpHeader parseHeader(const std::string &filePath) {
+  FcidumpHeader header{.norb = 0, .nelec = 0, .uhf = 0, .ms2 = 0};
   std::regex rnorb{"NORB\\s*=\\s*([0-9]+)"}, rnelec{"NELEC\\s*=\\s*([0-9]+)"},
       ruhf{"UHF\\s*=\\s*([01])"}, rms2{"MS2\\s*=\\s*([0-9]+)"},
       rend{"^\\s*([/]|&END|\\$)\\s*$"};
@@ -78,7 +74,7 @@ struct IntegralParser {
   int No, Nv;
   // general size of the tensor
   size_t dimension;
-  IntegralParser(std::string name_, const FcidumpReader::FcidumpHeader &header)
+  IntegralParser(std::string name_, const FcidumpHeader &header)
       : name(name_) {
 
     if (!std::regex_match(name, std::regex{"^[hpt]*$"})) {
@@ -211,11 +207,11 @@ DEFSPEC(FcidumpReader,
                  {"ppph", SPEC_VAROUT("", Tensor<double> *)},
                  {"pppp", SPEC_VAROUT("", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(FcidumpReader) {
+DEFSTEP(FcidumpReader) {
   const auto filePath(in.get<std::string>("file"));
   // override the header of the fcidump
   const int nelec(in.get<int64_t>("nelec"));
-  FcidumpReader::FcidumpHeader header(parseHeader(filePath));
+  FcidumpHeader header(parseHeader(filePath));
   if (nelec != -1) header.nelec = nelec;
   const int No((header.uhf == 1 ? 1 : 0.5) * header.nelec);
   const int Nv((header.uhf == 1 ? 2 : 1) * header.norb - No);

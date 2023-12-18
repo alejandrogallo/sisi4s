@@ -54,25 +54,25 @@ DEFINE_ALGORITHM_HEADER(
      * \brief The Coulomb vertex \f$\Gamma^a_{iG}\f$ restricted to
      * a particle and a hole index.
      */
-    Tensor<complex> * GammaGai;
+    Tensor<sisi4s::complex> * GammaGai;
     /**
      * \brief The fit \f${\Pi^\ast}^{aR}\Pi_{iR}\Lambda_{GR}\f$.
      */
-    Tensor<complex> * Gamma0Gai;
+    Tensor<sisi4s::complex> * Gamma0Gai;
     /**
      * \brief The factor orbitals for occupied states \f$\Pi_{iR}\f$.
      */
-    Tensor<complex> * PiiR;
+    Tensor<sisi4s::complex> * PiiR;
     /**
      * \brief The conjugated factor orbitals for virtual states
      * \f${\Pi^\ast}^{aR}\f$.
      */
-    Tensor<complex> * PiaR;
+    Tensor<sisi4s::complex> * PiaR;
     /**
      * \brief The Coulomb factors \f$\Lambda_{GR}\f$
      * in the particle/hole decomposition.
      */
-    Tensor<complex> * LambdaGR;
+    Tensor<sisi4s::complex> * LambdaGR;
 
     /**
      * \brief Estimators for the regularization parameter during
@@ -104,20 +104,20 @@ DEFINE_ALGORITHM_HEADER(
      * \brief Performs a dry run of one iteration in fitting the factor
      * orbitals and the Coulomb factors according to the given algorithm.
      */
-    void dryFit(DryTensor<complex> *GammaGai,
-                DryTensor<complex> *PiaR,
-                DryTensor<complex> *PiiR,
-                DryTensor<complex> *LambdaGR,
-                DryTensor<complex> *Gamma0Gai);
+    void dryFit(DryTensor<sisi4s::complex> *GammaGai,
+                DryTensor<sisi4s::complex> *PiaR,
+                DryTensor<sisi4s::complex> *PiiR,
+                DryTensor<sisi4s::complex> *LambdaGR,
+                DryTensor<sisi4s::complex> *Gamma0Gai);
     /**
      * \brief Normalizes the given factor orbitals, such that
      * \f${\Pi^\ast}^{qR}\Pi_{qR} = \delta_{qq}\f$.
      */
-    void normalizePi(Tensor<complex> &Pi);
+    void normalizePi(Tensor<sisi4s::complex> &Pi);
     /**
      * \brief Discards the imaginary part of the given factor orbitals.
      */
-    void realizePi(Tensor<complex> &Pi);
+    void realizePi(Tensor<sisi4s::complex> &Pi);
 
     /**
      * \brief Evaluates and prints the error of the MP2 energy between
@@ -127,12 +127,12 @@ DEFINE_ALGORITHM_HEADER(
     /**
      * \brief Evaluates the MP2 energy for the given Coulomb vertex.
      */
-    double evaluateMp2(Tensor<complex> &Gamma);
+    double evaluateMp2(Tensor<sisi4s::complex> &Gamma);
     /**
      * \brief Performs a dry run of evaluating the MP2 energy
      * for the given Coulomb vertex.
      */
-    void dryEvaluateMp2(DryTensor<complex> &Gamma););
+    void dryEvaluateMp2(DryTensor<sisi4s::complex> &Gamma););
 } // namespace sisi4s
 
 #endif

@@ -351,7 +351,7 @@ template void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
     Tensor<double> &D,
     const std::string &indices);
 template void ClusterSinglesDoublesAlgorithm::calculateExcitationEnergies(
-    Tensor<complex> &D,
+    Tensor<sisi4s::complex> &D,
     const std::string &indices);
 
 template <typename F>
@@ -366,7 +366,7 @@ template void ClusterSinglesDoublesAlgorithm::dryAmplitudesFromResiduum(
     sisi4s::DryTensor<double> &R);
 
 template void ClusterSinglesDoublesAlgorithm::dryAmplitudesFromResiduum(
-    sisi4s::DryTensor<complex> &R);
+    sisi4s::DryTensor<sisi4s::complex> &R);
 
 Tensor<double> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
     const PTR(const FockVector<double>) &amplitudes,
@@ -378,7 +378,7 @@ Tensor<double> *ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
   Tai->set_name("Tai");
 
   // Read the Coulomb vertex GammaGqr
-  auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+  auto GammaGqr(in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
   GammaGqr->set_name("GammaGqr");
 
   // Compute No,Nv,NG,Np
@@ -500,23 +500,23 @@ ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
   int GaiEnd[] = {NG, aEnd, iEnd};
   int GabStart[] = {0, aStart, aStart};
   int GabEnd[] = {NG, aEnd, aEnd};
-  auto GammaGia(new Tensor<complex>(GammaGqr->slice(GiaStart, GiaEnd)));
-  auto GammaGai(new Tensor<complex>(GammaGqr->slice(GaiStart, GaiEnd)));
-  auto GammaGab(new Tensor<complex>(GammaGqr->slice(GabStart, GabEnd)));
+  auto GammaGia(new Tensor<sisi4s::complex>(GammaGqr->slice(GiaStart, GiaEnd)));
+  auto GammaGai(new Tensor<sisi4s::complex>(GammaGqr->slice(GaiStart, GaiEnd)));
+  auto GammaGab(new Tensor<sisi4s::complex>(GammaGqr->slice(GabStart, GabEnd)));
 
   CTF::Univar_Function<complex> fConj(conj<complex>);
 
-  Tensor<complex> conjTransposeGammaGia(false, *GammaGia);
+  Tensor<sisi4s::complex> conjTransposeGammaGia(false, *GammaGia);
   conjTransposeGammaGia.sum(1.0, *GammaGai, "Gai", 0.0, "Gia", fConj);
-  Tensor<complex> conjTransposeGammaGab(false, *GammaGab);
+  Tensor<sisi4s::complex> conjTransposeGammaGab(false, *GammaGab);
   conjTransposeGammaGab.sum(1.0, *GammaGab, "Gba", 0.0, "Gab", fConj);
 
   // Construct dressed Coulomb vertex GammaGab
-  Tensor<complex> DressedGammaGab(*GammaGab);
+  Tensor<sisi4s::complex> DressedGammaGab(*GammaGab);
   DressedGammaGab.set_name("DressedGammaGab");
   DressedGammaGab["Gab"] += (-1.0) * (*GammaGia)["Gkb"] * (*Tai)["ak"];
 
-  Tensor<complex> conjTransposeDressedGammaGab(conjTransposeGammaGab);
+  Tensor<sisi4s::complex> conjTransposeDressedGammaGab(conjTransposeGammaGab);
   conjTransposeDressedGammaGab.set_name("conjTransposeDressedGammaGab");
   conjTransposeDressedGammaGab["Gab"] +=
       (-1.0) * conjTransposeGammaGia["Gkb"] * (*Tai)["ak"];
@@ -537,7 +537,8 @@ ClusterSinglesDoublesAlgorithm::sliceCoupledCoulombIntegrals(
                 (int)leftGamma.lens[2],
                 (int)rightGamma.lens[2]};
   int syms[] = {NS, NS, NS, NS};
-  auto Vxycd(new Tensor<complex>(4, lens, syms, *GammaGqr->wrld, "Vxycd"));
+  auto Vxycd(
+      new Tensor<sisi4s::complex>(4, lens, syms, *GammaGqr->wrld, "Vxycd"));
 
   // Contract left and right slices of the dressed Coulomb vertices
   (*Vxycd)["xycd"] = leftGamma["Gxc"] * rightGamma["Gyd"];
@@ -553,9 +554,9 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
     int a,
     int b,
     int factorsSliceSize) {
-  auto PirR(in.get<Tensor<complex> *>("FactorOrbitals"));
+  auto PirR(in.get<Tensor<sisi4s::complex> *>("FactorOrbitals"));
   PirR->set_name("PirR");
-  auto LambdaGR(in.get<Tensor<complex> *>("CoulombFactors"));
+  auto LambdaGR(in.get<Tensor<sisi4s::complex> *>("CoulombFactors"));
   LambdaGR->set_name("LambdaGR");
 
   auto epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
@@ -584,7 +585,7 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
   int RR[] = {Rx, Ry};
   int syms[] = {NS, NS, NS, NS};
 
-  Tensor<complex> VRS(2, RR, syms, *PirR->wrld, "VRS");
+  Tensor<sisi4s::complex> VRS(2, RR, syms, *PirR->wrld, "VRS");
 
   Tensor<double> realXRaij(4, Rvoo, syms, *PirR->wrld, "RealXRaij");
   Tensor<double> imagXRaij(4, Rvoo, syms, *PirR->wrld, "ImagXRaij");
@@ -592,7 +593,7 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
   // Allocate and compute PiaR
   int aRStart[] = {No, 0};
   int aREnd[] = {Np, NR};
-  Tensor<complex> PiaR(PirR->slice(aRStart, aREnd));
+  Tensor<sisi4s::complex> PiaR(PirR->slice(aRStart, aREnd));
   PiaR.set_name("PiaR");
 
   // Slice the respective parts from PiaR
@@ -646,14 +647,14 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
   // assuming GammaGqr = PirR*PirR*LambdaGR (first Pi not conjugated)
   realXRaij["Rdij"] = (+1.0) * Iabij["cdij"] * realLeftPiaR["cR"];
   imagXRaij["Rdij"] = (-1.0) * Iabij["cdij"] * imagLeftPiaR["cR"];
-  Tensor<complex> XRaij(4, Rvoo, syms, *PirR->wrld, "XRaij");
+  Tensor<sisi4s::complex> XRaij(4, Rvoo, syms, *PirR->wrld, "XRaij");
   toComplexTensor(realXRaij, imagXRaij, XRaij);
 
-  Tensor<complex> XRSij(4, RRoo, syms, *PirR->wrld, "XRSij");
+  Tensor<sisi4s::complex> XRSij(4, RRoo, syms, *PirR->wrld, "XRSij");
   XRSij["RSij"] = XRaij["Rdij"] * rightPiaR["dS"];
 
   CTF::Univar_Function<complex> fConj(&sisi4s::conj<complex>);
-  Tensor<complex> conjLeftLambdaGR(false, leftLambdaGR);
+  Tensor<sisi4s::complex> conjLeftLambdaGR(false, leftLambdaGR);
   conjLeftLambdaGR.set_name("ConjLeftLambdaGR");
   conjLeftLambdaGR.sum(1.0, leftLambdaGR, "GR", 0.0, "GR", fConj);
   VRS["RS"] = conjLeftLambdaGR["GR"] * rightLambdaGR["GS"];
@@ -733,11 +734,11 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
     int a,
     int b,
     int factorsSliceSize) {
-  auto PirR(in.get<Tensor<complex> *>("FactorOrbitals"));
+  auto PirR(in.get<Tensor<sisi4s::complex> *>("FactorOrbitals"));
   PirR->set_name("PirR");
-  auto PiqR(in.get<Tensor<complex> *>("OutgoingFactorOrbitals"));
+  auto PiqR(in.get<Tensor<sisi4s::complex> *>("OutgoingFactorOrbitals"));
   PiqR->set_name("PiqR");
-  auto LambdaGR(in.get<Tensor<complex> *>("CoulombFactors"));
+  auto LambdaGR(in.get<Tensor<sisi4s::complex> *>("CoulombFactors"));
   LambdaGR->set_name("LambdaGR");
 
   auto epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
@@ -768,9 +769,9 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
 
   CTF::Univar_Function<complex> fConj(&sisi4s::conj<complex>);
 
-  Tensor<complex> VRS(2, RR, syms, *PirR->wrld, "VRS");
+  Tensor<sisi4s::complex> VRS(2, RR, syms, *PirR->wrld, "VRS");
 
-  Tensor<complex> XRaij(4, Rvoo, syms, *PirR->wrld, "XRaij");
+  Tensor<sisi4s::complex> XRaij(4, Rvoo, syms, *PirR->wrld, "XRaij");
 
   // Allocate and compute PiaR
   int aRStart[] = {No, 0};
@@ -780,10 +781,10 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
   auto PicR(PiqR->slice(aRStart, aREnd));
   PicR.set_name("PicR");
 
-  Tensor<complex> conjPiaR(false, PiaR);
+  Tensor<sisi4s::complex> conjPiaR(false, PiaR);
   conjPiaR.set_name("ConjPiaR");
   conjPiaR.sum(1.0, PiaR, "aR", 0.0, "aR", fConj);
-  Tensor<complex> conjPicR(false, PicR);
+  Tensor<sisi4s::complex> conjPicR(false, PicR);
   conjPicR.set_name("ConjPicR");
   conjPicR.sum(1.0, PicR, "aR", 0.0, "aR", fConj);
 
@@ -804,7 +805,7 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
   auto leftLambdaGR(LambdaGR->slice(leftLambdaStart, leftLambdaEnd));
   leftLambdaGR.set_name("leftLambdaGR");
 
-  Tensor<complex> conjLeftLambdaGR(false, leftLambdaGR);
+  Tensor<sisi4s::complex> conjLeftLambdaGR(false, leftLambdaGR);
   conjLeftLambdaGR.set_name("ConjLeftLambdaGR");
   conjLeftLambdaGR.sum(1.0, leftLambdaGR, "GR", 0.0, "GR", fConj);
 
@@ -817,7 +818,7 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
   // assuming GammaGqr = (PiqR*)*(PirR)*(LambdaGR) (first Pi conjugated)
   XRaij["Rdij"] = (+1.0) * Iabij["cdij"] * leftPiaR["cR"];
 
-  Tensor<complex> XRSij(4, RRoo, syms, *PirR->wrld, "XRSij");
+  Tensor<sisi4s::complex> XRSij(4, RRoo, syms, *PirR->wrld, "XRSij");
   XRSij["RSij"] = XRaij["Rdij"] * rightPiaR["dS"];
 
   VRS["RS"] = conjLeftLambdaGR["GR"] * rightLambdaGR["GS"];
@@ -831,10 +832,10 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
   PiiR.set_name("PiiR");
   auto PijR(PiqR->slice(iRStart, iREnd));
   PijR.set_name("PijR");
-  Tensor<complex> conjPiiR(false, PiiR);
+  Tensor<sisi4s::complex> conjPiiR(false, PiiR);
   conjPiiR.set_name("ConjPiiR");
   conjPiiR.sum(1.0, PiiR, "iR", 0.0, "iR", fConj);
-  Tensor<complex> conjPijR(false, PijR);
+  Tensor<sisi4s::complex> conjPijR(false, PijR);
   conjPijR.set_name("ConjPijR");
   conjPijR.sum(1.0, PijR, "iR", 0.0, "iR", fConj);
 
@@ -858,7 +859,7 @@ ClusterSinglesDoublesAlgorithm::sliceAmplitudesFromCoupledCoulombFactors(
 
   // allocate Tensor for sliced T2 amplitudes
   int vvoo[] = {Nv, Nv, No, No};
-  auto Fabij(new Tensor<complex>(4, vvoo, syms, *PirR->wrld, "Fabij"));
+  auto Fabij(new Tensor<sisi4s::complex>(4, vvoo, syms, *PirR->wrld, "Fabij"));
 
   // compute sliced amplitudes
   (*Fabij)["abij"] = XRaij["Rbij"] * dressedLeftPiaR["aR"];
@@ -904,11 +905,11 @@ ClusterSinglesDoublesAlgorithm::sliceIntoResiduum(Tensor<double> &Rxyij,
                                                   int a,
                                                   int b,
                                                   Tensor<double> &Rabij);
-template void
-ClusterSinglesDoublesAlgorithm::sliceIntoResiduum(Tensor<complex> &Rxyij,
-                                                  int a,
-                                                  int b,
-                                                  Tensor<complex> &Rabij);
+template void ClusterSinglesDoublesAlgorithm::sliceIntoResiduum(
+    Tensor<sisi4s::complex> &Rxyij,
+    int a,
+    int b,
+    Tensor<sisi4s::complex> &Rabij);
 
 std::string ClusterSinglesDoublesAlgorithm::getCapitalizedAbbreviation() {
   std::string capitalizedAbbreviation(getAbbreviation());

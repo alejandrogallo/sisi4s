@@ -1,4 +1,4 @@
-#include <algorithms/FromComplexTensor.hpp>
+#include <Step.hpp>
 #include <math/ComplexTensor.hpp>
 #include <util/Tensor.hpp>
 
@@ -9,21 +9,21 @@ using namespace sisi4s;
  */
 
 DEFSPEC(FromComplexTensor,
-        SPEC_IN({"A", SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
-        SPEC_OUT({"imagA", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-                 {"RealA", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+        SPEC_IN({"data", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)}),
+        SPEC_OUT({"imag", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+                 {"real", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(FromComplexTensor) {
-  Tensor<complex> *A(in.get<Tensor<complex> *>("A"));
+DEFSTEP(FromComplexTensor) {
+  Tensor<sisi4s::complex> *A(in.get<Tensor<sisi4s::complex> *>("data"));
   Tensor<double> *RealA(
-      new Tensor<>(A->order, A->lens, A->sym, *A->wrld, "RealA"));
-  if (isArgumentGiven("imagA")) {
+      new Tensor<double>(A->order, A->lens, A->sym, *A->wrld, "RealA"));
+  if (out.present("imag")) {
     Tensor<double> *ImagA(
-        new Tensor<>(A->order, A->lens, A->sym, *A->wrld, "ImagA"));
+        new Tensor<double>(A->order, A->lens, A->sym, *A->wrld, "ImagA"));
     fromComplexTensor(*A, *RealA, *ImagA);
-    out.set<Tensor<double> *>("imagA", ImagA);
+    out.set<Tensor<double> *>("imag", ImagA);
   } else {
     fromComplexTensor(*A, *RealA);
   }
-  out.set<Tensor<double> *>("RealA", RealA);
+  out.set<Tensor<double> *>("real", RealA);
 }

@@ -1,4 +1,4 @@
-#include <algorithms/TensorSlicer.hpp>
+#include <Step.hpp>
 #include <util/Log.hpp>
 #include <iostream>
 #include <sstream>
@@ -7,25 +7,23 @@
 
 using namespace sisi4s;
 
-IMPLEMENT_EMPTY_DRYRUN(TensorSlicer) {}
-
 template <typename F>
-std::string _showVector(const std::vector<F> &v) {
+static std::string _showVector(const std::vector<F> &v) {
   std::stringstream s;
   for (const auto &i : v) s << i << ", ";
   return "{" + s.str() + "}";
 }
 
 DEFSPEC(TensorSlicer,
-        SPEC_IN({"Begin", SPEC_VALUE("TODO: DOC", std::string)},
-                {"End", SPEC_VALUE("TODO: DOC", std::string)},
+        SPEC_IN({"Begin", SPEC_VALUE("TODO: DOC", std::vector<int>)},
+                {"End", SPEC_VALUE("TODO: DOC", std::vector<int>)},
                 {"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
         SPEC_OUT({"Out", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(TensorSlicer) {
+DEFSTEP(TensorSlicer) {
 
-  std::vector<int> begin(pars::parseVector<int>(in.get<std::string>("Begin"))),
-      end(pars::parseVector<int>(in.get<std::string>("End")));
+  const std::vector<int> begin(in.get<std::vector<int>>("Begin")),
+      end(in.get<std::vector<int>>("End"));
 
   LOG(0, "TensorSlicer") << "begin: " << _showVector(begin) << std::endl;
   LOG(0, "TensorSlicer") << "end: " << _showVector(end) << std::endl;

@@ -43,7 +43,8 @@ void CcsdPerturbativeTriples::sliceTensors() {
       new SlicedCtfTensor<>(*in.get<Tensor<double> *>("HHHPCoulombIntegrals"),
                             {0, 1});
 
-  Tensor<complex> *GammaFqr(in.get<Tensor<complex> *>("CoulombVertex"));
+  Tensor<sisi4s::complex> *GammaFqr(
+      in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
   // Allocate and compute GammaFab,GammaFai from GammaFqr
   int NF(GammaFqr->lens[0]);
   int Np(GammaFqr->lens[1]);
@@ -53,8 +54,8 @@ void CcsdPerturbativeTriples::sliceTensors() {
   int FaiEnd[] = {NF, aEnd, iEnd};
   int FabStart[] = {0, aStart, aStart};
   int FabEnd[] = {NF, aEnd, aEnd};
-  Tensor<complex> GammaFai(GammaFqr->slice(FaiStart, FaiEnd));
-  Tensor<complex> GammaFab(GammaFqr->slice(FabStart, FabEnd));
+  Tensor<sisi4s::complex> GammaFai(GammaFqr->slice(FaiStart, FaiEnd));
+  Tensor<sisi4s::complex> GammaFab(GammaFqr->slice(FabStart, FabEnd));
   // Split GammaFai,GammaFab into real and imaginary parts
   Tensor<double> unslicedRealGammaFai(3,
                                       GammaFai.lens,
@@ -114,12 +115,11 @@ Tensor<double> &CcsdPerturbativeTriples::getEnergyDenominator(const Map<3> &i) {
   return *SVabc;
 }
 
-
 DEFSPEC(
     CcsdPerturbativeTriples,
     SPEC_IN(
         {"CcsdEnergy", SPEC_VALUE("TODO: DOC", double)},
-        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
         {"CcsdDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"CcsdSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"HHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},

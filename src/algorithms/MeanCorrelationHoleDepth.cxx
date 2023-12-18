@@ -1,4 +1,4 @@
-#include <algorithms/MeanCorrelationHoleDepth.hpp>
+#include <Step.hpp>
 #include <string>
 #include <vector>
 #include <math/MathFunctions.hpp>
@@ -16,8 +16,6 @@
 
 using namespace sisi4s;
 
-IMPLEMENT_EMPTY_DRYRUN(MeanCorrelationHoleDepth) {}
-
 DEFSPEC(
     MeanCorrelationHoleDepth,
     SPEC_IN({"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
@@ -25,7 +23,7 @@ DEFSPEC(
             {"SinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
     SPEC_OUT({"G", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(MeanCorrelationHoleDepth) {
+DEFSTEP(MeanCorrelationHoleDepth) {
 
   const auto d(in.get<Tensor<double> *>("PPHHDelta"));
   const auto T(in.get<Tensor<double> *>("DoublesAmplitudes"));

@@ -15,7 +15,6 @@ using namespace sisi4s;
 using namespace tcc;
 using std::make_shared;
 
-
 DEFSPEC(ParticleHoleCoulombVertexFromFactors,
         SPEC_IN({"CoulombFactors", SPEC_VALUE("TODO: DOC", T *)},
                 {"HoleFactorOrbitals", SPEC_VALUE("TODO: DOC", T *)},
@@ -23,11 +22,11 @@ DEFSPEC(ParticleHoleCoulombVertexFromFactors,
         SPEC_OUT());
 
 IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexFromFactors) {
-  run<Tensor<complex>, CtfMachineTensor<complex>>(false);
+  run<Tensor<sisi4s::complex>, CtfMachineTensor<sisi4s::complex>>(false);
 }
 
 void ParticleHoleCoulombVertexFromFactors::dryRun() {
-  run<DryTensor<complex>, DryMachineTensor<complex>>(true);
+  run<DryTensor<sisi4s::complex>, DryMachineTensor<sisi4s::complex>>(true);
 }
 
 // TMT is either CtfMachineTensor or DryMachineTensor

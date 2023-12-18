@@ -29,9 +29,9 @@ DEFSPEC(
             {"orbitalPairStart", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
             {"slice", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
             {"CoulombVertex",
-             SPEC_VARIN("TODO: DOC", Tensor<complex> *)->require()},
+             SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)->require()},
             {"ParticleHoleCoulombVertex",
-             SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+             SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
             {"CoulombKernel", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
             {"HoleEigenEnergies",
              SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
@@ -79,18 +79,19 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
                                         int orbitalPairEnd,
                                         int slice) {
 
-  PTR(Tensor<complex>) GammaGai;
+  PTR(Tensor<sisi4s::complex>) GammaGai;
 
   if (in.present("ParticleHoleCoulombVertex")) {
-    GammaGai = NEW(Tensor<complex>,
-                   in.get<Tensor<complex> *>("ParticleHoleCoulombVertex"));
+    GammaGai =
+        NEW(Tensor<sisi4s::complex>,
+            in.get<Tensor<sisi4s::complex> *>("ParticleHoleCoulombVertex"));
   } else if (in.present("CoulombVertex")) {
 
     auto epsi =
         NEW(Tensor<double>, in.get<Tensor<double> *>("HoleEigenEnergies"));
     int No(epsi->lens[0]);
-    auto GammaGqr =
-        NEW(Tensor<complex>, in.get<Tensor<complex> *>("CoulombVertex"));
+    auto GammaGqr = NEW(Tensor<sisi4s::complex>,
+                        in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
     int NG(GammaGqr->lens[0]);
     int Np(GammaGqr->lens[1]);
     int Nv(Np - No);
@@ -98,7 +99,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
     int iStart(0), iEnd(No);
     int GaiStart[] = {0, aStart, iStart};
     int GaiEnd[] = {NG, aEnd, iEnd};
-    GammaGai = NEW(Tensor<complex>, GammaGqr->slice(GaiStart, GaiEnd));
+    GammaGai = NEW(Tensor<sisi4s::complex>, GammaGqr->slice(GaiStart, GaiEnd));
   } else {
     throw new EXCEPTION("Need Appropriate Coulomb Vertex");
   }
@@ -111,7 +112,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
   Tensor<double> *ctfCoulombKernel(in.get<Tensor<double> *>("CoulombKernel"));
 
   int NFF[] = {NF};
-  Tensor<complex> invSqrtVG(1, NFF);
+  Tensor<sisi4s::complex> invSqrtVG(1, NFF);
 
   CTF::Transform<real, complex>(
       std::function<void(real, complex &)>([](real vG, complex &invVG) {
@@ -132,14 +133,14 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
 
   sisi4s::Vector<> check_grid;
   for (int g(0); g < NF; ++g) { check_grid += cartesianMomenta[g]; }
-  PTR(Tensor<complex>) CGai;
+  PTR(Tensor<sisi4s::complex>) CGai;
   if (check_grid.length() > 1e-5) {
     // maybe the easiest is to double Cia(G).
     // we need to rescale Cia(G)=>Cia(G)/sqrt(2)
     LOG(1, "Build up Q(G,F)") << "working with half mesh" << std::endl;
     int NGai[] = {2 * NF - 1, Nv, No};
     real invsqrt(1. / std::sqrt(2.));
-    CGai = NEW(Tensor<complex>, 3, NGai);
+    CGai = NEW(Tensor<sisi4s::complex>, 3, NGai);
     // First put all 'positive' G in the full Cia(G)
     CGai->slice(std::vector<int>({0, 0, 0}).data(),
                 std::vector<int>({NF, Nv, No}).data(),
@@ -160,7 +161,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
     NF = NF * 2 - 1;
   } else {
     LOG(1, "Build up Q(G,F)") << "working with full mesh" << std::endl;
-    CGai = NEW(Tensor<complex>, *GammaGai);
+    CGai = NEW(Tensor<sisi4s::complex>, *GammaGai);
   }
 
   if (orbitalPairStart < 0 || orbitalPairStart > No) { orbitalPairStart = 0; }
@@ -176,21 +177,21 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
   int sCGaiStart[] = {0, 0, orbitalPairStart};
   int sCGaiEnd[] = {NF, Nv, orbitalPairEnd};
 
-  auto sCGai(NEW(Tensor<complex>, CGai->slice(sCGaiStart, sCGaiEnd)));
+  auto sCGai(NEW(Tensor<sisi4s::complex>, CGai->slice(sCGaiStart, sCGaiEnd)));
 
-  auto conjCGai(NEW(Tensor<complex>, *sCGai));
+  auto conjCGai(NEW(Tensor<sisi4s::complex>, *sCGai));
   conjugate(*conjCGai);
 
   int NGG[] = {NF, NF};
-  auto QGGs(new Tensor<complex>(2, NGG));
-  auto QGGt(new Tensor<complex>(2, NGG));
+  auto QGGs(new Tensor<sisi4s::complex>(2, NGG));
+  auto QGGt(new Tensor<sisi4s::complex>(2, NGG));
 
   // Direct part.
 
-  PTR(Tensor<complex>) FGone;
-  PTR(Tensor<complex>) FGtwo;
-  FGone = NEW(Tensor<complex>, 2, NGG);
-  FGtwo = NEW(Tensor<complex>, 2, NGG);
+  PTR(Tensor<sisi4s::complex>) FGone;
+  PTR(Tensor<sisi4s::complex>) FGtwo;
+  FGone = NEW(Tensor<sisi4s::complex>, 2, NGG);
+  FGtwo = NEW(Tensor<sisi4s::complex>, 2, NGG);
 
   // oldschool
   //   (*FGone)["GF"] =  (*conjCGai)["Gai"] * (*sCGai)["Fai"];
@@ -217,8 +218,8 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
 
   int numberSlices(
       std::ceil(static_cast<double>(No) / static_cast<double>(slice)));
-  PTR(Tensor<complex>) cQGGx;
-  if (out.present("QGGx")) { cQGGx = NEW(Tensor<complex>, 2, NGG); }
+  PTR(Tensor<sisi4s::complex>) cQGGx;
+  if (out.present("QGGx")) { cQGGx = NEW(Tensor<sisi4s::complex>, 2, NGG); }
   for (int ii(0); ii < numberSlices; ++ii) {
 
     int startBandSlice(ii * slice);
@@ -229,18 +230,19 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
         << ii + 1 << " From: " << startBandSlice << " to: " << endBandSlice
         << std::endl;
 
-    PTR(Tensor<complex>) FGij;
-    PTR(Tensor<complex>) FGji;
+    PTR(Tensor<sisi4s::complex>) FGij;
+    PTR(Tensor<sisi4s::complex>) FGji;
 
-    FGij = NEW(Tensor<complex>, 4, NFG);
-    FGji = NEW(Tensor<complex>, 4, NFG);
+    FGij = NEW(Tensor<sisi4s::complex>, 4, NFG);
+    FGji = NEW(Tensor<sisi4s::complex>, 4, NFG);
 
     int CGajStart[] = {0, 0, startBandSlice};
     int CGajEnd[] = {NF, Nv, endBandSlice};
 
-    auto CGajSliced(NEW(Tensor<complex>, sCGai->slice(CGajStart, CGajEnd)));
+    auto CGajSliced(
+        NEW(Tensor<sisi4s::complex>, sCGai->slice(CGajStart, CGajEnd)));
     auto conjCGajSliced(
-        NEW(Tensor<complex>, conjCGai->slice(CGajStart, CGajEnd)));
+        NEW(Tensor<sisi4s::complex>, conjCGai->slice(CGajStart, CGajEnd)));
 
     // Oldschool
     //    (*FGij)["GFij"] = (*conjCGai)["Gai"] * (*CGajSliced)["Faj"];

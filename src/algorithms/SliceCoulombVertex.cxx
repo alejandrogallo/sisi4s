@@ -9,17 +9,18 @@
 
 using namespace sisi4s;
 
-
 DEFSPEC(SliceCoulombVertex,
-        SPEC_IN({"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        SPEC_IN({"CoulombVertex",
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
                 {"HoleEigenEnergies",
                  SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
         SPEC_OUT({"ParticleHoleCoulombVertex",
-                  SPEC_VAROUT("TODO: DOC", Tensor<complex> *)}));
+                  SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)}));
 
 IMPLEMENT_ALGORITHM(SliceCoulombVertex) {
   // Read the Coulomb vertex GammaGqr
-  Tensor<complex> *GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+  Tensor<sisi4s::complex> *GammaGqr(
+      in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
 
   // Read the Particle/Hole Eigenenergies
   Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
@@ -32,14 +33,15 @@ IMPLEMENT_ALGORITHM(SliceCoulombVertex) {
   // Allocate and compute GammaGai
   int GaiStart[] = {0, No, 0};
   int GaiEnd[] = {NG, Np, No};
-  Tensor<complex> *GammaGai(
-      new Tensor<complex>(GammaGqr->slice(GaiStart, GaiEnd)));
-  out.set<Tensor<complex> *>("ParticleHoleCoulombVertex", GammaGai);
+  Tensor<sisi4s::complex> *GammaGai(
+      new Tensor<sisi4s::complex>(GammaGqr->slice(GaiStart, GaiEnd)));
+  out.set<Tensor<sisi4s::complex> *>("ParticleHoleCoulombVertex", GammaGai);
 }
 
 void SliceCoulombVertex::dryRun() {
   // Read the Coulomb vertex GammaGqr
-  DryTensor<complex> *GammaGqr(in.get<DryTensor<complex> *>("CoulombVertex"));
+  DryTensor<sisi4s::complex> *GammaGqr(
+      in.get<DryTensor<sisi4s::complex> *>("CoulombVertex"));
 
   // Read the Particle/Hole Eigenenergies
   DryTensor<> *epsi(in.get<DryTensor<double> *>("HoleEigenEnergies"));
@@ -53,7 +55,8 @@ void SliceCoulombVertex::dryRun() {
   // Allocate and compute GammaGab,GammaGai,GammaGij from GammaGqr
   int GaiLens[] = {NG, Nv, No};
   int GaiSyms[] = {NS, NS, NS};
-  DryTensor<complex> *GammaGai(new DryTensor<complex>(3, GaiLens, GaiSyms));
+  DryTensor<sisi4s::complex> *GammaGai(
+      new DryTensor<sisi4s::complex>(3, GaiLens, GaiSyms));
 
-  out.set<DryTensor<complex> *>("ParticleHoleCoulombVertex", GammaGai);
+  out.set<DryTensor<sisi4s::complex> *>("ParticleHoleCoulombVertex", GammaGai);
 }

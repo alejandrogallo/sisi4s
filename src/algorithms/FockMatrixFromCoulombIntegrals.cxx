@@ -1,4 +1,4 @@
-#include <algorithms/FockMatrixFromCoulombIntegrals.hpp>
+#include <Step.hpp>
 #include <string>
 #include <vector>
 #include <math/MathFunctions.hpp>
@@ -18,9 +18,6 @@
 
 using namespace sisi4s;
 
-IMPLEMENT_EMPTY_DRYRUN(FockMatrixFromCoulombIntegrals) {}
-
-
 DEFSPEC(
     FockMatrixFromCoulombIntegrals,
     SPEC_IN({"HHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
@@ -38,7 +35,7 @@ DEFSPEC(
              {"PHFockMatrix", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
              {"PPFockMatrix", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(FockMatrixFromCoulombIntegrals) {
+DEFSTEP(FockMatrixFromCoulombIntegrals) {
 
   const auto phph(in.get<Tensor<double> *>("PHPHCoulombIntegrals"));
   int No(phph->lens[1]), Nv(phph->lens[0]);

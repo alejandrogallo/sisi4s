@@ -7,36 +7,35 @@
 
 using namespace sisi4s;
 
-
 DEFSPEC(ApproximateParticleHoleCoulombVertex,
         SPEC_IN({"FullParticleHoleCoulombVertex",
-                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
                 {"ParticleHoleCoulombVertexSingularVectors",
-                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)}),
         SPEC_OUT({"ParticleHoleCoulombVertex",
-                  SPEC_VAROUT("TODO: DOC", Tensor<complex> *)}));
+                  SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)}));
 
 IMPLEMENT_ALGORITHM(ApproximateParticleHoleCoulombVertex) {
-  Tensor<complex> *GammaGai(
-      in.get<Tensor<complex> *>("FullParticleHoleCoulombVertex"));
-  Tensor<complex> *UGF(
-      in.get<Tensor<complex> *>("ParticleHoleCoulombVertexSingularVectors"));
+  Tensor<sisi4s::complex> *GammaGai(
+      in.get<Tensor<sisi4s::complex> *>("FullParticleHoleCoulombVertex"));
+  Tensor<sisi4s::complex> *UGF(in.get<Tensor<sisi4s::complex> *>(
+      "ParticleHoleCoulombVertexSingularVectors"));
   int lens[] = {UGF->lens[1], GammaGai->lens[1], GammaGai->lens[2]};
   int syms[] = {NS, NS, NS};
-  Tensor<complex> *GammaFai =
-      new Tensor<complex>(3, lens, syms, *GammaGai->wrld, "GammaFai");
-  out.set<Tensor<complex> *>("ParticleHoleCoulombVertex", GammaFai);
+  Tensor<sisi4s::complex> *GammaFai =
+      new Tensor<sisi4s::complex>(3, lens, syms, *GammaGai->wrld, "GammaFai");
+  out.set<Tensor<sisi4s::complex> *>("ParticleHoleCoulombVertex", GammaFai);
   (*GammaFai)["Fai"] = (*GammaGai)["Gai"] * (*UGF)["GF"];
 }
 
 void ApproximateParticleHoleCoulombVertex::dryRun() {
-  DryTensor<complex> *GammaGai(
-      in.get<DryTensor<complex> *>("FullParticleHoleCoulombVertex"));
-  DryTensor<complex> *UGF(
-      in.get<DryTensor<complex> *>("ParticleHoleCoulombVertexSingularVectors"));
+  DryTensor<sisi4s::complex> *GammaGai(
+      in.get<DryTensor<sisi4s::complex> *>("FullParticleHoleCoulombVertex"));
+  DryTensor<sisi4s::complex> *UGF(in.get<DryTensor<sisi4s::complex> *>(
+      "ParticleHoleCoulombVertexSingularVectors"));
   int lens[] = {UGF->lens[1], GammaGai->lens[1], GammaGai->lens[2]};
   int syms[] = {NS, NS, NS};
-  DryTensor<complex> *GammaFai =
-      new DryTensor<complex>(3, lens, syms, SOURCE_LOCATION);
-  out.set<DryTensor<complex> *>("ParticleHoleCoulombVertex", GammaFai);
+  DryTensor<sisi4s::complex> *GammaFai =
+      new DryTensor<sisi4s::complex>(3, lens, syms, SOURCE_LOCATION);
+  out.set<DryTensor<sisi4s::complex> *>("ParticleHoleCoulombVertex", GammaFai);
 }

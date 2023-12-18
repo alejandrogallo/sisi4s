@@ -1,10 +1,9 @@
-#include <algorithms/TensorWriter.hpp>
-#include <util/TensorIo.hpp>
-#include <util/Log.hpp>
 #include <fstream>
 #include <iomanip>
+
+#include <Step.hpp>
+#include <util/TensorIo.hpp>
 #include <util/Tensor.hpp>
-#include <util/Emitter.hpp>
 
 namespace sisi4s {
 
@@ -22,9 +21,7 @@ DEFSPEC(
          SPEC_ONE_OF("The mode for a reader", std::string, "binary", "text")}),
     SPEC_OUT({"Data", SPEC_VAROUT("Data out", CTF::Tensor<double> *)}));
 
-IMPLEMENT_EMPTY_DRYRUN(TensorWriter) {}
-
-IMPLEMENT_ALGORITHM(TensorWriter) {
+DEFSTEP(TensorWriter) {
 
   const bool binary_p = in.get<std::string>("mode") == "binary";
 
@@ -42,17 +39,17 @@ IMPLEMENT_ALGORITHM(TensorWriter) {
   if (in.is_of_type<Tensor<double> *>("Data")) {
     LOG(1, "TensorWriter") << "Writing real tensor to " << fileName
                            << std::endl;
-    TensorWriter::write<double>(dataName,
-                                fileName,
-                                in.get<Tensor<double> *>("Data"),
-                                binary_p,
-                                rowIndexOrder,
-                                columnIndexOrder,
-                                delimiter);
+    TensorIo::do_write<double>(dataName,
+                               fileName,
+                               in.get<Tensor<double> *>("Data"),
+                               binary_p,
+                               rowIndexOrder,
+                               columnIndexOrder,
+                               delimiter);
   } else if (in.is_of_type<Tensor<sisi4s::complex> *>("Data")) {
     LOG(1, "TensorWriter") << "Writing complex tensor to " << fileName
                            << std::endl;
-    TensorWriter::write<sisi4s::complex>(
+    TensorIo::do_write<sisi4s::complex>(
         dataName,
         fileName,
         in.get<Tensor<sisi4s::complex> *>("Data"),
@@ -65,34 +62,6 @@ IMPLEMENT_ALGORITHM(TensorWriter) {
         << "ERROR: I do not know how to write out the tensor " << dataName
         << std::endl;
   }
-}
-
-template <typename F>
-void TensorWriter::write(const std::string &name,
-                         const std::string fileName,
-                         Tensor<F> *A,
-                         const bool binary_p,
-                         const std::string rowIndexOrder,
-                         const std::string columnIndexOrder,
-                         const std::string delimiter) {
-
-  A->set_name(name.c_str());
-  EMIT() << YAML::Key << "Data" << YAML::Value << name;
-  if (binary_p) {
-    TensorIo::writeBinary<F>(fileName, *A);
-    EMIT() << YAML::Key << "file" << YAML::Value << fileName;
-  } else {
-    TensorIo::writeText<F>(fileName,
-                           *A,
-                           rowIndexOrder,
-                           columnIndexOrder,
-                           delimiter);
-    EMIT() << YAML::Key << "file" << YAML::Value << fileName;
-  }
-
-  int64_t indexCount(1);
-  for (int dim(0); dim < A->order; ++dim) { indexCount *= A->lens[dim]; }
-  EMIT() << YAML::Key << "elements" << YAML::Value << indexCount;
 }
 
 } // namespace sisi4s

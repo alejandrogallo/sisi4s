@@ -1,7 +1,12 @@
-#include <algorithms/Nop.hpp>
-
+#include <Step.hpp>
 using namespace sisi4s;
 
 DEFSPEC(Nop, SPEC_IN(), SPEC_OUT());
+DEFSTEP(Nop) {}
 
-IMPLEMENT_ALGORITHM(Nop) {}
+DEFSPEC(Lala,
+        SPEC_IN({"name", SPEC_VALUE("name", std::string)->require()}),
+        SPEC_OUT());
+DEFSTEP(Lala) {
+  std::cout << "Lalal : " << in.get<std::string>("name") << std::endl;
+}

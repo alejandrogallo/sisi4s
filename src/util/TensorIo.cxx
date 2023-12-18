@@ -1,11 +1,13 @@
+#include <iomanip>
+#include <fstream>
+
 #include <util/TensorIo.hpp>
 #include <util/BinaryTensorFormat.hpp>
 #include <util/Scanner.hpp>
 #include <util/Log.hpp>
 #include <Sisi4s.hpp>
-#include <fstream>
-#include <iomanip>
 #include <util/Tensor.hpp>
+#include <util/Emitter.hpp>
 
 using namespace sisi4s;
 
@@ -235,7 +237,7 @@ T *TensorIo::readBinaryHeader(MPI_File &file, int64_t &offset) {
   if (strncmp(header.magic, BinaryTensorHeaderBase::MAGIC, sizeof(header.magic))
       != 0)
     throw new EXCEPTION("Invalid file format");
-  if (header.version > header.VERSION)
+  if (header.version > header.DEFAULT_VERSION)
     throw new EXCEPTION("Incompatible file format version");
 
   // read dimension headers
@@ -258,7 +260,52 @@ T *TensorIo::readBinaryHeader(MPI_File &file, int64_t &offset) {
   return new T(header.order, lens, syms, *Sisi4s::world);
 }
 
+template <typename F>
+void TensorIo::do_write(const std::string &name,
+                        const std::string fileName,
+                        Tensor<F> *A,
+                        const bool binary_p,
+                        const std::string rowIndexOrder,
+                        const std::string columnIndexOrder,
+                        const std::string delimiter) {
+
+  A->set_name(name.c_str());
+  EMIT() << YAML::Key << "Data" << YAML::Value << name;
+  if (binary_p) {
+    TensorIo::writeBinary<F>(fileName, *A);
+    EMIT() << YAML::Key << "file" << YAML::Value << fileName;
+  } else {
+    TensorIo::writeText<F>(fileName,
+                           *A,
+                           rowIndexOrder,
+                           columnIndexOrder,
+                           delimiter);
+    EMIT() << YAML::Key << "file" << YAML::Value << fileName;
+  }
+
+  int64_t indexCount(1);
+  for (int dim(0); dim < A->order; ++dim) { indexCount *= A->lens[dim]; }
+  EMIT() << YAML::Key << "elements" << YAML::Value << indexCount;
+}
+
 // instantiate
+
+template void TensorIo::do_write(const std::string &name,
+                                 const std::string fileName,
+                                 Tensor<Float64> *A,
+                                 const bool binary_p,
+                                 const std::string rowIndexOrder,
+                                 const std::string columnIndexOrder,
+                                 const std::string delimiter);
+
+template void TensorIo::do_write(const std::string &name,
+                                 const std::string fileName,
+                                 Tensor<Complex<Float64>> *A,
+                                 const bool binary_p,
+                                 const std::string rowIndexOrder,
+                                 const std::string columnIndexOrder,
+                                 const std::string delimiter);
+
 template Tensor<Float64> *
 TensorIo::readBinary<Float64>(std::string const &fileName);
 template Tensor<Complex<Float64>> *

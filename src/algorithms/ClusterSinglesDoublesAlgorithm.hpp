@@ -27,10 +27,11 @@ namespace sisi4s {
       {"distinguishable", SPEC_VALUE_DEF("TODO: DOC", bool, false)},           \
       {"OnlyPPL", SPEC_VALUE_DEF("TODO: DOC", bool, false)},                   \
       {"PPL", SPEC_VALUE_DEF("TODO: DOC", bool, true)},                        \
-      {"CoulombFactors", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},          \
-      {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},           \
-      {"FactorOrbitals", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},          \
-      {"OutgoingFactorOrbitals", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},  \
+      {"CoulombFactors", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},  \
+      {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},   \
+      {"FactorOrbitals", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},  \
+      {"OutgoingFactorOrbitals",                                               \
+       SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},                    \
       {"HoleEigenEnergies",                                                    \
        SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},                  \
       {"ParticleEigenEnergies",                                                \
@@ -157,7 +158,7 @@ protected:
                                int b,
                                int integralsSliceSize);
 
-  Tensor<complex> *
+  Tensor<sisi4s::complex> *
   sliceCoupledCoulombIntegrals(const PTR(const FockVector<complex>) &amplitudes,
                                int a,
                                int b,
@@ -178,7 +179,7 @@ protected:
       int a,
       int b,
       int factorsSliceSize);
-  Tensor<complex> *sliceAmplitudesFromCoupledCoulombFactors(
+  Tensor<sisi4s::complex> *sliceAmplitudesFromCoupledCoulombFactors(
       const PTR(const FockVector<complex>) &amplitudes,
       int a,
       int b,

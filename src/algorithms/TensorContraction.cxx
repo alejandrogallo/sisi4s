@@ -1,4 +1,4 @@
-#include <algorithms/TensorContraction.hpp>
+#include <Step.hpp>
 #include <util/Tensor.hpp>
 
 using namespace sisi4s;
@@ -18,7 +18,7 @@ DEFSPEC(TensorContraction,
                 {"Result", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
         SPEC_OUT());
 
-IMPLEMENT_ALGORITHM(TensorContraction) {
+DEFSTEP(TensorContraction) {
   Tensor<double> *A(in.get<Tensor<double> *>("A"));
   Tensor<double> *B(in.get<Tensor<double> *>("B"));
   Tensor<double> *C(in.get<Tensor<double> *>("Result"));

@@ -1,4 +1,4 @@
-#include <algorithms/GenerateRandomTensor.hpp>
+#include <Step.hpp>
 #include <math/RandomTensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Tensor.hpp>
@@ -15,8 +15,6 @@ DEFSPEC(GenerateRandomTensor,
         SPEC_OUT({"Result",
                   SPEC_VAROUT("The CTF tensor name", Tensor<double> *)}));
 
-IMPLEMENT_EMPTY_DRYRUN(GenerateRandomTensor) {}
-
 template <typename F>
 static void generate(std::vector<int> const &lens,
                      std::vector<int> const &syms,
@@ -29,7 +27,7 @@ static void generate(std::vector<int> const &lens,
   out.set_force<Tensor<F> *>("Result", C);
 }
 
-IMPLEMENT_ALGORITHM(GenerateRandomTensor) {
+DEFSTEP(GenerateRandomTensor) {
 
   std::vector<int> lens = in.get<std::vector<int>>("dimensions"),
                    syms(lens.size(), NS);

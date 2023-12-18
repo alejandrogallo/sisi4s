@@ -8,13 +8,10 @@
 #include <vector>
 
 #include <Sisi4s.hpp>
-#include <algorithms/TensorAntisymmetrizer.hpp>
+#include <Step.hpp>
 #include <math/MathFunctions.hpp>
 #include <util/Integrals.hpp>
-#include <util/Log.hpp>
 #include <util/SharedPointer.hpp>
-#include <util/Tensor.hpp>
-#include <util/Tensor.hpp>
 
 using namespace sisi4s;
 
@@ -160,7 +157,7 @@ static void run2(Arguments &in) {
   else left["abij"] -= right["abji"];
 }
 
-IMPLEMENT_ALGORITHM(TensorAntisymmetrizer) {
+DEFSTEP(TensorAntisymmetrizer) {
   if (in.present("left") && in.present("right")) {
     if (in.is_of_type<Tensor<double> *>("right")
         && in.is_of_type<Tensor<double> *>("left")) {

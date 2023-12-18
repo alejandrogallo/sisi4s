@@ -1,26 +1,15 @@
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <util/Libint.hpp>
-#include <algorithms/OneBodyFromGaussian.hpp>
-#include <util/Tensor.hpp>
-#include <Sisi4s.hpp>
-#include <util/Log.hpp>
-#include <util/Integrals.hpp>
-#include <iostream>
 #include <Eigen/Eigen>
-#include <numeric>
-#include <set>
-#include <map>
-#include <util/Emitter.hpp>
+#include <util/Libint.hpp>
+
+#include <Step.hpp>
+#include <Sisi4s.hpp>
+
 #define LOGGER(_l) LOG(_l, "OneBodyFromGaussian")
 
 using namespace sisi4s;
 
 using RowMajor =
     Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>;
-
-IMPLEMENT_EMPTY_DRYRUN(OneBodyFromGaussian) {}
 
 struct Sinfo {
   const size_t size, begin;
@@ -86,7 +75,7 @@ DEFSPEC(OneBodyFromGaussian,
                      std::vector<libint2::Atom> *)}),
         SPEC_OUT({"Out", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(OneBodyFromGaussian) {
+DEFSTEP(OneBodyFromGaussian) {
 
   libint2::initialize();
 

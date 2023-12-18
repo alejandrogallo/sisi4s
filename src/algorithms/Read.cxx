@@ -2,8 +2,8 @@
 
 #include <vendor/filesystem.hpp>
 
-#include <algorithms/Read.hpp>
-#include <algorithms/TensorWriter.hpp>
+#include <Step.hpp>
+#include <util/TensorIo.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/Tensor.hpp>
@@ -24,15 +24,13 @@ static Tensor<F> *new_tensor_from_dimensions(cc4s::Dimensions const &dims) {
   return new Tensor<F>(dims.size(), syms.data(), lens.data(), *Sisi4s::world);
 }
 
-IMPLEMENT_EMPTY_DRYRUN(Read) {}
-
 // TODO: implement the templating mechanism for specs
 using F = double;
 DEFSPEC(Read,
         SPEC_IN({"fileName", SPEC_VALUE("TODO: DOC", std::string)->require()}),
         SPEC_OUT({"destination", SPEC_VAROUT("TODO: DOC", Tensor<F> *)}));
 
-IMPLEMENT_ALGORITHM(Read) {
+DEFSTEP(Read) {
 
   const std::string fileName = in.get<std::string>("fileName");
 
@@ -299,8 +297,6 @@ struct convert<ReadHeader> {
 
 namespace sisi4s {
 
-IMPLEMENT_EMPTY_DRYRUN(Write) {}
-
 using F = double;
 DEFSPEC(Write,
         SPEC_IN({"fileName", SPEC_VALUE("TODO: DOC", std::string)},
@@ -311,7 +307,7 @@ DEFSPEC(Write,
                  SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()}),
         SPEC_OUT({"destination", SPEC_VAROUT("TODO: DOC", Tensor<F> *)}));
 
-IMPLEMENT_ALGORITHM(Write) {
+DEFSTEP(Write) {
   using TD = Tensor<double> *;
   using TZ = Tensor<sisi4s::complex> *;
   using namespace sisi4s::cc4s;
@@ -342,7 +338,7 @@ IMPLEMENT_ALGORITHM(Write) {
       header.dimensions.push_back(
           {static_cast<size_t>(t->lens[i]), AxisType::State});
     }
-    TensorWriter::write<Float64>(dataName, dataPath, t, binary_p, "", "", "");
+    TensorIo::do_write<Float64>(dataName, dataPath, t, binary_p, "", "", "");
     header.scalarType = ScalarType::Real64;
   } else {
     LOG(1, "TensorWriter") << "Writing complex tensor" << std::endl;
@@ -350,13 +346,13 @@ IMPLEMENT_ALGORITHM(Write) {
     for (decltype(t->order) i = 0; i < t->order; i++) {
       header.dimensions.push_back({t->lens[i], AxisType::State});
     }
-    TensorWriter::write<sisi4s::complex>(dataName,
-                                         dataPath,
-                                         t,
-                                         binary_p,
-                                         "",
-                                         "",
-                                         "");
+    TensorIo::do_write<sisi4s::complex>(dataName,
+                                        dataPath,
+                                        t,
+                                        binary_p,
+                                        "",
+                                        "",
+                                        "");
     header.scalarType = ScalarType::Complex64;
   }
 

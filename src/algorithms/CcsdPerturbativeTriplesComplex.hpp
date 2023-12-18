@@ -34,7 +34,8 @@ private:
   template <int Dummy>
   class CoulombVertex<double, Dummy> {
   public:
-    CoulombVertex(Tensor<complex> *GammaFab, Tensor<complex> *GammaFai);
+    CoulombVertex(Tensor<sisi4s::complex> *GammaFab,
+                  Tensor<sisi4s::complex> *GammaFai);
     ~CoulombVertex();
     void getDoublesParticleContribution(SlicedCtfTensor<double> &Tabij,
                                         const Map<3> &i,
@@ -48,15 +49,16 @@ private:
   template <int Dummy>
   class CoulombVertex<complex, Dummy> {
   public:
-    CoulombVertex(Tensor<complex> *GammaFab, Tensor<complex> *GammaFai);
+    CoulombVertex(Tensor<sisi4s::complex> *GammaFab,
+                  Tensor<sisi4s::complex> *GammaFai);
     ~CoulombVertex();
-    void getDoublesParticleContribution(SlicedCtfTensor<complex> &Tabij,
+    void getDoublesParticleContribution(SlicedCtfTensor<sisi4s::complex> &Tabij,
                                         const Map<3> &i,
-                                        Tensor<complex> &DVabc);
+                                        Tensor<sisi4s::complex> &DVabc);
 
   protected:
-    Tensor<complex> *conjGammaFab;
-    SlicedCtfTensor<complex> *GammaFai;
+    Tensor<sisi4s::complex> *conjGammaFab;
+    SlicedCtfTensor<sisi4s::complex> *GammaFai;
   };
 
   template <typename F>
@@ -66,8 +68,8 @@ private:
                Tensor<F> *Tabij,
                Tensor<F> *Vabij,
                Tensor<F> *Valij,
-               Tensor<complex> *GammaFab,
-               Tensor<complex> *GammaFai,
+               Tensor<sisi4s::complex> *GammaFab,
+               Tensor<sisi4s::complex> *GammaFai,
                Tensor<double> *epsi,
                Tensor<double> *epsa);
     ~Calculator();

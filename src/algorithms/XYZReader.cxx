@@ -1,6 +1,5 @@
-#include <algorithms/XYZReader.hpp>
+#include <Step.hpp>
 #include <util/Libint.hpp>
-#include <util/Log.hpp>
 
 #define LOGGER(_l) LOG(_l, "XyzReader")
 
@@ -17,9 +16,7 @@ DEFSPEC(
               SPEC_VAROUT("A vector of libint atoms defining a Xyz structure",
                           Structure *)}));
 
-IMPLEMENT_EMPTY_DRYRUN(XyzReader) {}
-
-IMPLEMENT_ALGORITHM(XyzReader) {
+DEFSTEP(XyzReader) {
 
   const std::string xyzStructureFile = in.get<std::string>("path"),
                     structure_string = in.get<std::string>("structure");

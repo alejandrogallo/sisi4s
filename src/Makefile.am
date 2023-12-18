@@ -9,6 +9,7 @@ AM_CXXFLAGS = -fmax-errors=1 \
 
 bin_PROGRAMS = sisi4s
 
+# CORE
 sisi4s_SOURCES =                                                 \
 ./Arguments.cxx                                                  \
 ./AlgorithmInputSpec.cxx                                         \
@@ -16,7 +17,9 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/Algorithm.cxx                                       \
 ./Sisi4s.cxx                                                     \
 ./Options.cxx                                                    \
-./util/Tensor.cxx                                            \
+./DryTensor.cxx                                                  \
+./Parser.cxx                                                     \
+./util/Tensor.cxx                                                \
 ./util/BlacsWorld.cxx                                            \
 ./util/Emitter.cxx                                               \
 ./util/Parsing.cxx                                               \
@@ -24,21 +27,24 @@ sisi4s_SOURCES =                                                 \
 ./util/Log.cxx                                                   \
 ./util/TensorIo.cxx                                              \
 ./util/FlopsCounter.cxx                                          \
-./util/AngularMomentum.cxx                                       \
 ./util/Timer.cxx                                                 \
 ./util/BasisSet.cxx                                              \
+./algorithms/Exit.cxx                                            \
+./algorithms/Nop.cxx
+
+sisi4s_SOURCES +=                                                 \
+./util/AngularMomentum.cxx                                       \
 ./turbomole/MosParser.cxx                                        \
 ./nwchem/MovecsParser.cxx                                        \
 ./nwchem/BasisParser.cxx                                         \
 ./mixers/LinearMixer.cxx                                         \
 ./mixers/DiisMixer.cxx                                           \
 ./mixers/Mixer.cxx                                               \
-./DryTensor.cxx                                                  \
-./Parser.cxx                                                     \
 ./math/IterativePseudoInverse.cxx                                \
 ./math/PseudoInverseSvd.cxx                                      \
 ./math/ComplexTensor.cxx                                         \
 ./math/MathFunctions.cxx                                         \
+./algorithms/FromComplexTensor.cxx                               \
 ./algorithms/TensorNorm.cxx                                      \
 ./algorithms/TensorSum.cxx                                       \
 ./algorithms/TensorReader.cxx                                    \
@@ -62,8 +68,6 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/TensorUnrestricter.cxx                              \
 ./algorithms/FcidumpReader.cxx                                   \
 ./algorithms/FcidumpWriter.cxx                                   \
-./algorithms/Exit.cxx                                            \
-./algorithms/Nop.cxx                                             \
 ./algorithms/MoReader.cxx                                        \
 ./algorithms/Mp2NaturalOrbitals.cxx                              \
 ./algorithms/TensorAntisymmetrizer.cxx                           \
@@ -78,6 +82,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/UegVertexGenerator.cxx
 
 # sisi4s_SOURCES =                                                 \
+# ./algorithms/UnrestrictedCIS.cxx                                 \
 # ./algorithms/UCcsdIPEquationOfMotionDavidson.cxx                 \
 # ./algorithms/UCcsdEAEquationOfMotionDavidson.cxx                 \
 # ./math/CanonicalPolyadicDecomposition.cxx                        \
@@ -97,7 +102,6 @@ sisi4s_SOURCES =                                                 \
 # ./algorithms/ApproximateCoulombVertex.cxx                        \
 # ./algorithms/CcsdPerturbativeTriples.cxx                         \
 # ./algorithms/UnrestrictedEquationOfMotionSinglesFromRpa.cxx      \
-# ./algorithms/UnrestrictedCIS.cxx                                 \
 # ./algorithms/UrpaAmplitudesFromCoulombIntegrals.cxx              \
 # ./algorithms/Delete.cxx                                          \
 # ./algorithms/UccsdtAmplitudesFromCoulombIntegrals.cxx            \
@@ -109,6 +113,7 @@ sisi4s_SOURCES =                                                 \
 if DISABLE_LIBINT
 else
 sisi4s_SOURCES +=                                   \
+./util/Eigen.cxx                          \
 ./algorithms/XYZReader.cxx                          \
 ./algorithms/OneBodyFromGaussian.cxx                \
 ./algorithms/CoulombIntegralsFromGaussian.cxx       \

@@ -95,7 +95,7 @@ DEFSPEC(
         {"structureFactorOnlySingles",
          SPEC_VALUE_DEF("TODO: DOC", bool, false)},
         // {a, SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
-        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
         {"CoulombKernel", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"GNorm", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
@@ -412,7 +412,7 @@ void CcsdEquationOfMotionDavidson::run() {
 
   // STRUCTURE FACTOR  =======================================================
   if (structureFactorIndices.size()) {
-    auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+    auto GammaGqr(in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
     auto V(in.get<Tensor<double> *>("CoulombKernel")),
         Vp(in.get<Tensor<double> *>("CoulombKernel"));
     CTF::Transform<double, double>(

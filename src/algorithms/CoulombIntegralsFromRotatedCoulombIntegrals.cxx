@@ -1,22 +1,22 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <algorithms/CoulombIntegralsFromRotatedCoulombIntegrals.hpp>
+#include <iostream>
+#include <numeric>
+#include <set>
+#include <map>
+
+#include <Step.hpp>
 #include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <util/Integrals.hpp>
-#include <iostream>
 #include <util/Tensor.hpp>
-#include <numeric>
-#include <set>
-#include <map>
 #include <util/Emitter.hpp>
 #include <math/MathFunctions.hpp>
 
 using namespace sisi4s;
 
-IMPLEMENT_EMPTY_DRYRUN(CoulombIntegralsFromRotatedCoulombIntegrals) {}
 #define LOGGER(_l) LOG(_l, "CoulombIntegralsFromRotatedCoulombIntegrals")
 
 template <typename V>
@@ -456,7 +456,7 @@ DEFSPEC(
              {"PPPPCoulombIntegrals", SPEC_VAROUT("TODO", Tensor<double> *)},
              {"PQRSCoulombIntegrals", SPEC_VAROUT("TODO", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(CoulombIntegralsFromRotatedCoulombIntegrals) {
+DEFSTEP(CoulombIntegralsFromRotatedCoulombIntegrals) {
   Tensor<double> *S;
   auto C(in.get<Tensor<double> *>("OrbitalCoefficients"));
   auto V(in.get<Tensor<double> *>("CoulombIntegrals"));

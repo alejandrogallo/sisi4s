@@ -14,25 +14,24 @@ using namespace sisi4s;
 using std::make_shared;
 using std::shared_ptr;
 
-
 DEFSPEC(ParticleHoleCoulombVertexSingularVectors,
         SPEC_IN({"reduction",
                  SPEC_VALUE_DEF("TODO: DOC", double, DEFAULT_REDUCTION)},
                 {"fieldVariables",
                  SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_FIELD_VARIABLES)},
                 {"FullParticleHoleCoulombVertex",
-                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)}),
         SPEC_OUT());
 
 IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexSingularVectors) {
   // read the particle-hole Coulomb vertex GammaGai
   // Its singular value decomposition is U.Sigma.W*
   // where W* is a matrix with the compound orbital index (a,i)
-  Tensor<complex> *GammaGai(
-      in.get<Tensor<complex> *>("FullParticleHoleCoulombVertex"));
+  Tensor<sisi4s::complex> *GammaGai(
+      in.get<Tensor<sisi4s::complex> *>("FullParticleHoleCoulombVertex"));
 
   // construct the conjugate of the Coulomb vertex GammaGai
-  Tensor<complex> conjGammaGai(*GammaGai);
+  Tensor<sisi4s::complex> conjGammaGai(*GammaGai);
   conjugate(conjGammaGai);
 
   // contract away the orbitals away, leaving U.Sigma^2.U*
@@ -64,8 +63,9 @@ IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexSingularVectors) {
   scaU->write(U);
   // slice singular vectors U corresponding to NF largest singular values S
   int start[] = {0, NG - NF}, end[] = {NG, NG};
-  out.set<Tensor<complex> *>("ParticleHoleCoulombVertexSingularVectors",
-                             new Tensor<complex>(U.slice(start, end)));
+  out.set<Tensor<sisi4s::complex> *>(
+      "ParticleHoleCoulombVertexSingularVectors",
+      new Tensor<sisi4s::complex>(U.slice(start, end)));
 
   // TODO: also write out the singular values
   delete[] SS;
@@ -73,10 +73,10 @@ IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexSingularVectors) {
 
 void ParticleHoleCoulombVertexSingularVectors::dryRun() {
   // Read the Coulomb vertex GammaGai
-  DryTensor<complex> *GammaGai(
-      in.get<DryTensor<complex> *>("FullParticleHoleCoulombVertex"));
+  DryTensor<sisi4s::complex> *GammaGai(
+      in.get<DryTensor<sisi4s::complex> *>("FullParticleHoleCoulombVertex"));
 
-  DryTensor<complex> conjGammaGai(*GammaGai, SOURCE_LOCATION);
+  DryTensor<sisi4s::complex> conjGammaGai(*GammaGai, SOURCE_LOCATION);
 
   int NG(GammaGai->lens[0]);
   // get number of field variables
@@ -87,7 +87,7 @@ void ParticleHoleCoulombVertexSingularVectors::dryRun() {
     NF = static_cast<int>(NG * reduction + 0.5);
   }
 
-  out.set<DryTensor<complex> *>(
+  out.set<DryTensor<sisi4s::complex> *>(
       "ParticleHoleCoulombVertexSingularVectors",
       new DryMatrix<complex>(NG, NF, NS, SOURCE_LOCATION));
 }

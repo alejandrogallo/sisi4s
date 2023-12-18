@@ -14,13 +14,13 @@ using namespace sisi4s;
 
 DEFSPEC(
     CoulombIntegralsFromVertex,
-    SPEC_IN({"antisymmetrize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-            {"complex", SPEC_VALUE_DEF("TODO: DOC", bool, 0)},
-            {"forceReal", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
-            {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-            {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-            {"ParticleEigenEnergies",
-             SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_IN(
+        {"antisymmetrize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"complex", SPEC_VALUE_DEF("TODO: DOC", bool, 0)},
+        {"forceReal", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
     SPEC_OUT(
         {"HHHHCoulombIntegrals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
         {"HHHPCoulombIntegrals", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
@@ -42,7 +42,8 @@ DEFSPEC(
 
 IMPLEMENT_ALGORITHM(CoulombIntegralsFromVertex) {
   // Read the Coulomb vertex GammaGqr
-  Tensor<complex> *GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+  Tensor<sisi4s::complex> *GammaGqr(
+      in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
 
   // Read the Particle/Hole Eigenenergies
   Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
@@ -148,12 +149,12 @@ IMPLEMENT_ALGORITHM(CoulombIntegralsFromVertex) {
   int GaiEnd[] = {NG, aEnd, iEnd};
   int GabStart[] = {0, aStart, aStart};
   int GabEnd[] = {NG, aEnd, aEnd};
-  GammaGij = new Tensor<complex>(GammaGqr->slice(GijStart, GijEnd));
+  GammaGij = new Tensor<sisi4s::complex>(GammaGqr->slice(GijStart, GijEnd));
   GammaGia = realIntegrals
                ? nullptr
-               : new Tensor<complex>(GammaGqr->slice(GiaStart, GiaEnd));
-  GammaGai = new Tensor<complex>(GammaGqr->slice(GaiStart, GaiEnd));
-  GammaGab = new Tensor<complex>(GammaGqr->slice(GabStart, GabEnd));
+               : new Tensor<sisi4s::complex>(GammaGqr->slice(GiaStart, GiaEnd));
+  GammaGai = new Tensor<sisi4s::complex>(GammaGqr->slice(GaiStart, GaiEnd));
+  GammaGab = new Tensor<sisi4s::complex>(GammaGqr->slice(GabStart, GabEnd));
 
   if (realIntegrals) {
     calculateRealIntegrals();
@@ -169,7 +170,8 @@ IMPLEMENT_ALGORITHM(CoulombIntegralsFromVertex) {
 
 void CoulombIntegralsFromVertex::dryRun() {
   // Read the Coulomb vertex GammaGqr
-  DryTensor<complex> *GammaGqr(in.get<DryTensor<complex> *>("CoulombVertex"));
+  DryTensor<sisi4s::complex> *GammaGqr(
+      in.get<DryTensor<sisi4s::complex> *>("CoulombVertex"));
 
   // Read the Particle/Hole Eigenenergies
   DryTensor<> *epsi(in.get<DryTensor<double> *>("HoleEigenEnergies"));
@@ -205,10 +207,10 @@ void CoulombIntegralsFromVertex::dryRun() {
   int GabLens[] = {NG, Nv, Nv};
   int GijLens[] = {NG, No, No};
 
-  DryTensor<complex> GammaGia(3, GiaLens, syms.data());
-  DryTensor<complex> GammaGai(3, GaiLens, syms.data());
-  DryTensor<complex> GammaGab(3, GabLens, syms.data());
-  DryTensor<complex> GammaGij(3, GijLens, syms.data());
+  DryTensor<sisi4s::complex> GammaGia(3, GiaLens, syms.data());
+  DryTensor<sisi4s::complex> GammaGai(3, GaiLens, syms.data());
+  DryTensor<sisi4s::complex> GammaGab(3, GabLens, syms.data());
+  DryTensor<sisi4s::complex> GammaGij(3, GijLens, syms.data());
 
   if (realIntegrals) {
     dryCalculateRealIntegrals();
@@ -379,7 +381,8 @@ void CoulombIntegralsFromVertex::calculateRealIntegrals() {
   fromComplexTensor(*GammaGij, realGammaGij, imagGammaGij);
 
   if (calculate_vpqrs) {
-    Tensor<complex> *GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+    Tensor<sisi4s::complex> *GammaGqr(
+        in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
     int64_t No = (GammaGij->lens[1]), Nv = (GammaGab->lens[1]);
     LOG(1, "CoulombIntegrals") << "Evaluating full Vpqrs" << std::endl;
     const auto pppp = std::vector<int64_t>(4, GammaGqr->lens[1]);
@@ -634,209 +637,225 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
         << "Calculating antisymmetrized integrals" << std::endl;
   }
 
-  Tensor<complex> *Vabij(out.present("PPHHCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   vvoo.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Vabij")
-                             : nullptr);
+  Tensor<sisi4s::complex> *Vabij(
+      out.present("PPHHCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        vvoo.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vabij")
+          : nullptr);
 
-  Tensor<complex> *Vijab(
+  Tensor<sisi4s::complex> *Vijab(
       // TODO: HHPP is always conj(Permute(PPHH))
-      out.present("HHPPCoulombIntegrals") ? new Tensor<complex>(4,
-                                                                oovv.data(),
-                                                                syms.data(),
-                                                                *Sisi4s::world,
-                                                                "Vijab")
-                                          : nullptr);
+      out.present("HHPPCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        oovv.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vijab")
+          : nullptr);
 
-  Tensor<complex> *Vaijb(out.present("PHHPCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   voov.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Vaijb")
-                             : nullptr);
+  Tensor<sisi4s::complex> *Vaijb(
+      out.present("PHHPCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        voov.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vaijb")
+          : nullptr);
 
-  Tensor<complex> *Vaibj(out.present("PHPHCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   vovo.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Vaibj")
-                             : nullptr);
+  Tensor<sisi4s::complex> *Vaibj(
+      out.present("PHPHCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        vovo.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vaibj")
+          : nullptr);
 
-  Tensor<complex> *Vijkl(out.present("HHHHCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   oooo.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Vijkl")
-                             : nullptr);
+  Tensor<sisi4s::complex> *Vijkl(
+      out.present("HHHHCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        oooo.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vijkl")
+          : nullptr);
 
-  Tensor<complex> *Vijka(out.present("HHHPCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   ooov.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Vijka")
-                             : nullptr);
+  Tensor<sisi4s::complex> *Vijka(
+      out.present("HHHPCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        ooov.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vijka")
+          : nullptr);
 
-  Tensor<complex> *Vaijk(
+  Tensor<sisi4s::complex> *Vaijk(
       // TODO: PHHH is always conj(Permute(HHHP))
-      out.present("PHHHCoulombIntegrals") ? new Tensor<complex>(4,
-                                                                vooo.data(),
-                                                                syms.data(),
-                                                                *Sisi4s::world,
-                                                                "Vaijk")
-                                          : nullptr);
+      out.present("PHHHCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        vooo.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vaijk")
+          : nullptr);
 
-  Tensor<complex> *Vabcd(out.present("PPPPCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   vvvv.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Vabcd")
-                             : nullptr);
+  Tensor<sisi4s::complex> *Vabcd(
+      out.present("PPPPCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        vvvv.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vabcd")
+          : nullptr);
 
-  Tensor<complex> *Vaibc(out.present("PHPPCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   vovv.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Vaibc")
-                             : nullptr);
+  Tensor<sisi4s::complex> *Vaibc(
+      out.present("PHPPCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        vovv.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vaibc")
+          : nullptr);
 
   // Initialization of tensors created from already existing ones
   // In principle the integrals above do not constitute the minimal set of
   // integrals from which one can write the rest (which would be 7)
 
-  Tensor<complex> *Vabic(out.present("PPHPCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   vvov.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Vabic")
-                             : nullptr);
-  Tensor<complex> *Vabci(out.present("PPPHCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   vvvo.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Vabci")
-                             : nullptr);
-  Tensor<complex> *Vijak(out.present("HHPHCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   oovo.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Vijak")
-                             : nullptr);
-  Tensor<complex> *Viajk(out.present("HPHHCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   ovoo.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Viajk")
-                             : nullptr);
-  Tensor<complex> *Viajb(out.present("HPHPCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   ovov.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Viajb")
-                             : nullptr);
-  Tensor<complex> *Viabj(out.present("HPPHCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   ovvo.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Viabj")
-                             : nullptr);
-  Tensor<complex> *Viabc(out.present("HPPPCoulombIntegrals")
-                             ? new Tensor<complex>(4,
-                                                   ovvv.data(),
-                                                   syms.data(),
-                                                   *Sisi4s::world,
-                                                   "Viabc")
-                             : nullptr);
+  Tensor<sisi4s::complex> *Vabic(
+      out.present("PPHPCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        vvov.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vabic")
+          : nullptr);
+  Tensor<sisi4s::complex> *Vabci(
+      out.present("PPPHCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        vvvo.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vabci")
+          : nullptr);
+  Tensor<sisi4s::complex> *Vijak(
+      out.present("HHPHCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        oovo.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Vijak")
+          : nullptr);
+  Tensor<sisi4s::complex> *Viajk(
+      out.present("HPHHCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        ovoo.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Viajk")
+          : nullptr);
+  Tensor<sisi4s::complex> *Viajb(
+      out.present("HPHPCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        ovov.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Viajb")
+          : nullptr);
+  Tensor<sisi4s::complex> *Viabj(
+      out.present("HPPHCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        ovvo.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Viabj")
+          : nullptr);
+  Tensor<sisi4s::complex> *Viabc(
+      out.present("HPPPCoulombIntegrals")
+          ? new Tensor<sisi4s::complex>(4,
+                                        ovvv.data(),
+                                        syms.data(),
+                                        *Sisi4s::world,
+                                        "Viabc")
+          : nullptr);
 
   CTF::Univar_Function<complex> fConj(conj<complex>);
 
-  Tensor<complex> conjTransposeGammaGai(false, *GammaGai);
+  Tensor<sisi4s::complex> conjTransposeGammaGai(false, *GammaGai);
   conjTransposeGammaGai.sum(1.0, *GammaGia, "Gia", 0.0, "Gai", fConj);
 
-  Tensor<complex> conjTransposeGammaGia(false, *GammaGia);
+  Tensor<sisi4s::complex> conjTransposeGammaGia(false, *GammaGia);
   conjTransposeGammaGia.sum(1.0, *GammaGai, "Gai", 0.0, "Gia", fConj);
 
-  Tensor<complex> conjTransposeGammaGij(false, *GammaGij);
+  Tensor<sisi4s::complex> conjTransposeGammaGij(false, *GammaGij);
   conjTransposeGammaGij.sum(1.0, *GammaGij, "Gji", 0.0, "Gij", fConj);
 
-  Tensor<complex> conjTransposeGammaGab(false, *GammaGab);
+  Tensor<sisi4s::complex> conjTransposeGammaGab(false, *GammaGab);
   conjTransposeGammaGab.sum(1.0, *GammaGab, "Gba", 0.0, "Gab", fConj);
 
   if (Vabij) {
     LOG(1, "CoulombIntegrals")
         << "Evaluating " << Vabij->get_name() << std::endl;
     (*Vabij)["abij"] = conjTransposeGammaGai["Gai"] * (*GammaGai)["Gbj"];
-    out.set<Tensor<complex> *>("PPHHCoulombIntegrals", Vabij);
+    out.set<Tensor<sisi4s::complex> *>("PPHHCoulombIntegrals", Vabij);
   }
 
   if (Vaijb) {
     LOG(1, "CoulombIntegrals")
         << "Evaluating " << Vaijb->get_name() << std::endl;
     (*Vaijb)["aijb"] = conjTransposeGammaGai["Gaj"] * (*GammaGia)["Gib"];
-    out.set<Tensor<complex> *>("PHHPCoulombIntegrals", Vaijb);
+    out.set<Tensor<sisi4s::complex> *>("PHHPCoulombIntegrals", Vaijb);
   }
 
   if (Vijab) {
     LOG(1, "CoulombIntegrals")
         << "Evaluating " << Vijab->get_name() << std::endl;
     (*Vijab)["ijab"] = conjTransposeGammaGia["Gia"] * (*GammaGia)["Gjb"];
-    out.set<Tensor<complex> *>("HHPPCoulombIntegrals", Vijab);
+    out.set<Tensor<sisi4s::complex> *>("HHPPCoulombIntegrals", Vijab);
   }
 
   if (Vaibj) {
     LOG(1, "CoulombIntegrals")
         << "Evaluating " << Vaibj->get_name() << std::endl;
     (*Vaibj)["aibj"] = conjTransposeGammaGab["Gab"] * (*GammaGij)["Gij"];
-    out.set<Tensor<complex> *>("PHPHCoulombIntegrals", Vaibj);
+    out.set<Tensor<sisi4s::complex> *>("PHPHCoulombIntegrals", Vaibj);
   }
 
   if (Vijkl) {
     LOG(1, "CoulombIntegrals")
         << "Evaluating " << Vijkl->get_name() << std::endl;
     (*Vijkl)["ijkl"] = conjTransposeGammaGij["Gik"] * (*GammaGij)["Gjl"];
-    out.set<Tensor<complex> *>("HHHHCoulombIntegrals", Vijkl);
+    out.set<Tensor<sisi4s::complex> *>("HHHHCoulombIntegrals", Vijkl);
   }
 
   if (Vijka) {
     LOG(1, "CoulombIntegrals")
         << "Evaluating " << Vijka->get_name() << std::endl;
     (*Vijka)["ijka"] = conjTransposeGammaGij["Gik"] * (*GammaGia)["Gja"];
-    out.set<Tensor<complex> *>("HHHPCoulombIntegrals", Vijka);
+    out.set<Tensor<sisi4s::complex> *>("HHHPCoulombIntegrals", Vijka);
   }
 
   if (Vaijk) {
     LOG(1, "CoulombIntegrals")
         << "Evaluating " << Vaijk->get_name() << std::endl;
     (*Vaijk)["aijk"] = conjTransposeGammaGai["Gaj"] * (*GammaGij)["Gik"];
-    out.set<Tensor<complex> *>("PHHHCoulombIntegrals", Vaijk);
+    out.set<Tensor<sisi4s::complex> *>("PHHHCoulombIntegrals", Vaijk);
   }
 
   if (Vabcd) {
     LOG(1, "CoulombIntegrals")
         << "Evaluating " << Vabcd->get_name() << std::endl;
     (*Vabcd)["abcd"] = conjTransposeGammaGab["Gac"] * (*GammaGab)["Gbd"];
-    out.set<Tensor<complex> *>("PPPPCoulombIntegrals", Vabcd);
+    out.set<Tensor<sisi4s::complex> *>("PPPPCoulombIntegrals", Vabcd);
   }
 
   if (Vaibc) {
     LOG(1, "CoulombIntegrals")
         << "Evaluating " << Vaibc->get_name() << std::endl;
     (*Vaibc)["aibc"] = conjTransposeGammaGab["Gab"] * (*GammaGia)["Gic"];
-    out.set<Tensor<complex> *>("PHPPCoulombIntegrals", Vaibc);
+    out.set<Tensor<sisi4s::complex> *>("PHPPCoulombIntegrals", Vaibc);
   }
 
   // Force integrals to be real
@@ -877,7 +896,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
       // vvvo = h * vovv
       Vabic->sum(-1.0, *Vaibc, "ciab", 1.0, "abic", fConj);
     }
-    out.set<Tensor<complex> *>("PPHPCoulombIntegrals", Vabic);
+    out.set<Tensor<sisi4s::complex> *>("PPHPCoulombIntegrals", Vabic);
   }
   if (Vabci) {
     // vvvo = h * vovv
@@ -889,7 +908,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
       // vvov = h%v * vovv
       Vabci->sum(-1.0, *Vaibc, "ciba", 1.0, "abci", fConj);
     }
-    out.set<Tensor<complex> *>("PPPHCoulombIntegrals", Vabci);
+    out.set<Tensor<sisi4s::complex> *>("PPPHCoulombIntegrals", Vabci);
   }
   if (Vijak) {
     // oovo = h * vooo
@@ -901,7 +920,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
       // ooov = e * ooov
       Vijak->sum(-1.0, *Vijka, "ijka", 1.0, "ijak");
     }
-    out.set<Tensor<complex> *>("HHPHCoulombIntegrals", Vijak);
+    out.set<Tensor<sisi4s::complex> *>("HHPHCoulombIntegrals", Vijak);
   }
   if (Viajk) {
     // ovoo = h * ooov
@@ -913,7 +932,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
       // ovoo = h * ooov
       Viajk->sum(-1.0, *Vijka, "kjia", 1.0, "iajk", fConj);
     }
-    out.set<Tensor<complex> *>("HPHHCoulombIntegrals", Viajk);
+    out.set<Tensor<sisi4s::complex> *>("HPHHCoulombIntegrals", Viajk);
   }
   if (Viajb) {
     // ovov = v * vovo
@@ -925,7 +944,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
       // ovvo = h * voov
       Viajb->sum(-1.0, *Vaijb, "bjia", 1.0, "iajb", fConj);
     }
-    out.set<Tensor<complex> *>("HPHPCoulombIntegrals", Viajb);
+    out.set<Tensor<sisi4s::complex> *>("HPHPCoulombIntegrals", Viajb);
   }
   if (Viabj) {
     // ovvo = h * voov
@@ -937,7 +956,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
       // ovov = v * vovo
       Viabj->sum(-1.0, *Vaibj, "aibj", 1.0, "iabj");
     }
-    out.set<Tensor<complex> *>("HPPHCoulombIntegrals", Viabj);
+    out.set<Tensor<sisi4s::complex> *>("HPPHCoulombIntegrals", Viabj);
   }
   if (Viabc) {
     // ovvv = v * vovv
@@ -949,7 +968,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
       // ovvv = v * vovv
       Viabc->sum(-1.0, *Vaibc, "aibc", 1.0, "iabc");
     }
-    out.set<Tensor<complex> *>("HPPPCoulombIntegrals", Viabc);
+    out.set<Tensor<sisi4s::complex> *>("HPPPCoulombIntegrals", Viabc);
   }
 
   if (antisymmetrize) {
@@ -966,7 +985,7 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
 
     // There is an inter-dependence of Vaijb and Vaibj for antisymmetrizing
     // so we define a temporary tensor, that is not antisymmetrized.
-    Tensor<complex> originalVaijb(*Vaijb);
+    Tensor<sisi4s::complex> originalVaijb(*Vaijb);
 
     if (Vaijb) (*Vaijb)["aijb"] -= (*Vaibj)["aibj"];
     if (Vaibj) (*Vaibj)["aibj"] -= originalVaijb["aijb"];
@@ -974,40 +993,54 @@ void CoulombIntegralsFromVertex::calculateComplexIntegrals() {
 }
 
 void CoulombIntegralsFromVertex::dryCalculateComplexIntegrals() {
-  DryTensor<complex> *Vaibj(
+  DryTensor<sisi4s::complex> *Vaibj(
       out.present("PHPHCoulombIntegrals")
-          ? new DryTensor<complex>(4, vovo.data(), syms.data())
+          ? new DryTensor<sisi4s::complex>(4, vovo.data(), syms.data())
           : nullptr);
-  DryTensor<complex> *Vabij(
+  DryTensor<sisi4s::complex> *Vabij(
       out.present("PPHHCoulombIntegrals")
-          ? new DryTensor<complex>(4, vvoo.data(), syms.data())
+          ? new DryTensor<sisi4s::complex>(4, vvoo.data(), syms.data())
           : nullptr);
-  DryTensor<complex> *Vijab(
+  DryTensor<sisi4s::complex> *Vijab(
       out.present("HHPPCoulombIntegrals")
-          ? new DryTensor<complex>(4, oovv.data(), syms.data())
+          ? new DryTensor<sisi4s::complex>(4, oovv.data(), syms.data())
           : nullptr);
-  DryTensor<complex> *Vaijb(
+  DryTensor<sisi4s::complex> *Vaijb(
       out.present("PHHPCoulombIntegrals")
-          ? new DryTensor<complex>(4, voov.data(), syms.data())
+          ? new DryTensor<sisi4s::complex>(4, voov.data(), syms.data())
           : nullptr);
-  DryTensor<complex> *Vijkl(
+  DryTensor<sisi4s::complex> *Vijkl(
       out.present("HHHHCoulombIntegrals")
-          ? new DryTensor<complex>(4, oooo.data(), syms.data())
+          ? new DryTensor<sisi4s::complex>(4, oooo.data(), syms.data())
           : nullptr);
-  DryTensor<complex> *Vijka(
+  DryTensor<sisi4s::complex> *Vijka(
       out.present("HHHPCoulombIntegrals")
-          ? new DryTensor<complex>(4, ooov.data(), syms.data())
+          ? new DryTensor<sisi4s::complex>(4, ooov.data(), syms.data())
           : nullptr);
-  DryTensor<complex> *Vaijk(
+  DryTensor<sisi4s::complex> *Vaijk(
       out.present("PHHHCoulombIntegrals")
-          ? new DryTensor<complex>(4, vooo.data(), syms.data())
+          ? new DryTensor<sisi4s::complex>(4, vooo.data(), syms.data())
           : nullptr);
 
-  if (Vaibj) { out.set<DryTensor<complex> *>("PHPHCoulombIntegrals", Vaibj); }
-  if (Vabij) { out.set<DryTensor<complex> *>("PPHHCoulombIntegrals", Vabij); }
-  if (Vijab) { out.set<DryTensor<complex> *>("HHPPCoulombIntegrals", Vijab); }
-  if (Vaijb) { out.set<DryTensor<complex> *>("PHHPCoulombIntegrals", Vaijb); }
-  if (Vijkl) { out.set<DryTensor<complex> *>("HHHHCoulombIntegrals", Vijkl); }
-  if (Vijka) { out.set<DryTensor<complex> *>("HHHPCoulombIntegrals", Vijka); }
-  if (Vaijk) { out.set<DryTensor<complex> *>("PHHHCoulombIntegrals", Vaijk); }
+  if (Vaibj) {
+    out.set<DryTensor<sisi4s::complex> *>("PHPHCoulombIntegrals", Vaibj);
+  }
+  if (Vabij) {
+    out.set<DryTensor<sisi4s::complex> *>("PPHHCoulombIntegrals", Vabij);
+  }
+  if (Vijab) {
+    out.set<DryTensor<sisi4s::complex> *>("HHPPCoulombIntegrals", Vijab);
+  }
+  if (Vaijb) {
+    out.set<DryTensor<sisi4s::complex> *>("PHHPCoulombIntegrals", Vaijb);
+  }
+  if (Vijkl) {
+    out.set<DryTensor<sisi4s::complex> *>("HHHHCoulombIntegrals", Vijkl);
+  }
+  if (Vijka) {
+    out.set<DryTensor<sisi4s::complex> *>("HHHPCoulombIntegrals", Vijka);
+  }
+  if (Vaijk) {
+    out.set<DryTensor<sisi4s::complex> *>("PHHHCoulombIntegrals", Vaijk);
+  }
 }

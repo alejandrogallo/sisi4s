@@ -58,14 +58,15 @@ template void sisi4s::fitAlternatingLeastSquaresFactor(Tensor<double> &T,
                                                        char const idxC,
                                                        Tensor<double> &A,
                                                        char const idxA);
-template void sisi4s::fitAlternatingLeastSquaresFactor(Tensor<complex> &T,
-                                                       char const *indicesT,
-                                                       Tensor<complex> &B,
-                                                       char const idxB,
-                                                       Tensor<complex> &C,
-                                                       char const idxC,
-                                                       Tensor<complex> &A,
-                                                       char const idxA);
+template void
+sisi4s::fitAlternatingLeastSquaresFactor(Tensor<sisi4s::complex> &T,
+                                         char const *indicesT,
+                                         Tensor<sisi4s::complex> &B,
+                                         char const idxB,
+                                         Tensor<sisi4s::complex> &C,
+                                         char const idxC,
+                                         Tensor<sisi4s::complex> &A,
+                                         char const idxA);
 
 template <typename F>
 void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
@@ -132,13 +133,13 @@ template void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
     char const idxA,
     AlternatingLeastSquaresRegularizationEstimator *regularizationEstimatorA);
 template void sisi4s::fitRegularizedAlternatingLeastSquaresFactor(
-    Tensor<complex> &T,
+    Tensor<sisi4s::complex> &T,
     char const *indicesT,
-    Tensor<complex> &B,
+    Tensor<sisi4s::complex> &B,
     char const idxB,
-    Tensor<complex> &C,
+    Tensor<sisi4s::complex> &C,
     char const idxC,
-    Tensor<complex> &A,
+    Tensor<sisi4s::complex> &A,
     char const idxA,
     AlternatingLeastSquaresRegularizationEstimator *regularizationEstimatorA);
 
@@ -184,12 +185,12 @@ sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor(DryTensor<double> &T,
                                                        char const idxC,
                                                        DryTensor<double> &A,
                                                        char const idxA);
-template void
-sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor(DryTensor<complex> &T,
-                                                       char const *indicesT,
-                                                       DryTensor<complex> &B,
-                                                       char const idxB,
-                                                       DryTensor<complex> &C,
-                                                       char const idxC,
-                                                       DryTensor<complex> &A,
-                                                       char const idxA);
+template void sisi4s::dryFitRegularizedAlternatingLeastSquaresFactor(
+    DryTensor<sisi4s::complex> &T,
+    char const *indicesT,
+    DryTensor<sisi4s::complex> &B,
+    char const idxB,
+    DryTensor<sisi4s::complex> &C,
+    char const idxC,
+    DryTensor<sisi4s::complex> &A,
+    char const idxA);

@@ -15,18 +15,17 @@ using namespace sisi4s;
 using namespace tcc;
 using std::make_shared;
 
-
 DEFSPEC(CoulombVertexFromFactors,
         SPEC_IN({"CoulombFactors", SPEC_VALUE("TODO: DOC", T *)},
                 {"FactorOrbitals", SPEC_VALUE("TODO: DOC", T *)}),
         SPEC_OUT());
 
 IMPLEMENT_ALGORITHM(CoulombVertexFromFactors) {
-  run<Tensor<complex>, CtfMachineTensor<complex>>(false);
+  run<Tensor<sisi4s::complex>, CtfMachineTensor<sisi4s::complex>>(false);
 }
 
 void CoulombVertexFromFactors::dryRun() {
-  run<DryTensor<complex>, DryMachineTensor<complex>>(true);
+  run<DryTensor<sisi4s::complex>, DryMachineTensor<sisi4s::complex>>(true);
 }
 
 // TMT is either CtfMachineTensor or DryMachineTensor

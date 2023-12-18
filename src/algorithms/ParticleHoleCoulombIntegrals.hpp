@@ -14,7 +14,7 @@ DEFINE_ALGORITHM_HEADER(
     ParticleHoleCoulombIntegrals,
 
     /** \brief The Coulomb Vertex GammaGai  */
-    Tensor<complex> *GammaGai;
+    Tensor<sisi4s::complex> *GammaGai;
     /** \brief The Coulomb integrals Vabij  */
     Tensor<double> * Vabij;);
 } // namespace sisi4s

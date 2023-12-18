@@ -21,16 +21,19 @@ inline std::string operator*(const std::string &s,
 }
 } // namespace sisi4s
 
-
 DEFSPEC(
     CcsdPerturbativeTriplesComplex,
     SPEC_IN(
         {"CcsdEnergy", SPEC_VALUE("TODO: DOC", double)},
-        {"CcsdDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-        {"CcsdSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-        {"PHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-        {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CcsdDoublesAmplitudes",
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"CcsdSinglesAmplitudes",
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"PHHHCoulombIntegrals",
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"PPHHCoulombIntegrals",
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
         {"CcsdDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"CcsdSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
@@ -45,7 +48,7 @@ IMPLEMENT_ALGORITHM(CcsdPerturbativeTriplesComplex) {
   int No(epsi->lens[0]);
   int Nv(epsa->lens[0]);
   // slice GammaFab,GammaFai from GammaFqr
-  auto GammaFqr(in.get<Tensor<complex> *>("CoulombVertex"));
+  auto GammaFqr(in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
   int NF(GammaFqr->lens[0]);
   int Np(GammaFqr->lens[1]);
   int iStart(0), iEnd(No);
@@ -54,8 +57,8 @@ IMPLEMENT_ALGORITHM(CcsdPerturbativeTriplesComplex) {
   int FabEnd[] = {NF, aEnd, aEnd};
   int FaiStart[] = {0, aStart, iStart};
   int FaiEnd[] = {NF, aEnd, iEnd};
-  auto GammaFab(new Tensor<complex>(GammaFqr->slice(FabStart, FabEnd)));
-  auto GammaFai(new Tensor<complex>(GammaFqr->slice(FaiStart, FaiEnd)));
+  auto GammaFab(new Tensor<sisi4s::complex>(GammaFqr->slice(FabStart, FabEnd)));
+  auto GammaFai(new Tensor<sisi4s::complex>(GammaFqr->slice(FaiStart, FaiEnd)));
 
   double eTriples(0.0);
   if (in.is_of_type<Tensor<double> *>("PPHHCoulombIntegrals")) {
@@ -73,14 +76,15 @@ IMPLEMENT_ALGORITHM(CcsdPerturbativeTriplesComplex) {
         << "triples=" << eTriples << std::endl;
   } else {
     complex complexETriples(
-        Calculator<complex>(in.get<Tensor<complex> *>("CcsdSinglesAmplitudes"),
-                            in.get<Tensor<complex> *>("CcsdDoublesAmplitudes"),
-                            in.get<Tensor<complex> *>("PPHHCoulombIntegrals"),
-                            in.get<Tensor<complex> *>("PHHHCoulombIntegrals"),
-                            GammaFab,
-                            GammaFai,
-                            epsi,
-                            epsa)
+        Calculator<complex>(
+            in.get<Tensor<sisi4s::complex> *>("CcsdSinglesAmplitudes"),
+            in.get<Tensor<sisi4s::complex> *>("CcsdDoublesAmplitudes"),
+            in.get<Tensor<sisi4s::complex> *>("PPHHCoulombIntegrals"),
+            in.get<Tensor<sisi4s::complex> *>("PHHHCoulombIntegrals"),
+            GammaFab,
+            GammaFai,
+            epsi,
+            epsa)
             .calculate());
     eTriples = std::real(complexETriples);
     LOG(1, "CcsdPerturbativeTriplesComplex")
@@ -99,8 +103,8 @@ CcsdPerturbativeTriplesComplex::Calculator<F>::Calculator(
     Tensor<F> *Tabij_,
     Tensor<F> *Vabij_,
     Tensor<F> *Valij_,
-    Tensor<complex> *GammaFab_,
-    Tensor<complex> *GammaFai_,
+    Tensor<sisi4s::complex> *GammaFab_,
+    Tensor<sisi4s::complex> *GammaFai_,
     Tensor<double> *epsi_,
     Tensor<double> *epsa_)
     : // slice Tai in dimension 1, i.e. in i
@@ -280,8 +284,8 @@ F CcsdPerturbativeTriplesComplex::Calculator<F>::calculate() {
 
 template <int Dummy>
 CcsdPerturbativeTriplesComplex::CoulombVertex<double, Dummy>::CoulombVertex(
-    Tensor<complex> *GammaFab,
-    Tensor<complex> *GammaFai) {
+    Tensor<sisi4s::complex> *GammaFab,
+    Tensor<sisi4s::complex> *GammaFai) {
   // split GammaFab into real and imaginary parts
   realGammaFab = new Tensor<double>(3,
                                     GammaFab->lens,
@@ -310,11 +314,12 @@ CcsdPerturbativeTriplesComplex::CoulombVertex<double, Dummy>::CoulombVertex(
 
 template <int Dummy>
 CcsdPerturbativeTriplesComplex::CoulombVertex<sisi4s::complex, Dummy>::
-    CoulombVertex(Tensor<complex> *GammaFab_, Tensor<complex> *GammaFai_)
+    CoulombVertex(Tensor<sisi4s::complex> *GammaFab_,
+                  Tensor<sisi4s::complex> *GammaFai_)
     : conjGammaFab(GammaFab_)
     ,
     // slice GammaFai in dimension 2, i.e. in i
-    GammaFai(new SlicedCtfTensor<complex>(*GammaFai_, {2})) {
+    GammaFai(new SlicedCtfTensor<sisi4s::complex>(*GammaFai_, {2})) {
   conjugate(*conjGammaFab),
       // the unsliced GammaFai_ is no longer needed
       delete GammaFai_;
@@ -348,9 +353,9 @@ void CcsdPerturbativeTriplesComplex::CoulombVertex<double, Dummy>::
 
 template <int Dummy>
 void CcsdPerturbativeTriplesComplex::CoulombVertex<sisi4s::complex, Dummy>::
-    getDoublesParticleContribution(SlicedCtfTensor<complex> &Tabij,
+    getDoublesParticleContribution(SlicedCtfTensor<sisi4s::complex> &Tabij,
                                    const Map<3> &i,
-                                   Tensor<complex> &DVabc) {
+                                   Tensor<sisi4s::complex> &DVabc) {
   DVabc["abc"] = Tabij({i(0), i(1)})["adij"] * (*conjGammaFab)["Fdb"]
                * (*GammaFai)({i(2)})["Fck"];
 }

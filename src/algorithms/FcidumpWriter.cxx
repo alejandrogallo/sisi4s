@@ -1,10 +1,3 @@
-#include <algorithms/FcidumpReader.hpp>
-#include <algorithms/FcidumpWriter.hpp>
-#include <util/Tensor.hpp>
-#include <util/Log.hpp>
-#include <Sisi4s.hpp>
-#include <util/Exception.hpp>
-#include <util/Integrals.hpp>
 #include <fstream>
 #include <regex>
 #include <algorithm>
@@ -12,9 +5,15 @@
 #include <ostream>
 #include <cstdio>
 
-using namespace sisi4s;
+#include <util/Fcidump.hpp>
+#include <Step.hpp>
+#include <util/Tensor.hpp>
+#include <util/Log.hpp>
+#include <Sisi4s.hpp>
+#include <util/Exception.hpp>
+#include <util/Integrals.hpp>
 
-IMPLEMENT_EMPTY_DRYRUN(FcidumpWriter) {}
+using namespace sisi4s;
 
 constexpr int NxUndefined = -1;
 struct TensorInfo {
@@ -22,8 +21,7 @@ struct TensorInfo {
   const std::vector<Index> indices;
 };
 
-inline std::ostream &operator<<(std::ostream &s,
-                                const FcidumpReader::FcidumpHeader &h) {
+inline std::ostream &operator<<(std::ostream &s, const FcidumpHeader &h) {
   return s << "&FCI" << std::endl
            << " NORB=" << h.norb << std::endl
            << " NELEC=" << h.nelec << std::endl
@@ -59,14 +57,14 @@ DEFSPEC(FcidumpWriter,
                 {"pppp", SPEC_VAROUT("", Tensor<double> *)}),
         SPEC_OUT());
 
-IMPLEMENT_ALGORITHM(FcidumpWriter) {
+DEFSTEP(FcidumpWriter) {
   const auto filePath(in.get<std::string>("file"));
   size_t uhf(in.get<int64_t>("uhf"));
   size_t ms2(in.get<int64_t>("ms2"));
   const double threshold(in.get<double>("threshold"));
   int No(NxUndefined);
   int Nv(NxUndefined);
-  FcidumpReader::FcidumpHeader header;
+  FcidumpHeader header;
 
   const std::vector<TensorInfo> allIntegrals({
       {"tttt", {NP, NP, NP, NP}}, {"hhhh", {NO, NO, NO, NO}},

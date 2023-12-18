@@ -8,16 +8,16 @@
 
 using namespace sisi4s;
 
-
 DEFSPEC(DoublesAmplitudesFromVertex,
         SPEC_IN({"DoublesAmplitudesVertex",
-                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)}),
         SPEC_OUT({"DoublesAmplitudes",
                   SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
 IMPLEMENT_ALGORITHM(DoublesAmplitudesFromVertex) {
   // read the amplitudes vertex YLai
-  Tensor<complex> *YLai(in.get<Tensor<complex> *>("DoublesAmplitudesVertex"));
+  Tensor<sisi4s::complex> *YLai(
+      in.get<Tensor<sisi4s::complex> *>("DoublesAmplitudesVertex"));
 
   // get Nv,No
   int Nv(YLai->lens[1]);
@@ -41,8 +41,8 @@ IMPLEMENT_ALGORITHM(DoublesAmplitudesFromVertex) {
 
 void DoublesAmplitudesFromVertex::dryRun() {
   // read the Coulomb vertex GammaGqr
-  DryTensor<complex> *YLai(
-      in.get<DryTensor<complex> *>("DoublesAmplitudesVertex"));
+  DryTensor<sisi4s::complex> *YLai(
+      in.get<DryTensor<sisi4s::complex> *>("DoublesAmplitudesVertex"));
 
   // get Nv,No
   int Nv(YLai->lens[1]);

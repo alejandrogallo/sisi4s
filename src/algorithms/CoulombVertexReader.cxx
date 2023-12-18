@@ -15,21 +15,19 @@ char const *CoulombVertexReader::Chunk::REALS_MAGIC = "FTODreal";
 char const *CoulombVertexReader::Chunk::IMAGS_MAGIC = "FTODimag";
 char const *CoulombVertexReader::Chunk::EPSILONS_MAGIC = "FTODepsi";
 
-
-DEFSPEC(CoulombVertexReader,
-        SPEC_IN({"unrestricted", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-                {"file", SPEC_VALUE("TODO: DOC", std::string)},
-                {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-                {name + "EigenEnergies",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
-        SPEC_OUT({"CoulombVertex", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
-                 {"CoulombVertex", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
-                 {"HoleEigenEnergies",
-                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-                 {name + "EigenEnergies",
-                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-                 {"ParticleEigenEnergies",
-                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+DEFSPEC(
+    CoulombVertexReader,
+    SPEC_IN(
+        {"unrestricted", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"file", SPEC_VALUE("TODO: DOC", std::string)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {name + "EigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT(
+        {"CoulombVertex", SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"CoulombVertex", SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)},
+        {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {name + "EigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+        {"ParticleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
 IMPLEMENT_ALGORITHM(CoulombVertexReader) {
   std::string fileName(in.get<std::string>("file"));
@@ -64,16 +62,16 @@ IMPLEMENT_ALGORITHM(CoulombVertexReader) {
   int vertexSyms[] = {NS, NS, NS};
   Tensor<double> *epsi(new CTF::Vector<>(No, *Sisi4s::world, "epsi"));
   Tensor<double> *epsa(new CTF::Vector<>(Nv, *Sisi4s::world, "epsa"));
-  Tensor<complex> *GammaGqr(new Tensor<complex>(3,
-                                                vertexLens,
-                                                vertexSyms,
-                                                *Sisi4s::world,
-                                                "GammaGqr"));
+  Tensor<sisi4s::complex> *GammaGqr(new Tensor<sisi4s::complex>(3,
+                                                                vertexLens,
+                                                                vertexSyms,
+                                                                *Sisi4s::world,
+                                                                "GammaGqr"));
 
   // Enter the allocated data (and by that type the output data to tensors)
   out.set<Tensor<double> *>("HoleEigenEnergies", epsi);
   out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);
-  out.set<Tensor<complex> *>("CoulombVertex", GammaGqr);
+  out.set<Tensor<sisi4s::complex> *>("CoulombVertex", GammaGqr);
 
   // Real and imaginary parts are read in seperately
   Tensor<double> realGammaGqr(3,
@@ -147,12 +145,15 @@ void CoulombVertexReader::dryRun() {
   int vertexSyms[] = {NS, NS, NS};
   DryTensor<> *epsi(new DryVector<>(No, SOURCE_LOCATION));
   DryTensor<> *epsa(new DryVector<>(Nv, SOURCE_LOCATION));
-  DryTensor<complex> *GammaGqr(
-      new DryTensor<complex>(3, vertexLens, vertexSyms, SOURCE_LOCATION));
+  DryTensor<sisi4s::complex> *GammaGqr(
+      new DryTensor<sisi4s::complex>(3,
+                                     vertexLens,
+                                     vertexSyms,
+                                     SOURCE_LOCATION));
   // Enter the allocated data (and by that type the output data to tensors)
   out.set<Tensor<double> *>("HoleEigenEnergies", epsi);
   out.set<Tensor<double> *>("ParticleEigenEnergies", epsa);
-  out.set<DryTensor<complex> *>("CoulombVertex", GammaGqr);
+  out.set<DryTensor<sisi4s::complex> *>("CoulombVertex", GammaGqr);
 
   // Real and imaginary parts are read in seperately
   DryTensor<> realGammaGqr(3, vertexLens, vertexSyms, SOURCE_LOCATION);
@@ -172,16 +173,16 @@ void CoulombVertexReader::handleUnrestricted() {
 }
 
 void CoulombVertexReader::unrestrictVertex() {
-  auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+  auto GammaGqr(in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
   // The field variable NG remains the same
   int vertexLens[] = {static_cast<int>(GammaGqr->lens[0]),
                       static_cast<int>(2 * GammaGqr->lens[1]),
                       static_cast<int>(2 * GammaGqr->lens[2])};
-  auto uGammaGqr(new Tensor<complex>(3,
-                                     vertexLens,
-                                     GammaGqr->sym,
-                                     *Sisi4s::world,
-                                     "uGammaGqr"));
+  auto uGammaGqr(new Tensor<sisi4s::complex>(3,
+                                             vertexLens,
+                                             GammaGqr->sym,
+                                             *Sisi4s::world,
+                                             "uGammaGqr"));
 
   int *upUnrestrictedStates(new int[GammaGqr->lens[1]]);
   for (int q(0); q < GammaGqr->lens[1]; ++q) {
@@ -205,7 +206,7 @@ void CoulombVertexReader::unrestrictVertex() {
 
   // overwrite restricted vertex
   // FIXME: vertex should be given after handleUnrestricted
-  out.set<Tensor<complex> *>("CoulombVertex", uGammaGqr);
+  out.set<Tensor<sisi4s::complex> *>("CoulombVertex", uGammaGqr);
 }
 
 void CoulombVertexReader::unrestrictEigenEnergies(const std::string &name) {

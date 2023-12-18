@@ -12,7 +12,6 @@
 
 using namespace sisi4s;
 
-
 DEFSPEC(
     ParticleHoleCoulombVertexDecomposition,
     SPEC_IN(
@@ -27,19 +26,20 @@ DEFSPEC(
         {"realFactorOrbitals",
          SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_REAL_FACTOR_ORBITALS)},
         {"ParticleHoleCoulombVertex",
-         SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
         {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
-    SPEC_OUT(
-        {"ComposedParticleHoleCoulombVertex",
-         SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
-        {"HoleFactorOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
-        {"ParticleFactorOrbitals", SPEC_VAROUT("TODO: DOC", Tensor<complex> *)},
-        {"ParticleHoleCoulombFactors",
-         SPEC_VAROUT("TODO: DOC", Tensor<complex> *)}));
+    SPEC_OUT({"ComposedParticleHoleCoulombVertex",
+              SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)},
+             {"HoleFactorOrbitals",
+              SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)},
+             {"ParticleFactorOrbitals",
+              SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)},
+             {"ParticleHoleCoulombFactors",
+              SPEC_VAROUT("TODO: DOC", Tensor<sisi4s::complex> *)}));
 
 IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexDecomposition) {
-  GammaGai = in.get<Tensor<complex> *>("ParticleHoleCoulombVertex");
+  GammaGai = in.get<Tensor<sisi4s::complex> *>("ParticleHoleCoulombVertex");
   int NG(GammaGai->lens[0]);
   int Nv(GammaGai->lens[1]);
   int No(GammaGai->lens[2]);
@@ -84,18 +84,19 @@ IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexDecomposition) {
   realizePi(*PiiR);
   normalizePi(*PiaR);
   setRandomTensor(*LambdaGR, normalDistribution, random);
-  out.set<Tensor<complex> *>("HoleFactorOrbitals", PiiR);
-  out.set<Tensor<complex> *>("ParticleFactorOrbitals", PiaR);
-  out.set<Tensor<complex> *>("ParticleHoleCoulombFactors", LambdaGR);
+  out.set<Tensor<sisi4s::complex> *>("HoleFactorOrbitals", PiiR);
+  out.set<Tensor<sisi4s::complex> *>("ParticleFactorOrbitals", PiaR);
+  out.set<Tensor<sisi4s::complex> *>("ParticleHoleCoulombFactors", LambdaGR);
 
-  Gamma0Gai = new Tensor<complex>(3,
-                                  GammaGai->lens,
-                                  GammaGai->sym,
-                                  *GammaGai->wrld,
-                                  "Gamma0Gai",
-                                  GammaGai->profile);
+  Gamma0Gai = new Tensor<sisi4s::complex>(3,
+                                          GammaGai->lens,
+                                          GammaGai->sym,
+                                          *GammaGai->wrld,
+                                          "Gamma0Gai",
+                                          GammaGai->profile);
   if (isArgumentGiven("ComposedParticleHoleCoulombVertex")) {
-    out.set<Tensor<complex> *>("ComposedParticleHoleCoulombVertex", Gamma0Gai);
+    out.set<Tensor<sisi4s::complex> *>("ComposedParticleHoleCoulombVertex",
+                                       Gamma0Gai);
   }
 
   double swampingThreshold(
@@ -132,8 +133,8 @@ IMPLEMENT_ALGORITHM(ParticleHoleCoulombVertexDecomposition) {
 
 void ParticleHoleCoulombVertexDecomposition::dryRun() {
   // NOTE that in the dry run GammaGai,... are local variables
-  DryTensor<complex> *GammaGai(
-      in.get<DryTensor<complex> *>("ParticleHoleCoulombVertex"));
+  DryTensor<sisi4s::complex> *GammaGai(
+      in.get<DryTensor<sisi4s::complex> *>("ParticleHoleCoulombVertex"));
   int NG(GammaGai->lens[0]);
   int Nv(GammaGai->lens[1]);
   int No(GammaGai->lens[2]);
@@ -151,17 +152,18 @@ void ParticleHoleCoulombVertexDecomposition::dryRun() {
                  << " Nv=" << Nv << std::endl;
 
   // allocate factor tensors
-  DryTensor<complex> *PiiR(new DryMatrix<complex>(No, int(rank), NS));
-  DryTensor<complex> *PiaR(new DryMatrix<complex>(Nv, int(rank), NS));
-  DryTensor<complex> *LambdaGR(new DryMatrix<complex>(NG, int(rank), NS));
-  out.set<DryTensor<complex> *>("HoleFactorOrbitals", PiiR);
-  out.set<DryTensor<complex> *>("ParticleFactorOrbitals", PiaR);
-  out.set<DryTensor<complex> *>("ParticleHoleCoulombFactors", LambdaGR);
+  DryTensor<sisi4s::complex> *PiiR(new DryMatrix<complex>(No, int(rank), NS));
+  DryTensor<sisi4s::complex> *PiaR(new DryMatrix<complex>(Nv, int(rank), NS));
+  DryTensor<sisi4s::complex> *LambdaGR(
+      new DryMatrix<complex>(NG, int(rank), NS));
+  out.set<DryTensor<sisi4s::complex> *>("HoleFactorOrbitals", PiiR);
+  out.set<DryTensor<sisi4s::complex> *>("ParticleFactorOrbitals", PiaR);
+  out.set<DryTensor<sisi4s::complex> *>("ParticleHoleCoulombFactors", LambdaGR);
 
-  DryTensor<complex> *Gamma0Gai(GammaGai);
+  DryTensor<sisi4s::complex> *Gamma0Gai(GammaGai);
   if (isArgumentGiven("ComposedParticleHoleCoulombVertex")) {
-    out.set<DryTensor<complex> *>("ComposedParticleHoleCoulombVertex",
-                                  Gamma0Gai);
+    out.set<DryTensor<sisi4s::complex> *>("ComposedParticleHoleCoulombVertex",
+                                          Gamma0Gai);
   }
 
   dryFit(GammaGai, PiaR, PiiR, LambdaGR, Gamma0Gai);
@@ -217,11 +219,11 @@ void ParticleHoleCoulombVertexDecomposition::fit(
 }
 
 void ParticleHoleCoulombVertexDecomposition::dryFit(
-    DryTensor<complex> *GammaGai,
-    DryTensor<complex> *PiaR,
-    DryTensor<complex> *PiiR,
-    DryTensor<complex> *LambdaGR,
-    DryTensor<complex> *Gamma0Gai) {
+    DryTensor<sisi4s::complex> *GammaGai,
+    DryTensor<sisi4s::complex> *PiaR,
+    DryTensor<sisi4s::complex> *PiiR,
+    DryTensor<sisi4s::complex> *LambdaGR,
+    DryTensor<sisi4s::complex> *Gamma0Gai) {
   dryFitRegularizedAlternatingLeastSquaresFactor(*GammaGai,
                                                  "Gai",
                                                  *PiaR,
@@ -253,12 +255,13 @@ void ParticleHoleCoulombVertexDecomposition::dryFit(
                                                   *Gamma0Gai);
 }
 
-void ParticleHoleCoulombVertexDecomposition::normalizePi(Tensor<complex> &Pi) {
+void ParticleHoleCoulombVertexDecomposition::normalizePi(
+    Tensor<sisi4s::complex> &Pi) {
   CTF::Bivar_Function<complex> fDot(&sisi4s::dot<complex>);
   CTF::Vector<complex> norm(Pi.lens[0], *Pi.wrld);
   // norm["q"] = Pi["qR"] * conj(Pi["qR"])
   norm.contract(1.0, Pi, "qR", Pi, "qR", 0.0, "q", fDot);
-  Tensor<complex> quotient(Pi);
+  Tensor<sisi4s::complex> quotient(Pi);
   CTF::Univar_Function<complex> fSqrt(&sisi4s::sqrt<complex>);
   // quotient["qR"] = sqrt(norm["q"])
   quotient.sum(1.0, norm, "q", 0.0, "qR", fSqrt);
@@ -269,9 +272,10 @@ void ParticleHoleCoulombVertexDecomposition::normalizePi(Tensor<complex> &Pi) {
   LOG(2, "RALS") << "|normalization quotient|=" << normalization << std::endl;
 }
 
-void ParticleHoleCoulombVertexDecomposition::realizePi(Tensor<complex> &Pi) {
+void ParticleHoleCoulombVertexDecomposition::realizePi(
+    Tensor<sisi4s::complex> &Pi) {
   CTF::Univar_Function<complex> fConj(&sisi4s::conj<complex>);
-  Tensor<complex> conjX(Pi);
+  Tensor<sisi4s::complex> conjX(Pi);
   // conjX["qR"] = Pi["qR"]
   conjX.sum(1.0, Pi, "qR", 0.0, "qR", fConj);
   Pi["qR"] += conjX["qR"];
@@ -286,8 +290,8 @@ void ParticleHoleCoulombVertexDecomposition::evaluateMp2Error() {
                  << std::endl;
 }
 
-double
-ParticleHoleCoulombVertexDecomposition::evaluateMp2(Tensor<complex> &Gamma) {
+double ParticleHoleCoulombVertexDecomposition::evaluateMp2(
+    Tensor<sisi4s::complex> &Gamma) {
   // FIXME: use sequence type for output to factorize this code
   Tensor<double> realGammaGai(3,
                               Gamma.lens,
@@ -334,7 +338,7 @@ ParticleHoleCoulombVertexDecomposition::evaluateMp2(Tensor<complex> &Gamma) {
 }
 
 void ParticleHoleCoulombVertexDecomposition::dryEvaluateMp2(
-    DryTensor<complex> &Gamma) {
+    DryTensor<sisi4s::complex> &Gamma) {
   // FIXME: use sequence type for output to factorize this code
   DryTensor<> realGammaGai(3, Gamma.lens.data(), Gamma.syms.data());
   DryTensor<> imagGammaGai(3, Gamma.lens.data(), Gamma.syms.data());

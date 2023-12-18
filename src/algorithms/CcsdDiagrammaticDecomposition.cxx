@@ -20,13 +20,12 @@ IMPLEMENT_EMPTY_DRYRUN(CcsdDiagrammaticDecomposition) {}
 // So Hirata, et. al. Chem. Phys. Letters, 345, 475 (2001)
 //////////////////////////////////////////////////////////////////////
 
-
 DEFSPEC(
     CcsdDiagrammaticDecomposition,
     SPEC_IN(
         {"integralsSliceSize", SPEC_VALUE("TODO: DOC", int64_t)},
         {"ZeroSinglesIn", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
-        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+        {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)},
         {"CcsdDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"CcsdSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"HHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
@@ -75,7 +74,7 @@ IMPLEMENT_ALGORITHM(CcsdDiagrammaticDecomposition) {
   auto Vijka(in.get<Tensor<double> *>("HHHPCoulombIntegrals"));
 
   // Read the Coulomb vertex GammaGqr
-  auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+  auto GammaGqr(in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
 
   // Compute the No,Nv,NG,Np
   int No(Vabij->lens[2]);
@@ -90,9 +89,9 @@ IMPLEMENT_ALGORITHM(CcsdDiagrammaticDecomposition) {
   int GabEnd[] = {NG, Np, Np};
   int GijStart[] = {0, 0, 0};
   int GijEnd[] = {NG, No, No};
-  Tensor<complex> GammaGai(GammaGqr->slice(GaiStart, GaiEnd));
-  Tensor<complex> GammaGab(GammaGqr->slice(GabStart, GabEnd));
-  Tensor<complex> GammaGij(GammaGqr->slice(GijStart, GijEnd));
+  Tensor<sisi4s::complex> GammaGai(GammaGqr->slice(GaiStart, GaiEnd));
+  Tensor<sisi4s::complex> GammaGab(GammaGqr->slice(GabStart, GabEnd));
+  Tensor<sisi4s::complex> GammaGij(GammaGqr->slice(GijStart, GijEnd));
 
   // Split GammaGab,GammaGai,GammaGia,GammaGij into real and imaginary parts
   Tensor<double> realGammaGai(3,

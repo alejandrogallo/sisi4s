@@ -21,7 +21,7 @@ DEFINE_ALGORITHM_HEADER(
     int64_t lambdasCount, *lambdaIndices;
 
     std::shared_ptr<Tensor<double>> Taibj, UaiF;
-    std::shared_ptr<Tensor<complex>> LFai, sqrtLambdaF;
+    std::shared_ptr<Tensor<sisi4s::complex>> LFai, sqrtLambdaF;
     Tensor<double> * LambdaF;);
 } // namespace sisi4s
 

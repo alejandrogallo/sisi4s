@@ -69,7 +69,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     auto Vijka(in.get<Tensor<double> *>("HHHPCoulombIntegrals"));
 
     // Read the Coulomb vertex GammaGqr
-    auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+    auto GammaGqr(in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
 
     // Compute the No,Nv,NG,Np
     int No(Vabij->lens[2]);
@@ -84,9 +84,9 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     int GabEnd[] = {NG, Np, Np};
     int GijStart[] = {0, 0, 0};
     int GijEnd[] = {NG, No, No};
-    Tensor<complex> GammaGai(GammaGqr->slice(GaiStart, GaiEnd));
-    Tensor<complex> GammaGab(GammaGqr->slice(GabStart, GabEnd));
-    Tensor<complex> GammaGij(GammaGqr->slice(GijStart, GijEnd));
+    Tensor<sisi4s::complex> GammaGai(GammaGqr->slice(GaiStart, GaiEnd));
+    Tensor<sisi4s::complex> GammaGab(GammaGqr->slice(GabStart, GabEnd));
+    Tensor<sisi4s::complex> GammaGij(GammaGqr->slice(GijStart, GijEnd));
 
     // Split GammaGab,GammaGai,GammaGia,GammaGij into real and imaginary parts
     Tensor<double> realGammaGai(3,
@@ -349,7 +349,7 @@ PTR(FockVector<double>) CcsdEnergyFromCoulombIntegrals::getResiduum(
       LOG(1, getCapitalizedAbbreviation()) << "Starting PPL" << std::endl;
       if (in.present("CoulombFactors")) {
         // Read the factorsSliceSize.
-        auto LambdaGR(in.get<Tensor<complex> *>("CoulombFactors"));
+        auto LambdaGR(in.get<Tensor<sisi4s::complex> *>("CoulombFactors"));
         LambdaGR->set_name("LambdaGR");
 
         int NR(LambdaGR->lens[1]);
@@ -504,7 +504,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     const int i,
     const PTR(const FockVector<sisi4s::complex>) &amplitudes) {
   // Read Vabij integrals
-  auto Vabij(in.get<Tensor<complex> *>("PPHHCoulombIntegrals"));
+  auto Vabij(in.get<Tensor<sisi4s::complex> *>("PPHHCoulombIntegrals"));
 
   // get singles and doubles part of the amplitudes
   auto Tai(amplitudes->get(0));
@@ -529,15 +529,15 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     // For the rest iterations compute the CCSD amplitudes
 
     // Read all required integrals
-    auto Vaijb(in.get<Tensor<complex> *>("PHHPCoulombIntegrals"));
-    auto Vijab(in.get<Tensor<complex> *>("HHPPCoulombIntegrals"));
-    auto Vaibj(in.get<Tensor<complex> *>("PHPHCoulombIntegrals"));
-    auto Vijkl(in.get<Tensor<complex> *>("HHHHCoulombIntegrals"));
-    auto Vijka(in.get<Tensor<complex> *>("HHHPCoulombIntegrals"));
-    auto Vaijk(in.get<Tensor<complex> *>("PHHHCoulombIntegrals"));
+    auto Vaijb(in.get<Tensor<sisi4s::complex> *>("PHHPCoulombIntegrals"));
+    auto Vijab(in.get<Tensor<sisi4s::complex> *>("HHPPCoulombIntegrals"));
+    auto Vaibj(in.get<Tensor<sisi4s::complex> *>("PHPHCoulombIntegrals"));
+    auto Vijkl(in.get<Tensor<sisi4s::complex> *>("HHHHCoulombIntegrals"));
+    auto Vijka(in.get<Tensor<sisi4s::complex> *>("HHHPCoulombIntegrals"));
+    auto Vaijk(in.get<Tensor<sisi4s::complex> *>("PHHHCoulombIntegrals"));
 
     // Read the Coulomb vertex GammaGqr
-    auto GammaGqr(in.get<Tensor<complex> *>("CoulombVertex"));
+    auto GammaGqr(in.get<Tensor<sisi4s::complex> *>("CoulombVertex"));
 
     // Compute the No,Nv,NG,Np
     int No(Vabij->lens[2]);
@@ -556,20 +556,24 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
     int GaiEnd[] = {NG, aEnd, iEnd};
     int GabStart[] = {0, aStart, aStart};
     int GabEnd[] = {NG, aEnd, aEnd};
-    auto GammaGij(new Tensor<complex>(GammaGqr->slice(GijStart, GijEnd)));
-    auto GammaGia(new Tensor<complex>(GammaGqr->slice(GiaStart, GiaEnd)));
-    auto GammaGai(new Tensor<complex>(GammaGqr->slice(GaiStart, GaiEnd)));
-    auto GammaGab(new Tensor<complex>(GammaGqr->slice(GabStart, GabEnd)));
+    auto GammaGij(
+        new Tensor<sisi4s::complex>(GammaGqr->slice(GijStart, GijEnd)));
+    auto GammaGia(
+        new Tensor<sisi4s::complex>(GammaGqr->slice(GiaStart, GiaEnd)));
+    auto GammaGai(
+        new Tensor<sisi4s::complex>(GammaGqr->slice(GaiStart, GaiEnd)));
+    auto GammaGab(
+        new Tensor<sisi4s::complex>(GammaGqr->slice(GabStart, GabEnd)));
 
     CTF::Univar_Function<complex> fConj(conj<complex>);
 
-    Tensor<complex> conjTransposeGammaGai(false, *GammaGai);
+    Tensor<sisi4s::complex> conjTransposeGammaGai(false, *GammaGai);
     conjTransposeGammaGai.sum(1.0, *GammaGia, "Gia", 0.0, "Gai", fConj);
-    Tensor<complex> conjTransposeGammaGia(false, *GammaGia);
+    Tensor<sisi4s::complex> conjTransposeGammaGia(false, *GammaGia);
     conjTransposeGammaGia.sum(1.0, *GammaGai, "Gai", 0.0, "Gia", fConj);
-    Tensor<complex> conjTransposeGammaGab(false, *GammaGab);
+    Tensor<sisi4s::complex> conjTransposeGammaGab(false, *GammaGab);
     conjTransposeGammaGab.sum(1.0, *GammaGab, "Gba", 0.0, "Gab", fConj);
-    Tensor<complex> conjTransposeGammaGij(false, *GammaGij);
+    Tensor<sisi4s::complex> conjTransposeGammaGij(false, *GammaGij);
     conjTransposeGammaGij.sum(1.0, *GammaGij, "Gji", 0.0, "Gij", fConj);
 
     std::array<int, 4> syms({{NS, NS, NS, NS}});
@@ -589,16 +593,24 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         << "Solving T2 Amplitude Equations" << std::endl;
 
     // Intermediates used both by T1 and T2
-    Tensor<complex> Kac(2, vv.data(), syms.data(), *Vabij->wrld, "Kac");
-    Tensor<complex> Kki(2, oo.data(), syms.data(), *Vabij->wrld, "Kki");
-    Tensor<complex> Xabij(*Tabij);
+    Tensor<sisi4s::complex> Kac(2, vv.data(), syms.data(), *Vabij->wrld, "Kac");
+    Tensor<sisi4s::complex> Kki(2, oo.data(), syms.data(), *Vabij->wrld, "Kki");
+    Tensor<sisi4s::complex> Xabij(*Tabij);
     Xabij.set_name("Xabij");
     Xabij["abij"] += (*Tai)["ai"] * (*Tai)["bj"];
 
     {
       // Intermediates used for T2 amplitudes
-      Tensor<complex> Lac(2, vv.data(), syms.data(), *Vabij->wrld, "Lac");
-      Tensor<complex> Lki(2, oo.data(), syms.data(), *Vabij->wrld, "Lki");
+      Tensor<sisi4s::complex> Lac(2,
+                                  vv.data(),
+                                  syms.data(),
+                                  *Vabij->wrld,
+                                  "Lac");
+      Tensor<sisi4s::complex> Lki(2,
+                                  oo.data(),
+                                  syms.data(),
+                                  *Vabij->wrld,
+                                  "Lki");
 
       // Build Kac
       Kac["ac"] = (-2.0) * (*Vijab)["klcd"] * Xabij["adkl"];
@@ -609,7 +621,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         Lac["ac"] = Kac["ac"];
       } else {
         // Intermediate tensor Yabij=T2-2*T1*T1
-        Tensor<complex> Yabij(*Tabij);
+        Tensor<sisi4s::complex> Yabij(*Tabij);
         Yabij.set_name("Yabij");
         Yabij["abij"] += (2.0) * (*Tai)["ai"] * (*Tai)["bj"];
         Lac["ac"] =
@@ -631,7 +643,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
         Lki["ki"] = (1.0) * Kki["ki"];
       } else {
         // Intermediate tensor Yabij=T2-2*T1*T1
-        Tensor<complex> Yabij(*Tabij);
+        Tensor<sisi4s::complex> Yabij(*Tabij);
         Yabij.set_name("Yabij");
         Yabij["abij"] += (2.0) * (*Tai)["ai"] * (*Tai)["bj"];
         Lki["ki"] =
@@ -651,7 +663,8 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
     {
       // Contract Coulomb integrals with T2 amplitudes
-      Tensor<complex> conjTransposeDressedGammaGai(conjTransposeGammaGai);
+      Tensor<sisi4s::complex> conjTransposeDressedGammaGai(
+          conjTransposeGammaGai);
       conjTransposeDressedGammaGai.set_name("conjTransposeDressedGammaGai");
       conjTransposeDressedGammaGai["Gai"] +=
           (-1.0) * conjTransposeGammaGij["Gki"] * (*Tai)["ak"];
@@ -665,9 +678,14 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
     {
       // Build Xakic
-      Tensor<complex> Xakic(4, voov.data(), syms.data(), *Vabij->wrld, "Xakic");
+      Tensor<sisi4s::complex> Xakic(4,
+                                    voov.data(),
+                                    syms.data(),
+                                    *Vabij->wrld,
+                                    "Xakic");
 
-      Tensor<complex> conjTransposeDressedGammaGai(conjTransposeGammaGai);
+      Tensor<sisi4s::complex> conjTransposeDressedGammaGai(
+          conjTransposeGammaGai);
       conjTransposeDressedGammaGai.set_name("conjTransposeDressedGammaGai");
 
       conjTransposeDressedGammaGai["Gai"] +=
@@ -677,7 +695,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
           (1.0) * conjTransposeGammaGab["Gad"] * (*Tai)["di"];
 
       // Intermediate tensor Yabij=T2-2*T1*T1
-      Tensor<complex> Yabij(*Tabij);
+      Tensor<sisi4s::complex> Yabij(*Tabij);
       Yabij.set_name("Yabij");
       Yabij["abij"] += (2.0) * (*Tai)["ai"] * (*Tai)["bj"];
 
@@ -700,14 +718,15 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
     {
       // Build Xakci
-      Tensor<complex> Xakci(false, *Vaibj);
+      Tensor<sisi4s::complex> Xakci(false, *Vaibj);
       Xakci.set_name("Xakci");
 
       // Construct dressed Coulomb vertex GammaGab and GammaGij
-      Tensor<complex> conjTransposeDressedGammaGab(conjTransposeGammaGab);
+      Tensor<sisi4s::complex> conjTransposeDressedGammaGab(
+          conjTransposeGammaGab);
       conjTransposeDressedGammaGab.set_name("conjTransposeDressedGammaGab");
 
-      Tensor<complex> DressedGammaGij(*GammaGij);
+      Tensor<sisi4s::complex> DressedGammaGij(*GammaGij);
       DressedGammaGij.set_name("DressedGammaGij");
 
       conjTransposeDressedGammaGab["Gac"] +=
@@ -742,7 +761,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
 
     {
       // Build Xklij intermediate
-      Tensor<complex> Xklij(false, *Vijkl);
+      Tensor<sisi4s::complex> Xklij(false, *Vijkl);
       Xklij.set_name("Xklij");
 
       Xklij["klij"] = (*Vijkl)["klij"];
@@ -780,7 +799,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
       if (in.present("CoulombFactors")) {
 
         // Read the factorsSliceSize.
-        auto LambdaGR(in.get<Tensor<complex> *>("CoulombFactors"));
+        auto LambdaGR(in.get<Tensor<sisi4s::complex> *>("CoulombFactors"));
         LambdaGR->set_name("LambdaGR");
 
         int NR(LambdaGR->lens[1]);
@@ -837,7 +856,7 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
                           (int)No,
                           (int)No};
             int syms[] = {NS, NS, NS, NS};
-            Tensor<complex> Rxyij(4, lens, syms, *Vxycd->wrld, "Rxyij");
+            Tensor<sisi4s::complex> Rxyij(4, lens, syms, *Vxycd->wrld, "Rxyij");
 
             // Contract sliced Vxycd with T2 and T1 Amplitudes using Xabij
             Rxyij["xyij"] = (*Vxycd)["xycd"] * Xabij["cdij"];
@@ -859,7 +878,11 @@ PTR(FockVector<sisi4s::complex>) CcsdEnergyFromCoulombIntegrals::getResiduum(
           << "Solving T1 Amplitude Equations" << std::endl;
 
       // Intermediates used for T1 amplitudes
-      Tensor<complex> Kck(2, vo.data(), syms.data(), *Vabij->wrld, "Kck");
+      Tensor<sisi4s::complex> Kck(2,
+                                  vo.data(),
+                                  syms.data(),
+                                  *Vabij->wrld,
+                                  "Kck");
 
       // Contract Kac and Kki with T1 amplitudes
       (*Rai)["ai"] += (1.0) * Kac["ac"] * (*Tai)["ci"];

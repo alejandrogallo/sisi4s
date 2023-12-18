@@ -9,11 +9,10 @@
 
 using namespace sisi4s;
 
-
 DEFSPEC(ParticleHoleCoulombIntegrals,
         SPEC_IN({"antisymmetrize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
                 {"ParticleHoleCoulombVertex",
-                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)}),
         SPEC_OUT({"HHPPCoulombIntegrals",
                   SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
                  {"PPHHCoulombIntegrals",
@@ -21,8 +20,8 @@ DEFSPEC(ParticleHoleCoulombIntegrals,
 
 IMPLEMENT_ALGORITHM(ParticleHoleCoulombIntegrals) {
   // read coulomb vertex GammaGai
-  Tensor<complex> *GammaGai(
-      in.get<Tensor<complex> *>("ParticleHoleCoulombVertex"));
+  Tensor<sisi4s::complex> *GammaGai(
+      in.get<Tensor<sisi4s::complex> *>("ParticleHoleCoulombVertex"));
 
   // allocate real and imag part of GammaGai
   Tensor<double> realGammaGai(3,
@@ -74,8 +73,8 @@ IMPLEMENT_ALGORITHM(ParticleHoleCoulombIntegrals) {
 }
 
 void ParticleHoleCoulombIntegrals::dryRun() {
-  DryTensor<complex> *GammaGai(
-      in.get<DryTensor<complex> *>("ParticleHoleCoulombVertex"));
+  DryTensor<sisi4s::complex> *GammaGai(
+      in.get<DryTensor<sisi4s::complex> *>("ParticleHoleCoulombVertex"));
 
   // Compute the No,Nv,NG,Np
   int NG(GammaGai->lens[0]);

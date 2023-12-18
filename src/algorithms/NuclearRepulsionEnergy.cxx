@@ -1,11 +1,8 @@
 #include <string>
-#include <algorithms/NuclearRepulsionEnergy.hpp>
+
+#include <Step.hpp>
 #include <util/Libint.hpp>
-#include <util/Tensor.hpp>
-#include <Sisi4s.hpp>
-#include <util/Log.hpp>
-#include <iostream>
-#include <util/Emitter.hpp>
+#define LOGGER(_l) LOG(_l, "NuclearRepulsionEnergy")
 
 using namespace sisi4s;
 
@@ -15,9 +12,6 @@ DEFSPEC(NuclearRepulsionEnergy,
                      "Vector of libint atoms specifying a molecular structure",
                      std::vector<libint2::Atom> *)}),
         SPEC_OUT());
-
-IMPLEMENT_EMPTY_DRYRUN(NuclearRepulsionEnergy) {}
-#define LOGGER(_l) LOG(_l, "NuclearRepulsionEnergy")
 
 static double getEnergy(const std::vector<libint2::Atom> &structure) {
   unsigned int i, j;
@@ -36,7 +30,7 @@ static double getEnergy(const std::vector<libint2::Atom> &structure) {
   return enuc;
 }
 
-IMPLEMENT_ALGORITHM(NuclearRepulsionEnergy) {
+DEFSTEP(NuclearRepulsionEnergy) {
 
   auto const &atoms = *in.get<std::vector<libint2::Atom> *>("atoms");
 

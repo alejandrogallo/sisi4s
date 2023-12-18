@@ -25,7 +25,7 @@
   for (int i(0); i < (Tensor).order; ++i) { indices[i] = 'a' + i; }            \
   indices[(Tensor).order] = 0
 
-void sisi4s::fromComplexTensor(Tensor<complex> &C,
+void sisi4s::fromComplexTensor(Tensor<sisi4s::complex> &C,
                                Tensor<double> &R,
                                Tensor<double> &I) {
   AssertCompatibleTensorShapes(C, R, I);
@@ -44,7 +44,7 @@ void sisi4s::fromComplexTensor(Tensor<double> &C,
   I[indices] = 0.0;
 }
 
-void sisi4s::fromComplexTensor(Tensor<complex> &C, Tensor<double> &R) {
+void sisi4s::fromComplexTensor(Tensor<sisi4s::complex> &C, Tensor<double> &R) {
   AssertCompatibleTensorShape(C, R);
   Indices(C);
   R[indices] = CTF::Function<complex, double>(std::function<double(complex)>(
@@ -53,7 +53,7 @@ void sisi4s::fromComplexTensor(Tensor<complex> &C, Tensor<double> &R) {
 
 void sisi4s::toComplexTensor(Tensor<double> &R,
                              Tensor<double> &I,
-                             Tensor<complex> &C) {
+                             Tensor<sisi4s::complex> &C) {
   AssertCompatibleTensorShapes(C, R, I);
   Indices(C);
   toComplexTensor(R, C);
@@ -67,7 +67,7 @@ void sisi4s::toComplexTensor(Tensor<double> &R,
       }))(I[indices], C[indices]);
 }
 
-void sisi4s::toComplexTensor(Tensor<double> &R, Tensor<complex> &C) {
+void sisi4s::toComplexTensor(Tensor<double> &R, Tensor<sisi4s::complex> &C) {
   AssertCompatibleTensorShape(C, R);
   Indices(C);
   CTF::Transform<double, complex>(
@@ -87,7 +87,7 @@ void sisi4s::toComplexTensor(Tensor<double> &R, Tensor<double> &C) {
   C[indices] = R[indices];
 }
 
-void sisi4s::conjugate(Tensor<complex> &C) {
+void sisi4s::conjugate(Tensor<sisi4s::complex> &C) {
   Indices(C);
   CTF::Transform<complex>(std::function<void(complex &)>(
       [](complex &c) { c = std::conj(c); }))(C[indices]);

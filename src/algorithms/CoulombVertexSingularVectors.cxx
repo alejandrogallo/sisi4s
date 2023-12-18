@@ -14,7 +14,6 @@ using namespace sisi4s;
 using std::make_shared;
 using std::shared_ptr;
 
-
 DEFSPEC(
     CoulombVertexSingularVectors,
     SPEC_IN(
@@ -26,7 +25,8 @@ DEFSPEC(
          SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_FIELD_VARIABLES_SIZE)},
         {"fieldVariablesSize",
          SPEC_VALUE_DEF("TODO: DOC", int64_t, DEFAULT_FIELD_VARIABLES_SIZE)},
-        {"FullCoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)}),
+        {"FullCoulombVertex",
+         SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)}),
     SPEC_OUT({"CoulombVertexSingularValues",
               SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
@@ -34,10 +34,11 @@ IMPLEMENT_ALGORITHM(CoulombVertexSingularVectors) {
   // read the Coulomb vertex GammaGqr
   // Its singular value decomposition is U.Sigma.W*
   // where W* is a matrix with the compound orbital index (q,r)
-  Tensor<complex> *GammaGqr(in.get<Tensor<complex> *>("FullCoulombVertex"));
+  Tensor<sisi4s::complex> *GammaGqr(
+      in.get<Tensor<sisi4s::complex> *>("FullCoulombVertex"));
 
   // construct the conjugate of the Coulomb vertex GammaGqr
-  Tensor<complex> conjGammaGqr(*GammaGqr);
+  Tensor<sisi4s::complex> conjGammaGqr(*GammaGqr);
   conjugate(conjGammaGqr);
 
   // contract away the orbitals away, leaving U.Sigma^2.U*
@@ -74,8 +75,9 @@ IMPLEMENT_ALGORITHM(CoulombVertexSingularVectors) {
       << "Using NF=" << NF << " field variables to approximate NG=" << NG
       << " grid points" << std::endl;
   int start[] = {0, NG - NF}, end[] = {NG, NG};
-  out.set<Tensor<complex> *>("CoulombVertexSingularVectors",
-                             new Tensor<complex>(U.slice(start, end)));
+  out.set<Tensor<sisi4s::complex> *>(
+      "CoulombVertexSingularVectors",
+      new Tensor<sisi4s::complex>(U.slice(start, end)));
 
   // write singular values back to CTF
   int64_t SIndicesCount(GammaGqr->wrld->rank == 0 ? NG : 0);
@@ -94,10 +96,10 @@ IMPLEMENT_ALGORITHM(CoulombVertexSingularVectors) {
 
 void CoulombVertexSingularVectors::dryRun() {
   // Read the Coulomb vertex GammaGqr
-  DryTensor<complex> *GammaGqr(
-      in.get<DryTensor<complex> *>("FullCoulombVertex"));
+  DryTensor<sisi4s::complex> *GammaGqr(
+      in.get<DryTensor<sisi4s::complex> *>("FullCoulombVertex"));
 
-  DryTensor<complex> conjGammaGqr(*GammaGqr, SOURCE_LOCATION);
+  DryTensor<sisi4s::complex> conjGammaGqr(*GammaGqr, SOURCE_LOCATION);
 
   int NG(GammaGqr->lens[0]);
   // get number of field variables
@@ -108,7 +110,7 @@ void CoulombVertexSingularVectors::dryRun() {
     NF = static_cast<int>(NG * reduction + 0.5);
   }
 
-  out.set<DryTensor<complex> *>(
+  out.set<DryTensor<sisi4s::complex> *>(
       "CoulombVertexSingularVectors",
       new DryMatrix<complex>(NG, NF, NS, SOURCE_LOCATION));
 }

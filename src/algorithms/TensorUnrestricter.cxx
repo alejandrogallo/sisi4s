@@ -1,14 +1,8 @@
-#include <algorithms/TensorUnrestricter.hpp>
-#include <string>
-#include <vector>
-#include <algorithm>
+#include <Step.hpp>
 #include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
-#include <iostream>
 #include <util/Tensor.hpp>
-#include <numeric>
-#include <map>
 
 using namespace sisi4s;
 
@@ -86,14 +80,12 @@ static Tensor<F> *unrestrictTensor(Tensor<F> &tensor) {
   return result;
 }
 
-IMPLEMENT_EMPTY_DRYRUN(TensorUnrestricter) {}
-
 DEFSPEC(TensorUnrestricter,
         SPEC_IN({"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()}),
         SPEC_OUT({"Out",
                   SPEC_VAROUT("TODO: DOC", Tensor<double> *)->require()}));
 
-IMPLEMENT_ALGORITHM(TensorUnrestricter) {
+DEFSTEP(TensorUnrestricter) {
 
   if (in.is_of_type<Tensor<double> *>("Data")) {
     out.set<Tensor<double> *>(

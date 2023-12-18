@@ -174,11 +174,11 @@ IMPLEMENT_ALGORITHM(UegVertexGenerator) {
 
   int syms[] = {NS, NS, NS, NS};
   const int coulombVertexLens[] = {(int)NF, (int)Np, (int)Np};
-  auto coulombVertex = new Tensor<complex>(3,
-                                           coulombVertexLens,
-                                           syms,
-                                           *Sisi4s::world,
-                                           "CoulombVertex");
+  auto coulombVertex = new Tensor<sisi4s::complex>(3,
+                                                   coulombVertexLens,
+                                                   syms,
+                                                   *Sisi4s::world,
+                                                   "CoulombVertex");
 
   OUT() << "System Information:\n";
   OUT() << std::setprecision(3) << "  rs " << rs << ", No " << No << ", Nv "

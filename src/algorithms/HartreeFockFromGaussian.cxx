@@ -34,24 +34,21 @@
 #include <vector>
 #include <numeric> // std::iota
 
+#include <util/Eigen.hpp>
 #include <util/Libint.hpp>
-#include <algorithms/HartreeFockFromGaussian.hpp>
-#include <algorithms/OneBodyFromGaussian.hpp>
+#include <Step.hpp>
 #include <util/Tensor.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <Eigen/Eigenvalues>
 #include <util/Tensor.hpp>
 #include <util/Emitter.hpp>
-#include <algorithms/HartreeFockFromCoulombIntegrals.hpp>
 
 #define LOGGER(_l) LOG(_l, "HartreeFockFromGaussian")
 #define IF_GIVEN(_l, ...)                                                      \
   if (out.present(_l)) { __VA_ARGS__ }
 
 using namespace sisi4s;
-
-IMPLEMENT_EMPTY_DRYRUN(HartreeFockFromGaussian) {}
 
 static Tensor<double> eigenToCtfMatrix(const Eigen::MatrixXd &m) {
   const int rank_m = int(Sisi4s::world->rank == 0); // rank mask
@@ -229,7 +226,7 @@ DEFSPEC(HartreeFockFromGaussian,
             {"ParticleEigenEnergies",
              SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(HartreeFockFromGaussian) {
+DEFSTEP(HartreeFockFromGaussian) {
 
   const std::string basisSet(in.get<std::string>("basisSet"));
   const double electronicConvergence(in.get<double>("energyDifference"));
@@ -321,7 +318,7 @@ IMPLEMENT_ALGORITHM(HartreeFockFromGaussian) {
       "initialOrbitalCoefficients",
       LOGGER(1) << "with initialOrbitalCoefficients" << std::endl;
       const auto ic_ctf(in.get<Tensor<double> *>("initialOrbitalCoefficients"));
-      const auto ic(toEigenMatrix(*ic_ctf));
+      const auto ic(sisi4s::toEigenMatrix(*ic_ctf));
       const auto C_occ(ic.leftCols(No));
       D = C_occ * C_occ.transpose();)
   else {
