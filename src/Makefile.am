@@ -79,36 +79,36 @@ sisi4s_SOURCES +=                                                 \
 ./algorithms/SimilarityTransformedHamiltonian.cxx                \
 ./algorithms/MeanCorrelationHoleDepth.cxx                        \
 ./algorithms/CcsdEquationOfMotionDavidson.cxx                    \
+./algorithms/PQRSCoulombIntegralsToVertex.cxx \
 ./algorithms/UegVertexGenerator.cxx
 
-# sisi4s_SOURCES =                                                 \
-# ./algorithms/UnrestrictedCIS.cxx                                 \
-# ./algorithms/UCcsdIPEquationOfMotionDavidson.cxx                 \
-# ./algorithms/UCcsdEAEquationOfMotionDavidson.cxx                 \
-# ./math/CanonicalPolyadicDecomposition.cxx                        \
-# ./math/PseudoInverseHermitianSvd.cxx                             \
-# ./math/RegularizedAlternatingLeastSquares.cxx                    \
-# ./algorithms/PseudoInverse.cxx                                   \
-# ./algorithms/ParticleHoleCoulombIntegrals.cxx                    \
-# ./algorithms/TensorGetMax.cxx                                    \
-# ./algorithms/ParticleHoleCoulombVertexSingularVectors.cxx        \
-# ./algorithms/NaturalTransitionOrbitalsFromRhoAI.cxx              \
-# ./algorithms/ComplexTensorNorm.cxx                               \
-# ./algorithms/TensorSlicer.cxx                                    \
-# ./algorithms/ParticleHoleCoulombVertexReader.cxx                 \
-# ./algorithms/CoulombVertexReader.cxx                             \
-# ./algorithms/SliceCoulombVertex.cxx                              \
-# ./algorithms/ComplexTensorWriter.cxx                             \
-# ./algorithms/ApproximateCoulombVertex.cxx                        \
-# ./algorithms/CcsdPerturbativeTriples.cxx                         \
-# ./algorithms/UnrestrictedEquationOfMotionSinglesFromRpa.cxx      \
-# ./algorithms/UrpaAmplitudesFromCoulombIntegrals.cxx              \
-# ./algorithms/Delete.cxx                                          \
-# ./algorithms/UccsdtAmplitudesFromCoulombIntegrals.cxx            \
-# ./algorithms/TensorReduceijij.cxx                                \
-# ./algorithms/CcsdDiagrammaticDecomposition.cxx                   \
-# ./algorithms/GenerateRandomComplexMatrix.cxx                     \
-# ./algorithms/PQRSCoulombIntegralsToVertex.cxx
+## sisi4s_SOURCES =                                                 \
+## ./algorithms/UnrestrictedCIS.cxx                                 \
+## ./algorithms/UCcsdIPEquationOfMotionDavidson.cxx                 \
+## ./algorithms/UCcsdEAEquationOfMotionDavidson.cxx                 \
+## ./math/CanonicalPolyadicDecomposition.cxx                        \
+## ./math/PseudoInverseHermitianSvd.cxx                             \
+## ./math/RegularizedAlternatingLeastSquares.cxx                    \
+## ./algorithms/PseudoInverse.cxx                                   \
+## ./algorithms/ParticleHoleCoulombIntegrals.cxx                    \
+## ./algorithms/TensorGetMax.cxx                                    \
+## ./algorithms/ParticleHoleCoulombVertexSingularVectors.cxx        \
+## ./algorithms/NaturalTransitionOrbitalsFromRhoAI.cxx              \
+## ./algorithms/ComplexTensorNorm.cxx                               \
+## ./algorithms/TensorSlicer.cxx                                    \
+## ./algorithms/ParticleHoleCoulombVertexReader.cxx                 \
+## ./algorithms/CoulombVertexReader.cxx                             \
+## ./algorithms/SliceCoulombVertex.cxx                              \
+## ./algorithms/ComplexTensorWriter.cxx                             \
+## ./algorithms/ApproximateCoulombVertex.cxx                        \
+## ./algorithms/CcsdPerturbativeTriples.cxx                         \
+## ./algorithms/UnrestrictedEquationOfMotionSinglesFromRpa.cxx      \
+## ./algorithms/UrpaAmplitudesFromCoulombIntegrals.cxx              \
+## ./algorithms/Delete.cxx                                          \
+## ./algorithms/UccsdtAmplitudesFromCoulombIntegrals.cxx            \
+## ./algorithms/TensorReduceijij.cxx                                \
+## ./algorithms/CcsdDiagrammaticDecomposition.cxx                   \
+## ./algorithms/GenerateRandomComplexMatrix.cxx                     
 
 if DISABLE_LIBINT
 else

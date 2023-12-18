@@ -1,4 +1,4 @@
-#include <algorithms/PQRSCoulombIntegralsToVertex.hpp>
+#include <Step.hpp>
 
 #include <math/Complex.hpp>
 #include <math/ComplexTensor.hpp>
@@ -13,32 +13,17 @@
 #include <extern/Lapack.hpp>
 
 using namespace sisi4s;
-using namespace CTF;
-
-IMPLEMENT_EMPTY_DRYRUN(PQRSCoulombIntegralsToVertex) {}
-
 
 DEFSPEC(PQRSCoulombIntegralsToVertex,
         SPEC_IN({"HoleEigenEnergies",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
                 {"ParticleEigenEnergies",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
                 {"PQRSCoulombIntegrals",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()}),
         SPEC_OUT());
 
-IMPLEMENT_ALGORITHM(PQRSCoulombIntegralsToVertex) {
-
-  if (!isArgumentGiven("PQRSCoulombIntegrals")) {
-    throw new EXCEPTION("Need pqrs coulomb integrals");
-  }
-  if (!isArgumentGiven("HoleEigenEnergies")) {
-    throw new EXCEPTION("Need hole energies");
-  }
-  if (!isArgumentGiven("ParticleEigenEnergies")) {
-    throw new EXCEPTION("Need particle energies");
-  }
-
+DEFSTEP(PQRSCoulombIntegralsToVertex) {
   auto pqrs(in.get<Tensor<double> *>("PQRSCoulombIntegrals"));
   auto epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
   auto epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
