@@ -12,19 +12,35 @@ IMPLEMENT_EMPTY_DRYRUN(OneBodyRotation) {}
 
 #define LOGGER(_l) LOG(_l, "OneBodyRotation")
 
-DEFSPEC(OneBodyRotation,
-        SPEC_IN({"No", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-                {"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-                {"OrbitalCoefficients",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
-        SPEC_OUT({i.name, SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+// TODO: Update spec for compelx and double
+DEFSPEC(
+    OneBodyRotation,
+    SPEC_IN({"No",
+             SPEC_POSITIVE("The number of occupied orbitals", int)->require()},
+            {"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+            {"OrbitalCoefficients", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+    SPEC_OUT({"hh",
+              SPEC_VAROUT("Get the hole-hole part of the operator",
+                          Tensor<double> *)},
+             {"pp",
+              SPEC_VAROUT("Get the particle-particle part of the operator",
+                          Tensor<double> *)},
+             {"hp",
+              SPEC_VAROUT("Get the hole-particle part of the operator",
+                          Tensor<double> *)},
+             {"ph",
+              SPEC_VAROUT("Get the particle-hole part of the operator",
+                          Tensor<double> *)},
+             {"Out",
+              SPEC_VAROUT("Do not slice, this is the whole operator",
+                          Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(OneBodyRotation) {
-
-  auto C(in.get<Tensor<double> *>("OrbitalCoefficients"));
-  auto I(in.get<Tensor<double> *>("Data"));
-  auto O(new Tensor<double>(*I));
-  const int No(in.get<int64_t>("No", 0)), Np(C->lens[0]);
+template <typename F>
+static void run(Arguments &in, Arguments &out) {
+  auto C(in.get<Tensor<F> *>("OrbitalCoefficients"));
+  auto I(in.get<Tensor<F> *>("Data"));
+  auto O(new Tensor<F>(*I));
+  const int No(in.get<int>("No")), Np(C->lens[0]);
 
   LOGGER(0) << "No: " << No << std::endl;
   LOGGER(0) << "Np: " << Np << std::endl;
@@ -43,12 +59,20 @@ IMPLEMENT_ALGORITHM(OneBodyRotation) {
                                     {"Out", {0, 0}, {Np, Np}}};
 
   for (const auto &i : infos) {
-    if (!isArgumentGiven(i.name)) continue;
-    auto tensor(new Tensor<double>(O->slice(i.begin, i.end)));
+    if (!out.present(i.name)) continue;
+    auto tensor(new Tensor<F>(O->slice(i.begin, i.end)));
     LOGGER(0) << i.name << ": "
               << "{" << i.begin[0] << "," << i.begin[1] << "}"
               << " --> "
               << "{" << i.end[0] << "," << i.end[1] << "}" << std::endl;
-    out.set<Tensor<double> *>(i.name, tensor);
+    out.set<Tensor<F> *>(i.name, tensor);
+  }
+}
+
+IMPLEMENT_ALGORITHM(OneBodyRotation) {
+  if (in.is_of_type<Tensor<double> *>("OrbitalCoefficients")) {
+    ::run<double>(in, out);
+  } else {
+    ::run<sisi4s::complex>(in, out);
   }
 }

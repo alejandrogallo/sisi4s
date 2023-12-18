@@ -43,7 +43,7 @@ IMPLEMENT_ALGORITHM(MeanCorrelationHoleDepth) {
 
   (*gij)["ij"] = (*d)["abij"] * (*T)["abij"];
 
-  if (isArgumentGiven("SinglesAmplitudes")) {
+  if (in.present("SinglesAmplitudes")) {
     const auto t(in.get<Tensor<double> *>("SinglesAmplitudes"));
     LOGGER(0) << "Using singles amplitudes" << std::endl;
     (*gij)["ij"] += (*t)["ai"] * (*t)["bi"] * (*d)["abij"];

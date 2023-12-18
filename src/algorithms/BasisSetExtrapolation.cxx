@@ -14,60 +14,61 @@ using namespace sisi4s;
 
 IMPLEMENT_EMPTY_DRYRUN(BasisSetExtrapolation) {}
 
-
-DEFSPEC(BasisSetExtrapolation,
-        SPEC_IN({"gamma", SPEC_VALUE_DEF("TODO: DOC", double, 1)},
-                {"maxG", SPEC_VALUE_DEF("TODO: DOC", double, -1)},
-                {"minG", SPEC_VALUE_DEF("TODO: DOC", double, -1)},
-                {"volume", SPEC_VALUE_DEF("TODO: DOC", double, -1)},
-                {"volume", SPEC_VALUE_DEF("TODO: DOC", double, -1.)},
-                {"calculateQGG", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-                {"fitF12", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
-                {"invertQGG", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
-                {"iterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 10)},
-                {"orbitalPairEnd", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
-                {"orbitalPairStart", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
-                {"slice", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
-                {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-                {"ParticleHoleCoulombVertex",
-                 SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
-                {"CoulombKernel", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-                {"HoleEigenEnergies",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-                {"Momenta", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-                {"QGG", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-                {"StructureFactor", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
-        SPEC_OUT({"f12", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-                 {"FittedSF", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-                 {"QGGd", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-                 {"QGGs", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-                 {"QGGt", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
-                 {"QGGx", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+DEFSPEC(
+    BasisSetExtrapolation,
+    SPEC_IN({"gamma", SPEC_VALUE_DEF("TODO: DOC", double, 1)},
+            {"maxG", SPEC_VALUE_DEF("TODO: DOC", double, -1)},
+            {"minG", SPEC_VALUE_DEF("TODO: DOC", double, -1)},
+            {"volume", SPEC_POSITIVE("TODO: DOC", double)->require()},
+            {"calculateQGG", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
+            {"fitF12",
+             SPEC_ONE_OF("It should be one or 2", int64_t, 1, 2)->require()},
+            {"invertQGG", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
+            {"iterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 10)},
+            {"orbitalPairEnd", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+            {"orbitalPairStart", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+            {"slice", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+            {"CoulombVertex",
+             SPEC_VARIN("TODO: DOC", Tensor<complex> *)->require()},
+            {"ParticleHoleCoulombVertex",
+             SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
+            {"CoulombKernel", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"HoleEigenEnergies",
+             SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+            {"Momenta", SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+            {"QGG", SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+            {"StructureFactor",
+             SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()}),
+    SPEC_OUT({"f12", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"FittedSF", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"QGGd", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"QGGs", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"QGGt", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
+             {"QGGx", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
 IMPLEMENT_ALGORITHM(BasisSetExtrapolation) {
 
-  int fQGG(in.get<int64_t>("calculateQGG", 0));
-  if (fQGG == 1) {
+  bool fQGG(in.get<bool>("calculateQGG"));
+  if (fQGG) {
     // slice QGG evalution in case of memory bottleneck for the exchange term
-    int slice(in.get<int64_t>("slice", -1));
-    int orbitalPairStart(in.get<int64_t>("orbitalPairStart", -1));
-    int orbitalPairEnd(in.get<int64_t>("orbitalPairEnd", -1));
+    int slice(in.get<int64_t>("slice"));
+    int orbitalPairStart(in.get<int64_t>("orbitalPairStart"));
+    int orbitalPairEnd(in.get<int64_t>("orbitalPairEnd"));
     LOG(0, "BasisSetExtrapolation:") << "evaluating QGG" << std::endl;
     evaluateQGG(orbitalPairStart, orbitalPairEnd, slice);
   }
 
-  int fFitF12(in.get<int64_t>("fitF12", -1));
+  int fFitF12(in.get<int64_t>("fitF12"));
   if (fFitF12 == 1 || fFitF12 == 2) {
-    real minG(in.get<double>("minG", -1));
-    real maxG(in.get<double>("maxG", -1));
+    real minG(in.get<double>("minG"));
+    real maxG(in.get<double>("maxG"));
     if (minG > maxG || minG < 0.)
       throw new EXCEPTION("need fitting range:minG and maxG");
     LOG(0, "BasisSetExtrapolation") << "fitting gamma" << std::endl;
     fitF12(fFitF12, minG, maxG);
   }
 
-  int fInvertQGG(in.get<int64_t>("invertQGG", -1));
-  if (fInvertQGG > 0) {
+  if (in.get<bool>("invertQGG")) {
     LOG(0, "BasisSetExtrapolation")
         << "inverting Q(G,G') --> correlation Factor" << std::endl;
     invertQGG();
@@ -80,15 +81,10 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
 
   PTR(Tensor<complex>) GammaGai;
 
-  if (isArgumentGiven("ParticleHoleCoulombVertex")) {
+  if (in.present("ParticleHoleCoulombVertex")) {
     GammaGai = NEW(Tensor<complex>,
                    in.get<Tensor<complex> *>("ParticleHoleCoulombVertex"));
-  } else if (isArgumentGiven("CoulombVertex")) {
-
-    if (!isArgumentGiven("HoleEigenEnergies")) {
-      throw new EXCEPTION(
-          "Need HoleEigenEnergies for number of holes/particles");
-    }
+  } else if (in.present("CoulombVertex")) {
 
     auto epsi =
         NEW(Tensor<double>, in.get<Tensor<double> *>("HoleEigenEnergies"));
@@ -207,7 +203,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
   (*QGGs)["GF"] = (0.5) * (*FGone)["GF"] * (*FGtwo)["GF"];
   (*QGGt)["GF"] = (1.5) * (*QGGs)["GF"];
 
-  if (isArgumentGiven("QGGd")) {
+  if (out.present("QGGd")) {
     auto QGGd(new Tensor<double>(2, NGG));
     fromComplexTensor(*QGGs, *QGGd);
     out.set<Tensor<double> *>("QGGd", QGGd);
@@ -222,7 +218,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
   int numberSlices(
       std::ceil(static_cast<double>(No) / static_cast<double>(slice)));
   PTR(Tensor<complex>) cQGGx;
-  if (isArgumentGiven("QGGx")) { cQGGx = NEW(Tensor<complex>, 2, NGG); }
+  if (out.present("QGGx")) { cQGGx = NEW(Tensor<complex>, 2, NGG); }
   for (int ii(0); ii < numberSlices; ++ii) {
 
     int startBandSlice(ii * slice);
@@ -257,7 +253,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
     (*FGji)["GFij"] = (*conjCGajSliced)["Gbj"] * (*conjCGajSliced)["Fbi"];
     (*QGGs)["GF"] += (0.5) * (*FGij)["GFij"] * (*FGji)["GFij"];
     (*QGGt)["GF"] += (-0.75) * (*FGij)["GFij"] * (*FGji)["GFij"];
-    if (isArgumentGiven("QGGx")) {
+    if (out.present("QGGx")) {
       (*cQGGx)["GF"] = (0.5) * (*FGij)["GFij"] * (*FGji)["GFij"];
     }
   }
@@ -270,7 +266,7 @@ void BasisSetExtrapolation::evaluateQGG(int orbitalPairStart,
   out.set<Tensor<double> *>("QGGs", realQGGs);
   out.set<Tensor<double> *>("QGGt", realQGGt);
 
-  if (isArgumentGiven("QGGx")) {
+  if (out.present("QGGx")) {
     auto QGGx(new Tensor<double>(2, NGG));
     fromComplexTensor(*cQGGx, *QGGx);
     out.set<Tensor<double> *>("QGGx", QGGx);
@@ -290,7 +286,7 @@ void BasisSetExtrapolation::calculateNewSF(int type,
   auto cK(new Tensor<double>(1, NFF));
   (*cK) = (*coulombKernel);
 
-  real volume(in.get<double>("volume", -1.));
+  real volume(in.get<double>("volume"));
 
   auto reciprocalYC(new Tensor<double>(1, NFF));
 
@@ -336,7 +332,7 @@ void BasisSetExtrapolation::calculateNewSF(int type,
 
 void BasisSetExtrapolation::fitF12(int type, real minG, real maxG) {
 
-  real volume(in.get<double>("volume", -1));
+  real volume(in.get<double>("volume"));
   if (volume < 0.) throw new EXCEPTION("Set volume");
 
   Tensor<double> *structureFactor(in.get<Tensor<double> *>("StructureFactor"));
@@ -363,8 +359,8 @@ void BasisSetExtrapolation::fitF12(int type, real minG, real maxG) {
           absG = 1. / std::sqrt(absG);
         }
       }))((*coulombKernel)["G"], (*absoluteG)["G"]);
-  real gamma(in.get<double>("gamma", 1));
-  int iterations(in.get<int64_t>("iterations", 10));
+  real gamma(in.get<double>("gamma"));
+  int iterations(in.get<int64_t>("iterations"));
   for (int i(0); i <= iterations; ++i) {
 
     calculateNewSF(type, gamma, absoluteG, fittedSF, residuumFittedSF);
@@ -414,12 +410,12 @@ void BasisSetExtrapolation::fitF12(int type, real minG, real maxG) {
     LOG(0, "gamma") << gamma << " norm: " << residuum << std::endl;
   }
   //  out.set<Tensor<double> *>("ResNewSF",resNewSF);
-  setRealArgument("gammaout", gamma);
   out.set<Tensor<double> *>("FittedSF", fittedSF);
   // evaluate energy correction term E = v(G)*Q(G,G')*f12(G')
   CTF::Scalar<double> f12EnergyCorrection(*Sisi4s::world);
   f12EnergyCorrection[""] = (*coulombKernel)["G"] * (*fittedSF)["G"];
-  setRealArgument("f12EnergyCorrection", f12EnergyCorrection);
+  double correction = f12EnergyCorrection.get_val();
+  LOG(0, "gamma") << "f12 energy correction: " << correction << std::endl;
 }
 
 void BasisSetExtrapolation::invertQGG() {

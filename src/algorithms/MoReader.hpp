@@ -12,9 +12,10 @@ DEFINE_ALGORITHM_HEADER(
 
     MoReader,
 
-    static std::map<std::string, std::map<std::string, std::string>>
-        DEFAULT_SCALINGS,
-    DEFAULT_REORDER;
+    static std::map<std::string, std::map<std::string, std::vector<double>>>
+        DEFAULT_SCALINGS;
+    static std::map<std::string, std::map<std::string, std::vector<int64_t>>>
+        DEFAULT_REORDER;
 
     static std::vector<std::string> BACKENDS;
     const std::string PSI4 = "psi4",

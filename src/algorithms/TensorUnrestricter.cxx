@@ -88,11 +88,9 @@ static Tensor<F> *unrestrictTensor(Tensor<F> &tensor) {
 
 IMPLEMENT_EMPTY_DRYRUN(TensorUnrestricter) {}
 
-
 DEFSPEC(TensorUnrestricter,
-        SPEC_IN({"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-                {"Data", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)}),
-        SPEC_OUT());
+        SPEC_IN({"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()}),
+        SPEC_OUT({"Out", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
 IMPLEMENT_ALGORITHM(TensorUnrestricter) {
 

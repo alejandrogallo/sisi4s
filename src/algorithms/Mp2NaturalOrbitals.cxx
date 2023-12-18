@@ -26,14 +26,13 @@ IMPLEMENT_EMPTY_DRYRUN(Mp2NaturalOrbitals) {}
 // diagonalze truncated Fock matrix (5)
 // obtain new coefficients
 
-
 DEFSPEC(
     Mp2NaturalOrbitals,
     SPEC_IN({"occupationThreshold", SPEC_VALUE_DEF("TODO: DOC", double, 1e-16)},
             {"FnoAlpha", SPEC_VALUE("TODO: DOC", int64_t)},
             {"FnoBeta", SPEC_VALUE("TODO: DOC", int64_t)},
             {"FnoNumber", SPEC_VALUE("TODO: DOC", int64_t)},
-            {"unrestricted", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+            {"unrestricted", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
             {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
             {"OrbitalCoefficients", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
             {"ParticleEigenEnergies",
@@ -53,7 +52,7 @@ IMPLEMENT_ALGORITHM(Mp2NaturalOrbitals) {
   Tensor<double> *Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
   Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
   Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
-  const bool unrestricted(in.get<int64_t>("unrestricted", 0) == 1);
+  const bool unrestricted(in.get<bool>("unrestricted"));
   auto rotatedOrbitals(new Tensor<double>(false, *orbs));
   auto epsaRediag(new Tensor<double>(false, *epsa));
   auto occNumber(new Tensor<double>(false, *epsa));
@@ -129,8 +128,8 @@ IMPLEMENT_ALGORITHM(Mp2NaturalOrbitals) {
     if (info != 0) throw "problem diagonalization (1), naturalOrbitals\n";
 
     // TRUNCATE (2)
-    double occupationThreshold(in.get<double>("occupationThreshold", 1e-16));
-    if (isArgumentGiven("FnoNumber")) {
+    double occupationThreshold(in.get<double>("occupationThreshold"));
+    if (in.present("FnoNumber")) {
       int64_t fnoNumber(in.get<int64_t>("FnoNumber"));
       nFno = std::min(fnoNumber, Nv);
       // because of the 'wrong' ordering of the eigenvalues
@@ -157,7 +156,7 @@ IMPLEMENT_ALGORITHM(Mp2NaturalOrbitals) {
     std::vector<int64_t> index;
     index.resize(rank_m * Nv);
     std::iota(index.begin(), index.end(), 0);
-    if (isArgumentGiven("occupationNumber")) {
+    if (in.present("occupationNumber")) {
       occNumber->write(index.size(), index.data(), w.data());
       out.set<Tensor<double> *>("occupationNumber", occNumber);
       LOG(0, "writing:") << "occupationNumber\n";
@@ -348,8 +347,8 @@ IMPLEMENT_ALGORITHM(Mp2NaturalOrbitals) {
     if (info != 0) throw "problem diagonalization (1) unatrualOrbitals\n";
 
     // TRUNCATE (2)
-    double occupationThreshold(in.get<double>("occupationThreshold", 1e-16));
-    if (isArgumentGiven("FnoAlpha")) {
+    double occupationThreshold(in.get<double>("occupationThreshold"));
+    if (in.present("FnoAlpha")) {
       int fnoNumber(in.get<int64_t>("FnoAlpha"));
       // because of the 'wrong' ordering of the eigenvalues
       // we have to zero the first Nv-NFno columns
@@ -402,7 +401,7 @@ IMPLEMENT_ALGORITHM(Mp2NaturalOrbitals) {
     if (info != 0) throw "problem diagonalization (2), unatural orbitals\n";
 
     // TRUNCATE (2)
-    if (isArgumentGiven("FnoBeta")) {
+    if (in.present("FnoBeta")) {
       int fnoNumber(in.get<int64_t>("FnoBeta"));
       // because of the 'wrong' ordering of the eigenvalues
       // we have to zero the first Nv-NFno columns

@@ -11,6 +11,44 @@
 
 using namespace sisi4s;
 
+using F = double;
+DEFSPEC(CcsdtEnergyFromCoulombIntegrals,
+        SPEC_IN(CLUSTER_SINGLES_DOUBLES_TRIPLES_INSPEC,
+                {"factorsSliceSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
+                {"factorsSliceFactor", SPEC_VALUE("TODO: DOC", double)},
+                {"integralsSliceFactor", SPEC_VALUE("TODO: DOC", double)},
+                {"HHHHCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"HHHPCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"HHPHCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"HHPPCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"HPHHCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"HPHPCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"HPPHCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"HPPPCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"PHHHCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"PHHPCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"PHPPCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"PPHPCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"PPPHCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"PPPPCoulombIntegrals",
+                 SPEC_VARIN("DOC: TODO", Tensor<F> *)->require()},
+                {"PHPHCoulombIntegrals",
+                 SPEC_VARIN("TODO: DOC", Tensor<F> *)->require()}),
+        SPEC_OUT(CLUSTER_SINGLES_DOUBLES_TRIPLES_OUTSPEC));
+
 template <typename F>
 PTR(FockVector<F>) CcsdtEnergyFromCoulombIntegrals::getResiduumTemplate(
     const int iterationStep,
@@ -72,7 +110,7 @@ PTR(FockVector<F>) CcsdtEnergyFromCoulombIntegrals::getResiduumTemplate(
   auto Rppphhh(residuum->get(2));
   Rppphhh->set_name("Rppphhh");
 
-  if ((iterationStep == 0) && !isArgumentGiven("initialDoublesAmplitudes")) {
+  if ((iterationStep == 0) && !in.present("initialDoublesAmplitudes")) {
     LOG(1, getAbbreviation())
         << "Set initial Rpphh amplitudes to Vijab" << std::endl;
     (*Rpphh)["abij"] = (*Vhhpp)["ijab"];

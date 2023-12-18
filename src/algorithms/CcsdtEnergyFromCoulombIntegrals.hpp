@@ -8,15 +8,10 @@ class CcsdtEnergyFromCoulombIntegrals
     : public ClusterSinglesDoublesTriplesAlgorithm {
 public:
   ALGORITHM_REGISTRAR_DECLARATION(CcsdtEnergyFromCoulombIntegrals);
-  CcsdtEnergyFromCoulombIntegrals(std::vector<Argument> const &argumentList)
-      : ClusterSinglesDoublesTriplesAlgorithm(argumentList){};
-  virtual ~CcsdtEnergyFromCoulombIntegrals(){};
-
+  using ClusterSinglesDoublesTriplesAlgorithm::
+      ClusterSinglesDoublesTriplesAlgorithm;
+  static AlgorithmInputSpec spec;
   virtual std::string getAbbreviation() { return "Ccsdt"; }
-
-  static int64_t constexpr DEFAULT_SLICE_SIZE = -1;
-  static int64_t constexpr DEFAULT_DISTINGUISHABLE = 0;
-
   template <typename F>
   PTR(FockVector<F>)
   getResiduumTemplate(const int iterationStep,

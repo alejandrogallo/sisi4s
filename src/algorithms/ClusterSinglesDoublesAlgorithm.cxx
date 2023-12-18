@@ -111,8 +111,8 @@ F ClusterSinglesDoublesAlgorithm::run() {
 template <typename F>
 F ClusterSinglesDoublesAlgorithm::getEnergy(
     const PTR(const FockVector<F>) &amplitudes) {
-  double spins(in.get<bool>("unrestricted") ? 1.0 : 2.0);
-  int antisymmetrized(in.get<bool>("antisymmetrize"));
+  bool unrestricted(in.get<bool>("unrestricted"));
+  double spins(unrestricted ? 1.0 : 2.0);
 
   // get the Coulomb integrals to compute the energy
   PTR(Tensor<F>) Vijab;
@@ -127,7 +127,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     (*Vijab)["ijab"] *= 0.0;
     (*Vijab)["ijab"] += (*Vabij)["abij"];
     // IRAN: The integral is already antisymmetrized...dont do it again.
-    //    if (antisymmetrized) {
+    //    if (unrestricted) {
     // oovv = h * vvoo
     //      (*Vijab)["ijab"] += (-1.0) * (*Vabij)["baij"];
     //    }
@@ -142,7 +142,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   auto Tabij(amplitudes->get(1));
   F e(0.0);
   std::streamsize ss = std::cout.precision();
-  if (antisymmetrized) {
+  if (unrestricted) {
     energy[""] += (+0.25) * (*Tabij)["abkl"] * (*Vijab)["klab"];
     energy[""] += (+0.5) * (*Tai)["aj"] * (*Tai)["cl"] * (*Vijab)["jlac"];
     e = energy.get_val();
@@ -201,7 +201,7 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
     int oo[] = {(int)Tabij->lens[2], (int)Tabij->lens[2]};
     int syms[] = {NS, NS};
     auto pairEnergy(new Tensor<F>(2, oo, syms, *Sisi4s::world, "pairEnergies"));
-    if (antisymmetrized) {
+    if (unrestricted) {
       (*pairEnergy)["ij"] = (+0.25) * (*Tabij)["abij"] * (*Vijab)["ijab"];
       (*pairEnergy)["ij"] +=
           (+0.5) * (*Tai)["ai"] * (*Tai)["bj"] * (*Vijab)["ijab"];

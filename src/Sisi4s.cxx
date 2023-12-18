@@ -25,17 +25,9 @@ void Sisi4s::run() {
   listHosts();
   std::vector<Algorithm *> algorithms;
 
-  if (options->cc4s) {
-    LOG(0, "root")
-        << "WARNING: "
-        << "You are using the old cc4s input language, which is deprecated\n"
-        << "Consider converting your input file to the yaml DSL using the"
-        << " cc4s-to-yaml.py tool found in your package source."
-        << "\n";
-    InputFileParser<InputFileFormat::CC4S> parser(options->inFile);
-    algorithms = parser.parse();
-  } else {
-    InputFileParser<InputFileFormat::YAML> parser(options->inFile);
+
+  if (options->in_file.size()) {
+    InputFileParser<InputFileFormat::YAML> parser(options->in_file);
     algorithms = parser.parse();
   }
   LOG(0, "root") << "execution plan read, steps=" << algorithms.size()

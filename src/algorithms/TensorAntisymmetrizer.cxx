@@ -37,10 +37,10 @@ static std::vector<IntegralInfo> get_integral_infos() {
           {"PPPPCoulombIntegrals", {NV, NV, NV, NV}, "abcd"}};
 }
 
-static const std::type_info &check_type(Algorithm &alg) {
+static const std::type_info &check_type(Arguments &in) {
   const std::vector<IntegralInfo> infos = get_integral_infos();
   for (const auto &integral : infos)
-    if (alg.in.present(integral.name)) {
+    if (in.present(integral.name)) {
       bool real_tensor_data = in.is_of_type<Tensor<double> *>(integral.name);
       if (real_tensor_data) return typeid(double);
       bool imag_tensor_data =
@@ -58,24 +58,23 @@ static bool isSelfAntisymmetrizable(const IntegralInfo &i) {
 }
 
 template <typename F>
-static void run(Algorithm &alg) {
+static void run(Arguments &in) {
   const std::vector<IntegralInfo> infos = get_integral_infos();
 
   // Only copy integrals that are not self-antisymmetrizable
   std::map<std::string, PTR(Tensor<F>)> integralCopies;
   for (const auto &integral : infos) {
-    if (alg.isArgumentGiven(integral.name)
-        && !isSelfAntisymmetrizable(integral)) {
+    if (in.present(integral.name) && !isSelfAntisymmetrizable(integral)) {
       LOG(1, "TensorAntisymmetrizer")
           << "Copying " << integral.name << std::endl;
       integralCopies[integral.name] =
-          NEW(Tensor<F>, *alg.in.get<Tensor<F> *>(integral.name));
+          NEW(Tensor<F>, in.get<Tensor<F> *>(integral.name));
     }
   }
 
   for (const auto &integral : infos) {
     bool antisymmetrized(false);
-    if (!alg.isArgumentGiven(integral.name)) continue;
+    if (!in.present(integral.name)) continue;
 
     auto antigrals(integral.getAntisymmetrizers());
     // sort antigrals so that integral be the first
@@ -87,14 +86,14 @@ static void run(Algorithm &alg) {
          });
 
     for (const auto &antigral : antigrals) {
-      if (alg.isArgumentGiven(antigral.name)) {
+      if (in.present(antigral.name)) {
         LOG(1, "TensorAntisymmetrizer")
             << integral.name << " from " << antigral.name << std::endl;
         LOG(1, "TensorAntisymmetrizer")
             << "  " << integral.name << "[" << integral.ids
             << "] -= " << antigral.name << "[" << antigral.ids << "]"
             << std::endl;
-        auto inteCtf(alg.in.get<Tensor<F> *>(integral.name));
+        auto inteCtf(in.get<Tensor<F> *>(integral.name));
         Tensor<F> *antiCtf;
         if (antigral.name == integral.name) {
           antiCtf = inteCtf;
@@ -123,31 +122,36 @@ static void run(Algorithm &alg) {
   }
 }
 
-
-DEFSPEC(TensorAntisymmetrizer,
-        SPEC_IN({"mode", SPEC_VALUE_DEF("TODO: DOC", std::string, "up")},
-                {integral.name, SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"left", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"right", SPEC_VARIN("TODO: DOC", Tensor<F> *)}),
-        SPEC_OUT());
-
-IMPLEMENT_ALGORITHM(TensorAntisymmetrizer) {
-  if (typeid(double) == check_type(*this)) {
-    LOG(1, "TensorAntisymmetrizer") << "real integrals detected " << std::endl;
-    ::run<double>(*this);
-  } else {
-    LOG(1, "TensorAntisymmetrizer")
-        << "complex integrals detected " << std::endl;
-    ::run<sisi4s::complex>(*this);
-  }
-}
+using FSPEC = double;
+DEFSPEC(
+    TensorAntisymmetrizer,
+    SPEC_IN({"mode", SPEC_ONE_OF("TODO: DOC", std::string, "up", "down")},
+            {"HHHHCoulombIntegrals", SPEC_VARIN("Vijkl", Tensor<FSPEC *>())},
+            {"HHHPCoulombIntegrals", SPEC_VARIN("Vijka", Tensor<FSPEC *>())},
+            {"HHPHCoulombIntegrals", SPEC_VARIN("Vijak", Tensor<FSPEC *>())},
+            {"HHPPCoulombIntegrals", SPEC_VARIN("Vijab", Tensor<FSPEC *>())},
+            {"HPHHCoulombIntegrals", SPEC_VARIN("Viajk", Tensor<FSPEC *>())},
+            {"HPHPCoulombIntegrals", SPEC_VARIN("Viajb", Tensor<FSPEC *>())},
+            {"HPPHCoulombIntegrals", SPEC_VARIN("Viabj", Tensor<FSPEC *>())},
+            {"HPPPCoulombIntegrals", SPEC_VARIN("Viabc", Tensor<FSPEC *>())},
+            {"PHHHCoulombIntegrals", SPEC_VARIN("Vaijk", Tensor<FSPEC *>())},
+            {"PHHPCoulombIntegrals", SPEC_VARIN("Vaijb", Tensor<FSPEC *>())},
+            {"PHPHCoulombIntegrals", SPEC_VARIN("Vaibj", Tensor<FSPEC *>())},
+            {"PHPPCoulombIntegrals", SPEC_VARIN("Vaibc", Tensor<FSPEC *>())},
+            {"PPHHCoulombIntegrals", SPEC_VARIN("Vabij", Tensor<FSPEC *>())},
+            {"PPHPCoulombIntegrals", SPEC_VARIN("Vabic", Tensor<FSPEC *>())},
+            {"PPPHCoulombIntegrals", SPEC_VARIN("Vabci", Tensor<FSPEC *>())},
+            {"PPPPCoulombIntegrals", SPEC_VARIN("Vabcd", Tensor<FSPEC *>())},
+            {"left", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"right", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)}),
+    SPEC_OUT());
 
 template <typename F>
-static void run2(Algorithm &alg) {
-  auto &left = *alg.in.get<Tensor<F> *>("left"),
-       &right = *alg.in.get<Tensor<F> *>("right");
+static void run2(Arguments &in) {
+  auto &left = *in.get<Tensor<F> *>("left"),
+       &right = *in.get<Tensor<F> *>("right");
 
-  const std::string mode = alg.in.get<std::string>("mode", "up");
+  const std::string mode = in.get<std::string>("mode");
 
   if (left.order != 4)
     throw "TensorAntisymmetrizer2 can only antisymmetrize 4 index tensors";
@@ -156,21 +160,23 @@ static void run2(Algorithm &alg) {
   else left["abij"] -= right["abji"];
 }
 
-
-DEFSPEC(TensorAntisymmetrizer,
-        SPEC_IN({"mode", SPEC_VALUE_DEF("TODO: DOC", std::string, "up")},
-                {integral.name, SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"left", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"right", SPEC_VARIN("TODO: DOC", Tensor<F> *)}),
-        SPEC_OUT());
-
-IMPLEMENT_ALGORITHM(TensorAntisymmetrizer2) {
-  if (in.is_of_type<Tensor<double> *>("Data")) {
-    LOG(1, "TensorAntisymmetrizer2") << "real integrals detected " << std::endl;
-    ::run2<double>(*this);
+IMPLEMENT_ALGORITHM(TensorAntisymmetrizer) {
+  if (in.present("left") && in.present("right")) {
+    if (in.is_of_type<Tensor<double> *>("right")
+        && in.is_of_type<Tensor<double> *>("left")) {
+      ::run2<double>(in);
+    } else {
+      ::run2<sisi4s::complex>(in);
+    }
   } else {
-    LOG(1, "TensorAntisymmetrizer2")
-        << "complex integrals detected " << std::endl;
-    ::run2<sisi4s::complex>(*this);
+    if (typeid(double) == check_type(in)) {
+      LOG(1, "TensorAntisymmetrizer")
+          << "real integrals detected " << std::endl;
+      ::run<double>(in);
+    } else {
+      LOG(1, "TensorAntisymmetrizer")
+          << "complex integrals detected " << std::endl;
+      ::run<sisi4s::complex>(in);
+    }
   }
 }

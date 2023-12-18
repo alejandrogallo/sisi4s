@@ -16,13 +16,11 @@
 using namespace sisi4s;
 
 void ClusterSinglesDoublesTriplesAlgorithm::run() {
-  double e(0.0);
   if (in.is_of_type<Tensor<double> *>("PPHHCoulombIntegrals")) {
-    e = run<double>();
+    run<double>();
   } else {
-    e = std::real(run<complex>());
+    std::real(run<complex>());
   }
-  setRealArgument(getDataName("", "Energy"), e);
 }
 
 template <typename F>
@@ -36,7 +34,7 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
       {"ai", "abij", "abcijk"}));
 
   // create a mixer, by default use the linear one
-  std::string mixerName(in.get<std::string>("mixer", "LinearMixer"));
+  std::string mixerName(in.get<std::string>("mixer"));
   PTR(Mixer<F>) mixer(MixerFactory<F>::create(mixerName, this));
   if (!mixer) {
     std::stringstream stringStream;
@@ -45,13 +43,10 @@ F ClusterSinglesDoublesTriplesAlgorithm::run() {
   }
 
   // number of iterations for determining the amplitudes
-  int maxIterationsCount(
-      in.get<int64_t>("maxIterations", DEFAULT_MAX_ITERATIONS));
+  int maxIterationsCount(in.get<int64_t>("maxIterations"));
 
-  F amplitudesConvergence(
-      in.get<double>("amplitudesConvergence", DEFAULT_AMPLITUDES_CONVERGENCE));
-  F energyConvergence(
-      in.get<double>("energyConvergence", DEFAULT_ENERGY_CONVERGENCE));
+  F amplitudesConvergence(in.get<double>("amplitudesConvergence"));
+  F energyConvergence(in.get<double>("energyConvergence"));
 
   EMIT() << YAML::Key << "maxIterations" << YAML::Value << maxIterationsCount
          << YAML::Key << "amplitudesConvergence" << YAML::Value

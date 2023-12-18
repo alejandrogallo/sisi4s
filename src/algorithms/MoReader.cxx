@@ -21,7 +21,7 @@
 #include <iterator>
 #define LOGGER(_l) LOG(_l, "MoReader")
 #define IF_GIVEN(_l, ...)                                                      \
-  if (isArgumentGiven(_l)) { __VA_ARGS__ }
+  if (out.present(_l)) { __VA_ARGS__ }
 
 using namespace sisi4s;
 
@@ -108,41 +108,52 @@ struct ShellParser {
   }
 };
 
-std::map<std::string, std::map<std::string, std::string>>
+std::map<std::string, std::map<std::string, std::vector<double>>>
     MoReader::DEFAULT_SCALINGS = {
         {"nwchem",
-         {{"DScaling", "1,1,1,-1,1"},
-          {"FScaling", "1,1,1,1,-1,1,-1"},
-          {"GScaling", "1,1,1,1,1,-1,1,-1,1"},
-          {"HScaling", "1,1,1,1,1,1,-1,1,-1,1,-1"},
-          {"IScaling", "1,1,1,1,1,1,1,-1,1,-1,1,-1,1"}}},
+         {{"DScaling", {1, 1, 1, -1, 1}},
+          {"FScaling", {1, 1, 1, 1, -1, 1, -1}},
+          {"GScaling", {1, 1, 1, 1, 1, -1, 1, -1, 1}},
+          {"HScaling", {1, 1, 1, 1, 1, 1, -1, 1, -1, 1, -1}},
+          {"IScaling", {1, 1, 1, 1, 1, 1, 1, -1, 1, -1, 1, -1, 1}}}},
         {"psi4", {}},
         {"turbomole",
-         {{"FScaling", "1, 1, 1, 1, 1, 1,-1"},
-          {"GScaling", " 1, 1, 1, 1,-1, 1,-1, 1, 1"},
-          {"HScaling", " 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1"}}}};
+         {{"FScaling", {1, 1, 1, 1, 1, 1, -1}},
+          {"GScaling", {1, 1, 1, 1, -1, 1, -1, 1, 1}},
+          {"HScaling", {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}}}};
 
-std::map<std::string, std::map<std::string, std::string>>
-    MoReader::DEFAULT_REORDER = {{"nwchem", {}},
-                                 {"psi4", {}},
-                                 {"turbomole",
-                                  {{"DReorder", "3,2,0,1,4"},
-                                   {"FReorder", "6,3,2,0,1,4,5"},
-                                   {"GReorder", "7,6,3,2,0,1,4,5,8"},
-                                   {"HReorder", "10,7,6,3,2,0,1,4,5,8,9"}}}};
+std::map<std::string, std::map<std::string, std::vector<int64_t>>>
+    MoReader::DEFAULT_REORDER = {
+        {"nwchem", {}},
+        {"psi4", {}},
+        {"turbomole",
+         {{"DReorder", {3, 2, 0, 1, 4}},
+          {"FReorder", {6, 3, 2, 0, 1, 4, 5}},
+          {"GReorder", {7, 6, 3, 2, 0, 1, 4, 5, 8}},
+          {"HReorder", {10, 7, 6, 3, 2, 0, 1, 4, 5, 8, 9}}}}};
 
 std::vector<std::string> MoReader::BACKENDS = {"nwchem", "psi4", "turbomole"};
 
 DEFSPEC(
     MoReader,
     SPEC_IN(
-        {"frozenCore", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"frozenCore", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
         {"backend",
-         SPEC_ONE_OF("TODO: DOC", std::string, "nwchem", "psi4", "turbomole")},
+         SPEC_ONE_OF("TODO: DOC", std::string, "nwchem", "psi4", "turbomole")
+             ->require()},
         {"basisFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
         {"file", SPEC_VALUE("TODO: DOC", std::string)},
         {"shellsFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
-        {"xyzStructureFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")}),
+        {"xyzStructureFile", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+        {"DScaling", SPEC_VALUE("", std::vector<double>)},
+        {"FScaling", SPEC_VALUE("", std::vector<double>)},
+        {"GScaling", SPEC_VALUE("", std::vector<double>)},
+        {"HScaling", SPEC_VALUE("", std::vector<double>)},
+        {"IScaling", SPEC_VALUE("", std::vector<double>)},
+        {"DReorder", SPEC_VALUE("", std::vector<int64_t>)},
+        {"FReorder", SPEC_VALUE("", std::vector<int64_t>)},
+        {"GReorder", SPEC_VALUE("", std::vector<int64_t>)},
+        {"HReorder", SPEC_VALUE("", std::vector<int64_t>)}),
     SPEC_OUT(
         {"HoleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
         {"OccupationNumbers", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
@@ -153,35 +164,35 @@ DEFSPEC(
 IMPLEMENT_ALGORITHM(MoReader) {
   std::vector<std::string> args;
   const std::string fileName(in.get<std::string>("file")),
-      xyz(in.get<std::string>("xyzStructureFile", "")),
-      basisFile(in.get<std::string>("basisFile", "")),
-      shellsFile(in.get<std::string>("shellsFile", "")),
+      xyz(in.get<std::string>("xyzStructureFile")),
+      basisFile(in.get<std::string>("basisFile")),
+      shellsFile(in.get<std::string>("shellsFile")),
       backend(in.get<std::string>("backend"));
-  bool frozenCore(in.get<int64_t>("frozenCore", 0) == 1);
+  bool frozenCore(in.get<bool>("frozenCore"));
 
   if (std::find(BACKENDS.begin(), BACKENDS.end(), backend) == BACKENDS.end()) {
     throw "Incorrect backend value: " + backend;
   }
 
   // make <shell>Scaling
-  const auto _s = [&](std::string s) {
-    return std::make_pair<am::AngularMomentum, std::vector<double>>(
+  const auto _s = [&](std::string const s) {
+    std::string const name = s + "Scaling";
+    return std::make_pair<const am::AngularMomentum, std::vector<double>>(
         am::fromString(s),
-        pars::parseVector<double>(this->in.get<std::string>(
-            s + "Scaling",
-            this->DEFAULT_SCALINGS[backend][s + "Scaling"])));
+        in.present(name) ? in.get<std::vector<double>>(name)
+                         : this->DEFAULT_SCALINGS[backend][name]);
   };
   // make <shell>Reorder
-  const auto _r = [&](std::string s) {
-    return std::make_pair<am::AngularMomentum, std::vector<int>>(
+  const auto _r = [&](std::string const s) {
+    std::string const name = s + "Reorder";
+    return std::make_pair<const am::AngularMomentum, std::vector<int64_t>>(
         am::fromString(s),
-        pars::parseVector<int>(this->in.get<std::string>(
-            s + "Reorder",
-            this->DEFAULT_REORDER[backend][s + "Reorder"])));
+        in.present(name) ? in.get<std::vector<int64_t>>(name)
+                         : this->DEFAULT_REORDER[backend][name]);
   };
   struct {
     const std::map<am::AngularMomentum, std::vector<double>> scaling;
-    const std::map<am::AngularMomentum, std::vector<int>> reorder;
+    const std::map<am::AngularMomentum, std::vector<int64_t>> reorder;
   } transformation = {
       {_s("S"), _s("P"), _s("D"), _s("F"), _s("G"), _s("H"), _s("I"), _s("K")},
       {_r("S"), _r("P"), _r("D"), _r("F"), _r("G"), _r("H"), _r("I"), _r("K")}};
@@ -409,7 +420,7 @@ IMPLEMENT_ALGORITHM(MoReader) {
     out.set<Tensor<double> *>("Spins", spin);
   }
 
-  if (isArgumentGiven("OrbitalCoefficients")) {
+  if (out.present("OrbitalCoefficients")) {
     ids.resize(rank_m * pp[0] * pp[1]);
     std::iota(ids.begin(), ids.end(), 0);
     auto coef(new Tensor<double>(2, pp.data(), syms.data(), *Sisi4s::world));

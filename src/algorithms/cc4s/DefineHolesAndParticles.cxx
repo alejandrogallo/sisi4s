@@ -1,11 +1,23 @@
 #include <Sisi4s.hpp>
 #include <util/Yaml.hpp>
 #include <util/Tensor.hpp>
+#include <util/Log.hpp>
 #include <algorithms/cc4s/DefineHolesAndParticles.hpp>
 
 namespace sisi4s {
 
 IMPLEMENT_EMPTY_DRYRUN(DefineHolesAndParticles) {}
+
+DEFSPEC(DefineHolesAndParticles,
+        SPEC_IN({"fileName",
+                 SPEC_VALUE("The yaml file path", std::string)->require()},
+                {"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
+                {"OrbitalCoefficients",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+        SPEC_OUT({"HoleEigenEnergies",
+                  SPEC_VAROUT("The hole eigen energies", Tensor<double> *)},
+                 {"ParticleEigenEnergies",
+                  SPEC_VAROUT("The hole eigen energies", Tensor<double> *)}));
 
 IMPLEMENT_ALGORITHM(DefineHolesAndParticles) {
 

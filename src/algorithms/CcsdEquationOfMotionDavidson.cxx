@@ -65,22 +65,36 @@ DEFSPEC(
         {"energyConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
         {"preconditionerRandomSigma",
          SPEC_VALUE_DEF("TODO: DOC", double, 0.01)},
-        {"complexVersion", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"complexVersion", SPEC_VALUE_DEF("TODO: DOC", bool, true)},
         {"eigenstates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
         {"intermediates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
+        {"maxBasisSize", SPEC_VALUE("TODO: DOC", size_t)},
         {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 32)},
         {"minIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
-        {"preconditionerRandom", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-        {"preconditionerSpinFlip", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
-        {"printEigenvectorsDoubles", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
-        {"refreshOnMaxBasisSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+        {"preconditionerRandom", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
+        {"preconditionerSpinFlip", SPEC_VALUE_DEF("TODO: DOC", bool, true)},
+        {"structureFactor",
+         SPEC_VALUE("Which eigenvectors should be used to calculate their "
+                    "Structure Factor",
+                    std::vector<size_t>)},
+        {"oneBodyRdm",
+         SPEC_VALUE(
+             "Which eigenvectors should be used to calculate their 1-RDM",
+             std::vector<size_t>)},
+        {"printEigenvectors",
+         SPEC_VALUE("Which eigenvectors should be printed",
+                    std::vector<size_t>)},
+        {"printEigenvectorsDoubles", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
+        {"refreshOnMaxBasisSize", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
         {"structureFactorFockInOneBody",
-         SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
+         SPEC_VALUE_DEF("TODO: DOC", bool, false)},
         {"structureFactorHartreeInOneBody",
-         SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-        {"structureFactorOnlyDoubles", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-        {"structureFactorOnlySingles", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-        {a, SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
+         SPEC_VALUE_DEF("TODO: DOC", bool, false)},
+        {"structureFactorOnlyDoubles",
+         SPEC_VALUE_DEF("TODO: DOC", bool, false)},
+        {"structureFactorOnlySingles",
+         SPEC_VALUE_DEF("TODO: DOC", bool, false)},
+        // {a, SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
         {"CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<complex> *)},
         {"CoulombKernel", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
@@ -88,7 +102,20 @@ DEFSPEC(
         {"HHFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {integral.name, SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+        {"HHHHCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"PPPPCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"HHHPCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"HHPPCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"HPHHCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"HPHPCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"HPPPCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"PPHPCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"PPPHCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"PHPPCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"PHPHCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"HPPHCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"HHPHCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
+        {"PHHPCoulombIntegrals", SPEC_VARIN("", Tensor<double> *)},
         {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"PPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
         {"SinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
@@ -96,7 +123,7 @@ DEFSPEC(
 
 IMPLEMENT_ALGORITHM(CcsdEquationOfMotionDavidson) {
 
-  if (in.get<int64_t>("complexVersion", 1) == 1) {
+  if (in.get<bool>("complexVersion")) {
     LOGGER(0) << "Using complex code" << std::endl;
     CcsdEquationOfMotionDavidson::run<complex>();
   } else {
@@ -132,81 +159,36 @@ void CcsdEquationOfMotionDavidson::run() {
                                          {"HHPHCoulombIntegrals", Vijak},
                                          {"PHHPCoulombIntegrals", Vaijb}};
 
-  std::vector<std::string> allArguments = {"complexVersion",
-                                           "oneBodyRdmRange",
-                                           "printEigenvectorsDoubles",
-                                           "printEigenvectorsRange"
-                                           // Davidson solver
-                                           ,
-                                           "amplitudesConvergence",
-                                           "energyConvergence",
-                                           "maxBasisSize",
-                                           "intermediates",
-                                           "eigenstates",
-                                           "refreshIterations",
-                                           "refreshOnMaxBasisSize",
-                                           "maxIterations",
-                                           "minIterations"
-                                           // preconditioner
-                                           ,
-                                           "preconditionerRandom",
-                                           "preconditionerRandomSigma",
-                                           "preconditionerSpinFlip"
-                                           // T amplitudes
-                                           ,
-                                           "SinglesAmplitudes",
-                                           "DoublesAmplitudes"
-                                           // Fock Matrix
-                                           ,
-                                           "ParticleEigenEnergies",
-                                           "HoleEigenEnergies",
-                                           "HPFockMatrix",
-                                           "HHFockMatrix",
-                                           "PPFockMatrix"
-                                           // structure factor
-                                           ,
-                                           "CoulombVertex",
-                                           "CoulombKernel",
-                                           "structureFactorRange",
-                                           "structureFactorOnlySingles",
-                                           "structureFactorOnlyDoubles",
-                                           "structureFactorHartreeInOneBody",
-                                           "structureFactorFockInOneBody"};
-
   const struct {
     double sigma;
     bool random;
     bool spinFlip;
-  } precSettings = {in.get<double>("preconditionerRandomSigma", 0.01),
-                    in.get<int64_t>("preconditionerRandom", 0) == 1,
-                    in.get<int64_t>("preconditionerSpinFlip", 1) == 1};
+  } precSettings = {in.get<double>("preconditionerRandomSigma"),
+                    in.get<bool>("preconditionerRandom"),
+                    in.get<bool>("preconditionerSpinFlip")};
 
-  const double energyConvergence(in.get<double>("energyConvergence", 1e-6)),
-      amplitudesConvergence(in.get<double>("amplitudesConvergence", 1e-6));
+  const double energyConvergence(in.get<double>("energyConvergence")),
+      amplitudesConvergence(in.get<double>("amplitudesConvergence"));
 
   const typename SimilarityTransformedHamiltonian<F>::StructureFactorSettings
-      sfSettings = {in.get<int64_t>("structureFactorOnlySingles", 0) == 1,
-                    in.get<int64_t>("structureFactorOnlyDoubles", 0) == 1,
-                    in.get<int64_t>("structureFactorHartreeInOneBody", 0) == 1,
-                    in.get<int64_t>("structureFactorFockInOneBody", 0) == 1};
+      sfSettings = {in.get<bool>("structureFactorOnlySingles"),
+                    in.get<bool>("structureFactorOnlyDoubles"),
+                    in.get<bool>("structureFactorHartreeInOneBody"),
+                    in.get<bool>("structureFactorFockInOneBody")};
 
-  const bool intermediates(in.get<int64_t>("intermediates", 1)),
-      refreshOnMaxBasisSize(in.get<int64_t>("refreshOnMaxBasisSize", 0) == 1),
-      printEigenvectorsDoubles =
-          in.get<int64_t>("printEigenvectorsDoubles", 1) == 1;
+  const bool intermediates(in.get<bool>("intermediates")),
+      refreshOnMaxBasisSize(in.get<bool>("refreshOnMaxBasisSize")),
+      printEigenvectorsDoubles = in.get<bool>("printEigenvectorsDoubles");
 
-  const auto argToRange = [this](const std::string &a) -> std::vector<int> {
-    return RangeParser(this->in.get<std::string>(a, "")).getRange();
-  };
+  const std::vector<size_t> refreshIterations(
+      in.get<std::vector<size_t>>("refreshIterations")),
+      oneBodyRdmIndices(in.get<std::vector<size_t>>("oneBodyRdm")),
+      eigenvectorsIndices(in.get<std::vector<size_t>>("printEigenvectors")),
+      structureFactorIndices(in.get<std::vector<size_t>>("structureFactor"));
 
-  const std::vector<int> refreshIterations(argToRange("refreshIterations")),
-      oneBodyRdmIndices(argToRange("oneBodyRdmRange")),
-      eigenvectorsIndices(argToRange("printEigenvectorsRange")),
-      structureFactorIndices(argToRange("structureFactorRange"));
-
-  const unsigned int eigenStates(in.get<int64_t>("eigenstates", 1)),
-      maxIterations(in.get<int64_t>("maxIterations", 32)),
-      minIterations(in.get<int64_t>("minIterations", 1));
+  const unsigned int eigenStates(in.get<int64_t>("eigenstates")),
+      maxIterations(in.get<int64_t>("maxIterations")),
+      minIterations(in.get<int64_t>("minIterations"));
 
   auto *epsi(in.get<Tensor<double> *>("HoleEigenEnergies")),
       *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
@@ -215,9 +197,10 @@ void CcsdEquationOfMotionDavidson::run() {
       syms[] = {NS, NS, NS, NS}, vvoo[] = {Nv, Nv, No, No}, vv[] = {Nv, Nv},
       ov[] = {No, Nv}, vo[] = {Nv, No}, oo[] = {No, No};
 
-  const int maxBasisSize =
-      in.get<int64_t>("maxBasisSize",
-                      No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2));
+  const size_t maxBasisSize =
+      in.present("maxBasisSize")
+          ? in.get<size_t>("maxBasisSize")
+          : No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2);
 
   // Hilfsfunktion zum Rauschreiben von Tensoren
   const auto _writeText = TensorIo::writeText<F>;
@@ -241,11 +224,16 @@ void CcsdEquationOfMotionDavidson::run() {
   LOGGER(0) << "max basis        : " << maxBasisSize << std::endl;
 
   for (auto &integral : requiredIntegrals) {
+    using T = Tensor<double> *;
     LOGGER(0) << "Converting " << integral.name << std::endl;
-    auto in(in.get<Tensor<double> *>(integral.name));
-    integral.data =
-        NEW(Tensor<F>, in->order, in->lens, in->sym, *in->wrld, in->get_name());
-    toComplexTensor(*in, *integral.data);
+    T in_tensor = in.get<T>(integral.name);
+    integral.data = NEW(Tensor<F>,
+                        in_tensor->order,
+                        in_tensor->lens,
+                        in_tensor->sym,
+                        *in_tensor->wrld,
+                        in_tensor->get_name());
+    toComplexTensor(*in_tensor, *integral.data);
   }
 
   // set up Fock matrix elements
@@ -253,8 +241,8 @@ void CcsdEquationOfMotionDavidson::run() {
   auto Fij(NEW(Tensor<F>, 2, oo, syms, *Sisi4s::world, "Fij"));
   auto Fia(NEW(Tensor<F>, 2, ov, syms, *Sisi4s::world, "Fia"));
 
-  if (isArgumentGiven("HPFockMatrix") && isArgumentGiven("HHFockMatrix")
-      && isArgumentGiven("PPFockMatrix")) {
+  if (in.present("HPFockMatrix") && in.present("HHFockMatrix")
+      && in.present("PPFockMatrix")) {
     LOGGER(0) << "Using non-canonical orbitals" << std::endl;
 
     Tensor<double> *realFia(in.get<Tensor<double> *>("HPFockMatrix"));

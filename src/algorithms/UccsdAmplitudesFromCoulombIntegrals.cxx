@@ -12,88 +12,43 @@
 
 using namespace sisi4s;
 
-
-DEFSPEC(UccsdAmplitudesFromCoulombIntegrals,
-        SPEC_IN({"intermediates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
-                {"onlyPPL", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-                {"HoleEigenEnergies",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-                {"ParticleEigenEnergies",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-                {"HHFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"HHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"HHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"HHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"HHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"HPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"HPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"HPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"HPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"PHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"PHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"PHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"PPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"PPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"PPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},
-                {"PPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)}),
-        SPEC_OUT());
+using F = double;
+using FSPEC = double;
+DEFSPEC(
+    UccsdAmplitudesFromCoulombIntegrals,
+    SPEC_IN(CLUSTER_SINGLES_DOUBLES_INSPEC,
+            {"intermediates", SPEC_VALUE_DEF("TODO: DOC", bool, true)},
+            {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"ParticleEigenEnergies",
+             SPEC_VARIN("TODO: DOC", Tensor<double> *)},
+            {"HHFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"PPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"HHHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"HHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"HHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"HHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"HPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"HPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"HPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"HPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"PHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"PHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"PHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"PPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"PPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"PPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
+            {"PPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)}),
+    SPEC_OUT());
 
 IMPLEMENT_ALGORITHM(UccsdAmplitudesFromCoulombIntegrals) {
 
+  // TODO: set this as an attribute in the ClusterSinglesDoublesAlgorithm
   // Set this for cluster singles doubles algorithm
-  setIntegerArgument("antisymmetrize", 1);
-  setIntegerArgument("unrestricted", 1);
+  in.set<bool>("unrestricted", true);
 
-  checkArgumentsOrDie({"intermediates" // stanton intermediates
-                       ,
-                       "antisymmetrize",
-                       "unrestricted",
-                       "mp2WithSingles"
-                       // Solver
-                       ,
-                       "mixer",
-                       "maxIterations",
-                       "amplitudesConvergence",
-                       "energyConvergence",
-                       "mixingRatio",
-                       "maxResidua"
-                       // Fock matrix
-                       ,
-                       "HPFockMatrix",
-                       "PPFockMatrix",
-                       "HHFockMatrix",
-                       "HoleEigenEnergies",
-                       "ParticleEigenEnergies"
-                       // integrals
-                       ,
-                       "HHHHCoulombIntegrals",
-                       "PPPPCoulombIntegrals",
-                       "HHHPCoulombIntegrals",
-                       "HHPPCoulombIntegrals",
-                       "HPHHCoulombIntegrals",
-                       "HPHPCoulombIntegrals",
-                       "HPPPCoulombIntegrals",
-                       "PPHHCoulombIntegrals",
-                       "PPHPCoulombIntegrals",
-                       "HPPHCoulombIntegrals",
-                       "PHPPCoulombIntegrals",
-                       "HHPHCoulombIntegrals",
-                       "PPPHCoulombIntegrals",
-                       "PHPHCoulombIntegrals",
-                       "PHHPCoulombIntegrals",
-                       "UccsdDoublesAmplitudes",
-                       "UccsdSinglesAmplitudes",
-                       "UccsdEnergy",
-                       //
-                       "onlyPPL",
-                       "initialDoublesAmplitudes",
-                       "initialSinglesAmplitudes",
-                       "PairEnergy"});
-
-  usingIntermediates = in.get<int64_t>("intermediates", 1) == 1;
-  onlyPpl = in.get<int64_t>("onlyPPL", 0) == 1;
+  usingIntermediates = in.get<bool>("intermediates");
+  onlyPpl = in.get<bool>("OnlyPPL");
   if (!usingIntermediates) {
     LOG(0, getAbbreviation()) << "Not using Stanton et al. intermediates, the "
                                  "code will be much slower."
@@ -130,8 +85,8 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     const PTR(const FockVector<F>) &amplitudes) {
   Tensor<F> *Fab, *Fij, *Fia;
 
-  if (isArgumentGiven("HPFockMatrix") && isArgumentGiven("HHFockMatrix")
-      && isArgumentGiven("PPFockMatrix")) {
+  if (in.present("HPFockMatrix") && in.present("HHFockMatrix")
+      && in.present("PPFockMatrix")) {
     if (iterationStep == 0) {
       LOG(0, getAbbreviation()) << "Using non-canonical orbitals "
                                 << "since you provided FockMatrices\n";

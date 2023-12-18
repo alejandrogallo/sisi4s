@@ -31,26 +31,45 @@ inline std::ostream &operator<<(std::ostream &s,
            << "/" << std::endl;
 }
 
-
 DEFSPEC(FcidumpWriter,
         SPEC_IN({"threshold", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
                 {"ms2", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
                 {"uhf", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-                {"file", SPEC_VALUE_DEF("TODO: DOC", std::string, "FCIDUMP")},
-                {integral.name, SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
+                {"file", SPEC_VALUE("TODO: DOC", std::string)->require()},
+                {"tttt", SPEC_VAROUT("", Tensor<double> *)},
+                {"hh", SPEC_VAROUT("", Tensor<double> *)},
+                {"pp", SPEC_VAROUT("", Tensor<double> *)},
+                {"hp", SPEC_VAROUT("", Tensor<double> *)},
+                {"ph", SPEC_VAROUT("", Tensor<double> *)},
+                {"hhhh", SPEC_VAROUT("", Tensor<double> *)},
+                {"hhhp", SPEC_VAROUT("", Tensor<double> *)},
+                {"hhph", SPEC_VAROUT("", Tensor<double> *)},
+                {"hhpp", SPEC_VAROUT("", Tensor<double> *)},
+                {"hphh", SPEC_VAROUT("", Tensor<double> *)},
+                {"hphp", SPEC_VAROUT("", Tensor<double> *)},
+                {"hpph", SPEC_VAROUT("", Tensor<double> *)},
+                {"hppp", SPEC_VAROUT("", Tensor<double> *)},
+                {"phhh", SPEC_VAROUT("", Tensor<double> *)},
+                {"phhp", SPEC_VAROUT("", Tensor<double> *)},
+                {"phph", SPEC_VAROUT("", Tensor<double> *)},
+                {"phpp", SPEC_VAROUT("", Tensor<double> *)},
+                {"pphh", SPEC_VAROUT("", Tensor<double> *)},
+                {"pphp", SPEC_VAROUT("", Tensor<double> *)},
+                {"ppph", SPEC_VAROUT("", Tensor<double> *)},
+                {"pppp", SPEC_VAROUT("", Tensor<double> *)}),
         SPEC_OUT());
 
 IMPLEMENT_ALGORITHM(FcidumpWriter) {
-  const auto filePath(in.get<std::string>("file", "FCIDUMP"));
-  size_t uhf(in.get<int64_t>("uhf", 0));
-  size_t ms2(in.get<int64_t>("ms2", 0));
-  const double threshold(in.get<double>("threshold", 1e-6));
+  const auto filePath(in.get<std::string>("file"));
+  size_t uhf(in.get<int64_t>("uhf"));
+  size_t ms2(in.get<int64_t>("ms2"));
+  const double threshold(in.get<double>("threshold"));
   int No(NxUndefined);
   int Nv(NxUndefined);
   FcidumpReader::FcidumpHeader header;
 
   const std::vector<TensorInfo> allIntegrals({
-      {"PPPP", {NP, NP, NP, NP}}, {"hhhh", {NO, NO, NO, NO}},
+      {"tttt", {NP, NP, NP, NP}}, {"hhhh", {NO, NO, NO, NO}},
       {"hhhp", {NO, NO, NO, NV}}, {"hhph", {NO, NO, NV, NO}},
       {"hhpp", {NO, NO, NV, NV}}, {"hphh", {NO, NV, NO, NO}},
       {"hphp", {NO, NV, NO, NV}}, {"hpph", {NO, NV, NV, NO}},
@@ -66,7 +85,7 @@ IMPLEMENT_ALGORITHM(FcidumpWriter) {
   // find out No and Nv
   for (const auto &integral : allIntegrals) {
     auto &is(integral.indices);
-    if (isArgumentGiven(integral.name)) {
+    if (in.present(integral.name)) {
       auto it(std::find(is.begin(), is.end(), NO));
       if (No == NxUndefined && it != is.end()) {
         auto tensor(in.get<Tensor<double> *>(integral.name));
@@ -108,7 +127,7 @@ IMPLEMENT_ALGORITHM(FcidumpWriter) {
   // TODO: do this really well, now it's kind of a hack
   // TODO: also write the header into the file
   for (const auto &integral : allIntegrals) {
-    if (!isArgumentGiven(integral.name)) continue;
+    if (!in.present(integral.name)) continue;
     auto tensor(in.get<Tensor<double> *>(integral.name));
     FILE *fd;
     fd = std::fopen(_FORMAT("%s.fcidump", integral.name.c_str()).c_str(), "w+");

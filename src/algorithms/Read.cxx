@@ -1,11 +1,13 @@
 #include <vector>
 
-#include <util/Yaml.hpp>
-#include <Sisi4s.hpp>
+#include <vendor/filesystem.hpp>
+
 #include <algorithms/Read.hpp>
 #include <algorithms/TensorWriter.hpp>
+#include <Sisi4s.hpp>
+#include <util/Log.hpp>
 #include <util/Tensor.hpp>
-#include <vendor/filesystem.hpp>
+#include <util/Yaml.hpp>
 
 namespace sisi4s {
 
@@ -24,14 +26,10 @@ static Tensor<F> *new_tensor_from_dimensions(cc4s::Dimensions const &dims) {
 
 IMPLEMENT_EMPTY_DRYRUN(Read) {}
 
-
+// TODO: implement the templating mechanism for specs
+using F = double;
 DEFSPEC(Read,
-        SPEC_IN({"fileName", SPEC_VALUE("TODO: DOC", std::string)},
-                {"fileName",
-                 SPEC_VALUE_DEF("TODO: DOC", std::string, dataName)},
-                {source_name, SPEC_VARIN("TODO: DOC", Tensor<Float64> *)},
-                {source_name,
-                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::Complex64> *)}),
+        SPEC_IN({"fileName", SPEC_VALUE("TODO: DOC", std::string)->require()}),
         SPEC_OUT({"destination", SPEC_VAROUT("TODO: DOC", Tensor<F> *)}));
 
 IMPLEMENT_ALGORITHM(Read) {
@@ -303,51 +301,55 @@ namespace sisi4s {
 
 IMPLEMENT_EMPTY_DRYRUN(Write) {}
 
-
-DEFSPEC(Read,
+using F = double;
+DEFSPEC(Write,
         SPEC_IN({"fileName", SPEC_VALUE("TODO: DOC", std::string)},
-                {"fileName",
-                 SPEC_VALUE_DEF("TODO: DOC", std::string, dataName)},
-                {source_name, SPEC_VARIN("TODO: DOC", Tensor<Float64> *)},
-                {source_name,
-                 SPEC_VARIN("TODO: DOC", Tensor<sisi4s::Complex64> *)}),
+                {"binary", SPEC_VALUE("TODO: DOC", bool)->require()},
+                {"unit",
+                 SPEC_VALUE_DEF("Write explicitly a unit out", double, 1.0)},
+                {"source",
+                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()}),
         SPEC_OUT({"destination", SPEC_VAROUT("TODO: DOC", Tensor<F> *)}));
 
 IMPLEMENT_ALGORITHM(Write) {
-
+  using TD = Tensor<double> *;
+  using TZ = Tensor<sisi4s::complex> *;
   using namespace sisi4s::cc4s;
-  const bool binary_p = getBooleanArgument("binary", true);
+  const bool binary_p = in.get<bool>("binary");
 
   ReadHeader header;
   header.version = ReadHeader::Version::ONE;
   header.type = ReadableType::Tensor;
   header.elementsType =
       binary_p ? ElementFileType::IeeeBinaryFile : ElementFileType::TextFile;
-  header.unit = 1.0;
+  header.unit = in.get<double>("unit");
 
   std::string
 
       source_name = "source",
-      dataName = in.get_var(source_name)->getName(),
-      fileNameInput = in.get<std::string>("fileName", dataName);
+      dataName = in.get_var(source_name),
+      fileNameInput = in.get<std::string>("fileName");
 
   const auto dataPath = fs::path(fileNameInput)
                             .replace_extension(fs::path("elements")),
              yamlPath =
                  fs::path(fileNameInput).replace_extension(fs::path("yaml"));
 
-  if (in.is_of_type<Tensor<double> *>("source")) {
+  if (in.is_of_type<TD>(source_name)) {
     LOG(1, "TensorWriter") << "Writing real tensor" << std::endl;
-    auto t = in.get<Tensor<Float64> *>(source_name);
-    for (size_t i = 0; i < t->order; i++)
-      header.dimensions.push_back({t->lens[i], AxisType::State});
+    auto t = in.get<TD>(source_name);
+    for (decltype(t->order) i = 0; i < t->order; i++) {
+      header.dimensions.push_back(
+          {static_cast<size_t>(t->lens[i]), AxisType::State});
+    }
     TensorWriter::write<Float64>(dataName, dataPath, t, binary_p, "", "", "");
     header.scalarType = ScalarType::Real64;
   } else {
     LOG(1, "TensorWriter") << "Writing complex tensor" << std::endl;
-    auto t = in.get<Tensor<sisi4s::Complex64> *>(source_name);
-    for (size_t i = 0; i < t->order; i++)
+    auto t = in.get<TZ>(source_name);
+    for (decltype(t->order) i = 0; i < t->order; i++) {
       header.dimensions.push_back({t->lens[i], AxisType::State});
+    }
     TensorWriter::write<sisi4s::complex>(dataName,
                                          dataPath,
                                          t,
@@ -360,9 +362,6 @@ IMPLEMENT_ALGORITHM(Write) {
 
   YAML::Emitter yout;
   yout << YAML::convert<ReadHeader>::encode(header);
-  // YAML::Node node = header.scalarType;
-  // yout << YAML::convert<ReadHeader>(header);
-  // yout << header;
   std::ofstream fout(yamlPath);
   fout << yout.c_str();
 }

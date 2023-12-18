@@ -47,7 +47,7 @@ FcidumpReader::parseHeader(const std::string &filePath) {
   return header;
 }
 
-int indexToLenght(const char a, const int No, const int Nv) {
+static int indexToLenght(const char a, const int No, const int Nv) {
   if (a == 'h') {
     return No;
   } else if (a == 'p') {
@@ -122,7 +122,7 @@ struct IntegralParser {
     std::regex_match(line, matches, regex);
     std::vector<int> gIndices(lens.size());
     std::vector<int> gIndexLens(lens.size());
-    const int spin_uhf(uhf ? 1 : 2);
+    // const int spin_uhf(uhf ? 1 : 2);
 
     // matches = {line, value, index1, index2, ...}
     if (matches.size() == 0) return false;
@@ -185,16 +185,36 @@ struct IntegralParser {
   }
 };
 
-
 DEFSPEC(FcidumpReader,
-        SPEC_IN({"nelec", SPEC_VALUE_DEF("TODO: DOC", int64_t, -1)},
-                {"file", SPEC_VALUE_DEF("TODO: DOC", std::string, "FCIDUMP")}),
-        SPEC_OUT({name, SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+        SPEC_IN({"nelec", SPEC_VALUE("TODO: DOC", int64_t)->require()},
+                {"file", SPEC_VALUE("TODO: DOC", std::string)->require()}),
+        SPEC_OUT({"tt", SPEC_VAROUT("", Tensor<double> *)},
+                 {"tttt", SPEC_VAROUT("", Tensor<double> *)},
+                 {"hh", SPEC_VAROUT("", Tensor<double> *)},
+                 {"pp", SPEC_VAROUT("", Tensor<double> *)},
+                 {"hp", SPEC_VAROUT("", Tensor<double> *)},
+                 {"ph", SPEC_VAROUT("", Tensor<double> *)},
+                 {"hhhh", SPEC_VAROUT("", Tensor<double> *)},
+                 {"hhhp", SPEC_VAROUT("", Tensor<double> *)},
+                 {"hhph", SPEC_VAROUT("", Tensor<double> *)},
+                 {"hhpp", SPEC_VAROUT("", Tensor<double> *)},
+                 {"hphh", SPEC_VAROUT("", Tensor<double> *)},
+                 {"hphp", SPEC_VAROUT("", Tensor<double> *)},
+                 {"hpph", SPEC_VAROUT("", Tensor<double> *)},
+                 {"hppp", SPEC_VAROUT("", Tensor<double> *)},
+                 {"phhh", SPEC_VAROUT("", Tensor<double> *)},
+                 {"phhp", SPEC_VAROUT("", Tensor<double> *)},
+                 {"phph", SPEC_VAROUT("", Tensor<double> *)},
+                 {"phpp", SPEC_VAROUT("", Tensor<double> *)},
+                 {"pphh", SPEC_VAROUT("", Tensor<double> *)},
+                 {"pphp", SPEC_VAROUT("", Tensor<double> *)},
+                 {"ppph", SPEC_VAROUT("", Tensor<double> *)},
+                 {"pppp", SPEC_VAROUT("", Tensor<double> *)}));
 
 IMPLEMENT_ALGORITHM(FcidumpReader) {
-  const auto filePath(in.get<std::string>("file", "FCIDUMP"));
+  const auto filePath(in.get<std::string>("file"));
   // override the header of the fcidump
-  const int nelec(in.get<int64_t>("nelec", -1));
+  const int nelec(in.get<int64_t>("nelec"));
   FcidumpReader::FcidumpHeader header(parseHeader(filePath));
   if (nelec != -1) header.nelec = nelec;
   const int No((header.uhf == 1 ? 1 : 0.5) * header.nelec);
@@ -230,6 +250,7 @@ IMPLEMENT_ALGORITHM(FcidumpReader) {
       {"pppp", {NV, NV, NV, NV}, "abcd"},
   });
 
+  // TODO: get names from spec
   const std::vector<std::string> integralNames{
       "tt",   "tttt", "hh",   "pp",   "hp",   "ph",   "hhhh", "hhhp",
       "hhph", "hhpp", "hphh", "hphp", "hpph", "hppp", "phhh", "phhp",
@@ -237,7 +258,7 @@ IMPLEMENT_ALGORITHM(FcidumpReader) {
   std::vector<IntegralParser> integralParsers;
 
   for (const auto &name : integralNames) {
-    if (isArgumentGiven(name)) {
+    if (out.present(name)) {
       integralParsers.push_back(IntegralParser(name, header));
       LOG(0, "FcidumpReader") << "Parsing " << name << std::endl;
     }
@@ -265,7 +286,7 @@ IMPLEMENT_ALGORITHM(FcidumpReader) {
 
   for (auto &parser : integralParsers) {
     const auto &name(parser.name);
-    if (isArgumentGiven(name)) {
+    if (out.present(name)) {
       LOG(0, "FcidumpReader") << "Exporting: " << parser.name << std::endl;
       out.set<Tensor<double> *>(name, parser.allocateTensor());
     }

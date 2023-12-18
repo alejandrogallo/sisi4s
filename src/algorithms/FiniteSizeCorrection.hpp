@@ -12,7 +12,6 @@ DEFINE_ALGORITHM_HEADER(
     FiniteSizeCorrection,
 
     int NG;
-    static constexpr int DEFAULT_NUM_FIBONACCI = 128;
     std::vector<double> GLengths;
     std::vector<double> averageSGs;
     std::vector<double> meanErrorSG;

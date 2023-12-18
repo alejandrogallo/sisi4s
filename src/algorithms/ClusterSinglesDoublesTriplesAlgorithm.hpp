@@ -13,6 +13,17 @@
 #include <initializer_list>
 
 namespace sisi4s {
+
+#define CLUSTER_SINGLES_DOUBLES_TRIPLES_INSPEC                                 \
+  CLUSTER_SINGLES_DOUBLES_INSPEC, {                                            \
+    "initialDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<F> *)           \
+  }
+
+#define CLUSTER_SINGLES_DOUBLES_TRIPLES_OUTSPEC                                \
+  CLUSTER_SINGLES_DOUBLES_INSPEC, {                                            \
+    "TriplesAmplitudes", SPEC_VAROUT("TODO: DOC", Tensor<F> *)                 \
+  }
+
 /**
  * \brief Contains all the necessary tools for an algorithm with
  * singles, doubles and triples amplitudes.
