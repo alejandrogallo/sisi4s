@@ -1,5 +1,5 @@
 #include <algorithms/UccsdAmplitudesFromCoulombIntegrals.hpp>
-#include <algorithms/SimilarityTransformedHamiltonian.hpp>
+#include <equations/SimilarityTransformedHamiltonian.hpp>
 #include <unistd.h>
 #include <math/MathFunctions.hpp>
 #include <math/ComplexTensor.hpp>

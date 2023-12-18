@@ -1,4 +1,4 @@
-#include <algorithms/StantonIntermediatesUCCSD.hpp>
+#include <equations/StantonIntermediatesUCCSD.hpp>
 #include <vector>
 #include <map>
 #include <util/Tensor.hpp>

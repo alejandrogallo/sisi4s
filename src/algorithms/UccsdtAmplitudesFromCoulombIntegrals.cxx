@@ -1,5 +1,5 @@
 #include <algorithms/UccsdtAmplitudesFromCoulombIntegrals.hpp>
-#include <algorithms/SimilarityTransformedHamiltonian.hpp>
+#include <equations/SimilarityTransformedHamiltonian.hpp>
 #include <unistd.h>
 #include <math/MathFunctions.hpp>
 #include <math/ComplexTensor.hpp>
@@ -18,7 +18,6 @@ using namespace sisi4s;
 #else
 #  define LDEBUG(msg)
 #endif
-
 
 DEFSPEC(
     UccsdtAmplitudesFromCoulombIntegrals,

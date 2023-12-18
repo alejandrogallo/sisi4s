@@ -18,8 +18,7 @@
   type &with##name() { return _with##name; }                                   \
   type _with##name = default
 
-#include <algorithms/Algorithm.hpp>
-#include <algorithms/StantonIntermediatesUCCSD.hpp>
+#include <equations/StantonIntermediatesUCCSD.hpp>
 #include <math/FockVector.hpp>
 #include <util/SharedPointer.hpp>
 #include <util/Tensor.hpp>

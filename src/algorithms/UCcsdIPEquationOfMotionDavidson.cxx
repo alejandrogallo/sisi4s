@@ -1,5 +1,5 @@
 #include <algorithms/UCcsdIPEquationOfMotionDavidson.hpp>
-#include <algorithms/SimilarityTransformedHamiltonian.hpp>
+#include <equations/SimilarityTransformedHamiltonian.hpp>
 #include <algorithms/CcsdPreconditioner.hpp>
 #include <algorithms/OneBodyReducedDensityMatrix.hpp>
 
@@ -22,7 +22,6 @@
 using namespace sisi4s;
 
 IMPLEMENT_EMPTY_DRYRUN(UCcsdIPEquationOfMotionDavidson) {}
-
 
 DEFSPEC(
     UCcsdIPEquationOfMotionDavidson,

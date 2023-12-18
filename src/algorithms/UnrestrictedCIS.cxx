@@ -1,5 +1,5 @@
 #include <algorithms/CcsdPreconditioner.hpp>
-#include <algorithms/SimilarityTransformedHamiltonian.hpp>
+#include <equations/SimilarityTransformedHamiltonian.hpp>
 #include <algorithms/UnrestrictedCIS.hpp>
 
 #include <Sisi4s.hpp>
@@ -196,7 +196,6 @@ static void runGeneral(Algorithm *alg) {
 }
 
 IMPLEMENT_EMPTY_DRYRUN(UnrestrictedCIS) {}
-
 
 DEFSPEC(
     UnrestrictedCIS,

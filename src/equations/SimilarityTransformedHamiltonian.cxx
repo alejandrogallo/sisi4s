@@ -15,8 +15,8 @@ he equations in this file are taken from the following sources
 #include <DryTensor.hpp>
 #include <Options.hpp>
 #include <Sisi4s.hpp>
-#include <algorithms/SimilarityTransformedHamiltonian.hpp>
-#include <algorithms/StantonIntermediatesUCCSD.hpp>
+#include <equations/SimilarityTransformedHamiltonian.hpp>
+#include <equations/StantonIntermediatesUCCSD.hpp>
 #include <math/ComplexTensor.hpp>
 #include <math/MathFunctions.hpp>
 #include <mixers/Mixer.hpp>

@@ -1,5 +1,5 @@
 #include <algorithms/CcsdEquationOfMotionDavidson.hpp>
-#include <algorithms/SimilarityTransformedHamiltonian.hpp>
+#include <equations/SimilarityTransformedHamiltonian.hpp>
 #include <algorithms/CcsdPreconditioner.hpp>
 #include <algorithms/OneBodyReducedDensityMatrix.hpp>
 

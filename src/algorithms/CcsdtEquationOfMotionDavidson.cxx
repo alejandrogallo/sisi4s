@@ -1,5 +1,5 @@
 #include <algorithms/CcsdtEquationOfMotionDavidson.hpp>
-#include <algorithms/SimilarityTransformedHamiltonian.hpp>
+#include <equations/SimilarityTransformedHamiltonian.hpp>
 #include <algorithms/CcsdPreconditioner.hpp>
 #include <algorithms/OneBodyReducedDensityMatrix.hpp>
 
@@ -20,7 +20,6 @@
 #include <limits>
 
 using namespace sisi4s;
-
 
 DEFSPEC(
     CcsdtEquationOfMotionDavidson,

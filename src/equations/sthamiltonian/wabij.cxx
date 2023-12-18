@@ -1,4 +1,4 @@
-#include <algorithms/SimilarityTransformedHamiltonian.hpp>
+#include <equations/SimilarityTransformedHamiltonian.hpp>
 #include <math/Complex.hpp>
 #ifdef DEBUG
 #  define ST_DEBUG(msg)                                                        \

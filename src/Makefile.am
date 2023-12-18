@@ -44,6 +44,10 @@ sisi4s_SOURCES +=                                                 \
 ./math/PseudoInverseSvd.cxx                                      \
 ./math/ComplexTensor.cxx                                         \
 ./math/MathFunctions.cxx                                         \
+./equations/StantonIntermediatesUCCSD.cxx                        \
+./equations/sthamiltonian/wabij.cxx                             \
+./equations/sthamiltonian/wabcijk.cxx                           \
+./equations/SimilarityTransformedHamiltonian.cxx                \
 ./algorithms/FromComplexTensor.cxx                               \
 ./algorithms/TensorNorm.cxx                                      \
 ./algorithms/TensorSum.cxx                                       \
@@ -73,10 +77,6 @@ sisi4s_SOURCES +=                                                 \
 ./algorithms/TensorAntisymmetrizer.cxx                           \
 ./algorithms/FockMatrixFromCoulombIntegrals.cxx                  \
 ./algorithms/UccsdAmplitudesFromCoulombIntegrals.cxx             \
-./algorithms/StantonIntermediatesUCCSD.cxx                       \
-./algorithms/sthamiltonian/wabij.cxx                             \
-./algorithms/sthamiltonian/wabcijk.cxx                           \
-./algorithms/SimilarityTransformedHamiltonian.cxx                \
 ./algorithms/MeanCorrelationHoleDepth.cxx                        \
 ./algorithms/CcsdEquationOfMotionDavidson.cxx                    \
 ./algorithms/PQRSCoulombIntegralsToVertex.cxx \
