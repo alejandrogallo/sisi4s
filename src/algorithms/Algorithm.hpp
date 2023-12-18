@@ -126,11 +126,21 @@ public:
   public:                                                                      \
     ALGORITHM_REGISTRAR_DECLARATION(NAME);                                     \
     using Algorithm::Algorithm;                                                \
-    static AlgorithmInputSpec spec;                                            \
     virtual void run();                                                        \
     virtual void dryRun();                                                     \
     __VA_ARGS__                                                                \
   }
+
+#define DEFSTEP(name)                                                          \
+  class name;                                                                  \
+  static AlgorithmRegistrar<name> name##_registrar(#name);                     \
+  class name : public Algorithm {                                              \
+    using Algorithm::Algorithm;                                                \
+    virtual std::string getName() { return #name; }                            \
+    virtual void dryRun() {}                                                   \
+    virtual void run();                                                        \
+  };                                                                           \
+  void name::run()
 
 } // namespace sisi4s
 

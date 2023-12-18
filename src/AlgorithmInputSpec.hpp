@@ -231,6 +231,7 @@ public:
   { __VA_ARGS__ }
 #define SPEC_OUT(...)                                                          \
   { __VA_ARGS__ }
-#define DEFSPEC(NAME, ...) AlgorithmInputSpec NAME::spec(#NAME, __VA_ARGS__)
+#define DEFSPEC(NAME, ...)                                                     \
+  static AlgorithmInputSpec NAME##_spec(#NAME, __VA_ARGS__)
 
 #endif
