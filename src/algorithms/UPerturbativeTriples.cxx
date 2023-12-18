@@ -1,4 +1,4 @@
-#include <algorithms/UPerturbativeTriples.hpp>
+#include <Step.hpp>
 #include <math/MathFunctions.hpp>
 #include <DryTensor.hpp>
 #include <util/Log.hpp>
@@ -7,7 +7,6 @@
 #include <util/Tensor.hpp>
 
 using namespace sisi4s;
-
 
 DEFSPEC(
     UPerturbativeTriples,
@@ -22,7 +21,7 @@ DEFSPEC(
         {"PPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
     SPEC_OUT());
 
-IMPLEMENT_ALGORITHM(UPerturbativeTriples) {
+DEFSTEP(UPerturbativeTriples) {
   Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
   Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
   Tensor<double> *Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
@@ -316,33 +315,4 @@ IMPLEMENT_ALGORITHM(UPerturbativeTriples) {
   LOG(0, "PerturbativeTriples") << "triples=" << eTriples << std::endl;
 
   setRealArgument("PerturbativeTriplesEnergy", energy);
-}
-
-void UPerturbativeTriples::dryRun() {
-  in.get<DryTensor<double> *>("PPHHCoulombIntegrals");
-  in.get<DryTensor<double> *>("HHHPCoulombIntegrals");
-  in.get<DryTensor<double> *>("PPPHCoulombIntegrals");
-
-  DryTensor<> *Tai(in.get<DryTensor<double> *>("CcsdSinglesAmplitudes"));
-  DryTensor<> *Tabij(in.get<DryTensor<double> *>("CcsdDoublesAmplitudes"));
-
-  // Read the Particle/Hole Eigenenergies epsi epsa required for the energy
-  DryTensor<> *epsi(in.get<DryTensor<double> *>("HoleEigenEnergies"));
-  DryTensor<> *epsa(in.get<DryTensor<double> *>("ParticleEigenEnergies"));
-
-  // Compute the No,Nv
-  int No(epsi->lens[0]);
-  int Nv(epsa->lens[0]);
-
-  // Allocate the doubles amplitudes
-  int vvvooo[] = {Nv, Nv, Nv, No, No, No};
-  int syms[] = {NS, NS, NS, NS, NS, NS};
-  DryTensor<> Tabcijk(6, vvvooo, syms, SOURCE_LOCATION);
-
-  { DryTensor<> Zabcijk(6, vvvooo, syms, SOURCE_LOCATION); }
-
-  DryTensor<> Zai(*Tai, SOURCE_LOCATION);
-  DryTensor<> Zabij(*Tabij, SOURCE_LOCATION);
-
-  DryScalar<> energy();
 }

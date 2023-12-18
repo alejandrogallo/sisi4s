@@ -1,12 +1,13 @@
-#include <algorithms/UegVertexGenerator.hpp>
+#include <Step.hpp>
 
-#include <util/Log.hpp>
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
 #include <util/Tensor.hpp>
 #include <math/Complex.hpp>
-
 using namespace sisi4s;
+
+using ivec = std::array<int, 3>;
+using dvec = std::array<double, 4>;
 
 static double evalMadelung(const double v) {
   double kappa = pow(v, -1.0 / 3.0);
@@ -44,8 +45,6 @@ Vijji(const double madelung, const dvec a, const dvec b, const double v) {
   return 4.0 * M_PI / v / sL(q);
 }
 
-IMPLEMENT_EMPTY_DRYRUN(UegVertexGenerator) {}
-
 DEFSPEC(
     UegVertexGenerator,
     SPEC_IN(
@@ -70,14 +69,14 @@ DEFSPEC(
               SPEC_VAROUT("The Coulomb vergex Γ[Gpq] calculated",
                           Tensor<sisi4s::complex> *)}));
 
-IMPLEMENT_ALGORITHM(UegVertexGenerator) {
+DEFSTEP(UegVertexGenerator) {
   // We use the HF reference by default.
   bool lhfref(in.get<bool>("hartreeFock"));
   bool lclosed(true);
   const size_t No = in.get<size_t>("No"), Nv = in.get<size_t>("Nv");
   size_t NF = in.get<size_t>("NF");
   double rs = in.get<double>("rs");
-  halfGrid = in.get<bool>("halfGrid");
+  bool halfGrid = in.get<bool>("halfGrid");
   double madelung = in.get<double>("madelung");
   size_t Np(No + Nv);
   if (rs <= 0.0) throw("Invalid rs");
@@ -227,7 +226,7 @@ IMPLEMENT_ALGORITHM(UegVertexGenerator) {
   }
   slices = slicePerRank[rank];
   // allocate only a buffer of needed size
-  std::vector<complex> out(NF * Np * slices, {0, 0});
+  std::vector<sisi4s::complex> out(NF * Np * slices, {0, 0});
   // determine begin and end of the rank's slices
   auto sbegin(std::accumulate(slicePerRank.begin(),
                               slicePerRank.begin() + rank,
