@@ -1,14 +1,9 @@
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <algorithms/MoReader.hpp>
+#include <Step.hpp>
 #include <Sisi4s.hpp>
 #include <util/Log.hpp>
 #include <fstream>
 #include <util/Tensor.hpp>
-#include <numeric>
 #include <set>
-#include <map>
 #include <util/Parsing.hpp>
 #include <util/AngularMomentum.hpp>
 #include <util/BasisSet.hpp>
@@ -24,8 +19,6 @@
   if (out.present(_l)) { __VA_ARGS__ }
 
 using namespace sisi4s;
-
-IMPLEMENT_EMPTY_DRYRUN(MoReader) {}
 
 int frozenElement(std::string e) {
   if (e == "H" || e == "He") return 0;
@@ -108,8 +101,10 @@ struct ShellParser {
   }
 };
 
-std::map<std::string, std::map<std::string, std::vector<double>>>
-    MoReader::DEFAULT_SCALINGS = {
+static std::string PSI4 = "psi4", NWCHEM = "nwchem", TURBOMOLE = "turbomole";
+
+static std::map<std::string, std::map<std::string, std::vector<double>>>
+    DEFAULT_SCALINGS = {
         {"nwchem",
          {{"DScaling", {1, 1, 1, -1, 1}},
           {"FScaling", {1, 1, 1, 1, -1, 1, -1}},
@@ -122,17 +117,16 @@ std::map<std::string, std::map<std::string, std::vector<double>>>
           {"GScaling", {1, 1, 1, 1, -1, 1, -1, 1, 1}},
           {"HScaling", {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}}}}};
 
-std::map<std::string, std::map<std::string, std::vector<int64_t>>>
-    MoReader::DEFAULT_REORDER = {
-        {"nwchem", {}},
-        {"psi4", {}},
-        {"turbomole",
-         {{"DReorder", {3, 2, 0, 1, 4}},
-          {"FReorder", {6, 3, 2, 0, 1, 4, 5}},
-          {"GReorder", {7, 6, 3, 2, 0, 1, 4, 5, 8}},
-          {"HReorder", {10, 7, 6, 3, 2, 0, 1, 4, 5, 8, 9}}}}};
+static std::map<std::string, std::map<std::string, std::vector<int64_t>>>
+    DEFAULT_REORDER = {{"nwchem", {}},
+                       {"psi4", {}},
+                       {"turbomole",
+                        {{"DReorder", {3, 2, 0, 1, 4}},
+                         {"FReorder", {6, 3, 2, 0, 1, 4, 5}},
+                         {"GReorder", {7, 6, 3, 2, 0, 1, 4, 5, 8}},
+                         {"HReorder", {10, 7, 6, 3, 2, 0, 1, 4, 5, 8, 9}}}}};
 
-std::vector<std::string> MoReader::BACKENDS = {"nwchem", "psi4", "turbomole"};
+static std::vector<std::string> BACKENDS = {"nwchem", "psi4", "turbomole"};
 
 DEFSPEC(
     MoReader,
@@ -161,7 +155,7 @@ DEFSPEC(
         {"ParticleEigenEnergies", SPEC_VAROUT("TODO: DOC", Tensor<double> *)},
         {"Spins", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
 
-IMPLEMENT_ALGORITHM(MoReader) {
+DEFSTEP(MoReader) {
   std::vector<std::string> args;
   const std::string fileName(in.get<std::string>("file")),
       xyz(in.get<std::string>("xyzStructureFile")),
@@ -180,7 +174,7 @@ IMPLEMENT_ALGORITHM(MoReader) {
     return std::make_pair<const am::AngularMomentum, std::vector<double>>(
         am::fromString(s),
         in.present(name) ? in.get<std::vector<double>>(name)
-                         : this->DEFAULT_SCALINGS[backend][name]);
+                         : DEFAULT_SCALINGS[backend][name]);
   };
   // make <shell>Reorder
   const auto _r = [&](std::string const s) {
@@ -188,7 +182,7 @@ IMPLEMENT_ALGORITHM(MoReader) {
     return std::make_pair<const am::AngularMomentum, std::vector<int64_t>>(
         am::fromString(s),
         in.present(name) ? in.get<std::vector<int64_t>>(name)
-                         : this->DEFAULT_REORDER[backend][name]);
+                         : DEFAULT_REORDER[backend][name]);
   };
   struct {
     const std::map<am::AngularMomentum, std::vector<double>> scaling;
