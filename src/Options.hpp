@@ -14,7 +14,7 @@ public:
   std::string in_file, log_file, yaml_out_file, lisp_file, name;
   int argc;
   char **argv;
-  bool list_algorithms_p, dryRun;
+  bool list_algorithms_p, dryRun, force = false, only_check_input = false;
   std::vector<std::string> algo_specs;
 
   static const int DEFAULT_LOG_LEVEL = 1;

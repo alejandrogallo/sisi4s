@@ -39,7 +39,7 @@ DEFSPEC(
             {"PPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
             {"PPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
             {"PPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)}),
-    SPEC_OUT());
+    SPEC_OUT(CLUSTER_SINGLES_DOUBLES_OUTSPEC));
 
 IMPLEMENT_ALGORITHM(UccsdAmplitudesFromCoulombIntegrals) {
 

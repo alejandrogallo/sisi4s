@@ -14,9 +14,6 @@
 #include <util/Emitter.hpp>
 #include <util/Exception.hpp>
 
-// TODO: to be removed from the main class
-#include <math/MathFunctions.hpp>
-
 using namespace sisi4s;
 
 void Sisi4s::run() {
@@ -25,11 +22,13 @@ void Sisi4s::run() {
   listHosts();
   std::vector<Algorithm *> algorithms;
 
-
   if (options->in_file.size()) {
-    InputFileParser<InputFileFormat::YAML> parser(options->in_file);
+    InputFileParser<InputFileFormat::YAML> parser(options->in_file,
+                                                  !options->force);
     algorithms = parser.parse();
   }
+  if (options->only_check_input) { std::exit(0); }
+
   LOG(0, "root") << "execution plan read, steps=" << algorithms.size()
                  << std::endl;
   EMIT() << YAML::Key << "execution-plan-size" << YAML::Value
@@ -125,7 +124,8 @@ void Sisi4s::dryRun() {
   printBanner();
   LOG(0, "root") << "DRY RUN - nothing will be calculated" << std::endl;
   OUT() << std::endl;
-  InputFileParser<InputFileFormat::YAML> parser(options->in_file);
+  InputFileParser<InputFileFormat::YAML> parser(options->in_file,
+                                                options->force);
   std::vector<Algorithm *> algorithms(parser.parse());
   LOG(0, "root") << "execution plan read, steps=" << algorithms.size()
                  << std::endl;

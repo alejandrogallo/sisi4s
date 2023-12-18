@@ -16,6 +16,7 @@ sisi4s_SOURCES =                                                 \
 ./algorithms/Algorithm.cxx                                       \
 ./Sisi4s.cxx                                                     \
 ./Options.cxx                                                    \
+./util/Tensor.cxx                                            \
 ./util/BlacsWorld.cxx                                            \
 ./util/Emitter.cxx                                               \
 ./util/Parsing.cxx                                               \

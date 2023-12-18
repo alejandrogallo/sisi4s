@@ -1,12 +1,13 @@
 #include <fstream>
 #include <locale>
 
+#include <yaml-cpp/yaml.h>
+
 #include <AlgorithmInputSpec.hpp>
 #include <Parser.hpp>
 #include <algorithms/Algorithm.hpp>
 #include <util/Exception.hpp>
 #include <util/Log.hpp>
-#include <yaml-cpp/yaml.h>
 #include <NewData.hpp>
 
 using namespace sisi4s;
@@ -16,8 +17,10 @@ using namespace sisi4s;
 ///////////////////////////////////////////////////////////////////////////////
 
 InputFileParser<InputFileFormat::YAML>::InputFileParser(
-    std::string const &fileName_)
-    : fileName(fileName_) {}
+    std::string const &fileName_,
+    bool e)
+    : fileName(fileName_)
+    , exit_on_warnings(e) {}
 
 InputFileParser<InputFileFormat::YAML>::~InputFileParser() {}
 
@@ -48,7 +51,7 @@ std::vector<Algorithm *> InputFileParser<InputFileFormat::YAML>::parse() {
     };
     std::vector<Phase> phases = {{"in", spec.in, in}, {"out", spec.out, out}};
 
-    std::cout << "\n\nCalling spec for " << name << ">> " << std::endl;
+    // std::cout << "\n\nCalling spec for " << name << ">> " << std::endl;
 
     for (auto &phase : phases) {
       for (auto const &pair : phase.spec) {
@@ -70,8 +73,8 @@ std::vector<Algorithm *> InputFileParser<InputFileFormat::YAML>::parse() {
         /* const std::string provided_key = found_pair->second; */
         if (found_node_p) {
           const std::string yaml_string = yaml_node.Scalar();
-          std::cout << "\t> " << name << "." << phase.section << "."
-                    << pair.first << std::endl;
+          // std::cout << "\t> " << name << "." << phase.section << "."
+          //           << pair.first << std::endl;
           spec->parse(yaml_string);
           if (!spec->validate()) {
             const auto warnings = spec->warnings(yaml_string);
@@ -90,8 +93,8 @@ std::vector<Algorithm *> InputFileParser<InputFileFormat::YAML>::parse() {
           phase.args.push(key_name, db_index);
         } else {
           if (spec->has_default) {
-            std::cout << "\t> (def) " << name << "." << phase.section << "."
-                      << pair.first << std::endl;
+            // std::cout << "\t> (def) " << name << "." << phase.section << "."
+            //           << pair.first << std::endl;
             phase.args.push(key_name, spec->commit());
           } else if (spec->required) {
             errors.push_back(
@@ -166,7 +169,7 @@ std::vector<Algorithm *> InputFileParser<InputFileFormat::YAML>::parse() {
             w.c_str());
       }
     }
-    std::exit(1);
+    if (exit_on_warnings) std::exit(1);
   }
 
   return algorithms;

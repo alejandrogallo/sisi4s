@@ -90,7 +90,8 @@ IMPLEMENT_EMPTY_DRYRUN(TensorUnrestricter) {}
 
 DEFSPEC(TensorUnrestricter,
         SPEC_IN({"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()}),
-        SPEC_OUT({"Out", SPEC_VAROUT("TODO: DOC", Tensor<double> *)}));
+        SPEC_OUT({"Out",
+                  SPEC_VAROUT("TODO: DOC", Tensor<double> *)->require()}));
 
 IMPLEMENT_ALGORITHM(TensorUnrestricter) {
 

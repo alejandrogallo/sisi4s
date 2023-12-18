@@ -111,27 +111,26 @@ is yaml. A typical input for an algorithm is the following
     unrestricted: 1
     mixer: "DiisMixer"
     maxResidua: 4
-    HoleEigenEnergies: $HoleEigenEnergies
-    ParticleEigenEnergies: $ParticleEigenEnergies
-    HHHHCoulombIntegrals: $HHHHCoulombIntegrals
-    PPPPCoulombIntegrals: $PPPPCoulombIntegrals
-    HHHPCoulombIntegrals: $HHHPCoulombIntegrals
-    HHPPCoulombIntegrals: $HHPPCoulombIntegrals
-    HPHHCoulombIntegrals: $HPHHCoulombIntegrals
-    HPHPCoulombIntegrals: $HPHPCoulombIntegrals
-    HPPPCoulombIntegrals: $HPPPCoulombIntegrals
-    PPHHCoulombIntegrals: $PPHHCoulombIntegrals
-    PPHPCoulombIntegrals: $PPHPCoulombIntegrals
-    HPPHCoulombIntegrals: $HPPHCoulombIntegrals
-    PHPPCoulombIntegrals: $PHPPCoulombIntegrals
-    HHPHCoulombIntegrals: $HHPHCoulombIntegrals
-    PPPHCoulombIntegrals: $PPPHCoulombIntegrals
-    PHPHCoulombIntegrals: $PHPHCoulombIntegrals
-    PHHPCoulombIntegrals: $PHHPCoulombIntegrals
+    HoleEigenEnergies: HoleEigenEnergies
+    ParticleEigenEnergies: ParticleEigenEnergies
+    HHHHCoulombIntegrals: HHHHCoulombIntegrals
+    PPPPCoulombIntegrals: PPPPCoulombIntegrals
+    HHHPCoulombIntegrals: HHHPCoulombIntegrals
+    HHPPCoulombIntegrals: HHPPCoulombIntegrals
+    HPHHCoulombIntegrals: HPHHCoulombIntegrals
+    HPHPCoulombIntegrals: HPHPCoulombIntegrals
+    HPPPCoulombIntegrals: HPPPCoulombIntegrals
+    PPHHCoulombIntegrals: PPHHCoulombIntegrals
+    PPHPCoulombIntegrals: PPHPCoulombIntegrals
+    HPPHCoulombIntegrals: HPPHCoulombIntegrals
+    PHPPCoulombIntegrals: PHPPCoulombIntegrals
+    HHPHCoulombIntegrals: HHPHCoulombIntegrals
+    PPPHCoulombIntegrals: PPPHCoulombIntegrals
+    PHPHCoulombIntegrals: PHPHCoulombIntegrals
+    PHHPCoulombIntegrals: PHHPCoulombIntegrals
   out:
-    UccsdDoublesAmplitudes: $UccsdDoublesAmplitudes
-    UccsdSinglesAmplitudes: $UccsdSinglesAmplitudes
-    UccsdEnergy: $UccsdEnergy
+    DoublesAmplitudes: UccsdDoublesAmplitudes
+    SinglesAmplitudes: UccsdSinglesAmplitudes
 #+end_src
 
 From here, we can see that every algorithm block consists
@@ -145,11 +144,31 @@ of an `in` section and an `out` section.
     ...
 #+end_src
 
-Some rules extending yaml semantics have to be considered.
-Strings that start with a =$= sign are internal variables
-such as tensors. The reason of forcing this is to
-differentiate between yaml strings and symbols
-representing the name of an internal tensor.
+*** Names of settings and algorithms
+
+=sisi4s= is not sensitive to the naming convention
+used in the inputs, thus an input name such as
+=maxIterations= will be equivalent to the following
+inputs
+
+- =max-iterations=
+- =max_iterations=
+- =MAX-ITERATIONS=
+- =Max Iterations=
+- =max iterations=
+
+so that you can write the following
+
+#+begin_src yaml
+- name: Uccsd Amplitudes from Coulomb Integrals
+  in:
+    max-iterations: 32
+  out:
+    ...
+#+end_src
+
+=sisi4s= converts all inputs into a normal form which is
+case insensitive and removes any spaces, =_= or =-= symbols.
 
 *** Disabling steps
 
@@ -158,7 +177,7 @@ in addition to =in= and =out=, you can supply a =disable=
 section with values =true= or =false=, i.e.,
 
 #+begin_src yaml
-- name: UccsdAmplitudesFromCoulombIntegrals
+- name: Uccsd Amplitudes from Coulomb Integrals
   disable: true
   in:
     ...
@@ -166,7 +185,7 @@ section with values =true= or =false=, i.e.,
     ...
 #+end_src
 
-will simply ignore =UccsdAmplitudesFromCoulombIntegrals=.
+will simply ignore =Uccsd Amplitudes from Coulomb Integrals=.
 
 
 

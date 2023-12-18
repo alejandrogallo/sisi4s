@@ -33,9 +33,11 @@ class InputFileParser {
 template <>
 class InputFileParser<InputFileFormat::YAML> {
 public:
-  InputFileParser(std::string const &fileName);
+  InputFileParser(std::string const &fileName, bool exit_on_warnings);
   ~InputFileParser();
   std::vector<Algorithm *> parse();
+
+  bool exit_on_warnings = false;
 
 protected:
   std::string fileName;

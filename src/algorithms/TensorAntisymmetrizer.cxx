@@ -1,12 +1,3 @@
-#include <Sisi4s.hpp>
-#include <algorithms/TensorAntisymmetrizer.hpp>
-#include <math/MathFunctions.hpp>
-#include <util/Integrals.hpp>
-#include <util/Log.hpp>
-#include <util/SharedPointer.hpp>
-#include <util/Tensor.hpp>
-#include <util/Tensor.hpp>
-
 #include <algorithm>
 #include <iostream>
 #include <map>
@@ -15,6 +6,15 @@
 #include <string>
 #include <typeinfo>
 #include <vector>
+
+#include <Sisi4s.hpp>
+#include <algorithms/TensorAntisymmetrizer.hpp>
+#include <math/MathFunctions.hpp>
+#include <util/Integrals.hpp>
+#include <util/Log.hpp>
+#include <util/SharedPointer.hpp>
+#include <util/Tensor.hpp>
+#include <util/Tensor.hpp>
 
 using namespace sisi4s;
 

@@ -11,7 +11,6 @@ IMPLEMENT_EMPTY_DRYRUN(DefineHolesAndParticles) {}
 DEFSPEC(DefineHolesAndParticles,
         SPEC_IN({"fileName",
                  SPEC_VALUE("The yaml file path", std::string)->require()},
-                {"Data", SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
                 {"OrbitalCoefficients",
                  SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
         SPEC_OUT({"HoleEigenEnergies",

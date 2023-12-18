@@ -35,6 +35,12 @@ Options::Options(int argc_, char **argv_)
       ->default_val(log_file);
 
   app.add_flag("--dry", dryRun, "Do a dry run pass")->default_val(dryRun);
+  app.add_flag("-f,--force",
+               force,
+               "Run calculation even if there are warnings in the input");
+  app.add_flag("-c,--only-check-input",
+               only_check_input,
+               "Check only the validity of the input file");
 
   app.add_option("--log-level", log_level, "Log level")->default_val(log_level);
 
