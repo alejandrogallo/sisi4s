@@ -246,11 +246,7 @@ DEFSTEP(HartreeFockFromGaussian) {
 
   if (numberOfElectrons == -1) {
     numberOfElectrons = 0;
-    for (auto &atom : atoms) {
-      std::cout << atom.atomic_number << std::endl;
-      std::cout << atom.x << " " << atom.y << " " << atom.z << std::endl;
-      numberOfElectrons += atom.atomic_number;
-    }
+    for (auto &atom : atoms) { numberOfElectrons += atom.atomic_number; }
   }
 
   LOGGER(1) << "natoms: " << atoms.size() << std::endl;
@@ -314,19 +310,19 @@ DEFSTEP(HartreeFockFromGaussian) {
 
   LOGGER(1) << "Setting initial density matrix" << std::endl;
 
-  IF_GIVEN(
-      "initialOrbitalCoefficients",
-      LOGGER(1) << "with initialOrbitalCoefficients" << std::endl;
-      const auto ic_ctf(in.get<Tensor<double> *>("initialOrbitalCoefficients"));
-      const auto ic(sisi4s::toEigenMatrix(*ic_ctf));
-      const auto C_occ(ic.leftCols(No));
-      D = C_occ * C_occ.transpose();)
-  else {
+  if (in.present("initialOrbitalCoefficients")) {
+    LOGGER(1) << "with given initial orbital coefficients" << std::endl;
+    const auto ic_ctf(in.get<Tensor<double> *>("initialOrbitalCoefficients"));
+    const auto ic(sisi4s::toEigenMatrix(*ic_ctf));
+    const auto C_occ(ic.leftCols(No));
+    D = C_occ * C_occ.transpose();
+  } else {
     LOGGER(1) << "with whatever" << std::endl;
     D *= 0.0;
-    for (unsigned i = 0; i < Np; i++) {
-      for (unsigned j = i; j < i + 1; j++) { D(i, j) = 1; }
-    }
+    for (unsigned i = 0; i < No; i++) { D(i, i) = 1; }
+    // for (unsigned i = 0; i < Np; i++) {
+    //   for (unsigned j = i; j < i + 1; j++) { D(i, j) = 1; }
+    // }
   }
 
   unsigned int iter(0);
