@@ -27,7 +27,7 @@ void Sisi4s::run() {
                                                   !options->force);
     algorithms = parser.parse();
   }
-  if (options->only_check_input) { std::exit(0); }
+  if (options->only_check_input) { exit(0); }
 
   LOG(0, "root") << "execution plan read, steps=" << algorithms.size()
                  << std::endl;
@@ -158,17 +158,15 @@ void Sisi4s::printBanner() {
   buildDate << __DATE__ << " " << __TIME__;
 
   OUT()
-      << ("                          ____  _ ____  _ _  _  ___"
-          "\n"
-          "                         / ___|(_) ___|(_) || |/ ___|"
-          "\n"
-          "                         \\___ \\| \\___ \\| | || |\\___ \\"
-          "\n"
-          "                          ___) | |___) | |__   _|__) |"
-          "\n"
-          "                         |____/|_|____/|_|  |_||____/"
-          "\n"
-          "\n");
+      << ("\
+           ..######..####..######..####\n\
+           .##....##..##..##....##..##.\n\
+           .##........##..##........##.\n\
+           ..######...##...######...##.\n\
+           .......##..##........##..##.\n\
+           .##....##..##..##....##..##.\n\
+           ..######..####..######..####\n\
+\n");
 
   LOG(0, "root") << "version=" << SISI_COMMIT << ", date=" << __DATE__
                  << std::endl;

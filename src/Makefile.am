@@ -16,6 +16,7 @@ sisi4s_SOURCES =                                                 \
 ./NewData.cxx                                                    \
 ./algorithms/Algorithm.cxx                                       \
 ./Sisi4s.cxx                                                     \
+./Exit.cxx                                                     \
 ./Options.cxx                                                    \
 ./DryTensor.cxx                                                  \
 ./Parser.cxx                                                     \

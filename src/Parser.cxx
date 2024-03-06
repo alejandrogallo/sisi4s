@@ -5,6 +5,7 @@
 
 #include <AlgorithmInputSpec.hpp>
 #include <Parser.hpp>
+#include <Exit.hpp>
 #include <algorithms/Algorithm.hpp>
 #include <util/Exception.hpp>
 #include <util/Log.hpp>
@@ -169,7 +170,7 @@ std::vector<Algorithm *> InputFileParser<InputFileFormat::YAML>::parse() {
             w.c_str());
       }
     }
-    if (exit_on_warnings) std::exit(1);
+    if (exit_on_warnings) exit(1);
   }
 
   return algorithms;
