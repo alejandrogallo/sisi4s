@@ -10,7 +10,7 @@ Options::Options(int argc_, char **argv_)
     , in_file("")
     , log_file("sisi4s.log")
     , yaml_out_file("sisi4s.out.yaml")
-    , lisp_file("")
+    , lisp_file("sisi.yaml")
     , name("")
     , argc(argc_)
     , argv(argv_)
@@ -19,12 +19,7 @@ Options::Options(int argc_, char **argv_)
     , algo_specs({}) {
 
   app.add_option("-i,--in", in_file, "Input file path")
-      ->check(CLI::ExistingFile)
-#if defined(HAVE_LISP)
-      ;
-#else
-      ->required(true);
-#endif
+      ->check(CLI::ExistingFile);
 
   app.add_option("-n,--name", name, "Name of the calculation");
 

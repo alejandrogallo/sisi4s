@@ -18,8 +18,6 @@ using namespace sisi4s;
 
 void Sisi4s::run() {
   EMIT() << YAML::BeginMap;
-  printBanner();
-  listHosts();
   std::vector<Algorithm *> algorithms;
 
   if (options->in_file.size()) {
@@ -27,6 +25,35 @@ void Sisi4s::run() {
                                                   !options->force);
     algorithms = parser.parse();
   }
+  if (options->algo_specs.size()) {
+    for (auto const &step_name : options->algo_specs) {
+      const auto spec =
+          AlgorithmInputSpec::map[AlgorithmFactory::normalize_name(step_name)];
+      std::string separator =
+          std::regex_replace(step_name, std::regex("."), "=");
+      std::cout << "\n" << step_name << std::endl;
+      std::cout << separator << std::endl;
+      int i = 0;
+      std::string _inout[] = {"in", "out"};
+      for (auto const &inout : {spec.in, spec.out}) {
+        std::cout << _inout[i++] << std::endl;
+        std::cout << "--------------------" << std::endl;
+        for (auto const &keyval : inout) {
+          const std::string keyname = keyval.first;
+          const auto _spec = keyval.second;
+          std::cout << "\t" << keyname << (_spec->required ? " [required]" : "")
+                    << std::endl;
+          std::cout << "\t\t" << _spec->doc << std::endl;
+        }
+      }
+    }
+
+    exit(0);
+  }
+
+  printBanner();
+  listHosts();
+
   if (options->only_check_input) { exit(0); }
 
   LOG(0, "root") << "execution plan read, steps=" << algorithms.size()
