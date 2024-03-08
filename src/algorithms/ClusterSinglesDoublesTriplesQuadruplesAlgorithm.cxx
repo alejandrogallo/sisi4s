@@ -29,7 +29,7 @@ void ClusterSinglesDoublesTriplesQuadruplesAlgorithm::run() {
   } else {
     e = std::real(run<complex>());
   }
-  setRealArgument(getDataName("", "Energy"), e);
+  setRealArgument("Energy", e);
 }
 
 template <typename F>

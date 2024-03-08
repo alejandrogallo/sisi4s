@@ -140,7 +140,7 @@ protected:
 
   template <typename F>
   void storeAmplitudes(const PTR(const FockVector<F>) &amplitudes,
-                       std::vector<std::string> names);
+                       std::vector<std::string> const &names);
 
   /**
    * \brief Calculates and returns one slice Xxycd of the Coulomb integrals
@@ -200,8 +200,6 @@ protected:
    * \brief The abbreviation of the algorithm in capital letters.
    **/
   std::string getCapitalizedAbbreviation();
-
-  std::string getDataName(const std::string &type, const std::string &data);
 };
 } // namespace sisi4s
 

@@ -269,12 +269,12 @@ ClusterSinglesDoublesAlgorithm::createAmplitudes(
 template <typename F>
 void ClusterSinglesDoublesAlgorithm::storeAmplitudes(
     const PTR(const FockVector<F>) &amplitudes,
-    std::vector<std::string> names) {
+    std::vector<std::string> const& names) {
   int component(0);
-  // TODO: change this to SinglesAmplitudes and DoublesAmplitudes
-  for (auto name : names) {
-    if (out.present(getDataName(name, "Amplitudes"))) {
-      out.set<Tensor<F> *>(getDataName(name, "Amplitudes"),
+  for (auto const& name : names) {
+    const auto new_name = name + "Amplitudes";
+    if (out.present(new_name)) {
+      out.set<Tensor<F> *>(new_name,
                            new Tensor<F>(*amplitudes->get(component)));
     }
     ++component;
@@ -918,12 +918,4 @@ std::string ClusterSinglesDoublesAlgorithm::getCapitalizedAbbreviation() {
                  capitalizedAbbreviation.begin(),
                  ::toupper);
   return capitalizedAbbreviation;
-}
-
-std::string
-ClusterSinglesDoublesAlgorithm::getDataName(const std::string &type,
-                                            const std::string &data) {
-  std::stringstream dataName;
-  dataName << getAbbreviation() << type << data;
-  return dataName.str();
 }
