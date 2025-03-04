@@ -2,6 +2,7 @@
 #include <equations/SimilarityTransformedHamiltonian.hpp>
 #include <algorithms/CcsdPreconditioner.hpp>
 #include <algorithms/OneBodyReducedDensityMatrix.hpp>
+#include <algorithms/eom/CommonSpec.hpp>
 
 #include <math/EigenSystemDavidson.hpp>
 #include <math/MathFunctions.hpp>
@@ -23,51 +24,18 @@ using namespace sisi4s;
 
 IMPLEMENT_EMPTY_DRYRUN(UCcsdEAEquationOfMotionDavidson) {}
 
-DEFSPEC(
-    UCcsdEAEquationOfMotionDavidson,
-    SPEC_IN(
-        {"amplitudesConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
-        {"energyConvergence", SPEC_VALUE_DEF("TODO: DOC", double, 1e-6)},
-        {"complexVersion", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
-        {"eigenstates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
-        {"intermediates", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
-        {"maxIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 32)},
-        {"minIterations", SPEC_VALUE_DEF("TODO: DOC", int64_t, 1)},
-        {"refreshOnMaxBasisSize", SPEC_VALUE_DEF("TODO: DOC", int64_t, 0)},
-        {"oneBodyRdmRange", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
-        {"printEigenvectorsRange",
-         SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
-        {"refreshIterations", SPEC_VALUE_DEF("TODO: DOC", std::string, "")},
-        {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"HHFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"HHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"HHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"HHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"HoleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"HPHHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"HPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"HPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"HPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"ParticleEigenEnergies", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"PHHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"PHPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"PHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"PPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"PPHPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"PPPHCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"PPPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<double> *)},
-        {"SinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<double> *)}),
-    SPEC_OUT());
+DEFSPEC(UCcsdEAEquationOfMotionDavidson,
+        SPEC_IN(EOM_COMMON_SPEC_IN),
+        SPEC_OUT());
 
 IMPLEMENT_ALGORITHM(UCcsdEAEquationOfMotionDavidson) {
 
-  if (in.get<int64_t>("complexVersion", 1) == 1) {
-    LOG(0, "EAEomDavid") << "Using complex code" << std::endl;
-    UCcsdEAEquationOfMotionDavidson::run<complex>();
-  } else {
+  if (in.is_of_type<Tensor<double> *>("HHPPCoulombIntegrals")) {
     LOG(0, "EAEomDavid") << "Using real code" << std::endl;
     UCcsdEAEquationOfMotionDavidson::run<double>();
+  } else {
+    LOG(0, "EAEomDavid") << "Using complex code" << std::endl;
+    UCcsdEAEquationOfMotionDavidson::run<complex>();
   }
 }
 
@@ -75,26 +43,26 @@ template <typename F>
 void UCcsdEAEquationOfMotionDavidson::run() {
 
   // Arguments
-  bool refreshOnMaxBasisSize(in.get<int64_t>("refreshOnMaxBasisSize", 0) == 1);
+  bool refreshOnMaxBasisSize(in.get<bool>("refreshOnMaxBasisSize") == 1);
   std::vector<int> oneBodyRdmIndices(
-      RangeParser(in.get<std::string>("oneBodyRdmRange", "")).getRange());
-  int eigenStates(in.get<int64_t>("eigenstates", 1));
-  bool intermediates(in.get<int64_t>("intermediates", 1));
-  const double energyConvergence(in.get<double>("energyConvergence", 1e-6)),
-      amplitudesConvergence(in.get<double>("amplitudesConvergence", 1e-6));
-  unsigned int maxIterations(in.get<int64_t>("maxIterations", 32));
-  unsigned int minIterations(in.get<int64_t>("minIterations", 1));
+      RangeParser(in.get<std::string>("oneBodyRdmRange")).getRange());
+  int eigenStates(in.get<int64_t>("eigenstates"));
+  bool intermediates(in.get<bool>("intermediates"));
+  const double energyConvergence(in.get<double>("energyConvergence")),
+      amplitudesConvergence(in.get<double>("amplitudesConvergence"));
+  unsigned int maxIterations(in.get<int64_t>("maxIterations"));
+  unsigned int minIterations(in.get<int64_t>("minIterations"));
   std::vector<int> eigenvectorsIndices(
-      RangeParser(in.get<std::string>("printEigenvectorsRange", ""))
-          .getRange());
+      RangeParser(in.get<std::string>("printEigenvectorsRange")).getRange());
   Tensor<double> *epsi(in.get<Tensor<double> *>("HoleEigenEnergies"));
   Tensor<double> *epsa(in.get<Tensor<double> *>("ParticleEigenEnergies"));
   std::vector<int> refreshIterations(
-      RangeParser(in.get<std::string>("refreshIterations", "")).getRange());
-  int Nv(epsa->lens[0]), No(epsi->lens[0]);
-  int maxBasisSize(
-      in.get<int64_t>("maxBasisSize",
-                      No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2)));
+      RangeParser(in.get<std::string>("refreshIterations")).getRange());
+  const int Nv(epsa->lens[0]), No(epsi->lens[0]);
+  const int64_t maxBasisSize =
+      in.get<int64_t>("maxBasisSize") == -1
+          ? (No * Nv + (No * (No - 1) / 2) * (Nv * (Nv - 1) / 2))
+          : in.get<int64_t>("maxBasisSize");
 
   int syms2[] = {NS, NS};
   int syms4[] = {NS, NS, NS, NS};
@@ -250,8 +218,8 @@ void UCcsdEAEquationOfMotionDavidson::run() {
   Tensor<F> *Fij(new Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij"));
   Tensor<F> *Fia(new Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia"));
 
-  if (isArgumentGiven("HPFockMatrix") && isArgumentGiven("HHFockMatrix")
-      && isArgumentGiven("PPFockMatrix")) {
+  if (in.present("HPFockMatrix") && in.present("HHFockMatrix")
+      && in.present("PPFockMatrix")) {
     LOG(0, "EAEomDavid") << "Using non-canonical orbitals" << std::endl;
 
     Tensor<double> *realFia(in.get<Tensor<double> *>("HPFockMatrix"));

@@ -84,13 +84,13 @@ sisi4s_SOURCES +=                                                 \
 ./algorithms/UccsdtqAmplitudesFromCoulombIntegrals.cxx            \
 ./algorithms/MeanCorrelationHoleDepth.cxx                        \
 ./algorithms/CcsdEquationOfMotionDavidson.cxx                    \
+./algorithms/UCcsdIPEquationOfMotionDavidson.cxx                 \
+./algorithms/UCcsdEAEquationOfMotionDavidson.cxx                 \
 ./algorithms/PQRSCoulombIntegralsToVertex.cxx \
 ./algorithms/UegVertexGenerator.cxx
 
 ## sisi4s_SOURCES =                                                 \
 ## ./algorithms/UnrestrictedCIS.cxx                                 \
-## ./algorithms/UCcsdIPEquationOfMotionDavidson.cxx                 \
-## ./algorithms/UCcsdEAEquationOfMotionDavidson.cxx                 \
 ## ./math/CanonicalPolyadicDecomposition.cxx                        \
 ## ./math/PseudoInverseHermitianSvd.cxx                             \
 ## ./math/RegularizedAlternatingLeastSquares.cxx                    \

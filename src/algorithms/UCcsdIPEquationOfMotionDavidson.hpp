@@ -15,7 +15,7 @@ DEFINE_ALGORITHM_HEADER(
     template <typename F>
     void run();
 
-    static constexpr int DEFAULT_MAX_ITERATIONS = 16;);
+);
 
 } // namespace sisi4s
 
