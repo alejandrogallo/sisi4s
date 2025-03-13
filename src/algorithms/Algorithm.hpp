@@ -142,6 +142,21 @@ public:
   };                                                                           \
   void name::run()
 
+#define DEFSTEP_METHODS_BEGIN(name)                                            \
+  class name;                                                                  \
+  static AlgorithmRegistrar<name> name##_registrar(#name);                     \
+  class name : public Algorithm {                                              \
+    using Algorithm::Algorithm;                                                \
+    virtual std::string getName() { return #name; }                            \
+    virtual void dryRun() {}                                                   \
+    virtual void run();
+
+#define DEFSTEP_METHODS_END(name)                                              \
+  }                                                                            \
+  ;
+
+#define STEP_IMPLEMENT_RUN(name) void name::run()
+
 } // namespace sisi4s
 
 #endif
