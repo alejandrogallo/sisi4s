@@ -78,12 +78,16 @@ void EOM::run() {
   Tensor<F> *Viabc = in.get<Tensor<F> *>("HPPPCoulombIntegrals"),
             *Viajb = in.get<Tensor<F> *>("HPHPCoulombIntegrals"),
             *Vaibc = in.get<Tensor<F> *>("PHPPCoulombIntegrals"),
+            *Vaibj = in.get<Tensor<F> *>("PHPHCoulombIntegrals"),
             *Viajk = in.get<Tensor<F> *>("HPHHCoulombIntegrals"),
             *Vijab = in.get<Tensor<F> *>("HHPPCoulombIntegrals"),
             *Vijka = in.get<Tensor<F> *>("HHHPCoulombIntegrals"),
             *Vijkl = in.get<Tensor<F> *>("HHHHCoulombIntegrals"),
             *Viabj = in.get<Tensor<F> *>("HPPHCoulombIntegrals"),
             *Vaijb = in.get<Tensor<F> *>("PHHPCoulombIntegrals"),
+            *Vabci = in.get<Tensor<F> *>("PPPHCoulombIntegrals"),
+            *Vabcd = in.get<Tensor<F> *>("PPPPCoulombIntegrals"),
+            *Vijak = in.get<Tensor<F> *>("HHPHCoulombIntegrals"),
             // t
                 *Tai = in.get<Tensor<F> *>("SinglesAmplitudes"),
             *Tabij = in.get<Tensor<F> *>("DoublesAmplitudes"),
@@ -120,8 +124,12 @@ void EOM::run() {
       .setViabj(Viabj)
       .setViajk(Viajk)
       .setVijab(Vijab)
+      .setVijak(Vijak)
       .setVijka(Vijka)
       .setVijkl(Vijkl)
+      .setVaibj(Vaibj)
+      .setVabcd(Vabcd)
+      .setVabci(Vabci)
       // for intermediates
       .setViajb(Viajb)
       .setVaibc(Vaibc)
