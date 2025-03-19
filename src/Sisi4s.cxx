@@ -41,9 +41,16 @@ void Sisi4s::run() {
         for (auto const &keyval : inout) {
           const std::string keyname = keyval.first;
           const auto _spec = keyval.second;
-          std::cout << "\t" << keyname << (_spec->required ? " [required]" : "")
+          std::cout << "\t" << keyname                          /**/
+                    << "\t<" << _spec->type_user_name() << "> " /**/
+                    << (_spec->required ? " [required]" : "")   /**/
                     << std::endl;
-          std::cout << "\t\t" << _spec->doc << std::endl;
+          const auto autodoc = _spec->autodoc();
+          std::cout << "\t\t - " << _spec->doc << std::endl;
+          if (autodoc.size()) {
+            for (auto const &d : autodoc)
+              std::cout << "\t\t - " << d << std::endl;
+          }
         }
       }
     }
@@ -87,6 +94,9 @@ void Sisi4s::run() {
         FlopsCounter flopsCounter(&flops);
         Timer timer(&time);
         const auto fallible = algorithms[i]->fallible;
+        if (algorithms[i]->note.size()) {
+          LOG(0, "root") << "Note: " << algorithms[i]->note << std::endl;
+        }
         if (fallible) {
 #define ___CATCH(type, var, string)                                            \
   catch (type var) {                                                           \

@@ -31,6 +31,7 @@ sisi4s_SOURCES =                                                 \
 ./util/Timer.cxx                                                 \
 ./util/BasisSet.cxx                                              \
 ./algorithms/Exit.cxx                                            \
+./algorithms/Example.cxx                                       \
 ./algorithms/Nop.cxx
 
 sisi4s_SOURCES +=                                                 \
@@ -45,11 +46,13 @@ sisi4s_SOURCES +=                                                 \
 ./math/PseudoInverseSvd.cxx                                      \
 ./math/ComplexTensor.cxx                                         \
 ./math/MathFunctions.cxx                                         \
+./equations/CoulombIntegrals.cxx                        \
 ./equations/StantonIntermediatesUCCSD.cxx                        \
 ./equations/sthamiltonian/wabij.cxx                             \
 ./equations/sthamiltonian/wabcijk.cxx                           \
 ./equations/sthamiltonian/wabcdijkl.cxx                           \
 ./equations/SimilarityTransformedHamiltonian.cxx                \
+./algorithms/CoulombIntegrals.cxx                        \
 ./algorithms/FromComplexTensor.cxx                               \
 ./algorithms/TensorNorm.cxx                                      \
 ./algorithms/TensorSum.cxx                                       \
@@ -84,9 +87,8 @@ sisi4s_SOURCES +=                                                 \
 ./algorithms/UccsdtqAmplitudesFromCoulombIntegrals.cxx            \
 ./algorithms/MeanCorrelationHoleDepth.cxx                        \
 ./algorithms/CcsdEquationOfMotionDavidson.cxx                    \
-./algorithms/UCcsdIPEquationOfMotionDavidson.cxx                 \
-./algorithms/UCcsdEAEquationOfMotionDavidson.cxx                 \
-./algorithms/PQRSCoulombIntegralsToVertex.cxx \
+./algorithms/eom/main.cxx                                        \
+./algorithms/PQRSCoulombIntegralsToVertex.cxx                    \
 ./algorithms/UegVertexGenerator.cxx
 
 ## sisi4s_SOURCES =                                                 \
