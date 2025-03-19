@@ -5737,6 +5737,50 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
   return SF;
 }
 
+template <typename F>
+FockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_CCSDT_IP_BLOCK2(
+    FockVector<F> &R) {
+  FockVector<F> HR(R);
+
+  PTR(Tensor<F>) HR_i(HR.get(0));
+  PTR(Tensor<F>) HRa_ij(HR.get(1));
+  PTR(Tensor<F>) HRab_ijk(HR.get(2));
+
+  PTR(Tensor<F>) R_i(R.get(0));
+  PTR(Tensor<F>) Ra_ij(R.get(1));
+  PTR(Tensor<F>) Rab_ijk(R.get(2));
+
+#define EQ(left, right) Tensor<F> &left = *right
+  EQ(Hr1, HR_i);
+  EQ(Hr2, HRa_ij);
+  EQ(Hr3, HRab_ijk);
+
+  EQ(FEE, Fab);
+  EQ(FIE, Fia);
+  EQ(FII, Fij);
+
+  EQ(RI, R_i);
+  EQ(RIIE, Ra_ij);
+  EQ(RIIIEE, Rab_ijk);
+
+  EQ(TIE, Tai);
+  EQ(TIIEE, Tabij);
+  EQ(TIIIEEE, Tabcijk);
+
+  EQ(VEEEE, Vabcd);
+  EQ(VEEEI, Vabci);
+  EQ(VEIEE, Vaibc);
+  EQ(VEIEI, Vaibj);
+  EQ(VEIII, Vaijk);
+  EQ(VIEEI, Viabj);
+  EQ(VIIEE, Vijab);
+  EQ(VIIEI, Vijak);
+  EQ(VIIII, Vijkl);
+
+#include <equations/ip_eom_ccsdt_block2.cxx>
+#undef EQ
+}
+
 // instantiate
 template class sisi4s::SimilarityTransformedHamiltonian<sisi4s::complex>;
 template class sisi4s::SimilarityTransformedHamiltonian<double>;

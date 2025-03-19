@@ -1,11 +1,26 @@
 #ifndef SIM_TRANS_HAMILTONIAN_DEFINED
 #define SIM_TRANS_HAMILTONIAN_DEFINED
 
+#include <equations/CoulombIntegrals.hpp>
+#include <equations/StantonIntermediatesUCCSD.hpp>
+#include <math/FockVector.hpp>
+#include <util/SharedPointer.hpp>
+#include <util/Tensor.hpp>
+
 // Utility Macros
 
 #define _DEFINE_SETTER(type, name, default)                                    \
   SimilarityTransformedHamiltonian &set##name(type t) {                        \
     name = t;                                                                  \
+    return *this;                                                              \
+  }                                                                            \
+  type name = default
+
+#define _DEFINE_V_SETTER(type, name, indices, default)                         \
+  SimilarityTransformedHamiltonian &set##name(type t) {                        \
+    if (Vpqrs == nullptr) { Vpqrs = new CoulombIntegrals<F>(); }               \
+    name = t;                                                                  \
+    Vpqrs->with_##indices(t);                                                  \
     return *this;                                                              \
   }                                                                            \
   type name = default
@@ -17,11 +32,6 @@
   }                                                                            \
   type &with##name() { return _with##name; }                                   \
   type _with##name = default
-
-#include <equations/StantonIntermediatesUCCSD.hpp>
-#include <math/FockVector.hpp>
-#include <util/SharedPointer.hpp>
-#include <util/Tensor.hpp>
 
 namespace sisi4s {
 
@@ -75,6 +85,10 @@ public:
   SDFockVector<F> right_apply_CCSD_EA(SDFockVector<F> &);
   SDFockVector<F> right_apply_hirata_CCSD_EA(SDFockVector<F> &);
   SDFockVector<F> right_apply_Intermediates_CCSD_EA(SDFockVector<F> &);
+
+  // block2
+  FockVector<F> right_apply_CCSDT_IP_BLOCK2(FockVector<F> &);
+  FockVector<F> right_apply_CCSDT_EA_BLOCK2(FockVector<F> &);
 
   // Structure factor
   struct StructureFactor {
@@ -135,21 +149,22 @@ public:
   _DEFINE_SETTER(Tensor<F> *, Fia, nullptr);
 
   // Coulomb Integrals
-  _DEFINE_SETTER(Tensor<F> *, Vabcd, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Viajb, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Vijab, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Vijkl, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Vijka, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Viabc, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Viajk, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Vabic, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Vaibc, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Vaibj, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Viabj, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Vijak, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Vaijb, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Vabci, nullptr);
-  _DEFINE_SETTER(Tensor<F> *, Vabij, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vabcd, pppp, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Viajb, hphp, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vijab, hhpp, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vijkl, hhhh, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vijka, hhhp, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Viabc, hppp, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Viajk, hphh, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vabic, pphp, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vaibc, phpp, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vaibj, phph, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Viabj, hpph, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vijak, hhph, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vaijk, phhh, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vaijb, phhp, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vabci, ppph, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vabij, pphh, nullptr);
 
   _DEFINE_SETTER(Tensor<F> *, VVaijb, nullptr);
   _DEFINE_SETTER(Tensor<F> *, VViabc, nullptr);
@@ -181,6 +196,8 @@ private:
   int No, Nv;
   Dressing dressing;
 
+  CoulombIntegrals<F> *Vpqrs = nullptr;
+
   //
   // Resources that should be destroyed after the class gets destroyed
   //
@@ -204,6 +221,7 @@ private:
 } // namespace sisi4s
 
 #undef _DEFINE_SETTER
+#undef _DEFINE_V_SETTER
 #undef _MAKE_WITH_FUNCTION
 
 #endif

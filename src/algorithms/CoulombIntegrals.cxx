@@ -33,32 +33,30 @@ DEFSPEC(CoulombIntegrals,
 
 DEFSTEP(CoulombIntegrals) {
   auto V = new sisi4s::CoulombIntegrals<double>();
-#define HANDLE_INTEGRAL(indices, no, nv)                                       \
+#define HANDLE_INTEGRAL(indices)                                               \
   do {                                                                         \
     if (in.present(#indices)) {                                                \
       auto _v = in.get<Tensor<double> *>(#indices);                            \
       V->with_##indices(_v);                                                   \
-      if (no > 0) { V->No = _v->lens[no]; }                                    \
-      if (nv > 0) { V->Nv = _v->lens[nv]; }                                    \
     }                                                                          \
   } while (0)
 
-  HANDLE_INTEGRAL(hhhh, 0, -1);
-  HANDLE_INTEGRAL(hhhp, 0, 3);
-  HANDLE_INTEGRAL(hhph, 0, 2);
-  HANDLE_INTEGRAL(hhpp, 0, 2);
-  HANDLE_INTEGRAL(hphh, 0, 1);
-  HANDLE_INTEGRAL(hphp, 0, 1);
-  HANDLE_INTEGRAL(hpph, 0, 1);
-  HANDLE_INTEGRAL(hppp, 0, 1);
-  HANDLE_INTEGRAL(phhh, 1, 0);
-  HANDLE_INTEGRAL(phhp, 1, 0);
-  HANDLE_INTEGRAL(phph, 1, 0);
-  HANDLE_INTEGRAL(phpp, 1, 0);
-  HANDLE_INTEGRAL(pphh, 2, 0);
-  HANDLE_INTEGRAL(pphp, 2, 0);
-  HANDLE_INTEGRAL(ppph, 3, 0);
-  HANDLE_INTEGRAL(pppp, -1, 1);
+  HANDLE_INTEGRAL(hhhh);
+  HANDLE_INTEGRAL(hhhp);
+  HANDLE_INTEGRAL(hhph);
+  HANDLE_INTEGRAL(hhpp);
+  HANDLE_INTEGRAL(hphh);
+  HANDLE_INTEGRAL(hphp);
+  HANDLE_INTEGRAL(hpph);
+  HANDLE_INTEGRAL(hppp);
+  HANDLE_INTEGRAL(phhh);
+  HANDLE_INTEGRAL(phhp);
+  HANDLE_INTEGRAL(phph);
+  HANDLE_INTEGRAL(phpp);
+  HANDLE_INTEGRAL(pphh);
+  HANDLE_INTEGRAL(pphp);
+  HANDLE_INTEGRAL(ppph);
+  HANDLE_INTEGRAL(pppp);
 
   out.set<sisi4s::CoulombIntegrals<double> *>("out", V);
   LOG(0, "CoulombIntegrals") << "No: " << V->No << std::endl;

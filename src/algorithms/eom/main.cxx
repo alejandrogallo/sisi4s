@@ -182,9 +182,14 @@ void EOM::run() {
   P.setTai(Tai).setTabij(Tabij).setFij(Fij).setFab(Fab).setVijab(Vijab);
 
   if (eom_type == "ip") {
-    MAKE_EOM_HAMILTONIAN(right_apply_CCSD_IP, SDFockVector<F>, h);
     MAKE_PRECONDITIONER(IPCcsdPreconditioner<F>);
-    RUN_EOM(h, SDFockVector<F>);
+    if (restricted) {
+      MAKE_EOM_HAMILTONIAN(right_apply_CCSDT_IP_BLOCK2, SDFockVector<F>, h);
+      RUN_EOM(h, SDFockVector<F>);
+    } else {
+      MAKE_EOM_HAMILTONIAN(right_apply_CCSD_IP, SDFockVector<F>, h);
+      RUN_EOM(h, SDFockVector<F>);
+    }
   } else if (eom_type == "ea") {
     MAKE_EOM_HAMILTONIAN(right_apply_CCSD_EA, SDFockVector<F>, h);
     MAKE_PRECONDITIONER(EACcsdPreconditioner<F>);
