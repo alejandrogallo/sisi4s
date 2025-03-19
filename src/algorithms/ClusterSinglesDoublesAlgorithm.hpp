@@ -47,7 +47,8 @@ namespace sisi4s {
   }
 
 #define CLUSTER_SINGLES_DOUBLES_OUTSPEC                                        \
-  {"SinglesAmplitudes", SPEC_VAROUT("TODO: DOC", Tensor<F> *)}, {              \
+  {"SinglesAmplitudes", SPEC_VAROUT("TODO: DOC", Tensor<F> *)}, /**/           \
+  {                                                                            \
     "DoublesAmplitudes", SPEC_VAROUT("TODO: DOC", Tensor<F> *)                 \
   }
 

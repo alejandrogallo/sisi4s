@@ -1,4 +1,5 @@
 #include <vector>
+#include <complex>
 
 #include <NewData.hpp>
 #include <util/Log.hpp>
@@ -55,11 +56,23 @@ void setraw(std::string const &db_index, Data *ptr) {
     return "Vector of " + std::string(user_name);                              \
   }
 INSTANTIATE(int, "Integer")
-INSTANTIATE(int64_t, "64 bit integer")
+INSTANTIATE(int64_t, "64 bit signed integer")
 INSTANTIATE(std::string, "String")
 INSTANTIATE(bool, "Boolean value")
-INSTANTIATE(double, "Double precission number")
-INSTANTIATE(float, "Single precission number")
+INSTANTIATE(double, "Double precission float")
+INSTANTIATE(float, "Single precission float")
+#undef INSTANTIATE
+
+// complex numbers
+#define INSTANTIATE(type)                                                      \
+  template <>                                                                  \
+  std::string Namer<std::complex<type>>::name() {                              \
+    return Namer<type>::name() + " complex number";                            \
+  }
+INSTANTIATE(int)
+INSTANTIATE(int64_t)
+INSTANTIATE(double)
+INSTANTIATE(float)
 #undef INSTANTIATE
 
 bool exists(std::string const &db_index) { return DATA_STORE[db_index]; }
