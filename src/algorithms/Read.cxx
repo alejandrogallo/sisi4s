@@ -320,11 +320,12 @@ DEFSTEP(Write) {
       binary_p ? ElementFileType::IeeeBinaryFile : ElementFileType::TextFile;
   header.unit = in.get<double>("unit");
 
-  std::string
+  const std::string
 
       source_name = "source",
       dataName = in.get_var(source_name),
-      fileNameInput = in.get<std::string>("fileName");
+      fileNameInput =
+          in.present("fileName") ? in.get<std::string>("fileName") : dataName;
 
   const auto dataPath = fs::path(fileNameInput)
                             .replace_extension(fs::path("elements")),
