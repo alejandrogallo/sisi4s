@@ -122,7 +122,12 @@ static void run(Arguments &in) {
 using FSPEC = double;
 DEFSPEC(
     TensorAntisymmetrizer,
-    SPEC_IN({"mode", SPEC_ONE_OF("TODO: DOC", std::string, "up", "down")},
+    SPEC_IN({"mode",
+             SPEC_ONE_OF("Wether to antisymmetrize upper or lower indices of a "
+                         "Tpqrs tensor.",
+                         std::string,
+                         "up",
+                         "down")},
             {"HHHHCoulombIntegrals", SPEC_VARIN("Vijkl", Tensor<FSPEC *>())},
             {"HHHPCoulombIntegrals", SPEC_VARIN("Vijka", Tensor<FSPEC *>())},
             {"HHPHCoulombIntegrals", SPEC_VARIN("Vijak", Tensor<FSPEC *>())},
@@ -139,8 +144,9 @@ DEFSPEC(
             {"PPHPCoulombIntegrals", SPEC_VARIN("Vabic", Tensor<FSPEC *>())},
             {"PPPHCoulombIntegrals", SPEC_VARIN("Vabci", Tensor<FSPEC *>())},
             {"PPPPCoulombIntegrals", SPEC_VARIN("Vabcd", Tensor<FSPEC *>())},
-            {"left", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)},
-            {"right", SPEC_VARIN("TODO: DOC", Tensor<FSPEC> *)}),
+            {"left", SPEC_VARIN("Left tensor", Tensor<FSPEC> *)},
+            {"right",
+             SPEC_VARIN("Right tensor L[pqrs] -= R[qprs]", Tensor<FSPEC> *)}),
     SPEC_OUT());
 
 template <typename F>
