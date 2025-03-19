@@ -25,6 +25,11 @@ public:
   virtual std::string commit() = 0;
   virtual void parse(std::string const &) = 0;
   virtual bool validate() = 0;
+  virtual std::string type_user_name() = 0;
+  virtual std::vector<std::string> autodoc() {
+    return required ? std::vector<std::string>{"required"}
+                    : std::vector<std::string>{};
+  }
   std::string doc;
   Spec *with_doc(std::string const &d) {
     doc = d;
@@ -47,6 +52,9 @@ class YAMLSpec : public Spec {
 public:
   F value;
   bool parse_error = false;
+  virtual std::string type_user_name() override {
+    return data::Namer<F>::name();
+  }
   virtual std::string commit() override { return data::put<F>(value).first; }
   virtual void parse(std::string const &v) override {
     YAML::Node n;
@@ -68,6 +76,14 @@ class InVariable : public Spec {
 public:
   bool found_variable = false;
   std::string db_index;
+  virtual std::string type_user_name() override {
+    return data::Namer<F>::name();
+  }
+  virtual std::vector<std::string> autodoc() {
+    auto r = Spec::autodoc();
+    r.push_back("variable");
+    return r;
+  }
   virtual void parse(std::string const &var_name) override {
     const auto pair = data::find_by_name(var_name);
     found_variable = !data::null(pair);
@@ -123,6 +139,14 @@ public:
       : options(options_) {
     this->value = options[0];
   }
+  virtual std::vector<std::string> autodoc() {
+    auto r = Spec::autodoc();
+    std::stringstream ops;
+    ops << "One of: ";
+    for (auto const &o : options) { ops << " | " << o; }
+    r.push_back(ops.str());
+    return r;
+  }
   virtual std::vector<std::string> warnings(std::string const &v) override {
     std::stringstream s;
     s << v << " is not one of: <  ";
@@ -145,6 +169,14 @@ class Value : public YAMLSpec<F> {
 public:
   Value() {}
   Value(const F def) { this->value = def; }
+  virtual std::vector<std::string> autodoc() {
+    auto r = Spec::autodoc();
+    std::stringstream ops;
+    ops << "value with default (" << YAML::convert<F>::encode(this->value)
+        << ")";
+    r.push_back(ops.str());
+    return r;
+  }
   virtual void parse(std::string const &v) override {
     if (v.size()) { YAMLSpec<F>::parse(v); }
   }
@@ -159,10 +191,17 @@ public:
 template <typename F>
 class Satisfies : public Value<F> {
 public:
-  using Lambda = std::function<bool(F const &)>;
-  const Lambda lambda;
+  using Predicate = std::function<bool(F const &)>;
+  const Predicate lambda;
   const std::string description;
-  Satisfies(std::string const &description_, Lambda const &lambda_)
+  virtual std::vector<std::string> autodoc() {
+    auto r = Spec::autodoc();
+    std::stringstream ops;
+    ops << "condition:  " << description;
+    r.push_back(ops.str());
+    return r;
+  }
+  Satisfies(std::string const &description_, Predicate const &lambda_)
       : lambda(lambda_)
       , description(description_) {}
   virtual bool validate() override { return lambda(this->value); }
@@ -175,7 +214,7 @@ public:
 #define SPEC_SATISFIES(doc, type, description, lambda)                         \
   (new sisi4s::spec::Satisfies<type>(                                          \
        description,                                                            \
-       sisi4s::spec::Satisfies<type>::Lambda(lambda)))                         \
+       sisi4s::spec::Satisfies<type>::Predicate(lambda)))                      \
       ->with_doc(doc)                                                          \
       ->with_default(false)
 #define SPEC_POSITIVE(doc, type)                                               \
@@ -190,21 +229,24 @@ public:
 template <typename F>
 class Range : public YAMLSpec<F> {
 public:
-  F low, high, value;
+  F low, high;
   Range(F low_, F high_)
       : low(low_)
       , high(high_) {}
   virtual bool validate() override {
-    return this->validate() && value < high && low < value;
+    return this->value < high && low < this->value;
+  }
+  virtual std::vector<std::string> autodoc() {
+    auto r = Spec::autodoc();
+    std::stringstream ops;
+    ops << "range (" << low << ", " << high << ")";
+    r.push_back(ops.str());
+    return r;
   }
   virtual std::vector<std::string> warnings(std::string const &v) override {
     std::stringstream s;
     s << "Should be in the interval between " << low << " and " << high;
     return {s.str()};
-
-    std::vector<std::string> result = this->warnings(v);
-    result.push_back(s.str());
-    return result;
   }
 };
 #define SPEC_RANGE(doc, type, high, low)                                       \
