@@ -1,15 +1,20 @@
+// h manifold
+if (dressing == Dressing(CCSDT)) {
+  Hr1["i"] += (-2.0) * VIIEE["kjbc"] * RIIIEE["ijkbc"];
+  Hr1["i"] += (+4.0) * VIIEE["kjcb"] * RIIIEE["ijkbc"];
+  Hr1["i"] += (+1.0) * VIIEE["ljbc"] * RIIIEE["ljibc"];
+  Hr1["i"] += (-2.0) * VIIEE["ljcb"] * RIIIEE["ljibc"];
+  Hr1["i"] += (-2.0) * VIIEE["lkbc"] * RIIIEE["likbc"];
+  Hr1["i"] += (+1.0) * VIIEE["lkcb"] * RIIIEE["likbc"];
+}
+// if (FIE) {
+//   Hr1["i"] += (+2.0) * FIE["jb"] * RIIE["ijb"];
+//   Hr1["i"] += (-1.0) * FIE["kb"] * RIIE["kib"];
+//   Hr1["i"] += (-1.0) * FIE["ja"] * TIE["ia"] * RI["j"];
+// }
 Hr1["i"] += (-1.0) * FII["ji"] * RI["j"];
-Hr1["i"] += (+2.0) * FIE["jb"] * RIIE["ijb"];
-Hr1["i"] += (-1.0) * FIE["kb"] * RIIE["kib"];
 Hr1["i"] += (-2.0) * VIIEI["jkbi"] * RIIE["kjb"];
 Hr1["i"] += (+1.0) * VIIEI["kjbi"] * RIIE["kjb"];
-Hr1["i"] += (-2.0) * VIIEE["kjbc"] * RIIIEE["ijkbc"];
-Hr1["i"] += (+4.0) * VIIEE["kjcb"] * RIIIEE["ijkbc"];
-Hr1["i"] += (+1.0) * VIIEE["ljbc"] * RIIIEE["ljibc"];
-Hr1["i"] += (-2.0) * VIIEE["ljcb"] * RIIIEE["ljibc"];
-Hr1["i"] += (-2.0) * VIIEE["lkbc"] * RIIIEE["likbc"];
-Hr1["i"] += (+1.0) * VIIEE["lkcb"] * RIIIEE["likbc"];
-Hr1["i"] += (-1.0) * FIE["ja"] * TIE["ia"] * RI["j"];
 Hr1["i"] += (+1.0) * VIIEI["jkai"] * TIE["ka"] * RI["j"];
 Hr1["i"] += (-2.0) * VIIEI["kjai"] * TIE["ka"] * RI["j"];
 Hr1["i"] += (-2.0) * VIIEE["jlab"] * TIE["la"] * RIIE["ijb"];
@@ -23,39 +28,79 @@ Hr1["i"] += (-2.0) * VIIEE["klba"] * TIE["la"] * RIIE["kib"];
 Hr1["i"] += (+1.0) * VIIEE["klab"] * TIE["la"] * TIE["ib"] * RI["k"];
 Hr1["i"] += (-2.0) * VIIEE["klba"] * TIE["la"] * TIE["ib"] * RI["k"];
 
+// hhp manifold
+if (dressing == Dressing(CCSDT)) {
+  // if (FIE) {
+  //   Hr2["ijb"] += (+2.0) * FIE["kc"] * RIIIEE["ijkbc"];
+  //   Hr2["ijb"] += (-1.0) * FIE["kd"] * RIIIEE["ijkdb"];
+  //   Hr2["ijb"] += (-1.0) * FIE["lc"] * RIIIEE["ljibc"];
+  //   Hr2["ijb"] += (-1.0) * FIE["ld"] * RIIIEE["lijdb"];
+  //   Hr2["ijb"] += (-1.0) * FIE["mc"] * RIIIEE["imjbc"];
+  //   Hr2["ijb"] += (+2.0) * FIE["md"] * RIIIEE["imjdb"];
+  // }
+  Hr2["ijb"] += (-1.0) * VEIEE["bkcd"] * RIIIEE["ijkdc"];
+  Hr2["ijb"] += (+2.0) * VEIEE["bkdc"] * RIIIEE["ijkdc"];
+  Hr2["ijb"] += (-1.0) * VEIEE["blcd"] * RIIIEE["lijdc"];
+  Hr2["ijb"] += (-1.0) * VEIEE["bldc"] * RIIIEE["ljidc"];
+  Hr2["ijb"] += (+2.0) * VEIEE["bmcd"] * RIIIEE["imjdc"];
+  Hr2["ijb"] += (-1.0) * VEIEE["bmdc"] * RIIIEE["imjdc"];
+  Hr2["ijb"] += (-2.0) * VIIEI["klci"] * RIIIEE["ljkbc"];
+  Hr2["ijb"] += (+1.0) * VIIEI["kldi"] * RIIIEE["ljkdb"];
+  Hr2["ijb"] += (-2.0) * VIIEI["kmcj"] * RIIIEE["imkbc"];
+  Hr2["ijb"] += (+1.0) * VIIEI["kmdj"] * RIIIEE["imkdb"];
+  Hr2["ijb"] += (+1.0) * VIIEI["lkci"] * RIIIEE["ljkbc"];
+  Hr2["ijb"] += (+1.0) * VIIEI["lkdj"] * RIIIEE["likdb"];
+  Hr2["ijb"] += (+1.0) * VIIEI["lmcj"] * RIIIEE["lmibc"];
+  Hr2["ijb"] += (+1.0) * VIIEI["lmdi"] * RIIIEE["lmjdb"];
+  Hr2["ijb"] += (+1.0) * VIIEI["mkcj"] * RIIIEE["imkbc"];
+  Hr2["ijb"] += (-2.0) * VIIEI["mkdj"] * RIIIEE["imkdb"];
+  Hr2["ijb"] += (+1.0) * VIIEI["mlci"] * RIIIEE["lmjbc"];
+  Hr2["ijb"] += (-2.0) * VIIEI["mldi"] * RIIIEE["lmjdb"];
+  Hr2["ijb"] += (-2.0) * VIIEE["kmac"] * TIE["ma"] * RIIIEE["ijkbc"];
+  Hr2["ijb"] += (+1.0) * VIIEE["kmad"] * TIE["ma"] * RIIIEE["ijkdb"];
+  Hr2["ijb"] += (+4.0) * VIIEE["kmca"] * TIE["ma"] * RIIIEE["ijkbc"];
+  Hr2["ijb"] += (-2.0) * VIIEE["kmcd"] * TIE["mb"] * RIIIEE["ijkdc"];
+  Hr2["ijb"] += (-2.0) * VIIEE["kmda"] * TIE["ma"] * RIIIEE["ijkdb"];
+  Hr2["ijb"] += (+1.0) * VIIEE["kmdc"] * TIE["mb"] * RIIIEE["ijkdc"];
+  Hr2["ijb"] += (+1.0) * VIIEE["knac"] * TIE["ja"] * RIIIEE["inkbc"];
+  Hr2["ijb"] += (-2.0) * VIIEE["knad"] * TIE["ja"] * RIIIEE["inkdb"];
+  Hr2["ijb"] += (-2.0) * VIIEE["knca"] * TIE["ja"] * RIIIEE["inkbc"];
+  Hr2["ijb"] += (+1.0) * VIIEE["knda"] * TIE["ja"] * RIIIEE["inkdb"];
+  Hr2["ijb"] += (-2.0) * VIIEE["lkac"] * TIE["ia"] * RIIIEE["ljkbc"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lkad"] * TIE["ia"] * RIIIEE["ljkdb"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lkca"] * TIE["ia"] * RIIIEE["ljkbc"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lkda"] * TIE["ja"] * RIIIEE["likdb"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lmac"] * TIE["ma"] * RIIIEE["ljibc"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lmad"] * TIE["ma"] * RIIIEE["lijdb"];
+  Hr2["ijb"] += (-2.0) * VIIEE["lmca"] * TIE["ma"] * RIIIEE["ljibc"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lmcd"] * TIE["mb"] * RIIIEE["ljidc"];
+  Hr2["ijb"] += (-2.0) * VIIEE["lmda"] * TIE["ma"] * RIIIEE["lijdb"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lmdc"] * TIE["mb"] * RIIIEE["lijdc"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lnac"] * TIE["ia"] * RIIIEE["lnjbc"];
+  Hr2["ijb"] += (-2.0) * VIIEE["lnad"] * TIE["ia"] * RIIIEE["lnjdb"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lnca"] * TIE["ja"] * RIIIEE["lnibc"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lnda"] * TIE["ia"] * RIIIEE["lnjdb"];
+  Hr2["ijb"] += (+1.0) * VIIEE["nmac"] * TIE["ma"] * RIIIEE["injbc"];
+  Hr2["ijb"] += (-2.0) * VIIEE["nmad"] * TIE["ma"] * RIIIEE["injdb"];
+  Hr2["ijb"] += (-2.0) * VIIEE["nmca"] * TIE["ma"] * RIIIEE["injbc"];
+  Hr2["ijb"] += (+1.0) * VIIEE["nmcd"] * TIE["mb"] * RIIIEE["injdc"];
+  Hr2["ijb"] += (+4.0) * VIIEE["nmda"] * TIE["ma"] * RIIIEE["injdb"];
+  Hr2["ijb"] += (-2.0) * VIIEE["nmdc"] * TIE["mb"] * RIIIEE["injdc"];
+}
+if (dressing == Dressing(CCSDT)) {
+  Hr2["ijb"] += (+1.0) * VIIEE["lmac"] * TIIIEEE["mjiabc"] * RI["l"];
+  Hr2["ijb"] += (-2.0) * VIIEE["lmca"] * TIIIEEE["mjiabc"] * RI["l"];
+  Hr2["ijb"] += (+1.0) * VIIEE["lmcd"] * TIIIEEE["mjibdc"] * RI["l"];
+}
 Hr2["ijb"] += (+1.0) * FEE["bc"] * RIIE["ijc"];
 Hr2["ijb"] += (-1.0) * VEIII["bkji"] * RI["k"];
 Hr2["ijb"] += (-1.0) * FII["ki"] * RIIE["kjb"];
 Hr2["ijb"] += (-1.0) * FII["lj"] * RIIE["ilb"];
 Hr2["ijb"] += (-1.0) * VEIEI["bkci"] * RIIE["kjc"];
 Hr2["ijb"] += (-1.0) * VEIEI["blcj"] * RIIE["ilc"];
-Hr2["ijb"] += (+2.0) * FIE["kc"] * RIIIEE["ijkbc"];
-Hr2["ijb"] += (-1.0) * FIE["kd"] * RIIIEE["ijkdb"];
-Hr2["ijb"] += (-1.0) * FIE["lc"] * RIIIEE["ljibc"];
-Hr2["ijb"] += (-1.0) * FIE["ld"] * RIIIEE["lijdb"];
-Hr2["ijb"] += (-1.0) * FIE["mc"] * RIIIEE["imjbc"];
-Hr2["ijb"] += (+2.0) * FIE["md"] * RIIIEE["imjdb"];
 Hr2["ijb"] += (-1.0) * VIEEI["kbcj"] * RIIE["kic"];
 Hr2["ijb"] += (+1.0) * VIIII["lkji"] * RIIE["klb"];
 Hr2["ijb"] += (+2.0) * VIEEI["lbcj"] * RIIE["ilc"];
-Hr2["ijb"] += (-1.0) * VEIEE["bkcd"] * RIIIEE["ijkdc"];
-Hr2["ijb"] += (+2.0) * VEIEE["bkdc"] * RIIIEE["ijkdc"];
-Hr2["ijb"] += (-1.0) * VEIEE["blcd"] * RIIIEE["lijdc"];
-Hr2["ijb"] += (-1.0) * VEIEE["bldc"] * RIIIEE["ljidc"];
-Hr2["ijb"] += (+2.0) * VEIEE["bmcd"] * RIIIEE["imjdc"];
-Hr2["ijb"] += (-1.0) * VEIEE["bmdc"] * RIIIEE["imjdc"];
-Hr2["ijb"] += (-2.0) * VIIEI["klci"] * RIIIEE["ljkbc"];
-Hr2["ijb"] += (+1.0) * VIIEI["kldi"] * RIIIEE["ljkdb"];
-Hr2["ijb"] += (-2.0) * VIIEI["kmcj"] * RIIIEE["imkbc"];
-Hr2["ijb"] += (+1.0) * VIIEI["kmdj"] * RIIIEE["imkdb"];
-Hr2["ijb"] += (+1.0) * VIIEI["lkci"] * RIIIEE["ljkbc"];
-Hr2["ijb"] += (+1.0) * VIIEI["lkdj"] * RIIIEE["likdb"];
-Hr2["ijb"] += (+1.0) * VIIEI["lmcj"] * RIIIEE["lmibc"];
-Hr2["ijb"] += (+1.0) * VIIEI["lmdi"] * RIIIEE["lmjdb"];
-Hr2["ijb"] += (+1.0) * VIIEI["mkcj"] * RIIIEE["imkbc"];
-Hr2["ijb"] += (-2.0) * VIIEI["mkdj"] * RIIIEE["imkdb"];
-Hr2["ijb"] += (+1.0) * VIIEI["mlci"] * RIIIEE["lmjbc"];
-Hr2["ijb"] += (-2.0) * VIIEI["mldi"] * RIIIEE["lmjdb"];
 Hr2["ijb"] += (-1.0) * VEIEI["blai"] * TIE["ja"] * RI["l"];
 Hr2["ijb"] += (-1.0) * FIE["ka"] * TIE["ia"] * RIIE["kjb"];
 Hr2["ijb"] += (-1.0) * FIE["kc"] * TIIEE["jibc"] * RI["k"];
@@ -88,52 +133,19 @@ Hr2["ijb"] += (+1.0) * VIIEE["klcd"] * TIIEE["jibd"] * RIIE["klc"];
 Hr2["ijb"] += (+1.0) * VIIEE["klda"] * TIIEE["jiad"] * RIIE["klb"];
 Hr2["ijb"] += (-2.0) * VIIEE["kldc"] * TIIEE["jibd"] * RIIE["klc"];
 Hr2["ijb"] += (+1.0) * VIIEE["kmac"] * TIIEE["mjab"] * RIIE["kic"];
-Hr2["ijb"] += (-2.0) * VIIEE["kmac"] * TIE["ma"] * RIIIEE["ijkbc"];
 Hr2["ijb"] += (+1.0) * VIIEE["kmad"] * TIIEE["miad"] * RIIE["kjb"];
-Hr2["ijb"] += (+1.0) * VIIEE["kmad"] * TIE["ma"] * RIIIEE["ijkdb"];
 Hr2["ijb"] += (-2.0) * VIIEE["kmca"] * TIIEE["mjab"] * RIIE["kic"];
-Hr2["ijb"] += (+4.0) * VIIEE["kmca"] * TIE["ma"] * RIIIEE["ijkbc"];
 Hr2["ijb"] += (+1.0) * VIIEE["kmcd"] * TIIEE["mjbd"] * RIIE["kic"];
-Hr2["ijb"] += (-2.0) * VIIEE["kmcd"] * TIE["mb"] * RIIIEE["ijkdc"];
 Hr2["ijb"] += (-2.0) * VIIEE["kmda"] * TIIEE["miad"] * RIIE["kjb"];
-Hr2["ijb"] += (-2.0) * VIIEE["kmda"] * TIE["ma"] * RIIIEE["ijkdb"];
 Hr2["ijb"] += (+1.0) * VIIEE["kmdc"] * TIIEE["mibd"] * RIIE["kjc"];
-Hr2["ijb"] += (+1.0) * VIIEE["kmdc"] * TIE["mb"] * RIIIEE["ijkdc"];
-Hr2["ijb"] += (+1.0) * VIIEE["knac"] * TIE["ja"] * RIIIEE["inkbc"];
-Hr2["ijb"] += (-2.0) * VIIEE["knad"] * TIE["ja"] * RIIIEE["inkdb"];
-Hr2["ijb"] += (-2.0) * VIIEE["knca"] * TIE["ja"] * RIIIEE["inkbc"];
-Hr2["ijb"] += (+1.0) * VIIEE["knda"] * TIE["ja"] * RIIIEE["inkdb"];
-Hr2["ijb"] += (-2.0) * VIIEE["lkac"] * TIE["ia"] * RIIIEE["ljkbc"];
-Hr2["ijb"] += (+1.0) * VIIEE["lkad"] * TIE["ia"] * RIIIEE["ljkdb"];
-Hr2["ijb"] += (+1.0) * VIIEE["lkca"] * TIE["ia"] * RIIIEE["ljkbc"];
-Hr2["ijb"] += (+1.0) * VIIEE["lkda"] * TIE["ja"] * RIIIEE["likdb"];
-Hr2["ijb"] += (+1.0) * VIIEE["lmac"] * TIIIEEE["mjiabc"] * RI["l"];
 Hr2["ijb"] += (-2.0) * VIIEE["lmac"] * TIIEE["mjab"] * RIIE["ilc"];
-Hr2["ijb"] += (+1.0) * VIIEE["lmac"] * TIE["ma"] * RIIIEE["ljibc"];
 Hr2["ijb"] += (+1.0) * VIIEE["lmad"] * TIIEE["mjad"] * RIIE["ilb"];
-Hr2["ijb"] += (+1.0) * VIIEE["lmad"] * TIE["ma"] * RIIIEE["lijdb"];
-Hr2["ijb"] += (-2.0) * VIIEE["lmca"] * TIIIEEE["mjiabc"] * RI["l"];
 Hr2["ijb"] += (+4.0) * VIIEE["lmca"] * TIIEE["mjab"] * RIIE["ilc"];
-Hr2["ijb"] += (-2.0) * VIIEE["lmca"] * TIE["ma"] * RIIIEE["ljibc"];
-Hr2["ijb"] += (+1.0) * VIIEE["lmcd"] * TIIIEEE["mjibdc"] * RI["l"];
 Hr2["ijb"] += (-2.0) * VIIEE["lmcd"] * TIIEE["mjbd"] * RIIE["ilc"];
-Hr2["ijb"] += (+1.0) * VIIEE["lmcd"] * TIE["mb"] * RIIIEE["ljidc"];
 Hr2["ijb"] += (-2.0) * VIIEE["lmda"] * TIIEE["mjad"] * RIIE["ilb"];
-Hr2["ijb"] += (-2.0) * VIIEE["lmda"] * TIE["ma"] * RIIIEE["lijdb"];
 Hr2["ijb"] += (+1.0) * VIIEE["lmdc"] * TIIEE["mjbd"] * RIIE["ilc"];
-Hr2["ijb"] += (+1.0) * VIIEE["lmdc"] * TIE["mb"] * RIIIEE["lijdc"];
-Hr2["ijb"] += (+1.0) * VIIEE["lnac"] * TIE["ia"] * RIIIEE["lnjbc"];
-Hr2["ijb"] += (-2.0) * VIIEE["lnad"] * TIE["ia"] * RIIIEE["lnjdb"];
-Hr2["ijb"] += (+1.0) * VIIEE["lnca"] * TIE["ja"] * RIIIEE["lnibc"];
-Hr2["ijb"] += (+1.0) * VIIEE["lnda"] * TIE["ia"] * RIIIEE["lnjdb"];
 Hr2["ijb"] += (+1.0) * VIIEE["nmac"] * TIIEE["mnab"] * RIIE["ijc"];
-Hr2["ijb"] += (+1.0) * VIIEE["nmac"] * TIE["ma"] * RIIIEE["injbc"];
-Hr2["ijb"] += (-2.0) * VIIEE["nmad"] * TIE["ma"] * RIIIEE["injdb"];
 Hr2["ijb"] += (-2.0) * VIIEE["nmca"] * TIIEE["mnab"] * RIIE["ijc"];
-Hr2["ijb"] += (-2.0) * VIIEE["nmca"] * TIE["ma"] * RIIIEE["injbc"];
-Hr2["ijb"] += (+1.0) * VIIEE["nmcd"] * TIE["mb"] * RIIIEE["injdc"];
-Hr2["ijb"] += (+4.0) * VIIEE["nmda"] * TIE["ma"] * RIIIEE["injdb"];
-Hr2["ijb"] += (-2.0) * VIIEE["nmdc"] * TIE["mb"] * RIIIEE["injdc"];
 Hr2["ijb"] += (-1.0) * VEIEE["bkac"] * TIE["ja"] * TIE["ic"] * RI["k"];
 Hr2["ijb"] += (+1.0) * VIIEI["klcj"] * TIE["lb"] * TIE["ic"] * RI["k"];
 Hr2["ijb"] += (+1.0) * VIIEI["lkci"] * TIE["lb"] * TIE["jc"] * RI["k"];
@@ -155,57 +167,382 @@ Hr2["ijb"] += (+1.0) * VIIEE["lmdc"] * TIE["mb"] * TIIEE["jicd"] * RI["l"];
 Hr2["ijb"] += (+1.0) * VIIEE["lmdc"] * TIE["mb"] * TIE["jd"] * RIIE["ilc"];
 Hr2["ijb"] += (+1.0) * VIIEE["nmac"] * TIE["ma"] * TIE["nb"] * RIIE["ijc"];
 Hr2["ijb"] += (-2.0) * VIIEE["nmca"] * TIE["ma"] * TIE["nb"] * RIIE["ijc"];
-Hr2["ijb"] +=
-    (+1.0) * VIIEE["lmcd"] * TIE["mb"] * TIE["jd"] * TIE["ic"] * RI["l"];
+Hr2["ijb"] += (+1.0) * VIIEE["lmcd"] * TIE["mb"] * TIE["jd"] * TIE["ic"] * RI["l"];
 
-Hr3["ijkbc"] += (+1.0) * FEE["bd"] * RIIIEE["ijkdc"];
-Hr3["ijkbc"] += (+1.0) * FEE["be"] * RIIIEE["ikjce"];
-Hr3["ijkbc"] += (+1.0) * FEE["cd"] * RIIIEE["ikjdb"];
-Hr3["ijkbc"] += (+1.0) * FEE["ce"] * RIIIEE["ijkbe"];
+// hhhpp manifold
+if (dressing == Dressing(CCSDT)) {
+  // if (FIE) {
+  //   Hr3["ijkbc"] += (-1.0) * FIE["la"] * TIE["ia"] * RIIIEE["ljkbc"];
+  //   Hr3["ijkbc"] += (-1.0) * FIE["la"] * TIE["ia"] * RIIIEE["lkjcb"];
+  //   Hr3["ijkbc"] += (-1.0) * FIE["md"] * TIE["mb"] * RIIIEE["ijkdc"];
+  //   Hr3["ijkbc"] += (-1.0) * FIE["md"] * TIE["mc"] * RIIIEE["ikjdb"];
+  //   Hr3["ijkbc"] += (-1.0) * FIE["me"] * TIE["mb"] * RIIIEE["ikjce"];
+  //   Hr3["ijkbc"] += (-1.0) * FIE["me"] * TIE["mc"] * RIIIEE["ijkbe"];
+  //   Hr3["ijkbc"] += (-1.0) * FIE["na"] * TIE["ja"] * RIIIEE["inkbc"];
+  //   Hr3["ijkbc"] += (-1.0) * FIE["na"] * TIE["ka"] * RIIIEE["injcb"];
+  //   Hr3["ijkbc"] += (-1.0) * FIE["oa"] * TIE["ja"] * RIIIEE["ikocb"];
+  //   Hr3["ijkbc"] += (-1.0) * FIE["oa"] * TIE["ka"] * RIIIEE["ijobc"];
+  // }
+  Hr3["ijkbc"] += (+1.0) * FEE["bd"] * RIIIEE["ijkdc"];
+  Hr3["ijkbc"] += (+1.0) * FEE["be"] * RIIIEE["ikjce"];
+  Hr3["ijkbc"] += (+1.0) * FEE["cd"] * RIIIEE["ikjdb"];
+  Hr3["ijkbc"] += (+1.0) * FEE["ce"] * RIIIEE["ijkbe"];
+  Hr3["ijkbc"] += (-1.0) * FII["li"] * RIIIEE["ljkbc"];
+  Hr3["ijkbc"] += (-1.0) * FII["li"] * RIIIEE["lkjcb"];
+  Hr3["ijkbc"] += (-1.0) * FII["mj"] * RIIIEE["imkbc"];
+  Hr3["ijkbc"] += (-1.0) * FII["mk"] * RIIIEE["imjcb"];
+  Hr3["ijkbc"] += (-1.0) * FII["nj"] * RIIIEE["ikncb"];
+  Hr3["ijkbc"] += (-1.0) * FII["nk"] * RIIIEE["ijnbc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["bldi"] * RIIIEE["ljkdc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["blei"] * RIIIEE["lkjce"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["bmdj"] * RIIIEE["imkdc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["bmek"] * RIIIEE["imjce"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["bndk"] * RIIIEE["ijndc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["bnej"] * RIIIEE["iknce"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["cldi"] * RIIIEE["lkjdb"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["clei"] * RIIIEE["ljkbe"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["cmdk"] * RIIIEE["imjdb"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["cmej"] * RIIIEE["imkbe"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["cndj"] * RIIIEE["ikndb"];
+  Hr3["ijkbc"] += (-1.0) * VEIEI["cnek"] * RIIIEE["ijnbe"];
+  Hr3["ijkbc"] += (+1.0) * VEEEE["cbde"] * RIIIEE["ikjde"];
+  Hr3["ijkbc"] += (+1.0) * VEEEE["cbed"] * RIIIEE["ijkde"];
+  Hr3["ijkbc"] += (-1.0) * VIEEI["lbdj"] * RIIIEE["likdc"];
+  Hr3["ijkbc"] += (-1.0) * VIEEI["lbej"] * RIIIEE["lkice"];
+  Hr3["ijkbc"] += (-1.0) * VIEEI["lcdk"] * RIIIEE["lijdb"];
+  Hr3["ijkbc"] += (-1.0) * VIEEI["lcek"] * RIIIEE["ljibe"];
+  Hr3["ijkbc"] += (+1.0) * VIIII["mlji"] * RIIIEE["lmkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIII["mlki"] * RIIIEE["lmjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIII["mnkj"] * RIIIEE["imncb"];
+  Hr3["ijkbc"] += (+2.0) * VIEEI["mbdj"] * RIIIEE["imkdc"];
+  Hr3["ijkbc"] += (-1.0) * VIEEI["mbej"] * RIIIEE["imkce"];
+  Hr3["ijkbc"] += (+2.0) * VIEEI["mcdk"] * RIIIEE["imjdb"];
+  Hr3["ijkbc"] += (-1.0) * VIEEI["mcek"] * RIIIEE["imjbe"];
+  Hr3["ijkbc"] += (+1.0) * VIIII["nlji"] * RIIIEE["lkncb"];
+  Hr3["ijkbc"] += (+1.0) * VIIII["nlki"] * RIIIEE["ljnbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIII["nmkj"] * RIIIEE["imnbc"];
+  Hr3["ijkbc"] += (-1.0) * VIEEI["nbdj"] * RIIIEE["ikndc"];
+  Hr3["ijkbc"] += (+2.0) * VIEEI["nbej"] * RIIIEE["iknce"];
+  Hr3["ijkbc"] += (-1.0) * VIEEI["ncdk"] * RIIIEE["ijndb"];
+  Hr3["ijkbc"] += (+2.0) * VIEEI["ncek"] * RIIIEE["ijnbe"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["blad"] * TIE["ja"] * RIIIEE["likdc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["blae"] * TIE["ja"] * RIIIEE["lkice"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["blda"] * TIE["ia"] * RIIIEE["ljkdc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["blea"] * TIE["ia"] * RIIIEE["lkjce"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["bmad"] * TIE["ma"] * RIIIEE["ijkdc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["bmae"] * TIE["ma"] * RIIIEE["ikjce"];
+  Hr3["ijkbc"] += (+2.0) * VEIEE["bmda"] * TIE["ma"] * RIIIEE["ijkdc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["bmde"] * TIE["mc"] * RIIIEE["ijkde"];
+  Hr3["ijkbc"] += (+2.0) * VEIEE["bmea"] * TIE["ma"] * RIIIEE["ikjce"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["bmed"] * TIE["mc"] * RIIIEE["ikjde"];
+  Hr3["ijkbc"] += (+2.0) * VEIEE["bnad"] * TIE["ja"] * RIIIEE["inkdc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["bnae"] * TIE["ja"] * RIIIEE["inkce"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["bnda"] * TIE["ja"] * RIIIEE["inkdc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["bnea"] * TIE["ka"] * RIIIEE["injce"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["boad"] * TIE["ja"] * RIIIEE["ikodc"];
+  Hr3["ijkbc"] += (+2.0) * VEIEE["boae"] * TIE["ja"] * RIIIEE["ikoce"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["boda"] * TIE["ka"] * RIIIEE["ijodc"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["boea"] * TIE["ja"] * RIIIEE["ikoce"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["clad"] * TIE["ka"] * RIIIEE["lijdb"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["clae"] * TIE["ka"] * RIIIEE["ljibe"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["clda"] * TIE["ia"] * RIIIEE["lkjdb"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["clea"] * TIE["ia"] * RIIIEE["ljkbe"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["cmad"] * TIE["ma"] * RIIIEE["ikjdb"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["cmae"] * TIE["ma"] * RIIIEE["ijkbe"];
+  Hr3["ijkbc"] += (+2.0) * VEIEE["cmda"] * TIE["ma"] * RIIIEE["ikjdb"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["cmde"] * TIE["mb"] * RIIIEE["ikjde"];
+  Hr3["ijkbc"] += (+2.0) * VEIEE["cmea"] * TIE["ma"] * RIIIEE["ijkbe"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["cmed"] * TIE["mb"] * RIIIEE["ijkde"];
+  Hr3["ijkbc"] += (+2.0) * VEIEE["cnad"] * TIE["ka"] * RIIIEE["injdb"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["cnae"] * TIE["ka"] * RIIIEE["injbe"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["cnda"] * TIE["ka"] * RIIIEE["injdb"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["cnea"] * TIE["ja"] * RIIIEE["inkbe"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["coad"] * TIE["ka"] * RIIIEE["ijodb"];
+  Hr3["ijkbc"] += (+2.0) * VEIEE["coae"] * TIE["ka"] * RIIIEE["ijobe"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["coda"] * TIE["ja"] * RIIIEE["ikodb"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["coea"] * TIE["ka"] * RIIIEE["ijobe"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lmai"] * TIE["ma"] * RIIIEE["ljkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lmai"] * TIE["ma"] * RIIIEE["lkjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lmdj"] * TIE["mb"] * RIIIEE["likdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lmdk"] * TIE["mc"] * RIIIEE["lijdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lmej"] * TIE["mb"] * RIIIEE["lkice"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lmek"] * TIE["mc"] * RIIIEE["ljibe"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lnaj"] * TIE["ia"] * RIIIEE["lnkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lnak"] * TIE["ia"] * RIIIEE["lnjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["loaj"] * TIE["ia"] * RIIIEE["lkocb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["loak"] * TIE["ia"] * RIIIEE["ljobc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["mlai"] * TIE["ma"] * RIIIEE["ljkbc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["mlai"] * TIE["ma"] * RIIIEE["lkjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["mldi"] * TIE["mb"] * RIIIEE["ljkdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["mldi"] * TIE["mc"] * RIIIEE["lkjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["mlei"] * TIE["mb"] * RIIIEE["lkjce"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["mlei"] * TIE["mc"] * RIIIEE["ljkbe"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["mnaj"] * TIE["ma"] * RIIIEE["inkbc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["mnak"] * TIE["ma"] * RIIIEE["injcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["mndj"] * TIE["mb"] * RIIIEE["inkdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["mndk"] * TIE["mc"] * RIIIEE["injdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["mnej"] * TIE["mc"] * RIIIEE["inkbe"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["mnek"] * TIE["mb"] * RIIIEE["injce"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["moaj"] * TIE["ma"] * RIIIEE["ikocb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["moak"] * TIE["ma"] * RIIIEE["ijobc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["modj"] * TIE["mc"] * RIIIEE["ikodb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["modk"] * TIE["mb"] * RIIIEE["ijodc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["moej"] * TIE["mb"] * RIIIEE["ikoce"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["moek"] * TIE["mc"] * RIIIEE["ijobe"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["nlai"] * TIE["ja"] * RIIIEE["lnkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["nlai"] * TIE["ka"] * RIIIEE["lnjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["nmaj"] * TIE["ma"] * RIIIEE["inkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["nmak"] * TIE["ma"] * RIIIEE["injcb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["nmdj"] * TIE["mb"] * RIIIEE["inkdc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["nmdk"] * TIE["mc"] * RIIIEE["injdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["nmej"] * TIE["mb"] * RIIIEE["inkce"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["nmek"] * TIE["mc"] * RIIIEE["injbe"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["noaj"] * TIE["ka"] * RIIIEE["inocb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["noak"] * TIE["ja"] * RIIIEE["inobc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["olai"] * TIE["ja"] * RIIIEE["lkocb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["olai"] * TIE["ka"] * RIIIEE["ljobc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["omaj"] * TIE["ma"] * RIIIEE["ikocb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["omak"] * TIE["ma"] * RIIIEE["ijobc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["omdj"] * TIE["mb"] * RIIIEE["ikodc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["omdk"] * TIE["mc"] * RIIIEE["ijodb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["omej"] * TIE["mb"] * RIIIEE["ikoce"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["omek"] * TIE["mc"] * RIIIEE["ijobe"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["onaj"] * TIE["ka"] * RIIIEE["inobc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["onak"] * TIE["ja"] * RIIIEE["inocb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmde"] * TIIEE["jibe"] * RIIIEE["lmkdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmde"] * TIIEE["kice"] * RIIIEE["lmjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmea"] * TIIEE["jiae"] * RIIIEE["lmkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmea"] * TIIEE["kiae"] * RIIIEE["lmjcb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lmed"] * TIIEE["jibe"] * RIIIEE["lmkdc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lmed"] * TIIEE["kice"] * RIIIEE["lmjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmef"] * TIIEE["jibe"] * RIIIEE["lmkcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmef"] * TIIEE["kice"] * RIIIEE["lmjbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmfa"] * TIIEE["kjab"] * RIIIEE["lmicf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmfe"] * TIIEE["kjce"] * RIIIEE["lmibf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnad"] * TIIEE["njab"] * RIIIEE["likdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnad"] * TIIEE["nkac"] * RIIIEE["lijdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnae"] * TIIEE["niae"] * RIIIEE["ljkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnae"] * TIIEE["niae"] * RIIIEE["lkjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnaf"] * TIIEE["njab"] * RIIIEE["lkicf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnaf"] * TIIEE["nkac"] * RIIIEE["ljibf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnda"] * TIIEE["njab"] * RIIIEE["likdc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnda"] * TIIEE["nkac"] * RIIIEE["lijdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnde"] * TIIEE["njbe"] * RIIIEE["likdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnde"] * TIIEE["nkce"] * RIIIEE["lijdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lndf"] * TIIEE["njcb"] * RIIIEE["likdf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnea"] * TIIEE["niae"] * RIIIEE["ljkbc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnea"] * TIIEE["niae"] * RIIIEE["lkjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lned"] * TIIEE["nibe"] * RIIIEE["ljkdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lned"] * TIIEE["nice"] * RIIIEE["lkjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnef"] * TIIEE["nibe"] * RIIIEE["lkjcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnef"] * TIIEE["nice"] * RIIIEE["ljkbf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnfa"] * TIIEE["njab"] * RIIIEE["lkicf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnfa"] * TIIEE["nkac"] * RIIIEE["ljibf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnfd"] * TIIEE["njcb"] * RIIIEE["lkidf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIIEE["njbe"] * RIIIEE["lkicf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIIEE["nkce"] * RIIIEE["ljibf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lodf"] * TIIEE["kocb"] * RIIIEE["lijdf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lofd"] * TIIEE["kocb"] * RIIIEE["ljidf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["ltda"] * TIIEE["kjab"] * RIIIEE["litdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["ltde"] * TIIEE["kjce"] * RIIIEE["litdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["ltea"] * TIIEE["jiae"] * RIIIEE["lktcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["ltea"] * TIIEE["kiae"] * RIIIEE["ljtbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lted"] * TIIEE["jibe"] * RIIIEE["lktdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lted"] * TIIEE["kice"] * RIIIEE["ljtdb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["ltef"] * TIIEE["jibe"] * RIIIEE["lktcf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["ltef"] * TIIEE["kice"] * RIIIEE["ljtbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["ltfe"] * TIIEE["jibe"] * RIIIEE["lktcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["ltfe"] * TIIEE["kice"] * RIIIEE["ljtbf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnad"] * TIIEE["njab"] * RIIIEE["imkdc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnad"] * TIIEE["nkac"] * RIIIEE["imjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnae"] * TIIEE["njae"] * RIIIEE["imkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnae"] * TIIEE["nkae"] * RIIIEE["imjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnaf"] * TIIEE["njab"] * RIIIEE["imkcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnaf"] * TIIEE["nkac"] * RIIIEE["imjbf"];
+  Hr3["ijkbc"] += (+4.0) * VIIEE["mnda"] * TIIEE["njab"] * RIIIEE["imkdc"];
+  Hr3["ijkbc"] += (+4.0) * VIIEE["mnda"] * TIIEE["nkac"] * RIIIEE["imjdb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnde"] * TIIEE["njbe"] * RIIIEE["imkdc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnde"] * TIIEE["nkce"] * RIIIEE["imjdb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mndf"] * TIIEE["njcb"] * RIIIEE["imkdf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnea"] * TIIEE["njae"] * RIIIEE["imkbc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnea"] * TIIEE["nkae"] * RIIIEE["imjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mned"] * TIIEE["njbe"] * RIIIEE["imkdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mned"] * TIIEE["nkce"] * RIIIEE["imjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnef"] * TIIEE["njce"] * RIIIEE["imkbf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnfa"] * TIIEE["njab"] * RIIIEE["imkcf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnfa"] * TIIEE["nkac"] * RIIIEE["imjbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnfd"] * TIIEE["njcb"] * RIIIEE["imkdf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIIEE["njbe"] * RIIIEE["imkcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIIEE["nkce"] * RIIIEE["imjbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["moaf"] * TIIEE["koab"] * RIIIEE["imjcf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["modf"] * TIIEE["kocb"] * RIIIEE["imjdf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mofd"] * TIIEE["kocb"] * RIIIEE["imjdf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onad"] * TIIEE["noab"] * RIIIEE["ijkdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onad"] * TIIEE["noac"] * RIIIEE["ikjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onaf"] * TIIEE["noab"] * RIIIEE["ikjcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onaf"] * TIIEE["noac"] * RIIIEE["ijkbf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["onda"] * TIIEE["noab"] * RIIIEE["ijkdc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["onda"] * TIIEE["noac"] * RIIIEE["ikjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["ondf"] * TIIEE["nocb"] * RIIIEE["ijkdf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["onfa"] * TIIEE["noab"] * RIIIEE["ikjcf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["onfa"] * TIIEE["noac"] * RIIIEE["ijkbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onfd"] * TIIEE["nocb"] * RIIIEE["ikjdf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tmad"] * TIIEE["kjab"] * RIIIEE["imtdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tmae"] * TIIEE["kjae"] * RIIIEE["imtbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tmaf"] * TIIEE["kjab"] * RIIIEE["imtcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tmda"] * TIIEE["kjab"] * RIIIEE["imtdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tmde"] * TIIEE["kjce"] * RIIIEE["imtdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tmea"] * TIIEE["kjae"] * RIIIEE["imtcb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tmed"] * TIIEE["kjce"] * RIIIEE["imtdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tmef"] * TIIEE["kjce"] * RIIIEE["imtbf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tmfa"] * TIIEE["kjab"] * RIIIEE["imtcf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tmfe"] * TIIEE["kjce"] * RIIIEE["imtbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnad"] * TIIEE["njab"] * RIIIEE["iktdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnad"] * TIIEE["nkac"] * RIIIEE["ijtdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnae"] * TIIEE["njae"] * RIIIEE["iktcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnae"] * TIIEE["nkae"] * RIIIEE["ijtbc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnaf"] * TIIEE["njab"] * RIIIEE["iktcf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnaf"] * TIIEE["nkac"] * RIIIEE["ijtbf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnda"] * TIIEE["njab"] * RIIIEE["iktdc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnda"] * TIIEE["nkac"] * RIIIEE["ijtdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIIEE["njbe"] * RIIIEE["iktdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIIEE["nkce"] * RIIIEE["ijtdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tndf"] * TIIEE["njcb"] * RIIIEE["iktdf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnea"] * TIIEE["njae"] * RIIIEE["iktcb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnea"] * TIIEE["nkae"] * RIIIEE["ijtbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tned"] * TIIEE["njce"] * RIIIEE["iktdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnef"] * TIIEE["njbe"] * RIIIEE["iktcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnef"] * TIIEE["nkce"] * RIIIEE["ijtbf"];
+  Hr3["ijkbc"] += (+4.0) * VIIEE["tnfa"] * TIIEE["njab"] * RIIIEE["iktcf"];
+  Hr3["ijkbc"] += (+4.0) * VIIEE["tnfa"] * TIIEE["nkac"] * RIIIEE["ijtbf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnfd"] * TIIEE["njcb"] * RIIIEE["iktdf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnfe"] * TIIEE["njbe"] * RIIIEE["iktcf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnfe"] * TIIEE["nkce"] * RIIIEE["ijtbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["toad"] * TIIEE["koab"] * RIIIEE["ijtdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["todf"] * TIIEE["kocb"] * RIIIEE["ijtdf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tofd"] * TIIEE["kocb"] * RIIIEE["ijtdf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmea"] * TIE["ja"] * TIE["ie"] * RIIIEE["lmkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmea"] * TIE["ka"] * TIE["ie"] * RIIIEE["lmjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnae"] * TIE["na"] * TIE["ie"] * RIIIEE["ljkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnae"] * TIE["na"] * TIE["ie"] * RIIIEE["lkjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnde"] * TIE["nb"] * TIE["je"] * RIIIEE["likdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnde"] * TIE["nc"] * TIE["ke"] * RIIIEE["lijdb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnea"] * TIE["na"] * TIE["ie"] * RIIIEE["ljkbc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnea"] * TIE["na"] * TIE["ie"] * RIIIEE["lkjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lned"] * TIE["nb"] * TIE["ie"] * RIIIEE["ljkdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lned"] * TIE["nc"] * TIE["ie"] * RIIIEE["lkjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnef"] * TIE["nb"] * TIE["ie"] * RIIIEE["lkjcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnef"] * TIE["nc"] * TIE["ie"] * RIIIEE["ljkbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIE["nb"] * TIE["je"] * RIIIEE["lkicf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIE["nc"] * TIE["ke"] * RIIIEE["ljibf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["ltea"] * TIE["ja"] * TIE["ie"] * RIIIEE["lktcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["ltea"] * TIE["ka"] * TIE["ie"] * RIIIEE["ljtbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnae"] * TIE["na"] * TIE["je"] * RIIIEE["imkbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnae"] * TIE["na"] * TIE["ke"] * RIIIEE["imjcb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnde"] * TIE["nb"] * TIE["je"] * RIIIEE["imkdc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnde"] * TIE["nc"] * TIE["ke"] * RIIIEE["imjdb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnea"] * TIE["na"] * TIE["je"] * RIIIEE["imkbc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnea"] * TIE["na"] * TIE["ke"] * RIIIEE["imjcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mned"] * TIE["nb"] * TIE["je"] * RIIIEE["imkdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mned"] * TIE["nc"] * TIE["ke"] * RIIIEE["imjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnef"] * TIE["nc"] * TIE["je"] * RIIIEE["imkbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIE["nb"] * TIE["je"] * RIIIEE["imkcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIE["nc"] * TIE["ke"] * RIIIEE["imjbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["moaf"] * TIE["ka"] * TIE["ob"] * RIIIEE["imjcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onad"] * TIE["na"] * TIE["ob"] * RIIIEE["ijkdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onad"] * TIE["na"] * TIE["oc"] * RIIIEE["ikjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onaf"] * TIE["na"] * TIE["ob"] * RIIIEE["ikjcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onaf"] * TIE["na"] * TIE["oc"] * RIIIEE["ijkbf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["onda"] * TIE["na"] * TIE["ob"] * RIIIEE["ijkdc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["onda"] * TIE["na"] * TIE["oc"] * RIIIEE["ikjdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["ondf"] * TIE["nc"] * TIE["ob"] * RIIIEE["ijkdf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["onfa"] * TIE["na"] * TIE["ob"] * RIIIEE["ikjcf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["onfa"] * TIE["na"] * TIE["oc"] * RIIIEE["ijkbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onfd"] * TIE["nc"] * TIE["ob"] * RIIIEE["ikjdf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tmae"] * TIE["ka"] * TIE["je"] * RIIIEE["imtbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tmea"] * TIE["ka"] * TIE["je"] * RIIIEE["imtcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnae"] * TIE["na"] * TIE["je"] * RIIIEE["iktcb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnae"] * TIE["na"] * TIE["ke"] * RIIIEE["ijtbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIE["nb"] * TIE["je"] * RIIIEE["iktdc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIE["nc"] * TIE["ke"] * RIIIEE["ijtdb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnea"] * TIE["na"] * TIE["je"] * RIIIEE["iktcb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnea"] * TIE["na"] * TIE["ke"] * RIIIEE["ijtbc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tned"] * TIE["nc"] * TIE["je"] * RIIIEE["iktdb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnef"] * TIE["nb"] * TIE["je"] * RIIIEE["iktcf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnef"] * TIE["nc"] * TIE["ke"] * RIIIEE["ijtbf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnfe"] * TIE["nb"] * TIE["je"] * RIIIEE["iktcf"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnfe"] * TIE["nc"] * TIE["ke"] * RIIIEE["ijtbf"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["toad"] * TIE["ka"] * TIE["ob"] * RIIIEE["ijtdc"];
+}
+if (dressing == Dressing(CCSDT)) {
+  // if (FIE) Hr3["ijkbc"] += (-1.0) * FIE["le"] * TIIIEEE["kjicbe"] * RI["l"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["blde"] * TIIIEEE["kjicde"] * RI["l"];
+  Hr3["ijkbc"] += (-1.0) * VEIEE["clae"] * TIIIEEE["kjiabe"] * RI["l"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lmai"] * TIIIEEE["mkjacb"] * RI["l"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lmek"] * TIIIEEE["mjicbe"] * RI["l"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["lnej"] * TIIIEEE["knicbe"] * RI["l"];
+  Hr3["ijkbc"] += (-2.0) * VIIEI["mlai"] * TIIIEEE["mkjacb"] * RI["l"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["mldi"] * TIIIEEE["mkjcdb"] * RI["l"];
+  Hr3["ijkbc"] += (+1.0) * VIIEI["nlei"] * TIIIEEE["knjcbe"] * RI["l"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmdf"] * TIIIEEE["kjicbf"] * RIIE["lmd"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmfa"] * TIIIEEE["kjiabf"] * RIIE["lmc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lmfd"] * TIIIEEE["kjicbf"] * RIIE["lmd"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lmfe"] * TIIIEEE["kjicef"] * RIIE["lmb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnad"] * TIIIEEE["nkjacb"] * RIIE["lid"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnaf"] * TIIIEEE["njiabf"] * RIIE["lkc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnaf"] * TIIIEEE["nkiacf"] * RIIE["ljb"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnda"] * TIIIEEE["nkjacb"] * RIIE["lid"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnde"] * TIIIEEE["nkjceb"] * RIIE["lid"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnfa"] * TIIIEEE["njiabf"] * RIIE["lkc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["lnfa"] * TIIIEEE["nkiacf"] * RIIE["ljb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnfd"] * TIIIEEE["njicbf"] * RIIE["lkd"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIIIEEE["njibef"] * RIIE["lkc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIIIEEE["nkicef"] * RIIE["ljb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lodf"] * TIIIEEE["kojcbf"] * RIIE["lid"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["lofd"] * TIIIEEE["koicbf"] * RIIE["ljd"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnad"] * TIIIEEE["nkjacb"] * RIIE["imd"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnae"] * TIIIEEE["nkjaeb"] * RIIE["imc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnaf"] * TIIIEEE["nkjacf"] * RIIE["imb"];
+  Hr3["ijkbc"] += (+4.0) * VIIEE["mnda"] * TIIIEEE["nkjacb"] * RIIE["imd"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnde"] * TIIIEEE["nkjceb"] * RIIE["imd"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnea"] * TIIIEEE["nkjaeb"] * RIIE["imc"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mned"] * TIIIEEE["nkjceb"] * RIIE["imd"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnfa"] * TIIIEEE["nkjacf"] * RIIE["imb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIIIEEE["nkjcef"] * RIIE["imb"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["moaf"] * TIIIEEE["kojabf"] * RIIE["imc"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["modf"] * TIIIEEE["kojcbf"] * RIIE["imd"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mofd"] * TIIIEEE["kojcbf"] * RIIE["imd"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onad"] * TIIIEEE["nojacb"] * RIIE["ikd"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["onda"] * TIIIEEE["nojacb"] * RIIE["ikd"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["onfd"] * TIIIEEE["nojcbf"] * RIIE["ikd"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnad"] * TIIIEEE["nktacb"] * RIIE["ijd"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["tnda"] * TIIIEEE["nktacb"] * RIIE["ijd"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIIIEEE["nktceb"] * RIIE["ijd"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mlad"] * TIE["ia"] * TIIIEEE["lkjdcb"] * RI["m"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mlae"] * TIE["ia"] * TIIIEEE["lkjceb"] * RI["m"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mlda"] * TIE["ia"] * TIIIEEE["lkjdcb"] * RI["m"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mlfa"] * TIE["ka"] * TIIIEEE["ljicbf"] * RI["m"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnaf"] * TIE["na"] * TIIIEEE["kjicbf"] * RI["m"];
+  Hr3["ijkbc"] += (-2.0) * VIIEE["mnfa"] * TIE["na"] * TIIIEEE["kjicbf"] * RI["m"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnfd"] * TIE["nc"] * TIIIEEE["kjidbf"] * RI["m"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIE["nb"] * TIIIEEE["kjicef"] * RI["m"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["moaf"] * TIE["ia"] * TIIIEEE["kojcbf"] * RI["m"];
+  Hr3["ijkbc"] += (+1.0) * VIIEE["mofa"] * TIE["ja"] * TIIIEEE["koicbf"] * RI["m"];
+}
+// if (FIE) {
+//   Hr3["ijkbc"] += (-1.0) * FIE["la"] * TIIEE["kjab"] * RIIE["ilc"];
+//   Hr3["ijkbc"] += (-1.0) * FIE["ld"] * TIIEE["kjcd"] * RIIE["ilb"];
+//   Hr3["ijkbc"] += (-1.0) * FIE["me"] * TIIEE["mjcb"] * RIIE["ike"];
+//   Hr3["ijkbc"] += (-1.0) * FIE["ne"] * TIIEE["kncb"] * RIIE["ije"];
+//   Hr3["ijkbc"] += (-1.0) * FIE["od"] * TIIEE["jibd"] * RIIE["okc"];
+//   Hr3["ijkbc"] += (-1.0) * FIE["od"] * TIIEE["kicd"] * RIIE["ojb"];
+// }
 Hr3["ijkbc"] += (-1.0) * VEIII["blji"] * RIIE["lkc"];
 Hr3["ijkbc"] += (-1.0) * VEIII["bmjk"] * RIIE["imc"];
 Hr3["ijkbc"] += (+1.0) * VEEEI["bcdk"] * RIIE["ijd"];
 Hr3["ijkbc"] += (-1.0) * VEIII["clki"] * RIIE["ljb"];
 Hr3["ijkbc"] += (-1.0) * VEIII["cmkj"] * RIIE["imb"];
 Hr3["ijkbc"] += (+1.0) * VEEEI["cbdj"] * RIIE["ikd"];
-Hr3["ijkbc"] += (-1.0) * FII["li"] * RIIIEE["ljkbc"];
-Hr3["ijkbc"] += (-1.0) * FII["li"] * RIIIEE["lkjcb"];
-Hr3["ijkbc"] += (-1.0) * FII["mj"] * RIIIEE["imkbc"];
-Hr3["ijkbc"] += (-1.0) * FII["mk"] * RIIIEE["imjcb"];
-Hr3["ijkbc"] += (-1.0) * FII["nj"] * RIIIEE["ikncb"];
-Hr3["ijkbc"] += (-1.0) * FII["nk"] * RIIIEE["ijnbc"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["bldi"] * RIIIEE["ljkdc"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["blei"] * RIIIEE["lkjce"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["bmdj"] * RIIIEE["imkdc"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["bmek"] * RIIIEE["imjce"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["bndk"] * RIIIEE["ijndc"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["bnej"] * RIIIEE["iknce"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["cldi"] * RIIIEE["lkjdb"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["clei"] * RIIIEE["ljkbe"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["cmdk"] * RIIIEE["imjdb"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["cmej"] * RIIIEE["imkbe"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["cndj"] * RIIIEE["ikndb"];
-Hr3["ijkbc"] += (-1.0) * VEIEI["cnek"] * RIIIEE["ijnbe"];
-Hr3["ijkbc"] += (+1.0) * VEEEE["cbde"] * RIIIEE["ikjde"];
-Hr3["ijkbc"] += (+1.0) * VEEEE["cbed"] * RIIIEE["ijkde"];
-Hr3["ijkbc"] += (-1.0) * VIEEI["lbdj"] * RIIIEE["likdc"];
-Hr3["ijkbc"] += (-1.0) * VIEEI["lbej"] * RIIIEE["lkice"];
-Hr3["ijkbc"] += (-1.0) * VIEEI["lcdk"] * RIIIEE["lijdb"];
-Hr3["ijkbc"] += (-1.0) * VIEEI["lcek"] * RIIIEE["ljibe"];
-Hr3["ijkbc"] += (+1.0) * VIIII["mlji"] * RIIIEE["lmkbc"];
-Hr3["ijkbc"] += (+1.0) * VIIII["mlki"] * RIIIEE["lmjcb"];
-Hr3["ijkbc"] += (+1.0) * VIIII["mnkj"] * RIIIEE["imncb"];
-Hr3["ijkbc"] += (+2.0) * VIEEI["mbdj"] * RIIIEE["imkdc"];
-Hr3["ijkbc"] += (-1.0) * VIEEI["mbej"] * RIIIEE["imkce"];
-Hr3["ijkbc"] += (+2.0) * VIEEI["mcdk"] * RIIIEE["imjdb"];
-Hr3["ijkbc"] += (-1.0) * VIEEI["mcek"] * RIIIEE["imjbe"];
-Hr3["ijkbc"] += (+1.0) * VIIII["nlji"] * RIIIEE["lkncb"];
-Hr3["ijkbc"] += (+1.0) * VIIII["nlki"] * RIIIEE["ljnbc"];
-Hr3["ijkbc"] += (+1.0) * VIIII["nmkj"] * RIIIEE["imnbc"];
-Hr3["ijkbc"] += (-1.0) * VIEEI["nbdj"] * RIIIEE["ikndc"];
-Hr3["ijkbc"] += (+2.0) * VIEEI["nbej"] * RIIIEE["iknce"];
-Hr3["ijkbc"] += (-1.0) * VIEEI["ncdk"] * RIIIEE["ijndb"];
-Hr3["ijkbc"] += (+2.0) * VIEEI["ncek"] * RIIIEE["ijnbe"];
 Hr3["ijkbc"] += (-1.0) * VEIEI["bldk"] * TIE["lc"] * RIIE["ijd"];
 Hr3["ijkbc"] += (-1.0) * VEIEI["bmak"] * TIE["ja"] * RIIE["imc"];
 Hr3["ijkbc"] += (-1.0) * VEIEI["bnai"] * TIE["ja"] * RIIE["nkc"];
@@ -216,23 +553,6 @@ Hr3["ijkbc"] += (-1.0) * VEIEI["cnai"] * TIIEE["kjab"] * RI["n"];
 Hr3["ijkbc"] += (-1.0) * VEIEI["cnai"] * TIE["ka"] * RIIE["njb"];
 Hr3["ijkbc"] += (+1.0) * VEEEE["cbad"] * TIE["ka"] * RIIE["ijd"];
 Hr3["ijkbc"] += (+1.0) * VEEEE["cbda"] * TIE["ja"] * RIIE["ikd"];
-Hr3["ijkbc"] += (-1.0) * FIE["la"] * TIE["ia"] * RIIIEE["ljkbc"];
-Hr3["ijkbc"] += (-1.0) * FIE["la"] * TIE["ia"] * RIIIEE["lkjcb"];
-Hr3["ijkbc"] += (-1.0) * FIE["la"] * TIIEE["kjab"] * RIIE["ilc"];
-Hr3["ijkbc"] += (-1.0) * FIE["ld"] * TIIEE["kjcd"] * RIIE["ilb"];
-Hr3["ijkbc"] += (-1.0) * FIE["le"] * TIIIEEE["kjicbe"] * RI["l"];
-Hr3["ijkbc"] += (-1.0) * FIE["md"] * TIE["mb"] * RIIIEE["ijkdc"];
-Hr3["ijkbc"] += (-1.0) * FIE["md"] * TIE["mc"] * RIIIEE["ikjdb"];
-Hr3["ijkbc"] += (-1.0) * FIE["me"] * TIIEE["mjcb"] * RIIE["ike"];
-Hr3["ijkbc"] += (-1.0) * FIE["me"] * TIE["mb"] * RIIIEE["ikjce"];
-Hr3["ijkbc"] += (-1.0) * FIE["me"] * TIE["mc"] * RIIIEE["ijkbe"];
-Hr3["ijkbc"] += (-1.0) * FIE["na"] * TIE["ja"] * RIIIEE["inkbc"];
-Hr3["ijkbc"] += (-1.0) * FIE["na"] * TIE["ka"] * RIIIEE["injcb"];
-Hr3["ijkbc"] += (-1.0) * FIE["ne"] * TIIEE["kncb"] * RIIE["ije"];
-Hr3["ijkbc"] += (-1.0) * FIE["oa"] * TIE["ja"] * RIIIEE["ikocb"];
-Hr3["ijkbc"] += (-1.0) * FIE["oa"] * TIE["ka"] * RIIIEE["ijobc"];
-Hr3["ijkbc"] += (-1.0) * FIE["od"] * TIIEE["jibd"] * RIIE["okc"];
-Hr3["ijkbc"] += (-1.0) * FIE["od"] * TIIEE["kicd"] * RIIE["ojb"];
 Hr3["ijkbc"] += (+1.0) * VIIII["lmkj"] * TIE["lc"] * RIIE["imb"];
 Hr3["ijkbc"] += (+1.0) * VIIII["lnji"] * TIE["lb"] * RIIE["nkc"];
 Hr3["ijkbc"] += (+1.0) * VIIII["lnki"] * TIIEE["ljcb"] * RI["n"];
@@ -247,294 +567,56 @@ Hr3["ijkbc"] += (-1.0) * VIEEI["nbaj"] * TIE["ia"] * RIIE["nkc"];
 Hr3["ijkbc"] += (-1.0) * VIEEI["nbdj"] * TIIEE["kicd"] * RI["n"];
 Hr3["ijkbc"] += (-1.0) * VIEEI["ncak"] * TIE["ia"] * RIIE["njb"];
 Hr3["ijkbc"] += (-1.0) * VIEEI["ncdk"] * TIIEE["jibd"] * RI["n"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["blad"] * TIE["ja"] * RIIIEE["likdc"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["blae"] * TIE["ja"] * RIIIEE["lkice"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["blda"] * TIE["ia"] * RIIIEE["ljkdc"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["blda"] * TIIEE["kjad"] * RIIE["ilc"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["blde"] * TIIIEEE["kjicde"] * RI["l"];
 Hr3["ijkbc"] += (+2.0) * VEIEE["blde"] * TIIEE["kjcd"] * RIIE["ile"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["blea"] * TIE["ia"] * RIIIEE["lkjce"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["bled"] * TIIEE["kjcd"] * RIIE["ile"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["bmad"] * TIE["ma"] * RIIIEE["ijkdc"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["bmae"] * TIIEE["mkac"] * RIIE["ije"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["bmae"] * TIE["ma"] * RIIIEE["ikjce"];
-Hr3["ijkbc"] += (+2.0) * VEIEE["bmda"] * TIE["ma"] * RIIIEE["ijkdc"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["bmde"] * TIIEE["mjcd"] * RIIE["ike"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["bmde"] * TIE["mc"] * RIIIEE["ijkde"];
 Hr3["ijkbc"] += (+2.0) * VEIEE["bmea"] * TIIEE["mkac"] * RIIE["ije"];
-Hr3["ijkbc"] += (+2.0) * VEIEE["bmea"] * TIE["ma"] * RIIIEE["ikjce"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["bmed"] * TIIEE["mkcd"] * RIIE["ije"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["bmed"] * TIE["mc"] * RIIIEE["ikjde"];
-Hr3["ijkbc"] += (+2.0) * VEIEE["bnad"] * TIE["ja"] * RIIIEE["inkdc"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["bnae"] * TIE["ja"] * RIIIEE["inkce"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["bnda"] * TIE["ja"] * RIIIEE["inkdc"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["bnea"] * TIE["ka"] * RIIIEE["injce"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["boad"] * TIIEE["jiad"] * RIIE["okc"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["boad"] * TIE["ja"] * RIIIEE["ikodc"];
-Hr3["ijkbc"] += (+2.0) * VEIEE["boae"] * TIE["ja"] * RIIIEE["ikoce"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["boda"] * TIE["ka"] * RIIIEE["ijodc"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["bode"] * TIIEE["kjcd"] * RIIE["oie"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["boea"] * TIE["ja"] * RIIIEE["ikoce"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["boed"] * TIIEE["kicd"] * RIIE["oje"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["clad"] * TIIEE["kjad"] * RIIE["ilb"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["clad"] * TIE["ka"] * RIIIEE["lijdb"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["clae"] * TIIIEEE["kjiabe"] * RI["l"];
 Hr3["ijkbc"] += (+2.0) * VEIEE["clae"] * TIIEE["kjab"] * RIIE["ile"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["clae"] * TIE["ka"] * RIIIEE["ljibe"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["clda"] * TIE["ia"] * RIIIEE["lkjdb"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["clea"] * TIE["ia"] * RIIIEE["ljkbe"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["clea"] * TIIEE["kjab"] * RIIE["ile"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["cmad"] * TIE["ma"] * RIIIEE["ikjdb"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["cmae"] * TIIEE["mjab"] * RIIE["ike"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["cmae"] * TIE["ma"] * RIIIEE["ijkbe"];
-Hr3["ijkbc"] += (+2.0) * VEIEE["cmda"] * TIE["ma"] * RIIIEE["ikjdb"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["cmde"] * TIE["mb"] * RIIIEE["ikjde"];
 Hr3["ijkbc"] += (+2.0) * VEIEE["cmea"] * TIIEE["mjab"] * RIIE["ike"];
-Hr3["ijkbc"] += (+2.0) * VEIEE["cmea"] * TIE["ma"] * RIIIEE["ijkbe"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["cmed"] * TIIEE["mjbd"] * RIIE["ike"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["cmed"] * TIE["mb"] * RIIIEE["ijkde"];
-Hr3["ijkbc"] += (+2.0) * VEIEE["cnad"] * TIE["ka"] * RIIIEE["injdb"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["cnae"] * TIIEE["knab"] * RIIE["ije"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["cnae"] * TIE["ka"] * RIIIEE["injbe"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["cnda"] * TIE["ka"] * RIIIEE["injdb"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["cnea"] * TIE["ja"] * RIIIEE["inkbe"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["coad"] * TIIEE["kiad"] * RIIE["ojb"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["coad"] * TIE["ka"] * RIIIEE["ijodb"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["coae"] * TIIEE["kjab"] * RIIE["oie"];
-Hr3["ijkbc"] += (+2.0) * VEIEE["coae"] * TIE["ka"] * RIIIEE["ijobe"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["coda"] * TIE["ja"] * RIIIEE["ikodb"];
-Hr3["ijkbc"] += (-1.0) * VEIEE["coea"] * TIE["ka"] * RIIIEE["ijobe"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["coed"] * TIIEE["jibd"] * RIIE["oke"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lmai"] * TIIIEEE["mkjacb"] * RI["l"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lmai"] * TIE["ma"] * RIIIEE["ljkbc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lmai"] * TIE["ma"] * RIIIEE["lkjcb"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["lmaj"] * TIIEE["mkac"] * RIIE["ilb"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["lmak"] * TIIEE["mjab"] * RIIE["ilc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lmdj"] * TIE["mb"] * RIIIEE["likdc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["lmdk"] * TIIEE["mjcd"] * RIIE["ilb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lmdk"] * TIE["mc"] * RIIIEE["lijdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lmej"] * TIE["mb"] * RIIIEE["lkice"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lmek"] * TIIIEEE["mjicbe"] * RI["l"];
 Hr3["ijkbc"] += (-2.0) * VIIEI["lmek"] * TIIEE["mjcb"] * RIIE["ile"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lmek"] * TIE["mc"] * RIIIEE["ljibe"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lnaj"] * TIE["ia"] * RIIIEE["lnkbc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["lnaj"] * TIIEE["knab"] * RIIE["ilc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lnak"] * TIE["ia"] * RIIIEE["lnjcb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["lnej"] * TIIIEEE["knicbe"] * RI["l"];
 Hr3["ijkbc"] += (-2.0) * VIIEI["lnej"] * TIIEE["kncb"] * RIIE["ile"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["loai"] * TIIEE["kjab"] * RIIE["olc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["loaj"] * TIE["ia"] * RIIIEE["lkocb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["loak"] * TIE["ia"] * RIIIEE["ljobc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["lodi"] * TIIEE["kjcd"] * RIIE["olb"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["mlai"] * TIIIEEE["mkjacb"] * RI["l"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["mlai"] * TIE["ma"] * RIIIEE["ljkbc"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["mlai"] * TIE["ma"] * RIIIEE["lkjcb"];
 Hr3["ijkbc"] += (-2.0) * VIIEI["mlaj"] * TIIEE["mkac"] * RIIE["ilb"];
 Hr3["ijkbc"] += (-2.0) * VIIEI["mlak"] * TIIEE["mjab"] * RIIE["ilc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["mldi"] * TIIIEEE["mkjcdb"] * RI["l"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["mldi"] * TIE["mb"] * RIIIEE["ljkdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["mldi"] * TIE["mc"] * RIIIEE["lkjdb"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["mldj"] * TIIEE["mkcd"] * RIIE["ilb"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["mldk"] * TIIEE["mjbd"] * RIIE["ilc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["mlei"] * TIE["mb"] * RIIIEE["lkjce"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["mlei"] * TIE["mc"] * RIIIEE["ljkbe"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["mlek"] * TIIEE["mjcb"] * RIIE["ile"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["mnaj"] * TIE["ma"] * RIIIEE["inkbc"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["mnak"] * TIE["ma"] * RIIIEE["injcb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["mndj"] * TIE["mb"] * RIIIEE["inkdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["mndk"] * TIE["mc"] * RIIIEE["injdb"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["mnej"] * TIIEE["mncb"] * RIIE["ike"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["mnej"] * TIE["mc"] * RIIIEE["inkbe"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["mnek"] * TIE["mb"] * RIIIEE["injce"];
 Hr3["ijkbc"] += (-2.0) * VIIEI["moai"] * TIIEE["mjab"] * RIIE["okc"];
 Hr3["ijkbc"] += (-2.0) * VIIEI["moai"] * TIIEE["mkac"] * RIIE["ojb"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["moaj"] * TIE["ma"] * RIIIEE["ikocb"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["moak"] * TIE["ma"] * RIIIEE["ijobc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["modi"] * TIIEE["mjbd"] * RIIE["okc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["modi"] * TIIEE["mkcd"] * RIIE["ojb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["modj"] * TIE["mc"] * RIIIEE["ikodb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["modk"] * TIE["mb"] * RIIIEE["ijodc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["moei"] * TIIEE["mjcb"] * RIIE["oke"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["moej"] * TIE["mb"] * RIIIEE["ikoce"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["moek"] * TIE["mc"] * RIIIEE["ijobe"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["nlai"] * TIE["ja"] * RIIIEE["lnkbc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["nlai"] * TIE["ka"] * RIIIEE["lnjcb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["nlei"] * TIIIEEE["knjcbe"] * RI["l"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["nlej"] * TIIEE["kncb"] * RIIE["ile"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["nmaj"] * TIE["ma"] * RIIIEE["inkbc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["nmak"] * TIE["ma"] * RIIIEE["injcb"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["nmdj"] * TIE["mb"] * RIIIEE["inkdc"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["nmdk"] * TIE["mc"] * RIIIEE["injdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["nmej"] * TIE["mb"] * RIIIEE["inkce"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["nmek"] * TIIEE["mncb"] * RIIE["ije"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["nmek"] * TIE["mc"] * RIIIEE["injbe"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["noaj"] * TIE["ka"] * RIIIEE["inocb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["noak"] * TIE["ja"] * RIIIEE["inobc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["noei"] * TIIEE["kncb"] * RIIE["oje"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["olai"] * TIE["ja"] * RIIIEE["lkocb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["olai"] * TIE["ka"] * RIIIEE["ljobc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["oldj"] * TIIEE["kicd"] * RIIE["olb"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["oldk"] * TIIEE["jibd"] * RIIE["olc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["omai"] * TIIEE["mjab"] * RIIE["okc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["omai"] * TIIEE["mkac"] * RIIE["ojb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["omaj"] * TIE["ma"] * RIIIEE["ikocb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["omak"] * TIE["ma"] * RIIIEE["ijobc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["omdj"] * TIIEE["mibd"] * RIIE["okc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["omdj"] * TIE["mb"] * RIIIEE["ikodc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["omdk"] * TIIEE["micd"] * RIIE["ojb"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["omdk"] * TIE["mc"] * RIIIEE["ijodb"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["omej"] * TIE["mb"] * RIIIEE["ikoce"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["omek"] * TIIEE["mjcb"] * RIIE["oie"];
-Hr3["ijkbc"] += (-2.0) * VIIEI["omek"] * TIE["mc"] * RIIIEE["ijobe"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["onaj"] * TIE["ka"] * RIIIEE["inobc"];
-Hr3["ijkbc"] += (+1.0) * VIIEI["onak"] * TIE["ja"] * RIIIEE["inocb"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["onej"] * TIIEE["kncb"] * RIIE["oie"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmde"] * TIIEE["jibe"] * RIIIEE["lmkdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmde"] * TIIEE["kice"] * RIIIEE["lmjdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmdf"] * TIIIEEE["kjicbf"] * RIIE["lmd"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmea"] * TIIEE["jiae"] * RIIIEE["lmkbc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmea"] * TIIEE["kiae"] * RIIIEE["lmjcb"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lmed"] * TIIEE["jibe"] * RIIIEE["lmkdc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lmed"] * TIIEE["kice"] * RIIIEE["lmjdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmef"] * TIIEE["jibe"] * RIIIEE["lmkcf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmef"] * TIIEE["kice"] * RIIIEE["lmjbf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmfa"] * TIIIEEE["kjiabf"] * RIIE["lmc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmfa"] * TIIEE["kjab"] * RIIIEE["lmicf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lmfd"] * TIIIEEE["kjicbf"] * RIIE["lmd"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmfe"] * TIIIEEE["kjicef"] * RIIE["lmb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lmfe"] * TIIEE["kjce"] * RIIIEE["lmibf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnad"] * TIIEE["njab"] * RIIIEE["likdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnad"] * TIIIEEE["nkjacb"] * RIIE["lid"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnad"] * TIIEE["nkac"] * RIIIEE["lijdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnae"] * TIIEE["niae"] * RIIIEE["ljkbc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnae"] * TIIEE["niae"] * RIIIEE["lkjcb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnaf"] * TIIIEEE["njiabf"] * RIIE["lkc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnaf"] * TIIEE["njab"] * RIIIEE["lkicf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnaf"] * TIIIEEE["nkiacf"] * RIIE["ljb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnaf"] * TIIEE["nkac"] * RIIIEE["ljibf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lnda"] * TIIEE["njab"] * RIIIEE["likdc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lnda"] * TIIIEEE["nkjacb"] * RIIE["lid"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lnda"] * TIIEE["nkac"] * RIIIEE["lijdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnde"] * TIIEE["njbe"] * RIIIEE["likdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnde"] * TIIIEEE["nkjceb"] * RIIE["lid"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnde"] * TIIEE["nkce"] * RIIIEE["lijdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lndf"] * TIIEE["njcb"] * RIIIEE["likdf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lnea"] * TIIEE["niae"] * RIIIEE["ljkbc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lnea"] * TIIEE["niae"] * RIIIEE["lkjcb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lned"] * TIIEE["nibe"] * RIIIEE["ljkdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lned"] * TIIEE["nice"] * RIIIEE["lkjdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnef"] * TIIEE["nibe"] * RIIIEE["lkjcf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnef"] * TIIEE["nice"] * RIIIEE["ljkbf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lnfa"] * TIIIEEE["njiabf"] * RIIE["lkc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lnfa"] * TIIEE["njab"] * RIIIEE["lkicf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lnfa"] * TIIIEEE["nkiacf"] * RIIE["ljb"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["lnfa"] * TIIEE["nkac"] * RIIIEE["ljibf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnfd"] * TIIIEEE["njicbf"] * RIIE["lkd"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnfd"] * TIIEE["njcb"] * RIIIEE["lkidf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIIIEEE["njibef"] * RIIE["lkc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIIEE["njbe"] * RIIIEE["lkicf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIIIEEE["nkicef"] * RIIE["ljb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIIEE["nkce"] * RIIIEE["ljibf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lodf"] * TIIIEEE["kojcbf"] * RIIE["lid"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lodf"] * TIIEE["kocb"] * RIIIEE["lijdf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lofd"] * TIIIEEE["koicbf"] * RIIE["ljd"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lofd"] * TIIEE["kocb"] * RIIIEE["ljidf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["ltda"] * TIIEE["kjab"] * RIIIEE["litdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["ltde"] * TIIEE["kjce"] * RIIIEE["litdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["ltea"] * TIIEE["jiae"] * RIIIEE["lktcb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["ltea"] * TIIEE["kiae"] * RIIIEE["ljtbc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lted"] * TIIEE["jibe"] * RIIIEE["lktdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["lted"] * TIIEE["kice"] * RIIIEE["ljtdb"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["ltef"] * TIIEE["jibe"] * RIIIEE["lktcf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["ltef"] * TIIEE["kice"] * RIIIEE["ljtbf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["ltfe"] * TIIEE["jibe"] * RIIIEE["lktcf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["ltfe"] * TIIEE["kice"] * RIIIEE["ljtbf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnad"] * TIIEE["njab"] * RIIIEE["imkdc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnad"] * TIIIEEE["nkjacb"] * RIIE["imd"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnad"] * TIIEE["nkac"] * RIIIEE["imjdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnae"] * TIIEE["njae"] * RIIIEE["imkbc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnae"] * TIIIEEE["nkjaeb"] * RIIE["imc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnae"] * TIIEE["nkae"] * RIIIEE["imjcb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnaf"] * TIIEE["njab"] * RIIIEE["imkcf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnaf"] * TIIIEEE["nkjacf"] * RIIE["imb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnaf"] * TIIEE["nkac"] * RIIIEE["imjbf"];
-Hr3["ijkbc"] += (+4.0) * VIIEE["mnda"] * TIIEE["njab"] * RIIIEE["imkdc"];
-Hr3["ijkbc"] += (+4.0) * VIIEE["mnda"] * TIIIEEE["nkjacb"] * RIIE["imd"];
-Hr3["ijkbc"] += (+4.0) * VIIEE["mnda"] * TIIEE["nkac"] * RIIIEE["imjdb"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnde"] * TIIEE["njbe"] * RIIIEE["imkdc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnde"] * TIIIEEE["nkjceb"] * RIIE["imd"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnde"] * TIIEE["nkce"] * RIIIEE["imjdb"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mndf"] * TIIEE["njcb"] * RIIIEE["imkdf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnea"] * TIIEE["njae"] * RIIIEE["imkbc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnea"] * TIIIEEE["nkjaeb"] * RIIE["imc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnea"] * TIIEE["nkae"] * RIIIEE["imjcb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mned"] * TIIEE["njbe"] * RIIIEE["imkdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mned"] * TIIIEEE["nkjceb"] * RIIE["imd"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mned"] * TIIEE["nkce"] * RIIIEE["imjdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnef"] * TIIEE["njce"] * RIIIEE["imkbf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnfa"] * TIIEE["njab"] * RIIIEE["imkcf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnfa"] * TIIIEEE["nkjacf"] * RIIE["imb"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["mnfa"] * TIIEE["nkac"] * RIIIEE["imjbf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnfd"] * TIIEE["njcb"] * RIIIEE["imkdf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIIEE["njbe"] * RIIIEE["imkcf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIIIEEE["nkjcef"] * RIIE["imb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIIEE["nkce"] * RIIIEE["imjbf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["moaf"] * TIIIEEE["kojabf"] * RIIE["imc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["moaf"] * TIIEE["koab"] * RIIIEE["imjcf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["modf"] * TIIIEEE["kojcbf"] * RIIE["imd"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["modf"] * TIIEE["kocb"] * RIIIEE["imjdf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mofd"] * TIIIEEE["kojcbf"] * RIIE["imd"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["mofd"] * TIIEE["kocb"] * RIIIEE["imjdf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["onad"] * TIIIEEE["nojacb"] * RIIE["ikd"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["onad"] * TIIEE["noab"] * RIIIEE["ijkdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["onad"] * TIIEE["noac"] * RIIIEE["ikjdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["onaf"] * TIIEE["noab"] * RIIIEE["ikjcf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["onaf"] * TIIEE["noac"] * RIIIEE["ijkbf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["onda"] * TIIIEEE["nojacb"] * RIIE["ikd"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["onda"] * TIIEE["noab"] * RIIIEE["ijkdc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["onda"] * TIIEE["noac"] * RIIIEE["ikjdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["ondf"] * TIIEE["nocb"] * RIIIEE["ijkdf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["onfa"] * TIIEE["noab"] * RIIIEE["ikjcf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["onfa"] * TIIEE["noac"] * RIIIEE["ijkbf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["onfd"] * TIIIEEE["nojcbf"] * RIIE["ikd"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["onfd"] * TIIEE["nocb"] * RIIIEE["ikjdf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tmad"] * TIIEE["kjab"] * RIIIEE["imtdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tmae"] * TIIEE["kjae"] * RIIIEE["imtbc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tmaf"] * TIIEE["kjab"] * RIIIEE["imtcf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tmda"] * TIIEE["kjab"] * RIIIEE["imtdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tmde"] * TIIEE["kjce"] * RIIIEE["imtdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tmea"] * TIIEE["kjae"] * RIIIEE["imtcb"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tmed"] * TIIEE["kjce"] * RIIIEE["imtdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tmef"] * TIIEE["kjce"] * RIIIEE["imtbf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tmfa"] * TIIEE["kjab"] * RIIIEE["imtcf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tmfe"] * TIIEE["kjce"] * RIIIEE["imtbf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tnad"] * TIIEE["njab"] * RIIIEE["iktdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tnad"] * TIIIEEE["nktacb"] * RIIE["ijd"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tnad"] * TIIEE["nkac"] * RIIIEE["ijtdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tnae"] * TIIEE["njae"] * RIIIEE["iktcb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tnae"] * TIIEE["nkae"] * RIIIEE["ijtbc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tnaf"] * TIIEE["njab"] * RIIIEE["iktcf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tnaf"] * TIIEE["nkac"] * RIIIEE["ijtbf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tnda"] * TIIEE["njab"] * RIIIEE["iktdc"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tnda"] * TIIIEEE["nktacb"] * RIIE["ijd"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tnda"] * TIIEE["nkac"] * RIIIEE["ijtdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIIEE["njbe"] * RIIIEE["iktdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIIIEEE["nktceb"] * RIIE["ijd"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIIEE["nkce"] * RIIIEE["ijtdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tndf"] * TIIEE["njcb"] * RIIIEE["iktdf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tnea"] * TIIEE["njae"] * RIIIEE["iktcb"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tnea"] * TIIEE["nkae"] * RIIIEE["ijtbc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tned"] * TIIEE["njce"] * RIIIEE["iktdb"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tnef"] * TIIEE["njbe"] * RIIIEE["iktcf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["tnef"] * TIIEE["nkce"] * RIIIEE["ijtbf"];
-Hr3["ijkbc"] += (+4.0) * VIIEE["tnfa"] * TIIEE["njab"] * RIIIEE["iktcf"];
-Hr3["ijkbc"] += (+4.0) * VIIEE["tnfa"] * TIIEE["nkac"] * RIIIEE["ijtbf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tnfd"] * TIIEE["njcb"] * RIIIEE["iktdf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tnfe"] * TIIEE["njbe"] * RIIIEE["iktcf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tnfe"] * TIIEE["nkce"] * RIIIEE["ijtbf"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["toad"] * TIIEE["koab"] * RIIIEE["ijtdc"];
-Hr3["ijkbc"] += (+1.0) * VIIEE["todf"] * TIIEE["kocb"] * RIIIEE["ijtdf"];
-Hr3["ijkbc"] += (-2.0) * VIIEE["tofd"] * TIIEE["kocb"] * RIIIEE["ijtdf"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["blad"] * TIE["ja"] * TIIEE["kicd"] * RI["l"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["blda"] * TIE["ia"] * TIIEE["kjcd"] * RI["l"];
 Hr3["ijkbc"] += (-1.0) * VEIEE["blda"] * TIE["ka"] * TIE["jd"] * RIIE["ilc"];
@@ -565,295 +647,87 @@ Hr3["ijkbc"] += (+1.0) * VIIEI["nmek"] * TIE["mc"] * TIE["nb"] * RIIE["ije"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["olai"] * TIE["ka"] * TIIEE["ojcb"] * RI["l"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["omdj"] * TIE["mb"] * TIE["id"] * RIIE["okc"];
 Hr3["ijkbc"] += (+1.0) * VIIEI["omdk"] * TIE["mc"] * TIE["id"] * RIIE["ojb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lmae"] * TIE["ia"] * TIIEE["kjce"] * RIIE["lmb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lmaf"] * TIE["ia"] * TIIEE["kjfb"] * RIIE["lmc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lmea"] * TIE["ja"] * TIE["ie"] * RIIIEE["lmkbc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lmea"] * TIE["ja"] * TIIEE["kice"] * RIIE["lmb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lmea"] * TIE["ka"] * TIE["ie"] * RIIIEE["lmjcb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lmea"] * TIE["ka"] * TIIEE["jibe"] * RIIE["lmc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnae"] * TIE["na"] * TIE["ie"] * RIIIEE["ljkbc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnae"] * TIE["na"] * TIE["ie"] * RIIIEE["lkjcb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnae"] * TIE["na"] * TIIEE["jibe"] * RIIE["lkc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnae"] * TIE["na"] * TIIEE["kice"] * RIIE["ljb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnde"] * TIE["nb"] * TIE["je"] * RIIIEE["likdc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnde"] * TIE["nb"] * TIIEE["kjce"] * RIIE["lid"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnde"] * TIE["nc"] * TIE["ke"] * RIIIEE["lijdb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lndf"] * TIE["nc"] * TIIEE["kjfb"] * RIIE["lid"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["lnea"] * TIE["na"] * TIE["ie"] * RIIIEE["ljkbc"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["lnea"] * TIE["na"] * TIE["ie"] * RIIIEE["lkjcb"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["lnea"] * TIE["na"] * TIIEE["jibe"] * RIIE["lkc"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["lnea"] * TIE["na"] * TIIEE["kice"] * RIIE["ljb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lned"] * TIE["nb"] * TIE["ie"] * RIIIEE["ljkdc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lned"] * TIE["nb"] * TIIEE["kice"] * RIIE["ljd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lned"] * TIE["nc"] * TIE["ie"] * RIIIEE["lkjdb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lned"] * TIE["nc"] * TIIEE["jibe"] * RIIE["lkd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnef"] * TIE["nb"] * TIE["ie"] * RIIIEE["lkjcf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnef"] * TIE["nb"] * TIIEE["jife"] * RIIE["lkc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnef"] * TIE["nc"] * TIE["ie"] * RIIIEE["ljkbf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnef"] * TIE["nc"] * TIIEE["kife"] * RIIE["ljb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnfe"] * TIE["nb"] * TIE["je"] * RIIIEE["lkicf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnfe"] * TIE["nc"] * TIE["ke"] * RIIIEE["ljibf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["load"] * TIE["ia"] * TIIEE["kocb"] * RIIE["ljd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["loda"] * TIE["ja"] * TIIEE["kocb"] * RIIE["lid"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ltad"] * TIE["ia"] * TIIEE["tjcb"] * RIIE["lkd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ltae"] * TIE["ia"] * TIIEE["tjbe"] * RIIE["lkc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ltae"] * TIE["ia"] * TIIEE["tkce"] * RIIE["ljb"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["ltaf"] * TIE["ia"] * TIIEE["tjfb"] * RIIE["lkc"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["ltaf"] * TIE["ia"] * TIIEE["tkfc"] * RIIE["ljb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ltda"] * TIE["ka"] * TIIEE["tjcb"] * RIIE["lid"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ltea"] * TIE["ja"] * TIE["ie"] * RIIIEE["lktcb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ltea"] * TIE["ja"] * TIIEE["tibe"] * RIIE["lkc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ltea"] * TIE["ka"] * TIE["ie"] * RIIIEE["ljtbc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ltea"] * TIE["ka"] * TIIEE["tice"] * RIIE["ljb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ltfa"] * TIE["ia"] * TIIEE["tjfb"] * RIIE["lkc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ltfa"] * TIE["ia"] * TIIEE["tkfc"] * RIIE["ljb"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mlad"] * TIE["ia"] * TIIIEEE["lkjdcb"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mlae"] * TIE["ia"] * TIIIEEE["lkjceb"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mlda"] * TIE["ia"] * TIIIEEE["lkjdcb"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mlfa"] * TIE["ka"] * TIIIEEE["ljicbf"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnad"] * TIIEE["njab"] * TIIEE["kicd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnad"] * TIIEE["nkac"] * TIIEE["jibd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnae"] * TIE["na"] * TIE["je"] * RIIIEE["imkbc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnae"] * TIE["na"] * TIIEE["kjce"] * RIIE["imb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnae"] * TIE["na"] * TIE["ke"] * RIIIEE["imjcb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnaf"] * TIE["na"] * TIIIEEE["kjicbf"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnaf"] * TIE["na"] * TIIEE["kjfb"] * RIIE["imc"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mnda"] * TIIEE["njab"] * TIIEE["kicd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mnda"] * TIIEE["nkac"] * TIIEE["jibd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnde"] * TIIEE["njbe"] * TIIEE["kicd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnde"] * TIIEE["nkce"] * TIIEE["jibd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mnde"] * TIE["nb"] * TIE["je"] * RIIIEE["imkdc"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mnde"] * TIE["nb"] * TIIEE["kjce"] * RIIE["imd"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mnde"] * TIE["nc"] * TIE["ke"] * RIIIEE["imjdb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mndf"] * TIIEE["njcb"] * TIIEE["kifd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mndf"] * TIE["nc"] * TIIEE["kjfb"] * RIIE["imd"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mnea"] * TIE["na"] * TIE["je"] * RIIIEE["imkbc"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mnea"] * TIE["na"] * TIIEE["kjce"] * RIIE["imb"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mnea"] * TIE["na"] * TIE["ke"] * RIIIEE["imjcb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mned"] * TIE["nb"] * TIE["je"] * RIIIEE["imkdc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mned"] * TIE["nb"] * TIIEE["kjce"] * RIIE["imd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mned"] * TIE["nc"] * TIE["ke"] * RIIIEE["imjdb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnef"] * TIE["nc"] * TIE["je"] * RIIIEE["imkbf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnef"] * TIE["nc"] * TIIEE["kjfe"] * RIIE["imb"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mnfa"] * TIE["na"] * TIIIEEE["kjicbf"] * RI["m"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mnfa"] * TIE["na"] * TIIEE["kjfb"] * RIIE["imc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnfd"] * TIE["nc"] * TIIIEEE["kjidbf"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnfd"] * TIE["nc"] * TIIEE["kjfb"] * RIIE["imd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnfe"] * TIE["nb"] * TIE["je"] * RIIIEE["imkcf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnfe"] * TIE["nb"] * TIIIEEE["kjicef"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnfe"] * TIE["nb"] * TIIEE["kjfe"] * RIIE["imc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnfe"] * TIE["nc"] * TIE["ke"] * RIIIEE["imjbf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["moad"] * TIE["ja"] * TIIEE["kocb"] * RIIE["imd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["moaf"] * TIE["ia"] * TIIIEEE["kojcbf"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["moaf"] * TIE["ka"] * TIE["ob"] * RIIIEE["imjcf"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["moda"] * TIE["ja"] * TIIEE["kocb"] * RIIE["imd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["modf"] * TIIEE["kocb"] * TIIEE["jifd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mofa"] * TIE["ja"] * TIIIEEE["koicbf"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mofa"] * TIE["ja"] * TIIEE["kofb"] * RIIE["imc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mtad"] * TIE["ka"] * TIIEE["tjcb"] * RIIE["imd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mtae"] * TIE["ja"] * TIIEE["tkce"] * RIIE["imb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mtae"] * TIE["ka"] * TIIEE["tjbe"] * RIIE["imc"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mtaf"] * TIE["ja"] * TIIEE["tkfc"] * RIIE["imb"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mtaf"] * TIE["ka"] * TIIEE["tjfb"] * RIIE["imc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mtda"] * TIIEE["kjab"] * TIIEE["ticd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["mtda"] * TIE["ka"] * TIIEE["tjcb"] * RIIE["imd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mtde"] * TIIEE["kjce"] * TIIEE["tibd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mtea"] * TIE["ka"] * TIIEE["tjce"] * RIIE["imb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mtfa"] * TIE["ja"] * TIIEE["tkfc"] * RIIE["imb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mtfa"] * TIE["ka"] * TIIEE["tjfb"] * RIIE["imc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["onad"] * TIE["na"] * TIIEE["kocb"] * RIIE["ijd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["onad"] * TIE["na"] * TIE["ob"] * RIIIEE["ijkdc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["onad"] * TIE["na"] * TIE["oc"] * RIIIEE["ikjdb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["onaf"] * TIE["na"] * TIE["ob"] * RIIIEE["ikjcf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["onaf"] * TIE["na"] * TIE["oc"] * RIIIEE["ijkbf"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["onda"] * TIE["na"] * TIIEE["kocb"] * RIIE["ijd"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["onda"] * TIE["na"] * TIE["ob"] * RIIIEE["ijkdc"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["onda"] * TIE["na"] * TIE["oc"] * RIIIEE["ikjdb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ondf"] * TIE["nc"] * TIIEE["kofb"] * RIIE["ijd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["ondf"] * TIE["nc"] * TIE["ob"] * RIIIEE["ijkdf"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["onfa"] * TIE["na"] * TIE["ob"] * RIIIEE["ikjcf"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["onfa"] * TIE["na"] * TIE["oc"] * RIIIEE["ijkbf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["onfd"] * TIE["nc"] * TIE["ob"] * RIIIEE["ikjdf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["otad"] * TIE["ja"] * TIIEE["tocb"] * RIIE["ikd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["otda"] * TIE["ka"] * TIIEE["tocb"] * RIIE["ijd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tmae"] * TIE["ka"] * TIE["je"] * RIIIEE["imtbc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tmea"] * TIE["ka"] * TIE["je"] * RIIIEE["imtcb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tnad"] * TIE["na"] * TIIEE["tjcb"] * RIIE["ikd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tnae"] * TIE["na"] * TIE["je"] * RIIIEE["iktcb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tnae"] * TIE["na"] * TIE["ke"] * RIIIEE["ijtbc"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["tnda"] * TIE["na"] * TIIEE["tjcb"] * RIIE["ikd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tnde"] * TIE["nb"] * TIE["je"] * RIIIEE["iktdc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tnde"] * TIE["nb"] * TIIEE["tjce"] * RIIE["ikd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tnde"] * TIE["nc"] * TIE["ke"] * RIIIEE["ijtdb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tndf"] * TIE["nb"] * TIIEE["tkfc"] * RIIE["ijd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tndf"] * TIE["nc"] * TIIEE["tjfb"] * RIIE["ikd"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["tnea"] * TIE["na"] * TIE["je"] * RIIIEE["iktcb"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["tnea"] * TIE["na"] * TIE["ke"] * RIIIEE["ijtbc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tned"] * TIE["nb"] * TIIEE["tkce"] * RIIE["ijd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tned"] * TIE["nc"] * TIE["je"] * RIIIEE["iktdb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tned"] * TIE["nc"] * TIIEE["tjbe"] * RIIE["ikd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tnef"] * TIE["nb"] * TIE["je"] * RIIIEE["iktcf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tnef"] * TIE["nc"] * TIE["ke"] * RIIIEE["ijtbf"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["tnfd"] * TIE["nb"] * TIIEE["tkfc"] * RIIE["ijd"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["tnfd"] * TIE["nc"] * TIIEE["tjfb"] * RIIE["ikd"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["tnfe"] * TIE["nb"] * TIE["je"] * RIIIEE["iktcf"];
-Hr3["ijkbc"] +=
-    (-2.0) * VIIEE["tnfe"] * TIE["nc"] * TIE["ke"] * RIIIEE["ijtbf"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["toad"] * TIE["ka"] * TIE["ob"] * RIIIEE["ijtdc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnfe"] * TIE["nb"] * TIE["je"] * TIE["if"] * RIIE["lkc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["lnfe"] * TIE["nc"] * TIE["ke"] * TIE["if"] * RIIE["ljb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mndf"] * TIIEE["njcb"] * TIE["kf"] * TIE["id"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mnfe"] * TIE["nc"] * TIE["ke"] * TIE["jf"] * RIIE["imb"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["moaf"] * TIE["ka"] * TIE["ob"] * TIE["jf"] * RIIE["imc"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["modf"] * TIIEE["kocb"] * TIE["jf"] * TIE["id"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mtda"] * TIIEE["kjab"] * TIE["tc"] * TIE["id"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mtde"] * TIIEE["kjce"] * TIE["tb"] * TIE["id"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mted"] * TIIEE["jibe"] * TIE["tc"] * TIE["kd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["mted"] * TIIEE["kice"] * TIE["tb"] * TIE["jd"] * RI["m"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["onfd"] * TIE["nc"] * TIE["ob"] * TIE["jf"] * RIIE["ikd"];
-Hr3["ijkbc"] +=
-    (+1.0) * VIIEE["tnde"] * TIE["nc"] * TIE["ke"] * TIE["tb"] * RIIE["ijd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lmae"] * TIE["ia"] * TIIEE["kjce"] * RIIE["lmb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lmaf"] * TIE["ia"] * TIIEE["kjfb"] * RIIE["lmc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lmea"] * TIE["ja"] * TIIEE["kice"] * RIIE["lmb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lmea"] * TIE["ka"] * TIIEE["jibe"] * RIIE["lmc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lnae"] * TIE["na"] * TIIEE["jibe"] * RIIE["lkc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lnae"] * TIE["na"] * TIIEE["kice"] * RIIE["ljb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lnde"] * TIE["nb"] * TIIEE["kjce"] * RIIE["lid"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lndf"] * TIE["nc"] * TIIEE["kjfb"] * RIIE["lid"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["lnea"] * TIE["na"] * TIIEE["jibe"] * RIIE["lkc"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["lnea"] * TIE["na"] * TIIEE["kice"] * RIIE["ljb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lned"] * TIE["nb"] * TIIEE["kice"] * RIIE["ljd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lned"] * TIE["nc"] * TIIEE["jibe"] * RIIE["lkd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lnef"] * TIE["nb"] * TIIEE["jife"] * RIIE["lkc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lnef"] * TIE["nc"] * TIIEE["kife"] * RIIE["ljb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["load"] * TIE["ia"] * TIIEE["kocb"] * RIIE["ljd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["loda"] * TIE["ja"] * TIIEE["kocb"] * RIIE["lid"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["ltad"] * TIE["ia"] * TIIEE["tjcb"] * RIIE["lkd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["ltae"] * TIE["ia"] * TIIEE["tjbe"] * RIIE["lkc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["ltae"] * TIE["ia"] * TIIEE["tkce"] * RIIE["ljb"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["ltaf"] * TIE["ia"] * TIIEE["tjfb"] * RIIE["lkc"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["ltaf"] * TIE["ia"] * TIIEE["tkfc"] * RIIE["ljb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["ltda"] * TIE["ka"] * TIIEE["tjcb"] * RIIE["lid"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["ltea"] * TIE["ja"] * TIIEE["tibe"] * RIIE["lkc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["ltea"] * TIE["ka"] * TIIEE["tice"] * RIIE["ljb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["ltfa"] * TIE["ia"] * TIIEE["tjfb"] * RIIE["lkc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["ltfa"] * TIE["ia"] * TIIEE["tkfc"] * RIIE["ljb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mnad"] * TIIEE["njab"] * TIIEE["kicd"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mnad"] * TIIEE["nkac"] * TIIEE["jibd"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mnae"] * TIE["na"] * TIIEE["kjce"] * RIIE["imb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mnaf"] * TIE["na"] * TIIEE["kjfb"] * RIIE["imc"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["mnda"] * TIIEE["njab"] * TIIEE["kicd"] * RI["m"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["mnda"] * TIIEE["nkac"] * TIIEE["jibd"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mnde"] * TIIEE["njbe"] * TIIEE["kicd"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mnde"] * TIIEE["nkce"] * TIIEE["jibd"] * RI["m"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["mnde"] * TIE["nb"] * TIIEE["kjce"] * RIIE["imd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mndf"] * TIIEE["njcb"] * TIIEE["kifd"] * RI["m"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["mndf"] * TIE["nc"] * TIIEE["kjfb"] * RIIE["imd"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["mnea"] * TIE["na"] * TIIEE["kjce"] * RIIE["imb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mned"] * TIE["nb"] * TIIEE["kjce"] * RIIE["imd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mnef"] * TIE["nc"] * TIIEE["kjfe"] * RIIE["imb"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["mnfa"] * TIE["na"] * TIIEE["kjfb"] * RIIE["imc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mnfd"] * TIE["nc"] * TIIEE["kjfb"] * RIIE["imd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIE["nb"] * TIIEE["kjfe"] * RIIE["imc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["moad"] * TIE["ja"] * TIIEE["kocb"] * RIIE["imd"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["moda"] * TIE["ja"] * TIIEE["kocb"] * RIIE["imd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["modf"] * TIIEE["kocb"] * TIIEE["jifd"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mofa"] * TIE["ja"] * TIIEE["kofb"] * RIIE["imc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mtad"] * TIE["ka"] * TIIEE["tjcb"] * RIIE["imd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mtae"] * TIE["ja"] * TIIEE["tkce"] * RIIE["imb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mtae"] * TIE["ka"] * TIIEE["tjbe"] * RIIE["imc"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["mtaf"] * TIE["ja"] * TIIEE["tkfc"] * RIIE["imb"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["mtaf"] * TIE["ka"] * TIIEE["tjfb"] * RIIE["imc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mtda"] * TIIEE["kjab"] * TIIEE["ticd"] * RI["m"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["mtda"] * TIE["ka"] * TIIEE["tjcb"] * RIIE["imd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mtde"] * TIIEE["kjce"] * TIIEE["tibd"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mtea"] * TIE["ka"] * TIIEE["tjce"] * RIIE["imb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mtfa"] * TIE["ja"] * TIIEE["tkfc"] * RIIE["imb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mtfa"] * TIE["ka"] * TIIEE["tjfb"] * RIIE["imc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["onad"] * TIE["na"] * TIIEE["kocb"] * RIIE["ijd"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["onda"] * TIE["na"] * TIIEE["kocb"] * RIIE["ijd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["ondf"] * TIE["nc"] * TIIEE["kofb"] * RIIE["ijd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["otad"] * TIE["ja"] * TIIEE["tocb"] * RIIE["ikd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["otda"] * TIE["ka"] * TIIEE["tocb"] * RIIE["ijd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["tnad"] * TIE["na"] * TIIEE["tjcb"] * RIIE["ikd"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["tnda"] * TIE["na"] * TIIEE["tjcb"] * RIIE["ikd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIE["nb"] * TIIEE["tjce"] * RIIE["ikd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["tndf"] * TIE["nb"] * TIIEE["tkfc"] * RIIE["ijd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["tndf"] * TIE["nc"] * TIIEE["tjfb"] * RIIE["ikd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["tned"] * TIE["nb"] * TIIEE["tkce"] * RIIE["ijd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["tned"] * TIE["nc"] * TIIEE["tjbe"] * RIIE["ikd"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["tnfd"] * TIE["nb"] * TIIEE["tkfc"] * RIIE["ijd"];
+Hr3["ijkbc"] += (-2.0) * VIIEE["tnfd"] * TIE["nc"] * TIIEE["tjfb"] * RIIE["ikd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIE["nb"] * TIE["je"] * TIE["if"] * RIIE["lkc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["lnfe"] * TIE["nc"] * TIE["ke"] * TIE["if"] * RIIE["ljb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mndf"] * TIIEE["njcb"] * TIE["kf"] * TIE["id"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mnfe"] * TIE["nc"] * TIE["ke"] * TIE["jf"] * RIIE["imb"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["moaf"] * TIE["ka"] * TIE["ob"] * TIE["jf"] * RIIE["imc"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["modf"] * TIIEE["kocb"] * TIE["jf"] * TIE["id"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mtda"] * TIIEE["kjab"] * TIE["tc"] * TIE["id"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mtde"] * TIIEE["kjce"] * TIE["tb"] * TIE["id"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mted"] * TIIEE["jibe"] * TIE["tc"] * TIE["kd"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["mted"] * TIIEE["kice"] * TIE["tb"] * TIE["jd"] * RI["m"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["onfd"] * TIE["nc"] * TIE["ob"] * TIE["jf"] * RIIE["ikd"];
+Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIE["nc"] * TIE["ke"] * TIE["tb"] * RIIE["ijd"];
