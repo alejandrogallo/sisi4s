@@ -16,14 +16,12 @@
   }                                                                            \
   type name = default
 
-#define _DEFINE_V_SETTER(type, name, indices, default)                         \
+#define _DEFINE_V_SETTER(type, name, indices)                                  \
   SimilarityTransformedHamiltonian &set##name(type t) {                        \
     if (Vpqrs == nullptr) { Vpqrs = new CoulombIntegrals<F>(); }               \
-    name = t;                                                                  \
     Vpqrs->with_##indices(t);                                                  \
     return *this;                                                              \
-  }                                                                            \
-  type name = default
+  }
 
 #define _MAKE_WITH_FUNCTION(type, name, default)                               \
   SimilarityTransformedHamiltonian &with##name(type const &v) {                \
@@ -54,9 +52,15 @@ public:
     GENERAL, // For a general T not fulfiling any particular criterium
   };
 
-  SimilarityTransformedHamiltonian(int No_, int Nv_)
+  SimilarityTransformedHamiltonian(const int No_, const int Nv_)
       : No(No_)
       , Nv(Nv_){};
+  SimilarityTransformedHamiltonian(const int No_,
+                                   const int Nv_,
+                                   CoulombIntegrals<F> *v)
+      : No(No_)
+      , Nv(Nv_)
+      , Vpqrs(v){};
   ~SimilarityTransformedHamiltonian(){};
 
   // RPA, singles
@@ -149,22 +153,22 @@ public:
   _DEFINE_SETTER(Tensor<F> *, Fia, nullptr);
 
   // Coulomb Integrals
-  _DEFINE_V_SETTER(Tensor<F> *, Vabcd, pppp, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Viajb, hphp, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vijab, hhpp, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vijkl, hhhh, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vijka, hhhp, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Viabc, hppp, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Viajk, hphh, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vabic, pphp, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vaibc, phpp, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vaibj, phph, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Viabj, hpph, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vijak, hhph, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vaijk, phhh, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vaijb, phhp, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vabci, ppph, nullptr);
-  _DEFINE_V_SETTER(Tensor<F> *, Vabij, pphh, nullptr);
+  _DEFINE_V_SETTER(Tensor<F> *, Vabcd, pppp);
+  _DEFINE_V_SETTER(Tensor<F> *, Viajb, hphp);
+  _DEFINE_V_SETTER(Tensor<F> *, Vijab, hhpp);
+  _DEFINE_V_SETTER(Tensor<F> *, Vijkl, hhhh);
+  _DEFINE_V_SETTER(Tensor<F> *, Vijka, hhhp);
+  _DEFINE_V_SETTER(Tensor<F> *, Viabc, hppp);
+  _DEFINE_V_SETTER(Tensor<F> *, Viajk, hphh);
+  _DEFINE_V_SETTER(Tensor<F> *, Vabic, pphp);
+  _DEFINE_V_SETTER(Tensor<F> *, Vaibc, phpp);
+  _DEFINE_V_SETTER(Tensor<F> *, Vaibj, phph);
+  _DEFINE_V_SETTER(Tensor<F> *, Viabj, hpph);
+  _DEFINE_V_SETTER(Tensor<F> *, Vijak, hhph);
+  _DEFINE_V_SETTER(Tensor<F> *, Vaijk, phhh);
+  _DEFINE_V_SETTER(Tensor<F> *, Vaijb, phhp);
+  _DEFINE_V_SETTER(Tensor<F> *, Vabci, ppph);
+  _DEFINE_V_SETTER(Tensor<F> *, Vabij, pphh);
 
   _DEFINE_SETTER(Tensor<F> *, VVaijb, nullptr);
   _DEFINE_SETTER(Tensor<F> *, VViabc, nullptr);

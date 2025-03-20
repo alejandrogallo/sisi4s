@@ -13,7 +13,7 @@
     return *this;                                                              \
   }                                                                            \
   __type __name() {                                                            \
-    if (!__name##_ptr == nullptr) return __name##_ptr;                         \
+    if (__name##_ptr != nullptr) return __name##_ptr;                          \
     throw "TODO: Automatic calculation from Γ not yet implemented!";           \
   }                                                                            \
   __type __name##_ptr = nullptr

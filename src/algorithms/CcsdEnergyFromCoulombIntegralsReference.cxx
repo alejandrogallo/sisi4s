@@ -7,6 +7,8 @@
 #include <util/Exception.hpp>
 #include <Sisi4s.hpp>
 #include <util/Tensor.hpp>
+#include <equations/CoulombIntegrals.hpp>
+
 #include <array>
 
 using namespace sisi4s;
@@ -20,19 +22,7 @@ ALGORITHM_REGISTRAR_DEFINITION(CcsdEnergyFromCoulombIntegralsReference);
 using F = double;
 DEFSPEC(CcsdEnergyFromCoulombIntegralsReference,
         SPEC_IN(CLUSTER_SINGLES_DOUBLES_INSPEC,
-                {"slicedPPL", SPEC_VALUE_DEF("TODO: DOC", bool, false)},
-                {"HHHHCoulombIntegrals",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
-                {"HHHPCoulombIntegrals",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
-                {"PHPHCoulombIntegrals",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
-                {"PPHHCoulombIntegrals",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
-                {"PPPHCoulombIntegrals",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},
-                {"PPPPCoulombIntegrals",
-                 SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()}),
+                {"slicedPPL", SPEC_VALUE_DEF("TODO: DOC", bool, false)}, ),
         SPEC_OUT(CLUSTER_SINGLES_DOUBLES_OUTSPEC));
 
 PTR(FockVector<double>)
@@ -40,6 +30,7 @@ CcsdEnergyFromCoulombIntegralsReference::getResiduum(
     const int i,
     const PTR(const FockVector<double>) &amplitudes) {
   // get singles and doubles part of the amplitudes
+  auto Vpqrs = in.get<CoulombIntegrals<F> *>("CoulombIntegrals");
   auto Tai(amplitudes->get(0));
   Tai->set_name("Tai");
   auto Tabij(amplitudes->get(1));
@@ -55,7 +46,7 @@ CcsdEnergyFromCoulombIntegralsReference::getResiduum(
   Rabij->set_name("Rabij");
 
   // get part of Coulomb integrals used whether the amplitudes are zero or not
-  auto Vabij(in.get<Tensor<double> *>("PPHHCoulombIntegrals"));
+  const auto Vabij = Vpqrs->pphh();
 
   if (i == 0 && !in.present("initialDoublesAmplitudes") && !onlyPPL) {
     // For first iteration compute only the MP2 amplitudes
@@ -67,7 +58,7 @@ CcsdEnergyFromCoulombIntegralsReference::getResiduum(
     LOG(1, getCapitalizedAbbreviation())
         << "Considering only PPL diagrams" << std::endl;
 
-    auto Vabcd(in.get<Tensor<double> *>("PPPPCoulombIntegrals"));
+    const auto Vabcd = Vpqrs->pppp();
     // IMPORTANT: we do not dress the coulomb integrals anymore
     //    auto Vabci(in.get<Tensor<double>*>("PPPHCoulombIntegrals"));
 
@@ -142,11 +133,11 @@ CcsdEnergyFromCoulombIntegralsReference::getResiduum(
     // For the rest iterations compute the CCSD amplitudes
 
     // Read all required integrals
-    auto Vabcd(in.get<Tensor<double> *>("PPPPCoulombIntegrals"));
-    auto Vaibj(in.get<Tensor<double> *>("PHPHCoulombIntegrals"));
-    auto Vijkl(in.get<Tensor<double> *>("HHHHCoulombIntegrals"));
-    auto Vijka(in.get<Tensor<double> *>("HHHPCoulombIntegrals"));
-    auto Vabci(in.get<Tensor<double> *>("PPPHCoulombIntegrals"));
+    const auto Vabcd = Vpqrs->pppp();
+    const auto Vaibj = Vpqrs->phph();
+    const auto Vijkl = Vpqrs->hhhh();
+    const auto Vijka = Vpqrs->hhhp();
+    const auto Vabci = Vpqrs->ppph();
 
     // Compute the No,Nv,NG,Np
     int No(Vabij->lens[2]);

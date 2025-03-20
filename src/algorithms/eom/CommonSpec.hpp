@@ -30,30 +30,7 @@
       {"ParticleEigenEnergies",                                                \
        SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},                  \
       {"PPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<double> *)},             \
-      {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)},    \
-      {"HHHHCoulombIntegrals",                                                 \
-       SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)->require()},              \
-      {"HHHPCoulombIntegrals",                                                 \
-       SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)->require()},              \
-      {"HHPPCoulombIntegrals",                                                 \
-       SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)->require()},              \
-      {"HPHHCoulombIntegrals",                                                 \
-       SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)->require()},              \
-      {"HPHPCoulombIntegrals",                                                 \
-       SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)->require()},              \
-      {"HPPHCoulombIntegrals",                                                 \
-       SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)->require()},              \
-      {"HHPHCoulombIntegrals", SPEC_VARIN("", Tensor<TODO_EOM_F> *)},          \
-      {"PHPHCoulombIntegrals", SPEC_VARIN("", Tensor<TODO_EOM_F> *)},          \
-      {"PPPHCoulombIntegrals", SPEC_VARIN("Vabci", Tensor<TODO_EOM_F> *)},     \
-      {"PPPPCoulombIntegrals", SPEC_VARIN("Vabcd", Tensor<TODO_EOM_F> *)},     \
-      {"HPPPCoulombIntegrals",                                                 \
-       SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)->require()},              \
-      {"PHHPCoulombIntegrals",                                                 \
-       SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)->require()},              \
-      {"PHPPCoulombIntegrals",                                                 \
-       SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)->require()},              \
-  {                                                                            \
+      {"DoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)}, {  \
     "SinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<TODO_EOM_F> *)         \
   }
 

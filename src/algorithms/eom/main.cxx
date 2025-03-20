@@ -65,6 +65,7 @@ void EOM::run() {
   int vvoo[] = {Nv, Nv, No, No};
 
   // Logging arguments
+  LOG(0, "EOM") << "EOM type: " << eom_type << std::endl;
   LOG(0, "EOM") << "Max iterations " << maxIterations << std::endl;
   LOG(0, "EOM") << "energyConvergence " << energyConvergence << std::endl;
   LOG(0, "EOM") << eigenStates << " eigen states" << std::endl;
@@ -75,26 +76,15 @@ void EOM::run() {
   // Get copy of couloumb integrals
 
   // Viabc
-  Tensor<F> *Viabc = in.get<Tensor<F> *>("HPPPCoulombIntegrals"),
-            *Viajb = in.get<Tensor<F> *>("HPHPCoulombIntegrals"),
-            *Vaibc = in.get<Tensor<F> *>("PHPPCoulombIntegrals"),
-            *Vaibj = in.get<Tensor<F> *>("PHPHCoulombIntegrals"),
-            *Viajk = in.get<Tensor<F> *>("HPHHCoulombIntegrals"),
-            *Vijab = in.get<Tensor<F> *>("HHPPCoulombIntegrals"),
-            *Vijka = in.get<Tensor<F> *>("HHHPCoulombIntegrals"),
-            *Vijkl = in.get<Tensor<F> *>("HHHHCoulombIntegrals"),
-            *Viabj = in.get<Tensor<F> *>("HPPHCoulombIntegrals"),
-            *Vaijb = in.get<Tensor<F> *>("PHHPCoulombIntegrals"),
-            *Vabci = in.get<Tensor<F> *>("PPPHCoulombIntegrals"),
-            *Vabcd = in.get<Tensor<F> *>("PPPPCoulombIntegrals"),
-            *Vijak = in.get<Tensor<F> *>("HHPHCoulombIntegrals"),
-            // t
-                *Tai = in.get<Tensor<F> *>("SinglesAmplitudes"),
-            *Tabij = in.get<Tensor<F> *>("DoublesAmplitudes"),
-            // HF terms
-                *Fab = (new Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab")),
-            *Fij = (new Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij")),
-            *Fia = (new Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia"));
+  auto Vpqrs = in.get<CoulombIntegrals<F> *>("CoulombIntegrals");
+  Tensor<F>
+      // t
+      *Tai = in.get<Tensor<F> *>("SinglesAmplitudes"),
+      *Tabij = in.get<Tensor<F> *>("DoublesAmplitudes"),
+      // HF terms
+          *Fab = (new Tensor<F>(2, vv, syms2, *Sisi4s::world, "Fab")),
+      *Fij = (new Tensor<F>(2, oo, syms2, *Sisi4s::world, "Fij")),
+      *Fia = (new Tensor<F>(2, ov, syms2, *Sisi4s::world, "Fia"));
 
   if (in.present("HPFockMatrix") && in.present("HHFockMatrix")
       && in.present("PPFockMatrix")) {
@@ -115,26 +105,11 @@ void EOM::run() {
         [](double eps, F &f) { f = eps; }))((*epsa)["a"], (*Fab)["aa"]);
   }
 
-  SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
+  SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0], Vpqrs);
 
   H.setFij(Fij)
       .setFab(Fab)
       .setFia(Fia)
-      .setViabc(Viabc)
-      .setViabj(Viabj)
-      .setViajk(Viajk)
-      .setVijab(Vijab)
-      .setVijak(Vijak)
-      .setVijka(Vijka)
-      .setVijkl(Vijkl)
-      .setVaibj(Vaibj)
-      .setVabcd(Vabcd)
-      .setVabci(Vabci)
-      // for intermediates
-      .setViajb(Viajb)
-      .setVaibc(Vaibc)
-      .setVaijb(Vaijb)
-      //
       .setTai(Tai)
       .setTabij(Tabij)
       // should we use intermediates of the Wabij etc?
@@ -179,7 +154,7 @@ void EOM::run() {
 #define MAKE_PRECONDITIONER(preconditioner_type)                               \
   using _Preconditioner = preconditioner_type;                                 \
   _Preconditioner P;                                                           \
-  P.setTai(Tai).setTabij(Tabij).setFij(Fij).setFab(Fab).setVijab(Vijab);
+  P.setTai(Tai).setTabij(Tabij).setFij(Fij).setFab(Fab).setVijab(Vpqrs->hhpp());
 
   if (eom_type == "ip") {
     MAKE_PRECONDITIONER(IPCcsdPreconditioner<F>);
@@ -202,7 +177,7 @@ void EOM::run() {
 }
 
 STEP_IMPLEMENT_RUN(EOM) {
-  if (in.is_of_type<Tensor<double> *>("HHPPCoulombIntegrals")) {
+  if (in.is_of_type<CoulombIntegrals<double> *>("CoulombIntegrals")) {
     LOG(0, "EOM") << "Using real code" << std::endl;
     run<double>();
   } else {

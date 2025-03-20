@@ -5,8 +5,8 @@
 #include <math/FockVector.hpp>
 #include <DryTensor.hpp>
 #include <util/SharedPointer.hpp>
-
 #include <util/Tensor.hpp>
+#include <equations/CoulombIntegrals.hpp>
 
 #include <string>
 #include <vector>
@@ -36,12 +36,14 @@ namespace sisi4s {
        SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},                  \
       {"ParticleEigenEnergies",                                                \
        SPEC_VARIN("TODO: DOC", Tensor<double> *)->require()},                  \
-      {"HHPPCoulombIntegrals", SPEC_VARIN("TODO: DOC", Tensor<F> *)},          \
+      {"CoulombIntegrals",                                                     \
+       SPEC_VARIN("Coulomb integrals object",                                  \
+                  sisi4s::CoulombIntegrals<double> *)                          \
+           ->require()},                                                       \
       {"HPFockMatrix", SPEC_VARIN("TODO: DOC", Tensor<F> *)},                  \
       {"initialSinglesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<F> *)},      \
       {"initialDoublesAmplitudes", SPEC_VARIN("TODO: DOC", Tensor<F> *)},      \
-      {"PPHHCoulombIntegrals",                                                 \
-       SPEC_VARIN("TODO: DOC", Tensor<F> *)->require()},                       \
+                                                                               \
   {                                                                            \
     "CoulombVertex", SPEC_VARIN("TODO: DOC", Tensor<sisi4s::complex> *)        \
   }

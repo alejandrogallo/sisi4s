@@ -12,11 +12,13 @@
 
 using namespace sisi4s;
 
-using F = double;
-using FSPEC = double;
+// TODO remove F and FSPEC
+#define F double
+#define FSPEC double
 DEFSPEC(UccsdAmplitudesFromCoulombIntegrals,
         SPEC_IN(UCCSD_SPEC_IN),
         SPEC_OUT(UCCSD_SPEC_OUT));
+#undef F
 
 IMPLEMENT_ALGORITHM(UccsdAmplitudesFromCoulombIntegrals) {
 
@@ -60,6 +62,7 @@ template <typename F>
 PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     const int iterationStep,
     const PTR(const FockVector<F>) &amplitudes) {
+  const auto Vpqrs = in.get<CoulombIntegrals<F> *>("CoulombIntegrals");
   Tensor<F> *Fab, *Fij, *Fia;
 
   if (in.present("HPFockMatrix") && in.present("HHFockMatrix")
@@ -87,7 +90,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
                                                                  (*Fab)["aa"]);
   }
 
-  auto Vabij(in.get<Tensor<F> *>("PPHHCoulombIntegrals"));
+  const auto Vabij = Vpqrs->pphh();
 
   // Read the amplitudes Tai and Tabij
   auto Tai(amplitudes->get(0)), Tabij(amplitudes->get(1));
@@ -101,7 +104,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
 
   if (iterationStep == 0) {
     if (onlyPpl) {
-      auto Vabcd(in.get<Tensor<F> *>("PPPPCoulombIntegrals"));
+      const auto Vabcd = Vpqrs->pppp();
       LOG(1, "Performing only Ppl contraction") << std::endl;
       (*Rabij)["cdij"] += (+0.5) * (*Tabij)["efij"] * (*Vabcd)["cdef"];
       (*Rabij)["cdij"] +=
@@ -115,23 +118,7 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
     }
   }
 
-  // Get couloumb integrals
-  auto Vijkl(in.get<Tensor<F> *>("HHHHCoulombIntegrals")),
-      Vabcd(in.get<Tensor<F> *>("PPPPCoulombIntegrals")),
-      Vijka(in.get<Tensor<F> *>("HHHPCoulombIntegrals")),
-      Viajk(in.get<Tensor<F> *>("HPHHCoulombIntegrals")),
-      Viajb(in.get<Tensor<F> *>("HPHPCoulombIntegrals")),
-      Viabc(in.get<Tensor<F> *>("HPPPCoulombIntegrals")),
-      Vabic(in.get<Tensor<F> *>("PPHPCoulombIntegrals")),
-      Viabj(in.get<Tensor<F> *>("HPPHCoulombIntegrals")),
-      Vaibc(in.get<Tensor<F> *>("PHPPCoulombIntegrals")),
-      Vijak(in.get<Tensor<F> *>("HHPHCoulombIntegrals")),
-      Vabci(in.get<Tensor<F> *>("PPPHCoulombIntegrals")),
-      Vaibj(in.get<Tensor<F> *>("PHPHCoulombIntegrals")),
-      Vaijb(in.get<Tensor<F> *>("PHHPCoulombIntegrals"));
-  auto Vijab(in.get<Tensor<F> *>("HHPPCoulombIntegrals"));
-
-  SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0]);
+  SimilarityTransformedHamiltonian<F> H(Fij->lens[0], Fab->lens[0], Vpqrs);
 
   H
       // set fock matrix
@@ -139,21 +126,6 @@ PTR(FockVector<F>) UccsdAmplitudesFromCoulombIntegrals::getResiduumTemplate(
       .setFab(Fab)
       .setFia(Fia)
       // set coulomb integrals
-      .setVabcd(Vabcd)
-      .setViajb(Viajb)
-      .setVijab(Vijab)
-      .setVijkl(Vijkl)
-      .setVijka(Vijka)
-      .setViabc(Viabc)
-      .setViajk(Viajk)
-      .setVabic(Vabic)
-      .setVaibc(Vaibc)
-      .setVaibj(Vaibj)
-      .setViabj(Viabj)
-      .setVijak(Vijak)
-      .setVaijb(Vaijb)
-      .setVabci(Vabci)
-      .setVabij(Vabij)
       // set current t-amplitudes
       .setTai(Tai.get())
       .setTabij(Tabij.get())

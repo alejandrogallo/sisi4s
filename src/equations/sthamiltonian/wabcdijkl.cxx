@@ -7,10 +7,20 @@ using namespace sisi4s;
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABCDIJKL() {
+
   if (Wabcdijkl) return Wabcdijkl;
   LOG(1, getAbbreviation()) << "Building Wabcdijkl" << std::endl;
   const int syms[] = {NS, NS, NS, NS, NS, NS, NS, NS};
   const int lens[] = {Nv, Nv, Nv, Nv, No, No, No, No};
+
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Vabcd = Vpqrs->pppp();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Vabic = Vpqrs->pphp();
+  const auto Viajk = Vpqrs->hphh();
 
   Wabcdijkl = NEW(Tensor<F>, 8, lens, syms, *Sisi4s::world, "Wabcdijkl");
 

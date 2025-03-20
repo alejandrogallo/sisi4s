@@ -1,6 +1,7 @@
 #include <array>
 
 #include <algorithms/ClusterSinglesDoublesAlgorithm.hpp>
+#include <equations/CoulombIntegrals.hpp>
 #include <math/MathFunctions.hpp>
 #include <math/ComplexTensor.hpp>
 #include <mixers/Mixer.hpp>
@@ -18,7 +19,7 @@
 using namespace sisi4s;
 
 void ClusterSinglesDoublesAlgorithm::run() {
-  if (in.is_of_type<Tensor<double> *>("PPHHCoulombIntegrals")) {
+  if (in.is_of_type<CoulombIntegrals<double> *>("CoulombIntegrals")) {
     run<double>();
   } else {
     std::real(run<complex>());
@@ -115,23 +116,25 @@ F ClusterSinglesDoublesAlgorithm::getEnergy(
   double spins(unrestricted ? 1.0 : 2.0);
 
   // get the Coulomb integrals to compute the energy
-  PTR(Tensor<F>) Vijab;
-  if (in.present("HHPPCoulombIntegrals")) {
-    Vijab = NEW(Tensor<F>, in.get<Tensor<F> *>("HHPPCoulombIntegrals"));
-  } else {
-    auto Vabij(in.get<Tensor<F> *>("PPHHCoulombIntegrals"));
-    int No(Vabij->lens[2]);
-    int Nv(Vabij->lens[0]);
-    auto oovv(std::array<int, 4>{{No, No, Nv, Nv}});
-    Vijab = NEW(Tensor<F>, 4, oovv.data());
-    (*Vijab)["ijab"] *= 0.0;
-    (*Vijab)["ijab"] += (*Vabij)["abij"];
-    // IRAN: The integral is already antisymmetrized...dont do it again.
-    //    if (unrestricted) {
-    // oovv = h * vvoo
-    //      (*Vijab)["ijab"] += (-1.0) * (*Vabij)["baij"];
-    //    }
-  }
+  const auto Vpqrs = in.get<CoulombIntegrals<F> *>("CoulombIntegrals");
+  const auto Vijab = Vpqrs->hhpp();
+
+  // if (in.present("HHPPCoulombIntegrals")) {
+  //   Vijab = NEW(Tensor<F>, in.get<Tensor<F> *>("HHPPCoulombIntegrals"));
+  // } else {
+  //   auto Vabij(in.get<Tensor<F> *>("PPHHCoulombIntegrals"));
+  //   int No(Vabij->lens[2]);
+  //   int Nv(Vabij->lens[0]);
+  //   auto oovv(std::array<int, 4>{{No, No, Nv, Nv}});
+  //   Vijab = NEW(Tensor<F>, 4, oovv.data());
+  //   (*Vijab)["ijab"] *= 0.0;
+  //   (*Vijab)["ijab"] += (*Vabij)["abij"];
+  //   // IRAN: The integral is already antisymmetrized...dont do it again.
+  //   //    if (unrestricted) {
+  //   // oovv = h * vvoo
+  //   //      (*Vijab)["ijab"] += (-1.0) * (*Vabij)["baij"];
+  //   //    }
+  // }
 
   // allocate energy
   CTF::Scalar<F> energy(*Vijab->wrld);

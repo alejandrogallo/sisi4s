@@ -18,10 +18,21 @@ using namespace sisi4s;
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABCIJK() {
+
   if (Wabcijk) return Wabcijk;
   LOG(1, getAbbreviation()) << "Building Wabcijk" << std::endl;
   const int syms[] = {NS, NS, NS, NS, NS, NS};
   const int vvvooo[] = {Nv, Nv, Nv, No, No, No};
+
+  const auto Vabcd = Vpqrs->pppp();
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Vaijb = Vpqrs->phhp();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Vabic = Vpqrs->pphp();
+  const auto Viajk = Vpqrs->hphh();
 
 #if defined(DEBUG)
   double mpi_time = MPI_Wtime();

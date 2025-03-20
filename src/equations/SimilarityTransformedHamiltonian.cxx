@@ -56,6 +56,7 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getTauABIJ() {
 template <typename F>
 SDFockVector<F>
 SimilarityTransformedHamiltonian<F>::right_apply(SDFockVector<F> &R) {
+
   return with_right_apply_intermediates() ? right_apply_Intermediates(R)
                                           : right_apply_hirata(R);
 }
@@ -63,6 +64,7 @@ SimilarityTransformedHamiltonian<F>::right_apply(SDFockVector<F> &R) {
 template <typename F>
 SDFockVector<F>
 SimilarityTransformedHamiltonian<F>::right_apply_CCSD_IP(SDFockVector<F> &R) {
+
   return with_right_apply_intermediates() ? right_apply_Intermediates_CCSD_IP(R)
                                           : right_apply_hirata_CCSD_IP(R);
 }
@@ -71,6 +73,8 @@ template <typename F>
 SDFockVector<F>
 SimilarityTransformedHamiltonian<F>::right_apply_Intermediates_CCSD_IP(
     SDFockVector<F> &R) {
+  const auto Vijab = Vpqrs->hhpp();
+
   SDFockVector<F> HR(R);
   PTR(Tensor<F>) Ri(R.get(0));
   PTR(Tensor<F>) Raij(R.get(1));
@@ -123,6 +127,12 @@ SimilarityTransformedHamiltonian<F>::right_apply_Intermediates_CCSD_IP(
 template <typename F>
 SDFockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_hirata_CCSD_IP(
     SDFockVector<F> &R) {
+  const auto Viabc = Vpqrs->hppp();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Viajk = Vpqrs->hphh();
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vijka = Vpqrs->hhhp();
 
   SDFockVector<F> HR(R);
   PTR(Tensor<F>) Ri(R.get(0));
@@ -289,6 +299,7 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_hirata_CCSD_IP(
 template <typename F>
 SDFockVector<F>
 SimilarityTransformedHamiltonian<F>::right_apply_CCSD_EA(SDFockVector<F> &R) {
+
   return with_right_apply_intermediates() ? right_apply_Intermediates_CCSD_EA(R)
                                           : right_apply_hirata_CCSD_EA(R);
 }
@@ -297,6 +308,8 @@ template <typename F>
 SDFockVector<F>
 SimilarityTransformedHamiltonian<F>::right_apply_Intermediates_CCSD_EA(
     SDFockVector<F> &R) {
+  const auto Vijab = Vpqrs->hhpp();
+
   SDFockVector<F> HR(R);
   PTR(Tensor<F>) Ra(R.get(0));
   PTR(Tensor<F>) Rabi(R.get(1));
@@ -342,6 +355,12 @@ SimilarityTransformedHamiltonian<F>::right_apply_Intermediates_CCSD_EA(
 template <typename F>
 SDFockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_hirata_CCSD_EA(
     SDFockVector<F> &R) {
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Vabcd = Vpqrs->pppp();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Vabic = Vpqrs->pphp();
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Viabc = Vpqrs->hppp();
 
   SDFockVector<F> HR(R);
   PTR(Tensor<F>) Ra(R.get(0));
@@ -516,6 +535,8 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_hirata_CCSD_EA(
 template <typename F>
 SFockVector<F>
 SimilarityTransformedHamiltonian<F>::right_apply_hirata_RPA(SFockVector<F> &R) {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Viajb = Vpqrs->hphp();
 
   // This is only using Viajb and Vijab
   SFockVector<F> HR(R);
@@ -594,6 +615,16 @@ SimilarityTransformedHamiltonian<F>::right_apply_hirata_RPA(SFockVector<F> &R) {
 template <typename F>
 FockVector<F>
 SimilarityTransformedHamiltonian<F>::right_apply_CISD(FockVector<F> &R) {
+  const auto Vabcd = Vpqrs->pppp();
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Vabic = Vpqrs->pphp();
+  const auto Viajk = Vpqrs->hphh();
+  const auto Vabij = Vpqrs->pphh();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Vijab = Vpqrs->hhpp();
+
   SDFockVector<F> HR(R);
   // get pointers to the component tensors
   PTR(Tensor<F>) Rai(R.get(0));
@@ -670,6 +701,15 @@ SimilarityTransformedHamiltonian<F>::right_apply_CISD(FockVector<F> &R) {
 template <typename F>
 SDFockVector<F>
 SimilarityTransformedHamiltonian<F>::right_apply_hirata(SDFockVector<F> &R) {
+  const auto Vabic = Vpqrs->pphp();
+  const auto Viajk = Vpqrs->hphh();
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Vabcd = Vpqrs->pppp();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vijka = Vpqrs->hhhp();
+
   SDFockVector<F> HR(R);
   // get pointers to the component tensors
   PTR(Tensor<F>) Rai(R.get(0));
@@ -1014,6 +1054,8 @@ SimilarityTransformedHamiltonian<F>::right_apply_hirata(SDFockVector<F> &R) {
 template <typename F>
 SDFockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_Intermediates(
     SDFockVector<F> &R) {
+  const auto Vijab = Vpqrs->hhpp();
+
   SDFockVector<F> HR(R);
   // get pointers to the component tensors
   PTR(Tensor<F>) Rai(R.get(0));
@@ -1119,6 +1161,9 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_Intermediates(
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIJ() {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vijka = Vpqrs->hhhp();
+
   if (Wij) return Wij;
 
   Wij = NEW(Tensor<F>, *Fij);
@@ -1146,6 +1191,9 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIJ() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getAB() {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Viabc = Vpqrs->hppp();
+
   if (Wab) return Wab;
 
   Wab = NEW(Tensor<F>, *Fab);
@@ -1173,6 +1221,11 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getAB() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getAI() {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Viajb = Vpqrs->hphp();
+
   if (Wai) return Wai;
   LOG(1, getAbbreviation()) << "Building Wai" << std::endl;
 
@@ -1228,6 +1281,8 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getAI() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getAI_RPA() {
+  const auto Vijab = Vpqrs->hhpp();
+
   if (Wai) return Wai;
   LOG(1, getAbbreviation()) << "Building Wai only with Vijab" << std::endl;
   ST_DEBUG("Mark")
@@ -1268,6 +1323,8 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getAI_RPA() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIA() {
+  const auto Vijab = Vpqrs->hhpp();
+
   if (Wia) return Wia;
   LOG(1, getAbbreviation()) << "Building Wia" << std::endl;
 
@@ -1286,6 +1343,8 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIA() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIJAB() {
+  const auto Vijab = Vpqrs->hhpp();
+
   if (Wijab) return Wijab;
 
   LOG(1, getAbbreviation()) << "Building Wijab = Vijab" << std::endl;
@@ -1296,6 +1355,10 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIJAB() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABCD() {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vaibc = Vpqrs->phpp();
+  const auto Vabcd = Vpqrs->pppp();
+
   if (Wabcd) return Wabcd;
   LOG(1, getAbbreviation()) << "Building Wabcd" << std::endl;
 
@@ -1316,6 +1379,13 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABCD() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABCI() {
+  const auto Vabcd = Vpqrs->pppp();
+  const auto Vijak = Vpqrs->hhph();
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vaibc = Vpqrs->phpp();
+  const auto Vaibj = Vpqrs->phph();
+  const auto Vabci = Vpqrs->ppph();
+
   if (Wabci) return Wabci;
 
   Wabci = NEW(Tensor<F>, *Vabci);
@@ -1410,6 +1480,9 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABCI() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getAIBC() {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vaibc = Vpqrs->phpp();
+
   if (Waibc) return Waibc;
   LOG(1, getAbbreviation()) << "Building Waibc" << std::endl;
 
@@ -1423,6 +1496,12 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getAIBC() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIABJ() {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Vaibc = Vpqrs->phpp();
+  const auto Vaijb = Vpqrs->phhp();
+  const auto Viabj = Vpqrs->hpph();
+
   if (Wiabj) return Wiabj;
   LOG(1, getAbbreviation()) << "Building Wiabj = Waijb" << std::endl;
 
@@ -1444,6 +1523,13 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIABJ() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIAJK() {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Viabj = Vpqrs->hpph();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Viajk = Vpqrs->hphh();
+
   if (Wiajk) return Wiajk;
 
   Wiajk = NEW(Tensor<F>, *Viajk);
@@ -1497,6 +1583,9 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIAJK() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIJKA() {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vijka = Vpqrs->hhhp();
+
   if (Wijka) return Wijka;
   LOG(1, getAbbreviation()) << "Building Wijka" << std::endl;
 
@@ -1511,6 +1600,10 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIJKA() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIJKL() {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Vijkl = Vpqrs->hhhh();
+
   if (Wijkl) return Wijkl;
   LOG(1, getAbbreviation()) << "Building Wijkl" << std::endl;
 
@@ -1532,6 +1625,8 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getIJKL() {
 template <typename F>
 SDFockVector<F> SimilarityTransformedHamiltonian<F>::leftApplyIntermediates(
     SDFockVector<F> &L) {
+  const auto Vijab = Vpqrs->hhpp();
+
   /*
   Equations from:
 
@@ -1600,6 +1695,15 @@ SDFockVector<F> SimilarityTransformedHamiltonian<F>::leftApplyIntermediates(
 template <typename F>
 SDFockVector<F>
 SimilarityTransformedHamiltonian<F>::leftApply_hirata(SDFockVector<F> &L) {
+  const auto Vabcd = Vpqrs->pppp();
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vabic = Vpqrs->pphp();
+  const auto Viajk = Vpqrs->hphh();
+  const auto Viajb = Vpqrs->hphp();
+
   SDFockVector<F> LH(L);
   // get pointers to the component tensors
   PTR(Tensor<F>) Lia(L.get(0));
@@ -1685,12 +1789,21 @@ SimilarityTransformedHamiltonian<F>::leftApply_hirata(SDFockVector<F> &L) {
 template <typename F>
 SDTFockVector<F>
 SimilarityTransformedHamiltonian<F>::right_apply(SDTFockVector<F> &R) {
+
   return right_apply_hirata(R);
 }
 
 template <typename F>
 SDTFockVector<F>
 SimilarityTransformedHamiltonian<F>::right_apply_hirata(SDTFockVector<F> &R) {
+  const auto Vabcd = Vpqrs->pppp();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Vabic = Vpqrs->pphp();
+  const auto Viajk = Vpqrs->hphh();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Vijab = Vpqrs->hhpp();
 
   SDTFockVector<F> HR(R);
   // get pointers to the component tensors
@@ -3832,6 +3945,22 @@ SimilarityTransformedHamiltonian<F>::right_apply_hirata(SDTFockVector<F> &R) {
 template <typename F>
 PTR(StantonIntermediatesUCCSD<F>)
 SimilarityTransformedHamiltonian<F>::getStantonIntermediatesUCCSD() {
+  const auto Vabij = Vpqrs->pphh();
+  const auto Vabci = Vpqrs->ppph();
+  const auto Vaijb = Vpqrs->phhp();
+  const auto Vijak = Vpqrs->hhph();
+  const auto Viabj = Vpqrs->hpph();
+  const auto Vaibj = Vpqrs->phph();
+  const auto Vaibc = Vpqrs->phpp();
+  const auto Vabic = Vpqrs->pphp();
+  const auto Viajk = Vpqrs->hphh();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Vabcd = Vpqrs->pppp();
+
   if (stantonIntermediatesUccsd) return stantonIntermediatesUccsd;
 
   stantonIntermediatesUccsd = NEW(StantonIntermediatesUCCSD<F>);
@@ -3863,6 +3992,14 @@ typename SimilarityTransformedHamiltonian<F>::StructureFactor
 SimilarityTransformedHamiltonian<F>::structureFactor(
     SDFockVector<F> &R,
     const SimilarityTransformedHamiltonian<F>::StructureFactorSettings &s) {
+  const auto Vabic = Vpqrs->pphp();
+  const auto Viajk = Vpqrs->hphh();
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Vabcd = Vpqrs->pppp();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vijka = Vpqrs->hhhp();
 
   // Right Apply taken from Hirata
   const int NG = GammaGqr->lens[0], Np = GammaGqr->lens[1], No = Tai->lens[1],
@@ -5740,6 +5877,16 @@ SimilarityTransformedHamiltonian<F>::structureFactor(
 template <typename F>
 FockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_CCSDT_IP_BLOCK2(
     FockVector<F> &R) {
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Vijak = Vpqrs->hhph();
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Viabj = Vpqrs->hpph();
+  const auto Vaijk = Vpqrs->phhh();
+  const auto Vaibj = Vpqrs->phph();
+  const auto Vaibc = Vpqrs->phpp();
+  const auto Vabci = Vpqrs->ppph();
+  const auto Vabcd = Vpqrs->pppp();
+
   FockVector<F> HR(R);
 
   PTR(Tensor<F>) HR_i(HR.get(0));
@@ -5777,7 +5924,7 @@ FockVector<F> SimilarityTransformedHamiltonian<F>::right_apply_CCSDT_IP_BLOCK2(
   EQ(VIIEI, Vijak);
   EQ(VIIII, Vijkl);
 
-#include <equations/ip_eom_ccsdt_block2.cxx>
+#include <equations/sthamiltonian/ip_eom_ccsdt_block2.cxx>
 #undef EQ
 }
 

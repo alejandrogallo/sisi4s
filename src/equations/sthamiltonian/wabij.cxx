@@ -12,7 +12,18 @@ using namespace sisi4s;
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABIJ() {
+
   if (Wabij) return Wabij;
+
+  const auto Viajk = Vpqrs->hphh();
+  const auto Vabic = Vpqrs->pphp();
+  const auto Viajb = Vpqrs->hphp();
+  const auto Vabcd = Vpqrs->pppp();
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Viabc = Vpqrs->hppp();
+  const auto Vijka = Vpqrs->hhhp();
+  const auto Vijkl = Vpqrs->hhhh();
+  const auto Vabij = Vpqrs->pphh();
 
   LOG(1, getAbbreviation()) << "Building Wabij" << std::endl;
 
@@ -219,6 +230,9 @@ PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABIJ() {
 
 template <typename F>
 PTR(Tensor<F>) SimilarityTransformedHamiltonian<F>::getABIJ_RPA() {
+  const auto Vijab = Vpqrs->hhpp();
+  const auto Vabij = Vpqrs->pphh();
+
   if (Wabij) return Wabij;
 
   LOG(1, getAbbreviation()) << "Building Wabij only with Vabij" << std::endl;
