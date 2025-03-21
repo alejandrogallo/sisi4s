@@ -1,3 +1,5 @@
+// clang-format off
+// (flush-lines (rx (or "RIIIEE" "TIIIEEE" "Hr3")))
 // h manifold
 if (dressing == Dressing(CCSDT)) {
   Hr1["i"] += (-2.0) * VIIEE["kjbc"] * RIIIEE["ijkbc"];
@@ -731,3 +733,4 @@ Hr3["ijkbc"] += (+1.0) * VIIEE["mted"] * TIIEE["jibe"] * TIE["tc"] * TIE["kd"] *
 Hr3["ijkbc"] += (+1.0) * VIIEE["mted"] * TIIEE["kice"] * TIE["tb"] * TIE["jd"] * RI["m"];
 Hr3["ijkbc"] += (+1.0) * VIIEE["onfd"] * TIE["nc"] * TIE["ob"] * TIE["jf"] * RIIE["ikd"];
 Hr3["ijkbc"] += (+1.0) * VIIEE["tnde"] * TIE["nc"] * TIE["ke"] * TIE["tb"] * RIIE["ijd"];
+// clang-format on
